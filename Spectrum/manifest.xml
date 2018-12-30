@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<componentPackage>
+    <component id="Application" class="com.unhurdle.spectrum.Application"/>
+    <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
+</componentPackage>

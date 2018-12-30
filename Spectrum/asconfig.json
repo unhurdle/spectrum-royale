@@ -1,0 +1,26 @@
+{
+    "config": "royale",
+    "type": "lib",
+    "compilerOptions": {
+        "debug": true,
+        "targets": [
+            "JSRoyale"
+        ],
+        "external-library-path": [
+            "typedefs"
+        ],
+        "js-external-library-path": [
+            "typedefs"
+        ],
+        "include-classes": [
+            "Spectrum"
+        ],
+        "include-sources": [
+            "src"
+        ],
+        "source-path": [
+            "src"
+        ],
+        "output": "target/Spectrum.swc"
+    }
+}
