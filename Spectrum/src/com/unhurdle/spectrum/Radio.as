@@ -14,7 +14,11 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-Radio";
         }
+        COMPILE::JS
         private var input:HTMLInputElement;
+        COMPILE::SWF
+        private var input:Object;
+
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
