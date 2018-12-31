@@ -67,7 +67,7 @@
             <arg value="-output=${basedir}/target/${target.name}" />
             <arg value="-warn-public-vars=false"/>
             <arg value="-load-config=${basedir}/compile-config.xml" />
-            <arg value="-js-load-config=${basedir}/compile-config.xml" />
+            <arg value="-js-load-config=${basedir}/js-compile-config.xml" />
         </java>
     </target>
     

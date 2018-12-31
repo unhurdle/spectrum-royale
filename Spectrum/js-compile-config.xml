@@ -4,7 +4,7 @@
         <accessible>false</accessible>
         
         <external-library-path>
-            <path-element>../../airglobal.swc</path-element>
+            <path-element>typedefs/js.swc</path-element>
         </external-library-path>
         <allow-subclass-overrides>true</allow-subclass-overrides>
         
@@ -17,11 +17,11 @@
 
         <define>
             <name>COMPILE::SWF</name>
-            <value>true</value>
+            <value>false</value>
         </define>
         <define>
             <name>COMPILE::JS</name>
-            <value>false</value>
+            <value>true</value>
         </define>
 
         <keep-as3-metadata>
