@@ -14,18 +14,18 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-Radio";
         }
-        private var input:HTMLInputElement;//?????
+        private var input:HTMLInputElement;
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            input = new HTMLInputElement();
+            input = newElement("input") as HTMLInputElement();
             input.className = "spectrum-Radio-input";
             input.id = UIDUtil.createUID();
             elem.appendChild(input);
-            var span:HTMLSpanElement = new HTMLSpanElement();
+            var span:HTMLSpanElement = newElement("span") as HTMLSpanElement();
             span.className = "spectrum-Radio-button";
             elem.appendChild(span);
-            var label:HTMLLabelElement = new HTMLLabelElement();
+            var label:HTMLLabelElement = newElement("label") as HTMLLabelElement();
             label.className = "spectrum-Radio-label";
             elem.appendChild(label);
             return elem;

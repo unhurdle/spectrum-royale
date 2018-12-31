@@ -1,11 +1,9 @@
 {
     "config": "royale",
     "type": "lib",
-    "additionalOptions": "--js-load-config=js-compile-config.xml",
     "compilerOptions": {
         "debug": true,
         "targets": [
-            "SWF",
             "JSRoyale"
         ],
         "external-library-path": [
