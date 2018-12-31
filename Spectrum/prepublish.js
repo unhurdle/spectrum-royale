@@ -1,5 +1,5 @@
-var http = require('https');
-var fs = require('fs');
+const http = require('https');
+const fs = require('fs');
 
 function download(filename, url) {
   var file = fs.createWriteStream(filename);

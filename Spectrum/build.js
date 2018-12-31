@@ -1,0 +1,1 @@
+const curdir = process.cwd();
