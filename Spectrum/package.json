@@ -1,0 +1,23 @@
+{
+  "name": "spectrum-royale-lib",
+  "version": "0.1.0",
+  "description": "Spectrum",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "prepublish": "node prepublish.js"
+  },
+  "dependencies": {},
+  "engines": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unhurdle/spectrum-royale"
+  },
+  "keywords": [
+    "royale",
+    "spectrum"
+  ],
+  "author": "Harbs",
+  "contributors": [],
+  "license": "Apache-2.0"
+}

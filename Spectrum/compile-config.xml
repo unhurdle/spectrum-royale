@@ -4,7 +4,7 @@
         <accessible>false</accessible>
         
         <external-library-path>
-            <path-element>../../playerglobal.swc</path-element>
+            <path-element>playerglobal.swc</path-element>
         </external-library-path>
         <allow-subclass-overrides>true</allow-subclass-overrides>
         
