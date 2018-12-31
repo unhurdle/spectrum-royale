@@ -60,8 +60,8 @@
             <arg value="+playerglobal.version=${playerglobal.version}" />
             <arg value="+env.AIR_HOME=${env.AIR_HOME}" />
             <arg value="-compiler.strict-xml=true" />
-            <arg value="-compiler.targets=JSRoyale" />
-            <arg value="-external-library-path=${ROYALE_HOME}/frameworks/libs" />
+            <arg value="-compiler.targets=SWF,JSRoyale" />
+            <arg value="-external-library-path+=${ROYALE_HOME}/frameworks/libs" />
             <arg value="-js-external-library-path=${ROYALE_HOME}/frameworks/js/libs" />
             <arg value="-js-library-path=${ROYALE_HOME}/js/libs" />
             <arg value="-output=${basedir}/target/${target.name}" />

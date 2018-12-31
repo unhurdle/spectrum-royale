@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:js="library://ns.apache.org/royale/basic"
+  xmlns:sp="library://ns.unhurdle.com/spectrum">
+  <sp:initialView>
+  <js:View/>
+  </sp:initialView>
+</sp:Application>

@@ -11,8 +11,8 @@ package com.unhurdle.spectrum
       // default values
       _colorstop = "light";
       _appScale = "medium";
-
-      element.className = 'Application spectrum spectrum--medium spectrum--light';
+    
+      this["element"]["className"] = 'Application spectrum spectrum--medium spectrum--light';
       
     }
     private var _colorstop:String;
@@ -40,8 +40,8 @@ package com.unhurdle.spectrum
         }
         var oldStop:String = valueToCSS(_colorstop);
         var newStop:String = valueToCSS(value);
-        element.classList.toggle(newStop, true);
-        element.classList.toggle(oldStop, false);
+        toggle(this,newStop, true);
+        toggle(this,oldStop, false);
       	_colorstop = value;
       }
     }
@@ -71,8 +71,9 @@ package com.unhurdle.spectrum
         }
         var oldScale:String = valueToCSS(_appScale);
         var newScale:String = valueToCSS(value);
-        element.classList.toggle(newScale, true);
-        element.classList.toggle(oldScale, false);
+        toggle(this,newScale, true);
+        toggle(this,oldScale, false);
+
 
       	_appScale = value;
 

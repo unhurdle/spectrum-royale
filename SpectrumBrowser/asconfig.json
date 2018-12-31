@@ -1,0 +1,23 @@
+{
+  "config": "royale",
+  "compilerOptions": {
+      "debug": false,
+      "targets": ["JSRoyale"],
+      "source-map": false,
+      "js-library-path": [
+          "../Spectrum/target"
+      ],
+      "remove-circulars": true,
+    //   "html-template": "index-template.html",
+      "js-compiler-option": [
+          "--skip_type_inference"
+      ],
+      "source-path": ["src"]
+  },
+  "copySourcePathAssets": true,
+  "additionalOptions": "-js-output-optimization=skipAsCoercions  -warn-public-vars=false",
+  "files":
+  [
+      "src/SpectrumBrowser.mxml"
+  ]
+}
