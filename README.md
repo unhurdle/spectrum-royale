@@ -23,7 +23,7 @@ A sample web application for viewing and interacting with the built components.
 ## Build Using `asconfigc`
 ### Command Line
 1. Run `npm install asconfigc -g` to install asconfigc globally.
-1. In your Terminal/COmmand Prompt windows, cd into the Spectrum directory.
+1. In your Terminal/Command Prompt window, `cd` into the Spectrum directory.
 1. Run `asconfigc`.
 ### VS Code
 1. Make sure you have the [ActionScript & MXML](https://as3mxml.com/) extension installed.
