@@ -1,19 +1,9 @@
 <?xml version="1.0"?>
 <project name="Spectrum" default="main" basedir=".">
     <property environment="env"/>
-    <condition property="ROYALE_HOME" value="${env.ROYALE_HOME}">
-        <and>
-            <not>
-                <isset property="ROYALE_HOME" />
-            </not>
-            <available file="${env.ROYALE_HOME}/royale-sdk-description.xml" type="file" />
-        </and>
-    </condition>
-    <condition property="ROYALE_HOME" value="/Apache/royale-asjs">
-        <not>
-            <isset property="ROYALE_HOME" />
-        </not>
-    </condition>
+   <condition property="ROYALE_HOME" value="${env.ROYALE_HOME}" else="/Apache/royale-asjs">
+    <isset property="env.ROYALE_HOME" />
+   </condition>
    <echo message="ROYALE_HOME: ${ROYALE_HOME}"/> 
     <property file="${ROYALE_HOME}/env.properties"/>
     <property file="${ROYALE_HOME}/build.properties"/>
