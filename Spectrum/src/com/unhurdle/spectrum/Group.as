@@ -1,9 +1,7 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.html.Group;
-  {
-    import org.apache.royale.core.CSSClassList;
-  }
+  import org.apache.royale.core.CSSClassList;
 
   public class Group extends org.apache.royale.html.Group
   {

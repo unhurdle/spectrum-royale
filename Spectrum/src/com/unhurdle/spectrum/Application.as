@@ -1,6 +1,8 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.core.Application;
+  import org.apache.royale.binding.ApplicationDataBinding;
+  import org.apache.royale.core.AllCSSValuesImpl;
 
   public class Application extends org.apache.royale.core.Application
   {
@@ -15,6 +17,8 @@ package com.unhurdle.spectrum
     {
       super();
       
+			this.valuesImpl = new AllCSSValuesImpl();
+			addBead(new ApplicationDataBinding());
       // default values
       _colorstop = "light";
       _appScale = "medium";

@@ -1,10 +1,7 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.core.UIBase;
-  COMPILE::JS
-  {
-    import org.apache.royale.core.CSSClassList;
-  }
+  import org.apache.royale.core.CSSClassList;
 
   public class SpectrumBase extends UIBase
   {

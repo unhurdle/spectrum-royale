@@ -38,9 +38,56 @@ package com.unhurdle.spectrum
       _closeText = value;
     }
 
+    private var _header:String;
+
+    public function get header():String
+    {
+      return _header;
+    }
+
+    public function set header(value:String):void
+    {
+      _header = value;
+    }
+
+    private var _content:String;
+
+    public function get content():String
+    {
+      return _content;
+    }
+
+    public function set content(value:String):void
+    {
+      _content = value;
+    }
+
+    COMPILE::JS
+    private var headerNode:Text;
+
+    COMPILE::SWF
+    private var headerNode:Object;
+    
+    COMPILE::JS
+    private var contentNode:Text;
+
+    COMPILE::SWF
+    private var contentNode:Object;
+
+    COMPILE::JS
     private var button:HTMLButtonElement; //use the spectrum button? //eventually
+    
+    COMPILE::JS
     private var icon:SVGElement;
+
+    COMPILE::SWF
+    private var icon:Object;
+
+    COMPILE::JS
     private var useElement:SVGUseElement;
+
+    COMPILE::SWF
+    private var useElement:Object;
     
     COMPILE::JS
     private function createIcon(status:String):void{
@@ -83,20 +130,20 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement; 
-      icon.setAttribute("focusable",false);
-      useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
-      var header:HTMLElement = newElement('div');
-      header.className = "spectrum-Alert-header";
-      elem.appendChild(header);
-      var content:HTMLElement = newElement('div');
-      content.className = "spectrum-Alert-content";
-      content.appendChild(button);
-      elem.appendChild(content);
 
-      if(_closeText){
 
-      }
+      var headerElem:HTMLDivElement = newElement("div") as HTMLDivElement;
+      headerElem.className = "spectrum-Alert-header";
+      headerNode = newTextNode(header);
+      headerElem.appendChild(headerNode);
+      elem.appendChild(headerElem);
+
+      var contentElem:HTMLDivElement = newElement("div") as HTMLDivElement;
+      contentElem.className = "spectrum-Alert-content";
+      contentNode = newTextNode(content);
+      contentElem.appendChild(contentNode);
+      elem.appendChild(contentElem);
+
       return elem;
     }
 

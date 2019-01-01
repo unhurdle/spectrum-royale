@@ -7,11 +7,10 @@
     <sp:Radio/>
     <sp:Label />
     <sp:TextArea/>
-    <sp:Alert text="Alert"/> 
+    <!-- <sp:Alert text="Alert"/>  -->
     <sp:Banner header="Most Popular" content="Include Awesome"/>
     <sp:BarLoader/>
     <sp:CircleLoader/>
   </js:View>
-  </sp:initialView>
-  
+  </sp:initialView>  
 </sp:Application>
