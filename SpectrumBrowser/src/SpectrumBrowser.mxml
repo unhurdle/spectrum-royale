@@ -3,7 +3,8 @@
   xmlns:js="library://ns.apache.org/royale/basic"
   xmlns:sp="library://ns.unhurdle.com/spectrum">
   <sp:initialView>
-  <js:View/>
+  <js:View>
+  </js:View>
   </sp:initialView>
   
 </sp:Application>
