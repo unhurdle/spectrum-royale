@@ -17,32 +17,32 @@ package com.unhurdle.spectrum
         }
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var track:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var track:HTMLDivElement = newElement("div") as HTMLDivElement;
             track.className = "spectrum-CircleLoader-track";
             elem.appendChild(track);
-            var fills:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fills:HTMLDivElement = newElement("div") as HTMLDivElement;
             fills.className = "spectrum-CircleLoader-fills";
-            var fillMask1:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fillMask1:HTMLDivElement = newElement("div") as HTMLDivElement;
             fillMask1.className = "spectrum-CircleLoader-fillMask1";
-            var fillSubMask1:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fillSubMask1:HTMLDivElement = newElement("div") as HTMLDivElement;
             fillSubMask1.className = "spectrum-CircleLoader-fillSubMask1";
-            var fill1:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fill1:HTMLDivElement = newElement("div") as HTMLDivElement;
             fill1.className = "spectrum-CircleLoader-fill";
             fillSubMask1.appendChild(fill1);
             fillMask1.appendChild(fillSubMask1);
             fills.appendChild(fillMask1);
-            var fillMask2:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fillMask2:HTMLDivElement = newElement("div") as HTMLDivElement;
             fillMask2.className = "spectrum-CircleLoader-fillMask2";
-            var fillSubMask2:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fillSubMask2:HTMLDivElement = newElement("div") as HTMLDivElement;
             fillSubMask2.className = "spectrum-CircleLoader-fillSubMask2";
-            var fill2:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fill2:HTMLDivElement = newElement("div") as HTMLDivElement;
             fill2.className = "spectrum-CircleLoader-fill";
             fillSubMask2.appendChild(fill2);
             fillMask2.appendChild(fillSubMask2);
             fills.appendChild(fillMask2);
             elem.appendChild(fills);
             if(!!_indeterminate){
-                var input:HTMLInputElement = newElement("input") as HTMLInputElement();
+                var input:HTMLInputElement = newElement("input") as HTMLInputElement;
                 input.type = "number";
                 input.min = "0";
                 input.max = "100";
@@ -62,7 +62,7 @@ package com.unhurdle.spectrum
         public function set indeterminate(value:Boolean):void
         {
             if(value != !!_indeterminate){
-                toggle(this,valueToCSS("indeterminate"),value);
+                toggle(valueToCSS("indeterminate"),value);
             }
             _indeterminate = value;
         }
@@ -86,8 +86,8 @@ package com.unhurdle.spectrum
                 }
                 var oldSize:String = valueToCSS(_size);
                 var newSize:String = valueToCSS(value);
-                toggle(this,newSize, true);
-                toggle(this,oldSize, false);
+                toggle(newSize, true);
+                toggle(oldSize, false);
                 _size = value;
             }
         }
@@ -101,12 +101,12 @@ package com.unhurdle.spectrum
         public function set overBackground(value:Boolean):void
         {
             if(value != !!_overBackground){
-                toggle(this,valueToCSS("overBackground"),value);
+                toggle(valueToCSS("overBackground"),value);
             }
             _overBackground = value;
         }
-        private function valueToCSS(stop:String):String{
-            return "spectrum-CircleLoader--" + stop;
+        private function valueToCSS(value:String):String{
+            return "spectrum-CircleLoader--" + value;
         }
     }
 }

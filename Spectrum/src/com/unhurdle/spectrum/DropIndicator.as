@@ -39,8 +39,8 @@ package com.unhurdle.spectrum
                 }
                 var oldDirection:String = valueToCSS(_direction);
                 var newDirection:String = valueToCSS(value);
-                toggle(this,newDirection, true);
-                toggle(this,oldDirection, false);
+                toggle(newDirection, true);
+                toggle(oldDirection, false);
                 _direction = value;
             }
         }

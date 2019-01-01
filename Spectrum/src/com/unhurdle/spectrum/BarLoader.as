@@ -72,17 +72,17 @@ package com.unhurdle.spectrum
         }
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var track:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var track:HTMLDivElement = newElement("div") as HTMLDivElement;
             track.className = "spectrum-BarLoader-track";
-            var fill:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var fill:HTMLDivElement = newElement("div") as HTMLDivElement;
             fill.className = "spectrum-BarLoader-fill";
             fill.style.width = value;
             track.appendChild(fill);
             elem.appendChild(track);
-            var label:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var label:HTMLDivElement = newElement("div") as HTMLDivElement;
             label.className = "spectrum-BarLoader-label";
             elem.appendChild(label);
-            var percentage:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var percentage:HTMLDivElement = newElement("div") as HTMLDivElement;
             percentage.className = "spectrum-BarLoader-percentage";
             elem.appendChild(percentage);
             return elem;
@@ -111,8 +111,8 @@ package com.unhurdle.spectrum
                 }
                 var oldStop:String = _color;
                 var newStop:String = value;
-                toggle(this,newStop, true);
-                toggle(this,oldStop, false);
+                toggle(newStop, true);
+                toggle(oldStop, false);
                 _color = value;
             }
         }
@@ -126,7 +126,7 @@ package com.unhurdle.spectrum
         public function set sideLabel(value:Boolean):void
         {
             if(value != !!_sideLabel){
-                toggle(this,valueToCSS("sideLabel"),value);
+                toggle(valueToCSS("sideLabel"),value);
             }
             _sideLabel = value;
         }
@@ -140,7 +140,7 @@ package com.unhurdle.spectrum
         public function set small(value:Boolean):void
         {
             if(value != !!_small){
-                toggle(this,valueToCSS("small"),value);
+                toggle(valueToCSS("small"),value);
             }
             _small = value;
         }
@@ -154,12 +154,12 @@ package com.unhurdle.spectrum
         public function set overBackground(value:Boolean):void
         {
             if(value != !!_overBackground){
-                toggle(this,valueToCSS("overBackground"),value);
+                toggle(valueToCSS("overBackground"),value);
             }
             _overBackground = value;
         }
-        private function valueToCSS(stop:String):String{
-            return "spectrum-BarLoader--" + stop;
+        private function valueToCSS(value:String):String{
+            return "spectrum-BarLoader--" + value;
         }
     }
 }

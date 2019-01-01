@@ -34,8 +34,8 @@ package com.unhurdle.spectrum
                 _color = value;
             }
         }
-        private function valueToCSS(stop:String):String{
-            return "spectrum-Label--" + stop;
+        private function valueToCSS(value:String):String{
+            return "spectrum-Label--" + value;
         }
         private var _size:String;
 

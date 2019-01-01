@@ -17,12 +17,12 @@ package com.unhurdle.spectrum
         }
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var controls:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var controls:HTMLDivElement = newElement("div") as HTMLDivElement;
             controls.className = "spectrum-Dial-controls";
-            var handle:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var handle:HTMLDivElement = newElement("div") as HTMLDivElement;
             handle.className = "spectrum-Dial-handle";
             handle.setAttribute("tabindex",0);
-            var input:HTMLInputElement = newElement("input") as HTMLInputElement();
+            var input:HTMLInputElement = newElement("input") as HTMLInputElement;
             input.className = "spectrum-Dial-input";
             input.type = "range";
             input.value = "0";
@@ -53,8 +53,8 @@ package com.unhurdle.spectrum
                 }
                 var oldSize:String = valueToCSS(_size);
                 var newSize:String = valueToCSS(value);
-                toggle(this,newSize, true);
-                toggle(this,oldSize, false);
+                toggle(newSize, true);
+                toggle(oldSize, false);
                 _size = value;
             }
         }
@@ -68,12 +68,12 @@ package com.unhurdle.spectrum
         public function set isDisabled(value:Boolean):void
         {
             if(value != !!_isDisabled){
-                toggle(this,valueToCSS("is-disabled"),value);
+                toggle(valueToCSS("is-disabled"),value);
             }
             _isDisabled = value;
         }
-        private function valueToCSS(stop:String):String{
-            return "spectrum-CoachMarkIndicator--" + stop;
+        private function valueToCSS(value:String):String{
+            return "spectrum-CoachMarkIndicator--" + value;
         }
     }
 }

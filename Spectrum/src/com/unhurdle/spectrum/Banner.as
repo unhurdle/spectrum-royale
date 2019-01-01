@@ -21,10 +21,10 @@ package com.unhurdle.spectrum
         
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var header:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var header:HTMLDivElement = newElement("div") as HTMLDivElement;
             header.className = "spectrum-Banner-header";
             elem.appendChild(header);
-            var content:HTMLDivElement = newElement("div") as HTMLDivElement();
+            var content:HTMLDivElement = newElement("div") as HTMLDivElement;
             content.className = "spectrum-Banner-content";
             elem.appendChild(content);
             return elem;
@@ -53,8 +53,8 @@ package com.unhurdle.spectrum
                 }
                 var oldType:String = valueToCSS(_type);
                 var newType:String = valueToCSS(value);
-                toggle(this,newType, true);
-                toggle(this,oldType, false);
+                toggle(newType, true);
+                toggle(oldType, false);
                 _type = value;
             }
         }
@@ -71,7 +71,7 @@ package com.unhurdle.spectrum
         public function set corner(value:Boolean):void
         {
             if(value != !!_corner){
-                toggle(this,"spectrum-Banner--corner",value);
+                toggle("spectrum-Banner--corner",value);
             }
             _corner = value;
         }
