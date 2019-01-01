@@ -36,6 +36,7 @@ package com.unhurdle.spectrum
       _flavor = "primary";
       typeNames = "spectrum-Button";
       toggle("spectrum-Button--primary",true);
+      _text = "";
     }
     private function valueToCSS(value:String):String{
         return "spectrum-Button--" + value;
@@ -51,10 +52,7 @@ package com.unhurdle.spectrum
     public function set text(value:String):void
     {
       if(value != _text){
-        COMPILE::JS
-        {
-          textNode.nodeValue = value;
-        }
+        textNode.nodeValue = value;
       }
     	_text = value;
     }
@@ -114,8 +112,13 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     private var iconElement:SVGElement;
+    
     COMPILE::JS
     private var textNode:Text;
+    
+    COMPILE::SWF
+    private var textNode:Object;
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       addElementToWrapper(this,'button');
@@ -124,7 +127,7 @@ package com.unhurdle.spectrum
       }
       var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
       span.className = "spectrum-Button-label";
-      textNode = document.createTextNode(_text) as Text;
+      textNode = newTextNode(_text);
       span.appendChild(textNode);
       element.appendChild(span);
       return element;

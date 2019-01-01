@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum
 {
-    // import org.apache.royale.core.UIBase;
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
@@ -19,6 +18,9 @@ package com.unhurdle.spectrum
 
         COMPILE::JS
         private var textNode:Text;
+
+        COMPILE::SWF
+        private var textNode:Object;
         
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
@@ -47,7 +49,10 @@ package com.unhurdle.spectrum
             elem.appendChild(span);
             span = newElement("span") as HTMLSpanElement;
             span.className = "spectrum-Checkbox-label";
-            textNode = document.createTextNode(_text) as Text;
+            if(!_text){
+                _text = "";
+            }
+            textNode = newTextNode(_text);
             span.appendChild(textNode);
             elem.appendChild(span);
             return elem;
@@ -62,9 +67,7 @@ package com.unhurdle.spectrum
         public function set text(value:String):void
         {
             if(_text != value){
-                COMPILE::JS{
-                    textNode.nodeValue = value;
-                }
+                textNode.nodeValue = value;
             }
             _text = value;
         }

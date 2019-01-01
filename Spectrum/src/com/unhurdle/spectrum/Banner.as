@@ -6,10 +6,6 @@ package com.unhurdle.spectrum
         import org.apache.royale.core.WrappedHTMLElement;
     }
 
-    COMPILE::SWF
-    public class Banner extends SpectrumBase{}
-
-    COMPILE::JS    
     public class Banner extends SpectrumBase
     {
         public function Banner()
@@ -17,16 +13,62 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectum-Banner";
             _type = "info";
+            _header = "";
+            _content = "";
         }
+
+        private var _header:String;
+
+        public function get header():String
+        {
+        	return _header;
+        }
+
+        public function set header(value:String):void
+        {
+        	_header = value;
+        }
+
+        private var _content:String;
+
+        public function get content():String
+        {
+        	return _content;
+        }
+
+        public function set content(value:String):void
+        {
+        	_content = value;
+        }
+
+        COMPILE::JS
+        private var headerNode:Text;
+
+        COMPILE::SWF
+        private var headerNode:Object;
         
+        COMPILE::JS
+        private var contentNode:Text;
+
+        COMPILE::SWF
+        private var contentNode:Object;
+
+        COMPILE::JS        
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var header:HTMLDivElement = newElement("div") as HTMLDivElement;
-            header.className = "spectrum-Banner-header";
-            elem.appendChild(header);
-            var content:HTMLDivElement = newElement("div") as HTMLDivElement;
-            content.className = "spectrum-Banner-content";
-            elem.appendChild(content);
+            
+            var headerElem:HTMLDivElement = newElement("div") as HTMLDivElement;
+            headerElem.className = "spectrum-Banner-header";
+            headerNode = newTextNode(header);
+            headerElem.appendChild(headerNode);
+            elem.appendChild(headerElem);
+
+            var contentElem:HTMLDivElement = newElement("div") as HTMLDivElement;
+            contentElem.className = "spectrum-Banner-content";
+            contentNode = newTextNode(content);
+            contentElem.appendChild(contentNode);
+            elem.appendChild(contentElem);
+
             return elem;
         }
         private var _type:String;
