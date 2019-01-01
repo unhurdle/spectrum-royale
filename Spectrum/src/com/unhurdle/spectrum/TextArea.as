@@ -9,17 +9,23 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-Textfield";
         }
-        private var _placeholder:String;
 
         public function get placeholder():String
         {
-        	return _placeholder;
+            COMPILE::JS
+            {
+                return textarea.placeholder;
+            }
+        	return "";
         }
 
         public function set placeholder(value:String):void
         {
             //set the content in the textArea
-        	_placeholder = value;
+            COMPILE::JS
+            {
+                textarea.placeholder = value;
+            }
         }
         private var _multiline:Boolean;
         public function get multiline():Boolean
@@ -72,7 +78,14 @@ package com.unhurdle.spectrum
             }
             _quiet = value;
         }
+        COMPILE::JS
+        private var textarea:HTMLTextAreaElement;
         //name???
         //lang?????
+        COMPILE::JS
+        override protected function createElement():WrappedHTMLElement{
+            addElementToWrapper(this,'textarea');
+            return element;
+        }
     }
 }
