@@ -4,6 +4,13 @@ package com.unhurdle.spectrum
 
   public class Application extends org.apache.royale.core.Application
   {
+    private static var _current:com.unhurdle.spectrum.Application;
+    /**
+     * Global getter to get a reference to the top-level application
+     */
+    public static function get current():com.unhurdle.spectrum.Application{
+      return _current;
+    }
     public function Application()
     {
       super();
@@ -17,10 +24,10 @@ package com.unhurdle.spectrum
         element.className = 'Application spectrum spectrum--medium spectrum--light';
 
       }
-      // this["element"]["className"] = 'Application spectrum spectrum--medium spectrum--light';
+      _current = this;
       
     }
-    
+
     private function toggle(selector:String,value:Boolean):void{
       COMPILE::JS
       {
