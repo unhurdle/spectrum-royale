@@ -5,7 +5,9 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-
+    COMPILE::SWF
+    public class BarLoader extends UIBase{}
+    COMPILE::JS
     public class BarLoader extends UIBase
     {
         public function BarLoader()
@@ -68,20 +70,19 @@ package com.unhurdle.spectrum
         {
         	_value = value;
         }
-        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var track:WrappedHTMLElement = new WrappedHTMLElement();
+            var track:HTMLDivElement = newElement("div") as HTMLDivElement();
             track.className = "spectrum-BarLoader-track";
-            var fill:WrappedHTMLElement = new WrappedHTMLElement();
+            var fill:HTMLDivElement = newElement("div") as HTMLDivElement();
             fill.className = "spectrum-BarLoader-fill";
             fill.style.width = value;
             track.appendChild(fill);
             elem.appendChild(track);
-            var label:WrappedHTMLElement = new WrappedHTMLElement();
+            var label:HTMLDivElement = newElement("div") as HTMLDivElement();
             label.className = "spectrum-BarLoader-label";
             elem.appendChild(label);
-            var percentage:WrappedHTMLElement = new WrappedHTMLElement();
+            var percentage:HTMLDivElement = newElement("div") as HTMLDivElement();
             percentage.className = "spectrum-BarLoader-percentage";
             elem.appendChild(percentage);
             return elem;

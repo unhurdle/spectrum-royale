@@ -3,4 +3,7 @@
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
+    <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
+    <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
+    <component id="CircleLoader" class="com.unhurdle.spectrum.CircleLoader"/>
 </componentPackage>
