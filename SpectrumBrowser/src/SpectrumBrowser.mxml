@@ -2,15 +2,15 @@
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
   xmlns:sp="library://ns.unhurdle.com/spectrum">
-  <sp:initialView>
+  <js:initialView>
   <js:View>
-    <sp:Radio/>
+    <!-- <sp:Radio/>
     <sp:Label />
-    <sp:TextArea/>
+    <sp:TextArea/> -->
     <!-- <sp:Alert text="Alert"/>  -->
     <sp:Banner header="Most Popular" content="Include Awesome"/>
-    <sp:BarLoader/>
-    <sp:CircleLoader/>
+    <!-- <sp:BarLoader/>
+    <sp:CircleLoader/> -->
   </js:View>
-  </sp:initialView>  
+  </js:initialView>  
 </sp:Application>
