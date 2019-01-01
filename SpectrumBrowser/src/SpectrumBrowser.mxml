@@ -7,6 +7,10 @@
     <sp:Radio/>
     <sp:Label />
     <sp:TextArea/>
+    <sp:Alert text="Alert"/> 
+    <sp:Banner/>
+    <sp:BarLoader/>
+    <sp:CircleLoader/>
   </js:View>
   </sp:initialView>
   

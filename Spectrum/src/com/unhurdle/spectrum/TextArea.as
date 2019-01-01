@@ -1,17 +1,12 @@
 package com.unhurdle.spectrum
-{
-  //  import org.apache.royale.core.UIBase;
-  //  import org.apache.royale.core.WrappedHTMLElement;
-  //  import org.apache.royale.html.util.addElementToWrapper;
-  //  COMPILE::SWF
-  //  public class TextArea extends UIBase{}
-//
-   // COMPILE::JS
-  //  public class TextArea extends UIBase
-    COMPILE::JS{
+{    
+    COMPILE::JS
+    {
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
+    COMPILE::SWF
+    public class TextArea extends SpectrumBase{}
     COMPILE::JS
     public class TextArea extends SpectrumBase
     {
@@ -92,6 +87,7 @@ package com.unhurdle.spectrum
         {
             textarea.name = value;
         }
+        private var textarea:HTMLTextAreaElement;
         //name???
         //lang?????
         override protected function createElement():WrappedHTMLElement{
