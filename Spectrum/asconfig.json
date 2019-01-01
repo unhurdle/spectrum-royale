@@ -4,14 +4,12 @@
     "compilerOptions": {
         "debug": true,
         "targets": [
-            "SWF",
             "JSRoyale"
         ],
         "external-library-path": [
             "${royalelib}/libs"
         ],
         "js-external-library-path": [
-            "typedefs",
             "${royalelib}/js/libs"
         ],
         "load-config": [
