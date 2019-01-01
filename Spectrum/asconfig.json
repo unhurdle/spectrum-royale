@@ -4,7 +4,6 @@
     "compilerOptions": {
         "debug": true,
         "targets": [
-            "SWF",
             "JSRoyale"
         ],
         "external-library-path": [

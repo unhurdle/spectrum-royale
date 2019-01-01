@@ -1,10 +1,14 @@
 package com.unhurdle.spectrum
 {
+    
     COMPILE::JS
     {
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
+    COMPILE::SWF
+    public class TextArea extends SpectrumBase{}
+    COMPILE::JS
     public class TextArea extends SpectrumBase
     {
         public function TextArea()
@@ -15,20 +19,13 @@ package com.unhurdle.spectrum
 
         public function get placeholder():String
         {
-            COMPILE::JS
-            {
-                return textarea.placeholder;
-            }
-        	return "";
+            return textarea.placeholder;
         }
 
         public function set placeholder(value:String):void
         {
             //set the content in the textArea
-            COMPILE::JS
-            {
-                textarea.placeholder = value;
-            }
+            textarea.placeholder = value;
         }
         private var _multiline:Boolean;
         public function get multiline():Boolean
@@ -81,11 +78,9 @@ package com.unhurdle.spectrum
             }
             _quiet = value;
         }
-        COMPILE::JS
         private var textarea:HTMLTextAreaElement;
         //name???
         //lang?????
-        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             addElementToWrapper(this,'textarea');
             return element;
