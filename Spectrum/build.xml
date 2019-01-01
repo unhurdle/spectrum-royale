@@ -58,6 +58,7 @@
             <arg value="-warn-public-vars=false"/>
             <arg value="-load-config=${basedir}/compile-config.xml" />
             <arg value="-js-load-config=${basedir}/js-compile-config.xml" />
+            <arg value="-js-output-optimization=skipAsCoercions"/>
         </java>
     </target>
     

@@ -2,4 +2,5 @@
 <componentPackage>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
+    <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
 </componentPackage>
