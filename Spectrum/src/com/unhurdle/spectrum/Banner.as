@@ -1,16 +1,16 @@
 package com.unhurdle.spectrum
 {
-    import org.apache.royale.core.UIBase;
+    
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
 
     COMPILE::SWF
-    public class Banner extends UIBase{}
+    public class Banner extends SpectrumBase{}
 
     COMPILE::JS    
-    public class Banner extends UIBase
+    public class Banner extends SpectrumBase
     {
         public function Banner()
         {

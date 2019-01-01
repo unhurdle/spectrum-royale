@@ -1,15 +1,14 @@
 package com.unhurdle.spectrum
 {
-        import org.apache.royale.core.UIBase;
     
         COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
     COMPILE::SWF
-    public class DropIndicator extends UIBase{}
+    public class DropIndicator extends SpectrumBase{}
     COMPILE::JS
-    public class DropIndicator extends UIBase
+    public class DropIndicator extends SpectrumBase
     {
         public function DropIndicator()
         {
