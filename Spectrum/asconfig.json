@@ -10,7 +10,6 @@
             "${royalelib}/libs"
         ],
         "js-external-library-path": [
-            "typedefs",
             "${royalelib}/js/libs"
         ],
         "load-config": [

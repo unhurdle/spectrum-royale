@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <componentPackage>
+    <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
@@ -12,4 +13,5 @@
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
+
 </componentPackage>
