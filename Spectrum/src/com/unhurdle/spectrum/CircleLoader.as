@@ -44,7 +44,11 @@ package com.unhurdle.spectrum
             elem.appendChild(fills);
             if(!!_indeterminate){
                 var input:HTMLInputElement = newElement("input") as HTMLInputElement();
-                //type="number" min="0" max="100" style="display: block;" onchange="changeLoader(this.previousElementSibling.firstElementChild, this.value)"
+                input.type = "number";
+                input.min = "0";
+                input.max = "100";
+                input.setAttribute("display","block");
+                input.onchange = "changeLoader(this.previousElementSibling.firstElementChild, this.value)";
                 elem.appendChild(input);
             }
             return elem;
@@ -88,34 +92,6 @@ package com.unhurdle.spectrum
                 _size = value;
             }
         }
-        // private var _small:Boolean;
-
-        // public function get small():Boolean
-        // {
-        //     return _small;
-        // }
-
-        // public function set small(value:Boolean):void
-        // {
-        //     if(value != !!_small){
-        //         toggle(this,valueToCSS("small"),value);
-        //     }
-        //     _small = value;
-        // }
-        // private var _large:Boolean;
-
-        // public function get large():Boolean
-        // {
-        //     return _large;
-        // }
-
-        // public function set large(value:Boolean):void
-        // {
-        //     if(value != !!_large){
-        //         toggle(this,valueToCSS("large"),value);
-        //     }
-        //     _large = value;
-        // }
         private var _overBackground:Boolean;
 
         public function get overBackground():Boolean
