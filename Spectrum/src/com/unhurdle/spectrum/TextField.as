@@ -20,7 +20,6 @@ package com.unhurdle.spectrum
     {
       super();
       typeNames = "";
-      element.className = "spectrum-Textfield";
     }
 
 
@@ -44,11 +43,58 @@ package com.unhurdle.spectrum
         input.name = name;
     }
 
+    public function get text():String
+    {
+      return input.value;
+    }
+
+    public function set text(value:String):void
+    {
+    	input.value = value;
+    }
+
+    private var _pattern:String;
+
+    public function get pattern():String
+    {
+    	return input.pattern;
+    }
+
+    public function set pattern(value:String):void
+    {
+    	input.pattern = value;
+    }
+
+    public function get required():Boolean
+    {
+    	return input.required;
+    }
+
+    public function set required(value:Boolean):void
+    {
+    	input.required = value;
+    }
+
+    private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+      if(value != _disabled){
+        input.disabled = value;
+      }
+      _disabled = value;
+    }
 
     private var input:HTMLInputElement;
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
       input = addElementToWrapper(this,'input') as HTMLInputElement;
+      input.className = "spectrum-Textfield";
       return element;
     }
   }
