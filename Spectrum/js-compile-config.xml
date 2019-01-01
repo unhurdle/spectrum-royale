@@ -4,7 +4,6 @@
         <accessible>false</accessible>
         
         <external-library-path>
-            <path-element>typedefs/js.swc</path-element>
         </external-library-path>
         <allow-subclass-overrides>true</allow-subclass-overrides>
         

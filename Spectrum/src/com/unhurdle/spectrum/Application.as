@@ -20,6 +20,14 @@ package com.unhurdle.spectrum
       // this["element"]["className"] = 'Application spectrum spectrum--medium spectrum--light';
       
     }
+    
+    private function toggle(selector:String,value:Boolean):void{
+      COMPILE::JS
+      {
+        element.classList.toggle(selector, value);
+      }
+    }
+
     private var _colorstop:String;
 
     /**
@@ -45,8 +53,8 @@ package com.unhurdle.spectrum
         }
         var oldStop:String = valueToCSS(_colorstop);
         var newStop:String = valueToCSS(value);
-        toggle(this,newStop, true);
-        toggle(this,oldStop, false);
+        toggle(newStop, true);
+        toggle(oldStop, false);
       	_colorstop = value;
       }
     }
@@ -76,8 +84,8 @@ package com.unhurdle.spectrum
         }
         var oldScale:String = valueToCSS(_appScale);
         var newScale:String = valueToCSS(value);
-        toggle(this,newScale, true);
-        toggle(this,oldScale, false);
+        toggle(newScale, true);
+        toggle(oldScale, false);
 
       	_appScale = value;
 

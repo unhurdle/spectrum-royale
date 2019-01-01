@@ -1,8 +1,11 @@
 package com.unhurdle.spectrum
 {
-    import org.apache.royale.core.UIBase;
-
-    public class TextArea extends UIBase
+    COMPILE::JS
+    {
+        import org.apache.royale.html.util.addElementToWrapper;
+        import org.apache.royale.core.WrappedHTMLElement;
+    }
+    public class TextArea extends SpectrumBase
     {
         public function TextArea()
         {
@@ -35,7 +38,7 @@ package com.unhurdle.spectrum
         public function set multiline(value:Boolean):void
         {
             if(value != !!_multiline){
-                toggle(this,"spectrum-ButtonGroup--multiline",value);
+                toggle("spectrum-ButtonGroup--multiline",value);
             }
             _multiline = value;
         }
@@ -53,7 +56,7 @@ package com.unhurdle.spectrum
             else{
                 newIsValid = "is-invalid";
             }
-            toggle(this,newIsValid, true);
+            toggle(newIsValid, true);
             if(_isValid != "undefined"){
                 var oldIsValid:String;
                 if(_isValid){
@@ -62,7 +65,7 @@ package com.unhurdle.spectrum
                 else{
                     oldIsValid = "is-invalid";
                 }
-                toggle(this,oldIsValid, false);
+                toggle(oldIsValid, false);
             }
             _isValid = value;
         }
@@ -74,7 +77,7 @@ package com.unhurdle.spectrum
         public function set quiet(value:Boolean):void
         {
             if(value != !!_quiet){
-                toggle(this,"spectrum-ButtonGroup--quiet",value);
+                toggle("spectrum-ButtonGroup--quiet",value);
             }
             _quiet = value;
         }

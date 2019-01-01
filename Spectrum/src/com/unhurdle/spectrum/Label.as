@@ -1,8 +1,7 @@
 package com.unhurdle.spectrum
 {
-    import org.apache.royale.core.UIBase;
 
-    public class Label extends UIBase
+    public class Label extends SpectrumBase
     {
         public function Label()
         {
@@ -20,10 +19,10 @@ package com.unhurdle.spectrum
         {
             if(value != _color){
                 var newColor:String = valueToCSS(value);
-                toggle(this,newColor, true);
+                toggle(newColor, true);
                 if(_color){
                     var oldColor:String = valueToCSS(_color);
-                    toggle(this,oldColor, false);
+                    toggle(oldColor, false);
                 }
                 _color = value;
             }
@@ -49,10 +48,10 @@ package com.unhurdle.spectrum
                         throw new Error("Invalid scale: " + value);
                 }
                 var newScale:String = valueToCSS(value);
-                toggle(this,newScale, true);
+                toggle(newScale, true);
                 if(_size){
                     var oldScale:String = valueToCSS(_size);
-                    toggle(this,oldScale, false);
+                    toggle(oldScale, false);
                 }
                 _size = value;
             }
@@ -73,7 +72,7 @@ package com.unhurdle.spectrum
             else{
                 newActive = "spectrum-Label--inactive";
             }
-            toggle(this,newActive, true);
+            toggle(newActive, true);
             if(_active != "undefined"){
                 var oldActive:String;
                 if(_active){
@@ -82,7 +81,7 @@ package com.unhurdle.spectrum
                 else{
                     oldActive = "spectrum-Label--inactive";
                 }
-                toggle(this,oldActive, false);
+                toggle(oldActive, false);
             }
         	_active = value;
         }
