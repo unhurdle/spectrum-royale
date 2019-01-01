@@ -1,6 +1,13 @@
 package com.unhurdle.spectrum
 {
-
+  //  import org.apache.royale.core.UIBase;
+  //  import org.apache.royale.core.WrappedHTMLElement;
+  //  import org.apache.royale.html.util.addElementToWrapper;
+  //  // COMPILE::SWF
+  //  // public class Label extends UIBase{}
+  //  // COMPILE::JS
+   // public class Label extends UIBase
+    COMPILE::JS
     public class Label extends SpectrumBase
     {
         public function Label()
@@ -84,6 +91,20 @@ package com.unhurdle.spectrum
                 toggle(oldActive, false);
             }
         	_active = value;
+        }
+        private var label:HTMLLabelElement;
+        override protected function createElement():WrappedHTMLElement{
+            addElementToWrapper(this,'label');
+            return element;
+        }
+        public function get text():String
+        {
+        	return label.text;
+        }
+
+        public function set text(value:String):void
+        {
+        	label.text = value;
         }
     }
 }

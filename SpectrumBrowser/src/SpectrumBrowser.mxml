@@ -4,6 +4,9 @@
   xmlns:sp="library://ns.unhurdle.com/spectrum">
   <sp:initialView>
   <js:View>
+    <sp:Radio/>
+    <sp:Label />
+    <sp:TextArea/>
     <sp:Alert text="Alert"/> 
     <sp:Banner/>
     <sp:BarLoader/>

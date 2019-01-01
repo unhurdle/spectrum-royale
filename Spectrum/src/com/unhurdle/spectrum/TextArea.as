@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum
-{
-    
+{    
     COMPILE::JS
     {
         import org.apache.royale.html.util.addElementToWrapper;
@@ -16,7 +15,8 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-Textfield";
         }
-
+        private var textarea:HTMLTextAreaElement;
+        
         public function get placeholder():String
         {
             return textarea.placeholder;
@@ -77,6 +77,15 @@ package com.unhurdle.spectrum
                 toggle("spectrum-ButtonGroup--quiet",value);
             }
             _quiet = value;
+        }
+        public function get name():String
+        {
+        	return textarea.name;
+        }
+
+        public function set name(value:String):void
+        {
+            textarea.name = value;
         }
         private var textarea:HTMLTextAreaElement;
         //name???

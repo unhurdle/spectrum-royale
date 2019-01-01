@@ -11,7 +11,11 @@
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
+    <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
+	<component id="TextField" class="com.unhurdle.spectrum.TextField"/>
+    <component id="CheckBox" class="com.unhurdle.spectrum.CheckBox"/>
+    <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
 
 </componentPackage>

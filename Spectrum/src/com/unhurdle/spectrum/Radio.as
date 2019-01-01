@@ -5,7 +5,7 @@ package com.unhurdle.spectrum
         import org.apache.royale.core.WrappedHTMLElement;
         import org.apache.royale.utils.UIDUtil;
     }
-
+    COMPILE::JS
     public class Radio extends SpectrumBase
     {
         public function Radio()
@@ -13,12 +13,9 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-Radio";
         }
-        COMPILE::JS
+        
         private var input:HTMLInputElement;
-        COMPILE::SWF
-        private var input:Object;
-
-        COMPILE::JS
+        private var label:HTMLLabelElement;
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
             input = newElement("input") as HTMLInputElement;
@@ -28,7 +25,7 @@ package com.unhurdle.spectrum
             var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
             span.className = "spectrum-Radio-button";
             elem.appendChild(span);
-            var label:HTMLLabelElement = newElement("label") as HTMLLabelElement;
+            label = newElement("label") as HTMLLabelElement;
             label.className = "spectrum-Radio-label";
             elem.appendChild(label);
             return elem;
@@ -62,6 +59,15 @@ package com.unhurdle.spectrum
             }
         	_disabled = value;
         }
+        
+        public function get text():String
+        {
+        	return label.text;
+        }
 
+        public function set text(value:String):void
+        {
+        	label.text = value;
+        }
     }
 }
