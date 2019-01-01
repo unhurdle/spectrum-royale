@@ -3,7 +3,13 @@
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
+    <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
+    <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
+    <component id="CircleLoader" class="com.unhurdle.spectrum.CircleLoader"/>
+    <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
+    <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
+    <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>

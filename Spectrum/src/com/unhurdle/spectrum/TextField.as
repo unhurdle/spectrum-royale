@@ -7,7 +7,13 @@ package com.unhurdle.spectrum
   }
 
   COMPILE::SWF
-  public class TextField extends SpectrumBase{}
+  public class TextField extends SpectrumBase{
+    public var placeholder:String;
+    public var text:String;
+    public var pattern:String;
+    public var required:Boolean;
+    public var disabled:Boolean;
+  }
 
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
