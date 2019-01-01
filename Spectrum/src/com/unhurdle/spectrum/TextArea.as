@@ -5,9 +5,7 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-    COMPILE::SWF
-    public class TextArea extends SpectrumBase{}
-    COMPILE::JS
+
     public class TextArea extends SpectrumBase
     {
         public function TextArea()
@@ -15,7 +13,11 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-Textfield";
         }
+        COMPILE::JS
         private var textarea:HTMLTextAreaElement;
+
+        COMPILE::SWF
+        private var textarea:Object;
         
         public function get placeholder():String
         {
@@ -78,18 +80,22 @@ package com.unhurdle.spectrum
             }
             _quiet = value;
         }
+        COMPILE::JS
         public function get name():String
         {
         	return textarea.name;
         }
-
+        
+        COMPILE::JS
         public function set name(value:String):void
         {
             textarea.name = value;
         }
-        private var textarea:HTMLTextAreaElement;
+
         //name???
         //lang?????
+        
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             addElementToWrapper(this,'textarea');
             return element;

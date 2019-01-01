@@ -1,13 +1,11 @@
 package com.unhurdle.spectrum
 {
-  //  import org.apache.royale.core.UIBase;
-  //  import org.apache.royale.core.WrappedHTMLElement;
-  //  import org.apache.royale.html.util.addElementToWrapper;
-  //  // COMPILE::SWF
-  //  // public class Label extends UIBase{}
-  //  // COMPILE::JS
-   // public class Label extends UIBase
-    COMPILE::JS
+  COMPILE::JS
+  {
+    import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
+  }
+
     public class Label extends SpectrumBase
     {
         public function Label()
@@ -92,7 +90,13 @@ package com.unhurdle.spectrum
             }
         	_active = value;
         }
+        COMPILE::JS
         private var label:HTMLLabelElement;
+
+        COMPILE::SWF
+        private var label:Object;
+        
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             addElementToWrapper(this,'label');
             return element;

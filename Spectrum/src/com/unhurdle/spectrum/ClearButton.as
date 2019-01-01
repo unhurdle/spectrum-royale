@@ -1,11 +1,11 @@
 package com.unhurdle.spectrum
 {
-    import org.apache.royale.core.UIBase;
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-    // COMPILE::SWF
-    // public class ClearButton extends UIBase{}
     COMPILE::JS
+    {
+        import org.apache.royale.core.WrappedHTMLElement;
+        import org.apache.royale.html.util.addElementToWrapper;
+    }
+
     public class ClearButton extends SpectrumBase
     {
         public function ClearButton()
@@ -13,13 +13,12 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-ClearButton";
         }
-        // COMPILE::JS
-        private var svgElement:SVGElement;
-        private var useElement:SVGUseElement;
+
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'button');
-            svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-            useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
+            var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
+            var useElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGElement;
             useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-CrossSmall');
             svgElement.className = "spectrum-Icon spectrum-UIIcon-CrossSmall";
             svgElement.setAttribute("focusable",false);
@@ -27,8 +26,12 @@ package com.unhurdle.spectrum
             elem.appendChild(svgElement);
             return elem;
         }
-        // COMPILE::JS
+        COMPILE::JS
         private var button:HTMLButtonElement;
+
+        COMPILE::SWF
+        private var button:Object;
+        
         private var _disabled:Boolean;
 
         public function get disabled():Boolean

@@ -5,7 +5,7 @@ package com.unhurdle.spectrum
         import org.apache.royale.core.WrappedHTMLElement;
         import org.apache.royale.utils.UIDUtil;
     }
-    COMPILE::JS
+
     public class Radio extends SpectrumBase
     {
         public function Radio()
@@ -13,9 +13,19 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-Radio";
         }
-        
+        COMPILE::JS
         private var input:HTMLInputElement;
+
+        COMPILE::SWF
+        private var input:Object;
+
+        COMPILE::JS
         private var label:HTMLLabelElement;
+
+        COMPILE::SWF
+        private var label:Object;
+        
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
             input = newElement("input") as HTMLInputElement;
