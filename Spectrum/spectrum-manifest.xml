@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <componentPackage>
-    <!-- <component id="Alert" class="com.unhurdle.spectrum.Alert"/> -->
+    <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
