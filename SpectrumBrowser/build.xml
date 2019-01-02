@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<project name="SpectrumBrowser" default="main" basedir=".">
+    <target name="main" depends="clean" description="Clean build of SpectrumBrowser">
+    </target>
+    <target name="clean">
+        <delete dir="${basedir}/bin" failonerror="false" />
+        <delete dir="${basedir}/bin-debug" failonerror="false" />
+        <delete dir="${basedir}/bin-release" failonerror="false" />
+        <delete dir="${basedir}/target" failonerror="false" />
+    </target>
+</project>
