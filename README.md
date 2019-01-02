@@ -1,5 +1,5 @@
 # spectrum-royale
-A Spectrum component set built for Royale
+A [Spectrum](https://github.com/adobe/spectrum-css) component set built for [Apache Royale](https://royale.apache.org/)
 
 # Projects
 
