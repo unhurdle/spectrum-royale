@@ -99,6 +99,7 @@ package com.unhurdle.spectrum
 
     public function set header(value:String):void
     {
+      headerNode.nodeValue = value;
       _header = value;
     }
 
@@ -111,6 +112,7 @@ package com.unhurdle.spectrum
 
     public function set content(value:String):void
     {
+      contentNode.nodeValue = value;
       _content = value;
     }
 
@@ -165,13 +167,13 @@ package com.unhurdle.spectrum
       if(!type){
         type == "Alert";
       }
-
+      var iconClass:String = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Alert-icon";
       if(icon){
-        icon.className = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Alert-icon";
+        icon.setAttribute("class",iconClass);
         useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-' + type + 'Medium');
       } else {
         icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-        icon.className = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Alert-icon";
+        icon.setAttribute("class",iconClass);
         useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
         useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-' + type + 'Medium');
         icon.appendChild(useElement);
@@ -186,13 +188,13 @@ package com.unhurdle.spectrum
 
       var headerElem:HTMLDivElement = newElement("div") as HTMLDivElement;
       headerElem.className = "spectrum-Alert-header";
-      headerNode = newTextNode(header);
+      headerNode = newTextNode("");
       headerElem.appendChild(headerNode);
       elem.appendChild(headerElem);
 
       var contentElem:HTMLDivElement = newElement("div") as HTMLDivElement;
       contentElem.className = "spectrum-Alert-content";
-      contentNode = newTextNode(content);
+      contentNode = newTextNode("");
       contentElem.appendChild(contentNode);
       elem.appendChild(contentElem);
 
@@ -215,6 +217,7 @@ package com.unhurdle.spectrum
           button.className = "spectrum-Button spectrum-Button--primary spectrum-Button--quiet";
           closeButtonNode = newTextNode(value);
           button.appendChild(closeButtonNode);
+          button.onclick = hide;
           footer.appendChild(button);
           element.appendChild(footer);
         } else {
@@ -228,6 +231,10 @@ package com.unhurdle.spectrum
       visible = true;
       modal.show(Application.current);
 		}
+
+    public function hide():void{
+      modal.hide();
+    }
     
     public static const CLOSABLE:String = "error";
     public static const ERROR:String = "error";

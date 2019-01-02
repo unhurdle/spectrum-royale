@@ -2,6 +2,21 @@
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
   xmlns:sp="library://ns.unhurdle.com/spectrum">
+  <fx:Script>
+    <![CDATA[
+      import com.unhurdle.spectrum.Alert;
+
+      private function showAlert():void{
+        var alert:Alert = new Alert();
+        alert.status = Alert.HELP;
+        alert.closeText = "Goodbye";
+        alert.header = "Hey";
+        alert.content = "Need some help?"
+        alert.overlayAlpha = 0.4;
+        alert.show();
+      }
+    ]]>
+  </fx:Script>
   <sp:initialView>
     <sp:View>
       <sp:Radio/>
@@ -11,6 +26,7 @@
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader/>
       <sp:CircleLoader/>
+      <sp:Button text="Show Alert" click="showAlert()"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
