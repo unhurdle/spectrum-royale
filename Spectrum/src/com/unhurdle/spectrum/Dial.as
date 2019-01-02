@@ -29,7 +29,7 @@ package com.unhurdle.spectrum
             input.min = "0";
             input.max = "100";
             handle.appendChild(input);
-            elem.appendChild(handle);
+            controls.appendChild(handle);
             elem.appendChild(controls);
             //without label
             return elem;

@@ -27,6 +27,10 @@
       <sp:BarLoader/>
       <sp:CircleLoader/>
       <sp:Button text="Show Alert" click="showAlert()"/>
+    <sp:CoachMark/>
+    <sp:ButtonGroup/>
+    <sp:Dial/>
+    <sp:DropIndicator/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
