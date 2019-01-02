@@ -83,14 +83,19 @@ package com.unhurdle.spectrum
           case "secondary":
           case "warning":
           case "overBackground":
+          case "":
             break;
           default:
             throw new Error("Unexpected flavor: " + value);
         }
-        var oldSelector:String = valueToCSS(_flavor);
-        var newSelector:String = valueToCSS(value);
-        toggle(oldSelector,false);
-        toggle(newSelector,true);
+        if(_flavor){
+          var oldSelector:String = valueToCSS(_flavor);
+          toggle(oldSelector,false);
+        }
+        if(value){
+          var newSelector:String = valueToCSS(value);
+          toggle(newSelector,true);
+        }
       }
     	_flavor = value;
     }

@@ -5,6 +5,7 @@
   <fx:Script>
     <![CDATA[
       import com.unhurdle.spectrum.Alert;
+      import com.unhurdle.spectrum.Toast;
 
       private function showAlert():void{
         var alert:Alert = new Alert();
@@ -14,6 +15,11 @@
         alert.content = "Need some help?"
         alert.overlayAlpha = 0.4;
         alert.show();
+      }
+      private function showToast():void{
+        var toast:Toast = new Toast();
+        toast.text = "Some great news here!"
+        toast.show();
       }
     ]]>
   </fx:Script>
@@ -29,7 +35,8 @@
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader/>
       <sp:CircleLoader/>
-      <sp:Button text="Show Alert" click="showAlert()"/>
+      <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
+      <sp:Button text="Show Toast" click="showToast()"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
