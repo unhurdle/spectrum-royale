@@ -5,114 +5,185 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-    COMPILE::SWF
-    public class BarLoader extends SpectrumBase{}
-    COMPILE::JS
+
     public class BarLoader extends SpectrumBase
     {
         public function BarLoader()
         {
             super();
-            typeNames = "spectum-BarLoader";
+            typeNames = "spectrum-BarLoader";
         }
-        private var _ariaValuMin:int;
 
-        public function get ariaValuMin():int
+        private var _label:String;
+
+        public function get label():String
         {
-        	return _ariaValuMin;
+        	return _label;
         }
 
-        public function set ariaValuMin(value:int):void
+        public function set label(value:String):void
         {
-        	_ariaValuMin = value;
+        	_label = value;
+            labelNode.text = value;
         }
-        private var _ariaValuMax:int;
 
-        public function get ariaValuMax():int
+        private var _max:Number = 100;
+
+        public function get max():Number
         {
-        	return _ariaValuMax;
+        	return _max;
         }
 
-        public function set ariaValuMax(value:int):void
+        public function set max(value:Number):void
         {
-        	_ariaValuMax = value;
+        	_max = value;
+            if(_value){
+                calculatePosition();
+            }
         }
-        private var _ariaValuNow:int;
 
-        public function get ariaValuNow():int
+        private var _min:Number = 0;
+
+        public function get min():Number
         {
-        	return _ariaValuNow;
+        	return _min;
         }
 
-        public function set ariaValuNow(value:int):void
+        public function set min(value:Number):void
         {
-        	_ariaValuNow = value;
-        }
-        private var _role:String;
-
-        public function get role():String
-        {
-        	return _role;
+        	_min = value;
+            if(_value){
+                calculatePosition();
+            }
         }
 
-        public function set role(value:String):void
-        {
-        	_role = value;
-        }
-        private var _value:int;
+        private var _value:Number = 0;
 
-        public function get value():int
+        public function get value():Number
         {
         	return _value;
         }
 
-        public function set value(value:int):void
+        public function set value(value:Number):void
         {
         	_value = value;
+            calculatePosition();
         }
+        override public function addedToParent():void{
+            super.addedToParent();
+            calculatePosition();
+        }
+        private function calculatePosition():void{
+            if(!parent){
+                return;
+            }
+            if(value){
+                var total:Number = _max - _min;
+                var percent:Number = value / total * 100;
+            } else {
+                percent = 0;
+            }
+            if(_meter){
+                if(percent < _warningThreshold){
+                    setColor("is-positive");
+                } else if(percent < _criticalThreshold){
+                    setColor("is-warning");
+                } else {
+                    setColor("is-critical");
+                }
+            } else {
+                // set it to the default
+                setColor("");
+            }
+            var percentStr:String = percent + "%";
+            percentNode.text = percentStr;
+            COMPILE::JS
+            {
+                fill.style.width = percentStr;
+                element.setAttribute("value",percent);
+                element.setAttribute("aria-valuenow",percent);
+                element.setAttribute("aria-valuemin",min);
+                element.setAttribute("aria-valuemax",max);
+            }
+        }
+        COMPILE::JS
+        private var fill:HTMLElement;
+
+        private var percentNode:TextNode;
+
+        private var labelNode:TextNode;
+
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            elem.setAttribute("role","progressbar");
+            
+            labelNode = new TextNode("div");
+            labelNode.className = "spectrum-BarLoader-label";
+            elem.appendChild(labelNode.element);
+            percentNode = new TextNode("div");
+            percentNode.className = "spectrum-BarLoader-percentage";
+            elem.appendChild(percentNode.element);
+
             var track:HTMLDivElement = newElement("div") as HTMLDivElement;
             track.className = "spectrum-BarLoader-track";
-            var fill:HTMLDivElement = newElement("div") as HTMLDivElement;
+            fill = newElement("div") as HTMLDivElement;
             fill.className = "spectrum-BarLoader-fill";
             fill.style.width = value;
             track.appendChild(fill);
             elem.appendChild(track);
-            var label:HTMLDivElement = newElement("div") as HTMLDivElement;
-            label.className = "spectrum-BarLoader-label";
-            elem.appendChild(label);
-            var percentage:HTMLDivElement = newElement("div") as HTMLDivElement;
-            percentage.className = "spectrum-BarLoader-percentage";
-            elem.appendChild(percentage);
+
             return elem;
         }
-        private var _color:String;
 
-        /**
-         * The colorstop of the app. One of the four ColorStop values
-         */
-        public function get color():String
+        private var _meter:Boolean;
+
+        public function get meter():Boolean
         {
-            return _color;
+        	return _meter;
         }
 
-        public function set color(value:String):void
+        public function set meter(value:Boolean):void
+        {
+        	_meter = value;
+        }
+
+        private var _warningThreshold:Number = 80;
+
+        public function get warningThreshold():Number
+        {
+        	return _warningThreshold;
+        }
+
+        public function set warningThreshold(value:Number):void
+        {
+        	_warningThreshold = value;
+        }
+
+        private var _criticalThreshold:Number = 90;
+
+        public function get criticalThreshold():Number
+        {
+        	return _criticalThreshold;
+        }
+
+        public function set criticalThreshold(value:Number):void
+        {
+        	_criticalThreshold = value;
+        }
+
+        private var _color:String;
+
+
+        private function setColor(value:String):void
         {
             if(value != _color){
-                switch (value){
-                // check that values are valid
-                case "is-positive":
-                case "is-warning":
-                case "is-critical":
-                    break;
-                default:
-                    throw new Error("Invalid color: " + value);
+                if(_color){
+                    toggle(_color, false);
                 }
-                var oldStop:String = _color;
-                var newStop:String = value;
-                toggle(newStop, true);
-                toggle(oldStop, false);
+                if(value){
+                    toggle(value, true);
+                }
                 _color = value;
             }
         }
@@ -161,5 +232,39 @@ package com.unhurdle.spectrum
         private function valueToCSS(value:String):String{
             return "spectrum-BarLoader--" + value;
         }
+/**
+ * spectrum-BarLoader--overBackground
+ * is-positive
+ * is-warning
+ * is-critical
+ * 
+<div style="width: 200px; height: 25px; padding-top: 10px;">
+  <div class="spectrum-BarLoader spectrum-BarLoader--small" value="50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+    <div class="spectrum-BarLoader-track">
+      <div class="spectrum-BarLoader-fill" style="width: 50%;"></div>
+    </div>
+    <div class="spectrum-BarLoader-label" hidden=""></div>
+  </div>
+</div>
+<div style="margin: 20px 0;">
+  <div class="spectrum-BarLoader spectrum-BarLoader--small" value="50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+    <div class="spectrum-BarLoader-label">Loading</div>
+    <div class="spectrum-BarLoader-percentage">50%</div>
+    <div class="spectrum-BarLoader-track">
+      <div class="spectrum-BarLoader-fill" style="width: 50%;"></div>
+    </div>
+  </div>
+</div>
+<div style="margin: 50px 0;">
+  <div class="spectrum-BarLoader spectrum-BarLoader--small spectrum-BarLoader--sideLabel" value="50" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+    <div class="spectrum-BarLoader-label">Loading</div>
+    <div class="spectrum-BarLoader-percentage">50%</div>
+    <div class="spectrum-BarLoader-track">
+      <div class="spectrum-BarLoader-fill" style="width: 50%;"></div>
+    </div>
+  </div>
+</div>
+ */
+
     }
 }

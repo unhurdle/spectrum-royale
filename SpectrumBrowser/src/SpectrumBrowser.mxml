@@ -33,7 +33,7 @@
       <sp:ClearButton disabled="true" small="true"/>
       <!-- <sp:Alert text="Alert"/>  -->
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
-      <sp:BarLoader/>
+      <sp:BarLoader label="Thingies" meter="true" value="90"/>
       <sp:CircleLoader/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:Button text="Show Toast" click="showToast()"/>
