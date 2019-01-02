@@ -131,17 +131,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     private var button:HTMLButtonElement; //use the spectrum button? //eventually
     
-    COMPILE::JS
-    private var icon:SVGElement;
-
-    COMPILE::SWF
-    private var icon:Object;
-
-    COMPILE::JS
-    private var useElement:SVGUseElement;
-
-    COMPILE::SWF
-    private var useElement:Object;
+    private var icon:Icon;
     
     COMPILE::JS
     private function createIcon(status:String):void{
@@ -168,16 +158,14 @@ package com.unhurdle.spectrum
         type == "Alert";
       }
       var iconClass:String = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Alert-icon";
+      var selector:String = '#spectrum-css-icon-' + type + 'Medium';
       if(icon){
-        icon.setAttribute("class",iconClass);
-        useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-' + type + 'Medium');
+        icon.className = iconClass;
+        icon.selector = selector;
       } else {
-        icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-        icon.setAttribute("class",iconClass);
-        useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
-        useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-' + type + 'Medium');
-        icon.appendChild(useElement);
-        element.insertBefore(icon, element.childNodes[0] || null);
+        icon = new Icon(selector);
+        icon.className = iconClass;
+        element.insertBefore(icon.getElement(), element.childNodes[0] || null);
       }
 
     }
