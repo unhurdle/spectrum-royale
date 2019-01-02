@@ -4,19 +4,19 @@
     "compilerOptions": {
         // Enable the definitions below to enable code completion in JS blocks while working
         // The SWF target also needs to be commented out
-        // "define": [
-        //     {
-        //         "name": "COMPILE::JS",
-        //         "value": true
-        //     },
-        //     {
-        //         "name": "COMPILE::SWF",
-        //         "value": false
-        //     }
-        // ],
+        "define": [
+            {
+                "name": "COMPILE::JS",
+                "value": true
+            },
+            {
+                "name": "COMPILE::SWF",
+                "value": false
+            }
+        ],
         "debug": true,
         "targets": [
-            "SWF",
+            // "SWF",
             "JSRoyale"
         ],
         "external-library-path": [
