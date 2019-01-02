@@ -1,16 +1,13 @@
 package com.unhurdle.spectrum
 {
 
+  import org.apache.royale.html.beads.plugin.ModalDisplay;
+  import org.apache.royale.html.beads.plugin.ModalOverlay;
+  import org.apache.royale.utils.CSSUtils;
+
   COMPILE::JS {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.beads.plugin.ModalDisplay;
-    import org.apache.royale.html.beads.plugin.ModalOverlay;
-    import org.apache.royale.html.beads.plugin.ModalDisplay;
-    import org.apache.royale.html.beads.plugin.ModalOverlay;
-    import org.apache.royale.html.beads.plugin.ModalOverlay;
-    import org.apache.royale.utils.CSSUtils;
   }
   
   public class Alert extends SpectrumBase
@@ -68,7 +65,7 @@ package com.unhurdle.spectrum
     	_overlayAlpha = value;
       getOverlayBead().alpha = value;
     }
-    
+
     private var modal:ModalDisplay;
     
     private function getOverlayBead():ModalOverlay{
