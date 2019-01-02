@@ -3,14 +3,14 @@
   xmlns:js="library://ns.apache.org/royale/basic"
   xmlns:sp="library://ns.unhurdle.com/spectrum">
   <sp:initialView>
-  <sp:View>
-    <sp:Radio/>
-    <sp:Label />
-    <sp:TextArea/>
-    <!-- <sp:Alert text="Alert"/>  -->
-    <sp:Banner header="Most Popular" content="Include Awesome"/>
-    <sp:BarLoader/>
-    <sp:CircleLoader/>
-  </sp:View>
+    <sp:View>
+      <sp:Radio/>
+      <sp:Label />
+      <sp:TextArea/>
+      <!-- <sp:Alert text="Alert"/>  -->
+      <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
+      <sp:BarLoader/>
+      <sp:CircleLoader/>
+    </sp:View>
   </sp:initialView>  
 </sp:Application>
