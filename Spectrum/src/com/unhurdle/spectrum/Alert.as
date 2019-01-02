@@ -99,7 +99,7 @@ package com.unhurdle.spectrum
 
     public function set header(value:String):void
     {
-      headerNode.nodeValue = value;
+      headerNode.text = value;
       _header = value;
     }
 
@@ -112,21 +112,13 @@ package com.unhurdle.spectrum
 
     public function set content(value:String):void
     {
-      contentNode.nodeValue = value;
+      contentNode.text = value;
       _content = value;
     }
 
-    COMPILE::JS
-    private var headerNode:Text;
+    private var headerNode:TextNode;
 
-    COMPILE::SWF
-    private var headerNode:Object;
-    
-    COMPILE::JS
-    private var contentNode:Text;
-
-    COMPILE::SWF
-    private var contentNode:Object;
+    private var contentNode:TextNode;
 
     COMPILE::JS
     private var button:HTMLButtonElement; //use the spectrum button? //eventually
@@ -173,18 +165,13 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
 
+      headerNode = new TextNode("div");
+      headerNode.className = "spectrum-Alert-header";
+      elem.appendChild(headerNode.element);
 
-      var headerElem:HTMLDivElement = newElement("div") as HTMLDivElement;
-      headerElem.className = "spectrum-Alert-header";
-      headerNode = newTextNode("");
-      headerElem.appendChild(headerNode);
-      elem.appendChild(headerElem);
-
-      var contentElem:HTMLDivElement = newElement("div") as HTMLDivElement;
-      contentElem.className = "spectrum-Alert-content";
-      contentNode = newTextNode("");
-      contentElem.appendChild(contentNode);
-      elem.appendChild(contentElem);
+      contentNode = new TextNode("div");
+      contentNode.className = "spectrum-Alert-content";
+      elem.appendChild(contentNode.element);
 
       return elem;
     }

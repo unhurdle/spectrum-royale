@@ -39,14 +39,21 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     private var _element:SVGElement;    
+    COMPILE::JS
     public function getElement():SVGElement{
       return _element;
     }
     public function setAttribute(name:String, value:Object):void{
-      _element.setAttribute(name,value);
+      COMPILE::JS
+      {
+        _element.setAttribute(name,value);
+      }
     }
     public function removeAttribute(name:String):void{
-      _element.removeAttribute(name);
+      COMPILE::JS
+      {
+        _element.removeAttribute(name);
+      }
     }
 
     private var _className:String;
@@ -64,7 +71,7 @@ package com.unhurdle.spectrum
         _element.setAttribute("class",value);
       }
     }
-    
+    COMPILE::JS
     private var useElement:SVGUseElement;
 
   }
