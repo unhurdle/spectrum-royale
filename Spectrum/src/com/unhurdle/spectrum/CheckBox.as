@@ -16,12 +16,7 @@ package com.unhurdle.spectrum
         COMPILE::JS
         private var input:HTMLInputElement;
 
-        COMPILE::JS
-        private var textNode:Text;
-
-        COMPILE::SWF
-        private var textNode:Object;
-        
+        private var spanLabel:TextNode;
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'label');
@@ -30,31 +25,34 @@ package com.unhurdle.spectrum
             input.setAttribute("class","spectrum-Checkbox-input");
             input.id = UIDUtil.createUID();//?? should this be uidtil ??
             elem.appendChild(input);
-            var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
-            span.setAttribute("class","spectrum-Checkbox-box");
+            // var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
+            // span = new TextNode("");
+            var spanBox:HTMLSpanElement = newElement("span") as HTMLSpanElement;
+            spanBox.className = "spectrum-Checkbox-box";
             var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
             var useElement:SVGUseElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
             useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-CheckmarkSmall');
-            svgElement.className = "spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
+            svgElement.setAttribute("class","spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark");
             svgElement.setAttribute("focusable",false);
             svgElement.appendChild(useElement);
-            span.appendChild(svgElement);
+            spanBox.appendChild(svgElement);
             svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
             useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
             useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-DashSmall');
-            svgElement.className = "spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark";
+            svgElement.setAttribute("class","spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark");
             svgElement.setAttribute("focusable",false);
             svgElement.appendChild(useElement);
-            span.appendChild(svgElement);
-            elem.appendChild(span);
-            span = newElement("span") as HTMLSpanElement;
-            span.className = "spectrum-Checkbox-label";
+            spanBox.appendChild(svgElement);
+            elem.appendChild(spanBox);
+            spanLabel = new TextNode("");
+            spanLabel.element = newElement("span") as HTMLSpanElement;
+            spanLabel.className = "spectrum-Checkbox-label";
             if(!_text){
                 _text = "";
             }
-            textNode = newTextNode(_text);
-            span.appendChild(textNode);
-            elem.appendChild(span);
+            // textNode = newTextNode(_text);
+            // span.element.appendChild(textNode);
+            elem.appendChild(spanLabel.element);
             return elem;
         }
 
@@ -67,55 +65,56 @@ package com.unhurdle.spectrum
         public function set text(value:String):void
         {
             if(_text != value){
-                textNode.nodeValue = value;
+                spanLabel.text = value;
+                // textNode.nodeValue = value;
             }
             _text = value;
         }
-        private var _isInvalid:Boolean;
+        private var _valid:Boolean;
 
-        public function get isInvalid():Boolean
+        public function get valid():Boolean
         {
-        	return _isInvalid;
+        	return _valid;
         }
 
-        public function set isInvalid(value:Boolean):void
+        public function set valid(value:Boolean):void
         {
-            if(value != !!_isInvalid){
-                toggle("is-invalid",value);
+            if(value == !!_valid){
+                toggle("is-invalid",!value);
             }
-        	_isInvalid = value;
+        	_valid = value;
         }
-        private var _isIndeterminate:Boolean;
+        private var _indeterminate:Boolean;
 
-        public function get isIndeterminate():Boolean
+        public function get indeterminate():Boolean
         {
-        	return _isIndeterminate;
+        	return _indeterminate;
         }
 
-        public function set isIndeterminate(value:Boolean):void
+        public function set indeterminate(value:Boolean):void
         {
-            if(value != !!_isIndeterminate){
+            if(value != !!_indeterminate){
                 toggle("is-indeterminate",value);
             }
-        	_isIndeterminate = value;
+        	_indeterminate = value;
         }
-        private var _isDisabled:Boolean;
+        private var _disabled:Boolean;
 
-        public function get isDisabled():Boolean
+        public function get disabled():Boolean
         {
-        	return _isDisabled;
+        	return _disabled;
         }
 
-        public function set isDisabled(value:Boolean):void
+        public function set disabled(value:Boolean):void
         {
-            if(value != !!_isDisabled){
+            if(value != !!_disabled){
                 toggle("is-disabled",value);
                 COMPILE::JS
                 {
                     input.disabled = value;
                 }
             }
-        	_isDisabled = value;
+        	_disabled = value;
         }
         private var _checked:Boolean;
 
@@ -134,6 +133,20 @@ package com.unhurdle.spectrum
                 }
             }
         	_checked = value;
+        }
+        private var _quite:Boolean;
+
+        public function get quite():Boolean
+        {
+        	return _quite;
+        }
+
+        public function set quite(value:Boolean):void
+        {
+            if(value && !_quite){
+                toggle("spectrum-Checkbox--quiet",true);
+            }
+        	_quite = value;
         }
     }
 }

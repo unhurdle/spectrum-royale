@@ -120,8 +120,7 @@ package com.unhurdle.spectrum
 
     private var contentNode:TextNode;
 
-    COMPILE::JS
-    private var button:HTMLButtonElement; //use the spectrum button? //eventually
+    private var button:TextNode; //use the spectrum button? //eventually
     
     private var icon:Icon;
     
@@ -175,29 +174,20 @@ package com.unhurdle.spectrum
 
       return elem;
     }
-
-    COMPILE::JS
-    private var closeButtonNode:Text;
-
-    COMPILE::SWF
-    private var closeButtonNode:Object;
-
+    
     private function setCloseButton(value:String):void{
       COMPILE::JS
       {
-        if(!closeButtonNode){
+        if(!button){
           var footer:HTMLElement = newElement('div');
           footer.className = "spectrum-Alert-footer";
-          button = newElement("button") as HTMLButtonElement;
+          button = new TextNode("button");
           button.className = "spectrum-Button spectrum-Button--primary spectrum-Button--quiet";
-          closeButtonNode = newTextNode(value);
-          button.appendChild(closeButtonNode);
-          button.onclick = hide;
-          footer.appendChild(button);
+          button.element.onclick = hide;
+          footer.appendChild(button.element);
           element.appendChild(footer);
-        } else {
-          closeButtonNode.nodeValue = value;
         }
+        button.text = value;
       }
 
     }
