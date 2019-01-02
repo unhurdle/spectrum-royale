@@ -236,7 +236,6 @@ package com.unhurdle.spectrum
       modal.hide();
     }
     
-    public static const CLOSABLE:String = "error";
     public static const ERROR:String = "error";
     public static const HELP:String = "help";
     public static const INFO:String = "info";
@@ -256,7 +255,6 @@ package com.unhurdle.spectrum
       {
         if(value != _status){
           switch(value){
-            case Alert.CLOSABLE:
             case Alert.ERROR:
             case Alert.HELP:
             case Alert.INFO:
@@ -266,10 +264,12 @@ package com.unhurdle.spectrum
             default:
               throw new Error("Invalid status: " + value);
           }
-          var oldStatus:String = valueToCSS(_status);
+          if(_status){
+            var oldStatus:String = valueToCSS(_status);
+            toggle(oldStatus, false);
+          }
           var newStatus:String = valueToCSS(value);
           toggle(newStatus, true);
-          toggle(oldStatus, false);
           createIcon(value);
         }
       }
