@@ -78,7 +78,7 @@ package com.unhurdle.spectrum
                 newActive = "spectrum-Label--inactive";
             }
             toggle(newActive, true);
-            if(_active != "undefined"){
+            if(String(_active) != "undefined"){
                 var oldActive:String;
                 if(_active){
                     oldActive = "spectrum-Label--active";
@@ -90,25 +90,24 @@ package com.unhurdle.spectrum
             }
         	_active = value;
         }
-        COMPILE::JS
-        private var label:HTMLLabelElement;
+        private var span:TextNode;
 
-        COMPILE::SWF
-        private var label:Object;
-        
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            addElementToWrapper(this,'label');
+            addElementToWrapper(this,'span') as HTMLSpanElement;
+            span = new TextNode("");
+            span.element = element;
             return element;
         }
         public function get text():String
         {
-        	return label.text;
+        	return _text;
         }
-
+        private var _text:String;
         public function set text(value:String):void
         {
-        	label.text = value;
+            _text = value;
+            span.text = value;
         }
     }
 }

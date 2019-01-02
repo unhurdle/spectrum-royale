@@ -19,25 +19,24 @@ package com.unhurdle.spectrum
         COMPILE::SWF
         private var input:Object;
 
-        COMPILE::JS
-        private var label:HTMLLabelElement;
+        private var label:TextNode;
 
-        COMPILE::SWF
-        private var label:Object;
-        
+
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
             input = newElement("input") as HTMLInputElement;
             input.className = "spectrum-Radio-input";
+            input.type = "radio";
             input.id = UIDUtil.createUID();
             elem.appendChild(input);
             var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
             span.className = "spectrum-Radio-button";
             elem.appendChild(span);
-            label = newElement("label") as HTMLLabelElement;
+            label = new TextNode("");
+            label.element = newElement("label") as HTMLLabelElement;
             label.className = "spectrum-Radio-label";
-            elem.appendChild(label);
+            elem.appendChild(label.element);
             return elem;
         }
         private var _checked:Boolean;
@@ -69,15 +68,37 @@ package com.unhurdle.spectrum
             }
         	_disabled = value;
         }
-        
+        private var _valid:Boolean;
+        public function get valid():Boolean
+        {
+            return _valid;
+        }
+        public function set valid(value:Boolean):void
+        {
+            if(value == !!_valid){
+                toggle("is-invalid",!value);
+            }
+            _valid = value;
+        }
+        private var _text:String;
         public function get text():String
         {
-        	return label.text;
+        	return _text;
         }
 
         public function set text(value:String):void
         {
+        	_text = value
         	label.text = value;
+        }
+         public function get radioName():String
+        {
+        	return input.name;
+        }
+        
+        public function set radioName(value:String):void
+        {
+            input.name = value;
         }
     }
 }

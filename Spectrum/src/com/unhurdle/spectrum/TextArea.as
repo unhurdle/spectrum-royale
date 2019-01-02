@@ -94,10 +94,38 @@ package com.unhurdle.spectrum
 
         //name???
         //lang?????
+        private var _disabled:Boolean;
+
+        public function get disabled():Boolean
+        {
+        	return _disabled;
+        }
+        // COMPILE::JS
+        public function set disabled(value:Boolean):void
+        {
+            if(value != !!_disabled){
+                textarea.disabled = value;
+            }
+        	_disabled = value;
+        }
+
+        private var _required:Boolean;
+
+        public function get required():Boolean
+        {
+        	return _required;
+        }
         
+        public function set required(value:Boolean):void
+        {
+            if(value != !!_required){
+                textarea.required = value;
+            }
+        	_required = value;
+        }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            addElementToWrapper(this,'textarea');
+            textarea = addElementToWrapper(this,'textarea') as HTMLTextAreaElement;
             return element;
         }
     }

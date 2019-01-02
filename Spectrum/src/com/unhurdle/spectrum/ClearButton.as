@@ -16,15 +16,18 @@ package com.unhurdle.spectrum
 
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'button');
+            // var elem:WrappedHTMLElement = addElementToWrapper(this,'button');
+            button = addElementToWrapper(this,'button') as HTMLButtonElement;
             var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
             var useElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGElement;
             useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-CrossSmall');
-            svgElement.className = "spectrum-Icon spectrum-UIIcon-CrossSmall";
+            svgElement.setAttribute("class","spectrum-Icon spectrum-UIIcon-CrossSmall");
             svgElement.setAttribute("focusable",false);
             svgElement.appendChild(useElement);
-            elem.appendChild(svgElement);
-            return elem;
+            // elem.appendChild(svgElement);
+            button.appendChild(svgElement);
+            return button as WrappedHTMLElement;
+            // return elem;
         }
         COMPILE::JS
         private var button:HTMLButtonElement;
