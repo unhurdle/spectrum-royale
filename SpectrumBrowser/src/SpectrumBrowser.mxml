@@ -17,9 +17,10 @@
         alert.show();
       }
       private function showToast():void{
-        var toast:Toast = new Toast();
-        toast.text = "Some great news here!"
-        toast.show();
+        new Toast("Some great news here!").show();
+        // var toast:Toast = new Toast();
+        // toast.text = "Some great news here!"
+        // toast.show();
       }
     ]]>
   </fx:Script>

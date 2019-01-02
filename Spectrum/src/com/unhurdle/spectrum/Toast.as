@@ -22,10 +22,13 @@ package com.unhurdle.spectrum
     public static const POSITIVE:String = "positive";
     public static const WARNING:String = "warning";
 
-    public function Toast()
+    public function Toast(content:String = null)
     {
       super();
       typeNames = "spectrum-Toast-container";
+      if(content){
+        text = content;
+      }
     }
 
     private var _text:String;
