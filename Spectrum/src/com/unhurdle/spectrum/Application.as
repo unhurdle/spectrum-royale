@@ -22,7 +22,7 @@ package com.unhurdle.spectrum
       // default values
       _colorstop = "light";
       _appScale = "medium";
-
+      
       COMPILE::JS
       {
         element.className = 'Application spectrum spectrum--medium spectrum--light';

@@ -11,8 +11,8 @@ package com.unhurdle.spectrum
         public function Banner()
         {
             super();
-            typeNames = "spectum-Banner";
-            _type = "info";
+            typeNames = "spectrum-Banner";
+            type = "info";
             _header = "";
             _content = "";
         }
@@ -26,6 +26,7 @@ package com.unhurdle.spectrum
 
         public function set header(value:String):void
         {
+            headerNode.nodeValue = value;
         	_header = value;
         }
 
@@ -38,6 +39,7 @@ package com.unhurdle.spectrum
 
         public function set content(value:String):void
         {
+            contentNode.nodeValue = value;
         	_content = value;
         }
 
@@ -59,13 +61,13 @@ package com.unhurdle.spectrum
             
             var headerElem:HTMLDivElement = newElement("div") as HTMLDivElement;
             headerElem.className = "spectrum-Banner-header";
-            headerNode = newTextNode(header);
+            headerNode = newTextNode("");
             headerElem.appendChild(headerNode);
             elem.appendChild(headerElem);
 
             var contentElem:HTMLDivElement = newElement("div") as HTMLDivElement;
             contentElem.className = "spectrum-Banner-content";
-            contentNode = newTextNode(content);
+            contentNode = newTextNode("");
             contentElem.appendChild(contentNode);
             elem.appendChild(contentElem);
 
