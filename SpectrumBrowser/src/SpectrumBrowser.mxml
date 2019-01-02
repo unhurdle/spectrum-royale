@@ -4,13 +4,13 @@
   xmlns:sp="library://ns.unhurdle.com/spectrum">
   <js:initialView>
   <js:View>
-    <!-- <sp:Radio/>
+    <sp:Radio/>
     <sp:Label />
-    <sp:TextArea/> -->
+    <sp:TextArea/>
     <!-- <sp:Alert text="Alert"/>  -->
     <sp:Banner header="Most Popular" content="Include Awesome"/>
-    <!-- <sp:BarLoader/>
-    <sp:CircleLoader/> -->
+    <sp:BarLoader/>
+    <sp:CircleLoader/>
   </js:View>
   </js:initialView>  
 </sp:Application>
