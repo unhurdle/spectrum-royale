@@ -2,7 +2,9 @@ package com.unhurdle.spectrum
 {
   import org.apache.royale.utils.Timer;
   import org.apache.royale.events.Event;
+  import org.apache.royale.utils.css.addDynamicSelector;
   import com.unhurdle.spectrum.Button;
+  
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
@@ -13,9 +15,11 @@ package com.unhurdle.spectrum
   [Event(name="accept", type="org.apache.royale.events.Event")]
 
   [Event(name="close", type="org.apache.royale.events.Event")]
-
+  
   public class Toast extends SpectrumBase
   {
+    // flag to set the keyframes on  the first instantiation
+    private static var keyFramesSet:Boolean;
 
     public static const INFO:String = "info";
     public static const NEGATIVE:String = "negative";
@@ -29,6 +33,32 @@ package com.unhurdle.spectrum
       if(content){
         text = content;
       }
+      if(!keyFramesSet){
+        setKeyFrames()
+      }
+    }
+
+    protected function setKeyFrames():void{
+      // only do this once
+      keyFramesSet = true;
+
+      var selector:String = "@-webkit-keyframes spectrum-toast-fadein";
+      var rule:String = "from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;}";
+      addDynamicSelector(selector, rule);
+      selector = "@keyframes spectrum-toast-fadein";
+      addDynamicSelector(selector, rule);
+      selector = "@-webkit-keyframes spectrum-toast-fadeout";
+      rule = "from {bottom: 30px; opacity: 1;} to {bottom: 0px; opacity: 0;}";
+      addDynamicSelector(selector, rule);
+      selector = "@keyframes spectrum-toast-fadeout";
+      addDynamicSelector(selector, rule);
+      selector = ".spectrum-Toast-container.show";
+      rule = "visibility: visible; -webkit-animation: spectrum-toast-fadein 0.5s; animation: spectrum-toast-fadein 0.5s;";
+      addDynamicSelector(selector, rule);
+      selector = ".spectrum-Toast-container.hide";
+      rule = "visibility: visible; -webkit-animation: spectrum-toast-fadeout 0.5s; animation: spectrum-toast-fadeout 0.5s;";
+      addDynamicSelector(selector, rule);
+
     }
 
     private var _text:String;
@@ -84,6 +114,10 @@ package com.unhurdle.spectrum
     public function show():void{
       Application.current.addElement(this);
       toggle("show",true);
+      COMPILE::JS
+      {
+        element.style.visibility = null;
+      }
       if(autoClose){
         var timer:Timer = new Timer(autoClose);
         timer.addEventListener(Timer.TIMER,onTimer)
@@ -189,7 +223,9 @@ package com.unhurdle.spectrum
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
+      var styleStr:String = "visibility:hidden;position:absolute;bottom:30px;width:100%;display:flex;align-items:center;justify-content:center;";
       var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
+      elem.setAttribute("style",styleStr);
       var toast:HTMLElement = newElement("div");
       toast.className = "spectrum-Toast";
       body = newElement("div");

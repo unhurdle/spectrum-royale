@@ -75,9 +75,6 @@ package com.unhurdle.spectrum
         }
         private var _type:String;
 
-        /**
-         * The colorstop of the app. One of the four ColorStop values
-         */
         public function get type():String
         {
             return _type;

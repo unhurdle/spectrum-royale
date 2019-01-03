@@ -4,6 +4,7 @@
   xmlns:sp="library://ns.unhurdle.com/spectrum">
   <fx:Script>
     <![CDATA[
+
       import com.unhurdle.spectrum.Alert;
       import com.unhurdle.spectrum.Toast;
 
@@ -47,8 +48,12 @@
       <sp:CircleLoader/>
       <sp:Well/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
+      <sp:ButtonGroup/>
       <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark/>
+      <sp:Dial/>
+      <sp:DropIndicator/>
+      <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
