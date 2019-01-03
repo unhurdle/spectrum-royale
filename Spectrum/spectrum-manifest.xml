@@ -14,9 +14,13 @@
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
+    <component id="LogicButton" class="com.unhurdle.spectrum.LogicButton"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
+    <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
+    <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/>
+    <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
-	<component id="TextField" class="com.unhurdle.spectrum.TextField"/>
+    <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
 </componentPackage>

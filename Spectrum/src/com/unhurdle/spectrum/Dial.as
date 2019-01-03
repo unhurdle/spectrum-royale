@@ -17,6 +17,22 @@ package com.unhurdle.spectrum
         }
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            if(_withLabel){
+                var labelContainer:HTMLDivElement = newElement("div") as HTMLDivElement;
+                labelContainer.className = "spectrum-Dial-labelContainer";
+                var label:HTMLLabelElement = newElement("label") as HTMLLabelElement;
+                label.className = "spectrum-Dial-label";
+                label.id = "dialLabel";
+                label.setAttribute("for","labeledDial");
+                labelContainer.appendChild(label);
+                var div:HTMLDivElement = newElement("div") as HTMLDivElement;
+                div.className = "spectrum-Slider-value";
+                div.setAttribute("role","textbox");
+                div.setAttribute("aria-readonly",true);
+                div.setAttribute("aria-labelledby","dialLabel");
+                labelContainer.appendChild(div);
+                elem.appendChild(labelContainer);
+            }
             var controls:HTMLDivElement = newElement("div") as HTMLDivElement;
             controls.className = "spectrum-Dial-controls";
             var handle:HTMLDivElement = newElement("div") as HTMLDivElement;
@@ -24,14 +40,16 @@ package com.unhurdle.spectrum
             handle.setAttribute("tabindex",0);
             var input:HTMLInputElement = newElement("input") as HTMLInputElement;
             input.className = "spectrum-Dial-input";
+            if(_withLabel){
+                input.id = "labeledDial";//when label
+            }
             input.type = "range";
             input.value = "0";
             input.min = "0";
             input.max = "100";
             handle.appendChild(input);
-            elem.appendChild(handle);
+            controls.appendChild(handle);
             elem.appendChild(controls);
-            //without label
             return elem;
         }
         private var _size:String;
@@ -57,6 +75,16 @@ package com.unhurdle.spectrum
                 toggle(oldSize, false);
                 _size = value;
             }
+        }private var _withLabel:Boolean;
+
+        public function get withLabel():Boolean
+        {
+            return _withLabel;
+        }
+
+        public function set withLabel(value:Boolean):void
+        {            
+            _withLabel = value;
         }
         private var _isDisabled:Boolean;
 
