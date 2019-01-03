@@ -5,27 +5,23 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-    COMPILE::SWF
-    public class CoachMark extends SpectrumBase{}
-    COMPILE::JS
+
     public class CoachMark extends SpectrumBase
     {
+        public static const DARK:String = "dark";
+        public static const LIGHT:String = "light";
         public function CoachMark()
         {
             super();
-            typeNames = "spectrum-CoachMarkIndicator"
+            typeNames = "spectrum-CoachMarkIndicator";
         }
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var div1:HTMLDivElement = newElement("div") as HTMLDivElement;
-            div1.className = "spectrum-CoachMarkIndicator-ring";
-            elem.appendChild(div1);
-            var div2:HTMLDivElement = newElement("div") as HTMLDivElement;
-            div2.className = "spectrum-CoachMarkIndicator-ring";
-            elem.appendChild(div2);
-            var div3:HTMLDivElement = newElement("div") as HTMLDivElement;
-            div3.className = "spectrum-CoachMarkIndicator-ring";
-            elem.appendChild(div3);
+            // add three ring elements
+            for(var i:int=0;i<3;i++){
+                elem.appendChild(newElement("div","spectrum-CoachMarkIndicator-ring"));
+            }
             //without dialog
             return elem;
         }
@@ -44,28 +40,33 @@ package com.unhurdle.spectrum
             _quiet = value;
         }
 
-        private var _shade:String;
+        private var _flavor:String;
 
-        public function get shade():String
+        public function get flavor():String
         {
-            return _shade;
+            return _flavor;
         }
 
-        public function set shade(value:String):void
+        public function set flavor(value:String):void
         {
-            if(value != _shade){
+            if(value != _flavor){
                 switch (value){
-                case "small":
-                case "large":
+                case "dark":
+                case "light":
+                case "":
                     break;
                 default:
-                    throw new Error("Invalid size: " + value);
+                    throw new Error("Invalid flavor: " + value);
                 }
-                var oldSize:String = valueToCSS(_shade);
-                var newSize:String = valueToCSS(value);
-                toggle(newSize, true);
-                toggle(oldSize, false);
-                _shade = value;
+                if(_flavor){
+                    var oldFlavor:String = valueToCSS(_flavor);
+                    toggle(oldFlavor, false);
+                }
+                if(value){
+                    var newFlavor:String = valueToCSS(value);
+                    toggle(newFlavor, true);
+                }
+                _flavor = value;
             }
         }
         private function valueToCSS(value:String):String{
