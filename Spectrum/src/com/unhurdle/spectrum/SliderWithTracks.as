@@ -14,6 +14,10 @@ package com.unhurdle.spectrum
     }
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            if(_range){
+                labelContainer.setAttribute("role","group");
+                inputValue.setAttribute("aria-labelledby","my-spectrum-Slider-label2");
+            }
             var labelContainer:HTMLDivElement = newElement("div") as HTMLDivElement;
             labelContainer.className = "spectrum-Slider-labelContainer";
             if(_range){
@@ -21,22 +25,25 @@ package com.unhurdle.spectrum
             }
             var label:HTMLLabelElement = newElement("label") as HTMLLabelElement;
             label.className = "spectrum-Slider-label";
-            label.id = "my-pectrum-Slider-label";
-            label.setAttribute("for","my-pectrum-Slider-input");
+            label.id = "my-spectrum-Slider-label2";
+            label.setAttribute("for","my-spectrum-Slider-input2-1");
             labelContainer.appendChild(label);
             var inputValue:HTMLDivElement = newElement("div") as HTMLDivElement;
             inputValue.className = "spectrum-Slider-value";
-            inputValue.setAttribute("role","textbox");
-            inputValue.setAttribute("aria-readonly",true);
-            inputValue.setAttribute("aria-labelledby","my-pectrum-Slider-label");
+            if(!!_player){
+                inputValue.setAttribute("role","textbox");
+                inputValue.setAttribute("aria-readonly",true);
+                inputValue.setAttribute("aria-labelledby","my-spectrum-Slider-label2");
+            }
             labelContainer.appendChild(inputValue);
             elem.appendChild(labelContainer);
             var controls:HTMLDivElement = newElement("div") as HTMLDivElement;
             controls.className = "spectrum-Slider-controls";
+            var firstTrack:HTMLDivElement = newElement("div") as HTMLDivElement;
             if(_range){
                 controls.setAttribute("role","presentation");
+                firstTrack.style.width = "20%";
             }
-            var firstTrack:HTMLDivElement = newElement("div") as HTMLDivElement;
             firstTrack.className = "spectrum-Slider-track";
             controls.appendChild(firstTrack);
             if(_tick){
@@ -97,26 +104,87 @@ package com.unhurdle.spectrum
                 }
                 ticks.appendChild(tick6);
             }
+            else if(_player){
+                var firstBuffer:HTMLDivElement = newElement("div") as HTMLDivElement;
+                firstBuffer.className = "spectrum-Slider-buffer";
+                firstBuffer.style.width = "20%";
+                firstBuffer.setAttribute("role","progressbar");
+                firstBuffer.setAttribute("aria-valuemin","0");
+                firstBuffer.setAttribute("aria-valuemax","100");
+                firstBuffer.setAttribute("aria-valuenow","50");
+                firstBuffer.setAttribute("aria-labelledby","my-spectrum-Slider-label2");
+                controls.appendChild(firstBuffer);
+            }
             var handle:HTMLDivElement = newElement("div") as HTMLDivElement;
             handle.className = "spectrum-Slider-handle";
-            handle.style.left = "40%"
+            if(_range){
+                handle.style.left = "20%";                
+                handle.setAttribute("role","presentation");
+            }
+            else{
+                handle.style.left = "40%";
+            }
             var input:HTMLInputElement = newElement("input") as HTMLInputElement;
             input.className = "spectrum-Slider-input";
-            input.id = "my-spectrum-Slider-input";
+            input.id = "my-spectrum-Slider-input2-1";
             input.type = "range";
-            input.value = "14";
-            input.min = "10";
-            input.max = "20";
-            input.step = "2";
+             if(_player){
+                input.value = "228";
+                input.min = "0";
+                input.max = "760";
+                input.setAttribute("aria-valuetext","3:48");
+            }
+            else{
+                input.value = "14";
+                input.min = "10";
+                input.max = "20";
+                input.step = "2";
+                if(_range){
+                    input.setAttribute("aria-label","max");
+                    input.setAttribute("aria-labelledby","my-spectrum-Slider-label2 my-spectrum-Slider-input2-1");
+                }
+            }
             handle.appendChild(input);
             controls.appendChild(handle);
-            var secondTrack:HTMLDivElement = newElement("div") as HTMLDivElement;
-            secondTrack.className = "spectrum-Slider-track";
-            controls.appendChild(secondTrack);
+             if(_player){
+                var secondBuffer:HTMLDivElement = newElement("div") as HTMLDivElement;
+                secondBuffer.className = "spectrum-Slider-buffer";
+                secondBuffer.style.left = "20%";
+                secondBuffer.style.width = "30%";
+                controls.appendChild(secondBuffer);
+            }
+            if(_range){
+                var middleTrack:HTMLDivElement = newElement("div") as HTMLDivElement;
+                controls.setAttribute("role","presentation");
+                middleTrack.style.width = "20%";
+                middleTrack.style.right = "40%";
+                middleTrack.className = "spectrum-Slider-track";
+                controls.appendChild(middleTrack);
+                var secondHandle:HTMLDivElement = newElement("div") as HTMLDivElement;
+                secondHandle.className = "spectrum-Slider-handle";
+                secondHandle.style.left = "20%";                
+                secondHandle.setAttribute("role","presentation");
+                var secondInput:HTMLInputElement = newElement("input") as HTMLInputElement;
+                secondInput.className = "spectrum-Slider-input";
+                secondInput.id = "my-spectrum-Slider-input2-2";
+                secondInput.type = "range";
+                secondInput.value = "14";
+                secondInput.min = "10";
+                secondInput.max = "20";
+                secondInput.step = "2";
+                secondInput.setAttribute("aria-label","max");
+                secondInput.setAttribute("aria-labelledby","my-spectrum-Slider-label2 my-spectrum-Slider-input2-2");
+                secondHandle.appendChild(input);
+                controls.appendChild(secondHandle);
+            }            
+            var lastTrack:HTMLDivElement = newElement("div") as HTMLDivElement;
+            lastTrack.className = "spectrum-Slider-track";
+            if(_range){
+                lastTrack.style.width = "40%";
+            }
+            controls.appendChild(lastTrack);
             elem.appendChild(controls);
             return elem;
-            //range in middle
-            //buffer in middle
         }
         private var _range:Boolean;
         public function get range():Boolean
@@ -130,18 +198,15 @@ package com.unhurdle.spectrum
             }
             _range = value;
         }
-        //  private var _buffer:Boolean;
-        // public function get buffer():Boolean
-        // {
-        //     return _buffer;
-        // }
-        // public function set buffer(value:Boolean):void
-        // {
-        //     if(value != !!_buffer){
-        //         toggle("spectrum-Slider-buffer",value);
-        //     }
-        //     _buffer = value;
-        // }
+        private var _player:Boolean;
+        public function get player():Boolean
+        {
+            return _player;
+        }
+        public function set player(value:Boolean):void
+        {
+            _player = value;
+        }
         
         private var _filled:Boolean;
         public function get filled():Boolean

@@ -22,14 +22,14 @@ package com.unhurdle.spectrum
             labelContainer.className = "spectrum-Slider-labelContainer";
             var label:HTMLLabelElement = newElement("label") as HTMLLabelElement;
             label.className = "spectrum-Slider-label";
-            label.id = "my-pectrum-Slider-label";
-            label.setAttribute("for","my-pectrum-Slider-input");
+            label.id = "my-spectrum-Slider-label1";
+            label.setAttribute("for","my-spectrum-Slider-input1");
             labelContainer.appendChild(label);
             var inputValue:HTMLDivElement = newElement("div") as HTMLDivElement;
             inputValue.className = "spectrum-Slider-value";
             inputValue.setAttribute("role","textbox");
             inputValue.setAttribute("aria-readonly",true);
-            inputValue.setAttribute("aria-labelledby","my-pectrum-Slider-label");
+            inputValue.setAttribute("aria-labelledby","my-spectrum-Slider-label1");
             labelContainer.appendChild(inputValue);
             elem.appendChild(labelContainer);
             var controls:HTMLDivElement = newElement("div") as HTMLDivElement;
@@ -53,7 +53,7 @@ package com.unhurdle.spectrum
             handle.style.left = "40%"
             input = newElement("input") as HTMLInputElement;
             input.className = "spectrum-Slider-input";
-            input.id = "my-spectrum-Slider-input";
+            input.id = "my-spectrum-Slider-input1";
             input.type = "range";
             input.value = "14";
             input.min = "10";

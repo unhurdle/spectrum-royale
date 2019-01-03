@@ -4,6 +4,7 @@
   xmlns:sp="library://ns.unhurdle.com/spectrum">
   <fx:Script>
     <![CDATA[
+
       import com.unhurdle.spectrum.Alert;
 
       private function showAlert():void{
@@ -27,10 +28,10 @@
       <sp:BarLoader/>
       <sp:CircleLoader/>
       <sp:Button text="Show Alert" click="showAlert()"/>
-    <sp:CoachMark/>
-    <sp:ButtonGroup/>
-    <sp:Dial/>
-    <sp:DropIndicator/>
+      <sp:CoachMark/>
+      <sp:ButtonGroup/>
+      <sp:Dial/>
+      <sp:DropIndicator/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
