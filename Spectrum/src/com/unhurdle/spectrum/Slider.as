@@ -178,6 +178,80 @@ package com.unhurdle.spectrum
         toggle(valueToSelector("filled"),value);
     }
 
+    private var _ticks:int;
+
+    public function get ticks():int
+    {
+    	return _ticks;
+    }
+    COMPILE::SWF
+    public function set ticks(value:int):void{}
+
+    COMPILE::JS
+    public function set ticks(value:int):void
+    {
+        if(value != _ticks){
+            var base:String = getSelector();
+        	_ticks = value;
+            if(!tickContainer){
+                tickContainer = newElement("div", base + "-ticks");
+                controlsContainer.insertBefore(tickContainer,handle);
+            } else {
+                tickContainer.innerHTML = "";
+            }
+            tickArray = [];
+            for(var i:int=0;i<value;i++){
+                var tick:HTMLElement = newElement("div",base + "-tick");
+                var node:TextNode = new TextNode("div");
+                node.className = base + "-tickLabel";
+                tick.appendChild(node.element);
+                tickArray.push(node);
+                tickContainer.appendChild(tick);
+            }
+            if(_showTickValues){
+                calculateTickValues();
+            }
+
+        }
+
+    }
+
+    private var tickArray:Array;
+
+    private var _showTickValues:Boolean;
+
+    public function get showTickValues():Boolean
+    {
+    	return _showTickValues;
+    }
+
+    public function set showTickValues(value:Boolean):void
+    {
+    	_showTickValues = value;
+        calculateTickValues();
+    }
+    private function calculateTickValues():void{
+        if(!tickArray || !tickArray.length){
+            return;
+        }
+        if(_showTickValues){
+            // don't bother figuring this out if we're not showing them
+            var numTicks:Number = tickArray.length;
+            var minVal:Number = min;
+            var maxVal:Number = max;
+            var span:Number = maxVal - minVal;
+            var increment:Number = span/numTicks;
+        }
+        for(var i:int=0;i<numTicks;i++){
+            if(_showTickValues){
+                tickArray[i].text = "" + minVal;
+                minVal = Math.round((minVal + increment) * 100)/100;
+            } else {
+                tickArray[i].text = "";
+            }
+        }
+    }
+
     COMPILE::JS
     private var input:HTMLInputElement;
     COMPILE::SWF
@@ -188,6 +262,10 @@ package com.unhurdle.spectrum
     COMPILE::JS
     private var controlsContainer:HTMLElement;
     
+    COMPILE::JS
+    private var tickContainer:HTMLElement;
+    COMPILE::SWF
+    private var tickContainer:Object;
     COMPILE::JS
     private var handle:HTMLElement;
     COMPILE::SWF
