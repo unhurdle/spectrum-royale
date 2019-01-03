@@ -12,7 +12,11 @@ package com.unhurdle.spectrum
       {
         classList = new CSSClassList();
       }
-      
+      typeNames = getSelector();
+    }
+
+    protected function getSelector():String{
+      return "";
     }
     
     COMPILE::JS
@@ -31,6 +35,10 @@ package com.unhurdle.spectrum
     override protected function computeFinalClassNames():String
     {
       return classList.compute() + super.computeFinalClassNames();
+    }
+    
+    protected function valueToSelector(value:String):String{
+        return getSelector() + "--" + value;
     }
 
   }

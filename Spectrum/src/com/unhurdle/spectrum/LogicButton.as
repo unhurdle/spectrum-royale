@@ -16,7 +16,9 @@ package com.unhurdle.spectrum
     public function LogicButton()
     {
       super();
-      typeNames = "spectrum-LogicButton";
+    }
+    override protected function getSelector():String{
+      return "spectrum-LogicButton";
     }
     
         private var button:HTMLButtonElement;
@@ -45,16 +47,15 @@ package com.unhurdle.spectrum
                 default:
                     throw new Error("Invalid type: " + value);
                 }
-                var oldType:String = valueToCSS(_type);
-                var newType:String = valueToCSS(value);
+                if(_type){
+                    var oldType:String = valueToSelector(_type);
+                    toggle(oldType, false);
+                }
+                var newType:String = valueToSelector(value);
                 toggle(newType, true);
-                toggle(oldType, false);
                 _type = value;
                 button.value = value;
             }
-        }
-        private function valueToCSS(type:String):String{
-            return "spectrum-LogicButton--" + type;
         }
         private var _disabled:Boolean;
 

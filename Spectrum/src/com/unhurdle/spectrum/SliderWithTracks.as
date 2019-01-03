@@ -5,7 +5,7 @@ package com.unhurdle.spectrum
         import org.apache.royale.core.WrappedHTMLElement;
     }
   
-  COMPILE::JS
+  
   public class SliderWithTracks extends Slider
   {
     public function SliderWithTracks()
@@ -194,7 +194,7 @@ package com.unhurdle.spectrum
         public function set range(value:Boolean):void
         {
             if(value != !!_range){
-                toggle(super.valueToCSS("range"),value);
+                toggle(valueToSelector("range"),value);
             }
             _range = value;
         }
@@ -208,18 +208,6 @@ package com.unhurdle.spectrum
             _player = value;
         }
         
-        private var _filled:Boolean;
-        public function get filled():Boolean
-        {
-            return _filled;
-        }
-        public function set filled(value:Boolean):void
-        {
-            if(value != !!_filled){
-                toggle(super.valueToCSS("filled"),value);
-            }
-            _filled = value;
-        }
         private var _tick:Boolean;
         public function get tick():Boolean
         {
@@ -228,7 +216,7 @@ package com.unhurdle.spectrum
         public function set tick(value:Boolean):void
         {
             if(value != !!_tick){
-                toggle(super.valueToCSS("tick"),value);
+                toggle(valueToSelector("tick"),value);
             }
             _tick = value;
         }

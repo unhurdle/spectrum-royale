@@ -29,13 +29,16 @@ package com.unhurdle.spectrum
     public function Toast(content:String = null)
     {
       super();
-      typeNames = "spectrum-Toast-container";
+      typeNames = getSelector() + "-container";
       if(content){
         text = content;
       }
       if(!keyFramesSet){
         setKeyFrames()
       }
+    }
+    override protected function getSelector():String{
+      return "spectrum-Toast";
     }
 
     protected function setKeyFrames():void{
@@ -179,17 +182,14 @@ package com.unhurdle.spectrum
             throw new Error("Unknown flavor: " + value);
         }
         if(_flavor){
-          var oldFlavor:String = valueToCSS(_flavor);
+          var oldFlavor:String = valueToSelector(_flavor);
           toggle(oldFlavor,false);
         }
-        var newFlavor:String = valueToCSS(value);
+        var newFlavor:String = valueToSelector(value);
         toggle(newFlavor,true);
         createIcon(value);
       }
     	_flavor = value;
-    }
-    private function valueToCSS(value:String):String{
-      return "spectrum-Toast--" + value;
     }
 
     private var icon:Icon;

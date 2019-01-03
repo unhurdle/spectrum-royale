@@ -11,7 +11,9 @@ package com.unhurdle.spectrum
     public function Slider()
     {
       super();
-      typeNames = "spectrum-Slider";
+    }
+    override protected function getSelector():String{
+      return "spectrum-Slider";
     }
     override public function addedToParent():void{
 			super.addedToParent();
@@ -173,7 +175,7 @@ package com.unhurdle.spectrum
     public function set filled(value:Boolean):void
     {
     	_filled = value;
-        toggle(valueToCSS("filled"),value);
+        toggle(valueToSelector("filled"),value);
     }
 
     COMPILE::JS
@@ -275,7 +277,7 @@ package com.unhurdle.spectrum
     // public function set color(value:Boolean):void
     // {
     //     if(value != !!_color){
-    //         toggle(valueToCSS("color"),value);
+    //         toggle(valueToSelector("color"),value);
     //     }
     //     _color = value;
     // }
@@ -310,8 +312,5 @@ For video player there are additional buffer elements. It probably makes sense t
 </div>
 
  */
-    private function valueToCSS(value:String):String{
-        return "spectrum-Slider--" + value;
-    }
   }
 }
