@@ -48,6 +48,7 @@
       <sp:Well/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:Button text="Show Toast" click="showToast()"/>
+      <sp:CoachMark/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
