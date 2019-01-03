@@ -69,8 +69,8 @@ package com.unhurdle.spectrum
       	_colorstop = value;
       }
     }
-    private function valueToCSS(stop:String):String{
-      return "spectrum--" + stop;
+    private function valueToCSS(value:String):String{
+      return "spectrum--" + value;
     }
 
     private var _appScale:String;
