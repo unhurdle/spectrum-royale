@@ -43,6 +43,7 @@
       <sp:CoachMark/>
       <sp:Dial/>
       <sp:DropIndicator/>
+      <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
