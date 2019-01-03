@@ -12,19 +12,22 @@ package com.unhurdle.spectrum
         {
             super();
             typeNames = "spectrum-ClearButton";
+            toggle("spectrum-ClearButton--medium",true);
         }
-
+        private function setIcon(size:String):void{
+            icon.selector = '#spectrum-css-icon-Cross' + size;
+            icon.className = "spectrum-Icon spectrum-UIIcon-Cross" + size;
+            
+        }
+        private var icon:Icon;
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'button');
-            var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-            var useElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGElement;
-            useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-CrossSmall');
-            svgElement.className = "spectrum-Icon spectrum-UIIcon-CrossSmall";
-            svgElement.setAttribute("focusable",false);
-            svgElement.appendChild(useElement);
-            elem.appendChild(svgElement);
-            return elem;
+            button = addElementToWrapper(this,'button') as HTMLButtonElement;
+
+            icon = new Icon("#spectrum-css-icon-CrossMedium");
+            setIcon("Medium");
+            element.appendChild(icon.getElement());
+            return element;
         }
         COMPILE::JS
         private var button:HTMLButtonElement;
@@ -55,10 +58,24 @@ package com.unhurdle.spectrum
 
         public function set small(value:Boolean):void
         {
-            if(value && !_small){
-                toggle("spectrum-ClearButton--small",true);
-            }
+            toggle("spectrum-ClearButton--small",value);
+            toggle("spectrum-ClearButton--medium",!value);
+            var size:String = value ? "Small" : "Medium";
+            setIcon(size);
         	_small = value;
+        }
+        
+        private var _overBackground:Boolean;
+
+        public function get overBackground():Boolean
+        {
+        	return _overBackground;
+        }
+
+        public function set overBackground(value:Boolean):void
+        {
+            toggle("spectrum-ClearButton--overBackground",value);
+        	_overBackground = value;
         }
     }
 }

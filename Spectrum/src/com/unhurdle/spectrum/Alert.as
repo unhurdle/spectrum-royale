@@ -99,7 +99,7 @@ package com.unhurdle.spectrum
 
     public function set header(value:String):void
     {
-      headerNode.nodeValue = value;
+      headerNode.text = value;
       _header = value;
     }
 
@@ -112,36 +112,17 @@ package com.unhurdle.spectrum
 
     public function set content(value:String):void
     {
-      contentNode.nodeValue = value;
+      contentNode.text = value;
       _content = value;
     }
 
-    COMPILE::JS
-    private var headerNode:Text;
+    private var headerNode:TextNode;
 
-    COMPILE::SWF
-    private var headerNode:Object;
+    private var contentNode:TextNode;
+
+    private var button:TextNode; //use the spectrum button? //eventually
     
-    COMPILE::JS
-    private var contentNode:Text;
-
-    COMPILE::SWF
-    private var contentNode:Object;
-
-    COMPILE::JS
-    private var button:HTMLButtonElement; //use the spectrum button? //eventually
-    
-    COMPILE::JS
-    private var icon:SVGElement;
-
-    COMPILE::SWF
-    private var icon:Object;
-
-    COMPILE::JS
-    private var useElement:SVGUseElement;
-
-    COMPILE::SWF
-    private var useElement:Object;
+    private var icon:Icon;
     
     COMPILE::JS
     private function createIcon(status:String):void{
@@ -168,16 +149,14 @@ package com.unhurdle.spectrum
         type == "Alert";
       }
       var iconClass:String = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Alert-icon";
+      var selector:String = '#spectrum-css-icon-' + type + 'Medium';
       if(icon){
-        icon.setAttribute("class",iconClass);
-        useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-' + type + 'Medium');
+        icon.className = iconClass;
+        icon.selector = selector;
       } else {
-        icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-        icon.setAttribute("class",iconClass);
-        useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
-        useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-' + type + 'Medium');
-        icon.appendChild(useElement);
-        element.insertBefore(icon, element.childNodes[0] || null);
+        icon = new Icon(selector);
+        icon.className = iconClass;
+        element.insertBefore(icon.getElement(), element.childNodes[0] || null);
       }
 
     }
@@ -185,44 +164,30 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
 
+      headerNode = new TextNode("div");
+      headerNode.className = "spectrum-Alert-header";
+      elem.appendChild(headerNode.element);
 
-      var headerElem:HTMLDivElement = newElement("div") as HTMLDivElement;
-      headerElem.className = "spectrum-Alert-header";
-      headerNode = newTextNode("");
-      headerElem.appendChild(headerNode);
-      elem.appendChild(headerElem);
-
-      var contentElem:HTMLDivElement = newElement("div") as HTMLDivElement;
-      contentElem.className = "spectrum-Alert-content";
-      contentNode = newTextNode("");
-      contentElem.appendChild(contentNode);
-      elem.appendChild(contentElem);
+      contentNode = new TextNode("div");
+      contentNode.className = "spectrum-Alert-content";
+      elem.appendChild(contentNode.element);
 
       return elem;
     }
-
-    COMPILE::JS
-    private var closeButtonNode:Text;
-
-    COMPILE::SWF
-    private var closeButtonNode:Object;
-
+    
     private function setCloseButton(value:String):void{
       COMPILE::JS
       {
-        if(!closeButtonNode){
+        if(!button){
           var footer:HTMLElement = newElement('div');
           footer.className = "spectrum-Alert-footer";
-          button = newElement("button") as HTMLButtonElement;
+          button = new TextNode("button");
           button.className = "spectrum-Button spectrum-Button--primary spectrum-Button--quiet";
-          closeButtonNode = newTextNode(value);
-          button.appendChild(closeButtonNode);
-          button.onclick = hide;
-          footer.appendChild(button);
+          button.element.onclick = hide;
+          footer.appendChild(button.element);
           element.appendChild(footer);
-        } else {
-          closeButtonNode.nodeValue = value;
         }
+        button.text = value;
       }
 
     }
@@ -236,7 +201,6 @@ package com.unhurdle.spectrum
       modal.hide();
     }
     
-    public static const CLOSABLE:String = "error";
     public static const ERROR:String = "error";
     public static const HELP:String = "help";
     public static const INFO:String = "info";
@@ -256,7 +220,6 @@ package com.unhurdle.spectrum
       {
         if(value != _status){
           switch(value){
-            case Alert.CLOSABLE:
             case Alert.ERROR:
             case Alert.HELP:
             case Alert.INFO:
@@ -266,10 +229,12 @@ package com.unhurdle.spectrum
             default:
               throw new Error("Invalid status: " + value);
           }
-          var oldStatus:String = valueToCSS(_status);
+          if(_status){
+            var oldStatus:String = valueToCSS(_status);
+            toggle(oldStatus, false);
+          }
           var newStatus:String = valueToCSS(value);
           toggle(newStatus, true);
-          toggle(oldStatus, false);
           createIcon(value);
         }
       }

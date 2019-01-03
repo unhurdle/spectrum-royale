@@ -21,5 +21,6 @@
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
+	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
 </componentPackage>

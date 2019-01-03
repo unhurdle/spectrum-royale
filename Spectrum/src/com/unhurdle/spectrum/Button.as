@@ -52,12 +52,15 @@ package com.unhurdle.spectrum
     public function set text(value:String):void
     {
       if(value != _text){
-        textNode.nodeValue = value;
+        textNode.text = value;
       }
     	_text = value;
     }
     private var _icon:String;
 
+    /**
+     * Icon selector name
+     */
     public function get icon():String
     {
     	return _icon;
@@ -66,7 +69,26 @@ package com.unhurdle.spectrum
     public function set icon(value:String):void
     {
     	_icon = value;
+      createIcon(value);
     }
+    private var iconElement:Icon;
+
+    private function createIcon(selector:String):void{
+      var iconClass:String = "spectrum-Icon spectrum-Icon--sizeS";
+      if(iconElement){
+        iconElement.className = iconClass;
+        iconElement.selector = selector;
+      } else {
+        iconElement = new Icon(selector);
+        iconElement.className = iconClass;
+        COMPILE::JS
+        {
+          element.insertBefore(iconElement.getElement(), element.childNodes[0] || null);
+        }
+      }
+
+    }
+
     private var _flavor:String;
 
     public function get flavor():String
@@ -76,6 +98,9 @@ package com.unhurdle.spectrum
 
     public function set flavor(value:String):void
     {
+      if(!value){
+        throw new Error("flavor must have a value!");
+      }
       if(value != _flavor){
         switch(value){
           case "cta":
@@ -87,9 +112,11 @@ package com.unhurdle.spectrum
           default:
             throw new Error("Unexpected flavor: " + value);
         }
-        var oldSelector:String = valueToCSS(_flavor);
+        if(_flavor){
+          var oldSelector:String = valueToCSS(_flavor);
+          toggle(oldSelector,false);
+        }
         var newSelector:String = valueToCSS(value);
-        toggle(oldSelector,false);
         toggle(newSelector,true);
       }
     	_flavor = value;
@@ -109,27 +136,15 @@ package com.unhurdle.spectrum
       }
     	_quiet = value;
     }
-
-    COMPILE::JS
-    private var iconElement:SVGElement;
     
-    COMPILE::JS
-    private var textNode:Text;
-    
-    COMPILE::SWF
-    private var textNode:Object;
+    private var textNode:TextNode;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       addElementToWrapper(this,'button');
-      if(icon){
-        // add in icon
-      }
-      var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
-      span.className = "spectrum-Button-label";
-      textNode = newTextNode(_text);
-      span.appendChild(textNode);
-      element.appendChild(span);
+      textNode = new TextNode("span");
+      textNode.className = "spectrum-Button-label";
+      element.appendChild(textNode.element);
       return element;
     }
   }

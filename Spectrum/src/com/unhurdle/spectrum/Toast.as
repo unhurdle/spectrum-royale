@@ -1,30 +1,18 @@
 package com.unhurdle.spectrum
 {
-/**
-<div class="spectrum-Toast spectrum-Toast--info">
-  <svg class="spectrum-Icon spectrum-UIIcon-InfoMedium spectrum-Toast-typeIcon" focusable="false" aria-hidden="true">
-    <use xlink:href="#spectrum-css-icon-InfoMedium"></use>
-  </svg>
-  <div class="spectrum-Toast-body">
-    <div class="spectrum-Toast-content">
-      A new version of Lightroom Classic is now available
-    </div>
-    <button class="spectrum-Button spectrum-Button--overBackground spectrum-Button--quiet">
-      <span class="spectrum-Button-label">Update</span>
-    </button>
-  </div>
-  <div class="spectrum-Toast-buttons">
-    <button class="spectrum-ClearButton spectrum-ClearButton--medium spectrum-ClearButton--overBackground">
-      <svg class="spectrum-Icon spectrum-UIIcon-CrossMedium focusable=" false"="" aria-hidden="true">
-        <use xlink:href="#spectrum-css-icon-CrossMedium"></use>
-      </svg>
-    </button>
-  </div>
-</div>
- * 
- */
+  import org.apache.royale.utils.Timer;
+  import org.apache.royale.events.Event;
+  import com.unhurdle.spectrum.Button;
+  COMPILE::JS
+  {
+    import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
+  }
+
   
   [Event(name="accept", type="org.apache.royale.events.Event")]
+
+  [Event(name="close", type="org.apache.royale.events.Event")]
 
   public class Toast extends SpectrumBase
   {
@@ -34,10 +22,13 @@ package com.unhurdle.spectrum
     public static const POSITIVE:String = "positive";
     public static const WARNING:String = "warning";
 
-    public function Toast()
+    public function Toast(content:String = null)
     {
       super();
-      typeNames = "spectrum-Toast";
+      typeNames = "spectrum-Toast-container";
+      if(content){
+        text = content;
+      }
     }
 
     private var _text:String;
@@ -50,6 +41,7 @@ package com.unhurdle.spectrum
     public function set text(value:String):void
     {
     	_text = value;
+      contentNode.text = value;
     }
 
     private var _action:String;
@@ -59,9 +51,26 @@ package com.unhurdle.spectrum
     	return _action;
     }
 
+    private var actionButton:Button;
+    
     public function set action(value:String):void
     {
+      if(!actionButton){
+        actionButton = new Button();
+        actionButton.flavor = Button.OVER_BACKGROUND;
+        actionButton.quiet = true;
+        actionButton.addEventListener("click",onAction);
+        COMPILE::JS
+        {
+          body.appendChild(actionButton.element);
+        }
+      }
+      actionButton.text = value;
     	_action = value;
+    }
+    private function onAction(ev:Event):void{
+      dispatchEvent(new Event("accept"));
+      hide();
     }
 
     private var _flavor:String;
@@ -69,6 +78,52 @@ package com.unhurdle.spectrum
     public function get flavor():String
     {
     	return _flavor;
+    }
+
+    private var timer:Timer;
+    public function show():void{
+      Application.current.addElement(this);
+      toggle("show",true);
+      if(autoClose){
+        var timer:Timer = new Timer(autoClose);
+        timer.addEventListener(Timer.TIMER,onTimer)
+      }
+    }
+
+    private function onTimer(ev:Event):void{
+      timer.removeEventListener(Timer.TIMER,onTimer);
+      hide();
+    }
+
+    public function hide():void{
+      toggle("show", false);
+      toggle("hide",true);
+      COMPILE::JS
+      {
+        setTimeout(removeMe,500);
+      }
+        dispatchEvent(new Event("close"));
+    }
+
+    private function removeMe():void{
+        Application.current.removeElement(this);
+        toggle("hide", false);
+    }
+
+    private var _autoClose:int = 0;
+
+    /**
+     * Number of milliseconds the Toast will remain open.
+     * A value of 0 (default) will cause it to remain open until closed.
+     */
+    public function get autoClose():int
+    {
+    	return _autoClose;
+    }
+
+    public function set autoClose(value:int):void
+    {
+    	_autoClose = value;
     }
 
     /**
@@ -95,6 +150,7 @@ package com.unhurdle.spectrum
         }
         var newFlavor:String = valueToCSS(value);
         toggle(newFlavor,true);
+        createIcon(value);
       }
     	_flavor = value;
     }
@@ -104,27 +160,15 @@ package com.unhurdle.spectrum
 
     private var icon:Icon;
 
-    COMPILE::JS
-    private function createIcon(status:String):void{
+    private function createIcon(flavor:String):void{
       var type:String;
 
-      switch(status){
-        case "negative":
-          type = "Alert";
-          break;
-        case "positive":
-          type = "Success";
-          break;
-        case "info":
-          type = "Info";
-          break;
-        case "warning":
-          type = "Alert";
-          break;
-      }
-      if(!type){
-        // no default icon
-        return;
+      switch(flavor){
+        case "negative":type = "Alert";break;
+        case "positive":type = "Success";break;
+        case "info":type = "Info";break;
+        case "warning":type = "Alert";break;
+        default: return; // no default icon
       }
       var iconClass:String = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Toast-typeIcon";
       var useSelector:String = '#spectrum-css-icon-' + type + 'Medium';
@@ -134,10 +178,64 @@ package com.unhurdle.spectrum
       } else {
         icon = new Icon(useSelector);
         icon.className = iconClass;
-        element.insertBefore(icon.getElement(), element.childNodes[0] || null);
+        COMPILE::JS
+        {
+          element.insertBefore(icon.getElement(), element.childNodes[0] || null);
+        }
       }
 
     }
+    private var contentNode:TextNode;
+    
+    COMPILE::JS
+    override protected function createElement():WrappedHTMLElement{
+      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
+      var toast:HTMLElement = newElement("div");
+      toast.className = "spectrum-Toast";
+      body = newElement("div");
+      body.className = "spectrum-Toast-body";
+      contentNode = new TextNode("div");
+      contentNode.className = "spectrum-Toast-content";
+      body.appendChild(contentNode.element);
+      toast.appendChild(body);
 
+      var buttons:HTMLElement = newElement("div");
+      buttons.className = "spectrum-Toast-buttons";
+
+      var button:ClearButton = new ClearButton();
+      button.overBackground = true;
+      buttons.appendChild(button.element);
+      button.addEventListener("click",hide);
+      toast.appendChild(buttons);
+
+      elem.appendChild(toast);
+
+      return elem;
+    }
+
+    COMPILE::JS
+    private var body:HTMLElement;
+    /**
+<div class="spectrum-Toast spectrum-Toast--info">
+  <svg class="spectrum-Icon spectrum-UIIcon-InfoMedium spectrum-Toast-typeIcon" focusable="false" aria-hidden="true">
+    <use xlink:href="#spectrum-css-icon-InfoMedium"></use>
+  </svg>
+  <div class="spectrum-Toast-body">
+    <div class="spectrum-Toast-content">
+      A new version of Lightroom Classic is now available
+    </div>
+    <button class="spectrum-Button spectrum-Button--overBackground spectrum-Button--quiet">
+      <span class="spectrum-Button-label">Update</span>
+    </button>
+  </div>
+  <div class="spectrum-Toast-buttons">
+    <button class="spectrum-ClearButton spectrum-ClearButton--medium spectrum-ClearButton--overBackground">
+      <svg class="spectrum-Icon spectrum-UIIcon-CrossMedium focusable=" false"="" aria-hidden="true">
+        <use xlink:href="#spectrum-css-icon-CrossMedium"></use>
+      </svg>
+    </button>
+  </div>
+
+     */
   }
 }
