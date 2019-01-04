@@ -23,7 +23,9 @@
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
     <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
+    <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
+    <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
