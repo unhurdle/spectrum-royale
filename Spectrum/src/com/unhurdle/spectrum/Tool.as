@@ -9,20 +9,32 @@ package com.unhurdle.spectrum
     public function Tool()
     {
       super();
-      typeNames = "spectrum-Tool";
+    }
+    override protected function getSelector():String{
+      return "spectrum-Tool";
     }
     COMPILE::JS
     private var button:HTMLButtonElement;
     COMPILE::SWF
     private var button:Object;
+    private var icon:Icon;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       button = addElementToWrapper(this,'button') as HTMLButtonElement;
-      var icon:Icon = new Icon("#spectrum-icon-18-Brush");
+      icon = new Icon("");
       icon.className = "spectrum-Icon spectrum-Icon--sizeS";
-      icon.selector = "#spectrum-icon-18-Brush";
       button.appendChild(icon.getElement());
       return element;
+    }
+
+    public function get toolName():String
+    {
+    	return icon.selector;
+    }
+
+    public function set toolName(value:String):void
+    {
+    	icon.selector = value;
     }
     private var _selected:Boolean;
 
@@ -58,15 +70,27 @@ package com.unhurdle.spectrum
     {
     	return _cornerTriangle;
     }
-
+    private var cornerIcon:Icon;
     public function set cornerTriangle(value:Boolean):void
     {
-      if(value && !_cornerTriangle ){
-        var icon:Icon = new Icon("#spectrum-css-icon-CornerTriangle");
-        icon.className = "spectrum-Icon spectrum-UIIcon-CornerTriangle spectrum-Tool-hold";
-        icon.selector = "#spectrum-css-icon-CornerTriangle";
-        button.appendChild(icon.getElement());
+      if(value != !!_cornerTriangle){
+        if(!cornerIcon ){
+          cornerIcon = new Icon("#spectrum-css-icon-CornerTriangle");
+          cornerIcon.className = "spectrum-Icon spectrum-UIIcon-CornerTriangle spectrum-Tool-hold";
+          button.appendChild(cornerIcon.getElement());
+        }
+        COMPILE::JS
+        {
+          if(value){
+            cornerIcon.getElement().style.display = null;
+          } else {
+            cornerIcon.getElement().style.display = "none";
+          }
+
+        }
+
       }
+
     	_cornerTriangle = value;
     }
   }

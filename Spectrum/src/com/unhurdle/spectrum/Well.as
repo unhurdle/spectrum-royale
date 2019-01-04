@@ -9,12 +9,13 @@ package com.unhurdle.spectrum
     public function Well()
     {
       super();
-      typeNames = "spectrum-Well";
+    }
+    override protected function getSelector():String{
+      return "spectrum-Well";
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'span');
-      return elem;
+      return addElementToWrapper(this,'span');
     }
   }
 }
