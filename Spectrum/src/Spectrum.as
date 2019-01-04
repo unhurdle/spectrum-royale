@@ -5,6 +5,6 @@ package {
 		import com.unhurdle.spectrum.Scale;Scale;
 		import com.unhurdle.spectrum.Application;Application;
 		import com.unhurdle.spectrum.ButtonGroup;ButtonGroup;
-		import com.unhurdle.spectrum.Button;Button;
+		import com.unhurdle.spectrum.Typography;Typography;
 	}
 }
