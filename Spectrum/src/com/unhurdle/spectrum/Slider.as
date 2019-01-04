@@ -6,7 +6,7 @@ package com.unhurdle.spectrum
   }
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
-  public class Slider extends SpectrumBase
+  public class Slider extends SliderBase
   {
     public function Slider()
     {
@@ -20,7 +20,7 @@ package com.unhurdle.spectrum
 			positionElements();
     }
 
-		private function positionElements():void{
+		override protected function positionElements():void{
 			COMPILE::JS
 			{
 				var percent:Number = this.value / (max - min) * 100;
@@ -36,29 +36,9 @@ package com.unhurdle.spectrum
 			// }
     }
 
-    private var _disabled:Boolean;
-
-    public function get disabled():Boolean
-    {
-			return _disabled;
-    }
-
-    public function set disabled(value:Boolean):void
-    {
-			if(value != !!_disabled){
-				toggle("is-disabled",value);
-				input.disabled = value;
-				COMPILE::JS
-				{
-					if(value){
-						element.addEventListener('mousedown', onMouseDown);
-					} else {
-						element.removeEventListener('mousedown', onMouseDown);
-					}
-				}
-			}
-			_disabled = value;
-    }
+		override protected function enableDisableInput(value:Boolean):void{
+			input.disabled = value;
+		}
 
 
     public function get value():Number
@@ -68,102 +48,23 @@ package com.unhurdle.spectrum
 
     public function set value(value:Number):void
     {
-        //TODO why is this a string?
-        input.value = "" + value;
-				if(parent){
-					positionElements();
-				}
-        if(valueNode){
-            valueNode.text = "" + value;
-        }
-
-    }
-
-    public function get step():Number
-    {
-    	return Number(input.step);
-    }
-
-    public function set step(value:Number):void
-    {
-        //TODO why is this a string?
-        input.step = "" + value;
-    }
-    
-    public function get min():Number
-    {
-    	return Number(input.min);
-    }
-
-    public function set min(value:Number):void
-    {
-        //TODO why is this a string?
-        input.min = "" + value;
-    }
-    
-    public function get max():Number
-    {
-    	return Number(input.max);
-    }
-
-    public function set max(value:Number):void
-    {
-        //TODO why is this a string?
-        input.max = "" + value;
-    }
-
-    private var _displayValue:Boolean;
-
-    public function get displayValue():Boolean
-    {
-    	return _displayValue;
-    }
-
-    public function set displayValue(value:Boolean):void
-    {
-        if(value != !!_displayValue){
-        	_displayValue = value;
-            setLabel();
-        }
-    }
-    private var _label:String;
-
-    public function get label():String
-    {
-    	return _label;
-    }
-
-    public function set label(value:String):void
-    {
-    	_label = value;
-        setLabel();
-    }
-
-    private function setLabel():void{
-			COMPILE::JS
-			{
-        if(!labelContainer){
-            labelContainer = newElement("div","spectrum-Slider-labelContainer");
-						element.insertBefore(labelContainer,controlsContainer);
-        }
-        if(_label && !labelNode){
-            labelNode = new TextNode("label");
-            labelNode.className = "spectrum-Slider-label";
-            labelContainer.insertBefore(labelNode.element,labelContainer.childNodes[0] || null);
-        }
-        if(_displayValue && !valueNode){
-            valueNode = new TextNode("div");
-            valueNode.className = "spectrum-Slider-value";
-            labelContainer.appendChild(valueNode.element);
-        }
+			//TODO why is this a string?
+			input.value = "" + value;
+			if(parent){
+				positionElements();
 			}
-        if(labelNode){
-            labelNode.text = _label;
-        }
-        if(valueNode){
-            valueNode.text = "" + value;
-        }
+			if(valueNode){
+				valueNode.text = "" + value;
+			}
+
     }
+
+
+
+		override protected function getValue():String{
+			// override in subclass
+			return input.value;
+		}    
     
     private var _filled:Boolean;
 
@@ -253,16 +154,6 @@ package com.unhurdle.spectrum
     }
 
     COMPILE::JS
-    private var input:HTMLInputElement;
-    COMPILE::SWF
-    private var input:Object;
-
-    COMPILE::JS
-    private var labelContainer:HTMLElement;
-    COMPILE::JS
-    private var controlsContainer:HTMLElement;
-    
-    COMPILE::JS
     private var tickContainer:HTMLElement;
     COMPILE::SWF
     private var tickContainer:Object;
@@ -319,18 +210,7 @@ package com.unhurdle.spectrum
     }
 		// Element interaction
 		COMPILE::JS
-		private function onMouseDown(e:MouseEvent):void {
-			onMouseMove(e);
-			window.addEventListener('mouseup', onMouseUp);
-			window.addEventListener('mousemove', onMouseMove);
-		}
-		COMPILE::JS
-		private function onMouseUp():void {
-			window.removeEventListener('mouseup', onMouseUp);
-			window.removeEventListener('mousemove', onMouseMove);
-		}
-		COMPILE::JS
-		private function onMouseMove(e:MouseEvent):void {
+		override protected function onMouseMove(e:MouseEvent):void {
 			var sliderOffsetWidth:Number = element.offsetWidth;
 			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
 
