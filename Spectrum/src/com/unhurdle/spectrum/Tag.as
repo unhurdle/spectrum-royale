@@ -4,9 +4,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
-  public class Tags extends SpectrumBase
+  public class Tag extends SpectrumBase
   {
-    public function Tags()
+    public function Tag()
     {
       super();
       typeNames = "spectrum-Tags-item";

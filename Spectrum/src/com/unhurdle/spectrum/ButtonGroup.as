@@ -5,7 +5,9 @@ package com.unhurdle.spectrum
     public function ButtonGroup()
     {
       super();
-      typeNames = "spectrum-ButtonGroup";
+    }
+    override protected function getSelector():String{
+      return "spectrum-ButtonGroup";
     }
     private var _vertical:Boolean;
 
@@ -17,7 +19,7 @@ package com.unhurdle.spectrum
     public function set vertical(value:Boolean):void
     {
       if(value != !!_vertical){
-        toggle("spectrum-ButtonGroup--vertical",value);
+        toggle(valueToSelector("vertical"),value);
       }
     	_vertical = value;
     }
