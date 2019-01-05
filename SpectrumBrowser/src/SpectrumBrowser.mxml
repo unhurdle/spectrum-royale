@@ -55,6 +55,22 @@
       <sp:Dial/>
       <sp:DropIndicator/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
+      <sp:Menu>
+        <sp:dataProvider>
+        <fx:Array>
+          <sp:MenuItem text="Category One" isHeading="true"/>
+          <sp:MenuItem text="Item One"/>
+          <sp:MenuItem text="Item Two"/>
+          <sp:MenuItem text="Item Three" selected="true"/>
+          <sp:MenuItem isDivider="true"/>
+          <sp:MenuItem text="Category Two" isHeading="true"/>
+          <sp:MenuItem text="Item One"/>
+          <sp:MenuItem text="Item Two"/>
+          <sp:MenuItem text="Item Three" disabled="true"/>
+          
+        </fx:Array>
+        </sp:dataProvider>
+      </sp:Menu>
     </sp:View>
   </sp:initialView>  
 </sp:Application>

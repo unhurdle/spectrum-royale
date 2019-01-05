@@ -6,5 +6,6 @@ package {
 		import com.unhurdle.spectrum.Application;Application;
 		import com.unhurdle.spectrum.ButtonGroup;ButtonGroup;
 		import com.unhurdle.spectrum.Typography;Typography;
+		import com.unhurdle.spectrum.renderers.MenuItemRenderer;MenuItemRenderer;
 	}
 }
