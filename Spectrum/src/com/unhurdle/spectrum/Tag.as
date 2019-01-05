@@ -13,10 +13,8 @@ package com.unhurdle.spectrum
     }
     private var span:TextNode;
     COMPILE::JS
-    private var elem:WrappedHTMLElement;
-    COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      elem = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       span = new TextNode("");
       span.element = newElement("span") as HTMLSpanElement;
       elem.appendChild(span.element);
@@ -39,25 +37,34 @@ package com.unhurdle.spectrum
     	return _src;
     }
 
+    COMPILE::JS
+    private var imageElement:HTMLImageElement;
+    private var icon:Icon;
     public function set src(value:String):void
     {
-      
-      if(value){
-        COMPILE::JS{
-          var img:HTMLImageElement = newElement("image") as HTMLImageElement;
-          img.className = "spectrum-Avatar";
-          img.src = value;
-          // elem.appendChild(img);
-          elem.insertBefore(img, element.childNodes[0] || null);
-        }
+      if(value == _src){
+        return;
       }
-      else{
-        COMPILE::JS{
-          var icon:Icon = new Icon("#spectrum-icon-24-SentimentPositive");
+      COMPILE::JS{
+      
+        if(value){
+          if(icon){
+            element.removeChild(icon.getElement());
+            icon = null;
+          }
+          if(!imageElement){
+            imageElement = newElement("img") as HTMLImageElement;
+            imageElement.className = "spectrum-Avatar";
+            element.insertBefore(imageElement, element.childNodes[0] || null);
+          }
+          imageElement.src = value;
+          // elem.appendChild(img);
+        }
+        else if(!icon){
+          icon = new Icon("#spectrum-icon-24-SentimentPositive");
           icon.className = "spectrum-Icon spectrum-Icon--sizeXS";
-          icon.selector = "#spectrum-icon-24-SentimentPositive";
           // elem.appendChild(icon.getElement());
-          elem.insertBefore(icon.getElement(), element.childNodes[0] || null);
+          element.insertBefore(icon.getElement(), element.childNodes[0] || null);
         }
       }
     	_src = value;
