@@ -67,6 +67,7 @@ package com.unhurdle.spectrum.renderers
       var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
       textNode = new TextNode("span");
       textNode.className = "spectrum-Menu-itemLabel";
+      textNode.element.style.userSelect = "none";
       elem.appendChild(textNode.element);
       var checkIcon:Icon = new Icon("#spectrum-css-icon-CheckmarkMedium");
       checkIcon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark";
