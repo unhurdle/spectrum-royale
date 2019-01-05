@@ -1,24 +1,23 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.html.List;
   COMPILE::JS
   {
-    import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
+    import org.apache.royale.core.WrappedHTMLElement;
   }
+  import org.apache.royale.html.List;
 
-  public class Menu extends org.apache.royale.html.List
+  public class List extends org.apache.royale.html.List
   {
-    public function Menu()
+    public function List()
     {
       super();
       typeNames = "spectrum-Menu";
     }
-
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      return addElementToWrapper(this,'ul');
+      return addElementToWrapper(this,'div');
     }
   }
 }

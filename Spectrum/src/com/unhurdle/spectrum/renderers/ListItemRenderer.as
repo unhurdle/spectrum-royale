@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum.renderers
 {
   import org.apache.royale.html.supportClasses.DataItemRenderer;
+  import org.apache.royale.html.util.getLabelFromData;
   import com.unhurdle.spectrum.data.MenuItem;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.Icon;
@@ -11,12 +12,12 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.core.WrappedHTMLElement;
   }
 
-  public class MenuItemRenderer extends DataItemRenderer
+  public class ListItemRenderer extends DataItemRenderer
   {
-    public function MenuItemRenderer()
+    public function ListItemRenderer()
     {
       super();
-      typeNames = '';
+      typeNames = 'spectrum-Menu-item';
     }
 		override public function updateRenderer():void{
       // do nothing
@@ -24,48 +25,31 @@ package com.unhurdle.spectrum.renderers
 
     override public function set data(value:Object):void{
       super.data = value;
-      var menuItem:MenuItem;
-      menuItem = value as MenuItem;
+      textNode.text = getLabelFromData(this,value);
       COMPILE::JS
       {
-        element.className = "";
-        if(menuItem.isHeading){
-          textNode.className = "spectrum-Menu-sectionHeading";
-        } else {
-          element.className = "spectrum-Menu-item";
-        }
-        if(menuItem.isDivider){
-          element.className = "spectrum-Menu-divider";
-        }
-        if(menuItem.disabled){
-          element.classList.add("is-disabled");
-        }
-        if(menuItem.selected){
-          element.classList.add("is-selected");
-        }
-        textNode.text = menuItem.text;
-
-        if(menuItem.icon){
+        if(value["icon"]){
           if(!icon){
-            icon = new Icon(menuItem.icon);
+            icon = new Icon(value["icon"]);
             icon.className = "spectrum-Icon spectrum-Icon--sizeS";
             element.insertBefore(icon.getElement(),element.childNodes[0] || null);
           } else {
             icon.getElement().style.display = null;
-            icon.selector = menuItem.icon;
+            icon.selector = value["icon"];
           }
         } else if(icon){
           icon.getElement().style.display = "none";
         }
 
       }
+
     }
     private var icon:Icon;
     private var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
+      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       textNode = new TextNode("span");
       textNode.className = "spectrum-Menu-itemLabel";
       textNode.element.style.userSelect = "none";

@@ -16,6 +16,7 @@
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
+    <component id="List" class="com.unhurdle.spectrum.List"/>
     <component id="LogicButton" class="com.unhurdle.spectrum.LogicButton"/>
     <component id="Menu" class="com.unhurdle.spectrum.Menu"/>
     <component id="MenuItem" class="com.unhurdle.spectrum.data.MenuItem"/>
