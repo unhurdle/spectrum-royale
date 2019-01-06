@@ -170,9 +170,6 @@ package com.unhurdle.spectrum
   	private var rightTrack:HTMLElement;
 		COMPILE::SWF
   	private var rightTrack:Object;
-
-    private var labelNode:TextNode;
-    private var valueNode:TextNode;
 		
 		COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
