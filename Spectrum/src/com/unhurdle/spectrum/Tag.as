@@ -3,6 +3,8 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
+    import org.apache.royale.html.elements.P;
+    
   }
   public class Tag extends SpectrumBase
   {
@@ -46,7 +48,6 @@ package com.unhurdle.spectrum
         return;
       }
       COMPILE::JS{
-      
         if(value){
           if(icon){
             element.removeChild(icon.getElement());
@@ -58,12 +59,10 @@ package com.unhurdle.spectrum
             element.insertBefore(imageElement, element.childNodes[0] || null);
           }
           imageElement.src = value;
-          // elem.appendChild(img);
         }
         else if(!icon){
           icon = new Icon("#spectrum-icon-24-SentimentPositive");
           icon.className = "spectrum-Icon spectrum-Icon--sizeXS";
-          // elem.appendChild(icon.getElement());
           element.insertBefore(icon.getElement(), element.childNodes[0] || null);
         }
       }
@@ -97,15 +96,32 @@ package com.unhurdle.spectrum
       }
     	_isInvalid = value;
     }
-    public var deletable:Boolean;
-//     <div class="spectrum-Tags-item spectrum-Tags-item--deletable is-disabled" role="listitem">
-//     <span class="spectrum-Tags-itemLabel">Tag 2</span>
-//     <button class="spectrum-ClearButton spectrum-ClearButton--small" aria-label="Remove tag 3" tabindex="-1" disabled>
-//       <svg class="spectrum-Icon spectrum-UIIcon-CrossSmall" focusable="false" aria-hidden="true">
-//         <use xlink:href="#spectrum-css-icon-CrossSmall" />
-//       </svg>
-//     </button>
-//   </div>
-// </div>
+    private var _deletable:Boolean;
+
+    public function get deletable():Boolean
+    {
+    	return _deletable;
+    }
+
+    public function set deletable(value:Boolean):void
+    {
+      if(value != !!_deletable){
+        toggle("spectrum-Tags-item--deletable",value);
+        if(value){
+          COMPILE::JS{
+            var buttonElement:HTMLButtonElement;
+            buttonElement = newElement("button") as HTMLButtonElement;
+            buttonElement.className = "spectrum-ClearButton spectrum-ClearButton--small";
+            var icon:Icon = new Icon("#spectrum-css-icon-CrossSmall");
+            icon.className = "spectrum-Icon spectrum-UIIcon-CrossSmall";
+            icon.selector = "#spectrum-css-icon-CrossSmall";
+            buttonElement.appendChild(icon.getElement());
+            // icon.getElement().onclick = ;
+            element.appendChild(buttonElement);
+          }
+        }
+      }
+    	_deletable = value;
+    }
   }
 }

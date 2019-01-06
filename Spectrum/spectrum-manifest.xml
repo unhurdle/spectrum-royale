@@ -34,6 +34,11 @@
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
+	<component id="TypographyBody" class="com.unhurdle.spectrum.TypographyBody"/>
+	<component id="TypographyCode" class="com.unhurdle.spectrum.TypographyCode"/>
+	<component id="TypographyDisplay" class="com.unhurdle.spectrum.TypographyDisplay"/>
+	<component id="TypographyHan" class="com.unhurdle.spectrum.TypographyHan"/>
+	<component id="TypographyHeading" class="com.unhurdle.spectrum.TypographyHeading"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
 </componentPackage>

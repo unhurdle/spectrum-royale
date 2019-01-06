@@ -38,7 +38,6 @@ package com.unhurdle.spectrum
         {
         	return _disabled;
         }
-        // COMPILE::JS
         public function set disabled(value:Boolean):void
         {
             if(value != !!_disabled){

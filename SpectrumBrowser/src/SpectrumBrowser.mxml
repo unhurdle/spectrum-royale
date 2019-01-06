@@ -35,7 +35,6 @@
         "Three",
         "Four",
         "Five"
-
       ];
     ]]>
   </fx:Script>
@@ -52,6 +51,7 @@
     </sp:ButtonGroup>
       <sp:CycleButton play="true" pause="true"/>
       <sp:Tool />
+      <sp:Tag text="tag 1" deletable="true" />
       <!-- <sp:Alert text="Alert"/>  -->
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader label="Thingies" meter="true" value="90"/>
@@ -83,6 +83,17 @@
           </sp:dataProvider>
         </sp:Menu>
       </sp:Popover>
+      <sp:TypographyBody text="Typography Body1" size="1"/>
+      <sp:TypographyBody text="Typography Body2" size="2"/>
+      <sp:TypographyBody text="Typography Body5" size="5"/>
+      <sp:TypographyCode text="Typography Code2" size="2"/>
+      <sp:TypographyCode text="Typography Code3" size="3"/>
+      <sp:TypographyDisplay text="Typography Display1 --quiet" size="1" quiet="true"/>
+      <sp:TypographyDisplay text="Typography Display1" size="1"/>
+      <sp:TypographyDisplay text="Typography Display1 --strong" size="1" strong="true"/>
+      <sp:TypographyHeading text="Typography Heading2 --quiet" size="2" quiet="true"/>
+      <sp:TypographyHeading text="Typography Heading2 " size="2"/>
+      <sp:TypographyHeading text="Typography Heading2 --strong" size="2" strong="true"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>

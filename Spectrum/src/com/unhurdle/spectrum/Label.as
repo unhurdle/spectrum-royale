@@ -61,7 +61,7 @@ package com.unhurdle.spectrum
                 _size = value;
             }
         }
-        private var _active:Boolean;//active and inactive??? should be 2 vars or 1?
+        private var _active:Boolean;
 
         public function get active():Boolean
         {
