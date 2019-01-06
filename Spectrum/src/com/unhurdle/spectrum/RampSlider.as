@@ -1,38 +1,27 @@
 package com.unhurdle.spectrum
 {
-  COMPILE::JS{
+   COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-    COMPILE::SWF
-  public class RampSlider extends Slider{}
-  
-  COMPILE::JS
-  public class RampSlider extends Slider
+  public class RampSlider extends SliderBase
   {
     public function RampSlider()
     {
       super();
-      typeNames = "spectrum-Slider spectrum-Slider--ramp";
+      typeNames =valueToSelector("ramp");
     }
+    override protected function getSelector():String{
+      return "spectrum-Slider";
+    }
+    COMPILE::JS
+    private var handle:HTMLElement;
+    COMPILE::SWF
+    private var handle:Object;
+ 
     override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            var labelContainer:HTMLDivElement = newElement("div") as HTMLDivElement;
-            labelContainer.className = "spectrum-Slider-labelContainer";
-            var label:HTMLLabelElement = newElement("label") as HTMLLabelElement;
-            label.className = "spectrum-Slider-label";
-            label.id = "my-spectrum-Slider-label3";
-            label.setAttribute("for","my-spectrum-Slider-input3");
-            labelContainer.appendChild(label);
-            var inputValue:HTMLDivElement = newElement("div") as HTMLDivElement;
-            inputValue.className = "spectrum-Slider-value";
-            inputValue.setAttribute("role","textbox");
-            inputValue.setAttribute("aria-readonly",true);
-            inputValue.setAttribute("aria-labelledby","my-spectrum-Slider-label3");
-            labelContainer.appendChild(inputValue);
-            elem.appendChild(labelContainer);
-            var controls:HTMLDivElement = newElement("div") as HTMLDivElement;
-            controls.className = "spectrum-Slider-controls";
+        var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+        controlsContainer = newElement("div","spectrum-Slider-controls");
             var ramp:HTMLDivElement = newElement("div") as HTMLDivElement;
             ramp.className = "spectrum-Slider-ramp";
             var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
@@ -44,22 +33,63 @@ package com.unhurdle.spectrum
             svgElement.setAttribute("aria-hidden",true);
             svgElement.appendChild(pathElement);
             ramp.appendChild(svgElement);
-            controls.appendChild(ramp);
-            var handle:HTMLDivElement = newElement("div") as HTMLDivElement;
-            handle.className = "spectrum-Slider-handle";
+            controlsContainer.appendChild(ramp);
+            handle = newElement("div","spectrum-Slider-handle");
             handle.style.left = "40%"
-            var input:HTMLInputElement = newElement("input") as HTMLInputElement;
-            input.className = "spectrum-Slider-input";
-            input.id = "my-spectrum-Slider-input3";
+        input = newElement("input","spectrum-Slider-input") as HTMLInputElement;
             input.type = "range";
-            input.value = "14";
-            input.min = "10";
-            input.max = "20";
             input.step = "2";
+            input.onchange = handleChange();
             handle.appendChild(input);
-            controls.appendChild(handle);
-            elem.appendChild(controls);
+            controlsContainer.appendChild(handle);
+            elem.appendChild(controlsContainer);
+    		element.addEventListener('mousedown', onMouseDown);
             return elem;
+    }
+    override protected function positionElements():void{
+COMPILE::JS
+			{
+				var percent:Number = this.value / (max - min) * 100;
+				handle.style.left = percent + "%";
+			}
+		}
+    private function handleChange():void{
+      displayValue = true;
+			// if(valueNode){
+			// 	valueNode.text = "" + value;
+			// }
+    }
+    public function get value():Number
+    {
+    	return Number(input.value);
+    }
+
+    public function set value(value:Number):void
+    {
+			//TODO why is this a string?
+			input.value = "" + value;
+			if(parent){
+				positionElements();
+			}
+			if(valueNode){
+				valueNode.text = "" + value;
+			}
+
+    }
+    override protected function onMouseMove(e:MouseEvent):void {
+			var sliderOffsetWidth:Number = element.offsetWidth;
+			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
+
+			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+			var percent:Number = (x / sliderOffsetWidth) * 100;
+			var val:Number = (max-min) / (100/percent);
+			var stepVal:Number = step;
+			var rem:Number = val % stepVal;
+			val = val - rem;
+			if (rem > (stepVal/2)){
+		    val += stepVal;
+			}
+			value = val;
     }
   }
 }

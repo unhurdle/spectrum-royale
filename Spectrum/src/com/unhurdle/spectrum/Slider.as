@@ -223,29 +223,7 @@ package com.unhurdle.spectrum
 			value = val;
 			// value = Math.round(val * 10000)/10000;
     }
-// This should probably be a separate component
-    // private var _color:Boolean;
-    // public function get color():Boolean
-    // {
-    //     return _color;
-    // }
-    // public function set color(value:Boolean):void
-    // {
-    //     if(value != !!_color){
-    //         toggle(valueToSelector("color"),value);
-    //     }
-    //     _color = value;
-    // }
 
-    // private var _showingAlpha:Boolean;
-    // public function get showingAlpha():Boolean
-    // {
-    //     return _showingAlpha;
-    // }
-    // public function set showingAlpha(value:Boolean):void
-    // {
-    //     _showingAlpha = value;
-    // }
 
 /**
 TODO

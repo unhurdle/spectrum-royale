@@ -116,7 +116,7 @@ package com.unhurdle.spectrum
 			{
         if(!labelContainer){
             labelContainer = newElement("div","spectrum-Slider-labelContainer");
-						element.insertBefore(labelContainer,controlsContainer);
+			element.insertBefore(labelContainer,controlsContainer);
         }
         if(_label && !labelNode){
             labelNode = new TextNode("label");
@@ -155,6 +155,7 @@ package com.unhurdle.spectrum
     protected var controlsContainer:HTMLElement;
 
     protected var labelNode:TextNode;
+    
     protected var valueNode:TextNode;
 		
 
