@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
   COMPILE::JS {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import com.unhurdle.spectrum.Icon;
   }
   
   public class Alert extends SpectrumBase

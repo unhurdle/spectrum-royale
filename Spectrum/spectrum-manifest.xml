@@ -1,8 +1,10 @@
 <?xml version="1.0"?>
 <componentPackage>
-    <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/>
+    <!-- <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/> -->
+    <component id="ActionButton" class="com.unhurdle.spectrum.ActionButton"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
+    <component id="Avatar" class="com.unhurdle.spectrum.Avatar"/>
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
     <component id="Body" class="com.unhurdle.spectrum.Body"/>
@@ -21,6 +23,7 @@
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="Display" class="com.unhurdle.spectrum.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
+    <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
     <component id="Han" class="com.unhurdle.spectrum.Han"/>
@@ -35,6 +38,7 @@
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
     <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
+    <component id="Search" class="com.unhurdle.spectrum.Search"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:local="*" colorstop="dark">
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" colorstop="dark">
   <fx:Script>
     <![CDATA[
 
@@ -15,6 +15,7 @@
         alert.header = "Hey";
         alert.content = "Need some help?"
         alert.overlayAlpha = 0.4;
+       
         alert.show();
       }
       private function showToast():void{
@@ -24,6 +25,19 @@
         // toast.show();
       }
 
+      // private function handleCheckboxChange():void
+      // {
+      //   new Toast("Checkbox value: " + myCheckbox.checked).show();
+      // }
+      // [Bindable]
+      // private var listProvider:Array = [
+      //   "One",
+      //   "Two",
+      //   "Three",
+      //   "Four",
+      //   "Five"
+
+      // ];
       private function handleCheckboxChange():void
       {
         new Toast("Checkbox value: " + myCheckbox.checked).show();
@@ -48,6 +62,8 @@
   </fx:Script>
   <sp:initialView>
     <sp:View>
+  <sp:Search />
+ 
     <sp:ButtonGroup>
       <sp:Radio text="radio1" radioName="radioGroup"  />
       <sp:Radio text="radio2" radioName="radioGroup" valid="true"/>
