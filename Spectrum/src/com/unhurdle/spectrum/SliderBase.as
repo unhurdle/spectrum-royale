@@ -154,8 +154,8 @@ package com.unhurdle.spectrum
     COMPILE::JS
     protected var controlsContainer:HTMLElement;
 
-    private var labelNode:TextNode;
-    private var valueNode:TextNode;
+    protected var labelNode:TextNode;
+    protected var valueNode:TextNode;
 		
 
 		// Element interaction
