@@ -1,5 +1,6 @@
 package com.unhurdle.spectrum
 {
+  //variables in SWF - need help
   COMPILE::JS{
   import org.apache.royale.html.util.addElementToWrapper;
   import org.apache.royale.core.WrappedHTMLElement;
@@ -11,19 +12,19 @@ package com.unhurdle.spectrum
   {
     
   }
-  COMPILE::JS
+  // COMPILE::JS
   public class Accordion extends SpectrumBase
   {
-  // COMPILE::SWF
-  // private var accordionItem:HTMLDivElement;
-  // COMPILE::SWF
-  // private var headerElem:HTMLDivElement; //ability to be opened closed disabled
-  // COMPILE::SWF
-  // private var indicator:SVGElement;
-  // COMPILE::SWF
-  // private var indicatorIcon:SVGUseElement;
-  // COMPILE::SWF
-  // private var itemContent:HTMLDivElement;
+  COMPILE::SWF
+  private var accordionItem:String;
+  COMPILE::SWF
+  private var headerElem:Object; 
+  COMPILE::SWF
+  private var indicator:Object;
+  COMPILE::SWF
+  private var indicatorIcon:Object;
+  COMPILE::SWF
+  private var itemContent:String;
 
   public function Accordion()
     {
@@ -78,7 +79,7 @@ package com.unhurdle.spectrum
     _text = value;
   }
 
-      private var _status:String;
+  private var _status:String;
 
   public function get status():String
   {
@@ -139,7 +140,6 @@ public function setAccordionType(status:String):void
         element.insertBefore(accordionItem, element.childNodes[0] || null);
 
       }
-      
-}
-  }
+       }
+ }
 }
