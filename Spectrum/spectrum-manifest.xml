@@ -12,6 +12,8 @@
     <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
+    <component id="ComboBoxList" class="com.unhurdle.spectrum.ComboBoxList"/>
+    <component id="ComboBoxView" class="com.unhurdle.spectrum.ComboBoxView"/>
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
