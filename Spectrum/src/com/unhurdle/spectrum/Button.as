@@ -70,10 +70,24 @@ package com.unhurdle.spectrum
     	_icon = value;
       createIcon(value);
     }
+
+    private var _iconClass:String = "spectrum-Icon spectrum-Icon--sizeS";
+
+    public function get iconClass():String
+    {
+    	return _iconClass;
+    }
+
+    public function set iconClass(value:String):void
+    {
+    	_iconClass = value;
+      if(iconElement){
+        iconElement.className = value;
+      }
+    }
     private var iconElement:Icon;
 
     private function createIcon(selector:String):void{
-      var iconClass:String = "spectrum-Icon spectrum-Icon--sizeS";
       if(iconElement){
         iconElement.className = iconClass;
         iconElement.selector = selector;
