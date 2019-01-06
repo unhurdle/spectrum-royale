@@ -149,6 +149,17 @@ package com.unhurdle.spectrum
       }
     	_quiet = value;
     }
+
+    public function get disabled():Boolean
+    {
+      
+    	return (element as HTMLButtonElement).disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+    	(element as HTMLButtonElement).disabled = value;
+    }
     
     private var textNode:TextNode;
 
