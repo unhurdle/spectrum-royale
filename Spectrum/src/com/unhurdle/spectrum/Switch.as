@@ -10,7 +10,9 @@ package com.unhurdle.spectrum
     public function Switch()
     {
       super();
-      typeNames = "spectrum-ToggleSwitch";
+    }
+    override protected function getSelector():String{
+      return "spectrum-ToggleSwitch";
     }
     private var label:TextNode;
     COMPILE::JS
@@ -21,15 +23,14 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       input = newElement("input") as HTMLInputElement;
-      input.className = "spectrum-ToggleSwitch-input";
+      input.className = getSelector() + "-input";
       input.type = "checkbox";
       elem.appendChild(input);
-      var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
-      span.className = "spectrum-ToggleSwitch-switch";
+      var span:HTMLElement = newElement("span");
+      span.className = getSelector() + "-switch";
       elem.appendChild(span);
-      label = new TextNode("");
-      label.element = newElement("label") as HTMLLabelElement;
-      label.className = "spectrum-ToggleSwitch-label";
+      label = new TextNode("label");
+      label.className = getSelector() + "-label";
       elem.appendChild(label.element);
       return elem;
     }
@@ -72,19 +73,19 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
-    private var _blue:Boolean;
+    private var _onOff:Boolean = true;
 
-    public function get blue():Boolean
+    public function get onOff():Boolean
     {
-    	return _blue;
+    	return _onOff;
     }
 
-    public function set blue(value:Boolean):void
+    public function set onOff(value:Boolean):void
     {
-      if(!value){
-        toggle("spectrum-ToggleSwitch--ab",true);
+      if(!!value != _onOff){
+        toggle(valueToSelector("ab"),!value);
+      	_onOff = value;
       }
-    	_blue = value;
     }
     private var _quiet:Boolean;
 
@@ -96,7 +97,7 @@ package com.unhurdle.spectrum
     public function set quiet(value:Boolean):void
     {
       if(value != !!_quiet){
-          toggle("spectrum-ToggleSwitch--quiet",value);
+          toggle(valueToSelector("quiet"),value);
       }
     	_quiet = value;
     }
