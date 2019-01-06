@@ -50,5 +50,18 @@ package com.unhurdle.spectrum
          */
 		function get selectedItem():Object;
 		function set selectedItem(value:Object):void;
+
+		function get placeholder():String;
+		function set placeholder(value:String):void;
+
+		function get pattern():String;
+		function set pattern(value:String):void;
+
+		function get required():Boolean;
+		function set required(value:Boolean):void;
+
+		function get disabled():Boolean;
+		function set disabled(value:Boolean):void;
+
 	}  
 }

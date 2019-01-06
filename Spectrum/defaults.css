@@ -27,8 +27,8 @@ List
 }
 ComboBox
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ComboBoxModel");
-	IBeadView: ClassReference("org.apache.royale.html.beads.ComboBoxView");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.ComboBoxModel");
+	IBeadView: ClassReference("com.unhurdle.spectrum.ComboBoxView");
 	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ComboBoxController");
-	IPopUp: ClassReference("org.apache.royale.html.supportClasses.ComboBoxList");
+	IPopUp: ClassReference("com.unhurdle.spectrum.ComboBoxList");
 }

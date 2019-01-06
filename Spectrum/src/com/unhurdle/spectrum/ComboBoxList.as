@@ -13,10 +13,14 @@ package com.unhurdle.spectrum
     	return _list;
     }
 
+    override public function addedToParent():void{
+      super.addedToParent();
+      addElement(_list);
+    }
+
     public function set list(value:List):void
     {
     	_list = value;
     }
-
   }
 }

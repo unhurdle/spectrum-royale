@@ -25,7 +25,9 @@ package com.unhurdle.spectrum
     public function TextField()
     {
       super();
-      typeNames = "";
+    }
+    override protected function getSelector():String{
+      return "spectrum-Textfield";
     }
 
 
@@ -100,7 +102,6 @@ package com.unhurdle.spectrum
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
       input = addElementToWrapper(this,'input') as HTMLInputElement;
-      input.className = "spectrum-Textfield";
       return element;
     }
   }

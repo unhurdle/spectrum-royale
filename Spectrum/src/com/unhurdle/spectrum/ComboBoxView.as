@@ -14,15 +14,8 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.core.IChild;
 	
 	/**
-	 *  The ComboBoxView class creates the visual elements of the org.apache.royale.html.ComboBox 
-	 *  component. The job of the view bead is to put together the parts of the ComboBox such as the TextInput
-	 *  control and org.apache.royale.html.Button to trigger the pop-up.
+	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
 	 *  
-	 *  @viewbead
-	 *  @langversion 3.0
-	 *  @playerversion Flash 10.2
-	 *  @playerversion AIR 2.6
-	 *  @productversion Royale 0.0
 	 */
 	public class ComboBoxView extends BeadViewBase implements IComboBoxView
 	{
@@ -48,10 +41,10 @@ package com.unhurdle.spectrum{
 			return input;
 		}
 		
-		private var button:Button;
+		private var button:FieldButton;
 		
 		/**
-		 *  The Button component of the ComboBox.
+		 *  The FieldButton component of the ComboBox.
 		 * 
 		 *  @copy org.apache.royale.html.beads.IComboBoxView#text
 		 *
@@ -66,7 +59,7 @@ package com.unhurdle.spectrum{
 		}
 		
 		private var list:List;
-    private var _popup:Popover
+    private var _popup:ComboBoxList;
 		
 		/**
 		 *  The pop-up list component of the ComboBox.
@@ -83,6 +76,7 @@ package com.unhurdle.spectrum{
 			return list;
 		}
 		
+    private var model:IComboBoxModel;
 		/**
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.events.IEventDispatcher
@@ -97,35 +91,57 @@ package com.unhurdle.spectrum{
 			input = new TextField();
       input.className = "spectrum-InputGroup-field";
 			
-			button = new Button();
-			button.text = '\u25BC';
+			button = new FieldButton();
+      button.className = "spectrum-InputGroup-button";
+      button.icon = "#spectrum-css-icon-ChevronDownMedium";
+      button.iconClass = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon";
+
+			// if (isNaN(host.width)) input.width = 100;
 			
-			if (isNaN(host.width)) input.width = 100;
-			
-			COMPILE::JS 
-			{
+			// COMPILE::JS 
+			// {
 				// inner components are absolutely positioned so we want to make sure the host is the offset parent
-				if (!host.element.style.position)
-				{
-					host.element.style.position = "relative";
-				}
-			}
-			host.addElement(input as IChild);
-			host.addElement(button as IChild);
+				// if (!host.element.style.position)
+				// {
+				// 	host.element.style.position = "relative";
+				// }
+			// }
+			model = _strand.getBeadByType(IComboBoxModel) as IComboBoxModel;
 			
 			var popUpClass:Class = ValuesManager.valuesImpl.getValue(_strand, "iPopUp") as Class;
-			list = (new popUpClass() as ComboBoxList).list;
-			list.visible = false;
-			
-			var model:IComboBoxModel = _strand.getBeadByType(IComboBoxModel) as IComboBoxModel;
+
+			_popup = (new popUpClass() as ComboBoxList);
+			_popup.className = "spectrum-Popover--bottom";
+      list = _popup.list;
+      list.dataProvider = model.dataProvider;
+			_popup.style = {
+				"position": "absolute",
+    		"top": "100%",
+    		"left": "0",
+    		"width": "100%"
+			};
+
+			host.addElement(input as IChild);
+			host.addElement(button as IChild);
+      host.addElement(_popup);
+
 			model.addEventListener("selectedIndexChanged", handleItemChange);
 			model.addEventListener("selectedItemChanged", handleItemChange);
-			
-			IEventDispatcher(_strand).addEventListener("sizeChanged", handleSizeChange);
+			model.addEventListener("dataProviderChanged", dataProviderChangeHandler);
+      model.addEventListener("placeholderChange",handlePlaceholderChange);
+      model.addEventListener("patternChange",handlePatternChange);
+      model.addEventListener("requiredChange",handleRequiredChange);
+      model.addEventListener("disabledChange",handleDisabledChange);
+			(_strand as IEventDispatcher).addEventListener("sizeChanged",handleSizeChange);
 			
 			// set initial value and positions using default sizes
+      handlePlaceholderChange(null);
+      handlePatternChange(null);
+      handleRequiredChange(null);
+      handleDisabledChange(null);
+
 			itemChangeAction();
-			sizeChangeAction();
+			// sizeChangeAction();
 		}
 		
 		/**
@@ -156,7 +172,7 @@ package com.unhurdle.spectrum{
 		 */
 		protected function handleSizeChange(event:Event):void
 		{
-			sizeChangeAction();
+			// sizeChangeAction();
 		}
 		
 		/**
@@ -166,14 +182,27 @@ package com.unhurdle.spectrum{
 		{
 			itemChangeAction();
 		}
-		
+    protected function dataProviderChangeHandler(event:Event):void{
+      list.dataProvider = model.dataProvider;
+    }
+    protected function handlePlaceholderChange(event:Event):void{
+      input.placeholder = model.placeholder;
+    }
+    protected function handlePatternChange(event:Event):void{
+      input.pattern = model.pattern;
+    }
+    protected function handleRequiredChange(event:Event):void{
+      input.required = model.required;
+    }
+    protected function handleDisabledChange(event:Event):void{
+      button.disabled = input.disabled = model.disabled;
+    }
 		/**
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.core.IComboBoxModel
 		 */
 		protected function itemChangeAction():void
 		{
-			var model:IComboBoxModel = _strand.getBeadByType(IComboBoxModel) as IComboBoxModel;
 			input.text = getLabelFromData(model,model.selectedItem);
 		}
 		
@@ -181,35 +210,35 @@ package com.unhurdle.spectrum{
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.core.UIBase
 		 */
-		protected function sizeChangeAction():void
-		{
-			var host:ComboBox = _strand as ComboBox;
+		// protected function sizeChangeAction():void
+		// {
+		// 	var host:ComboBox = _strand as ComboBox;
 			
-			input.x = 0;
-			input.y = 0;
-			if (host.isWidthSizedToContent()) {
-				input.width = 100;
-			} else {
-				input.width = host.width - 20;
-			}
+		// 	input.x = 0;
+		// 	input.y = 0;
+		// 	if (host.isWidthSizedToContent()) {
+		// 		input.width = 100;
+		// 	} else {
+		// 		input.width = host.width - 20;
+		// 	}
 			
-			button.x = input.width;
-			button.y = 0;
-			button.width = 20;
-			button.height = input.height;
+		// 	button.x = input.width;
+		// 	button.y = 0;
+		// 	button.width = 20;
+		// 	button.height = input.height;
 			
-			COMPILE::JS {
-				input.element.style.position = "absolute";
-				button.element.style.position = "absolute";
-			}
+		// 	COMPILE::JS {
+		// 		input.element.style.position = "absolute";
+		// 		button.element.style.position = "absolute";
+		// 	}
 				
-			if (host.isHeightSizedToContent()) {
-				host.height = input.height;
-			}
-			if (host.isWidthSizedToContent()) {
-				host.width = input.width + button.width;
-			}
-		}
+		// 	if (host.isHeightSizedToContent()) {
+		// 		host.height = input.height;
+		// 	}
+		// 	if (host.isWidthSizedToContent()) {
+		// 		host.width = input.width + button.width;
+		// 	}
+		// }
 	}
 }
 

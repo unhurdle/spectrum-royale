@@ -47,7 +47,7 @@
       <sp:TextArea placeholder="enter text" multiline="true" required="true"/>
       <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" valid="false" quiet="true"/><!--indeterminate="true"-->
       <sp:ClearButton disabled="true" small="true"/>
-      <sp:ComboBox placeholder="Type here" isInvalid="true"/>
+      <sp:ComboBox placeholder="Type here" dataProvider="{listProvider}"/>
     </sp:ButtonGroup>
       <sp:CycleButton play="true" pause="true"/>
       <sp:Tool />
