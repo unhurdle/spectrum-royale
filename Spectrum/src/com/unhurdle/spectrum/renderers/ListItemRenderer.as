@@ -10,6 +10,7 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import com.unhurdle.spectrum.Application;
   }
 
   public class ListItemRenderer extends DataItemRenderer
@@ -20,7 +21,16 @@ package com.unhurdle.spectrum.renderers
       typeNames = 'spectrum-Menu-item';
     }
 		override public function updateRenderer():void{
-      // do nothing
+      COMPILE::JS
+      {
+        // Hover is handled by the css classes
+				if (selected){
+					element.style.backgroundColor = Application.getSelectionColor();
+        } else {
+          element.style.backgroundColor = null;
+        }
+
+      }
     }
 
     override public function set data(value:Object):void{
