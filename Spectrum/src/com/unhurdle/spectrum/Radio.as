@@ -3,7 +3,6 @@ package com.unhurdle.spectrum
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
-        import org.apache.royale.utils.UIDUtil;
     }
 
     public class Radio extends SpectrumBase
@@ -28,7 +27,6 @@ package com.unhurdle.spectrum
             input = newElement("input") as HTMLInputElement;
             input.className = "spectrum-Radio-input";
             input.type = "radio";
-            input.id = UIDUtil.createUID();
             elem.appendChild(input);
             var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
             span.className = "spectrum-Radio-button";

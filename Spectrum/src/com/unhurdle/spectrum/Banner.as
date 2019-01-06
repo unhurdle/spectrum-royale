@@ -11,10 +11,12 @@ package com.unhurdle.spectrum
         public function Banner()
         {
             super();
-            typeNames = "spectrum-Banner";
             type = "info";
             _header = "";
             _content = "";
+        }
+        override protected function getSelector():String{
+            return "spectrum-Banner";
         }
 
         private var _header:String;
@@ -92,16 +94,14 @@ package com.unhurdle.spectrum
                 default:
                     throw new Error("Invalid type: " + value);
                 }
-                var oldType:String = valueToCSS(_type);
-                var newType:String = valueToCSS(value);
+                var oldType:String = valueToSelector(_type);
+                var newType:String = valueToSelector(value);
                 toggle(newType, true);
                 toggle(oldType, false);
                 _type = value;
             }
         }
-        private function valueToCSS(type:String):String{
-            return "spectrum-Banner--" + type;
-        }
+
         private var _corner:Boolean;
 
         public function get corner():Boolean

@@ -13,7 +13,10 @@ package com.unhurdle.spectrum
         public function DropIndicator()
         {
             super();
-            typeNames = "spectrum-DropIndicator"
+            direction = "horizontal";
+        }
+        override protected function getSelector():String{
+            return "spectrum-DropIndicator";
         }
         
         override protected function createElement():WrappedHTMLElement{
@@ -37,15 +40,14 @@ package com.unhurdle.spectrum
                     default:
                         throw new Error("Invalid direction: " + value);
                 }
-                var oldDirection:String = valueToCSS(_direction);
-                var newDirection:String = valueToCSS(value);
+                if(_direction){
+                    var oldDirection:String = valueToSelector(_direction);
+                    toggle(oldDirection, false);
+                }
+                var newDirection:String = valueToSelector(value);
                 toggle(newDirection, true);
-                toggle(oldDirection, false);
                 _direction = value;
             }
-        }
-        private function valueToCSS(direction:String):String{
-            return "spectrum-DropIndicator--" + direction;
         }
     }
 }

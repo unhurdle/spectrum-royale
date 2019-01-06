@@ -3,8 +3,12 @@ package com.unhurdle.spectrum
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
-        import org.apache.royale.utils.UIDUtil;
     }
+    /**
+     *  Dispatched when the user checks or un-checks the CheckBox.
+     *
+     */
+	[Event(name="change", type="org.apache.royale.events.Event")]
 
     public class CheckBox extends SpectrumBase
     {
@@ -16,6 +20,13 @@ package com.unhurdle.spectrum
         COMPILE::JS
         private var input:HTMLInputElement;
 
+        COMPILE::SWF
+        private var input:Object;
+
+        private function elementClicked():void{
+            indeterminate = false;
+            checked = !checked;
+        }
         private var spanLabel:TextNode;
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
@@ -23,26 +34,18 @@ package com.unhurdle.spectrum
             input = newElement("input") as HTMLInputElement;
             input.setAttribute("type","checkbox");
             input.setAttribute("class","spectrum-Checkbox-input");
-            input.id = UIDUtil.createUID();//?? should this be uidtil ??
+            input.onclick = elementClicked;
             elem.appendChild(input);
-            // var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
-            // span = new TextNode("");
             var spanBox:HTMLSpanElement = newElement("span") as HTMLSpanElement;
             spanBox.className = "spectrum-Checkbox-box";
-            var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-            var useElement:SVGUseElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
-            useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-CheckmarkSmall');
-            svgElement.setAttribute("class","spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark");
-            svgElement.setAttribute("focusable",false);
-            svgElement.appendChild(useElement);
-            spanBox.appendChild(svgElement);
-            svgElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-            useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
-            useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '#spectrum-css-icon-DashSmall');
-            svgElement.setAttribute("class","spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark");
-            svgElement.setAttribute("focusable",false);
-            svgElement.appendChild(useElement);
-            spanBox.appendChild(svgElement);
+            var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall")
+            icon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
+            icon.selector = "#spectrum-css-icon-CheckmarkSmall";
+            spanBox.appendChild(icon.getElement());
+            icon = new Icon("#spectrum-css-icon-DashSmall");
+            icon.className = "spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark";
+            icon.selector = "#spectrum-css-icon-DashSmall";
+            spanBox.appendChild(icon.getElement());
             elem.appendChild(spanBox);
             spanLabel = new TextNode("");
             spanLabel.element = newElement("span") as HTMLSpanElement;
@@ -95,6 +98,7 @@ package com.unhurdle.spectrum
         {
             if(value != !!_indeterminate){
                 toggle("is-indeterminate",value);
+                checked = false;
             }
         	_indeterminate = value;
         }
@@ -109,15 +113,12 @@ package com.unhurdle.spectrum
         {
             if(value != !!_disabled){
                 toggle("is-disabled",value);
-                COMPILE::JS
-                {
-                    input.disabled = value;
-                }
+                input.disabled = value;
             }
         	_disabled = value;
         }
         private var _checked:Boolean;
-
+        [Bindable]
         public function get checked():Boolean
         {
         	return _checked;
@@ -126,27 +127,24 @@ package com.unhurdle.spectrum
         public function set checked(value:Boolean):void
         {
             if(value != !!_checked){
-                COMPILE::JS
-                {
-                    input.checked = value;
-
-                }
+                input.checked = value;
+                indeterminate = false;
             }
         	_checked = value;
         }
-        private var _quite:Boolean;
+        private var _quiet:Boolean;
 
-        public function get quite():Boolean
+        public function get quiet():Boolean
         {
-        	return _quite;
+        	return _quiet;
         }
 
-        public function set quite(value:Boolean):void
+        public function set quiet(value:Boolean):void
         {
-            if(value && !_quite){
+            if(value && !_quiet){
                 toggle("spectrum-Checkbox--quiet",true);
             }
-        	_quite = value;
+        	_quiet = value;
         }
     }
 }

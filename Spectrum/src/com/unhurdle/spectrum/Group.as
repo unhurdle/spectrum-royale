@@ -2,6 +2,11 @@ package com.unhurdle.spectrum
 {
   import org.apache.royale.html.Group;
   import org.apache.royale.core.CSSClassList;
+  COMPILE::JS
+  {
+    import org.apache.royale.html.util.addElementToWrapper;
+    import org.apache.royale.core.WrappedHTMLElement;
+  }
 
   public class Group extends org.apache.royale.html.Group
   {
@@ -12,6 +17,10 @@ package com.unhurdle.spectrum
       {
         classList = new CSSClassList();
       }
+      typeNames = getSelector();
+    }
+    protected function getSelector():String{
+      return "";
     }
 
     COMPILE::JS
@@ -30,6 +39,13 @@ package com.unhurdle.spectrum
     override protected function computeFinalClassNames():String
     {
       return classList.compute() + super.computeFinalClassNames();
+    }
+    protected function valueToSelector(value:String):String{
+        return getSelector() + "--" + value;
+    }
+    COMPILE::JS
+    override protected function createElement():WrappedHTMLElement{
+      return addElementToWrapper(this,'div');
     }
 
 

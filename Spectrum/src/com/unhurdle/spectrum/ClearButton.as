@@ -1,7 +1,6 @@
 package com.unhurdle.spectrum
 {
-    COMPILE::JS
-    {
+    COMPILE::JS{
         import org.apache.royale.core.WrappedHTMLElement;
         import org.apache.royale.html.util.addElementToWrapper;
     }
@@ -17,13 +16,11 @@ package com.unhurdle.spectrum
         private function setIcon(size:String):void{
             icon.selector = '#spectrum-css-icon-Cross' + size;
             icon.className = "spectrum-Icon spectrum-UIIcon-Cross" + size;
-            
         }
         private var icon:Icon;
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             button = addElementToWrapper(this,'button') as HTMLButtonElement;
-
             icon = new Icon("#spectrum-css-icon-CrossMedium");
             setIcon("Medium");
             element.appendChild(icon.getElement());

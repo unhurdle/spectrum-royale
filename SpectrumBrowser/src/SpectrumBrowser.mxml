@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum">
+  xmlns:sp="library://ns.unhurdle.com/spectrum" colorstop="dark">
   <fx:Script>
     <![CDATA[
 
@@ -23,26 +23,66 @@
         // toast.text = "Some great news here!"
         // toast.show();
       }
+
+      private function handleCheckboxChange():void
+      {
+        new Toast("Checkbox value: " + myCheckbox.checked).show();
+      }
+      [Bindable]
+      private var listProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+
+      ];
     ]]>
   </fx:Script>
   <sp:initialView>
     <sp:View>
+    <sp:ButtonGroup>
       <sp:Radio text="radio1" radioName="redio"  />
       <sp:Radio text="radio2" radioName="redio" valid="true"/>
       <sp:Label text="label" color="red" size="large" active="false"/>
       <sp:TextArea placeholder="enter text" multiline="true" required="true"/>
-      <sp:CheckBox checked="true" text="check box1" indeterminate="true" valid="false" quite="true"/>
+      <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" valid="false" quiet="true"/><!--indeterminate="true"-->
       <sp:ClearButton disabled="true" small="true"/>
+      <sp:ComboBox placeholder="Type here" isInvalid="true"/>
+    </sp:ButtonGroup>
+      <sp:CycleButton play="true" pause="true"/>
+      <sp:Tool />
       <!-- <sp:Alert text="Alert"/>  -->
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader label="Thingies" meter="true" value="90"/>
       <sp:CircleLoader/>
+      <sp:Well/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:ButtonGroup/>
       <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark/>
       <sp:Dial/>
       <sp:DropIndicator/>
+      <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
+      <sp:List dataProvider="{listProvider}"/>
+      <sp:Popover open="true" relativePosition="true">
+        <sp:Menu>
+          <sp:dataProvider>
+          <fx:Array>
+            <sp:MenuItem text="Category One" isHeading="true"/>
+            <sp:MenuItem text="Item One"/>
+            <sp:MenuItem text="Item Two"/>
+            <sp:MenuItem text="Item Three" selected="true"/>
+            <sp:MenuItem isDivider="true"/>
+            <sp:MenuItem text="Category Two" isHeading="true"/>
+            <sp:MenuItem text="Item One"/>
+            <sp:MenuItem text="Item Two"/>
+            <sp:MenuItem text="Item Three" disabled="true"/>
+            
+          </fx:Array>
+          </sp:dataProvider>
+        </sp:Menu>
+      </sp:Popover>
     </sp:View>
   </sp:initialView>  
 </sp:Application>

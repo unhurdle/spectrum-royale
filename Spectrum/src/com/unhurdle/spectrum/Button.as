@@ -33,14 +33,13 @@ package com.unhurdle.spectrum
     public function Button()
     {
       super();
-      _flavor = "primary";
-      typeNames = "spectrum-Button";
-      toggle("spectrum-Button--primary",true);
+      flavor = "primary";
       _text = "";
     }
-    private function valueToCSS(value:String):String{
-        return "spectrum-Button--" + value;
+    override protected function getSelector():String{
+      return "spectrum-Button";
     }
+
 
     private var _text:String;
 
@@ -113,10 +112,10 @@ package com.unhurdle.spectrum
             throw new Error("Unexpected flavor: " + value);
         }
         if(_flavor){
-          var oldSelector:String = valueToCSS(_flavor);
+          var oldSelector:String = valueToSelector(_flavor);
           toggle(oldSelector,false);
         }
-        var newSelector:String = valueToCSS(value);
+        var newSelector:String = valueToSelector(value);
         toggle(newSelector,true);
       }
     	_flavor = value;
@@ -132,7 +131,7 @@ package com.unhurdle.spectrum
     public function set quiet(value:Boolean):void
     {
       if(_quiet != value){
-        toggle("spectrum-Button--quiet",value);
+        toggle(valueToSelector("quiet"),value);
       }
     	_quiet = value;
     }
@@ -143,7 +142,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       addElementToWrapper(this,'button');
       textNode = new TextNode("span");
-      textNode.className = "spectrum-Button-label";
+      textNode.className = getSelector() + "-label";
       element.appendChild(textNode.element);
       return element;
     }

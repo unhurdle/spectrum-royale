@@ -11,8 +11,11 @@ package com.unhurdle.spectrum
         public function Label()
         {
             super();
-            typeNames = "spectrum-Label";
         }
+        override protected function getSelector():String{
+          return "spectrum-Label";
+        }
+
         private var _color:String;
 
         public function get color():String
@@ -23,17 +26,14 @@ package com.unhurdle.spectrum
         public function set color(value:String):void
         {
             if(value != _color){
-                var newColor:String = valueToCSS(value);
+                var newColor:String = valueToSelector(value);
                 toggle(newColor, true);
                 if(_color){
-                    var oldColor:String = valueToCSS(_color);
+                    var oldColor:String = valueToSelector(_color);
                     toggle(oldColor, false);
                 }
                 _color = value;
             }
-        }
-        private function valueToCSS(value:String):String{
-            return "spectrum-Label--" + value;
         }
         private var _size:String;
 
@@ -52,10 +52,10 @@ package com.unhurdle.spectrum
                     default:
                         throw new Error("Invalid scale: " + value);
                 }
-                var newScale:String = valueToCSS(value);
+                var newScale:String = valueToSelector(value);
                 toggle(newScale, true);
                 if(_size){
-                    var oldScale:String = valueToCSS(_size);
+                    var oldScale:String = valueToSelector(_size);
                     toggle(oldScale, false);
                 }
                 _size = value;

@@ -5,21 +5,23 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-    COMPILE::SWF
-    public class Dial extends SpectrumBase{}
-    COMPILE::JS
+
     public class Dial extends SpectrumBase
     {
         public function Dial()
         {
             super();
-            typeNames = "spectrum-Dial"
         }
+
+        override protected function getSelector():String{
+            return "spectrum-Dial";
+        }
+
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
             if(_withLabel){
-                var labelContainer:HTMLDivElement = newElement("div") as HTMLDivElement;
-                labelContainer.className = "spectrum-Dial-labelContainer";
+                var labelContainer:HTMLElement = newElement("div","spectrum-Dial-labelContainer");
                 var label:HTMLLabelElement = newElement("label") as HTMLLabelElement;
                 label.className = "spectrum-Dial-label";
                 label.id = "dialLabel";
@@ -69,8 +71,8 @@ package com.unhurdle.spectrum
                 default:
                     throw new Error("Invalid size: " + value);
                 }
-                var oldSize:String = valueToCSS(_size);
-                var newSize:String = valueToCSS(value);
+                var oldSize:String = valueToSelector(_size);
+                var newSize:String = valueToSelector(value);
                 toggle(newSize, true);
                 toggle(oldSize, false);
                 _size = value;
@@ -96,12 +98,9 @@ package com.unhurdle.spectrum
         public function set isDisabled(value:Boolean):void
         {
             if(value != !!_isDisabled){
-                toggle(valueToCSS("is-disabled"),value);
+                toggle(valueToSelector("is-disabled"),value);
             }
             _isDisabled = value;
-        }
-        private function valueToCSS(value:String):String{
-            return "spectrum-CoachMarkIndicator--" + value;
         }
     }
 }

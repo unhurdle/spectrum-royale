@@ -25,10 +25,12 @@ package com.unhurdle.spectrum
 // </div>
     public function Alert(){
       super();
-      typeNames = "spectrum-Alert";
       visible = false;
       modal = new ModalDisplay();
       addBead(modal);
+    }
+    override protected function getSelector():String{
+      return "spectrum-Alert";
     }
 
     private var _overlayColor:String;
@@ -120,7 +122,7 @@ package com.unhurdle.spectrum
 
     private var contentNode:TextNode;
 
-    private var button:TextNode; //use the spectrum button? //eventually
+    private var button:Button;
     
     private var icon:Icon;
     
@@ -163,13 +165,13 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-
+      var baseSelector:String = getSelector();
       headerNode = new TextNode("div");
-      headerNode.className = "spectrum-Alert-header";
+      headerNode.className = baseSelector + "-header";
       elem.appendChild(headerNode.element);
 
       contentNode = new TextNode("div");
-      contentNode.className = "spectrum-Alert-content";
+      contentNode.className = baseSelector + "-content";
       elem.appendChild(contentNode.element);
 
       return elem;
@@ -180,9 +182,9 @@ package com.unhurdle.spectrum
       {
         if(!button){
           var footer:HTMLElement = newElement('div');
-          footer.className = "spectrum-Alert-footer";
-          button = new TextNode("button");
-          button.className = "spectrum-Button spectrum-Button--primary spectrum-Button--quiet";
+          footer.className = getSelector() + "-footer";
+          button = new Button();
+          button.quiet = true;
           button.element.onclick = hide;
           footer.appendChild(button.element);
           element.appendChild(footer);
@@ -230,19 +232,15 @@ package com.unhurdle.spectrum
               throw new Error("Invalid status: " + value);
           }
           if(_status){
-            var oldStatus:String = valueToCSS(_status);
+            var oldStatus:String = valueToSelector(_status);
             toggle(oldStatus, false);
           }
-          var newStatus:String = valueToCSS(value);
+          var newStatus:String = valueToSelector(value);
           toggle(newStatus, true);
           createIcon(value);
         }
       }
       _status = value;
     }
-    COMPILE::JS
-    private function valueToCSS(status:String):String{
-      return "spectrum-Alert--" + status;
-    }   
   }
 }

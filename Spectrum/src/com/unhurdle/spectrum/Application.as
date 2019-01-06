@@ -13,6 +13,20 @@ package com.unhurdle.spectrum
     public static function get current():com.unhurdle.spectrum.Application{
       return _current;
     }
+    public static function getSelectionColor():String{
+      // This is the "blue-500" value
+      switch(current.colorstop){
+          case "light":
+            return "#1473e6";
+          case "lightest":
+            return "#2680eb";
+          case "dark":
+            return "#378ef0";
+          case "darkest":
+            return "#2680eb";
+      }
+      return "#0";
+    }
     public function Application()
     {
       super();
@@ -69,8 +83,8 @@ package com.unhurdle.spectrum
       	_colorstop = value;
       }
     }
-    private function valueToCSS(stop:String):String{
-      return "spectrum--" + stop;
+    private function valueToCSS(value:String):String{
+      return "spectrum--" + value;
     }
 
     private var _appScale:String;

@@ -12,19 +12,34 @@
     <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
+    <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
+    <component id="Link" class="com.unhurdle.spectrum.Link"/>
+    <component id="List" class="com.unhurdle.spectrum.List"/>
     <component id="LogicButton" class="com.unhurdle.spectrum.LogicButton"/>
+    <component id="Menu" class="com.unhurdle.spectrum.Menu"/>
+    <component id="MenuItem" class="com.unhurdle.spectrum.data.MenuItem"/>
+    <component id="MenuView" class="com.unhurdle.spectrum.MenuView"/>
+    <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
+    <component id="Rule" class="com.unhurdle.spectrum.Rule"/>
+    <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
+    <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="SliderWithTracks" class="com.unhurdle.spectrum.SliderWithTracks"/>
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
     <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
+    <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
+    <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
+    <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
+	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
+	<component id="Well" class="com.unhurdle.spectrum.Well"/>
 </componentPackage>
