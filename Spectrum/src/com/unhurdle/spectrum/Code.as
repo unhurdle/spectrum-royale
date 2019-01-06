@@ -2,6 +2,7 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
   }
 
   public class Code extends Typography
@@ -10,20 +11,17 @@ package com.unhurdle.spectrum
     {
       super();
     }
+    override protected function getTypographySelector():String{
+      return "spectrum-Code";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      return super.createElement();
+      addElementToWrapper(this,"code");
+      textNode = new TextNode("");
+      textNode.element = element;
+      return element;
     }
-    override public function set size(value:Number):void{
-      super.size = value;
-      switch(value){
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-        case 5:toggle("spectrum-Code"+value,true);
-          break;
-      }
-    }
+
   }
 }

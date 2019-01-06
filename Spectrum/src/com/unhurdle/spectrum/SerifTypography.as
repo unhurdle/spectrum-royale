@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum
 {
-  public class SerifTypography extends Group
+  public class SerifTypography extends TypographyGroup
   {
     public function SerifTypography()
     {

@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum
 {
-  public class SpacedTypography extends Group
+  public class SpacedTypography extends TypographyGroup
   {
     public function SpacedTypography()
     {

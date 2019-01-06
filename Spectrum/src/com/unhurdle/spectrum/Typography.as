@@ -16,34 +16,49 @@ package com.unhurdle.spectrum
     {
       super();
     }
-    private var _flavor:String;
-
-    public function get flavor():String
-    {
-    	return _flavor;
+    protected function getTypographySelector():String{
+      return "";
+    }
+    override protected function getSelector():String{
+      var sizeStr:String = size ? "" + size : "";
+      var suffix:String = "";
+      if(quiet){
+        suffix = "--quiet";
+      } else if(strong){
+        suffix = "--strong";
+      }
+      return getTypographySelector() + size + suffix;
     }
 
-    public function set flavor(value:String):void
-    {
-      if(value != _flavor){
-        if(_flavor){
-          toggle(valueToSelector(_flavor),false);
-        }
-        if(value == "normal"){
-          // no selector
-          return;
-        }
+    private var _quiet:Boolean;
 
+    public function get quiet():Boolean
+    {
+    	return _quiet;
+    }
+
+    public function set quiet(value:Boolean):void
+    {
+      if(value != !!_quiet){
+        _strong = false;
+      	_quiet = value;
+        setTypeNames();
       }
-      switch(value){
-        case "strong":
-        case "quiet":
-          break;
-        default:
-          throw new Error("invalid flavor: " + value);
+    }
+    private var _strong:Boolean;
+
+    public function get strong():Boolean
+    {
+    	return _strong;
+    }
+
+    public function set strong(value:Boolean):void
+    {
+      if(value != !!_strong){
+      	_strong = value;
+        _quiet = false;
+        setTypeNames();
       }
-      toggle(valueToSelector(value),false);
-    	_flavor = value;
     }
 
     public function get text():String
@@ -65,21 +80,23 @@ package com.unhurdle.spectrum
     public function set size(value:Number):void
     {
       if(value != _size){
-        switch(value){
-          case 1:
-          case 2:
-          case 3:
-          case 4:
-          case 5:
-            break;
-          default:
-            throw new Error("Invalid scale: " + value);
-        }
+        value = Math.min(value,5);
+        value = Math.max(value,1);
+        value = Math.round(value);
+      	_size = value;
+        setTypeNames();
       }
-    	_size = value;
     }
 
-    private var textNode:TextNode;
+    protected function setTypeNames():void{
+      typeNames = getSelector();
+      COMPILE::JS
+      {
+        setClassName(computeFinalClassNames());
+      }
+    }
+
+    protected var textNode:TextNode;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{

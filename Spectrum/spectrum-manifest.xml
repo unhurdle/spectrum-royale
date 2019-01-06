@@ -46,6 +46,7 @@
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
 	<component id="Tooltip" class="com.unhurdle.spectrum.Tooltip"/>
+    <component id="TypographyGroup" class="com.unhurdle.spectrum.TypographyGroup"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
 </componentPackage>
