@@ -42,8 +42,7 @@
   </fx:Script>
   <sp:initialView>
     <sp:View>
-    <sp:Avatar source="assets\icons\avatar.jpg"/>
-    <!-- <sp:DropZone /> -->
+  <sp:Search />
  
     </sp:View>
   </sp:initialView>  
