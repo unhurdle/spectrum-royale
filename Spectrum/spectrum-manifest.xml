@@ -26,7 +26,6 @@
     <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
-    <component id="Han" class="com.unhurdle.spectrum.Han"/>
     <component id="Heading" class="com.unhurdle.spectrum.Heading"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
