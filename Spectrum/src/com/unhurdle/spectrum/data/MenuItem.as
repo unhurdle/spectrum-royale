@@ -18,6 +18,9 @@ package com.unhurdle.spectrum.data
     {
     	_text = value;
     }
+    public function get label():String{
+      return _text;
+    }
     private var _selected:Boolean;
 
     public function get selected():Boolean

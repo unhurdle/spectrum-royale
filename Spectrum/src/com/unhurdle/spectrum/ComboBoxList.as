@@ -4,11 +4,11 @@ package com.unhurdle.spectrum
   {
     public function ComboBoxList()
     {
-      _list = new List();
+      _list = new Menu();
     }
-    private var _list:List;
+    private var _list:Menu;
 
-    public function get list():List
+    public function get list():Menu
     {
     	return _list;
     }
@@ -18,7 +18,7 @@ package com.unhurdle.spectrum
       addElement(_list);
     }
 
-    public function set list(value:List):void
+    public function set list(value:Menu):void
     {
     	_list = value;
     }

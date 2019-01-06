@@ -36,6 +36,14 @@
         "Four",
         "Five"
       ];
+      [Bindable]
+      private var comboProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ];
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -47,7 +55,7 @@
       <sp:TextArea placeholder="enter text" multiline="true" required="true"/>
       <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" valid="false" quiet="true"/><!--indeterminate="true"-->
       <sp:ClearButton disabled="true" small="true"/>
-      <sp:ComboBox placeholder="Type here" dataProvider="{listProvider}"/>
+      <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/>
     </sp:ButtonGroup>
       <sp:CycleButton play="true" pause="true"/>
       <sp:Tool />

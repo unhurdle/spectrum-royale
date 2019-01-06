@@ -30,7 +30,6 @@ package com.unhurdle.spectrum
       return "spectrum-Textfield";
     }
 
-
     public function get placeholder():String
     {
     	return input.placeholder;
@@ -38,7 +37,11 @@ package com.unhurdle.spectrum
 
     public function set placeholder(value:String):void
     {
-    	input.placeholder = value;
+      if(value){
+      	input.placeholder = value;
+      } else {
+        input.removeAttribute("placeholder");
+      }
     }
 
     public function get name():String
@@ -58,21 +61,32 @@ package com.unhurdle.spectrum
 
     public function set text(value:String):void
     {
-    	input.value = value;
+      if(value){
+      	input.value = value;
+      } else {
+        input.value = "";
+      }
     }
 
     private var _pattern:String;
 
     public function get pattern():String
     {
-    	return input.pattern;
+    	return _pattern;
     }
 
     public function set pattern(value:String):void
     {
-    	input.pattern = value;
+      if(value != _pattern){
+        if(value){
+          input.pattern = value;
+        } else {
+          input.removeAttribute("pattern")
+        }
+      }
+      _pattern = value;
     }
-
+    private var _required:Boolean;
     public function get required():Boolean
     {
     	return input.required;
@@ -80,7 +94,10 @@ package com.unhurdle.spectrum
 
     public function set required(value:Boolean):void
     {
-    	input.required = value;
+      if(!!value != !!_required){
+      	input.required = value;
+      }
+      _required = value;
     }
 
     private var _disabled:Boolean;
@@ -92,7 +109,7 @@ package com.unhurdle.spectrum
 
     public function set disabled(value:Boolean):void
     {
-      if(value != _disabled){
+      if(!!value != !!_disabled){
         input.disabled = value;
       }
       _disabled = value;

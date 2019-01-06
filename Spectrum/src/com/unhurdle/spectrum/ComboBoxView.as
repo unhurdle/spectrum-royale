@@ -58,7 +58,7 @@ package com.unhurdle.spectrum{
 			return button;
 		}
 		
-		private var list:List;
+		private var list:Menu;
     private var _popup:ComboBoxList;
 		
 		/**
