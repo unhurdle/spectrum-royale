@@ -152,13 +152,21 @@ package com.unhurdle.spectrum
 
     public function get disabled():Boolean
     {
-      
-    	return (element as HTMLButtonElement).disabled;
+      COMPILE::JS
+      {
+      	return (element as HTMLButtonElement).disabled;
+      }
+      COMPILE::SWF{
+        return false;
+      }
     }
 
     public function set disabled(value:Boolean):void
     {
-    	(element as HTMLButtonElement).disabled = value;
+      COMPILE::JS
+      {
+      	(element as HTMLButtonElement).disabled = value;
+      }
     }
     
     private var textNode:TextNode;
