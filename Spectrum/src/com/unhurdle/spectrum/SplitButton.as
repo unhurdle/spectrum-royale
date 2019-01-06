@@ -11,31 +11,33 @@ package com.unhurdle.spectrum
     public function SplitButton()
     {
       super();
-      typeNames = "spectrum-SplitButton"
+      _type = "primary";
     }
-    private var actionButton:HTMLButtonElement;
-    private var triggerButton:HTMLButtonElement;
+    override protected function getSelector():String{
+      return "spectrum-SplitButton";
+    }
+    private var actionButton:Button;
+    private var triggerButton:Button;
 
-    override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      actionButton = newElement('button') as HTMLButtonElement;
-      actionButton.className = "spectrum-Button spectrum-Button--cta spectrum-SplitButton-action"
-      triggerButton = newElement('button') as HTMLButtonElement;
-      triggerButton.className = "spectrum-Button spectrum-Button--cta spectrum-SplitButton-trigger";
-      var icon:Icon = new Icon("#spectrum-css-icon-ChevronDownMedium")
-      icon.className = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-SplitButton-icon";
-      icon.selector = "#spectrum-css-icon-ChevronDownMedium";
-      triggerButton.appendChild(icon.getElement());
+    override public function addedToParent():void{
+      super.addedToParent();
+      actionButton = new Button();
+      actionButton.className = getSelector() + "-action";
+      actionButton.flavor = _type;
+      triggerButton = new Button();
+      triggerButton.className = getSelector() + "-trigger";
+      triggerButton.flavor = _type;
+      triggerButton.icon = "#spectrum-css-icon-ChevronDownMedium";
+      triggerButton.iconClass = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-SplitButton-icon";
       if(_left){
-        elem.appendChild(triggerButton);
-        elem.appendChild(actionButton);
+        addElement(triggerButton);
+        addElement(actionButton);
+      } else {
+        addElement(actionButton);
+        addElement(triggerButton);
       }
-      else{
-        elem.appendChild(actionButton);
-        elem.appendChild(triggerButton);
-      }
-      return elem;
     }
+
     private var _type:String;
 
     public function get type():String
@@ -55,12 +57,12 @@ package com.unhurdle.spectrum
           default:
               throw new Error("Invalid type: " + value);
         }
-        var oldType:String = valueToCSS(_type);
-        var newType:String = valueToCSS(value);
-        actionButton.classList.add(newType);
-        triggerButton.classList.add(newType);
-        actionButton.classList.remove(oldType);
-        triggerButton.classList.remove(oldType);
+        if(actionButton){
+          actionButton.flavor = value;
+        }
+        if(triggerButton){
+          triggerButton.flavor = value;
+        }
         _type = value;
       }
     }
@@ -75,13 +77,11 @@ package com.unhurdle.spectrum
     public function set left(value:Boolean):void
     {
       if(value != !!_left){
-        toggle("spectrum-SplitButton--left",value);
+        toggle(valueToSelector("left"),value);
       }
     	_left = value;
     }
     
-    private function valueToCSS(value:String):String{
-      return "spectrum-Button--" + value;
-    }
+    //TODO add dataProvider and menu
   }
 }

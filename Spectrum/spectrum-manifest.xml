@@ -37,15 +37,14 @@
     <component id="MenuView" class="com.unhurdle.spectrum.MenuView"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
-    <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
-    <component id="Rule" class="com.unhurdle.spectrum.Rule"/>
+    <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->
+    <!-- <component id="Rule" class="com.unhurdle.spectrum.Rule"/> -->
     <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
     <component id="Search" class="com.unhurdle.spectrum.Search"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
-    <component id="SliderWithTracks" class="com.unhurdle.spectrum.SliderWithTracks"/>
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
-    <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
+    <!-- <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/> -->
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
