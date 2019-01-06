@@ -1,6 +1,8 @@
 package com.unhurdle.spectrum
 {
-  public class Popover extends Group
+  import org.apache.royale.core.IPopUp;
+
+  public class Popover extends Group implements IPopUp
   {
     public function Popover()
     {

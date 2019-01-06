@@ -56,6 +56,29 @@ package com.unhurdle.spectrum
     	textNode.text = value;
     }
 
+    private var _size:Number;
+
+    public function get size():Number
+    {
+    	return _size;
+    }
+    public function set size(value:Number):void
+    {
+      if(value != _size){
+        switch(value){
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+          case 5:
+            break;
+          default:
+            throw new Error("Invalid scale: " + value);
+        }
+      }
+    	_size = value;
+    }
+
     private var textNode:TextNode;
 
     COMPILE::JS

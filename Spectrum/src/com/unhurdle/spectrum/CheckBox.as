@@ -53,8 +53,6 @@ package com.unhurdle.spectrum
             if(!_text){
                 _text = "";
             }
-            // textNode = newTextNode(_text);
-            // span.element.appendChild(textNode);
             elem.appendChild(spanLabel.element);
             return elem;
         }
@@ -69,7 +67,6 @@ package com.unhurdle.spectrum
         {
             if(_text != value){
                 spanLabel.text = value;
-                // textNode.nodeValue = value;
             }
             _text = value;
         }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" colorstop="dark">
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:local="*" colorstop="dark">
   <fx:Script>
     <![CDATA[
 
@@ -35,7 +35,6 @@
         "Three",
         "Four",
         "Five"
-
       ];
     ]]>
   </fx:Script>
@@ -52,6 +51,7 @@
     </sp:ButtonGroup>
       <sp:CycleButton play="true" pause="true"/>
       <sp:Tool />
+      <sp:Tag text="tag 1" deletable="true" />
       <!-- <sp:Alert text="Alert"/>  -->
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader label="Thingies" meter="true" value="90"/>
@@ -83,6 +83,23 @@
           </sp:dataProvider>
         </sp:Menu>
       </sp:Popover>
+      <sp:Switch text="Toggle 1" checked="true" blue="false"/>
+      <sp:Switch text="Toggle On" checked="true"/>
+      <sp:Switch text="Toggle On" checked="true" quiet="true"/>
+      <sp:Tooltip text="Label"/>
+      <sp:Tooltip text="Label info with icon" info="true" infoIcon="true"/>
+      <sp:Tooltip text="Label positive with icon" positive="true" positiveIcon="true"/>
+      <sp:Body text=" Body1" size="1"/>
+      <sp:Body text=" Body2" size="2"/>
+      <sp:Body text=" Body5" size="5"/>
+      <sp:Code text=" Code2" size="2"/>
+      <sp:Code text=" Code3" size="3"/>
+      <sp:Display text=" Display1 --quiet" size="1" quiet="true"/>
+      <sp:Display text=" Display1" size="1"/>
+      <sp:Display text=" Display1 --strong" size="1" strong="true"/>
+      <sp:Heading text=" Heading2 --quiet" size="2" quiet="true"/>
+      <sp:Heading text=" Heading2 " size="2"/>
+      <sp:Heading text=" Heading2 --strong" size="2" strong="true"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
