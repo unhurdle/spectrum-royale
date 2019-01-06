@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum">
+  xmlns:sp="library://ns.unhurdle.com/spectrum" colorstop="dark">
   <fx:Script>
     <![CDATA[
 
@@ -28,6 +28,15 @@
       {
         new Toast("Checkbox value: " + myCheckbox.checked).show();
       }
+      [Bindable]
+      private var listProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+
+      ];
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -55,6 +64,7 @@
       <sp:Dial/>
       <sp:DropIndicator/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
+      <sp:List dataProvider="{listProvider}"/>
       <sp:Popover open="true" relativePosition="true">
         <sp:Menu>
           <sp:dataProvider>

@@ -15,7 +15,7 @@ package com.unhurdle.spectrum
     }
     public static function getSelectionColor():String{
       // This is the "blue-500" value
-      switch(current().colorstop){
+      switch(current.colorstop){
           case "light":
             return "#1473e6";
           case "lightest":

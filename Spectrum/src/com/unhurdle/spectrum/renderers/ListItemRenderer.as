@@ -26,8 +26,10 @@ package com.unhurdle.spectrum.renderers
         // Hover is handled by the css classes
 				if (selected){
 					element.style.backgroundColor = Application.getSelectionColor();
+          element.style.color = "#FFFFFF";
         } else {
           element.style.backgroundColor = null;
+          element.style.color = null
         }
 
       }
