@@ -4,9 +4,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
 
-  public class TypographyDisplay extends Typography
+  public class Heading extends Typography
   {
-    public function TypographyDisplay()
+    public function Heading()
     {
       super();
     }
@@ -21,7 +21,7 @@ package com.unhurdle.spectrum
         case 2:
         case 3:
         case 4:
-        case 5:toggle("spectrum-Heading"+value+"--display",true);
+        case 5:toggle("spectrum-Heading"+value,true);
           break;
       }
     }
@@ -36,9 +36,10 @@ package com.unhurdle.spectrum
     {
       if(value != !!_quiet){
         var theSize:Number = super.size;
-        if(theSize){
-          toggle("spectrum-Heading"+theSize+"--quiet",value)
-        }
+        if(theSize && value){
+         toggle("spectrum-Heading"+theSize,false);
+         toggle("spectrum-Heading"+theSize+"--quiet",true);
+       }
       }
     	_quiet = value;
     }
@@ -53,8 +54,9 @@ package com.unhurdle.spectrum
     {
       if(value != !!_strong){
         var theSize:Number = super.size;
-        if(theSize){
-          toggle("spectrum-Heading"+theSize+"--strong",value)
+        if(theSize && value){
+          toggle("spectrum-Heading"+theSize,false);
+          toggle("spectrum-Heading"+theSize+"--strong",true);
         }
       }
     	_strong = value;

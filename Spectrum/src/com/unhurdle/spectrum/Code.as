@@ -4,9 +4,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
 
-  public class TypographyBody extends Typography
+  public class Code extends Typography
   {
-    public function TypographyBody()
+    public function Code()
     {
       super();
     }
@@ -21,7 +21,7 @@ package com.unhurdle.spectrum
         case 2:
         case 3:
         case 4:
-        case 5:toggle("spectrum-Body"+value,true);
+        case 5:toggle("spectrum-Code"+value,true);
           break;
       }
     }

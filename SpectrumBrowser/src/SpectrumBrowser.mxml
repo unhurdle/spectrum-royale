@@ -86,17 +86,20 @@
       <sp:Switch text="Toggle 1" checked="true" blue="false"/>
       <sp:Switch text="Toggle On" checked="true"/>
       <sp:Switch text="Toggle On" checked="true" quiet="true"/>
-      <sp:TypographyBody text="Typography Body1" size="1"/>
-      <sp:TypographyBody text="Typography Body2" size="2"/>
-      <sp:TypographyBody text="Typography Body5" size="5"/>
-      <sp:TypographyCode text="Typography Code2" size="2"/>
-      <sp:TypographyCode text="Typography Code3" size="3"/>
-      <sp:TypographyDisplay text="Typography Display1 --quiet" size="1" quiet="true"/>
-      <sp:TypographyDisplay text="Typography Display1" size="1"/>
-      <sp:TypographyDisplay text="Typography Display1 --strong" size="1" strong="true"/>
-      <sp:TypographyHeading text="Typography Heading2 --quiet" size="2" quiet="true"/>
-      <sp:TypographyHeading text="Typography Heading2 " size="2"/>
-      <sp:TypographyHeading text="Typography Heading2 --strong" size="2" strong="true"/>
+      <sp:Tooltip text="Label"/>
+      <sp:Tooltip text="Label info with icon" info="true" infoIcon="true"/>
+      <sp:Tooltip text="Label positive with icon" positive="true" positiveIcon="true"/>
+      <sp:Body text=" Body1" size="1"/>
+      <sp:Body text=" Body2" size="2"/>
+      <sp:Body text=" Body5" size="5"/>
+      <sp:Code text=" Code2" size="2"/>
+      <sp:Code text=" Code3" size="3"/>
+      <sp:Display text=" Display1 --quiet" size="1" quiet="true"/>
+      <sp:Display text=" Display1" size="1"/>
+      <sp:Display text=" Display1 --strong" size="1" strong="true"/>
+      <sp:Heading text=" Heading2 --quiet" size="2" quiet="true"/>
+      <sp:Heading text=" Heading2 " size="2"/>
+      <sp:Heading text=" Heading2 --strong" size="2" strong="true"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
