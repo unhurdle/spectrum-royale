@@ -29,6 +29,6 @@ ComboBox
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ComboBoxModel");
 	IBeadView: ClassReference("com.unhurdle.spectrum.ComboBoxView");
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ComboBoxController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.ComboBoxController");
 	IPopUp: ClassReference("com.unhurdle.spectrum.ComboBoxList");
 }

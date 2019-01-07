@@ -16,6 +16,7 @@
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
     <component id="Code" class="com.unhurdle.spectrum.Code"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
+    <component id="ComboBoxController" class="com.unhurdle.spectrum.ComboBoxController"/>
     <component id="ComboBoxList" class="com.unhurdle.spectrum.ComboBoxList"/>
     <component id="ComboBoxModel" class="com.unhurdle.spectrum.ComboBoxModel"/>
     <component id="ComboBoxView" class="com.unhurdle.spectrum.ComboBoxView"/>

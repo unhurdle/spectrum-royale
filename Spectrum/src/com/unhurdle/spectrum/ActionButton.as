@@ -210,6 +210,11 @@ package com.unhurdle.spectrum
 			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
 			popupHost.popUpParent.addElement(popup);
       popup.open = true;
+			popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			this.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			callLater(function():void {
+				popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+			});
     }
     private var menu:Menu;
     private var popup:ComboBoxList;
@@ -223,31 +228,19 @@ package com.unhurdle.spectrum
 			event.stopImmediatePropagation();
 		}
 		
-		protected function handlePopupShow(event:Event):void
-		{
-			popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-			this.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-			callLater(function():void {
-				popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-			});
-		}
-		
 		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
 		{
       closePopup();
 		}
     private function closePopup():void{
       if(popup && popup.open){
+  			popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+		  	popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         UIUtils.removePopUp(popup);
         popup.open = false;
       }
     }
 		
-		protected function handlePopupHide(event:Event):void
-		{
-			popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-			this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-			popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-		}
   }
 }

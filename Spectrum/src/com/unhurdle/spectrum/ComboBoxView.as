@@ -12,6 +12,8 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.html.beads.IComboBoxView;
 	import org.apache.royale.html.util.getLabelFromData;
 	import org.apache.royale.core.IChild;
+	import org.apache.royale.utils.callLater;
+	import org.apache.royale.events.MouseEvent;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -113,17 +115,18 @@ package com.unhurdle.spectrum{
 			_popup = (new popUpClass() as ComboBoxList);
 			_popup.className = "spectrum-Popover--bottom";
       list = _popup.list;
-      list.dataProvider = model.dataProvider;
-			_popup.style = {
-				"position": "absolute",
-    		"top": "100%",
-    		"left": "0",
-    		"width": "100%"
-			};
+      // list.dataProvider = model.dataProvider;
+			list.model = model;
+			// _popup.style = {
+			// 	"position": "absolute",
+    	// 	"top": "100%",
+    	// 	"left": "0",
+    	// 	"width": "100%"
+			// };
 
 			host.addElement(input as IChild);
 			host.addElement(button as IChild);
-      host.addElement(_popup);
+      // host.addElement(_popup);
 
 			model.addEventListener("selectedIndexChanged", handleItemChange);
 			model.addEventListener("selectedItemChanged", handleItemChange);
@@ -164,9 +167,49 @@ package com.unhurdle.spectrum{
 		 */
 		public function set popUpVisible(value:Boolean):void
 		{
-      _popup.open = value;
+			if(value){
+				var origin:Point = new Point(0, host.height - 6);
+				var relocated:Point = PointUtils.localToGlobal(origin,host);
+				_popup.x = relocated.x
+				_popup.y = relocated.y;
+				_popup.width = host.width;
+				list.selectedIndex = -1;
+
+				var popupHost:IPopUpHost = UIUtils.findPopUpHost(host);
+				popupHost.popUpParent.addElement(_popup);
+				callLater(openPopup)
+				_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				host.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				callLater(function():void {
+					_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+				});
+			} else {
+				closePopup();
+			}
+      // _popup.open = value;
+		}
+		private function openPopup():void{
+			_popup.open = true;
+		}
+		protected function handleControlMouseDown(event:MouseEvent):void
+		{			
+			event.stopImmediatePropagation();
 		}
 		
+		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
+		{
+      closePopup();
+		}
+
+    private function closePopup():void{
+      if(_popup && _popup.open){
+  			_popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+		  	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+        _popup.open = false;
+        //  UIUtils.removePopUp(_popup);
+      }
+		}
 		/**
 		 * @private
 		 */
@@ -203,7 +246,10 @@ package com.unhurdle.spectrum{
 		 */
 		protected function itemChangeAction():void
 		{
-			input.text = getLabelFromData(model,model.selectedItem);
+			var text:String = getLabelFromData(model,model.selectedItem);
+			if(text){
+				input.text = getLabelFromData(model,model.selectedItem);
+			}
 		}
 		
 		/**
