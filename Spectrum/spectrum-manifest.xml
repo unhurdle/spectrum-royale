@@ -21,6 +21,7 @@
     <component id="ComboBoxView" class="com.unhurdle.spectrum.ComboBoxView"/>
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
+    <component id="Dialog" class="com.unhurdle.spectrum.Dialog"/>
     <component id="Display" class="com.unhurdle.spectrum.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>

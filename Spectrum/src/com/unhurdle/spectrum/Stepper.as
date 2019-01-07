@@ -5,6 +5,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
+  import org.apache.royale.events.Event;
+  
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Stepper extends SpectrumBase
   {
@@ -32,7 +34,7 @@ package com.unhurdle.spectrum
       newVal = Math.min(newVal,max);
       newVal = Math.max(newVal,min);
 			value = newVal;
-      // dispatchEvent(new Event("change"));
+      dispatchEvent(new Event("change"));
     }
     COMPILE::JS{
       private var input:HTMLInputElement;
