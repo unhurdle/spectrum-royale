@@ -45,6 +45,7 @@
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
     <!-- <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/> -->
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
+    <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>

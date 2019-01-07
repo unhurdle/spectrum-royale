@@ -1,5 +1,10 @@
 package com.unhurdle.spectrum
 {
+  COMPILE::JS
+  {
+    import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
+  }
   public class FieldGroup extends Group
   {
     public function FieldGroup()
@@ -8,6 +13,10 @@ package com.unhurdle.spectrum
     }
     override protected function getSelector():String{
       return "spectrum-FieldGroup";
+    }
+    COMPILE::JS
+    override protected function createElement():WrappedHTMLElement{
+      return addElementToWrapper(this,'div');
     }
     private var _vertical:Boolean;
 
