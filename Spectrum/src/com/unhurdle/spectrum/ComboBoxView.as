@@ -248,7 +248,7 @@ package com.unhurdle.spectrum{
 		{
 			var text:String = getLabelFromData(model,model.selectedItem);
 			if(text){
-				input.text = getLabelFromData(model,model.selectedItem);
+				input.text = text;
 			}
 		}
 		
