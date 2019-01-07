@@ -73,14 +73,14 @@ package com.unhurdle.spectrum
       }
     	_isOpen = value;
     }
-    private var _disabled:Object;
+    private var _disabled:Boolean;
 
-    public function get disabled():Object
+    public function get disabled():Boolean
     {
     	return _disabled;
     }
 
-    public function set disabled(value:Object):void
+    public function set disabled(value:Boolean):void
     {
       if(value != !!_disabled){
         toggle("is-disabled",value);

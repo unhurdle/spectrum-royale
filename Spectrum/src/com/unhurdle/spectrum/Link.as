@@ -45,7 +45,7 @@ package com.unhurdle.spectrum
 
     public function set href(value:String):void
     {
-     if(value != !!_href){
+     if(value != _href){
       	_href = value;
       }
       else{

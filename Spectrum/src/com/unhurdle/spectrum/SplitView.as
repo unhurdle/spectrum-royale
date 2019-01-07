@@ -69,7 +69,7 @@ COMPILE::JS
 
         public function set isCollapsed(value:String):void
         {
-          if(value != !! _isCollapsed){
+          if(value != _isCollapsed){
             switch (value){
                     case "top":left.style.height = "0";
                               directionCollapsed = "start";
