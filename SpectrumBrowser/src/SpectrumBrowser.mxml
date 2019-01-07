@@ -63,15 +63,27 @@
         new Toast("Stepper").show();
       }
 
+      private function actionChange():void{
+        var item:String = actionButton.selectedItem.label as String;
+        new Toast(item).show();
+      }
+      private function actionClick():void{
+        var item:Object = actionButton.selectedItem;
+        var str:String = "No Item";
+        if(item){
+          str = item.label;
+        }
+        new Toast(str).show();
+      }
     ]]>
   </fx:Script>
   <sp:initialView>
     <sp:View>
   <sp:Search />
-  <sp:ActionButton
+  <sp:ActionButton id="actionButton" click="actionClick()"
         icon="#spectrum-css-icon-ChevronRightMedium"
         iconClass="spectrum-Icon spectrum-Icon--sizeXS"
-        dataProvider="{comboProvider}"/>
+        dataProvider="{comboProvider}" change="actionChange()"/>
  
     <sp:ButtonGroup>
       <sp:Radio text="radio1" radioName="radioGroup"  />

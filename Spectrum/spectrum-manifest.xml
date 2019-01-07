@@ -24,7 +24,7 @@
     <component id="Dialog" class="com.unhurdle.spectrum.Dialog"/>
     <component id="Display" class="com.unhurdle.spectrum.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
-    <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
+    <!-- <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/> -->
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
     <component id="Heading" class="com.unhurdle.spectrum.Heading"/>
@@ -35,6 +35,7 @@
     <component id="Menu" class="com.unhurdle.spectrum.Menu"/>
     <component id="MenuItem" class="com.unhurdle.spectrum.data.MenuItem"/>
     <component id="MenuView" class="com.unhurdle.spectrum.MenuView"/>
+    <component id="MenuMouseController" class="com.unhurdle.spectrum.MenuMouseController"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->

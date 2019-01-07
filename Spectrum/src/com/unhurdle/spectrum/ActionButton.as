@@ -11,14 +11,20 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IPopUpHost;
   import org.apache.royale.geom.Point;
   import org.apache.royale.utils.PointUtils;
+  import org.apache.royale.events.Event;
+  import org.apache.royale.utils.callLater;
 
+	[Event(name="change", type="org.apache.royale.events.Event")]
   public class ActionButton extends Button
   {
     public function ActionButton()
     {
       super()
       toggle(valueToSelector("primary"),false);
-
+      COMPILE::JS
+      {
+        element.addEventListener('click',elementClickedForMenu,true);
+      }
     }
     override protected function getSelector():String{
       return "spectrum-ActionButton";
@@ -63,8 +69,10 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         if(selectable){
-          element.onclick = elementClicked;
+          element.addEventListener('click',elementClicked);
+          // element.onclick = elementClicked;
         }
+        element.addEventListener(MouseEvent.MOUSE_DOWN,elementMouseDown);
         if(dataProvider){
           createFlyoutIcon();
         }
@@ -87,8 +95,16 @@ package com.unhurdle.spectrum
       }
     }
 
-    private function elementClicked(ev:*):void{
+    private function elementClicked(ev:Event):void{
       selected = !selected;
+    }
+    private function elementClickedForMenu(ev:Event):void{
+      if(popup && popup.open){
+        ev.preventDefault();
+      }
+    }
+    private function elementMouseDown(ev:Event):void{
+      closePopup();
     }
 
     private var _selectedIndex:int;
@@ -184,8 +200,9 @@ package com.unhurdle.spectrum
         popup = new ComboBoxList();
         menu = popup.list;
         menu.dataProvider = dataProvider;
+        menu.addEventListener("change",handleMenuChange);
       }
-      var origin:Point = new Point(0, this.y+this.height);
+      var origin:Point = new Point(width, height);
       var relocated:Point = PointUtils.localToGlobal(origin,this);
       popup.x = relocated.x
       popup.y = relocated.y;
@@ -197,5 +214,40 @@ package com.unhurdle.spectrum
     private var menu:Menu;
     private var popup:ComboBoxList;
 
+    private function handleMenuChange(ev:Event):void{
+      closePopup();
+      dispatchEvent(new Event("change"));
+    }
+		protected function handleControlMouseDown(event:MouseEvent):void
+		{			
+			event.stopImmediatePropagation();
+		}
+		
+		protected function handlePopupShow(event:Event):void
+		{
+			popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			this.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			callLater(function():void {
+				popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+			});
+		}
+		
+		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
+		{
+      closePopup();
+		}
+    private function closePopup():void{
+      if(popup && popup.open){
+        UIUtils.removePopUp(popup);
+        popup.open = false;
+      }
+    }
+		
+		protected function handlePopupHide(event:Event):void
+		{
+			popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+		}
   }
 }

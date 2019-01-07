@@ -4,7 +4,7 @@ Menu
 {
 	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.MenuMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
