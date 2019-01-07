@@ -5,164 +5,197 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-//get the vars for SWF too 
-  public class ActionButton extends SpectrumBase
+  import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.utils.Timer;
+  import org.apache.royale.utils.UIUtils;
+  import org.apache.royale.core.IPopUpHost;
+  import org.apache.royale.geom.Point;
+  import org.apache.royale.utils.PointUtils;
+
+  public class ActionButton extends Button
   {
-    public static const WITH_TEXT:String = "withText";
-    public static const WITH_TEXT_AND_PICTURE:String = "withTextAndPicture";
-    public static const WITH_PICTURE:String = "withPicture";
-    public static const WITH_PICTURE_AND_FLYOUT:String = "withPictureAndFlyout";
     public function ActionButton()
     {
       super()
-      typeNames = "spectrum-ActionButton" ;
-      _text = "";
+      toggle(valueToSelector("primary"),false);
+
+    }
+    override protected function getSelector():String{
+      return "spectrum-ActionButton";
     }
 
-    private function valueToCSS(value:String):String{
-        return "spectrum-ActionButton--" + value;
-    } 
-
-    private var _text:String;
-
-    public function get text():String
-    {
-    	return _text;
+    override public function set flavor(value:String):void{
+      // do nothing
     }
 
-    public function set text(value:String):void
-    {
-       span.text = value;
-    	_text = value;
-    }
-    private var iconHolder:Icon;
-    private var _icon:String;
 
-    public function get icon():String
-    {
-    	return _icon;
-    }
-
-    public function set icon(value:String):void
-    {
-    	_icon = value;
-    }
     private var flyOutIconHolder:Icon;
-    private var _flyOutIcon:String;
 
-    public function get flyOutIcon():String
-    {
-    	return _flyOutIcon;
-    }
-
-    public function set flyOutIcon(value:String):void
-    {
-    	_flyOutIcon = value;
-    }
-    COMPILE::JS
-    private var _flavor:String;
-    COMPILE::SWF
-    private var _flavor:String;
-
-    public function get flavor():String
-    {
-    	return _flavor;
-    }
-    COMPILE::JS
-    public function set flavor(value:String):void
-    {
-       _flavor = value;
-       setType(value);
-    }
-    private var span:TextNode;
-    COMPILE::JS
-    private function setType(flavor:String):void
-    {
-      COMPILE::JS
-      switch(flavor){
-        case ActionButton.WITH_TEXT:
-        span = new TextNode("");
-        span.element = newElement("span") as HTMLSpanElement;
-        span.className = "spectrum-Button-label";
-        element.appendChild(span.element);
-          break;
-        case ActionButton.WITH_PICTURE: 
-        icon ="#spectrum-icon-18-Edit";
-        iconHolder = new Icon(icon);
-        iconHolder.className = "spectrum-Icon spectrum-Icon--sizeS";
-        element.appendChild(iconHolder.getElement());
-          break;
-        case ActionButton.WITH_TEXT_AND_PICTURE:
-        COMPILE::JS
-        setType(ActionButton.WITH_PICTURE);
-        COMPILE::JS
-        setType(ActionButton.WITH_TEXT);
-          break;
-        case ActionButton.WITH_PICTURE_AND_FLYOUT: 
-        COMPILE::JS
-        setType(ActionButton.WITH_PICTURE);
-        flyOutIcon = "#spectrum-css-icon-CornerTriangle";
-        flyOutIconHolder = new Icon(flyOutIcon);
+    private function createFlyoutIcon():void{
+      if(!flyOutIconHolder){
+        flyOutIconHolder = new Icon("#spectrum-css-icon-CornerTriangle");
         flyOutIconHolder.className = "spectrum-Icon spectrum-UIIcon-CornerTriangle spectrum-ActionButton-hold";
-        element.appendChild(flyOutIconHolder.getElement());
-          break;
-        case "default":
-        setType(ActionButton.WITH_TEXT);
-        break;
-      }
-    }
-
-    private var _quiet:Boolean;
-
-    public function get quiet():Boolean
-    {
-    	return _quiet;
-    }
-
-    public function set quiet(value:Boolean):void
-    {
-      if(_quiet != value){
-        toggle(valueToCSS("quiet"),value);
-      }
-    	_quiet = value;
-    }
-    COMPILE::JS
-    private var button:HTMLButtonElement;
-
-    COMPILE::SWF
-    private var button:Object;
-
-    private var _disabled:Boolean;
-
-    public function get disabled():Boolean
-    {
-      return _disabled;
-    }
-    // COMPILE::JS
-    public function set disabled(value:Boolean):void
-    {
-        if(value != !!_disabled){
-            button.disabled = value;
+        COMPILE::JS
+        {
+          element.appendChild(flyOutIconHolder.getElement());
+          element.onmousedown = handleMouseDown;
         }
-      _disabled = value;
+        timer = new Timer(1000,1);
+        timer.addEventListener(Timer.TIMER,onTimer);
+
+      }
     }
 
-    private function elementClicked():void{
-      toggle(valueToCSS("is-selected"),true);
+    private var _selectable:Boolean;
+
+    public function get selectable():Boolean
+    {
+    	return _selectable;
     }
 
-    COMPILE::JS
-    private var iconElement:SVGElement;
-   
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,'button');
-      flavor = "default";
-      element.onclick = elementClicked;
-      return element;
+    public function set selectable(value:Boolean):void
+    {
+    	_selectable = value;
     }
 
+    override public function addedToParent():void{
+      super.addedToParent();
+      COMPILE::JS
+      {
+        if(selectable){
+          element.onclick = elementClicked;
+        }
+        if(dataProvider){
+          createFlyoutIcon();
+        }
+
+      }
+    }
+
+    private var _selected:Boolean = false;
+
+    public function get selected():Boolean
+    {
+    	return _selected;
+    }
+
+    public function set selected(value:Boolean):void
+    {
+      if(!!value != _selected){
+      	_selected = value;
+        toggle("is-selected",value);
+      }
+    }
+
+    private function elementClicked(ev:*):void{
+      selected = !selected;
+    }
+
+    private var _selectedIndex:int;
+
+    public function get selectedIndex():int
+    {
+      if(menu){
+        return menu.selectedIndex;
+      }
+    	return _selectedIndex;
+    }
+
+    public function set selectedIndex(value:int):void
+    {
+      if(menu){
+        menu.selectedIndex = value;
+      }
+    	_selectedIndex = value;
+    }
+    private var _selectedItem:Object;
+
+    public function get selectedItem():Object
+    {
+      if(menu){
+        return menu.selectedItem;
+      }
+      if(_selectedIndex >=0 && dataProvider && _selectedIndex < dataProvider["length"]){
+        if(dataProvider is Array){
+          return dataProvider[_selectedIndex];
+        }
+        return dataProvider["source"][_selectedIndex];
+      }
+    	return null;
+    }
+
+    public function set selectedItem(value:Object):void
+    {
+      if(menu){
+        menu.selectedItem = value;
+      }
+      if(dataProvider is Array){
+        _selectedIndex = (dataProvider as Array).indexOf(value);
+      }
+      if(dataProvider.hasOwnProperty("source")){
+        _selectedIndex = dataProvider["source"]["indexOf"](value);
+      }
+    	_selectedIndex = -1;
+    }
+
+    private var _dataProvider:Object;
+
+    public function get dataProvider():Object
+    {
+    	return _dataProvider;
+    }
+
+    public function set dataProvider(value:Object):void
+    {
+    	_dataProvider = value;
+      createFlyoutIcon();
+      if(menu){
+        menu.dataProvider = value;
+      }
+    }
+
+    private function handleMouseDown(ev:*):void{
+      COMPILE::JS
+      {
+  			window.addEventListener('mouseup', handleMouseUp);
+      }
+      timer.start();
+    }
+
+    private function handleMouseUp(ev:*):void{
+      COMPILE::JS
+      {
+  			window.removeEventListener('mouseup', handleMouseUp);
+      }
+      if(timer){
+        timer.reset();
+      }
+    }
+
+    private var timer:Timer;
+
+    private function onTimer(ev:*):void{
+      timer.reset();
+      showMenu();
+    }
+    public function showMenu():void{
+      // construct if necessary and show the menu.
+      if(!popup){
+        popup = new ComboBoxList();
+        menu = popup.list;
+        menu.dataProvider = dataProvider;
+      }
+      var origin:Point = new Point(0, this.y+this.height);
+      var relocated:Point = PointUtils.localToGlobal(origin,this);
+      popup.x = relocated.x
+      popup.y = relocated.y;
+
+			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+			popupHost.popUpParent.addElement(popup);
+      popup.open = true;
+    }
+    private var menu:Menu;
+    private var popup:ComboBoxList;
 
   }
 }

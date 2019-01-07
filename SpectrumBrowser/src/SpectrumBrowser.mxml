@@ -63,6 +63,10 @@
   <sp:initialView>
     <sp:View>
   <sp:Search />
+  <sp:ActionButton
+        icon="#spectrum-css-icon-ChevronRightMedium"
+        iconClass="spectrum-Icon spectrum-Icon--sizeXS"
+        dataProvider="{comboProvider}"/>
  
     <sp:ButtonGroup>
       <sp:Radio text="radio1" radioName="radioGroup"  />

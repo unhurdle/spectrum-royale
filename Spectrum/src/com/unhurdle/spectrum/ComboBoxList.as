@@ -1,6 +1,8 @@
 package com.unhurdle.spectrum
 {
-  public class ComboBoxList extends Popover
+  import org.apache.royale.core.IPopUp;
+
+  public class ComboBoxList extends Popover implements IPopUp
   {
     public function ComboBoxList()
     {
