@@ -185,6 +185,132 @@ COMPILE::JS
     // }
     override protected function onMouseMove(e:MouseEvent):void {
 			//TODO find the new range...
+      var handle:Object = e.target;//to check
+      var sliderOffsetWidth:Number = element.offsetWidth;
+			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
+
+			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+			var percent:Number = (x / sliderOffsetWidth) * 100;
+			// var val:Number = (max-min) / (100/percent);
+			// var stepVal:Number = step;
+			// var rem:Number = val % stepVal;
+			// val = val - rem;
+			// if (rem > (stepVal/2)){
+		  //   val += stepVal;
+			// }
+			// value = val;
+        if (handle === leftHandle) {
+              if (percent < parseFloat(rightHandle.style.left)) {
+                handle.style.left = percent + '%';
+                leftTrack.style.width = percent + '%';
+              }
+            }
+            else {
+              if (percent > parseFloat(leftHandle.style.left)) {
+                handle.style.left = percent + '%';
+                rightTrack.style.width = (100 - percent) + '%';
+              }
+            }
+            middleTrack.style.left = leftHandle.style.left;
+            middleTrack.style.right = (100 - parseFloat(rightHandle.style.left)) + '%';
+  // }
+
+       var startPercent:Number = parseFloat(leftHandle.style.left);
+      var endPercent:Number = parseFloat(rightHandle.style.left);
+      leftTrack.style.width = startPercent + '%';
+      middleTrack.style.left = startPercent + '%';
+      middleTrack.style.right = (100 - endPercent) + '%';
+      rightTrack.style.width = (100 - endPercent) + '%';
+
+  // if (!element.classList.contains('is-disabled')) {
+  //   element.addEventListener('mousedown', onMouseDown);
+  // }
+  //  if (leftTrack && rightTrack && !isColor) {
+//       leftTrack.style.width = percent + '%';
+//       rightTrack.style.width = (100 - percent) + '%';
+//     }
+//     handle.style.left = percent + '%';
+
+//     if (buffers.length) {
+//       if (percent >= bufferedAmount) {
+//         // Don't show right buffer bar
+//         rightBuffer.style.width = 0;
+//         rightBuffer.style.left = 'auto';
+//         rightBuffer.style.right = 'auto';
+//         leftBuffer.style.width = bufferedAmount + '%';
+//       }
+//       else {
+//         leftBuffer.style.width = percent + '%';
+//         rightBuffer.style.width = 'auto';
+//         rightBuffer.style.left = percent + '%';
+//         rightBuffer.style.right = (100 - bufferedAmount) + '%';
+//       }
+//     }
     }
+                                                                                                                            //     function onMouseMove(e, sliderHandle) {
+                                                                                                                            //     if (!handle) {
+                                                                                                                            //       return;
+                                                                                                                            //     }
+
+                                                                                                                            //     var sliderOffsetWidth = slider.offsetWidth;
+                                                                                                                            //     var sliderOffsetLeft = slider.offsetLeft + slider.offsetParent.offsetLeft;
+
+                                                                                                                            //     var x = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+                                                                                                                            //     var percent = (x / sliderOffsetWidth) * 100;
+
+//     if (handle === leftHandle) {
+//       if (percent < parseFloat(rightHandle.style.left)) {
+//         handle.style.left = percent + '%';
+//         leftTrack.style.width = percent + '%';
+//       }
+//     }
+//     else {
+//       if (percent > parseFloat(leftHandle.style.left)) {
+//         handle.style.left = percent + '%';
+//         rightTrack.style.width = (100 - percent) + '%';
+//       }
+//     }
+//     middleTrack.style.left = leftHandle.style.left;
+//     middleTrack.style.right = (100 - parseFloat(rightHandle.style.left)) + '%';
+//   }
+
+//   // Set initial track position
+//   var startPercent = parseFloat(leftHandle.style.left);
+//   var endPercent = parseFloat(rightHandle.style.left);
+//   leftTrack.style.width = startPercent + '%';
+//   middleTrack.style.left = startPercent + '%';
+//   middleTrack.style.right = (100 - endPercent) + '%';
+//   rightTrack.style.width = (100 - endPercent) + '%';
+
+//   if (!slider.classList.contains('is-disabled')) {
+//     slider.addEventListener('mousedown', onMouseDown);
+//   }
+// }
+//  var sliderOffsetWidth = slider.offsetWidth;
+//     var sliderOffsetLeft = slider.offsetLeft + slider.offsetParent.offsetLeft;
+
+//     var x = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+//     var percent = (x / sliderOffsetWidth) * 100;
+//     if (leftTrack && rightTrack && !isColor) {
+//       leftTrack.style.width = percent + '%';
+//       rightTrack.style.width = (100 - percent) + '%';
+//     }
+//     handle.style.left = percent + '%';
+
+//     if (buffers.length) {
+//       if (percent >= bufferedAmount) {
+//         // Don't show right buffer bar
+//         rightBuffer.style.width = 0;
+//         rightBuffer.style.left = 'auto';
+//         rightBuffer.style.right = 'auto';
+//         leftBuffer.style.width = bufferedAmount + '%';
+//       }
+//       else {
+//         leftBuffer.style.width = percent + '%';
+//         rightBuffer.style.width = 'auto';
+//         rightBuffer.style.left = percent + '%';
+//         rightBuffer.style.right = (100 - bufferedAmount) + '%';
+//       }
+//     }
   }
 }

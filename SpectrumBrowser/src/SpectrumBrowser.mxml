@@ -88,9 +88,17 @@
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:ButtonGroup/>
       <sp:Button text="Show Toast" click="showToast()"/>
-      <sp:CoachMark/>
+      <sp:CoachMark flavor="dark" quiet="true"/>
+      <sp:CoachMark flavor="light"/>
       <sp:Dial/>
-      <sp:DropIndicator/>
+      <sp:Dial withLabel="false"/>
+      <sp:Dial size="small"/>
+      <sp:Dial size="large"/>
+      <sp:Dial withLabel="true"/>
+      <sp:Dial isDisabled="true"/>
+      <sp:Dial withLabel="true" isDisabled="true"/>
+      <sp:DropIndicator />
+      <sp:DropIndicator direction="vertical"/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
       <sp:List dataProvider="{listProvider}"/>
       <sp:Popover open="true" relativePosition="true">
