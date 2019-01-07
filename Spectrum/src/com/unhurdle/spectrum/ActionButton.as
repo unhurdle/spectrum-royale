@@ -100,7 +100,7 @@ package com.unhurdle.spectrum
     }
     private function elementClickedForMenu(ev:Event):void{
       if(popup && popup.open){
-        ev.preventDefault();
+        ev.stopImmediatePropagation();
       }
     }
     private function elementMouseDown(ev:Event):void{
