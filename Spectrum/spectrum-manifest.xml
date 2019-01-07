@@ -21,6 +21,7 @@
     <component id="ComboBoxView" class="com.unhurdle.spectrum.ComboBoxView"/>
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
+    <component id="Dialog" class="com.unhurdle.spectrum.Dialog"/>
     <component id="Display" class="com.unhurdle.spectrum.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
@@ -37,6 +38,7 @@
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->
+    <component id="Rating" class="com.unhurdle.spectrum.Rating"/>
     <!-- <component id="Rule" class="com.unhurdle.spectrum.Rule"/> -->
     <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
     <component id="Search" class="com.unhurdle.spectrum.Search"/>
@@ -45,6 +47,7 @@
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
     <!-- <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/> -->
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
+    <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>

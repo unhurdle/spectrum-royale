@@ -58,6 +58,11 @@
         "Four",
         "Five"
       ];
+
+      private function handleSrepperChange():void{
+        new Toast("Stepper").show();
+      }
+
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -76,8 +81,10 @@
       <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" valid="false" quiet="true"/><!--indeterminate="true"-->
       <sp:ClearButton disabled="true" small="true"/>
       <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/>
-    </sp:ButtonGroup>
+      </sp:ButtonGroup>
       <sp:CycleButton play="true" pause="true"/>
+      <sp:Rating max="5" min="0" value="3" disabled="true"/>
+      <sp:Rating max="7" min="0" value="7"/>
       <sp:Tool />
       <sp:Tag text="tag 1" deletable="true" />
       <!-- <sp:Alert text="Alert"/>  -->
@@ -90,6 +97,12 @@
       <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
       <sp:CoachMark flavor="light"/>
+      <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange()"/>
+      <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange()"/>
+      <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange()"/>
+      <sp:Stepper placeholder="Enter a number" focused="true" quiet="true" min="-10" max="10" step="1" change="handleSrepperChange()"/>
+      <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange()"/>
+      <sp:CoachMark/>
       <sp:Dial/>
       <sp:Dial withLabel="false"/>
       <sp:Dial size="small"/>

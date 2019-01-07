@@ -32,8 +32,8 @@ package com.unhurdle.spectrum
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'label');
             input = newElement("input") as HTMLInputElement;
-            input.setAttribute("type","checkbox");
-            input.setAttribute("class","spectrum-Checkbox-input");
+            input.type = "checkbox";
+            input.className = "spectrum-Checkbox-input";
             input.onclick = elementClicked;
             elem.appendChild(input);
             var spanBox:HTMLSpanElement = newElement("span") as HTMLSpanElement;

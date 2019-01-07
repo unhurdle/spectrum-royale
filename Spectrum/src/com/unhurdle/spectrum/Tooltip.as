@@ -68,7 +68,7 @@ package com.unhurdle.spectrum
           var icon:Icon = new Icon("#spectrum-css-icon-InfoSmall");
           icon.className = "spectrum-Icon spectrum-UIIcon-InfoSmall spectrum-Tooltip-typeIcon";
           icon.selector = "#spectrum-css-icon-InfoSmall";
-          element.appendChild(icon.getElement());
+          element.insertBefore(icon.getElement(),( element.childNodes[0] || null));
         }
       }
     	_infoIcon = value;
@@ -102,7 +102,7 @@ package com.unhurdle.spectrum
           var icon:Icon = new Icon("#spectrum-css-icon-SuccessSmall");
           icon.className = "spectrum-Icon spectrum-UIIcon-SuccessSmall spectrum-Tooltip-typeIcon";
           icon.selector = "#spectrum-css-icon-SuccessSmall";
-          element.appendChild(icon.getElement());
+          element.insertBefore(icon.getElement(),( element.childNodes[0] || null));
         }
       }
     	_positiveIcon = value;
