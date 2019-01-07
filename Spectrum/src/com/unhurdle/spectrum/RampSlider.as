@@ -66,7 +66,7 @@ COMPILE::JS
 
     public function set value(value:Number):void
     {
-			//TODO why is this a string?
+      
 			input.value = "" + value;
 			if(parent){
 				positionElements();

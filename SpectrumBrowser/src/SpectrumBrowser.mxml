@@ -95,6 +95,8 @@
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:ButtonGroup/>
       <sp:Button text="Show Toast" click="showToast()"/>
+      <sp:CoachMark flavor="dark" quiet="true"/>
+      <sp:CoachMark flavor="light"/>
       <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange()"/>
       <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange()"/>
       <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange()"/>
@@ -102,7 +104,14 @@
       <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange()"/>
       <sp:CoachMark/>
       <sp:Dial/>
-      <sp:DropIndicator/>
+      <sp:Dial withLabel="false"/>
+      <sp:Dial size="small"/>
+      <sp:Dial size="large"/>
+      <sp:Dial withLabel="true"/>
+      <sp:Dial isDisabled="true"/>
+      <sp:Dial withLabel="true" isDisabled="true"/>
+      <sp:DropIndicator />
+      <sp:DropIndicator direction="vertical"/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
       <sp:List dataProvider="{listProvider}"/>
       <sp:Popover open="true" relativePosition="true">
