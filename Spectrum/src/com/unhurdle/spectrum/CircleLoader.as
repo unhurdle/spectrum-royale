@@ -5,9 +5,7 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-    COMPILE::SWF
-    public class CircleLoader extends SpectrumBase{}
-    COMPILE::JS
+   
     public class CircleLoader extends SpectrumBase
     {
         public function CircleLoader()
@@ -15,8 +13,27 @@ package com.unhurdle.spectrum
             super();
             typeNames = "spectrum-CircleLoader"
         }
+
+        COMPILE::JS
+        private var elem:WrappedHTMLElement;
+        COMPILE::SWF
+        private var elem:Object;
+        COMPILE::JS
+        private var fillSubMask1:HTMLDivElement;
+        COMPILE::SWF
+        private var fillSubMask1:Object;
+        COMPILE::JS
+        private var fillSubMask2:HTMLDivElement;
+        COMPILE::SWF
+        private var fillSubMask2:Object;
+        COMPILE::JS
+        private var input:HTMLInputElement;
+        COMPILE::SWF
+        private var input:Object;
+
+        COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            elem = addElementToWrapper(this,'div');
             var track:HTMLDivElement = newElement("div") as HTMLDivElement;
             track.className = "spectrum-CircleLoader-track";
             elem.appendChild(track);
@@ -24,7 +41,7 @@ package com.unhurdle.spectrum
             fills.className = "spectrum-CircleLoader-fills";
             var fillMask1:HTMLDivElement = newElement("div") as HTMLDivElement;
             fillMask1.className = "spectrum-CircleLoader-fillMask1";
-            var fillSubMask1:HTMLDivElement = newElement("div") as HTMLDivElement;
+            fillSubMask1 = newElement("div") as HTMLDivElement;
             fillSubMask1.className = "spectrum-CircleLoader-fillSubMask1";
             var fill1:HTMLDivElement = newElement("div") as HTMLDivElement;
             fill1.className = "spectrum-CircleLoader-fill";
@@ -33,7 +50,7 @@ package com.unhurdle.spectrum
             fills.appendChild(fillMask1);
             var fillMask2:HTMLDivElement = newElement("div") as HTMLDivElement;
             fillMask2.className = "spectrum-CircleLoader-fillMask2";
-            var fillSubMask2:HTMLDivElement = newElement("div") as HTMLDivElement;
+            fillSubMask2 = newElement("div") as HTMLDivElement;
             fillSubMask2.className = "spectrum-CircleLoader-fillSubMask2";
             var fill2:HTMLDivElement = newElement("div") as HTMLDivElement;
             fill2.className = "spectrum-CircleLoader-fill";
@@ -41,16 +58,34 @@ package com.unhurdle.spectrum
             fillMask2.appendChild(fillSubMask2);
             fills.appendChild(fillMask2);
             elem.appendChild(fills);
-            if(!!_indeterminate){
-                var input:HTMLInputElement = newElement("input") as HTMLInputElement;
+            return elem;
+        }
+         COMPILE::JS
+        override public function addedToParent():void{
+			super.addedToParent();
+            if(!_indeterminate){
+                input = newElement("input") as HTMLInputElement;
                 input.type = "number";
                 input.min = "0";
                 input.max = "100";
                 input.setAttribute("display","block");
-                input.onchange = "changeLoader(this.previousElementSibling.firstElementChild, this.value)";
+                input.addEventListener("change",changeLoader);
                 elem.appendChild(input);
             }
-            return elem;
+        }
+        private function changeLoader():void {
+            var angle:Number;
+            var value:Number = Number(input.value);
+            if(value > 0 && value <= 50) {
+                angle = -180 + (value/50 * 180);
+                fillSubMask1.style.transform = 'rotate('+angle+'deg)';
+                fillSubMask2.style.transform = 'rotate(-180deg)';
+            }
+            else if (value > 50) {
+                angle = -180 + (value-50)/50 * 180;
+                fillSubMask1.style.transform = 'rotate(0deg)';
+                fillSubMask2.style.transform = 'rotate('+angle+'deg)';
+            }
         }
         private var _indeterminate:Boolean;
 
@@ -61,6 +96,9 @@ package com.unhurdle.spectrum
 
         public function set indeterminate(value:Boolean):void
         {
+            if(!value){
+                addedToParent();
+            }
             if(value != !!_indeterminate){
                 toggle(valueToCSS("indeterminate"),value);
             }
