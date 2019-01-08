@@ -8,6 +8,7 @@
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
     <component id="Body" class="com.unhurdle.spectrum.Body"/>
+    <component id="BreadCrumbs" class="com.unhurdle.spectrum.BreadCrumbs"/>
     <component id="Button" class="com.unhurdle.spectrum.Button"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
     <component id="CheckBox" class="com.unhurdle.spectrum.CheckBox"/>

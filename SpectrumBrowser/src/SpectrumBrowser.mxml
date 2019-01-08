@@ -126,6 +126,7 @@
       <sp:DropIndicator direction="vertical"/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
       <sp:List dataProvider="{listProvider}"/>
+      <sp:BreadCrumbs dataProvider="{listProvider}"/>
       <sp:Popover open="true" relativePosition="true">
       
         <sp:Menu>
@@ -151,22 +152,20 @@
       <sp:Tooltip text="Label"/>
       <sp:Tooltip text="Label info with icon" info="true" infoIcon="true"/>
       <sp:Tooltip text="Label positive with icon" positive="true" positiveIcon="true"/>
-      <sp:Popover open="true" relativePosition="true">
-        <sp:SideNav>
-          <sp:dataProvider>
-            <fx:Array>
-              <sp:SideNavItem  text="Category One" isHeading="true"/>
-              <sp:SideNavItem text="Item One"/>
-              <sp:SideNavItem text="Item Two"/>
-              <sp:SideNavItem text="Item Three" selected="true"/>
-              <sp:SideNavItem text="Category Two" isHeading="true"/>
-              <sp:SideNavItem text="Item One"/>
-              <sp:SideNavItem text="Item Two"/>
-              <sp:SideNavItem text="Item Three" disabled="true"/>
-            </fx:Array>
-          </sp:dataProvider>
-        </sp:SideNav>
-      </sp:Popover>
+      <sp:SideNav>
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:SideNavItem  text="Category One" isHeading="true"/>
+            <sp:SideNavItem text="Item One"/>
+            <sp:SideNavItem text="Item Two"/>
+            <sp:SideNavItem text="Item Three" selected="true"/>
+            <sp:SideNavItem text="Category Two" isHeading="true"/>
+            <sp:SideNavItem text="Item One"/>
+            <sp:SideNavItem text="Item Two"/>
+            <sp:SideNavItem text="Item Three" disabled="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:SideNav>
       <sp:Body text=" Body1" size="1"/>
       <sp:Body text=" Body2" size="2"/>
       <sp:Body text=" Body5" size="5"/>
