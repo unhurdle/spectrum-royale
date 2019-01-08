@@ -53,6 +53,7 @@ package com.unhurdle.spectrum
       COMPILE::JS{
         if(value){
           if(icon){
+            removeElement(icon);
             element.removeChild(icon.element);
             icon = null;
           }
@@ -63,9 +64,11 @@ package com.unhurdle.spectrum
           }
           imageElement.src = value;
         }
-        else if(!icon){
-          icon = new Icon(IconPrefix._24 + "SentimentPositive");
-          icon.size = IconSize.XS;
+        else{
+          if(!icon){
+            icon = new Icon(IconPrefix._24 + "SentimentPositive");
+            icon.size = IconSize.XS;
+          }
           element.insertBefore(icon.element, element.childNodes[0] || null);
           icon.addedToParent();
         }
