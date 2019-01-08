@@ -39,6 +39,17 @@ package com.unhurdle.spectrum.renderers
         textNode.text = sideNavItem.text;
       }
     }
+    override public function set selected(value:Boolean):void{
+      super.selected = value;
+      COMPILE::JS
+      {
+        if(value){
+          element.classList.add("is-selected");
+        } else {
+          element.classList.remove("is-selected");
+        }
+      }
+    }
     private var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement

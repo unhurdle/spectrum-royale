@@ -7,6 +7,13 @@
 
       import com.unhurdle.spectrum.Alert;
       import com.unhurdle.spectrum.Toast;
+      import com.unhurdle.spectrum.Dialog;
+      import com.unhurdle.spectrum.DialogContent;
+      import com.unhurdle.spectrum.DialogFooter;
+      import com.unhurdle.spectrum.DialogHeader;
+      import org.apache.royale.html.elements.H1;
+      import org.apache.royale.html.elements.P;
+      import org.apache.royale.events.ValueEvent;
 
       private function showAlert():void{
         var alert:Alert = new Alert();
@@ -75,6 +82,52 @@
         }
         new Toast(str).show();
       }
+      private var dialog:Dialog;
+      private function showDialog():void
+      {
+        dialog = new Dialog();
+        dialog.size = 1;
+        dialog.error = true;
+        var dialogHeader:DialogHeader = new DialogHeader();
+        var h1:H1 = new H1();
+        h1.text = "Dialog";
+        dialogHeader.addElement(h1);
+        var dialogContent:DialogContent = new DialogContent();
+        var p:P = new P();
+        p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+        p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+        p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+        p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+        p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+        p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+        dialogContent.addElement(p);
+        var dialogFooter:DialogFooter = new DialogFooter();
+        var btn:Button = new Button();
+        btn.text = "ok";
+        btn.addEventListener("click",hideDialog)
+        dialogFooter.addElement(btn);
+        dialog.addElement(dialogHeader);
+        dialog.addElement(dialogContent);
+        dialog.addElement(dialogFooter);
+        dialog.show();
+      }
+
+      private function hideDialog():void
+      {
+        dialog.hide();
+      }
+
+      private function itemSelected(ev:ValueEvent):void
+      {
+        var value:String;
+        if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
+          value = ev.value.children[0].children[0].text;
+        }
+        else{
+          value = ev.value.children[0].text;
+        }
+        new Toast("The selected item is: "+value).show();
+      }
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -105,6 +158,7 @@
       <sp:CircleLoader/>
       <sp:Well/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog()" flavor="cta"/>
       <sp:ButtonGroup/>
       <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
@@ -126,7 +180,16 @@
       <sp:DropIndicator direction="vertical"/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
       <sp:List dataProvider="{listProvider}"/>
-      <sp:BreadCrumbs dataProvider="{listProvider}"/>
+      <sp:Breadcrumbs dataProvider="{listProvider}" selected="itemSelected(event)"/>
+      <sp:Breadcrumbs isTitle="true" selected="itemSelected(event)">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:BreadcrumbsItem text="Home"/>
+            <sp:BreadcrumbsItem text="Playground"/>
+            <sp:BreadcrumbsItem text="Sliders" isTitle="true" />
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
       <sp:Popover open="true" relativePosition="true">
       
         <sp:Menu>
@@ -135,7 +198,7 @@
             <sp:MenuItem text="Category One" isHeading="true"/>
             <sp:MenuItem text="Item One"/>
             <sp:MenuItem text="Item Two"/>
-            <sp:MenuItem text="Item Three" selected="true"/>
+            <sp:MenuItem text="Item Three"/>
             <sp:MenuItem isDivider="true"/>
             <sp:MenuItem text="Category Two" isHeading="true"/>
             <sp:MenuItem text="Item One"/>
