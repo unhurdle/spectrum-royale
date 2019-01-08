@@ -11,7 +11,6 @@ package com.unhurdle.spectrum
         public function ClearButton()
         {
             super();
-            typeNames = "spectrum-ClearButton";
             small = false;
         }
         override protected function getSelector():String{

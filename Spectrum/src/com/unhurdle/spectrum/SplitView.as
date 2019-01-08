@@ -146,15 +146,13 @@ COMPILE::JS
 					default:
 						throw new Error("Invalid direction: " + value);
 				}
-				var oldDirection:String = valueToCSS(_direction);
-				var newDirection:String = valueToCSS(value);
-				toggle(newDirection, true);
-				toggle(oldDirection, false);
+				if(_direction){
+					toggle(valueToSelector(_direction), false);
+				}
+				
+				toggle(valueToSelector(value), true);
 				_direction = value;
 			}
-		}
-		private function valueToCSS(direction:String):String{
-				return "spectrum-SplitView--" + direction;
 		}
   }
 }

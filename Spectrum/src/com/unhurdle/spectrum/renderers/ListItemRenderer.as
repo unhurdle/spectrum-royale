@@ -10,15 +10,20 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.Application;
   }
+  import com.unhurdle.spectrum.Application;
+  import com.unhurdle.spectrum.const.IconType;
+  import com.unhurdle.spectrum.const.IconSize;
 
   public class ListItemRenderer extends DataItemRenderer
   {
     public function ListItemRenderer()
     {
       super();
-      typeNames = 'spectrum-Menu-item';
+      typeNames = appendSelector('-item');
+    }
+    protected function appendSelector(value:String):String{
+      return "spectrum-Menu" + value;
     }
 		override public function updateRenderer():void{
       COMPILE::JS
@@ -41,13 +46,15 @@ package com.unhurdle.spectrum.renderers
       COMPILE::JS
       {
         if(value["icon"]){
+          var iconSelector:String = value["icon"];
           if(!icon){
-            icon = new Icon(value["icon"]);
-            icon.className = "spectrum-Icon spectrum-Icon--sizeS";
+            icon = new Icon(iconSelector);
+            icon.size = IconSize.S;
             element.insertBefore(icon.element,element.childNodes[0] || null);
+            icon.addedToParent();
           } else {
             icon.element.style.display = null;
-            icon.selector = value["icon"];
+            icon.selector = iconSelector;
           }
         } else if(icon){
           icon.element.style.display = "none";
@@ -63,13 +70,14 @@ package com.unhurdle.spectrum.renderers
     {
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       textNode = new TextNode("span");
-      textNode.className = "spectrum-Menu-itemLabel";
+      textNode.className = appendSelector("-itemLabel");
       textNode.element.style.userSelect = "none";
       elem.appendChild(textNode.element);
-      var checkIcon:Icon = new Icon("#spectrum-css-icon-CheckmarkMedium");
-      checkIcon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark";
-      elem.appendChild(checkIcon.element);
-
+      var type:String = IconType.CHECKMARK_MEDIUM;
+      var checkIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+      checkIcon.type = type;
+      checkIcon.className = appendSelector("-checkmark");
+      addElement(checkIcon);
       return elem;
     }
 
