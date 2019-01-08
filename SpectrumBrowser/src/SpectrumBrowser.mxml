@@ -103,6 +103,11 @@
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader label="Thingies" meter="true" value="90"/>
       <sp:CircleLoader/>
+      <sp:CircleLoader indeterminate="true"/>
+      <sp:CircleLoader size="small" indeterminate="true" overBackground="true"/>
+      <sp:CircleLoader overBackground="true"/>
+      <sp:CircleLoader indeterminate="true"  size="large"/>
+      <sp:CircleLoader size="small"/>
       <sp:Well/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:ButtonGroup/>
