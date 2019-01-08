@@ -21,7 +21,7 @@
         alert.closeText = "Goodbye";
         alert.header = "Hey";
         alert.content = "Need some help?"
-        alert.overlayAlpha = 0.4;
+        alert.showOverlay = true;
        
         alert.show();
       }

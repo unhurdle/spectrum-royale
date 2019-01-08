@@ -24,13 +24,13 @@ package com.unhurdle.spectrum
     public function set strand(value:IStrand):void
     {
         if(_strand){
-          (_strand as IEventDispatcher).removeEventListener("show", handleShown);
-          (_strand as IEventDispatcher).removeEventListener("hide", handleHidden);
+          (_strand as IEventDispatcher).removeEventListener("modalShown", handleShown);
+          (_strand as IEventDispatcher).removeEventListener("modalHidden", handleHidden);
         }
         _strand = value;
         
-        (_strand as IEventDispatcher).addEventListener("show", handleShown);
-        (_strand as IEventDispatcher).addEventListener("hide", handleHidden);
+        (_strand as IEventDispatcher).addEventListener("modalShown", handleShown);
+        (_strand as IEventDispatcher).addEventListener("modalHidden", handleHidden);
     }
     
     /**

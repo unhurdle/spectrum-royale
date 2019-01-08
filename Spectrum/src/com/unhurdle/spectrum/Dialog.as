@@ -3,8 +3,8 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
   import org.apache.royale.html.beads.plugin.ModalDisplay;
 
-  [Event(name="show", type="org.apache.royale.events.Event")]
-  [Event(name="hide", type="org.apache.royale.events.Event")]
+  [Event(name="modalShown", type="org.apache.royale.events.Event")]
+  [Event(name="modalHidden", type="org.apache.royale.events.Event")]
 
   public class Dialog extends Group
   {
@@ -70,10 +70,8 @@ package com.unhurdle.spectrum
     	_error = value;
     }
     private var attachedToApp:Boolean;
-    public function show():void
-    {
+    public function show():void{
       modal.show(Application.current);
-      dispatchEvent(new Event("show"));
     }
     private function handleModalShow(ev:Event):void{
         toggle("is-open",true);
