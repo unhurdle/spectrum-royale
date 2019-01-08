@@ -14,10 +14,14 @@ COMPILE::JS
     override protected function getSelector():String{
         return "spectrum-SplitView";
     }
+		COMPILE::JS
 		private var left:HTMLDivElement;
+		COMPILE::JS
 		private var splitter:HTMLDivElement;
+		COMPILE::JS
 		private var right:HTMLDivElement;
-
+		
+		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
 			elem.style.height = "200px";
@@ -57,7 +61,10 @@ COMPILE::JS
 		public function set isDraggable(value:Boolean):void
 		{
 			if(value != !! _isDraggable){
-				value ? splitter.classList.add("is-draggable") : splitter.classList.remove("is-draggable");
+				COMPILE::JS
+				{
+					value ? splitter.classList.add("is-draggable") : splitter.classList.remove("is-draggable");
+				}
 			}
 			_isDraggable = value;
 		}
@@ -70,33 +77,38 @@ COMPILE::JS
 
 		public function set isCollapsed(value:String):void
 		{
-			if(value != _isCollapsed){
-				switch (value){
-					case "top":left.style.height = "0";
-						directionCollapsed = "start";
-						break;
-					case "left":left.style.width = "0";
-						directionCollapsed = "start";
-						break;
-					case "right":right.style.width = "0";
-						directionCollapsed = "start";
-						break;
-					case "bottom":right.style.height = "0";
-						directionCollapsed = "start";
-						break;
-					case "Resizable":
-						if(direction == "horizontal"){
-								left.style.width = "304px";
-						} else{
-								left.style.width = "50px";
-						}  
-						directionCollapsed = "Resizable";
-						break;
-					default:
-						throw new Error("Invalid Collapsed: " + value);
+			//TODO
+			COMPILE::JS
+			{
+				if(value != _isCollapsed){
+					switch (value){
+						case "top":left.style.height = "0";
+							directionCollapsed = "start";
+							break;
+						case "left":left.style.width = "0";
+							directionCollapsed = "start";
+							break;
+						case "right":right.style.width = "0";
+							directionCollapsed = "start";
+							break;
+						case "bottom":right.style.height = "0";
+							directionCollapsed = "start";
+							break;
+						case "Resizable":
+							if(direction == "horizontal"){
+									left.style.width = "304px";
+							} else{
+									left.style.width = "50px";
+							}  
+							directionCollapsed = "Resizable";
+							break;
+						default:
+							throw new Error("Invalid Collapsed: " + value);
+					}
+					_isCollapsed = value;
 				}
-				_isCollapsed = value;
 			}
+
 		}
 		
 		private var _directionCollapsed:String;
@@ -106,29 +118,34 @@ COMPILE::JS
 		}
 		public function set directionCollapsed(value:String):void
 		{
-			if(value != _directionCollapsed){
-				switch (value){
-					case "Resizable":
-					case "start":right.style.flex = "1";
-						break;
-					case "end":left.style.flex = "1";
-						break;
-					default:
-						throw new Error("Invalid directioncollapsed: " + value);
-				}
-				if(_directionCollapsed){
-					var oldDirectionCollapsed:String = "is-collapsed-"+_directionCollapsed;
-					splitter.classList.remove(oldDirectionCollapsed);
-				}
-				if(value != "Resizable"){
-					var newDirectionCollapsed:String = "is-collapsed-"+value;
-					splitter.classList.add(newDirectionCollapsed);
-					_directionCollapsed = value;
-				}
-				else{
-					_directionCollapsed = null;
+			//TODO generalize this
+			COMPILE::JS
+			{
+				if(value != _directionCollapsed){
+					switch (value){
+						case "Resizable":
+						case "start":right.style.flex = "1";
+							break;
+						case "end":left.style.flex = "1";
+							break;
+						default:
+							throw new Error("Invalid directioncollapsed: " + value);
+					}
+					if(_directionCollapsed){
+						var oldDirectionCollapsed:String = "is-collapsed-"+_directionCollapsed;
+						splitter.classList.remove(oldDirectionCollapsed);
+					}
+					if(value != "Resizable"){
+						var newDirectionCollapsed:String = "is-collapsed-"+value;
+						splitter.classList.add(newDirectionCollapsed);
+						_directionCollapsed = value;
+					}
+					else{
+						_directionCollapsed = null;
+					}
 				}
 			}
+
 		}
 
 		private var _direction:String;

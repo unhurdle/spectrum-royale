@@ -26,14 +26,16 @@
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="Dialog" class="com.unhurdle.spectrum.Dialog"/>
     <component id="DialogContent" class="com.unhurdle.spectrum.DialogContent"/>
-    <component id="DialogHeader" class="com.unhurdle.spectrum.DialogHeader"/>
     <component id="DialogFooter" class="com.unhurdle.spectrum.DialogFooter"/>
+    <component id="DialogHeader" class="com.unhurdle.spectrum.DialogHeader"/>
     <component id="Display" class="com.unhurdle.spectrum.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <!-- <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/> -->
-    <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
+    <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
+    <component id="Form" class="com.unhurdle.spectrum.Form"/>
     <component id="Heading" class="com.unhurdle.spectrum.Heading"/>
+    <component id="Icon" class="com.unhurdle.spectrum.Icon"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
     <component id="List" class="com.unhurdle.spectrum.List"/>
@@ -46,28 +48,30 @@
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->
+    <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
     <component id="Rating" class="com.unhurdle.spectrum.Rating"/>
     <component id="Rule" class="com.unhurdle.spectrum.Rule"/>
-    <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
     <component id="Search" class="com.unhurdle.spectrum.Search"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="SideNav" class="com.unhurdle.spectrum.SideNav"/>
     <component id="SideNavItem" class="com.unhurdle.spectrum.data.SideNavItem"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
-    <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
-    <!-- <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/> -->
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
+    <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
+    <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
+    <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
     <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
-    <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
+    <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
 	<component id="Tooltip" class="com.unhurdle.spectrum.Tooltip"/>
     <component id="TypographyGroup" class="com.unhurdle.spectrum.TypographyGroup"/>
+	<component id="VideoPlayerSlider" class="com.unhurdle.spectrum.VideoPlayerSlider"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
 </componentPackage>

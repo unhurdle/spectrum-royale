@@ -35,9 +35,10 @@ package com.unhurdle.spectrum
 		COMPILE::SWF
   	private var rightBuffer:Object;
     
+    COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        controlsContainer = newElement("div",appendSelector("-controls");
+        controlsContainer = newElement("div",appendSelector("-controls"));
         //first track
 				leftTrack = newElement("div",appendSelector("-track"));
         controlsContainer.appendChild(leftTrack);
@@ -94,8 +95,8 @@ package com.unhurdle.spectrum
 				valueNode.text = "" + value;
 			}
     }
-
- override protected function onMouseMove(e:MouseEvent):void {
+    COMPILE::JS
+    override protected function onMouseMove(e:MouseEvent):void {
 			//TODO find the new range...
       var handle:Object = e.target;//to check
       var sliderOffsetWidth:Number = element.offsetWidth;
