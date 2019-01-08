@@ -22,6 +22,9 @@ package com.unhurdle.spectrum
     protected function getSelector():String{
       return "";
     }
+    protected function appendSelector(value:String):String{
+      return getSelector() + value;
+    }
 
     COMPILE::JS
     protected var classList:CSSClassList;

@@ -11,7 +11,10 @@ package com.unhurdle.spectrum
     public function Avatar()
     {    
       super(); 
-      typeNames = "spectrum-Avatar";
+    }
+
+    override protected function getSelector():String{
+      return "spectrum-Avatar";
     }
 
     private var _disabled:Boolean;
@@ -48,7 +51,7 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,'image');
+      addElementToWrapper(this,'img');
       return element;
     }
 

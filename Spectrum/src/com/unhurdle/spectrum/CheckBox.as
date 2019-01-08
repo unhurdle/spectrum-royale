@@ -3,6 +3,9 @@ package com.unhurdle.spectrum
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
+        import com.unhurdle.spectrum.const.IconType;
+        import com.unhurdle.spectrum.const.IconType;
+        import org.apache.royale.html.elements.Span;
     }
     /**
      *  Dispatched when the user checks or un-checks the CheckBox.
@@ -15,7 +18,9 @@ package com.unhurdle.spectrum
         public function CheckBox()
         {
             super();
-            typeNames = "spectrum-Checkbox";
+        }
+        override protected function getSelector():String{
+            return "spectrum-Checkbox";
         }
         COMPILE::JS
         private var input:HTMLInputElement;
@@ -33,23 +38,23 @@ package com.unhurdle.spectrum
             var elem:WrappedHTMLElement = addElementToWrapper(this,'label');
             input = newElement("input") as HTMLInputElement;
             input.type = "checkbox";
-            input.className = "spectrum-Checkbox-input";
+            input.className = getSelector() + "-input";
             input.onclick = elementClicked;
             elem.appendChild(input);
-            var spanBox:HTMLSpanElement = newElement("span") as HTMLSpanElement;
-            spanBox.className = "spectrum-Checkbox-box";
-            var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall")
-            icon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
-            icon.selector = "#spectrum-css-icon-CheckmarkSmall";
-            spanBox.appendChild(icon.getElement());
+            var spanBox:Span = new Span();
+            spanBox.element.className = getSelector() + "-box";
+            var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
+            icon.type = IconType.CHECKMARK_SMALL;
+            icon.className = getSelector() + "-checkmark";
+            spanBox.addElement(icon);
             icon = new Icon("#spectrum-css-icon-DashSmall");
-            icon.className = "spectrum-Icon spectrum-UIIcon-DashSmall spectrum-Checkbox-partialCheckmark";
-            icon.selector = "#spectrum-css-icon-DashSmall";
-            spanBox.appendChild(icon.getElement());
-            elem.appendChild(spanBox);
+            icon.type = IconType.DASH_SMALL;
+            icon.className = getSelector() + "-partialCheckmark";
+            spanBox.addElement(icon);
+            elem.appendChild(spanBox.element);
             spanLabel = new TextNode("");
             spanLabel.element = newElement("span") as HTMLSpanElement;
-            spanLabel.className = "spectrum-Checkbox-label";
+            spanLabel.className = getSelector() + "-label";
             if(!_text){
                 _text = "";
             }
@@ -138,8 +143,8 @@ package com.unhurdle.spectrum
 
         public function set quiet(value:Boolean):void
         {
-            if(value && !_quiet){
-                toggle("spectrum-Checkbox--quiet",true);
+            if(value != !!_quiet){
+                toggle(valueToSelector("quiet"),value);
             }
         	_quiet = value;
         }

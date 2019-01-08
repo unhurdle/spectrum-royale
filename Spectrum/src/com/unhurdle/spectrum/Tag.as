@@ -4,6 +4,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.html.elements.P;
+    import com.unhurdle.spectrum.const.IconType;
+    import com.unhurdle.spectrum.const.IconPrefix;
+    import com.unhurdle.spectrum.const.IconSize;
   }
   public class Tag extends SpectrumBase
   {
@@ -49,7 +52,7 @@ package com.unhurdle.spectrum
       COMPILE::JS{
         if(value){
           if(icon){
-            element.removeChild(icon.getElement());
+            element.removeChild(icon.element);
             icon = null;
           }
           if(!imageElement){
@@ -60,9 +63,10 @@ package com.unhurdle.spectrum
           imageElement.src = value;
         }
         else if(!icon){
-          icon = new Icon("#spectrum-icon-24-SentimentPositive");
-          icon.className = "spectrum-Icon spectrum-Icon--sizeXS";
-          element.insertBefore(icon.getElement(), element.childNodes[0] || null);
+          icon = new Icon(IconPrefix._24 + "SentimentPositive");
+          icon.size = IconSize.XS;
+          element.insertBefore(icon.element, element.childNodes[0] || null);
+          icon.addedToParent();
         }
       }
     	_src = value;
@@ -101,23 +105,20 @@ package com.unhurdle.spectrum
     {
     	return _deletable;
     }
-
+    private var clearButton:ClearButton;
     public function set deletable(value:Boolean):void
     {
       if(value != !!_deletable){
-        toggle("spectrum-Tags-item--deletable",value);
+        toggle(valueToSelector("deletable"),value);
         if(value){
-          COMPILE::JS{
-            var buttonElement:HTMLButtonElement;
-            buttonElement = newElement("button") as HTMLButtonElement;
-            buttonElement.className = "spectrum-ClearButton spectrum-ClearButton--small";
-            var icon:Icon = new Icon("#spectrum-css-icon-CrossSmall");
-            icon.className = "spectrum-Icon spectrum-UIIcon-CrossSmall";
-            icon.selector = "#spectrum-css-icon-CrossSmall";
-            buttonElement.appendChild(icon.getElement());
-            // icon.getElement().onclick = ;
-            element.appendChild(buttonElement);
+          if(!clearButton){
+            clearButton = new ClearButton();
+            clearButton.small = true;
+            addElement(clearButton);
           }
+          clearButton.visible = true;
+        } else {
+          clearButton.visible = false;
         }
       }
     	_deletable = value;

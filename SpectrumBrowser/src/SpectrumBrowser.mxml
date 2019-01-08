@@ -95,8 +95,8 @@
       <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/>
       </sp:ButtonGroup>
       <sp:CycleButton play="true" pause="true"/>
-      <sp:Rating max="5" min="0" value="3" disabled="true"/>
-      <sp:Rating max="7" min="0" value="7"/>
+      <sp:Rating max="5" value="3" disabled="true"/>
+      <sp:Rating max="7" value="7"/>
       <sp:Tool />
       <sp:Tag text="tag 1" deletable="true" />
       <!-- <sp:Alert text="Alert"/>  -->

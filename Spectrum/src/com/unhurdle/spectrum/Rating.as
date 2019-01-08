@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import com.unhurdle.spectrum.const.IconType;
   }
   public class Rating extends SpectrumBase
   {
@@ -24,19 +25,26 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       addElementToWrapper(this,'div');
       input = newElement("input") as HTMLInputElement;
-      input.className = "spectrum-Rating-input";
+      input.className = appendSelector("-input");
       input.type = "range";
       element.appendChild(input);
+      element.addEventListener("click",handleClick);
       return element;
+    }
+    COMPILE::JS
+    private function handleClick(ev:*):void
+    {
+      if(ev.target){
+        var index:Number = Number((ev.target as HTMLElement).getAttribute("data-index"));
+        if(!isNaN(index)){
+          value = index;
+        }
+      }
+      console.log(ev.target);
     }
     public function get min():Number
     {
     	return Number(input.min);
-    }
-
-    public function set min(value:Number):void
-    {
-      input.min = "" + value;
     }
     
     public function get max():Number
@@ -56,8 +64,12 @@ package com.unhurdle.spectrum
     public function set value(value:Number):void
     { 
       COMPILE::JS{
+        //TODO we can probably avoid constant adding and removing of the elements.
         if(input.value){
           //remove old rating icons
+          while(numElements > 1){
+            removeElement(getElementAt(numElements-1));
+          }
         }
         var icon1:Icon;
         var icon2:Icon;
@@ -68,14 +80,15 @@ package com.unhurdle.spectrum
           if(i<value){
             span.className += " is-selected";
           }
+          span.setAttribute("data-index",i);
           icon1 = new Icon("#spectrum-css-icon-Star");
-          icon1.className = "spectrum-Icon spectrum-UIIcon-Star spectrum-Rating-starActive";
-          icon1.selector = "#spectrum-css-icon-Star";
-          span.appendChild(icon1.getElement());
+          icon1.type = IconType.STAR;
+          icon1.className = "spectrum-Rating-starActive";
+          span.appendChild(icon1.element);
           icon2 = new Icon("#spectrum-css-icon-StarOutline");
-          icon2.className = "spectrum-Icon spectrum-UIIcon-StarOutline spectrum-Rating-starInactive";
-          icon2.selector = "#spectrum-css-icon-StarOutline";
-          span.appendChild(icon2.getElement());
+          icon2.type = IconType.STAR_OUTLINE;
+          icon2.className = "spectrum-Rating-starInactive";
+          span.appendChild(icon2.element);
           element.appendChild(span);
         }
     	  input.value = ""+value;

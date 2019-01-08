@@ -44,13 +44,13 @@ package com.unhurdle.spectrum.renderers
           if(!icon){
             icon = new Icon(value["icon"]);
             icon.className = "spectrum-Icon spectrum-Icon--sizeS";
-            element.insertBefore(icon.getElement(),element.childNodes[0] || null);
+            element.insertBefore(icon.element,element.childNodes[0] || null);
           } else {
-            icon.getElement().style.display = null;
+            icon.element.style.display = null;
             icon.selector = value["icon"];
           }
         } else if(icon){
-          icon.getElement().style.display = "none";
+          icon.element.style.display = "none";
         }
 
       }
@@ -68,7 +68,7 @@ package com.unhurdle.spectrum.renderers
       elem.appendChild(textNode.element);
       var checkIcon:Icon = new Icon("#spectrum-css-icon-CheckmarkMedium");
       checkIcon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark";
-      elem.appendChild(checkIcon.getElement());
+      elem.appendChild(checkIcon.element);
 
       return elem;
     }

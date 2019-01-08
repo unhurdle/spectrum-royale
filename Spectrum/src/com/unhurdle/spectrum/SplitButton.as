@@ -5,6 +5,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.const.IconType;
 
   public class SplitButton extends SpectrumBase
   {
@@ -22,13 +24,14 @@ package com.unhurdle.spectrum
     override public function addedToParent():void{
       super.addedToParent();
       actionButton = new Button();
-      actionButton.className = getSelector() + "-action";
+      actionButton.className = appendSelector("-action");
       actionButton.flavor = _type;
       triggerButton = new Button();
-      triggerButton.className = getSelector() + "-trigger";
+      triggerButton.className = appendSelector("-trigger");
       triggerButton.flavor = _type;
-      triggerButton.icon = "#spectrum-css-icon-ChevronDownMedium";
-      triggerButton.iconClass = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-SplitButton-icon";
+      triggerButton.icon = IconPrefix.SPECTRUM_CSS_ICON + IconType.CHEVRON_DOWN_MEDIUM;
+      triggerButton.iconType = IconType.CHEVRON_DOWN_MEDIUM;
+      triggerButton.iconClass = appendSelector("-icon");
       if(_left){
         addElement(triggerButton);
         addElement(actionButton);

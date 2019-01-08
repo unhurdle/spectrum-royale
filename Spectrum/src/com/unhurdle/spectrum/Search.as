@@ -6,36 +6,21 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
+
+  import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.const.IconType;
+
   public class Search extends SpectrumBase
   {
     public function Search(){
       super();
-      typeNames = "spectrum-Search";
     }
-    COMPILE::JS
-    private var input:HTMLInputElement;
-    COMPILE::JS
-    private var inputIcon:Icon; 
-    COMPILE::JS
-    private var inputXlink:String = "#spectrum-css-icon-Magnifier";
-    COMPILE::JS
-    private var button:HTMLButtonElement;
-    COMPILE::JS
-    private var buttonIcon:Icon; 
-    COMPILE::JS
-    private var buttonXlink:String = "#spectrum-css-icon-CrossSmall";
-    COMPILE::SWF
-    private var input:Object;
-    COMPILE::SWF
-    private var inputIcon:Object;
-    COMPILE::SWF 
-    private var inputXlink:String = "#spectrum-css-icon-Magnifier";
-    COMPILE::SWF
-    private var button:Object;
-    COMPILE::SWF
-    private var buttonIcon:Object; 
-    COMPILE::SWF
-    private var buttonXlink:String = "#spectrum-css-icon-CrossSmall";
+    override protected function getSelector():String{
+      return "spectrum-Search";
+    }
+    private var input:TextField;
+    private var inputIcon:Icon;
+    private var button:ClearButton;
 
     private var _quiet:Boolean; 
 
@@ -47,8 +32,7 @@ package com.unhurdle.spectrum
     public function set quiet(value:Boolean):void
     {
       if(_quiet != value){
-        input.className += "spectrum-Textfield--quiet"
-        // toggle(valueToSelector("quiet"),value);
+        input.quiet = value;
       }
     	_quiet = value;
     }
@@ -63,38 +47,28 @@ package com.unhurdle.spectrum
     public function set disabled(value:Boolean):void
     {
       if(value != !!_disabled){
-        input.disabled = true;
-        button.disabled = true;
+        input.disabled = value;
+        button.disabled = value;
       }
     	_disabled = value;
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
     addElementToWrapper(this,"form");
-    input = newElement("input") as HTMLInputElement;
-    
-    input.type = "search";
+    input = new TextField();
     input.placeholder = "Search"; //getters and setters?
-    input.name = "search";
-    input.value = "";
-    input.className = "spectrum-Textfield spectrum-Search-input";
-    
-    
-    inputIcon = new Icon(inputXlink);
-    inputIcon.className = "spectrum-Icon spectrum-UIIcon-Magnifier spectrum-Search-icon";
-    input.appendChild(inputIcon.getElement());
-    
-    element.appendChild(input);
+    input.className = appendSelector("-input");
+    //TODO forward events
+    addElement(input);
+    var type:String = IconType.MAGNIFIER;
+    inputIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
+    inputIcon.type = type;
+    inputIcon.className = appendSelector("-icon");
+    addElement(inputIcon);
+    button = new ClearButton();
+    button.small = true;
 
-    button = newElement("button") as HTMLButtonElement;
-    button.type = "reset";
-    button.className ="spectrum-ClearButton";
-
-    buttonIcon = new Icon(buttonXlink);
-    buttonIcon.className = "spectrum-Icon spectrum-UIIcon-CrossSmall";
-
-    button.appendChild(buttonIcon.getElement());
-    element.appendChild(button);
+    addElement(button);
 
     return element; 
     }
