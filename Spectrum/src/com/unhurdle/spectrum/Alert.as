@@ -169,7 +169,9 @@ package com.unhurdle.spectrum
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
+      var styleStr:String = "z-index:100;";
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      elem.setAttribute("style",styleStr);
       headerNode = new TextNode("div");
       headerNode.className = appendSelector("-header");
       elem.appendChild(headerNode.element);

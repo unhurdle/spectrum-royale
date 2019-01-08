@@ -1,7 +1,6 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.events.Event;
-  import org.apache.royale.html.SimpleAlert;
 
   [Event(name="show", type="org.apache.royale.events.Event")]
   [Event(name="hide", type="org.apache.royale.events.Event")]
@@ -64,7 +63,6 @@ package com.unhurdle.spectrum
     private var attachedToApp:Boolean;
     public function show():void
     {
-      SimpleAlert.show("show",this);
       if(!this.parent){
         attachedToApp = true;
         Application.current.addElement(this);

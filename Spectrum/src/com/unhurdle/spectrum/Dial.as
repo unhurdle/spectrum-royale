@@ -45,21 +45,6 @@ package com.unhurdle.spectrum
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             elem = addElementToWrapper(this,'div');
-            // if(_withLabel){
-            //     labelContainer = newElement("div","spectrum-Dial-labelContainer");
-            //     label = newElement("label") as HTMLLabelElement;
-            //     label.className = "spectrum-Dial-label";
-            //     label.id = "dialLabel";
-            //     label.setAttribute("for","labeledDial");
-            //     labelContainer.appendChild(label);
-            //     div.element = newElement("div") as HTMLDivElement;
-            //     div.element.className = "spectrum-Slider-value";
-            //     div.element.setAttribute("role","textbox");
-            //     div.element.setAttribute("aria-readonly",true);
-            //     div.element.setAttribute("aria-labelledby","dialLabel");
-            //     labelContainer.appendChild(div.element);
-            //     elem.appendChild(labelContainer);
-            // }
             var controls:HTMLDivElement = newElement("div") as HTMLDivElement;
             controls.className = "spectrum-Dial-controls";
             handle = newElement("div") as HTMLDivElement;
@@ -68,14 +53,12 @@ package com.unhurdle.spectrum
             // handle.setAttribute("tabindex",0);
             input = newElement("input") as HTMLInputElement;
             input.className = "spectrum-Dial-input";
-            // if(_withLabel){
-            //     input.id = "labeledDial";//when label
-            // }
             input.type = "range";
             value = 0;
-            // input.value = "0";
-            min = 0;
-            max = 100;
+            min = -40;
+            // min = 0;
+            max = 220;
+            // max = 100;
             handle.appendChild(input);
             controls.appendChild(handle);
             elem.appendChild(controls);
@@ -155,20 +138,14 @@ package com.unhurdle.spectrum
         {
             if(val != !!_isDisabled){
                 toggle("is-disabled",val);
-                // toggle(valueToSelector("is-disabled"),value);
             }
             _isDisabled = val;
         }
         protected function positionElements():void{
 			COMPILE::JS
 			{
-				// var percent:Number = this.value / (max - min) * 100;
-				// handle.tabIndex = percent;
-				handle.tabIndex = value;
-				// handle.style.left = percent + "%";
-				// Set initial track position
-				// leftTrack.style.width = percent + '%';
-				// rightTrack.style.width = (100 - percent) + '%';
+				var percent:Number = this.value / (max - min) * 100;
+				handle.tabIndex = Number(percent + "%");
 			}
 		}
         
@@ -191,7 +168,7 @@ package com.unhurdle.spectrum
                 div.element.setAttribute("role","textbox");
                 // div.element.setAttribute("aria-readonly",true);
                 // div.element.setAttribute("aria-labelledby","dialLabel");
-                div.element.innerText = value ? value : min;
+                div.element.innerText = value;
                 labelContainer.appendChild(div.element);
                 elem.appendChild(labelContainer);
             }
@@ -199,39 +176,41 @@ package com.unhurdle.spectrum
 
 public function get value():Number
     {
-        if(div){
-    	    return Number(div.text);
-        }
     	return Number(input.value);
     }
 
     public function set value(val:Number):void
     {
 			//TODO why is this a string?
-			input.value = "" + val;
-			if(parent){
-				positionElements();
-			}
-			if(div){
-				div.text = "" + val;
-			}
-
+           if(!!_isDisabled){
+                input.value = "-40";
+                return;
+            } 
+    			input.value = "" + val;
+                if(parent){
+                    positionElements();
+                }
+                if(div){
+                    div.text = "" + val;
+                }
+            
     }
         COMPILE::JS
          private function onMouseDown(e:MouseEvent):void {
-            trace("private function onMouseDown(e:MouseEvent):void {");
             window.addEventListener('mouseup', onMouseUp);
             window.addEventListener('mousemove', onMouseMove);
         }
         COMPILE::JS
         private function onMouseUp(e:MouseEvent):void {
-            trace("private function onMouseUp(e:MouseEvent):void {");
             window.removeEventListener('mouseup', onMouseUp);
             window.removeEventListener('mousemove', onMouseMove);
         }
         COMPILE::JS
         private function onMouseMove(e:MouseEvent) :void{
-            trace("private function onMouseMove(e:MouseEvent) :void{");
+            if (!!_isDisabled) {
+                elem.addEventListener('mousedown', onMouseDown);
+                return;
+            }
              var dialOffsetWidth:Number = element.offsetWidth;
             var dialOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
             var x:Number = Math.max(Math.min(e.x - dialOffsetLeft, dialOffsetWidth), 0);
@@ -239,19 +218,7 @@ public function get value():Number
             var deg:Number = percent * 0.01 * (max - min) + min;
             handle.style.transform = 'rotate('+ deg + 'deg'+')';
             var val:Number = (max-min) / (100/percent);
-			// var stepVal:Number = step;
-			// var rem:Number = val % stepVal;
-			// val = val - rem;
-			// if (rem > (stepVal/2)){
-		    // val += stepVal;
-			// }
-			value = deg;
-			// value = val;
-        // }
-
-        if (_isDisabled) {
-            elem.addEventListener('mousedown', onMouseDown);
-        }
+			value = val;
         }
     }
 }
