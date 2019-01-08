@@ -51,7 +51,7 @@ package com.unhurdle.spectrum
         default:
           throw new Error("invalid size: " + value);
       }
-      toggle(valueToSelector("size" + value),false);
+      toggle(valueToSelector("size" + value),true);
     }
 
     private var _type:String;
@@ -68,7 +68,7 @@ package com.unhurdle.spectrum
           toggle("spectrum-UIIcon-" + _type,false);
         }
         if(value){
-          toggle("spectrum-UIIcon-" + value,false);
+          toggle("spectrum-UIIcon-" + value,true);
         }
       }
     	_type = value;
