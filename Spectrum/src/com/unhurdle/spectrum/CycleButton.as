@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
     }
       import com.unhurdle.spectrum.const.IconPrefix;
       import com.unhurdle.spectrum.const.IconSize;
+      import org.apache.royale.events.Event;
 
   public class CycleButton extends SpectrumBase
   {
@@ -35,6 +36,7 @@ package com.unhurdle.spectrum
       pauseIcon.size = IconSize.S;
       pauseIcon.className = appendSelector("-item");
       addElement(pauseIcon);
+      element.onclick = handleClick;
       return elem;
     }
 
@@ -45,18 +47,29 @@ package com.unhurdle.spectrum
     	return _paused;
     }
 
+    private function handleClick(ev:*):void{
+      setPaused(!paused,true);
+    }
+
     public function set paused(value:Boolean):void
     {
       if(value != _paused){
-        if(value){
-          pauseIcon.className = appendSelector("-item is-selected");
-          playIcon.className = appendSelector("-item");
-        } else {
-          pauseIcon.className = appendSelector("-item");
-          playIcon.className = appendSelector("-item is-selected");
-        }
+        setPaused(value);
       }
-    	_paused = value;
+    }
+    public function setPaused(value:Boolean,dispatch:Boolean=false):void{
+      if(value){
+        pauseIcon.className = appendSelector("-item is-selected");
+        playIcon.className = appendSelector("-item");
+      } else {
+        pauseIcon.className = appendSelector("-item");
+        playIcon.className = appendSelector("-item is-selected");
+      }
+      _paused = value;
+      if(dispatch){
+        dispatchEvent(new Event("change"));
+      }
+
     }
   }
 }
