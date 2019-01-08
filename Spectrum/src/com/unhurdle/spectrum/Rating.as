@@ -4,8 +4,10 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.const.IconType;
   }
+  import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.html.elements.Span;
+
   public class Rating extends SpectrumBase
   {
     public function Rating()
@@ -73,23 +75,28 @@ package com.unhurdle.spectrum
         }
         var icon1:Icon;
         var icon2:Icon;
-        var span:HTMLElement;
+        var span:Span;
         for(var i:int = min;i<max;i++){
-          span = newElement("span");
-          span.className = "spectrum-Rating-icon";
-          if(i<value){
+          span = new Span();
+          span.className = appendSelector("-icon");
+          if(i<=value){
             span.className += " is-selected";
           }
-          span.setAttribute("data-index",i);
-          icon1 = new Icon("#spectrum-css-icon-Star");
-          icon1.type = IconType.STAR;
-          icon1.className = "spectrum-Rating-starActive";
-          span.appendChild(icon1.element);
-          icon2 = new Icon("#spectrum-css-icon-StarOutline");
-          icon2.type = IconType.STAR_OUTLINE;
-          icon2.className = "spectrum-Rating-starInactive";
-          span.appendChild(icon2.element);
-          element.appendChild(span);
+          span.element.setAttribute("data-index",i);
+
+          var type:String = IconType.STAR;
+          icon1 = new Icon(Icon.getCSSTypeSelector(type));
+          icon1.type = type;
+          icon1.className = appendSelector("-starActive");
+          span.addElement(icon1);
+
+          type = IconType.STAR_OUTLINE;
+          icon2 = new Icon(Icon.getCSSTypeSelector(type));
+          icon2.type = type;
+          icon2.className = appendSelector("-starInactive");
+          span.addElement(icon2);
+
+          addElement(span);
         }
     	  input.value = ""+value;
       }
