@@ -76,14 +76,14 @@ package com.unhurdle.spectrum
           default:
             throw new Error("Invalid colorstop: " + value);
         }
-        var oldStop:String = valueToCSS(_colorstop);
-        var newStop:String = valueToCSS(value);
+        var oldStop:String = valueToSelector(_colorstop);
+        var newStop:String = valueToSelector(value);
         toggle(newStop, true);
         toggle(oldStop, false);
       	_colorstop = value;
       }
     }
-    private function valueToCSS(value:String):String{
+    private function valueToSelector(value:String):String{
       return "spectrum--" + value;
     }
 
@@ -107,8 +107,8 @@ package com.unhurdle.spectrum
           default:
             throw new Error("Invalid scale: " + value);
         }
-        var oldScale:String = valueToCSS(_appScale);
-        var newScale:String = valueToCSS(value);
+        var oldScale:String = valueToSelector(_appScale);
+        var newScale:String = valueToSelector(value);
         toggle(newScale, true);
         toggle(oldScale, false);
 

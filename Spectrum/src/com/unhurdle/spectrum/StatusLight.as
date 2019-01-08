@@ -34,18 +34,15 @@ package com.unhurdle.spectrum
     public function set changeStatus(value:String):void
     {
     	if(value != _changeStatus){
-                var newColor:String = valueToCSS(value);
-                toggle(newColor, true);
-                if(_changeStatus){
-                    var oldColor:String = valueToCSS(_changeStatus);
-                    toggle(oldColor, false);
-                }
-                _changeStatus = value;
-            }
+				if(_changeStatus){
+					toggle(valueToSelector(_changeStatus), false);
+				}
+				if(value){
+					toggle(valueToSelector(value), true);
+				}
+				_changeStatus = value;
+			}
     }
-        private function valueToCSS(value:String):String{
-            return "spectrum-StatusLight--" + value;
-        }
   }
 }
 

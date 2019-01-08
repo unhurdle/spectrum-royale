@@ -99,8 +99,8 @@ package com.unhurdle.spectrum
           default:
             throw new Error("Invalid status: " + value);
         }
-        var oldStatus:String = valueToCSS(_status);
-        var newStatus:String = valueToCSS(value);
+        var oldStatus:String = valueToSelector(_status);
+        var newStatus:String = valueToSelector(value);
         toggle(newStatus, true);
         toggle(oldStatus, false);
         setAccordionType(value);
@@ -108,10 +108,7 @@ package com.unhurdle.spectrum
     }
     _status = value;
   }
-  COMPILE::JS
-private function valueToCSS(status:String):String{
-  return "spectrum-Accordion-item" + status;
-}   
+
 public static const OPEN:String = "open";
 public static const DISABLED:String = "disabled";
 public static const DEFAULT:String = "default";
