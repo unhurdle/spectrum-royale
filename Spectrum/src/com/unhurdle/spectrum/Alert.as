@@ -2,7 +2,6 @@ package com.unhurdle.spectrum
 {
 
   import org.apache.royale.html.beads.plugin.ModalDisplay;
-  import org.apache.royale.html.beads.plugin.ModalOverlay;
   import org.apache.royale.utils.CSSUtils;
 
   COMPILE::JS {
@@ -34,51 +33,34 @@ package com.unhurdle.spectrum
       return "spectrum-Alert";
     }
 
-    private var _overlayColor:String;
+    private var _showOverlay:Boolean;
 
-    /**
-     * The color value of the overlay (default black)
-     * Either overlayColor or overlayAlpha needs to be set for an overlay to show at all.
-     * 
-     */
-    public function get overlayColor():String
+    public function get showOverlay():Boolean
     {
-    	return _overlayColor;
+    	return _showOverlay;
     }
 
-    public function set overlayColor(value:String):void
+    public function set showOverlay(value:Boolean):void
     {
-    	_overlayColor = value;
-      getOverlayBead().color = CSSUtils.toColor(value);
-    }
-    private var _overlayAlpha:Number;
+      if(value){
+        getOverlayBead();
+      } else if(_overlayBead){
+        removeBead(_overlayBead);
+      }
+    	_showOverlay = value;
 
-    /**
-     * The alpha of the overlay in a value of 0 through 1 (default 0.5).
-     * Either overlayColor or overlayAlpha needs to be set for an overlay to show at all.
-     * 
-     */
-    public function get overlayAlpha():Number
-    {
-    	return _overlayAlpha;
-    }
-
-    public function set overlayAlpha(value:Number):void
-    {
-    	_overlayAlpha = value;
-      getOverlayBead().alpha = value;
     }
 
     private var modal:ModalDisplay;
     
-    private function getOverlayBead():ModalOverlay{
+    private function getOverlayBead():SpectrumOverlay{
       if(!_overlayBead){
-        _overlayBead = new ModalOverlay();
+        _overlayBead = new SpectrumOverlay();
         addBead(_overlayBead);
       }
       return _overlayBead
     }
-    private var _overlayBead:ModalOverlay;
+    private var _overlayBead:SpectrumOverlay;
 
     private var _closeText:String;
 

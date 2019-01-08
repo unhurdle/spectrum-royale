@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.events.Event;
+  import org.apache.royale.html.beads.plugin.ModalDisplay;
 
   [Event(name="show", type="org.apache.royale.events.Event")]
   [Event(name="hide", type="org.apache.royale.events.Event")]
@@ -15,7 +16,15 @@ package com.unhurdle.spectrum
     public function Dialog()
     {
       super();
+      modal = new ModalDisplay()
+      addBead(modal);
+      var overlay:SpectrumOverlay = new SpectrumOverlay();
+      // overlay.hideOnClick = false;
+      addBead(overlay);
+      addEventListener("modalShown",handleModalShow);
+      addEventListener("modalHidden",handleModalHidden);
     }
+    private var modal:ModalDisplay;
     override protected function getSelector():String{
       return "spectrum-Dialog";
     }
@@ -63,20 +72,20 @@ package com.unhurdle.spectrum
     private var attachedToApp:Boolean;
     public function show():void
     {
-      if(!this.parent){
-        attachedToApp = true;
-        Application.current.addElement(this);
-        toggle("is-open",true);
-      }
+      modal.show(Application.current);
       dispatchEvent(new Event("show"));
+    }
+    private function handleModalShow(ev:Event):void{
+        toggle("is-open",true);
     }
     public function hide():void
     {
       toggle("is-open",false);
-      if(attachedToApp){
-        Application.current.removeElement(this);
-      }
+      modal.hide();
       dispatchEvent(new Event("hide"));
+    }
+    private function handleModalHidden(ev:Event):void{
+      toggle("is-open",false);
     }
   }
 }
