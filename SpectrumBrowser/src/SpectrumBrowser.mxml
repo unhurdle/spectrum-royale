@@ -237,7 +237,9 @@
           </fx:Array>
         </sp:dataProvider>
       </sp:SideNav>
-      <sp:Body text=" Body1" size="1"/>
+      <sp:Body text=" Body1 " size="1">
+        <sp:Link href="http://printui.com" text="Click Here"/>
+      </sp:Body>
       <sp:Body text=" Body2" size="2"/>
       <sp:Body text=" Body5" size="5"/>
       <sp:Code text=" Code2" size="2"/>
