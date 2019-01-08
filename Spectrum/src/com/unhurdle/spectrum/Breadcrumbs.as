@@ -6,7 +6,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import org.apache.royale.html.List;
-  [Event(name="selected", type="org.apache.royale.events.ValueEvent")]
+  [Event(name="itemClicked", type="org.apache.royale.events.ValueEvent")]
   public class Breadcrumbs extends org.apache.royale.html.List
   {
     public function Breadcrumbs()

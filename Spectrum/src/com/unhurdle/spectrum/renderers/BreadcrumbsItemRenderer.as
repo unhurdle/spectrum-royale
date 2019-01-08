@@ -59,7 +59,7 @@ package com.unhurdle.spectrum.renderers
       COMPILE::JS
       {
         if(value){
-          (parent as IEventDispatcher).dispatchEvent(new ValueEvent("selected",element));
+          (parent as IEventDispatcher).dispatchEvent(new ValueEvent("itemClicked",data));
         } 
       }
     }

@@ -17,6 +17,12 @@ package com.unhurdle.spectrum.data
     {
     	_text = value;
     }
+    public function get label():String{
+      return _text;
+    }
+    {
+      
+    }
     private var _isTitle:Boolean;
 
     public function get isTitle():Boolean

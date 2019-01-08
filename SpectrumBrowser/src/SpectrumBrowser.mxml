@@ -14,6 +14,7 @@
       import org.apache.royale.html.elements.H1;
       import org.apache.royale.html.elements.P;
       import org.apache.royale.events.ValueEvent;
+      import com.unhurdle.spectrum.data.BreadcrumbsItem;
 
       private function showAlert():void{
         var alert:Alert = new Alert();
@@ -120,12 +121,18 @@
       private function itemSelected(ev:ValueEvent):void
       {
         var value:String;
-        if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
-          value = ev.value.children[0].children[0].text;
+        if(ev.value["label"]){
+          value = ev.value["label"];
+        } else {
+          value = "" + ev.value;
         }
-        else{
-          value = ev.value.children[0].text;
-        }
+        
+        // if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
+        //   value = ev.value.children[0].children[0].text;
+        // }
+        // else{
+        //   value = ev.value.children[0].text;
+        // }
         new Toast("The selected item is: "+value).show();
       }
     ]]>
@@ -181,8 +188,8 @@
       <sp:DropIndicator direction="vertical"/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
       <sp:List dataProvider="{listProvider}"/>
-      <sp:Breadcrumbs dataProvider="{listProvider}" selected="itemSelected(event)"/>
-      <sp:Breadcrumbs isTitle="true" selected="itemSelected(event)">
+      <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
+      <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
         <sp:dataProvider>
           <fx:Array>
             <sp:BreadcrumbsItem text="Home"/>
