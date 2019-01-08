@@ -64,29 +64,68 @@ package com.unhurdle.spectrum
             elem.appendChild(fills);
             return elem;
         }
-         COMPILE::JS
-        override public function addedToParent():void{
-			super.addedToParent();
-            if(!_indeterminate){
-                input = newElement("input") as HTMLInputElement;
-                input.type = "number";
-                input.min = "0";
-                input.max = "100";
-                input.setAttribute("display","block");
-                input.addEventListener("change",changeLoader);
-                elem.appendChild(input);
+
+        private var _max:Number = 100;
+
+        public function get max():Number
+        {
+        	return _max;
+        }
+
+        public function set max(value:Number):void
+        {
+        	_max = value;
+            if(_value){
+                calculatePosition();
             }
         }
-        private function changeLoader():void {
+
+        private var _min:Number = 0;
+
+        public function get min():Number
+        {
+        	return _min;
+        }
+
+        public function set min(value:Number):void
+        {
+        	_min = value;
+            if(_value){
+                calculatePosition();
+            }
+        }
+
+        private var _value:Number = 0;
+
+        public function get value():Number
+        {
+        	return _value;
+        }
+
+        public function set value(value:Number):void
+        {
+        	_value = value;
+            calculatePosition();
+        }
+        override public function addedToParent():void{
+            super.addedToParent();
+            calculatePosition();
+        }
+        private function calculatePosition():void {
             var angle:Number;
-            var value:Number = Number(input.value);
-            if(value > 0 && value <= 50) {
-                angle = -180 + (value/50 * 180);
+            if(value){
+                var total:Number = _max - _min;
+                var percent:Number = value / total * 100;
+            } else {
+                percent = 0;
+            }
+            if(percent > 0 && percent <= 50) {
+                angle = -180 + (percent/50 * 180);
                 fillSubMask1.style.transform = 'rotate('+angle+'deg)';
                 fillSubMask2.style.transform = 'rotate(-180deg)';
             }
-            else if (value > 50) {
-                angle = -180 + (value-50)/50 * 180;
+            else if (percent > 50) {
+                angle = -180 + (percent-50)/50 * 180;
                 fillSubMask1.style.transform = 'rotate(0deg)';
                 fillSubMask2.style.transform = 'rotate('+angle+'deg)';
             }
@@ -101,7 +140,7 @@ package com.unhurdle.spectrum
         public function set indeterminate(value:Boolean):void
         {
             if(!value){
-                addedToParent();
+                calculatePosition();
             }
             if(value != !!_indeterminate){
                 toggle(valueToSelector("indeterminate"),value);

@@ -155,7 +155,7 @@
       <!-- <sp:Alert text="Alert"/>  -->
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader label="Thingies" meter="true" value="90"/>
-      <sp:CircleLoader/>
+      <sp:CircleLoader min="50" max="410" value="180"/>
       <sp:CircleLoader indeterminate="true"/>
       <sp:CircleLoader size="small" indeterminate="true" overBackground="true"/>
       <sp:CircleLoader overBackground="true"/>
