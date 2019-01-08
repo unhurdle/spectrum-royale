@@ -11,7 +11,10 @@ package com.unhurdle.spectrum
         public function TextArea()
         {
             super();
-            typeNames = "spectrum-Textfield";
+            toggle(valueToSelector("multiline"),true);
+        }
+        override protected function getSelector():String{
+            return "spectrum-Textfield";
         }
         COMPILE::JS
         private var textarea:HTMLTextAreaElement;
@@ -29,18 +32,18 @@ package com.unhurdle.spectrum
             //set the content in the textArea
             textarea.placeholder = value;
         }
-        private var _multiline:Boolean;
-        public function get multiline():Boolean
-        {
-            return _multiline;
-        }
-        public function set multiline(value:Boolean):void
-        {
-            if(value != !!_multiline){
-                toggle("spectrum-ButtonGroup--multiline",value);
-            }
-            _multiline = value;
-        }
+        // private var _multiline:Boolean;
+        // public function get multiline():Boolean
+        // {
+        //     return _multiline;
+        // }
+        // public function set multiline(value:Boolean):void
+        // {
+        //     if(value != !!_multiline){
+        //         toggle(valueToSelector("multiline"),value);
+        //     }
+        //     _multiline = value;
+        // }
         private var _isValid:Boolean;
         public function get isValid():Boolean
         {
@@ -76,7 +79,7 @@ package com.unhurdle.spectrum
         public function set quiet(value:Boolean):void
         {
             if(value != !!_quiet){
-                toggle("spectrum-ButtonGroup--quiet",value);
+                toggle(valueToSelector("quiet"),value);
             }
             _quiet = value;
         }

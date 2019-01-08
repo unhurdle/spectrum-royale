@@ -3,10 +3,9 @@ package com.unhurdle.spectrum
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
-        import com.unhurdle.spectrum.const.IconType;
-        import com.unhurdle.spectrum.const.IconType;
-        import org.apache.royale.html.elements.Span;
     }
+    import org.apache.royale.html.elements.Span;
+    import com.unhurdle.spectrum.const.IconType;
     /**
      *  Dispatched when the user checks or un-checks the CheckBox.
      *
@@ -38,23 +37,25 @@ package com.unhurdle.spectrum
             var elem:WrappedHTMLElement = addElementToWrapper(this,'label');
             input = newElement("input") as HTMLInputElement;
             input.type = "checkbox";
-            input.className = getSelector() + "-input";
+            input.className = appendSelector("-input");
             input.onclick = elementClicked;
             elem.appendChild(input);
             var spanBox:Span = new Span();
-            spanBox.element.className = getSelector() + "-box";
-            var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
-            icon.type = IconType.CHECKMARK_SMALL;
-            icon.className = getSelector() + "-checkmark";
+            spanBox.element.className = appendSelector("-box");
+            var type:String = IconType.CHECKMARK_SMALL
+            var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+            icon.type = type;
+            icon.className = appendSelector("-checkmark");
             spanBox.addElement(icon);
-            icon = new Icon("#spectrum-css-icon-DashSmall");
-            icon.type = IconType.DASH_SMALL;
-            icon.className = getSelector() + "-partialCheckmark";
+            type = IconType.DASH_SMALL;
+            icon = new Icon(Icon.getCSSTypeSelector(type));
+            icon.type = type;
+            icon.className = appendSelector("-partialCheckmark");
             spanBox.addElement(icon);
             elem.appendChild(spanBox.element);
             spanLabel = new TextNode("");
             spanLabel.element = newElement("span") as HTMLSpanElement;
-            spanLabel.className = getSelector() + "-label";
+            spanLabel.className = appendSelector("-label");
             if(!_text){
                 _text = "";
             }
