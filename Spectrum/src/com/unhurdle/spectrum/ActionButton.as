@@ -44,9 +44,9 @@ package com.unhurdle.spectrum
         flyOutIconHolder = new Icon(Icon.getCSSTypeSelector(type));
         flyOutIconHolder.type = type;
         flyOutIconHolder.className = appendSelector("-hold");
+        addElement(flyOutIconHolder);
         COMPILE::JS
         {
-          element.appendChild(flyOutIconHolder.element);
           element.onmousedown = handleMouseDown;
         }
         timer = new Timer(1000,1);
