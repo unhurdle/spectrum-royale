@@ -11,12 +11,12 @@ package com.unhurdle.spectrum
 
     public function get value():Number
     {
-    	return Number(input.text);
+    	return Number(input.value);
     }
 
     public function set value(value:Number):void
     {
-    	input.text = ""+value;
+    	input.value = ""+value;
     }
      public function get min():Number
     {
