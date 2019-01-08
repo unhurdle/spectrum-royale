@@ -8,6 +8,7 @@
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
     <component id="Body" class="com.unhurdle.spectrum.Body"/>
+    <component id="BreadCrumbs" class="com.unhurdle.spectrum.BreadCrumbs"/>
     <component id="Button" class="com.unhurdle.spectrum.Button"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
     <component id="CheckBox" class="com.unhurdle.spectrum.CheckBox"/>
@@ -45,6 +46,8 @@
     <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
     <component id="Search" class="com.unhurdle.spectrum.Search"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
+    <component id="SideNav" class="com.unhurdle.spectrum.SideNav"/>
+    <component id="SideNavItem" class="com.unhurdle.spectrum.data.SideNavItem"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
     <!-- <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/> -->

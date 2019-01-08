@@ -8,5 +8,7 @@ package {
 		import com.unhurdle.spectrum.Typography;Typography;
 		import com.unhurdle.spectrum.renderers.MenuItemRenderer;MenuItemRenderer;
 		import com.unhurdle.spectrum.renderers.ListItemRenderer;ListItemRenderer;
+		import com.unhurdle.spectrum.renderers.SideNavItemRenderer;SideNavItemRenderer;
+		import com.unhurdle.spectrum.renderers.BreadCrumbsItemRenderer;BreadCrumbsItemRenderer;
 	}
 }

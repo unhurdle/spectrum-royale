@@ -25,6 +25,30 @@ List
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
 	IViewportModel: ClassReference("org.apache.royale.html.beads.models.ViewportModel");
 }
+SideNav
+{
+	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
+	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
+	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
+	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SideNavItemRenderer");
+	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
+	IViewportModel: ClassReference("org.apache.royale.html.beads.models.ViewportModel");
+}
+BreadCrumbs
+{
+	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
+	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
+	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
+	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.BreadCrumbsItemRenderer");
+	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
+	IViewportModel: ClassReference("org.apache.royale.html.beads.models.ViewportModel");
+}
 ComboBox
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ComboBoxModel");
