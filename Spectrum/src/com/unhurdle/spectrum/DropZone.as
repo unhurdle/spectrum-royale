@@ -114,9 +114,9 @@ COMPILE::JS {
     // element.appendChild(illustratedMessage);
 
     // illustratedMessageIllustration = new Icon(null);//?no selector
-    // illustratedMessageIllustration.getElement().style.width = "199";
-    // illustratedMessageIllustration.getElement().style.height = "98";
-    // illustratedMessageIllustration.getElement().setAttribute("viewBox", "0 0 199 97.7"); 
+    // illustratedMessageIllustration.element.style.width = "199";
+    // illustratedMessageIllustration.element.style.height = "98";
+    // illustratedMessageIllustration.element.setAttribute("viewBox", "0 0 199 97.7"); 
     
     // //   <defs> //help here 
     // // 	<style>
@@ -136,48 +136,48 @@ COMPILE::JS {
     // path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
     // path1.className = "cls-1";
     // path1.setAttribute("d","M240,4v8c0,2.3-1.9,4.1-4.2,4L1,9C0.4,9,0,8.5,0,8c0-0.5,0.4-1,1-1l234.8-7C238.1-0.1,240,1.7,240,4z");
-    // illustratedMessageIllustration.getElement().appendChild(path1);
+    // illustratedMessageIllustration.element.appendChild(path1);
     
     // line1 = document.createElementNS('http://www.w3.org/2000/svg', 'line') as SVGLineElement;
 
 		// // 		<line class="cls-1" x1="99.5" y1="95.5" x2="99.5" y2="58.5"/> 
     // // line1 = new SVGLineElement(); //illegal constructor
     // // line1.className = "cls-1";
-    // //illustratedMessageIllustration.getElement().appendChild(line1);
+    // //illustratedMessageIllustration.element.appendChild(line1);
 
 	
     // path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
     // path2.className = "cls-1";
     // path2.setAttribute("d","M105.5,73.5h19a2,2,0,0,0,2-2v-43");
-    // illustratedMessageIllustration.getElement().appendChild(path2);
+    // illustratedMessageIllustration.element.appendChild(path2);
 
 		// path3 = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
     // path3.className = "cls-1";
     // path3.setAttribute("d","M126.5,22.5h-19a2,2,0,0,1-2-2V1.5h-31a2,2,0,0,0-2,2v68a2,2,0,0,0,2,2h19");
-    // illustratedMessageIllustration.getElement().appendChild(path3);
+    // illustratedMessageIllustration.element.appendChild(path3);
 
 		// // 		<line class="cls-1" x1="105.5" y1="1.5" x2="126.5" y2="22.5"/>
-    // //illustratedMessageIllustration.getElement().appendChild(line2);
+    // //illustratedMessageIllustration.element.appendChild(line2);
 
 		// path4 = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
     // path4.className = "cls-2";
     // path4.setAttribute("d","M47.93,50.49a5,5,0,1,0-4.83-5A4.93,4.93,0,0,0,47.93,50.49Z");
-    // illustratedMessageIllustration.getElement().appendChild(path4);
+    // illustratedMessageIllustration.element.appendChild(path4);
 
 		// path5 = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
     // path5.className = "cls-2";
     // path5.setAttribute("d","M36.6,65.93,42.05,60A2.06,2.06,0,0,1,45,60l12.68,13.2");
-    // illustratedMessageIllustration.getElement().appendChild(path5);
+    // illustratedMessageIllustration.element.appendChild(path5);
 
 		// path6 = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
     // path6.className = "cls-2";
     // path6.setAttribute("d","M3.14,73.23,22.42,53.76a1.65,1.65,0,0,1,2.38,0l19.05,19.7");
-    // illustratedMessageIllustration.getElement().appendChild(path6);
+    // illustratedMessageIllustration.element.appendChild(path6);
 
 	  // path7 = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
     // path7.className = "cls-1";
     // path7.setAttribute("d","M139.5,36.5H196A1.49,1.49,0,0,1,197.5,38V72A1.49,1.49,0,0,1,196,73.5H141A1.49,1.49,0,0,1,139.5,72V32A1.49,1.49,0,0,1,141,30.5H154a2.43,2.43,0,0,1,1.67.66l6,5.66");
-    // illustratedMessageIllustration.getElement().appendChild(path7);
+    // illustratedMessageIllustration.element.appendChild(path7);
 
 		// rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect') as SVGRectElement;
     // rect.className = "cls-1";
@@ -187,9 +187,9 @@ COMPILE::JS {
     // rect.setAttribute("height",39);
     // rect.setAttribute("rx",2);
     // rect.setAttribute("ry",2);
-    // illustratedMessageIllustration.getElement().appendChild(rect);
+    // illustratedMessageIllustration.element.appendChild(rect);
 
-    // illustratedMessage.appendChild(illustratedMessageIllustration.getElement());
+    // illustratedMessage.appendChild(illustratedMessageIllustration.element);
     
     // header = new TextNode("");
     // header.element = newElement("h2") as HTMLHeadingElement;

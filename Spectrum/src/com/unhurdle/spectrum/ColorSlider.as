@@ -39,12 +39,12 @@ package com.unhurdle.spectrum
         </div>
       */
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        controlsContainer = newElement("div","spectrum-Slider-controls");
-        track = newElement("div","spectrum-Slider-track");
+        controlsContainer = newElement("div",appendSelector("-controls"));
+        track = newElement("div",appendSelector("-track"));
         track.style.background = "linear-gradient(to right, rgb(38, 128, 235), rgb(9, 90, 186))";
-        handle = newElement("div","spectrum-Slider-handle");
+        handle = newElement("div",appendSelector("-handle"));
         handle.style.left = "40%"
-        input = newElement("input","spectrum-Slider-input") as HTMLInputElement;
+        input = newElement("input",appendSelector("-input")) as HTMLInputElement;
         input.type = "range";
         input.step = "2";
         input.setAttribute("aria-valuetext","#2680eb");

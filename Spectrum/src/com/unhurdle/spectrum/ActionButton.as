@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.utils.PointUtils;
   import org.apache.royale.events.Event;
   import org.apache.royale.utils.callLater;
+  import com.unhurdle.spectrum.const.IconType;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
   public class ActionButton extends Button
@@ -39,11 +40,13 @@ package com.unhurdle.spectrum
 
     private function createFlyoutIcon():void{
       if(!flyOutIconHolder){
-        flyOutIconHolder = new Icon("#spectrum-css-icon-CornerTriangle");
-        flyOutIconHolder.className = "spectrum-Icon spectrum-UIIcon-CornerTriangle spectrum-ActionButton-hold";
+        var type:String = IconType.CORNER_TRIANGLE;
+        flyOutIconHolder = new Icon(Icon.getCSSTypeSelector(type));
+        flyOutIconHolder.type = type;
+        flyOutIconHolder.className = appendSelector("-hold");
         COMPILE::JS
         {
-          element.appendChild(flyOutIconHolder.getElement());
+          element.appendChild(flyOutIconHolder.element);
           element.onmousedown = handleMouseDown;
         }
         timer = new Timer(1000,1);

@@ -3,13 +3,16 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
+    import com.unhurdle.spectrum.const.IconType;
+    import com.unhurdle.spectrum.const.IconType;
   }
   public class Tooltip extends SpectrumBase
   {
     public function Tooltip()
     {
       super();
-      typeNames = "spectrum-Tooltip spectrum-Tooltip--top is-open";
+      //TODO add types and open/close
+      className = "spectrum-Tooltip--top is-open";
     }
     override protected function getSelector():String{
       return "spectrum-Tooltip";
@@ -20,11 +23,11 @@ package com.unhurdle.spectrum
       addElementToWrapper(this,'span') as HTMLSpanElement;
       span1 = new TextNode("");
       span1.element = newElement("span") as HTMLSpanElement;
-      span1.className = "spectrum-Tooltip-label";
+      span1.className = appendSelector("-label");
       element.appendChild(span1.element);
       var span2:HTMLSpanElement;
       span2 = newElement("span") as HTMLSpanElement;
-      span2.className = "spectrum-Tooltip-tip";
+      span2.className = appendSelector("-tip");
       element.appendChild(span2);
       return element;
     }
@@ -65,10 +68,12 @@ package com.unhurdle.spectrum
     {
       COMPILE::JS{
         if(value != !!_infoIcon && value){
-          var icon:Icon = new Icon("#spectrum-css-icon-InfoSmall");
-          icon.className = "spectrum-Icon spectrum-UIIcon-InfoSmall spectrum-Tooltip-typeIcon";
-          icon.selector = "#spectrum-css-icon-InfoSmall";
-          element.insertBefore(icon.getElement(),( element.childNodes[0] || null));
+          var type:String = IconType.INFO_SMALL;
+          var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+          icon.type = type;
+          icon.className = appendSelector("-typeIcon");
+          element.insertBefore(icon.element,( element.childNodes[0] || null));
+          icon.addedToParent();
         }
       }
     	_infoIcon = value;
@@ -99,10 +104,12 @@ package com.unhurdle.spectrum
     {
       COMPILE::JS{
         if(value != !!_positiveIcon && value){
-          var icon:Icon = new Icon("#spectrum-css-icon-SuccessSmall");
-          icon.className = "spectrum-Icon spectrum-UIIcon-SuccessSmall spectrum-Tooltip-typeIcon";
-          icon.selector = "#spectrum-css-icon-SuccessSmall";
-          element.insertBefore(icon.getElement(),( element.childNodes[0] || null));
+          var type:String = IconType.SUCCESS_SMALL;
+          var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+          icon.type = type;
+          icon.className = appendSelector("-typeIcon");
+          element.insertBefore(icon.element,( element.childNodes[0] || null));
+          icon.addedToParent();
         }
       }
     	_positiveIcon = value;

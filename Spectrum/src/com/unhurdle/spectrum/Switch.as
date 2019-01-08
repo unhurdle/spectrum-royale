@@ -23,14 +23,14 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       input = newElement("input") as HTMLInputElement;
-      input.className = getSelector() + "-input";
+      input.className = appendSelector("-input");
       input.type = "checkbox";
       elem.appendChild(input);
       var span:HTMLElement = newElement("span");
-      span.className = getSelector() + "-switch";
+      span.className = appendSelector("-switch");
       elem.appendChild(span);
       label = new TextNode("label");
-      label.className = getSelector() + "-label";
+      label.className = appendSelector("-label");
       elem.appendChild(label.element);
       return elem;
     }

@@ -29,7 +29,7 @@ package com.unhurdle.spectrum
     public function Toast(content:String = null)
     {
       super();
-      typeNames = getSelector() + "-container";
+      typeNames = appendSelector("-container");
       if(content){
         text = content;
       }
@@ -204,17 +204,21 @@ package com.unhurdle.spectrum
         case "warning":type = "Alert";break;
         default: return; // no default icon
       }
-      var iconClass:String = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Toast-typeIcon";
-      var useSelector:String = '#spectrum-css-icon-' + type + 'Medium';
+      var sizedType:String = type + "Medium";
+      var iconClass:String = appendSelector("-typeIcon");
+      var useSelector:String = Icon.getCSSTypeSelector(sizedType);
       if(icon){
+        icon.type = sizedType;
         icon.className = iconClass;
         icon.selector = useSelector;
       } else {
         icon = new Icon(useSelector);
+        icon.type = sizedType;
         icon.className = iconClass;
         COMPILE::JS
         {
-          element.insertBefore(icon.getElement(), element.childNodes[0] || null);
+          element.insertBefore(icon.element, element.childNodes[0] || null);
+          icon.addedToParent();
         }
       }
 
@@ -227,16 +231,16 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
       elem.setAttribute("style",styleStr);
       var toast:HTMLElement = newElement("div");
-      toast.className = "spectrum-Toast";
+      toast.className = getSelector();
       body = newElement("div");
-      body.className = "spectrum-Toast-body";
+      body.className = appendSelector("-body");
       contentNode = new TextNode("div");
-      contentNode.className = "spectrum-Toast-content";
+      contentNode.className = appendSelector("-content");
       body.appendChild(contentNode.element);
       toast.appendChild(body);
 
       var buttons:HTMLElement = newElement("div");
-      buttons.className = "spectrum-Toast-buttons";
+      buttons.className = appendSelector("-buttons");
 
       var button:ClearButton = new ClearButton();
       button.overBackground = true;

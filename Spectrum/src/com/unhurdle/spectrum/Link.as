@@ -10,7 +10,6 @@ package com.unhurdle.spectrum
     public function Link()
     {
       super();
-      typeNames = "spectrum-Link";
     }
     override protected function getSelector():String{
       return "spectrum-Link";
@@ -21,20 +20,20 @@ package com.unhurdle.spectrum
       return addElementToWrapper(this,'a');
     }
 
-        private var _overBackground:Boolean;
+    private var _overBackground:Boolean;
 
-        public function get overBackground():Boolean
-        {
-            return overBackground;
-        }
+    public function get overBackground():Boolean
+    {
+      return overBackground;
+    }
 
-        public function set overBackground(value:Boolean):void
-        {
-            if(value != !!_overBackground){
-                toggle(valueToSelector("overBackground"),value);
-            }
-            _overBackground = value;
-        }
+    public function set overBackground(value:Boolean):void
+    {
+      if(value != !!_overBackground){
+        toggle(valueToSelector("overBackground"),value);
+      }
+      _overBackground = value;
+    }
     private var _disabled:Object;
     private var _href:String;
 

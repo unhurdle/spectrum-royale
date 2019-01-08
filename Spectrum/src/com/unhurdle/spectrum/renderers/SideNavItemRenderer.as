@@ -15,6 +15,9 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = '';
     }
+    protected function appendSelector(value:String):String{
+      return "spectrum-SideNav" + value;
+    }
     override public function updateRenderer():void{
       // do nothing
     }
@@ -26,9 +29,9 @@ package com.unhurdle.spectrum.renderers
       {
         element.className = "";
         if(sideNavItem.isHeading){
-          textNode.className = "spectrum-SideNav-heading";
+          textNode.className = appendSelector("-heading");
         } else {
-          element.className = "spectrum-SideNav-item";
+          element.className = appendSelector("-item");
         }
         if(sideNavItem.disabled){
           element.classList.add("is-disabled");
@@ -56,7 +59,7 @@ package com.unhurdle.spectrum.renderers
     {
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       textNode = new TextNode("a");
-      textNode.className = "spectrum-SideNav-itemLink";
+      textNode.className = appendSelector("-itemLink");
       textNode.element.style.userSelect = "none";
       elem.appendChild(textNode.element);
       return elem;

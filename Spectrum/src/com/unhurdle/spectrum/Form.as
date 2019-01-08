@@ -10,7 +10,9 @@ package com.unhurdle.spectrum
     public function Form()
     {
       super();
-      typeNames = "spectrum-Form";
+    }
+    override protected function getSelector():String{
+      return "spectrum-Form";
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{

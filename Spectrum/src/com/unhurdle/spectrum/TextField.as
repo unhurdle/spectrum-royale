@@ -6,20 +6,10 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
 
-  COMPILE::SWF
-  public class TextField extends SpectrumBase{
-    public var placeholder:String;
-    public var text:String;
-    public var pattern:String;
-    public var required:Boolean;
-    public var disabled:Boolean;
-  }
-
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
  * <input type="text" placeholder="Enter your name" name="field" value="A valid input" class="spectrum-Textfield spectrum-Textfield--quiet is-valid" pattern="[\w\s]+" required disabled>
  */
-  COMPILE::JS
   public class TextField extends SpectrumBase
   {
     public function TextField()
@@ -44,11 +34,13 @@ package com.unhurdle.spectrum
       }
     }
 
+    COMPILE::JS
     public function get name():String
     {
     	return input.name;
     }
 
+    COMPILE::JS
     public function set name(value:String):void
     {
         input.name = name;
@@ -115,7 +107,24 @@ package com.unhurdle.spectrum
       _disabled = value;
     }
 
-    private var input:HTMLInputElement;
+    private var _quiet:Boolean;
+
+    public function get quiet():Boolean
+    {
+    	return _quiet;
+    }
+
+    public function set quiet(value:Boolean):void
+    {
+      if(value != !!_quiet){
+          toggle(valueToSelector("quiet"),value);
+      }
+    	_quiet = value;
+    }
+    COMPILE::JS
+    protected var input:HTMLInputElement;
+    COMPILE::SWF
+    protected var input:Object;
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
       input = addElementToWrapper(this,'input') as HTMLInputElement;

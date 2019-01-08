@@ -4,6 +4,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
+  import com.unhurdle.spectrum.const.IconType;
+  import com.unhurdle.spectrum.const.IconSize;
   public class Tool extends SpectrumBase
   {
     public function Tool()
@@ -22,8 +24,9 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       button = addElementToWrapper(this,'button') as HTMLButtonElement;
       icon = new Icon("");
-      icon.className = "spectrum-Icon spectrum-Icon--sizeS";
-      button.appendChild(icon.getElement());
+      icon.size = IconSize.S;
+      button.appendChild(icon.element);
+      icon.addedToParent();
       return element;
     }
 
@@ -75,16 +78,19 @@ package com.unhurdle.spectrum
     {
       if(value != !!_cornerTriangle){
         if(!cornerIcon ){
-          cornerIcon = new Icon("#spectrum-css-icon-CornerTriangle");
-          cornerIcon.className = "spectrum-Icon spectrum-UIIcon-CornerTriangle spectrum-Tool-hold";
-          button.appendChild(cornerIcon.getElement());
+          var type:String = IconType.CORNER_TRIANGLE;
+          cornerIcon = new Icon(Icon.getCSSTypeSelector(type));
+          icon.type = type;
+          cornerIcon.className = appendSelector("-hold");
+          button.appendChild(cornerIcon.element);
+          cornerIcon.addedToParent();
         }
         COMPILE::JS
         {
           if(value){
-            cornerIcon.getElement().style.display = null;
+            cornerIcon.element.style.display = null;
           } else {
-            cornerIcon.getElement().style.display = "none";
+            cornerIcon.element.style.display = "none";
           }
 
         }

@@ -151,15 +151,19 @@ package com.unhurdle.spectrum
       if(!type){
         type == "Alert";
       }
-      var iconClass:String = "spectrum-Icon spectrum-UIIcon-" + type + "Medium spectrum-Alert-icon";
-      var selector:String = '#spectrum-css-icon-' + type + 'Medium';
+      var sizedType:String = type + "Medium";
+      var iconClass:String = appendSelector("-icon");
+      var selector:String = Icon.getCSSTypeSelector(sizedType);
       if(icon){
+        icon.type = sizedType;
         icon.className = iconClass;
         icon.selector = selector;
       } else {
         icon = new Icon(selector);
+        icon.type = sizedType;
         icon.className = iconClass;
-        element.insertBefore(icon.getElement(), element.childNodes[0] || null);
+        element.insertBefore(icon.element, element.childNodes[0] || null);
+        icon.addedToParent();
       }
 
     }
@@ -168,13 +172,12 @@ package com.unhurdle.spectrum
       var styleStr:String = "z-index:100;";
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       elem.setAttribute("style",styleStr);
-      var baseSelector:String = getSelector();
       headerNode = new TextNode("div");
-      headerNode.className = baseSelector + "-header";
+      headerNode.className = appendSelector("-header");
       elem.appendChild(headerNode.element);
 
       contentNode = new TextNode("div");
-      contentNode.className = baseSelector + "-content";
+      contentNode.className = appendSelector("-content");
       elem.appendChild(contentNode.element);
 
       return elem;
@@ -185,7 +188,7 @@ package com.unhurdle.spectrum
       {
         if(!button){
           var footer:HTMLElement = newElement('div');
-          footer.className = getSelector() + "-footer";
+          footer.className = appendSelector("-footer");
           button = new Button();
           button.quiet = true;
           button.element.onclick = hide;
@@ -221,6 +224,7 @@ package com.unhurdle.spectrum
     
     public function set status(value:String):void
     {
+      //TODO can status be none?
       COMPILE::JS
       {
         if(value != _status){
@@ -235,11 +239,9 @@ package com.unhurdle.spectrum
               throw new Error("Invalid status: " + value);
           }
           if(_status){
-            var oldStatus:String = valueToSelector(_status);
-            toggle(oldStatus, false);
+            toggle(valueToSelector(_status), false);
           }
-          var newStatus:String = valueToSelector(value);
-          toggle(newStatus, true);
+          toggle(valueToSelector(value), true);
           createIcon(value);
         }
       }

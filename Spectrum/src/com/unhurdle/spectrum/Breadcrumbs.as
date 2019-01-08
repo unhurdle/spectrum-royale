@@ -12,7 +12,10 @@ package com.unhurdle.spectrum
     public function Breadcrumbs()
     {
       super();
-      typeNames = "spectrum-Breadcrumbs";
+      typeNames = getSelector();
+    }
+    private function getSelector():String{
+      return "spectrum-Breadcrumbs";
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
@@ -32,7 +35,9 @@ package com.unhurdle.spectrum
       COMPILE::JS{
         if(value != !!_isTitle){
           if(value){
-            typeNames += " spectrum-Breadcrumbs--title";
+            className = getSelector() + "--title";
+          } else {
+            className = "";
           }
         }
         _isTitle = value;

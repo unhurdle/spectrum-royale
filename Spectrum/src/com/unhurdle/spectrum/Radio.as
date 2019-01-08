@@ -10,7 +10,9 @@ package com.unhurdle.spectrum
         public function Radio()
         {
             super();
-            typeNames = "spectrum-Radio";
+        }
+        override protected function getSelector():String{
+            return "spectrum-Radio";
         }
         COMPILE::JS
         private var input:HTMLInputElement;
@@ -24,16 +26,12 @@ package com.unhurdle.spectrum
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            input = newElement("input") as HTMLInputElement;
-            input.className = "spectrum-Radio-input";
+            input = newElement("input",appendSelector("-input")) as HTMLInputElement;
             input.type = "radio";
             elem.appendChild(input);
-            var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
-            span.className = "spectrum-Radio-button";
-            elem.appendChild(span);
-            label = new TextNode("");
-            label.element = newElement("label") as HTMLLabelElement;
-            label.className = "spectrum-Radio-label";
+            elem.appendChild(newElement("span",appendSelector("-button")));
+            label = new TextNode("label");
+            label.className = appendSelector("-label");
             elem.appendChild(label.element);
             return elem;
         }

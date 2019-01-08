@@ -13,14 +13,16 @@ package com.unhurdle.spectrum
         public function CoachMark()
         {
             super();
-            typeNames = "spectrum-CoachMarkIndicator";
+        }
+        override protected function getSelector():String{
+            return "spectrum-CoachMarkIndicator";
         }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
             // add three ring elements
             for(var i:int=0;i<3;i++){
-                elem.appendChild(newElement("div","spectrum-CoachMarkIndicator-ring"));
+                elem.appendChild(newElement("div",appendSelector("-ring")));
             }
             //without dialog
             return elem;
@@ -139,7 +141,7 @@ package com.unhurdle.spectrum
         public function set quiet(value:Boolean):void
         {
             if(value != !!_quiet){
-                toggle(valueToCSS("quiet"),value);
+                toggle(valueToSelector("quiet"),value);
             }
             _quiet = value;
         }
@@ -163,18 +165,15 @@ package com.unhurdle.spectrum
                     throw new Error("Invalid flavor: " + value);
                 }
                 if(_flavor){
-                    var oldFlavor:String = valueToCSS(_flavor);
+                    var oldFlavor:String = valueToSelector(_flavor);
                     toggle(oldFlavor, false);
                 }
                 if(value){
-                    var newFlavor:String = valueToCSS(value);
+                    var newFlavor:String = valueToSelector(value);
                     toggle(newFlavor, true);
                 }
                 _flavor = value;
             }
-        }
-        private function valueToCSS(value:String):String{
-            return "spectrum-CoachMarkIndicator--" + value;
         }
     }
 }

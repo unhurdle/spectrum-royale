@@ -6,6 +6,10 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import org.apache.royale.events.Event;
+  import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.html.elements.Span;
   
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Stepper extends SpectrumBase
@@ -36,42 +40,36 @@ package com.unhurdle.spectrum
 			value = newVal;
       dispatchEvent(new Event("change"));
     }
-    COMPILE::JS{
-      private var input:HTMLInputElement;
-      private var button1:HTMLButtonElement;
-      private var button2:HTMLButtonElement;
-    }
-    COMPILE::SWF{
-      private var input:Object;
-      private var button1:Object;
-      private var button2:Object;
-    }
+      private var input:NumberField;
+      private var button1:ActionButton;
+      private var button2:ActionButton;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      input = newElement("input") as HTMLInputElement;
-      input.className = "spectrum-Textfield spectrum-Stepper-input";
-      input.type = "number";
-      elem.appendChild(input);
-      var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
-      span.className = "spectrum-Stepper-buttons";
-      button1 = newElement("button") as HTMLButtonElement;
-      button1.className = "spectrum-ActionButton spectrum-Stepper-stepUp";
-      var icon1:Icon = new Icon("#spectrum-css-icon-ChevronUpSmall");
-      icon1.className = "spectrum-Icon spectrum-UIIcon-ChevronUpSmall spectrum-Stepper-stepUpIcon";
-      icon1.selector = "#spectrum-css-icon-ChevronUpSmall";
-      button1.appendChild(icon1.getElement());
-      button1.onclick = button1Clicked;
-      span.appendChild(button1);
-      button2 = newElement("button") as HTMLButtonElement;
-      button2.className = "spectrum-ActionButton spectrum-Stepper-stepDown";
-      var icon2:Icon = new Icon("#spectrum-css-icon-ChevronDownSmall" );
-      icon2.className = "spectrum-Icon spectrum-UIIcon-ChevronDownSmall spectrum-Stepper-stepDownIcon";
-      icon2.selector = "#spectrum-css-icon-ChevronDownSmall" ;
-      button2.appendChild(icon2.getElement());
-      button2.onclick = button2Clicked;
-      span.appendChild(button2);
-      elem.appendChild(span);
+      input = new NumberField();
+      input.className = "spectrum-Stepper-input";
+      (input.element as HTMLInputElement).type = "number";
+      addElement(input);
+      var span:Span = new Span();
+      // var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
+      span.className = appendSelector("-buttons");
+      button1 = new ActionButton();
+      button1.className = appendSelector("-stepUp");
+      var type:String = IconType.CHEVRON_UP_SMALL;
+      button1.icon = Icon.getCSSTypeSelector(type);
+      button1.iconType = type;
+      button1.iconClass = appendSelector("-stepUpIcon");
+      button1.addEventListener(MouseEvent.CLICK,button1Clicked);
+      span.addElement(button1);
+      button2 = new ActionButton();
+      button2.className = appendSelector("-stepDown");
+      type = IconType.CHEVRON_DOWN_SMALL
+      button2.icon = Icon.getCSSTypeSelector(type);
+      button2.iconType = type;
+      button2.iconClass = appendSelector("-stepDownIcon");
+      button2.addEventListener(MouseEvent.CLICK,button2Clicked);
+      span.addElement(button2);
+      addElement(span);
       return elem;
     }
     public function get placeholder():String
@@ -87,39 +85,39 @@ package com.unhurdle.spectrum
 
     public function get value():Number
     {
-    	return Number(input.value);
+    	return input.value;
     }
 
     public function set value(value:Number):void
     {
-    	input.value = ""+value;
+    	input.value = value;
     }
      public function get min():Number
     {
-      return Number(input.min);
+      return input.min;
     }
 
     public function set min(value:Number):void
     {
-      input.min = ""+value;
+      input.min = value;
     }
     public function get max():Number
     {
-      return Number(input.max);
+      return input.max;
     }
 
     public function set max(value:Number):void
     {
-      input.max = "" + value;
+      input.max = value;
     }
      public function get step():Number
     {
-      return Number(input.step);
+      return input.step;
     }
 
     public function set step(value:Number):void
     {
-      input.step = "" + value;
+      input.step = value;
     }
     private var _focused:Boolean;
 
@@ -176,9 +174,9 @@ package com.unhurdle.spectrum
     {
       if(value != !!_quiet){
         toggle(valueToSelector("quiet"),value);
-        value ? input.classList.add("spectrum-Textfield--quiet") : input.classList.remove("spectrum-Textfield--quiet");
-        value ? button1.classList.add("spectrum-ActionButton--quiet") : button1.classList.remove("spectrum-ActionButton--quiet");
-        value ? button2.classList.add("spectrum-ActionButton--quiet") : button2.classList.remove("spectrum-ActionButton--quiet");
+        input.quiet = value;
+        button1.quiet = value;
+        button2.quiet = value;
       }
     	_quiet = value;
     }

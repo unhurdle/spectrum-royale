@@ -23,8 +23,10 @@ package com.unhurdle.spectrum
     protected function getSelector():String{
       return "";
     }
-    
-    COMPILE::JS
+    protected function appendSelector(value:String):String{
+      return getSelector() + value;
+    }
+
     protected var classList:CSSClassList;
 
     protected function toggle(classNameVal:String,add:Boolean):void

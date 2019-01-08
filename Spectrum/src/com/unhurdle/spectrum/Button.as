@@ -71,7 +71,7 @@ package com.unhurdle.spectrum
       createIcon(value);
     }
 
-    private var _iconClass:String = "spectrum-Icon spectrum-Icon--sizeS";
+    private var _iconClass:String = "";
 
     public function get iconClass():String
     {
@@ -85,20 +85,54 @@ package com.unhurdle.spectrum
         iconElement.className = value;
       }
     }
+    private var _iconSize:String;
+
+    public function get iconSize():String
+    {
+    	return _iconSize;
+    }
+
+    public function set iconSize(value:String):void
+    {
+    	_iconSize = value;
+      if(iconElement){
+        iconElement.size = value;
+      }
+    }
+    private var _iconType:String;
+
+    public function get iconType():String
+    {
+    	return _iconType;
+    }
+
+    public function set iconType(value:String):void
+    {
+    	_iconType = value;
+      if(iconElement){
+        iconElement.type = value;
+      }
+    }
     private var iconElement:Icon;
 
     private function createIcon(selector:String):void{
       if(iconElement){
-        iconElement.className = iconClass;
         iconElement.selector = selector;
+        setIconProps();
       } else {
         iconElement = new Icon(selector);
-        iconElement.className = iconClass;
+        setIconProps();
         COMPILE::JS
         {
-          element.insertBefore(iconElement.getElement(), element.childNodes[0] || null);
+          element.insertBefore(iconElement.element, element.childNodes[0] || null);
         }
       }
+
+    }
+    private function setIconProps():void{
+      iconElement.className = iconClass;
+      iconElement.size = iconSize;
+      iconElement.type = iconType;
 
     }
 
@@ -175,7 +209,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       addElementToWrapper(this,'button');
       textNode = new TextNode("span");
-      textNode.className = getSelector() + "-label";
+      textNode.className = appendSelector("-label");
       element.appendChild(textNode.element);
       return element;
     }

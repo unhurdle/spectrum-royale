@@ -9,6 +9,9 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import com.unhurdle.spectrum.const.IconSize;
+    import com.unhurdle.spectrum.const.IconType;
+    import com.unhurdle.spectrum.const.IconPrefix;
   }
 
   public class MenuItemRenderer extends DataItemRenderer
@@ -17,6 +20,9 @@ package com.unhurdle.spectrum.renderers
     {
       super();
       typeNames = '';
+    }
+    protected function appendSelector(value:String):String{
+      return "spectrum-Menu" + value;
     }
 		override public function updateRenderer():void{
       // do nothing
@@ -30,12 +36,12 @@ package com.unhurdle.spectrum.renderers
       {
         element.className = "";
         if(menuItem.isHeading){
-          textNode.className = "spectrum-Menu-sectionHeading";
+          textNode.className = appendSelector("-sectionHeading");
         } else {
-          element.className = "spectrum-Menu-item";
+          element.className = appendSelector("-item");
         }
         if(menuItem.isDivider){
-          element.className = "spectrum-Menu-divider";
+          element.className = appendSelector("-divider");
         }
         if(menuItem.disabled){
           element.classList.add("is-disabled");
@@ -48,14 +54,27 @@ package com.unhurdle.spectrum.renderers
         if(menuItem.icon){
           if(!icon){
             icon = new Icon(menuItem.icon);
-            icon.className = "spectrum-Icon spectrum-Icon--sizeS";
-            element.insertBefore(icon.getElement(),element.childNodes[0] || null);
+            icon.size = IconSize.S;
+            element.insertBefore(icon.element,element.childNodes[0] || null);
+            icon.addedToParent();
           } else {
-            icon.getElement().style.display = null;
+            icon.element.style.display = null;
             icon.selector = menuItem.icon;
           }
         } else if(icon){
-          icon.getElement().style.display = "none";
+          icon.element.style.display = "none";
+        }
+
+      }
+    }
+    override public function set selected(value:Boolean):void{
+      super.selected = value;
+      COMPILE::JS
+      {
+        if(value){
+            element.classList.add("is-selected");
+        } else {
+          element.classList.remove("is-selected");
         }
 
       }
@@ -67,12 +86,14 @@ package com.unhurdle.spectrum.renderers
     {
       var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
       textNode = new TextNode("span");
-      textNode.className = "spectrum-Menu-itemLabel";
+      textNode.className = appendSelector("-itemLabel");
       textNode.element.style.userSelect = "none";
       elem.appendChild(textNode.element);
-      var checkIcon:Icon = new Icon("#spectrum-css-icon-CheckmarkMedium");
-      checkIcon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark";
-      elem.appendChild(checkIcon.getElement());
+      var type:String = IconType.CHECKMARK_MEDIUM;
+      var checkIcon:Icon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
+      checkIcon.type = type;
+      checkIcon.className = appendSelector("-checkmark");
+      addElement(checkIcon);
 
       return elem;
     }
