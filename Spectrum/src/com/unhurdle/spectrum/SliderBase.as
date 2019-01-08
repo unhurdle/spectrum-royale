@@ -115,17 +115,17 @@ package com.unhurdle.spectrum
 			COMPILE::JS
 			{
         if(!labelContainer){
-            labelContainer = newElement("div","spectrum-Slider-labelContainer");
+            labelContainer = newElement("div",appendSelector("-labelContainer"));
 			element.insertBefore(labelContainer,controlsContainer);
         }
         if(_label && !labelNode){
             labelNode = new TextNode("label");
-            labelNode.className = "spectrum-Slider-label";
+            labelNode.className = appendSelector("-label");
             labelContainer.insertBefore(labelNode.element,labelContainer.childNodes[0] || null);
         }
         if(_displayValue && !valueNode){
             valueNode = new TextNode("div");
-            valueNode.className = "spectrum-Slider-value";
+            valueNode.className = appendSelector("-value");
             labelContainer.appendChild(valueNode.element);
         }
 			}

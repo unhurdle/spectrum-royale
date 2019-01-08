@@ -183,14 +183,14 @@ package com.unhurdle.spectrum
         </div>
         */
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        controlsContainer = newElement("div","spectrum-Slider-controls");
+        controlsContainer = newElement("div",appendSelector("-controls"));
         //first track
-				leftTrack = newElement("div","spectrum-Slider-track");
+				leftTrack = newElement("div",appendSelector("-track"));
         controlsContainer.appendChild(leftTrack);
         
         //handle
-        handle = newElement("div","spectrum-Slider-handle");
-        input = newElement("input","spectrum-Slider-input") as HTMLInputElement;
+        handle = newElement("div",appendSelector("-handle"));
+        input = newElement("input",appendSelector("-input")) as HTMLInputElement;
         input.type = "range";
 				input.step = "1";
         input.onchange = handleChange();
@@ -198,7 +198,7 @@ package com.unhurdle.spectrum
         controlsContainer.appendChild(handle);
 
         //second track
-				rightTrack = newElement("div","spectrum-Slider-track");
+				rightTrack = newElement("div",appendSelector("-track"));
         controlsContainer.appendChild(rightTrack);
 
         elem.appendChild(controlsContainer);

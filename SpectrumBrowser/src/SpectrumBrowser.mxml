@@ -174,9 +174,9 @@
       <sp:Stepper placeholder="Enter a number" focused="true" quiet="true" min="-10" max="10" step="1" change="handleSrepperChange()"/>
       <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange()"/>
       <sp:CoachMark/>
-      <sp:Dial/>
-      <sp:Dial size="small" withLabel="true"/>
-      <sp:Dial isDisabled="true"/>
+      <sp:Dial label="Doodad" displayValue="true"/>
+      <sp:Dial size="small"/>
+      <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/>
       <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
