@@ -27,14 +27,17 @@ package com.unhurdle.spectrum.renderers
       sideNavItem = value as SideNavItem;
       COMPILE::JS
       {
-        element.className = "";
+        element.className = null;
+        element.style.pointerEvents = null
         if(sideNavItem.isHeading){
           textNode.className = appendSelector("-heading");
+          element.style.pointerEvents = "none";
         } else {
           element.className = appendSelector("-item");
         }
         if(sideNavItem.disabled){
           element.classList.add("is-disabled");
+          element.style.pointerEvents = "none";
         }
         if(sideNavItem.selected){
           element.classList.add("is-selected");

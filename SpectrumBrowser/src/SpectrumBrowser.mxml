@@ -136,6 +136,10 @@
         // }
         new Toast("The selected item is: "+value).show();
       }
+      private function sideNavClick(ev:*):void{
+        var value:String = ev.target.selectedItem.label;
+        new Toast("The selected item is: "+value).show();
+      }
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -227,13 +231,13 @@
       <sp:Tooltip text="Label"/>
       <sp:Tooltip text="Label info with icon" info="true" infoIcon="true"/>
       <sp:Tooltip text="Label positive with icon" positive="true" positiveIcon="true"/>
-      <sp:SideNav>
+      <sp:SideNav change="sideNavClick(event)">
         <sp:dataProvider>
           <fx:Array>
             <sp:SideNavItem  text="Category One" isHeading="true"/>
             <sp:SideNavItem text="Item One"/>
             <sp:SideNavItem text="Item Two"/>
-            <sp:SideNavItem text="Item Three" selected="true"/>
+            <sp:SideNavItem text="Item Three" />
             <sp:SideNavItem text="Category Two" isHeading="true"/>
             <sp:SideNavItem text="Item One"/>
             <sp:SideNavItem text="Item Two"/>
