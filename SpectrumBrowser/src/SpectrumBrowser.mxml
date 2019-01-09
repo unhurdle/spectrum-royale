@@ -144,6 +144,9 @@
         var files:Array = ev.value;
         new Toast("File name is: " + files[0].name).show();
       }
+      private function onDialChange(ev:Event):void{
+        trace(ev.target.value);
+      }
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -193,7 +196,7 @@
       <sp:Stepper placeholder="Enter a number" focused="true" quiet="true" min="-10" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange(event)"/>
       <sp:CoachMark/>
-      <sp:Dial label="Doodad" displayValue="true"/>
+      <sp:Dial label="Doodad" displayValue="true" change="onDialChange(event)"/>
       <sp:Dial size="small"/>
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />

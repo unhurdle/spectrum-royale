@@ -1,13 +1,15 @@
 package com.unhurdle.spectrum
 {
     
-COMPILE::JS{
-	import org.apache.royale.html.util.addElementToWrapper;
-	import org.apache.royale.core.WrappedHTMLElement;
-}
+	COMPILE::JS{
+		import org.apache.royale.html.util.addElementToWrapper;
+		import org.apache.royale.core.WrappedHTMLElement;
+		import org.apache.royale.events.Event;
+	}
 
-public class Dial extends SpectrumBase
-{
+	[Event(name="change", type="org.apache.royale.events.Event")]
+	public class Dial extends SpectrumBase
+	{
 		public function Dial()
 		{
 				super();
@@ -238,6 +240,7 @@ public class Dial extends SpectrumBase
 			handle.style.transform = 'rotate('+ deg + 'deg'+')';
 			var val:Number = (max-min) / (100/percent);
 			value = val;
+			dispatchEvent(new Event("change"));
 		}
 	}
 }
