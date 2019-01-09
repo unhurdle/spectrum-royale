@@ -31,14 +31,19 @@ package com.unhurdle.spectrum
       _disabled = value;
     }
 
-    COMPILE::JS
-    public function get source():String
+    public function get src():String
     {
+      COMPILE::JS{
+        return (element as HTMLImageElement).src;
+
+      }
+      COMPILE::SWF{
+        return "";
+      }
       
-    	return (element as HTMLImageElement).src;
     }
     
-    public function set source(value:String):void
+    public function set src(value:String):void
     {
       // if(!value){
       
