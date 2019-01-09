@@ -208,7 +208,7 @@ public class Dial extends SpectrumBase
 		public function set value(val:Number):void
 		{
 			//TODO why is this a string?
-			if(!!_disabled){
+			if(_disabled){
 				input.value = "-40";
 				return;
 			} 
