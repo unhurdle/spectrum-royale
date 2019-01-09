@@ -5,6 +5,8 @@ package com.unhurdle.spectrum
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
   }
   public class StatusLight extends SpectrumBase
   {
@@ -18,30 +20,53 @@ package com.unhurdle.spectrum
     }
     
     /**
-     * status and color are mutually exclusive.
-     * The last setting wins.
+     * The status can be either a <code>StatusColor</code> or <code>Status</code> specifier.
+     * Default is <code>Status.NEUTRAL</code>.
      */
-    public var status:String;
-    public var color:String;
+    private var _status:String;
 
-    private var _changeStatus:String;
-
-    public function get changeStatus():String
+    public function get status():String
     {
-    	return _changeStatus;
+    	return _status;
     }
 
-    public function set changeStatus(value:String):void
+    public function set status(value:String):void
     {
-    	if(value != _changeStatus){
-				if(_changeStatus){
-					toggle(valueToSelector(_changeStatus), false);
-				}
-				if(value){
-					toggle(valueToSelector(value), true);
-				}
-				_changeStatus = value;
-			}
+      if(value != _status){
+        if(_status){
+          toggle(valueToSelector(_status), false);
+        }
+        if(!value){
+          value = "neutral";
+        }
+        toggle(valueToSelector(value), true);
+
+      	_status = value;
+        
+      }
+    }
+    private var textNode:TextNode;
+    
+    COMPILE::JS
+    override protected function createElement():WrappedHTMLElement{
+      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
+      textNode = new TextNode("");
+      textNode.element = elem;
+      textNode.text = "";
+      return elem;
+    }
+
+    private var _text:String;
+
+    public function get text():String
+    {
+    	return _text;
+    }
+
+    public function set text(value:String):void
+    {
+    	_text = value || "";
+      textNode.text = _text;
     }
   }
 }

@@ -172,6 +172,9 @@
       <sp:Well/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:Button text="Show Dialog" click="showDialog()" flavor="cta"/>
+      <sp:StatusLight status="yellow" text="Fee"/>
+      <sp:StatusLight status="positive" text="Fi"/>
+      <sp:StatusLight status="info" text="Fo"/>
       <sp:ButtonGroup/>
       <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
