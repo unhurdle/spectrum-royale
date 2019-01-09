@@ -140,6 +140,10 @@
         var value:String = ev.target.selectedItem.label;
         new Toast("The selected item is: "+value).show();
       }
+      private function onFiles(ev:ValueEvent):void{
+        var files:Array = ev.value;
+        new Toast("File name is: " + files[0].name).show();
+      }
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -258,7 +262,7 @@
       <sp:Heading text=" Heading2 --quiet" size="2" quiet="true"/>
       <sp:Heading text=" Heading2 " size="2"/>
       <sp:Heading text=" Heading2 --strong" size="2" strong="true"/>
-      <sp:DropZone/>
+      <sp:DropZone filesAvailable="onFiles(event)"/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
