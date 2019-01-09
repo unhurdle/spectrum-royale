@@ -3,9 +3,9 @@ package com.unhurdle.spectrum
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
+        import com.unhurdle.spectrum.const.IconType;
+        import org.apache.royale.html.elements.Span;
     }
-    import org.apache.royale.html.elements.Span;
-    import com.unhurdle.spectrum.const.IconType;
     /**
      *  Dispatched when the user checks or un-checks the CheckBox.
      *
