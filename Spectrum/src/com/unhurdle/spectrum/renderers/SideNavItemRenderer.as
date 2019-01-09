@@ -7,6 +7,7 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.getLabelFromData;
   }
   public class SideNavItemRenderer extends DataItemRenderer
   {
@@ -24,8 +25,7 @@ package com.unhurdle.spectrum.renderers
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
-      var sideNavItem:SideNavItem;
-      sideNavItem = value as SideNavItem;
+      var sideNavItem:SideNavItem = value as SideNavItem;
       element.className = null;
       element.style.pointerEvents = null
       if(sideNavItem.isHeading){
@@ -41,8 +41,7 @@ package com.unhurdle.spectrum.renderers
       if(sideNavItem.selected){
         element.classList.add("is-selected");
       }
-      textNode.text = sideNavItem.text;
-    
+      textNode.text = getLabelFromData(this,value);
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;

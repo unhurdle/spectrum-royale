@@ -9,10 +9,11 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.const.IconSize;
-    import com.unhurdle.spectrum.const.IconType;
-    import com.unhurdle.spectrum.const.IconPrefix;
   }
+  import com.unhurdle.spectrum.const.IconSize;
+  import com.unhurdle.spectrum.const.IconType;
+  import com.unhurdle.spectrum.const.IconPrefix;
+  import org.apache.royale.html.util.getLabelFromData;
 
   public class MenuItemRenderer extends DataItemRenderer
   {
@@ -28,44 +29,42 @@ package com.unhurdle.spectrum.renderers
       // do nothing
     }
 
+    COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
       var menuItem:MenuItem;
       menuItem = value as MenuItem;
-      COMPILE::JS
-      {
-        element.className = "";
-        if(menuItem.isHeading){
-          textNode.className = appendSelector("-sectionHeading");
-        } else {
-          element.className = appendSelector("-item");
-        }
-        if(menuItem.isDivider){
-          element.className = appendSelector("-divider");
-        }
-        if(menuItem.disabled){
-          element.classList.add("is-disabled");
-        }
-        if(menuItem.selected){
-          element.classList.add("is-selected");
-        }
-        textNode.text = menuItem.text;
-
-        if(menuItem.icon){
-          if(!icon){
-            icon = new Icon(menuItem.icon);
-            icon.size = IconSize.S;
-            element.insertBefore(icon.element,element.childNodes[0] || null);
-            icon.addedToParent();
-          } else {
-            icon.element.style.display = null;
-            icon.selector = menuItem.icon;
-          }
-        } else if(icon){
-          icon.element.style.display = "none";
-        }
-
+      element.className = "";
+      if(menuItem.isHeading){
+        textNode.className = appendSelector("-sectionHeading");
+      } else {
+        element.className = appendSelector("-item");
       }
+      if(menuItem.isDivider){
+        element.className = appendSelector("-divider");
+      }
+      if(menuItem.disabled){
+        element.classList.add("is-disabled");
+      }
+      if(menuItem.selected){
+        element.classList.add("is-selected");
+      }
+      textNode.text = getLabelFromData(this,value);
+
+      if(menuItem.icon){
+        if(!icon){
+          icon = new Icon(menuItem.icon);
+          icon.size = IconSize.S;
+          element.insertBefore(icon.element,element.childNodes[0] || null);
+          icon.addedToParent();
+        } else {
+          icon.element.style.display = null;
+          icon.selector = menuItem.icon;
+        }
+      } else if(icon){
+        icon.element.style.display = "none";
+      }
+
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;

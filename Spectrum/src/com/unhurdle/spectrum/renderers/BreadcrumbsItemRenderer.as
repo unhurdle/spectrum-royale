@@ -31,27 +31,23 @@ package com.unhurdle.spectrum.renderers
       // do nothing
     }
 
+    COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value
-      if(value is BreadcrumbsItem){
-        var breadCrumbsItem:BreadcrumbsItem;
-        breadCrumbsItem = value as BreadcrumbsItem;
-        textNode.text = breadCrumbsItem.text;
-      }
-      else{
-        textNode.text = getLabelFromData(this,value);
-      }
-      COMPILE::JS{
-        element.className = appendSelector("-item");
-        if(breadCrumbsItem && breadCrumbsItem.isTitle){
-          var h1:HTMLElement = newElement("h1");
-          h1.className = "spectrum-Heading--pageTitle";
-          // element.removeChild(textNode.element);
+      var breadCrumbsItem:BreadcrumbsItem;
+      breadCrumbsItem = value as BreadcrumbsItem;
+      textNode.text = getLabelFromData(this,value);
+      element.className = appendSelector("-item");
+      if(breadCrumbsItem && breadCrumbsItem.isTitle){
+        var h1:HTMLElement = newElement("h1");
+        h1.className = "spectrum-Heading--pageTitle";
+        // element.removeChild(textNode.element);
+        if(icon.parent){
           removeElement(icon);
-          // element.removeChild(icon.getElement());
-          h1.appendChild(textNode.element);
-          element.appendChild(h1);
         }
+        // element.removeChild(icon.getElement());
+        h1.appendChild(textNode.element);
+        element.appendChild(h1);
       }
     }
     override public function set selected(value:Boolean):void{
