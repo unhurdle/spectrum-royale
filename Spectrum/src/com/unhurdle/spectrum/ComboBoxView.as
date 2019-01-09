@@ -14,6 +14,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.core.IChild;
 	import org.apache.royale.utils.callLater;
 	import org.apache.royale.events.MouseEvent;
+	import com.unhurdle.spectrum.const.IconType;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -25,7 +26,9 @@ package com.unhurdle.spectrum{
 		{
 			super();
 		}
-		
+		private function appendSelector(value:String):String{
+			return "spectrum-InputGroup" + value;
+		}
 		private var input:TextField;
 		
 		/**
@@ -91,12 +94,14 @@ package com.unhurdle.spectrum{
 			var host:ComboBox = value as ComboBox;
 			
 			input = new TextField();
-      input.className = "spectrum-InputGroup-field";
+      input.className = appendSelector("-field");
 			
 			button = new FieldButton();
-      button.className = "spectrum-InputGroup-button";
-      button.icon = "#spectrum-css-icon-ChevronDownMedium";
-      button.iconClass = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-InputGroup-icon";
+      button.className = appendSelector("-button");
+			var type:String = IconType.CHEVRON_DOWN_MEDIUM;
+      button.icon = Icon.getCSSTypeSelector(type);
+			button.iconType = type;
+      button.iconClass = appendSelector("-icon");
 
 			// if (isNaN(host.width)) input.width = 100;
 			
@@ -113,7 +118,7 @@ package com.unhurdle.spectrum{
 			var popUpClass:Class = ValuesManager.valuesImpl.getValue(_strand, "iPopUp") as Class;
 
 			_popup = (new popUpClass() as ComboBoxList);
-			_popup.className = "spectrum-Popover--bottom";
+			_popup.position = "bottom";
       list = _popup.list;
       // list.dataProvider = model.dataProvider;
 			list.model = model;
@@ -246,7 +251,7 @@ package com.unhurdle.spectrum{
 		 */
 		protected function itemChangeAction():void
 		{
-			var text:String = getLabelFromData(model,model.selectedItem);
+			var text:String = getLabelFromData(list,model.selectedItem);
 			if(text){
 				input.text = text;
 			}
