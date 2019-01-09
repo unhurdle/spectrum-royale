@@ -45,5 +45,39 @@ package com.unhurdle.spectrum
         }
       }
     }
+
+    private var _position:String;
+
+    public function get position():String
+    {
+    	return _position;
+    }
+
+    public function set position(value:String):void
+    {
+      if(value != _position){
+        if(!value){
+          value = "bottom";
+        }
+        switch(value)
+        {
+          case "bottom":
+          case "top":
+          case "right":
+          case "left":
+            break;
+        
+          default:
+            throw new Error("invalid position: " + value);
+            
+        }
+        if(_position){
+          toggle(valueToSelector(_position),false);
+        }
+        toggle(valueToSelector(value),false);
+      	_position = value;
+      }
+    }
+
   }
 }
