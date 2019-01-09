@@ -10,7 +10,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
-
   
   [Event(name="accept", type="org.apache.royale.events.Event")]
 
@@ -102,7 +101,9 @@ package com.unhurdle.spectrum
     	_action = value;
     }
     private function onAction(ev:Event):void{
-      dispatchEvent(new Event("accept"));
+      if(_shown){
+        dispatchEvent(new Event("accept"));
+      }
       hide();
     }
 
@@ -115,6 +116,7 @@ package com.unhurdle.spectrum
 
     private var timer:Timer;
     public function show():void{
+      _shown = true;
       Application.current.addElement(this);
       toggle("show",true);
       COMPILE::JS
@@ -131,8 +133,11 @@ package com.unhurdle.spectrum
       timer.removeEventListener(Timer.TIMER,onTimer);
       hide();
     }
-
+    private var _shown:Boolean;
     public function hide():void{
+      if(!_shown){
+        return;
+      }
       toggle("show", false);
       toggle("hide",true);
       COMPILE::JS
