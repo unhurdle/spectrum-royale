@@ -67,22 +67,8 @@ package com.unhurdle.spectrum
     COMPILE::JS 
     protected function modelChangedHandler(event:Event):void
 		{
-        fileProxy.model.addEventListener("blobChanged", blobChangedHandler);
-				trace('loading: ' +  fileProxy.name);
         dispatchEvent(new ValueEvent("filesAvailable",[(fileProxy.model as FileModel).file]));
 		}
-
-		COMPILE::JS 
-		private function blobChangedHandler(e:Event):void
-		{
-      var fileModel:FileModel= fileProxy.model as FileModel;
-      SimpleAlert.show(fileModel.blob.length + " bytes of " + fileModel.name + " were loaded", this);
-		}
-
-
-  private function valueToCSS(value:String):String{
-        return "spectrum-Dropzone" + value;
-  }
   
   COMPILE::JS
   override protected function createElement():WrappedHTMLElement{

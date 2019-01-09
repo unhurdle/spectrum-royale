@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum
+package com.unhurdle.spectrum.const
 {
   public class ColorStop
   {

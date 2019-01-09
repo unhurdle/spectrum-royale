@@ -8,7 +8,6 @@ package com.unhurdle.spectrum
       {
         if(type){
           _element = newElement(type);
-          _text = "";
           appendTextNode();
         }
       }
@@ -40,7 +39,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     private var _textNode:Text;
 
-    private var _text:String;
+    private var _text:String = "";
 
     public function get text():String
     {

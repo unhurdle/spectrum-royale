@@ -1,10 +1,12 @@
-package com.unhurdle.spectrum
+package com.unhurdle.spectrum.typography
 {
   COMPILE::JS
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  import com.unhurdle.spectrum.Group;
+  import com.unhurdle.spectrum.TextNode;
 
   public class Typography extends Group
   {
@@ -21,44 +23,10 @@ package com.unhurdle.spectrum
     }
     override protected function getSelector():String{
       var sizeStr:String = size ? "" + size : "";
-      var suffix:String = "";
-      if(quiet){
-        suffix = "--quiet";
-      } else if(strong){
-        suffix = "--strong";
-      }
-      return getTypographySelector() + size + suffix;
+      return getTypographySelector() + size + getSuffix();
     }
-
-    private var _quiet:Boolean;
-
-    public function get quiet():Boolean
-    {
-    	return _quiet;
-    }
-
-    public function set quiet(value:Boolean):void
-    {
-      if(value != !!_quiet){
-        _strong = false;
-      	_quiet = value;
-        setTypeNames();
-      }
-    }
-    private var _strong:Boolean;
-
-    public function get strong():Boolean
-    {
-    	return _strong;
-    }
-
-    public function set strong(value:Boolean):void
-    {
-      if(value != !!_strong){
-      	_strong = value;
-        _quiet = false;
-        setTypeNames();
-      }
+    protected function getSuffix():String{
+      return "";
     }
 
     public function get text():String
@@ -71,16 +39,19 @@ package com.unhurdle.spectrum
     	textNode.text = value;
     }
 
-    private var _size:Number;
+    protected var _size:Number;
 
     public function get size():Number
     {
     	return _size;
     }
+    protected function getMax():int{
+      return 5;
+    }
     public function set size(value:Number):void
     {
       if(value != _size){
-        value = Math.min(value,5);
+        value = Math.min(value,getMax());
         value = Math.max(value,1);
         value = Math.round(value);
       	_size = value;

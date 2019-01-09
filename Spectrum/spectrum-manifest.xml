@@ -7,7 +7,7 @@
     <component id="Avatar" class="com.unhurdle.spectrum.Avatar"/>
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
-    <component id="Body" class="com.unhurdle.spectrum.Body"/>
+    <component id="Body" class="com.unhurdle.spectrum.typography.Body"/>
     <component id="Breadcrumbs" class="com.unhurdle.spectrum.Breadcrumbs"/>
     <component id="BreadcrumbsItem" class="com.unhurdle.spectrum.data.BreadcrumbsItem"/>
     <component id="Button" class="com.unhurdle.spectrum.Button"/>
@@ -16,25 +16,26 @@
     <component id="CircleLoader" class="com.unhurdle.spectrum.CircleLoader"/>
     <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
-    <component id="Code" class="com.unhurdle.spectrum.Code"/>
+    <component id="Code" class="com.unhurdle.spectrum.typography.Code"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
     <component id="ComboBoxController" class="com.unhurdle.spectrum.ComboBoxController"/>
     <component id="ComboBoxList" class="com.unhurdle.spectrum.ComboBoxList"/>
     <component id="ComboBoxModel" class="com.unhurdle.spectrum.ComboBoxModel"/>
     <component id="ComboBoxView" class="com.unhurdle.spectrum.ComboBoxView"/>
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
+    <component id="Detail" class="com.unhurdle.spectrum.typography.Detail"/>
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="Dialog" class="com.unhurdle.spectrum.Dialog"/>
     <component id="DialogContent" class="com.unhurdle.spectrum.DialogContent"/>
     <component id="DialogFooter" class="com.unhurdle.spectrum.DialogFooter"/>
     <component id="DialogHeader" class="com.unhurdle.spectrum.DialogHeader"/>
-    <component id="Display" class="com.unhurdle.spectrum.Display"/>
+    <component id="Display" class="com.unhurdle.spectrum.typography.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="Form" class="com.unhurdle.spectrum.Form"/>
-    <component id="Heading" class="com.unhurdle.spectrum.Heading"/>
+    <component id="Heading" class="com.unhurdle.spectrum.typography.Heading"/>
     <component id="Icon" class="com.unhurdle.spectrum.Icon"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
@@ -45,6 +46,7 @@
     <component id="MenuView" class="com.unhurdle.spectrum.MenuView"/>
     <component id="MenuMouseController" class="com.unhurdle.spectrum.MenuMouseController"/>
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>
+    <component id="PageTitle" class="com.unhurdle.spectrum.typography.PageTitle"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->
@@ -61,6 +63,8 @@
     <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
     <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
     <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
+    <component id="Subheading" class="com.unhurdle.spectrum.typography.Subheading"/>
+    <component id="Subtitle" class="com.unhurdle.spectrum.typography.Subtitle"/>
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
