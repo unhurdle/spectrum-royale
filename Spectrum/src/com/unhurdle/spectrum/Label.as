@@ -18,6 +18,22 @@ package com.unhurdle.spectrum
 
         private var _color:String;
 
+        /**
+         * color can be one of:
+         * grey
+         * red
+         * orange
+         * yellow
+         * seafoam
+         * green
+         * blue
+         * fuchsia
+         * 
+         * It can also be:
+         * active (blue)
+         * inactive (grey)
+         * 
+         */
         public function get color():String
         {
             return _color;
@@ -36,7 +52,11 @@ package com.unhurdle.spectrum
             }
         }
         private var _size:String;
-
+        
+        /**
+         * size by default is "normal" or no value
+         * It can be set to "large" or "small" as well
+         */
         public function get size():String
         {
         	return _size;
@@ -48,48 +68,23 @@ package com.unhurdle.spectrum
                 switch(value){
                     case "small":
                     case "large":
+                    case "normal":
+                    case "":
                         break;
                     default:
                         throw new Error("Invalid scale: " + value);
                 }
-                var newScale:String = valueToSelector(value);
-                toggle(newScale, true);
                 if(_size){
-                    var oldScale:String = valueToSelector(_size);
-                    toggle(oldScale, false);
+                    toggle(valueToSelector(_size),false);
+                }
+                // normal has no selector
+                if(value == "small" || value == "large"){
+                    toggle(valueToSelector(value),true);
                 }
                 _size = value;
             }
         }
-        private var _active:Boolean;
 
-        public function get active():Boolean
-        {
-        	return _active;
-        }
-
-        public function set active(value:Boolean):void
-        {
-            var newActive:String;
-            if(value){
-                newActive = "spectrum-Label--active";
-            }
-            else{
-                newActive = "spectrum-Label--inactive";
-            }
-            toggle(newActive, true);
-            if(String(_active) != "undefined"){
-                var oldActive:String;
-                if(_active){
-                    oldActive = "spectrum-Label--active";
-                }
-                else{
-                    oldActive = "spectrum-Label--inactive";
-                }
-                toggle(oldActive, false);
-            }
-        	_active = value;
-        }
         private var span:TextNode;
 
         COMPILE::JS

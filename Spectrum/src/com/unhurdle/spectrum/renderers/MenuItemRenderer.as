@@ -42,6 +42,9 @@ package com.unhurdle.spectrum.renderers
       }
       if(menuItem.isDivider){
         element.className = appendSelector("-divider");
+      } else {
+        // only populate text if it's not a divider
+        textNode.text = getLabelFromData(this,value);
       }
       if(menuItem.disabled){
         element.classList.add("is-disabled");
@@ -49,7 +52,6 @@ package com.unhurdle.spectrum.renderers
       if(menuItem.selected){
         element.classList.add("is-selected");
       }
-      textNode.text = getLabelFromData(this,value);
 
       if(menuItem.icon){
         if(!icon){
