@@ -30,7 +30,7 @@
     <component id="DialogHeader" class="com.unhurdle.spectrum.DialogHeader"/>
     <component id="Display" class="com.unhurdle.spectrum.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
-    <!-- <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/> -->
+    <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="Form" class="com.unhurdle.spectrum.Form"/>

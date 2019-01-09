@@ -9,11 +9,9 @@ package com.unhurdle.spectrum
     public function RampSlider()
     {
       super();
-      typeNames =valueToSelector("ramp");
+      typeNames = getSelector() + " " + valueToSelector("ramp");
     }
-    override protected function getSelector():String{
-      return "spectrum-Slider";
-    }
+
     COMPILE::JS
     private var handle:HTMLElement;
     COMPILE::SWF
@@ -21,9 +19,9 @@ package com.unhurdle.spectrum
  
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        controlsContainer = newElement("div","spectrum-Slider-controls");
+        controlsContainer = newElement("div",appendSelector("-controls"));
             var ramp:HTMLDivElement = newElement("div") as HTMLDivElement;
-            ramp.className = "spectrum-Slider-ramp";
+            ramp.className = appendSelector("-ramp");
             var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
             var pathElement:SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
             pathElement.setAttribute("d","M240,4v8c0,2.3-1.9,4.1-4.2,4L1,9C0.4,9,0,8.5,0,8c0-0.5,0.4-1,1-1l234.8-7C238.1-0.1,240,1.7,240,4z");
@@ -34,16 +32,16 @@ package com.unhurdle.spectrum
             svgElement.appendChild(pathElement);
             ramp.appendChild(svgElement);
             controlsContainer.appendChild(ramp);
-            handle = newElement("div","spectrum-Slider-handle");
+            handle = newElement("div",appendSelector("-handle"));
             handle.style.left = "40%"
-        input = newElement("input","spectrum-Slider-input") as HTMLInputElement;
+            input = newElement("input",appendSelector("-input")) as HTMLInputElement;
             input.type = "range";
             input.step = "2";
             input.onchange = handleChange();
             handle.appendChild(input);
             controlsContainer.appendChild(handle);
             elem.appendChild(controlsContainer);
-    		element.addEventListener('mousedown', onMouseDown);
+            element.addEventListener('mousedown', onMouseDown);
             return elem;
     }
     override protected function positionElements():void{
