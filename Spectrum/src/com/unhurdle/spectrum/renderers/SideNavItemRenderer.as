@@ -21,29 +21,28 @@ package com.unhurdle.spectrum.renderers
     override public function updateRenderer():void{
       // do nothing
     }
+    COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
       var sideNavItem:SideNavItem;
       sideNavItem = value as SideNavItem;
-      COMPILE::JS
-      {
-        element.className = null;
-        element.style.pointerEvents = null
-        if(sideNavItem.isHeading){
-          textNode.className = appendSelector("-heading");
-          element.style.pointerEvents = "none";
-        } else {
-          element.className = appendSelector("-item");
-        }
-        if(sideNavItem.disabled){
-          element.classList.add("is-disabled");
-          element.style.pointerEvents = "none";
-        }
-        if(sideNavItem.selected){
-          element.classList.add("is-selected");
-        }
-        textNode.text = sideNavItem.text;
+      element.className = null;
+      element.style.pointerEvents = null
+      if(sideNavItem.isHeading){
+        textNode.className = appendSelector("-heading");
+        element.style.pointerEvents = "none";
+      } else {
+        element.className = appendSelector("-item");
       }
+      if(sideNavItem.disabled){
+        element.classList.add("is-disabled");
+        element.style.pointerEvents = "none";
+      }
+      if(sideNavItem.selected){
+        element.classList.add("is-selected");
+      }
+      textNode.text = sideNavItem.text;
+    
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;
