@@ -12,6 +12,14 @@
     <component id="BreadcrumbsItem" class="com.unhurdle.spectrum.data.BreadcrumbsItem"/>
     <component id="Button" class="com.unhurdle.spectrum.Button"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
+    <component id="Card" class="com.unhurdle.spectrum.card.Card"/>
+    <component id="CardActionButton" class="com.unhurdle.spectrum.card.CardActionButton"/>
+    <component id="CardBody" class="com.unhurdle.spectrum.card.CardBody"/>
+    <component id="CardDescription" class="com.unhurdle.spectrum.card.CardDescription"/>
+    <component id="CardHeader" class="com.unhurdle.spectrum.card.CardHeader"/>
+    <component id="CardSubtitle" class="com.unhurdle.spectrum.card.CardSubtitle"/>
+    <component id="CardTitle" class="com.unhurdle.spectrum.card.CardTitle"/>
+    <component id="CoverPhoto" class="com.unhurdle.spectrum.card.CoverPhoto"/>
     <component id="CheckBox" class="com.unhurdle.spectrum.CheckBox"/>
     <component id="CircleLoader" class="com.unhurdle.spectrum.CircleLoader"/>
     <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
@@ -49,6 +57,7 @@
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>
     <component id="PageTitle" class="com.unhurdle.spectrum.typography.PageTitle"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
+    <component id="QuickActions" class="com.unhurdle.spectrum.QuickActions"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
     <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->
     <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->

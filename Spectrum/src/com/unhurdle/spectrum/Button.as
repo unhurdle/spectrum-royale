@@ -125,6 +125,7 @@ package com.unhurdle.spectrum
         COMPILE::JS
         {
           element.insertBefore(iconElement.element, element.childNodes[0] || null);
+          iconElement.addedToParent();
         }
       }
 
@@ -133,7 +134,6 @@ package com.unhurdle.spectrum
       iconElement.className = iconClass;
       iconElement.size = iconSize;
       iconElement.type = iconType;
-
     }
 
     private var _flavor:String;
