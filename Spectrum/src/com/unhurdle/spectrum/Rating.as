@@ -48,42 +48,54 @@ package com.unhurdle.spectrum
     {
     	return Number(input.min);
     }
+
+    public function set min(val:Number):void
+    {
+      if(input.min && val != Number(input.min)){
+        if(val < Number(input.min)){
+          addToArray(Number(input.min)-val);
+        }
+        else if(val > Number(input.min)){
+          removeFromArray(val-Number(input.min));
+        }
+      }
+      input.min = "" + val;
+    }
     
     public function get max():Number
     {
     	return Number(input.max);
     }
 
-    public function set max(value:Number):void
+    public function set max(val:Number):void
     {
-      input.max = "" + value;
-    }
-    public function get value():Number
-    {
-    	return Number(input.value);
-    }
-
-    public function set value(value:Number):void
-    { 
-      COMPILE::JS{
-        //TODO we can probably avoid constant adding and removing of the elements.
-        if(input.value){
-          //remove old rating icons
-          while(numElements > 1){
-            removeElement(getElementAt(numElements-1));
-          }
+      if(input.max && val != Number(input.max)){
+        if(val < Number(input.max)){
+          removeFromArray(Number(input.max)-val);
         }
-        var icon1:Icon;
-        var icon2:Icon;
-        var span:Span;
-        for(var i:int = min;i<max;i++){
+        else if(val > Number(input.max)){
+          addToArray(val-Number(input.max));
+        }
+      }
+      input.max = "" + val;
+    }
+    private function removeFromArray(amount:Number):void
+    {
+      COMPILE::JS{
+        for(var index:int = 0; index < amount; index++)
+        {
+          iconArray.pop();
+          element.removeChild(element.lastChild);
+        }
+      }
+    }
+    private function addToArray(amount:Number):void
+    {
+      COMPILE::JS{
+        for(var index:int = 0; index < amount; index++)
+        {
           span = new Span();
           span.className = appendSelector("-icon");
-          if(i<=value){
-            span.className += " is-selected";
-          }
-          span.element.setAttribute("data-index",i);
-
           var type:String = IconType.STAR;
           icon1 = new Icon(Icon.getCSSTypeSelector(type));
           icon1.type = type;
@@ -95,10 +107,54 @@ package com.unhurdle.spectrum
           icon2.type = type;
           icon2.className = appendSelector("-starInactive");
           span.addElement(icon2);
-
           addElement(span);
+          // element.appendChild(span);
+          iconArray.push(span);
         }
-    	  input.value = ""+value;
+      }
+    }
+    private var iconArray:Array;
+    public function get value():Number
+    {
+    	return Number(input.value);
+    }
+    private var icon1:Icon;
+    private var icon2:Icon;
+    private var span:Span;
+    public function set value(val:Number):void
+    { 
+      COMPILE::JS{
+        if(!iconArray){
+          iconArray = [];
+          addToArray(max-min);
+          for(var i:int = 0;i<iconArray.length;i++){
+            //// span.className = appendSelector("-icon");
+            // element.children[i].className = appendSelector("-icon");
+            //// element.children[i].className = "spectrum-Rating-icon";
+            if(i <= val){
+              element.children[i].className += " is-selected";
+              // span.className += " is-selected";
+            }
+            // span.element.setAttribute("data-index",i);
+          }
+        }
+        else{
+          if(val < Number(input.value)){
+            for(i = Number(input.value); i > val ; i--){
+              if(element.children[i]){
+                element.children[i].classList.remove("is-selected");
+              }
+            }
+          }
+          else if(val > Number(input.value)){
+            for(i = Number(input.value); i <= val; i++){
+              if(element.children[i]){
+                element.children[i].classList.add("is-selected");
+              }
+            }
+          }
+        }
+    	  input.value = "" + val;
       }
     }
     private var _disabled:Boolean;
@@ -116,5 +172,7 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
+//SET VALUE
+
   }
 }

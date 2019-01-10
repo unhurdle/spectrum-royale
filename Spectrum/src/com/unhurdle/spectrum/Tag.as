@@ -9,12 +9,14 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconSize;
 
+  [Event(name="change", type="org.apache.royale.events.Event")]
   public class Tag extends SpectrumBase
   {
     public function Tag()
     {
       super();
       typeNames = "spectrum-Tags-item";
+      
     }
     private var span:TextNode;
     COMPILE::JS
@@ -23,6 +25,10 @@ package com.unhurdle.spectrum
       span = new TextNode("");
       span.element = newElement("span") as HTMLSpanElement;
       elem.appendChild(span.element);
+      clearButton = new ClearButton();
+      clearButton.small = true;
+      addElement(clearButton);
+      clearButton.addEventListener("change",removeTag);
       return elem;
     }
     public function get text():String
@@ -32,8 +38,8 @@ package com.unhurdle.spectrum
     private var _text:String;
     public function set text(value:String):void
     {
-        _text = value;
-        span.text = value;
+      _text = value;
+      span.text = value;
     }
     private var _src:String;
 
@@ -115,17 +121,16 @@ package com.unhurdle.spectrum
       if(value != !!_deletable){
         toggle(valueToSelector("deletable"),value);
         if(value){
-          if(!clearButton){
-            clearButton = new ClearButton();
-            clearButton.small = true;
-            addElement(clearButton);
-          }
           clearButton.visible = true;
         } else {
           clearButton.visible = false;
         }
       }
     	_deletable = value;
+    }
+
+    private function removeTag():void{
+      parent.removeElement(this);
     }
   }
 }

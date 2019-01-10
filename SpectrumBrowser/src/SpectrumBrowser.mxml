@@ -85,8 +85,7 @@
         new Toast(str).show();
       }
       private var dialog:Dialog;
-      private function showDialog():void
-      {
+      private function showDialog():void{
         dialog = new Dialog();
         dialog.size = 1;
         dialog.error = true;
@@ -114,13 +113,11 @@
         dialog.show();
       }
 
-      private function hideDialog():void
-      {
+      private function hideDialog():void{
         dialog.hide();
       }
 
-      private function itemSelected(ev:ValueEvent):void
-      {
+      private function itemSelected(ev:ValueEvent):void{
         var value:String;
         if(ev.value["label"]){
           value = ev.value["label"];
@@ -139,6 +136,36 @@
       private function sideNavClick(ev:*):void{
         var value:String = ev.target.selectedItem.label;
         new Toast("The selected item is: "+value).show();
+      }
+
+      private function handleChangeOfRange():void{
+        rating1.value = ratingStepper.value;
+      }
+
+      private function handleTagChange():void{
+        new Toast("The tag has been deleted").show();
+      }
+
+      private function handleChangeOfMin():void{
+        rating1.min = minStepper.value;
+        if(maxStepper.value && minStepper.value){
+          ratingStepper.max = maxStepper.value - minStepper.value;
+          if(ratingStepper.value > (maxStepper.value - minStepper.value)){
+            ratingStepper.value = (maxStepper.value - minStepper.value);
+          }
+        }
+        maxStepper.min = minStepper.value;
+      }
+
+      private function handleChangeOfMax():void{
+        rating1.max = maxStepper.value;
+        if(maxStepper.value && minStepper.value){
+          ratingStepper.max = maxStepper.value - minStepper.value;
+          if(ratingStepper.value > (maxStepper.value - minStepper.value)){
+            ratingStepper.value = (maxStepper.value - minStepper.value);
+          }
+        }
+        minStepper.max = maxStepper.value;
       }
       private function onFiles(ev:ValueEvent):void{
         var files:Array = ev.value;
@@ -166,11 +193,15 @@
       <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/>
       </sp:ButtonGroup>
       <sp:Label text="label" color="red" />
-      <sp:CycleButton paused="true"/>
-      <sp:Rating max="5" value="3" disabled="true"/>
-      <sp:Rating max="7" value="7"/>
+     <sp:CycleButton paused="true"/>
+      <sp:Rating max="5" min="0" value="3" disabled="true"/>
+      <sp:Rating max="7" min="0" value="7"/>
+      <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
+      <sp:Stepper id="minStepper" placeholder="Change min" step="1" min="0" max="9" change="handleChangeOfMin()"/>
+      <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
+      <sp:Rating id="rating1" max="9" min="0" value="3"/>
       <sp:Tool />
-      <sp:Tag text="tag 1" deletable="true" />
+      <sp:Tag text="tag 1" deletable="true" change="handleTagChange()"/>
       <!-- <sp:Alert text="Alert"/>  -->
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader label="Thingies" meter="true" value="90"/>
@@ -214,7 +245,6 @@
         </sp:dataProvider>
       </sp:Breadcrumbs>
       <sp:Popover open="true" relativePosition="true">
-      
         <sp:Menu>
           <sp:dataProvider>
           <fx:Array>
@@ -227,7 +257,6 @@
             <sp:MenuItem text="Item One"/>
             <sp:MenuItem text="Item Two"/>
             <sp:MenuItem text="Item Three" disabled="true"/>
-            
           </fx:Array>
           </sp:dataProvider>
         </sp:Menu>
