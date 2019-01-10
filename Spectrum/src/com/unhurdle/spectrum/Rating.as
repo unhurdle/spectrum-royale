@@ -44,23 +44,6 @@ package com.unhurdle.spectrum
       }
       console.log(ev.target);
     }
-    public function get min():Number
-    {
-    	return Number(input.min);
-    }
-
-    public function set min(val:Number):void
-    {
-      if(input.min && val != Number(input.min)){
-        if(val < Number(input.min)){
-          addToArray(Number(input.min)-val);
-        }
-        else if(val > Number(input.min)){
-          removeFromArray(val-Number(input.min));
-        }
-      }
-      input.min = "" + val;
-    }
     
     public function get max():Number
     {
@@ -126,7 +109,7 @@ package com.unhurdle.spectrum
       COMPILE::JS{
         if(!iconArray){
           iconArray = [];
-          addToArray(max-min);
+          addToArray(max);
           for(var i:int = 0;i<iconArray.length;i++){
             //// span.className = appendSelector("-icon");
             // element.children[i].className = appendSelector("-icon");

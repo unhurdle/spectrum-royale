@@ -64,7 +64,7 @@ package com.unhurdle.spectrum
             icon = null;
           }
           if(!imageElement){
-            imageElement = newElement("img") as HTMLImageElement;
+            imageElement = newElement("image") as HTMLImageElement;
             imageElement.className = "spectrum-Avatar";
             element.insertBefore(imageElement, element.childNodes[0] || null);
           }
