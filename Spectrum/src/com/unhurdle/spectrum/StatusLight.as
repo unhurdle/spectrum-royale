@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
-  public class StatusLight extends SpectrumBase
+  public class StatusLight extends TextBase
   {
 
     public function StatusLight()
@@ -44,16 +44,6 @@ package com.unhurdle.spectrum
       	_status = value;
         
       }
-    }
-    private var textNode:TextNode;
-    
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
-      textNode = new TextNode("");
-      textNode.element = elem;
-      textNode.text = "";
-      return elem;
     }
 
     private var _text:String;
