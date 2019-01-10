@@ -105,7 +105,31 @@ package com.unhurdle.spectrum.card
       previewDiv.addElement(value);
     	_preview = value;
     }
-    public var body:CardBody;
+    private var _body:CardBody;
+
+    public function get body():CardBody
+    {
+    	return _body;
+    }
+
+    public function set body(value:CardBody):void
+    {
+      if(value != _body){
+        if(_body){
+          removeElement(_body);
+        }
+        var index:int = 0;
+        if(coverPhoto){
+          index++;
+        }
+        if(previewDiv){
+          index++;
+        }
+        addElementAt(value,index);
+
+        _body = value;
+      }
+    }
 
     // The order of actions and quickActions does not matter
     private var _actions:QuickActions;
@@ -117,7 +141,13 @@ package com.unhurdle.spectrum.card
 
     public function set actions(value:QuickActions):void
     {
-    	_actions = value;
+      if(value != _actions){
+        if(_actions){
+          removeElement(_actions);
+        }
+        addElement(value);
+      	_actions = value;
+      }
     }
     private var _quickActions:QuickActions;
 
@@ -128,7 +158,13 @@ package com.unhurdle.spectrum.card
 
     public function set quickActions(value:QuickActions):void
     {
-    	_quickActions = value;
+      if(value != _quickActions){
+        if(_quickActions){
+          removeElement(_quickActions);
+        }
+        addElement(value);
+      	_quickActions = value;
+      }
     }
 
     override protected function getSelector():String{
