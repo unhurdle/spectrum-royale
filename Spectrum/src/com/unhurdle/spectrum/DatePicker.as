@@ -4,6 +4,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  
+  
   public class DatePicker extends SpectrumBase
   {
     public function DatePicker()
@@ -26,6 +28,7 @@ package com.unhurdle.spectrum
     private var button:Object;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
+      //TODO how much of this can be done in Icons and other classes?
       addElementToWrapper(this,'div');
       className = "spectrum-Datepicker";
       input = newElement("input") as HTMLInputElement;
@@ -33,17 +36,22 @@ package com.unhurdle.spectrum
       input.type = "text";
       button = newElement("button") as HTMLButtonElement;
       button.className = "spectrum-FieldButton spectrum-InputGroup-button";
-      var svgElement:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
-      svgElement.setAttribute("class","spectrum-Icon spectrum-Icon--sizeS");
+      
+      var iconClass:String = "spectrum-Icon spectrum-Icon--sizeS";
+      
+      var svgElement:SVGElement = newSVGElement("svg",iconClass);
       svgElement.setAttribute("focusable",false);
       svgElement.setAttribute("viewBox","0 0 36 36");
       svgElement.setAttribute("role","img");
-      var pathElement1:SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
-      pathElement1.setAttribute("d","M33 6h-5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3H10V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v3H1a1 1 0 0 0-1 1v26a1 1 0 0 0 1 1h32a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-1 26H2V8h4v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h14v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h4z");
-      svgElement.appendChild(pathElement1);
-      var pathElement2:SVGPathElement = document.createElementNS('http://www.w3.org/2000/svg', 'path') as SVGPathElement;
-      pathElement2.setAttribute("d","M6 12h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 18h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 24h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4z");
-      svgElement.appendChild(pathElement2);
+      
+      var path:SVGPathElement = newSVGElement("path","") as SVGPathElement;
+      path.setAttribute("d","M33 6h-5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3H10V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v3H1a1 1 0 0 0-1 1v26a1 1 0 0 0 1 1h32a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-1 26H2V8h4v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h14v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h4z");
+      svgElement.appendChild(path);
+
+      path = newSVGElement("path","") as SVGPathElement;
+      path.setAttribute("d","M6 12h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 18h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 24h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4z");
+      svgElement.appendChild(path);
+      
       button.appendChild(svgElement);
       element.appendChild(input);
       element.appendChild(button);

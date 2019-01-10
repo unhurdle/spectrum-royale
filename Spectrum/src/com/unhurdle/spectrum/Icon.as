@@ -110,10 +110,10 @@ package com.unhurdle.spectrum
 		}
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:SVGElement = document.createElementNS('http://www.w3.org/2000/svg', 'svg') as SVGElement;
+      var elem:SVGElement = newSVGElement("svg","");
       elem.setAttribute("focusable", false);
       elem.setAttribute("aria-hidden",true);
-      useElement = document.createElementNS('http://www.w3.org/2000/svg', 'use') as SVGUseElement;
+      useElement = newSVGElement("use","") as SVGUseElement;
       useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', selector);
       elem.appendChild(useElement);
       element = elem as WrappedHTMLElement;
