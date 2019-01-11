@@ -43,6 +43,7 @@
     <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
+    <component id="FieldLabel" class="com.unhurdle.spectrum.FieldLabel"/>
     <component id="FileAsset" class="com.unhurdle.spectrum.FileAsset"/>
     <component id="FolderAsset" class="com.unhurdle.spectrum.FolderAsset"/>
     <component id="Form" class="com.unhurdle.spectrum.Form"/>
