@@ -4,8 +4,8 @@ package com.unhurdle.spectrum
 	COMPILE::JS{
 		import org.apache.royale.html.util.addElementToWrapper;
 		import org.apache.royale.core.WrappedHTMLElement;
-		import org.apache.royale.events.Event;
 	}
+	import org.apache.royale.events.Event;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	public class Dial extends SpectrumBase
@@ -18,37 +18,17 @@ package com.unhurdle.spectrum
 		override protected function getSelector():String{
 				return "spectrum-Dial";
 		}
-		COMPILE::JS
-		private var elem:WrappedHTMLElement;
 
-		COMPILE::SWF
-		private var elem:Object;
-		COMPILE::JS
 		private var input:HTMLInputElement;
-		COMPILE::SWF
-		private var input:Object;
-		COMPILE::JS
 		private var handle:HTMLDivElement;
-		COMPILE::SWF
-		private var handle:Object;
-		COMPILE::JS
 		private var labelContainer:HTMLElement;
-		COMPILE::SWF
-		private var labelContainer:Object;
-
-		COMPILE::JS
 		private var controlsContainer:HTMLElement;
-
 		protected var labelNode:TextNode;
-
 		protected var valueNode:TextNode;
-
-		COMPILE::SWF
-		private var controlsContainer:Object;
 
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
-			elem = addElementToWrapper(this,'div');
+			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
 			controlsContainer = newElement("div");
 			controlsContainer.className = appendSelector("-controls");
 			handle = newElement("div") as HTMLDivElement;
@@ -185,20 +165,16 @@ package com.unhurdle.spectrum
 			_disabled = val;
 		}
 		protected function positionElements():void{
-			COMPILE::JS
-			{
-				var percent:Number = this.value / (max - min) * 100;
-				handle.tabIndex = Number(percent + "%");
-				setLabel();
-			}
+			var percent:Number = this.value / (max - min) * 100;
+			handle.tabIndex = Number(percent + "%");
+			setLabel();
 		}
 		
-		COMPILE::JS
 		override public function addedToParent():void{
-	super.addedToParent();
-				if(!disabled){
-						element.addEventListener('mousedown', onMouseDown);
-				}
+			super.addedToParent();
+			if(!disabled){
+					addEventListener('mousedown', onMouseDown);
+			}
 
 		}
 
@@ -220,20 +196,21 @@ package com.unhurdle.spectrum
 			}
 				
 		}
-		COMPILE::JS
+
 		private function onMouseDown(e:MouseEvent):void {
 			window.addEventListener('mouseup', onMouseUp);
 			window.addEventListener('mousemove', onMouseMove);
 		}
-		COMPILE::JS
+
 		private function onMouseUp(e:MouseEvent):void {
 			window.removeEventListener('mouseup', onMouseUp);
 			window.removeEventListener('mousemove', onMouseMove);
 		}
-		COMPILE::JS
+
 		private function onMouseMove(e:MouseEvent) :void{
-			var dialOffsetWidth:Number = element.offsetWidth;
-			var dialOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
+			var elem:HTMLElement = element as HTMLElement;
+			var dialOffsetWidth:Number = elem.offsetWidth;
+			var dialOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
 			var x:Number = Math.max(Math.min(e.x - dialOffsetLeft, dialOffsetWidth), 0);
 			var percent:Number = (x / dialOffsetWidth) * 100;
 			var deg:Number = percent * 0.01 * (max - min) + min;

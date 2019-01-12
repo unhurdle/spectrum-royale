@@ -5,9 +5,7 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
-    // COMPILE::SWF
-    // public class DropIndicator extends SpectrumBase{}
-    // COMPILE::JS
+
     public class DropIndicator extends SpectrumBase
     {
         public function DropIndicator()
@@ -18,14 +16,10 @@ package com.unhurdle.spectrum
         override protected function getSelector():String{
             return "spectrum-DropIndicator";
         }
-        COMPILE::JS
-        private var elem:WrappedHTMLElement;
-        COMPILE::SWF
-        private var elem:Object;
         
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            elem = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
             return elem;
         }
         private var _direction:String;
@@ -37,6 +31,7 @@ package com.unhurdle.spectrum
 
         public function set direction(value:String):void
         {
+            var elem:HTMLElement = element as HTMLElement;
             if(value != _direction){
                 switch (value){
                     case "vertical":elem.offsetWidth = 20;

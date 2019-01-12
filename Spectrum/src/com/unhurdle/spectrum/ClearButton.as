@@ -20,6 +20,7 @@ package com.unhurdle.spectrum
         }
 
         private var icon:Icon;
+        
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             button = addElementToWrapper(this,'button') as HTMLButtonElement;
@@ -28,11 +29,7 @@ package com.unhurdle.spectrum
             addElement(icon);
             return element;
         }
-        COMPILE::JS
         public var button:HTMLButtonElement;
-
-        COMPILE::SWF
-        private var button:Object;
         
         private var _disabled:Boolean;
 

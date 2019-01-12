@@ -17,27 +17,14 @@ package com.unhurdle.spectrum
             return "spectrum-CircleLoader";
         }
         
-
-        COMPILE::JS
-        private var elem:WrappedHTMLElement;
-        COMPILE::SWF
         private var elem:Object;
-        COMPILE::JS
         private var fillSubMask1:HTMLDivElement;
-        COMPILE::SWF
-        private var fillSubMask1:Object;
-        COMPILE::JS
         private var fillSubMask2:HTMLDivElement;
-        COMPILE::SWF
-        private var fillSubMask2:Object;
-        COMPILE::JS
         private var input:HTMLInputElement;
-        COMPILE::SWF
-        private var input:Object;
 
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            elem = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
             var track:HTMLDivElement = newElement("div") as HTMLDivElement;
             track.className = appendSelector("-track");
             elem.appendChild(track);

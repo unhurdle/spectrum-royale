@@ -15,15 +15,11 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Slider";
     }
-    COMPILE::JS
     private var handle:HTMLElement;
-    COMPILE::SWF
-    private var handle:Object;
-    COMPILE::JS
 		private var track:HTMLElement;
-		COMPILE::SWF
-		private var track:Object;
-           override protected function createElement():WrappedHTMLElement{
+
+    COMPILE::JS
+    override protected function createElement():WrappedHTMLElement{
       /* 
         <div class="spectrum-Slider spectrum-Slider--color">
           <div class="spectrum-Slider-labelContainer">

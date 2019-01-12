@@ -15,17 +15,10 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-InputGroup";
     }
-    COMPILE::JS
+
     private var input:HTMLInputElement;
-
-    COMPILE::SWF
-    private var input:Object;
-
-    COMPILE::JS
     private var button:HTMLButtonElement;
-
-    COMPILE::SWF
-    private var button:Object;
+    
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       //TODO how much of this can be done in Icons and other classes?

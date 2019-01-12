@@ -3,9 +3,9 @@ package com.unhurdle.spectrum
     COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
-        import com.unhurdle.spectrum.const.IconType;
-        import org.apache.royale.html.elements.Span;
     }
+    import com.unhurdle.spectrum.const.IconType;
+    import org.apache.royale.html.elements.Span;
     /**
      *  Dispatched when the user checks or un-checks the CheckBox.
      *
@@ -21,11 +21,7 @@ package com.unhurdle.spectrum
         override protected function getSelector():String{
             return "spectrum-Checkbox";
         }
-        COMPILE::JS
         private var input:HTMLInputElement;
-
-        COMPILE::SWF
-        private var input:Object;
 
         private function elementClicked():void{
             indeterminate = false;

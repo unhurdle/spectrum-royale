@@ -21,14 +21,12 @@ package com.unhurdle.spectrum.card
     {
       if(value != _src){
         _src = value;
-        COMPILE::JS
-        {
+        var elem:HTMLElement = element as HTMLElement;
           if(value){
-            element.style.backgroundImage = "url(" + value +")";
+            elem.style.backgroundImage = "url(" + value +")";
           } else {
-            element.style.backgroundImage = null;
+            elem.style.backgroundImage = null;
           }
-        }
       }
     }
     override protected function getSelector():String{

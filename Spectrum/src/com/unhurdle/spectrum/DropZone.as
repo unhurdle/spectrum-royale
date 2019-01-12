@@ -5,8 +5,8 @@ package com.unhurdle.spectrum
   COMPILE::JS{
   import org.apache.royale.html.util.addElementToWrapper;
   import org.apache.royale.core.WrappedHTMLElement;
-  import com.unhurdle.spectrum.Icon;
   }
+  import com.unhurdle.spectrum.Icon;
   
   import org.apache.royale.file.beads.FileModel;
   import org.apache.royale.file.beads.FileLoader;
@@ -26,7 +26,6 @@ package com.unhurdle.spectrum
     private var loader:FileLoader;
     private var fileProxy:FileProxy;
    
-    COMPILE::JS
     public function DropZone(){
       super();
       fileProxy = new FileProxy();
@@ -39,16 +38,16 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Dropzone";
     }
-    COMPILE::JS
+
     private function elementDragged(ev:Event):void{
       ev.preventDefault();
       toggle("is-dragged",true);
     }
-    COMPILE::JS
+
     private function elementNotDragged(ev:Event):void{
       toggle("is-dragged",false);
     }
-    COMPILE::JS
+
     private function dropped(ev:DragEvent):void{  
       trace(ev);
       ev.preventDefault();
@@ -57,13 +56,13 @@ package com.unhurdle.spectrum
       dispatchEvent(new ValueEvent("filesAvailable",fileList));
     }
 
-    COMPILE::JS 
+    COMPILE::JS
     private function uploadFile():void{
       fileProxy.addEventListener("modelChanged",modelChangedHandler);
       browser.browse();
     }
 
-    COMPILE::JS 
+    COMPILE::JS
     protected function modelChangedHandler(event:Event):void
 		{
         dispatchEvent(new ValueEvent("filesAvailable",[(fileProxy.model as FileModel).file]));
@@ -84,25 +83,21 @@ package com.unhurdle.spectrum
     illustratedMessage.className = "spectrum-IllustratedMessage spectrum-IllustratedMessage--cta";
 
  
-    COMPILE::JS
     illustratedMessage.appendChild(generateSVG(predefinedSVGElement()));
     element.appendChild(illustratedMessage);
 
-    var header:TextNode = new TextNode("");
-    header.element = newElement("h2") as HTMLHeadingElement;
+    var header:TextNode = new TextNode("h2");
     header.className = "spectrum-Heading spectrum-Heading--pageTitle spectrum-IllustratedMessage-heading";
     header.text = "Drag and Drop Your File";
     element.appendChild(header.element);
 
-    var paragraph:TextNode = new TextNode("");
-    paragraph.element = newElement("p") as HTMLParagraphElement;  
+    var paragraph:TextNode = new TextNode("p");
     paragraph.className = "spectrum-Body--secondary spectrum-IllustratedMessage-description";
     element.appendChild(paragraph.element);
 
     paragraph.text = "or ";  //in the wrong spot
 
-    var hyperlink:TextNode = new TextNode("");
-    hyperlink.element = newElement("a") as HTMLLinkElement; 
+    var hyperlink:TextNode = new TextNode("a");
     (hyperlink as HTMLLinkElement).href ="#"; 
     hyperlink.className = "spectrum-Link";
     hyperlink.text = "Select a File"; 
