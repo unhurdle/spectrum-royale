@@ -7,8 +7,9 @@ package com.unhurdle.spectrum
   COMPILE::JS {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.Icon;
   }
+  
+  import com.unhurdle.spectrum.Icon;
   
   public class Alert extends SpectrumBase
   
@@ -109,6 +110,9 @@ package com.unhurdle.spectrum
     
     private var icon:Icon;
     
+    COMPILE::SWF
+    private function createIcon(status:String):void{}
+    
     COMPILE::JS
     private function createIcon(status:String):void{
       var type:String;
@@ -207,26 +211,24 @@ package com.unhurdle.spectrum
     public function set status(value:String):void
     {
       //TODO can status be none?
-      COMPILE::JS
-      {
-        if(value != _status){
-          switch(value){
-            case Alert.ERROR:
-            case Alert.HELP:
-            case Alert.INFO:
-            case Alert.SUCCESS:
-            case Alert.WARNING:
-              break;
-            default:
-              throw new Error("Invalid status: " + value);
-          }
-          if(_status){
-            toggle(valueToSelector(_status), false);
-          }
-          toggle(valueToSelector(value), true);
-          createIcon(value);
+      if(value != _status){
+        switch(value){
+          case Alert.ERROR:
+          case Alert.HELP:
+          case Alert.INFO:
+          case Alert.SUCCESS:
+          case Alert.WARNING:
+            break;
+          default:
+            throw new Error("Invalid status: " + value);
         }
+        if(_status){
+          toggle(valueToSelector(_status), false);
+        }
+        toggle(valueToSelector(value), true);
+        createIcon(value);
       }
+    
       _status = value;
     }
   }

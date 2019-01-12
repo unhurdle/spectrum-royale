@@ -28,7 +28,7 @@ package com.unhurdle.spectrum
 
         public function set header(value:String):void
         {
-            headerNode.nodeValue = value;
+            headerNode.text = value;
         	_header = value;
         }
 
@@ -41,37 +41,24 @@ package com.unhurdle.spectrum
 
         public function set content(value:String):void
         {
-            contentNode.nodeValue = value;
+            contentNode.text = value;
         	_content = value;
         }
 
-        COMPILE::JS
-        private var headerNode:Text;
-
-        COMPILE::SWF
-        private var headerNode:Object;
+        private var headerNode:TextNode;
         
-        COMPILE::JS
-        private var contentNode:Text;
-
-        COMPILE::SWF
-        private var contentNode:Object;
+        private var contentNode:TextNode;
 
         COMPILE::JS        
         override protected function createElement():WrappedHTMLElement{
             var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            
-            var headerElem:HTMLDivElement = newElement("div") as HTMLDivElement;
-            headerElem.className = "spectrum-Banner-header";
-            headerNode = newTextNode("");
-            headerElem.appendChild(headerNode);
-            elem.appendChild(headerElem);
+            headerNode = new TextNode("div");
+            headerNode.className = appendSelector("-header");
+            elem.appendChild(headerNode.element);
 
-            var contentElem:HTMLDivElement = newElement("div") as HTMLDivElement;
-            contentElem.className = "spectrum-Banner-content";
-            contentNode = newTextNode("");
-            contentElem.appendChild(contentNode);
-            elem.appendChild(contentElem);
+            contentNode = new TextNode("div");
+            headerNode.className = appendSelector("-content");
+            elem.appendChild(contentNode.element);
 
             return elem;
         }

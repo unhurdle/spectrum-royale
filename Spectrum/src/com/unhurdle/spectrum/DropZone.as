@@ -14,7 +14,6 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.ValueEvent;
 
   import org.apache.royale.html.SimpleAlert;
-  import com.unhurdle.spectrum.assets.SimpleFileUploader;
   import org.apache.royale.file.FileProxy;
   import org.apache.royale.events.Event;
   import org.apache.royale.textLayout.edit.ElementRange;

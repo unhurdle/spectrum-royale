@@ -18,8 +18,7 @@ package com.unhurdle.spectrum
     }
 
     private var _disabled:Boolean;
-    COMPILE::JS
-    private var avatar:WrappedHTMLElement;
+
     public function get disabled():Boolean
     {
       return _disabled;
@@ -33,25 +32,12 @@ package com.unhurdle.spectrum
 
     public function get src():String
     {
-      COMPILE::JS{
         return (element as HTMLImageElement).src;
-
-      }
-      COMPILE::SWF{
-        return "";
-      }
-      
     }
     
     public function set src(value:String):void
     {
-      // if(!value){
-      
-        COMPILE::JS{
-          (element as HTMLImageElement).src = value;
-        }
-      // }
-    	// _source = value;
+      (element as HTMLImageElement).src = value;
     }
 
     COMPILE::JS

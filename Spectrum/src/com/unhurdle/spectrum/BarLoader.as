@@ -108,7 +108,7 @@ package com.unhurdle.spectrum
                 element.setAttribute("aria-valuemax",max);
             }
         }
-        COMPILE::JS
+
         private var fill:HTMLElement;
 
         private var percentNode:TextNode;

@@ -122,11 +122,7 @@ package com.unhurdle.spectrum
       } else {
         iconElement = new Icon(selector);
         setIconProps();
-        COMPILE::JS
-        {
-          element.insertBefore(iconElement.element, element.childNodes[0] || null);
-          iconElement.addedToParent();
-        }
+        addElementAt(iconElement,0);
       }
 
     }
@@ -186,21 +182,12 @@ package com.unhurdle.spectrum
 
     public function get disabled():Boolean
     {
-      COMPILE::JS
-      {
-      	return (element as HTMLButtonElement).disabled;
-      }
-      COMPILE::SWF{
-        return false;
-      }
+      return (element as HTMLButtonElement).disabled;
     }
 
     public function set disabled(value:Boolean):void
     {
-      COMPILE::JS
-      {
-      	(element as HTMLButtonElement).disabled = value;
-      }
+      (element as HTMLButtonElement).disabled = value;
     }
     
     private var textNode:TextNode;

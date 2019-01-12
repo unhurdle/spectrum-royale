@@ -32,16 +32,14 @@ package com.unhurdle.spectrum
 
     public function set isTitle(value:Boolean):void
     {
-      COMPILE::JS{
-        if(value != !!_isTitle){
-          if(value){
-            className = getSelector() + "--title";
-          } else {
-            className = "";
-          }
+      if(value != !!_isTitle){
+        if(value){
+          className = getSelector() + "--title";
+        } else {
+          className = "";
         }
-        _isTitle = value;
       }
+      _isTitle = value;
     }
   }
 }

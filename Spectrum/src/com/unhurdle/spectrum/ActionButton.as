@@ -22,10 +22,8 @@ package com.unhurdle.spectrum
     {
       super()
       toggle(valueToSelector("primary"),false);
-      COMPILE::JS
-      {
-        element.addEventListener('click',elementClickedForMenu,true);
-      }
+      addEventListener('click',elementClickedForMenu,true);
+      addEventListener(MouseEvent.MOUSE_DOWN,handleMouseDown);
     }
     override protected function getSelector():String{
       return "spectrum-ActionButton";
@@ -45,10 +43,6 @@ package com.unhurdle.spectrum
         flyOutIconHolder.type = type;
         flyOutIconHolder.className = appendSelector("-hold");
         addElement(flyOutIconHolder);
-        COMPILE::JS
-        {
-          element.onmousedown = handleMouseDown;
-        }
         timer = new Timer(1000,1);
         timer.addEventListener(Timer.TIMER,onTimer);
 
@@ -69,17 +63,13 @@ package com.unhurdle.spectrum
 
     override public function addedToParent():void{
       super.addedToParent();
-      COMPILE::JS
-      {
-        if(selectable){
-          element.addEventListener('click',elementClicked);
-          // element.onclick = elementClicked;
-        }
-        element.addEventListener(MouseEvent.MOUSE_DOWN,elementMouseDown);
-        if(dataProvider){
-          createFlyoutIcon();
-        }
-
+      if(selectable){
+        addEventListener('click',elementClicked);
+        // element.onclick = elementClicked;
+      }
+      addEventListener(MouseEvent.MOUSE_DOWN,elementMouseDown);
+      if(dataProvider){
+        createFlyoutIcon();
       }
     }
 
@@ -174,18 +164,12 @@ package com.unhurdle.spectrum
     }
 
     private function handleMouseDown(ev:*):void{
-      COMPILE::JS
-      {
-  			window.addEventListener('mouseup', handleMouseUp);
-      }
+  		window.addEventListener('mouseup', handleMouseUp);
       timer.start();
     }
 
     private function handleMouseUp(ev:*):void{
-      COMPILE::JS
-      {
-  			window.removeEventListener('mouseup', handleMouseUp);
-      }
+  		window.removeEventListener('mouseup', handleMouseUp);
       if(timer){
         timer.reset();
       }

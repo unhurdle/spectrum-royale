@@ -14,11 +14,7 @@ package com.unhurdle.spectrum
         override protected function getSelector():String{
             return "spectrum-Radio";
         }
-        COMPILE::JS
         private var input:HTMLInputElement;
-
-        COMPILE::SWF
-        private var input:Object;
 
         private var label:TextNode;
 
