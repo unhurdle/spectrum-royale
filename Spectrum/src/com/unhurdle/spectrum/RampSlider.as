@@ -12,11 +12,9 @@ package com.unhurdle.spectrum
       typeNames = getSelector() + " " + valueToSelector("ramp");
     }
 
-    COMPILE::JS
     private var handle:HTMLElement;
-    COMPILE::SWF
-    private var handle:Object;
- 
+    
+    COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
         controlsContainer = newElement("div",appendSelector("-controls"));
@@ -45,11 +43,8 @@ package com.unhurdle.spectrum
             return elem;
     }
     override protected function positionElements():void{
-COMPILE::JS
-			{
-				var percent:Number = this.value / (max - min) * 100;
-				handle.style.left = percent + "%";
-			}
+      var percent:Number = this.value / (max - min) * 100;
+      handle.style.left = percent + "%";
 		}
     private function handleChange():void{
       displayValue = true;

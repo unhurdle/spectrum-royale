@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum
 {
-  COMPILE::JS
+
   public function generateSVG(markup:String):SVGElement{
     var parser:DOMParser = new DOMParser();
     try {

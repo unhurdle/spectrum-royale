@@ -59,25 +59,22 @@ package com.unhurdle.spectrum
     public function set overlay(value:Boolean):void
     {
       if(value != !!_overlay){
-        COMPILE::JS
-        {
-          if(value){
-            outerElement.className = appendSelector("-overlay");
-          } else {
-            outerElement.className = null;
-          }
+        if(value){
+          outerElement.className = appendSelector("-overlay");
+        } else {
+          outerElement.className = null;
         }
       }
     	_overlay = value;
     }
 
-    COMPILE::JS
-    private var outerElement:WrappedHTMLElement;
+    private var outerElement:HTMLElement;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
       outerElement = newElement("div") as WrappedHTMLElement;
-      outerElement.royale_wrapper = this;
+      (outerElement as WrappedHTMLElement).royale_wrapper = this;
+      outerElement.appendChild(elem);
       return elem;
     }
     /**
@@ -86,7 +83,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override public function get positioner():WrappedHTMLElement
     {
-        return outerElement;
+        return outerElement as WrappedHTMLElement;
     }
 
   }

@@ -84,10 +84,7 @@ package com.unhurdle.spectrum
     public function set selector(value:String):void
     {
     	_selector = value;
-      COMPILE::JS
-      {
-        useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', value);
-      }
+      useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', value);
     }
 
     public function setAttribute(name:String, value:Object):void{
@@ -120,7 +117,6 @@ package com.unhurdle.spectrum
       return element;
     }
 
-    COMPILE::JS
     private var useElement:SVGUseElement;
 
   }

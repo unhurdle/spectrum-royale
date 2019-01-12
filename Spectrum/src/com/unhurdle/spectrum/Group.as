@@ -13,10 +13,7 @@ package com.unhurdle.spectrum
     public function Group()
     {
       super();
-      COMPILE::JS
-      {
-        classList = new CSSClassList();
-      }
+      classList = new CSSClassList();
       typeNames = getSelector();
     }
     protected function getSelector():String{
@@ -26,7 +23,6 @@ package com.unhurdle.spectrum
       return getSelector() + value;
     }
 
-    COMPILE::JS
     protected var classList:CSSClassList;
 
     protected function toggle(classNameVal:String,add:Boolean):void

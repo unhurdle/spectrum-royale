@@ -23,7 +23,7 @@ package com.unhurdle.spectrum
       textNode.element = anchorElement;
       return element;
     }
-    COMPILE::JS
+
     private var anchorElement:HTMLAnchorElement;
 
     private var _text:String;
@@ -70,10 +70,7 @@ package com.unhurdle.spectrum
       } else {
         _href = "#";
         }
-        COMPILE::JS
-        {
-          anchorElement.href = _href;
-        }
+        anchorElement.href = _href;
       }
     }
 

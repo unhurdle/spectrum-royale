@@ -15,11 +15,7 @@ package com.unhurdle.spectrum
       return "spectrum-LogicButton";
     }
     
-    COMPILE::JS
     private var button:HTMLButtonElement;
-
-    COMPILE::SWF
-    private var button:Object;
 		
 		COMPILE::JS
     override protected function createElement():WrappedHTMLElement{

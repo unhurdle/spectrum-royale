@@ -7,7 +7,6 @@ package com.unhurdle.spectrum
       super();
     }
 
-    COMPILE::JS
     private var imageElement:HTMLImageElement;
     private var _src:String;
     public function get src():String
@@ -17,16 +16,13 @@ package com.unhurdle.spectrum
 
     public function set src(value:String):void
     {
-      COMPILE::JS
-      {
-        if(value != _src){
-          if(!imageElement){
-            imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
-            element.appendChild(imageElement);
-          }
-          imageElement.src = value;
-          _src = value;
+      if(value != _src){
+        if(!imageElement){
+          imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
+          (element as HTMLElement).appendChild(imageElement);
         }
+        imageElement.src = value;
+        _src = value;
       }
     }
   }
