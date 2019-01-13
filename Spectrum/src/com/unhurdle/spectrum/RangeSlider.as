@@ -51,8 +51,7 @@ package com.unhurdle.spectrum
     {
         //TODO why is this a string?
         secondInput.max = "" + value;
-    }
-    
+    }    
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
@@ -164,6 +163,7 @@ package com.unhurdle.spectrum
 		// 		valueNode.text = "" + value;
 		// 	}
     // }
+    COMPILE::JS
     override protected function onMouseMove(e:MouseEvent):void {
 			//TODO find the new range...
       var handle:Object = e.target;//to check

@@ -24,6 +24,13 @@ package com.unhurdle.spectrum
       // override in sub-class
 		}
 
+    protected var input:HTMLInputElement;
+    protected var labelContainer:HTMLElement;
+    protected var controlsContainer:HTMLElement;
+    protected var labelNode:TextNode;
+    
+    protected var valueNode:TextNode;
+
     private var _disabled:Boolean;
 
     public function get disabled():Boolean
@@ -111,43 +118,38 @@ package com.unhurdle.spectrum
         setLabel();
     }
 
-    private function setLabel():void{
+        private function setLabel():void{
 			COMPILE::JS
 			{
-        if(!labelContainer){
-            labelContainer = newElement("div",appendSelector("-labelContainer"));
-			element.insertBefore(labelContainer,controlsContainer);
-        }
-        if(_label && !labelNode){
-            labelNode = new TextNode("label");
+            if(!labelContainer){
+                        labelContainer = newElement("div",appendSelector("-labelContainer"));
+                        element.insertBefore(labelContainer,controlsContainer || null);
+                    }
+                    if(_label && !labelNode){
+                        labelNode = new TextNode("label");
             labelNode.className = appendSelector("-label");
-            labelContainer.insertBefore(labelNode.element,labelContainer.childNodes[0] || null);
-        }
-        if(_displayValue && !valueNode){
-            valueNode = new TextNode("div");
+                        labelContainer.insertBefore(labelNode.element,labelContainer.childNodes[0] || null);
+                    }
+                    if(_displayValue && !valueNode){
+                        valueNode = new TextNode("div");
             valueNode.className = appendSelector("-value");
-            labelContainer.appendChild(valueNode.element);
+                        labelContainer.appendChild(valueNode.element);
+                    }
+            }
+            if(labelNode){
+                labelNode.text = _label;
+            }
+            if(valueNode){
+                valueNode.text = getValue();
+            }
         }
-			}
-        if(labelNode){
-            labelNode.text = _label;
-        }
-        if(valueNode){
-            valueNode.text = getValue();
-        }
-    }
 
 		protected function getValue():String{
 			// override in subclass
 			return "";
 		}    
 
-    protected var input:HTMLInputElement;
 
-    protected var labelContainer:HTMLElement;
-    protected var controlsContainer:HTMLElement;
-    protected var labelNode:TextNode;
-    protected var valueNode:TextNode;
 
 		// Element interaction
 		protected function onMouseDown(e:MouseEvent):void {

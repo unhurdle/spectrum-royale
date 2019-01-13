@@ -207,6 +207,28 @@
       <sp:CircleLoader indeterminate="true"  size="large"/>
       <sp:CircleLoader size="small"/>
       <sp:Well/>
+      <sp:SplitButtonPagination type="cta" text="next"/>
+      <sp:SplitButtonPagination type="primary" text="next"/>
+      <sp:SplitButtonPagination type="secondary" text="next"/>
+      <!-- <sp:ColorSlider/>
+      <sp:ColorSlider color="true"/>
+      <sp:ColorSlider color="true" showingAlpha="true"/>
+      <sp:ColorSlider color="false" showingAlpha="true"/>
+      <sp:ColorSlider color="true" showingAlpha="false"/>
+      <sp:ColorSlider color="false"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}"/> -->
+      <sp:SplitButton dataProvider="{comboProvider}" type="cta" text="cta splitButton"/>
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="cta" left="true"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="primary"/> -->
+      <sp:SplitButton dataProvider="{comboProvider}" type="primary" left="true" text="left primary splitButton"/>
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="secondary" text="right secondary splitButton"/> -->
+      <sp:SplitButton dataProvider="{comboProvider}" type="secondary" left="true"/>
+      <sp:Link overBackground="true" quiet="true" text="this is my link"/>
+      <sp:Link text=""/>
+      <sp:Link overBackground="true" text="111111111111" href=""/>
+      <sp:Link href="file:///C:/Users/Yehudit/Desktop/icons/"/>
+      <sp:Link disabled="true" text=""/>
+      <sp:Link subtle="true" text=""/>
       <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
       <sp:Button text="Show Dialog" click="showDialog()" flavor="cta"/>
       <sp:StatusLight status="yellow" text="Fee"/>
@@ -216,12 +238,12 @@
       <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
       <sp:CoachMark flavor="light"/>
+      <sp:CoachMark/>
       <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" focused="true" quiet="true" min="-10" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange(event)"/>
-      <sp:CoachMark/>
       <sp:Dial label="Doodad" displayValue="true" change="onDialChange(event)"/>
       <sp:Dial size="small"/>
       <sp:Dial disabled="true"/>
@@ -278,9 +300,13 @@
           </fx:Array>
         </sp:dataProvider>
       </sp:SideNav>
+        <sp:Rule size="small"/>
+        <sp:Rule size="large"/>
+        <sp:Rule size="medium"/>
       <sp:Body text=" Body1 " size="1">
         <sp:Link href="http://printui.com" text="Click Here"/>
       </sp:Body>
+        <!-- <sp:RampSlider/> -->
       <sp:Body text=" Body2" size="2"/>
       <sp:Body text=" Body5" size="5"/>
       <sp:Code text=" Code2" size="2"/>
