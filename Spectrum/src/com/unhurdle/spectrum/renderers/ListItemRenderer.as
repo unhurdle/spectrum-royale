@@ -50,14 +50,13 @@ package com.unhurdle.spectrum.renderers
           if(!icon){
             icon = new Icon(iconSelector);
             icon.size = IconSize.S;
-            element.insertBefore(icon.element,element.childNodes[0] || null);
-            icon.addedToParent();
+            addElementAt(icon,0);
           } else {
-            icon.element.style.display = null;
+            icon.setStyle("display",null);
             icon.selector = iconSelector;
           }
         } else if(icon){
-          icon.element.style.display = "none";
+          icon.setStyle("display","none");
         }
 
       }

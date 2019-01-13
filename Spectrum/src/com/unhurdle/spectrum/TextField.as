@@ -121,10 +121,8 @@ package com.unhurdle.spectrum
       }
     	_quiet = value;
     }
-    COMPILE::JS
     protected var input:HTMLInputElement;
-    COMPILE::SWF
-    protected var input:Object;
+
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
       input = addElementToWrapper(this,'input') as HTMLInputElement;

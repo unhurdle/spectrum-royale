@@ -142,36 +142,24 @@ package com.unhurdle.spectrum
 			return "";
 		}    
 
-
-
-    COMPILE::JS
     protected var input:HTMLInputElement;
-    COMPILE::SWF
-    protected var input:Object;
 
-    COMPILE::JS
     protected var labelContainer:HTMLElement;
-    COMPILE::JS
     protected var controlsContainer:HTMLElement;
-
     protected var labelNode:TextNode;
-    
     protected var valueNode:TextNode;
-		
 
 		// Element interaction
-		COMPILE::JS
 		protected function onMouseDown(e:MouseEvent):void {
 			onMouseMove(e);
 			window.addEventListener('mouseup', onMouseUp);
 			window.addEventListener('mousemove', onMouseMove);
 		}
-		COMPILE::JS
 		protected function onMouseUp():void {
 			window.removeEventListener('mouseup', onMouseUp);
 			window.removeEventListener('mousemove', onMouseMove);
 		}
-		COMPILE::JS
+
 		protected function onMouseMove(e:MouseEvent):void {
 			// override in sub-class
 

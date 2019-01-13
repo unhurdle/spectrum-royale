@@ -60,11 +60,11 @@ package com.unhurdle.spectrum.renderers
           element.insertBefore(icon.element,element.childNodes[0] || null);
           icon.addedToParent();
         } else {
-          icon.element.style.display = null;
+          icon.setStyle("display",null);
           icon.selector = menuItem.icon;
         }
       } else if(icon){
-        icon.element.style.display = "none";
+        icon.setStyle("display","none");
       }
 
     }

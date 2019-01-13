@@ -14,30 +14,12 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Slider";
     }
-    COMPILE::JS
     private var leftHandle:HTMLElement;
-    COMPILE::SWF
-    private var leftHandle:Object;
-    COMPILE::JS
     private var rightHandle:HTMLElement;
-    COMPILE::SWF
-    private var rightHandle:Object;
-		COMPILE::JS
 		private var leftTrack:HTMLElement;
-		COMPILE::SWF
-		private var leftTrack:Object;
-		COMPILE::JS
   	private var rightTrack:HTMLElement;
-		COMPILE::SWF
-  	private var rightTrack:Object;
-    COMPILE::JS
   	private var middleTrack:HTMLElement;
-		COMPILE::SWF
-  	private var middleTrack:Object;
- COMPILE::JS
   	private var secondInput:HTMLInputElement;
-		COMPILE::SWF
-  	private var secondInput:Object;
     public function get secondStep():Number
     {
     	return Number(secondInput.step);
@@ -70,6 +52,8 @@ package com.unhurdle.spectrum
         //TODO why is this a string?
         secondInput.max = "" + value;
     }
+    
+    COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
         elem.setAttribute("role","group");
@@ -120,11 +104,8 @@ package com.unhurdle.spectrum
     }
 
     override protected function positionElements():void{
-COMPILE::JS
-			{
 				// var percent:Number = this.value / (max - min) * 100;
 				// handle.style.left = percent + "%";
-			}
 		}
     private function handleChange():void{
       displayValue = true;

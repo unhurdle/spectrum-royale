@@ -4,23 +4,17 @@ package com.unhurdle.spectrum
   {
     public function TextNode(type:String)
     {
-      COMPILE::JS
-      {
-        if(type){
-          _element = newElement(type);
-          appendTextNode();
-        }
+      if(type){
+        _element = newElement(type);
+        appendTextNode();
       }
     }
-    COMPILE::JS
     private var _element:HTMLElement;
 
-    COMPILE::JS
     public function get element():HTMLElement
     {
     	return _element;
     }
-    COMPILE::JS
     public function set element(value:HTMLElement):void
     {
     	_element = value;
@@ -30,13 +24,11 @@ package com.unhurdle.spectrum
       appendTextNode();
    }
 
-    COMPILE::JS
     private function appendTextNode():void{
       _textNode = document.createTextNode(_text) as Text;
       _element.appendChild(_textNode);
     }
     
-    COMPILE::JS
     private var _textNode:Text;
 
     private var _text:String = "";
@@ -49,10 +41,7 @@ package com.unhurdle.spectrum
     public function set text(value:String):void
     {
     	_text = value;
-      COMPILE::JS
-      {
-        _textNode.nodeValue = value;
-      }
+      _textNode.nodeValue = value;
     }
 
     private var _className:String;
@@ -65,11 +54,7 @@ package com.unhurdle.spectrum
     public function set className(value:String):void
     {
     	_className = value;
-
-      COMPILE::JS
-      {
-        _element.className = value;
-      }
+      _element.className = value;
     }
   }
 }
