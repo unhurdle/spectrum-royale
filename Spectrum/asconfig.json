@@ -21,13 +21,15 @@
         ],
         "external-library-path": [
             "${royalelib}/libs",
-            "${royalelib}/../js/libs"
+            "${royalelib}/../js/libs",
+            "libs"
         ],
         "js-external-library-path": [
             "${royalelib}/../js/libs"
         ],
         "js-library-path": [
-            "${royalelib}/js/libs"
+            "${royalelib}/js/libs",
+            "libs"
         ],
         "load-config": [
             "compile-config.xml"
