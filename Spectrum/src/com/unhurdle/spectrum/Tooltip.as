@@ -3,9 +3,8 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
-    import com.unhurdle.spectrum.const.IconType;
-    import com.unhurdle.spectrum.const.IconType;
   }
+  import com.unhurdle.spectrum.const.IconType;
   public class Tooltip extends SpectrumBase
   {
     public function Tooltip()
@@ -45,74 +44,91 @@ package com.unhurdle.spectrum
     }
     private var _info:Boolean;
 
-    public function get info():Boolean
+    private var _flavor:String;
+
+    /**
+     * The flavor of the Tooltip
+     * One of info, positive and negative.
+     * To set the Tooltip to the default, specify an empty string
+     */
+    public function get flavor():String
     {
-    	return _info;
+    	return _flavor;
     }
 
-    public function set info(value:Boolean):void
+    public function set flavor(value:String):void
     {
-      if(value != _info){
-        toggle(valueToSelector("info"),value);
-      }
-    	_info = value;
-    }
-    private var _infoIcon:Boolean;
-
-    public function get infoIcon():Boolean
-    {
-    	return _infoIcon;
-    }
-
-    public function set infoIcon(value:Boolean):void
-    {
-      COMPILE::JS{
-        if(value != !!_infoIcon && value){
-          var type:String = IconType.INFO_SMALL;
-          var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
-          icon.type = type;
-          icon.className = appendSelector("-typeIcon");
-          element.insertBefore(icon.element,( element.childNodes[0] || null));
-          icon.addedToParent();
+      if(value != _flavor){
+        switch(value){
+          case "info":
+          case "positive":
+          case "negative":
+          case "":
+            break;
+          default:
+            throw new Error("Unknown flavor: " + value);
         }
-      }
-    	_infoIcon = value;
-    }
-
-    private var _positive:Boolean;
-
-    public function get positive():Boolean
-    {
-    	return _positive;
-    }
-
-    public function set positive(value:Boolean):void
-    {
-      if(value != _positive){
-        toggle(valueToSelector("positive"),value);
-      }
-    	_positive = value;
-    }
-    private var _positiveIcon:Boolean;
-
-    public function get positiveIcon():Boolean
-    {
-    	return _positiveIcon;
-    }
-
-    public function set positiveIcon(value:Boolean):void
-    {
-      COMPILE::JS{
-        if(value != !!_positiveIcon && value){
-          var type:String = IconType.SUCCESS_SMALL;
-          var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
-          icon.type = type;
-          icon.className = appendSelector("-typeIcon");
-          element.insertBefore(icon.element,( element.childNodes[0] || null));
-          icon.addedToParent();
+        if(_flavor){
+          var oldFlavor:String = valueToSelector(_flavor);
+          toggle(oldFlavor,false);
         }
+        var newFlavor:String = valueToSelector(value);
+        toggle(newFlavor,true);
       }
-    	_positiveIcon = value;
+    	_flavor = value;
+    }
+
+
+    private var iconElem:Icon;
+    private var _icon:String;
+    /**
+     * Icon to display. One of: info, success, alert, help
+     * Default is no value.
+     */
+    public function get icon():String
+    {
+    	return _icon;
+    }
+
+    public function set icon(value:String):void
+    {
+      var type:String;
+      if(value == _icon){return;}
+      if(!value){
+        if(iconElem){
+          iconElem.setStyle("display","none");
+        }
+        return;
+      }
+      switch(value){
+        case "info":
+          type = IconType.INFO_SMALL;
+          break;
+        case "success":
+          type = IconType.SUCCESS_SMALL;
+          break;
+        case "alert":
+          type = IconType.ALERT_SMALL;
+          break;
+        case "help":
+          type = IconType.HELP_SMALL;
+          break;
+        default:
+          throw new Error("unknown type: " + value);
+      }
+      var selector:String = Icon.getCSSTypeSelector(type);
+
+      if(!iconElem){
+        iconElem = new Icon(selector);
+        iconElem.type = type;
+        iconElem.className = appendSelector("-typeIcon");
+        addElementAt(iconElem,0);
+      } else {
+        iconElem.selector = selector;
+        iconElem.type = type;
+        iconElem.setStyle("display",null);
+      }
+    	_icon = value;
     }
   }
 }

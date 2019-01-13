@@ -252,8 +252,8 @@
       <sp:Switch text="Toggle On" checked="true"/>
       <sp:Switch text="Toggle On" checked="true" quiet="true"/>
       <sp:Tooltip text="Label"/>
-      <sp:Tooltip text="Label info with icon" info="true" infoIcon="true"/>
-      <sp:Tooltip text="Label positive with icon" positive="true" positiveIcon="true"/>
+      <sp:Tooltip text="Label info with icon" flavor="info" icon="info"/>
+      <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success"/>
       <sp:SideNav change="sideNavClick(event)">
         <sp:dataProvider>
           <fx:Array>
