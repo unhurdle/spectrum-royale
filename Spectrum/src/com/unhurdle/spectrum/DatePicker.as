@@ -4,8 +4,13 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  
-  
+  import org.apache.royale.geom.Point;
+  import org.apache.royale.utils.PointUtils;
+  import org.apache.royale.core.IPopUpHost;
+  import org.apache.royale.utils.UIUtils;
+	import org.apache.royale.utils.callLater;
+	import org.apache.royale.events.MouseEvent;
+
   public class DatePicker extends SpectrumBase
   {
     public function DatePicker()
@@ -18,6 +23,7 @@ package com.unhurdle.spectrum
 
     private var input:HTMLInputElement;
     private var button:HTMLButtonElement;
+    private var datePicker:HTMLInputElement 
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -29,6 +35,10 @@ package com.unhurdle.spectrum
       input.type = "text";
       button = newElement("button") as HTMLButtonElement;
       button.className = "spectrum-FieldButton spectrum-InputGroup-button";
+      button.onclick = openDatePicker;
+
+      datePicker = newElement("input") as HTMLInputElement;
+      datePicker.type = "hidden";
       
       var iconClass:String = "spectrum-Icon spectrum-Icon--sizeS";
       
@@ -48,9 +58,9 @@ package com.unhurdle.spectrum
       button.appendChild(svgElement);
       element.appendChild(input);
       element.appendChild(button);
+      element.appendChild(datePicker); 
       return element;
     }
-    //input.placeHolder
     private var _quiet:Boolean;
 
     public function get quiet():Boolean
@@ -73,29 +83,71 @@ package com.unhurdle.spectrum
       }
       _quiet = value;
     }
+
+    public function get placeHolder():String
+    {
+    	return input.placeholder;
+    }
+
+    public function set placeHolder(value:String):void
+    {
+    	input.placeholder = value;
+    }
+     public function get value():String
+    {
+    	return input.value;
+    }
+
+    public function set value(value:String):void
+    {
+    	input.value = value;
+    }
+    COMPILE::JS
+    private function openDatePicker():void{
+      // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+    }
+    // public function set popUpVisible(value:Boolean):void
+		// {
+		// 	if(value){
+		// 		var origin:Point = new Point(0, host.height - 6);
+		// 		var relocated:Point = PointUtils.localToGlobal(origin,host);
+		// 		_popup.x = relocated.x
+		// 		_popup.y = relocated.y;
+		// 		_popup.width = host.width;
+		// 		// list.selectedIndex = -1;
+
+		// 		var popupHost:IPopUpHost = UIUtils.findPopUpHost(host);
+		// 		popupHost.popUpParent.addElement(_popup);
+		// 		callLater(openPopup)
+		// 		_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+		// 		host.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+		// 		callLater(function():void {
+		// 			_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+		// 		});
+		// 	} else {
+		// 		closePopup();
+		// 	}
+    //   // _popup.open = value;
+		// }
+    // private function openPopup():void{
+		// 	_popup.open = true;
+		// }
+    // protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
+		// {
+    //   closePopup();
+		// }
+    // protected function handleControlMouseDown(event:MouseEvent):void
+		// {			
+		// 	event.stopImmediatePropagation();
+		// }
+    // private function closePopup():void{
+    //   if(_popup && _popup.open){
+  	// 		_popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+	  // 		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+		//   	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+    //     _popup.open = false;
+    //     //  UIUtils.removePopUp(_popup);
+    //   }
+		// }
   }
 }
-// <divclass="spectrum-InputGroup spectrum-Datepicker" >
-//   <input type="text" class="spectrum-Textfield spectrum-InputGroup-field" placeholder="Choose a date" value="">
-//     <button type="button" class="spectrum-FieldButton spectrum-InputGroup-button">
-//       <svg viewBox="0 0 36 36" focusable="false" role="img" class="spectrum-Icon spectrum-Icon--sizeS">
-//         <path d="M33 6h-5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3H10V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v3H1a1 1 0 0 0-1 1v26a1 1 0 0 0 1 1h32a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-1 26H2V8h4v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h14v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h4z">
-//         </path>
-//         <path d="M6 12h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 18h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 24h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4z">
-//         </path>
-//       </svg>
-//   </button>
-// </div>
-
-
-// <div class="spectrum-InputGroup spectrum-InputGroup--quiet spectrum-Datepicker">
-//   <input type="text" class="spectrum-Textfield spectrum-Textfield--quiet spectrum-InputGroup-field" placeholder="Choose a date" value="">
-//     <button type="button" class="spectrum-FieldButton spectrum-FieldButton--quiet spectrum-InputGroup-button">
-//       <svg viewBox="0 0 36 36" focusable="false" role="img" class="spectrum-Icon spectrum-Icon--sizeS">
-//         <path d="M33 6h-5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3H10V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v3H1a1 1 0 0 0-1 1v26a1 1 0 0 0 1 1h32a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-1 26H2V8h4v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h14v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h4z">
-//         </path>
-//         <path d="M6 12h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 18h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 24h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4z">
-//         </path>
-//       </svg>
-//   </button>
-// </div>

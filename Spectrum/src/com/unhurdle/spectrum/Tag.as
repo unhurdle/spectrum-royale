@@ -28,7 +28,7 @@ package com.unhurdle.spectrum
       clearButton = new ClearButton();
       clearButton.small = true;
       addElement(clearButton);
-      clearButton.addEventListener("change",removeTag);
+      clearButton.addEventListener("click",removeTag);
       return elem;
     }
     public function get text():String

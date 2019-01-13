@@ -11,7 +11,8 @@ package com.unhurdle.spectrum
     {
       super();
       //TODO add types and open/close
-      className = "spectrum-Tooltip--top is-open";
+      // className = "spectrum-Tooltip--top";
+      direction = "top";
     }
     override protected function getSelector():String{
       return "spectrum-Tooltip";
@@ -20,6 +21,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       addElementToWrapper(this,'span') as HTMLSpanElement;
+      // direction = "top";
       span1 = new TextNode("");
       span1.element = newElement("span") as HTMLSpanElement;
       span1.className = appendSelector("-label");
@@ -129,6 +131,46 @@ package com.unhurdle.spectrum
         iconElem.setStyle("display",null);
       }
     	_icon = value;
+    }
+    private var _direction:String;
+
+    public function get direction():String
+    {
+    	return _direction;
+    }
+
+    public function set direction(value:String):void
+    {
+      if(_direction){
+        toggle(getSelector()+"--"+_direction,false);
+      }
+      if(value){
+        switch(value){
+          case "left":
+          case "right":
+          case "bottom":
+          case "top":
+            toggle(getSelector()+"--"+value,true);
+            break;
+          default:
+            throw new Error("Invalid direction: " + value);
+        }
+      }
+    	_direction = value;
+    }
+    private var _isOpen:Boolean;
+
+    public function get isOpen():Boolean
+    {
+    	return _isOpen;
+    }
+
+    public function set isOpen(value:Boolean):void
+    {
+      if(value != !!_isOpen){
+        toggle("is-open",value);
+      }
+    	_isOpen = value;
     }
   }
 }

@@ -4,7 +4,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
-
+  [Event(name="change", type="org.apache.royale.events.Event")]
   public class Switch extends SpectrumBase
   {
     public function Switch()
@@ -43,19 +43,16 @@ package com.unhurdle.spectrum
       _text = value
       label.text = value;
     }
-    private var _checked:Boolean;
-
     public function get checked():Boolean
     {
-    	return _checked;
+    	return input.checked;
     }
 
     public function set checked(value:Boolean):void
     {
-      if(value != !!_checked){
+      if(value != input.checked){
         input.checked = value;
       }
-    	_checked = value;
     }
     private var _disabled:Boolean;
 
@@ -95,9 +92,10 @@ package com.unhurdle.spectrum
     public function set quiet(value:Boolean):void
     {
       if(value != !!_quiet){
-          toggle(valueToSelector("quiet"),value);
+        toggle(valueToSelector("quiet"),value);
       }
     	_quiet = value;
     }
+
   }
 }

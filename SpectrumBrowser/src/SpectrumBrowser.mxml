@@ -16,6 +16,8 @@
       import org.apache.royale.events.ValueEvent;
       import com.unhurdle.spectrum.data.BreadcrumbsItem;
       import org.apache.royale.events.Event;
+      import org.apache.royale.events.BrowserEvent;
+      import com.unhurdle.spectrum.Switch;
 
       private function showAlert():void{
         var alert:Alert = new Alert();
@@ -160,6 +162,12 @@
       private function onDialChange(ev:Event):void{
         trace(ev.target.value);
       }
+
+      private function switched(ev:Event):void{
+        var theSwitch:Switch = ev.target as Switch;
+        var status:String = theSwitch.checked ? "On" : "Off";
+        (ev.target as Switch).text = "Toggle " + status;
+      }
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -179,14 +187,14 @@
       <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/>
       </sp:ButtonGroup>
       <sp:Label text="label" color="red" />
-     <sp:CycleButton paused="true"/>
+      <sp:CycleButton paused="true"/>
       <sp:Rating max="5" value="3" disabled="true"/>
       <sp:Rating max="7" value="7"/>
       <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
       <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
       <sp:Rating id="rating1" max="9" value="3"/>
       <sp:DatePicker quiet="true"/>
-      <sp:DatePicker/>
+      <sp:DatePicker placeHolder="Choose a date"/>
       <sp:Tool />
       <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/>
       <!-- <sp:Alert text="Alert"/>  -->
@@ -248,12 +256,14 @@
           </sp:dataProvider>
         </sp:Menu>
       </sp:Popover>
-      <sp:Switch text="Toggle 1" checked="true" onOff="false"/>
-      <sp:Switch text="Toggle On" checked="true"/>
-      <sp:Switch text="Toggle On" checked="true" quiet="true"/>
-      <sp:Tooltip text="Label"/>
-      <sp:Tooltip text="Label info with icon" flavor="info" icon="info"/>
-      <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success"/>
+      <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
+      <sp:Switch text="Toggle On" checked="false" change="switched(event)"/>
+      <sp:Switch text="Toggle On" checked="true" quiet="true" change="switched(event)"/>
+      <sp:Tooltip text="Label" isOpen="true"/>
+      <sp:Tooltip text="Label" isOpen="true" direction="top"/>
+      <sp:Tooltip text="Label" isOpen="true" direction="bottom"/>
+      <sp:Tooltip text="Label info with icon" flavor="info" icon="info" isOpen="true" direction="left"/>
+      <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success" isOpen="true" direction="right"/>
       <sp:SideNav change="sideNavClick(event)">
         <sp:dataProvider>
           <fx:Array>

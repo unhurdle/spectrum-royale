@@ -7,7 +7,6 @@ package com.unhurdle.spectrum
     import com.unhurdle.spectrum.const.IconType;
     import org.apache.royale.events.Event;
 
-	[Event(name="change", type="org.apache.royale.events.Event")]
     public class ClearButton extends SpectrumBase
     {
         public function ClearButton()
@@ -77,7 +76,6 @@ package com.unhurdle.spectrum
         }
 
         private function remove():void{
-            this.dispatchEvent(new Event("change"));
         }
     }
 }
