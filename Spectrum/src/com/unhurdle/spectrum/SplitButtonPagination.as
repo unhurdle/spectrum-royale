@@ -3,39 +3,40 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.const.IconType;
   }
+  import com.unhurdle.spectrum.const.IconType;
   public class SplitButtonPagination extends SpectrumBase
   {
     public function SplitButtonPagination()
     {
       super();
+      toggle(valueToSelector("left"),true);
       type = "primary";
       href = "#";
     }
 
 		override protected function getSelector():String{
-				return "spectrum-SplitButton spectrum-SplitButton--left";
+				return "spectrum-SplitButton";
 		}
     
-    private var elem:WrappedHTMLElement;
     private var trigger:HTMLLinkElement;
     private var action:HTMLLinkElement;
     private var label:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      elem = addElementToWrapper(this,"nav");
-      trigger = newElement("a","spectrum-Button spectrum-SplitButton-trigger") as HTMLLinkElement
+      var elem:WrappedHTMLElement = addElementToWrapper(this,"nav");
+      var buttonBase:String = "spectrum-Button";
+      trigger = newElement("a", buttonBase + " " + appendSelector("-trigger")) as HTMLLinkElement
       var triggerType:String = IconType.CHEVRON_LEFT_MEDIUM;
       var triggerCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(triggerType));
       triggerCheckIcon.type = triggerType;
-      triggerCheckIcon.className = appendSelector("-ChevronLeftMedium");
+      // triggerCheckIcon.className = appendSelector("-ChevronLeftMedium");
       trigger.appendChild(triggerCheckIcon.element);
       elem.appendChild(trigger);
-      action = newElement("a","spectrum-Button spectrum-SplitButton-action") as HTMLLinkElement
-      label = new TextNode("");
-      label.element = newElement("span","spectrum-Button-label") as HTMLSpanElement;
-      label.text ="next";
+      action = newElement("a",buttonBase + " " + appendSelector("-action")) as HTMLLinkElement
+      label = new TextNode("span");
+      label.className = buttonBase + "-label";
+      label.text ="Next";
       action.appendChild(label.element);
       var actionType:String = IconType.CHEVRON_RIGHT_MEDIUM;
       var actionCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(actionType));
@@ -86,10 +87,12 @@ package com.unhurdle.spectrum
           default:
               throw new Error("Invalid type: " + value);
         }
-				var oldType:String = "spectrum-Button--" + _type;
+        if(_type){
+          var oldType:String = "spectrum-Button--" + _type;
+  				trigger.classList.remove(oldType);
+	  			action.classList.remove(oldType);
+        }
 				var newType:String = "spectrum-Button--" + value;
-				trigger.classList.remove(oldType);
-				action.classList.remove(oldType);
 				trigger.classList.add(newType);
 				action.classList.add(newType);
         _type = value;

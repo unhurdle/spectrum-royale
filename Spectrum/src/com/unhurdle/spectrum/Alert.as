@@ -110,7 +110,6 @@ package com.unhurdle.spectrum
     
     private var icon:Icon;
     
-    COMPILE::JS
     private function createIcon(status:String):void{
       var type:String;
 
@@ -145,8 +144,7 @@ package com.unhurdle.spectrum
         icon = new Icon(selector);
         icon.type = sizedType;
         icon.className = iconClass;
-        element.insertBefore(icon.element, element.childNodes[0] || null);
-        icon.addedToParent();
+        addElementAt(icon,0);
       }
 
     }

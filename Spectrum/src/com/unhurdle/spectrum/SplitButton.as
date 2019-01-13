@@ -7,7 +7,6 @@ package com.unhurdle.spectrum
   }
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconType;
-  import org.apache.royale.core.WrappedHTMLElement;
 
   public class SplitButton extends SpectrumBase
   {
@@ -20,13 +19,13 @@ package com.unhurdle.spectrum
       return "spectrum-SplitButton";
     }
 
-    private var elem:WrappedHTMLElement
-    private var actionButton:Button
-    private var triggerButton:Button
+
+    private var actionButton:Button;
+    private var triggerButton:Button;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      elem = addElementToWrapper(this,"div");
+      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
       actionButton = new Button();
       actionButton.className = appendSelector("-action");
       // actionButton.flavor = _type;
