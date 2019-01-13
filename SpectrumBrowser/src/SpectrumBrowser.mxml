@@ -168,11 +168,15 @@
         var status:String = theSwitch.checked ? "On" : "Off";
         (ev.target as Switch).text = "Toggle " + status;
       }
+      private function onSubmit():void{
+        var content:String = "searching for: " + search.text;
+        new Toast(content).show();
+      }
     ]]>
   </fx:Script>
   <sp:initialView>
     <sp:View>
-  <sp:Search />
+  <sp:Search id="search" submit="onSubmit()"/>
   <sp:ActionButton id="actionButton" click="actionClick()"
         icon="#spectrum-css-icon-ChevronRightMedium"
         iconClass="spectrum-Icon spectrum-Icon--sizeXS"
