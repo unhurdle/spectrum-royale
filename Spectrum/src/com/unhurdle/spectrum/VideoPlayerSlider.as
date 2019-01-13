@@ -13,27 +13,12 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Slider";
     }
-    COMPILE::JS
+
     private var handle:HTMLElement;
-    COMPILE::SWF
-    private var handle:Object;
-    
-		COMPILE::JS
-		private var leftTrack:HTMLElement;
-		COMPILE::SWF
-		private var leftTrack:Object;
-		COMPILE::JS
-  	private var rightTrack:HTMLElement;
-		COMPILE::SWF
-  	private var rightTrack:Object;
-    	COMPILE::JS
+ 		private var leftTrack:HTMLElement;
+   	private var rightTrack:HTMLElement;
 		private var leftBuffer:HTMLElement;
-		COMPILE::SWF
-		private var leftBuffer:Object;
-		COMPILE::JS
   	private var rightBuffer:HTMLElement;
-		COMPILE::SWF
-  	private var rightBuffer:Object;
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -95,12 +80,13 @@ package com.unhurdle.spectrum
 				valueNode.text = "" + value;
 			}
     }
-    COMPILE::JS
+
     override protected function onMouseMove(e:MouseEvent):void {
 			//TODO find the new range...
+      var elem:HTMLElement = element as HTMLElement;
       var handle:Object = e.target;//to check
-      var sliderOffsetWidth:Number = element.offsetWidth;
-			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
+      var sliderOffsetWidth:Number = elem.offsetWidth;
+			var sliderOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
 
 			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;
