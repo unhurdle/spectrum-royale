@@ -15,10 +15,7 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Tool";
     }
-    COMPILE::JS
     private var button:HTMLButtonElement;
-    COMPILE::SWF
-    private var button:Object;
     private var icon:Icon;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -82,19 +79,15 @@ package com.unhurdle.spectrum
           cornerIcon = new Icon(Icon.getCSSTypeSelector(type));
           icon.type = type;
           cornerIcon.className = appendSelector("-hold");
-          button.appendChild(cornerIcon.element);
+          var cornerElem:HTMLElement = cornerIcon.element as HTMLElement;
+          button.appendChild(cornerElem);
           cornerIcon.addedToParent();
         }
-        COMPILE::JS
-        {
-          if(value){
-            cornerIcon.element.style.display = null;
-          } else {
-            cornerIcon.element.style.display = "none";
-          }
-
+        if(value){
+          cornerElem.style.display = null;
+        } else {
+          cornerElem.style.display = "none";
         }
-
       }
 
     	_cornerTriangle = value;

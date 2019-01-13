@@ -16,11 +16,8 @@ package com.unhurdle.spectrum
         override protected function getSelector():String{
             return "spectrum-Textfield";
         }
-        COMPILE::JS
-        private var textarea:HTMLTextAreaElement;
 
-        COMPILE::SWF
-        private var textarea:Object;
+        private var textarea:HTMLTextAreaElement;
         
         public function get placeholder():String
         {

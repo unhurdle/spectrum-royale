@@ -13,10 +13,7 @@ package com.unhurdle.spectrum
     public function SpectrumBase()
     {
       super();
-      COMPILE::JS
-      {
-        classList = new CSSClassList();
-      }
+      classList = new CSSClassList();
       typeNames = getSelector();
     }
 

@@ -17,11 +17,7 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Rating";
     }
-    COMPILE::JS
     private var input:HTMLInputElement;
-
-    COMPILE::SWF
-    private var input:Object;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -33,7 +29,6 @@ package com.unhurdle.spectrum
       element.addEventListener("click",handleClick);
       return element;
     }
-    COMPILE::JS
     private function handleClick(ev:*):void
     {
       if(ev.target){
@@ -42,7 +37,7 @@ package com.unhurdle.spectrum
           value = index;
         }
       }
-      console.log(ev.target);
+      // console.log(ev.target);
     }
     
     public function get max():Number
@@ -64,37 +59,35 @@ package com.unhurdle.spectrum
     }
     private function removeFromArray(amount:Number):void
     {
-      COMPILE::JS{
+      var elem:HTMLElement = element as HTMLElement;
         for(var index:int = 0; index < amount; index++)
         {
           iconArray.pop();
-          element.removeChild(element.lastChild);
+          elem.removeChild(elem.lastChild);
         }
-      }
     }
     private function addToArray(amount:Number):void
     {
-      COMPILE::JS{
-        for(var index:int = 0; index < amount; index++)
-        {
-          span = new Span();
-          span.className = appendSelector("-icon");
-          var type:String = IconType.STAR;
-          icon1 = new Icon(Icon.getCSSTypeSelector(type));
-          icon1.type = type;
-          icon1.className = appendSelector("-starActive");
-          span.addElement(icon1);
+      for(var index:int = 0; index < amount; index++)
+      {
+        span = new Span();
+        span.className = appendSelector("-icon");
+        var type:String = IconType.STAR;
+        icon1 = new Icon(Icon.getCSSTypeSelector(type));
+        icon1.type = type;
+        icon1.className = appendSelector("-starActive");
+        span.addElement(icon1);
 
-          type = IconType.STAR_OUTLINE;
-          icon2 = new Icon(Icon.getCSSTypeSelector(type));
-          icon2.type = type;
-          icon2.className = appendSelector("-starInactive");
-          span.addElement(icon2);
-          addElement(span);
-          // element.appendChild(span);
-          iconArray.push(span);
-        }
+        type = IconType.STAR_OUTLINE;
+        icon2 = new Icon(Icon.getCSSTypeSelector(type));
+        icon2.type = type;
+        icon2.className = appendSelector("-starInactive");
+        span.addElement(icon2);
+        addElement(span);
+        // element.appendChild(span);
+        iconArray.push(span);
       }
+      
     }
     private var iconArray:Array;
     public function get value():Number
@@ -105,40 +98,40 @@ package com.unhurdle.spectrum
     private var icon2:Icon;
     private var span:Span;
     public function set value(val:Number):void
-    { 
-      COMPILE::JS{
-        if(!iconArray){
-          iconArray = [];
-          addToArray(max);
-          for(var i:int = 0;i<iconArray.length;i++){
-            //// span.className = appendSelector("-icon");
-            // element.children[i].className = appendSelector("-icon");
-            //// element.children[i].className = "spectrum-Rating-icon";
-            if(i <= val){
-              element.children[i].className += " is-selected";
-              // span.className += " is-selected";
-            }
-            // span.element.setAttribute("data-index",i);
+    {
+      var elem:HTMLElement = element as HTMLElement;
+      if(!iconArray){
+        iconArray = [];
+        addToArray(max);
+        for(var i:int = 0;i<iconArray.length;i++){
+          //// span.className = appendSelector("-icon");
+          // elem.children[i].className = appendSelector("-icon");
+          //// elem.children[i].className = "spectrum-Rating-icon";
+          if(i <= val){
+            elem.children[i].classList.add("is-selected");
+            // span.className += " is-selected";
           }
+          // span.elem.setAttribute("data-index",i);
         }
-        else{
-          if(val < Number(input.value)){
-            for(i = Number(input.value); i > val ; i--){
-              if(element.children[i]){
-                element.children[i].classList.remove("is-selected");
-              }
-            }
-          }
-          else if(val > Number(input.value)){
-            for(i = Number(input.value); i <= val; i++){
-              if(element.children[i]){
-                element.children[i].classList.add("is-selected");
-              }
-            }
-          }
-        }
-    	  input.value = "" + val;
       }
+      else{
+        if(val < Number(input.value)){
+          for(i = Number(input.value); i > val ; i--){
+            if(elem.children[i]){
+              elem.children[i].classList.remove("is-selected");
+            }
+          }
+        }
+        else if(val > Number(input.value)){
+          for(i = Number(input.value); i <= val; i++){
+            if(elem.children[i]){
+              elem.children[i].classList.add("is-selected");
+            }
+          }
+        }
+      }
+      input.value = "" + val;
+      
     }
     private var _disabled:Boolean;
 

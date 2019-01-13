@@ -110,9 +110,6 @@ package com.unhurdle.spectrum
     
     private var icon:Icon;
     
-    COMPILE::SWF
-    private function createIcon(status:String):void{}
-    
     COMPILE::JS
     private function createIcon(status:String):void{
       var type:String;

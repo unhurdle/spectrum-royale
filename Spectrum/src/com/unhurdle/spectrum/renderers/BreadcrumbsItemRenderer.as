@@ -11,8 +11,8 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.newElement;
   }
+  import com.unhurdle.spectrum.newElement;
   import org.apache.royale.events.ValueEvent;
   import org.apache.royale.events.IEventDispatcher;
   import com.unhurdle.spectrum.const.IconType;

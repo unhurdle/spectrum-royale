@@ -92,10 +92,7 @@ package com.unhurdle.spectrum
         actionButton.flavor = Button.OVER_BACKGROUND;
         actionButton.quiet = true;
         actionButton.addEventListener("click",onAction);
-        COMPILE::JS
-        {
-          body.appendChild(actionButton.element);
-        }
+        body.appendChild((actionButton.element as HTMLElement));
       }
       actionButton.text = value;
     	_action = value;
@@ -140,11 +137,8 @@ package com.unhurdle.spectrum
       }
       toggle("show", false);
       toggle("hide",true);
-      COMPILE::JS
-      {
-        setTimeout(removeMe,500);
-      }
-        dispatchEvent(new Event("close"));
+      setTimeout(removeMe,500);
+      dispatchEvent(new Event("close"));
     }
 
     private function removeMe():void{
@@ -220,11 +214,7 @@ package com.unhurdle.spectrum
         icon = new Icon(useSelector);
         icon.type = sizedType;
         icon.className = iconClass;
-        COMPILE::JS
-        {
-          element.insertBefore(icon.element, element.childNodes[0] || null);
-          icon.addedToParent();
-        }
+        addElementAt(icon,0);
       }
 
     }
@@ -258,7 +248,6 @@ package com.unhurdle.spectrum
       return elem;
     }
 
-    COMPILE::JS
     private var body:HTMLElement;
     /**
 <div class="spectrum-Toast spectrum-Toast--info">

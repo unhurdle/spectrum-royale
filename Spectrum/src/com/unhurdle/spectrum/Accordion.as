@@ -12,24 +12,14 @@ package com.unhurdle.spectrum
 
     private var indicator:Icon;
 
-    COMPILE::SWF
-    private var accordionItem:String;
-    COMPILE::SWF
-    private var headerElem:Object; 
-    COMPILE::SWF
-    private var itemContent:String;
-
     public function Accordion()
       {
         super();
         typeNames = "spectrum-Accordion"
       }
 
-    COMPILE::JS
     private var accordionItem:HTMLDivElement;
-    COMPILE::JS
     private var headerElem:HTMLDivElement;
-    COMPILE::JS
     private var itemContent:HTMLDivElement;
     
     COMPILE::JS

@@ -100,6 +100,10 @@ package com.unhurdle.spectrum
       }
     }
 
+    public function setStyle(attribute:String,value:Object):void{
+      (element as HTMLElement).style[attribute] = value;
+    }
+
 		COMPILE::JS
 		override protected function setClassName(value:String):void
 		{

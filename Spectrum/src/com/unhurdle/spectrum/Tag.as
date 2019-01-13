@@ -48,7 +48,6 @@ package com.unhurdle.spectrum
     	return _src;
     }
 
-    COMPILE::JS
     private var imageElement:HTMLImageElement;
     private var icon:Icon;
     public function set src(value:String):void
@@ -56,28 +55,25 @@ package com.unhurdle.spectrum
       if(value == _src){
         return;
       }
-      COMPILE::JS{
-        if(value){
-          if(icon){
-            removeElement(icon);
-            element.removeChild(icon.element);
-            icon = null;
-          }
-          if(!imageElement){
-            imageElement = newElement("img") as HTMLImageElement;
-            imageElement.className = "spectrum-Avatar";
-            element.insertBefore(imageElement, element.childNodes[0] || null);
-          }
-          imageElement.src = value;
+      var elem:HTMLElement = element as HTMLElement;
+      if(value){
+        if(icon){
+          removeElement(icon);
+          icon = null;
         }
-        else{
-          if(!icon){
-            icon = new Icon(IconPrefix._24 + "SentimentPositive");
-            icon.size = IconSize.XS;
-          }
-          element.insertBefore(icon.element, element.childNodes[0] || null);
-          icon.addedToParent();
+        if(!imageElement){
+          imageElement = newElement("img") as HTMLImageElement;
+          imageElement.className = "spectrum-Avatar";
+          elem.insertBefore(imageElement, elem.childNodes[0] || null);
         }
+        imageElement.src = value;
+      }
+      else{
+        if(!icon){
+          icon = new Icon(IconPrefix._24 + "SentimentPositive");
+          icon.size = IconSize.XS;
+        }
+        addElementAt(icon,0);
       }
     	_src = value;
     }

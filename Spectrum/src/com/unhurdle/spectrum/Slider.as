@@ -20,16 +20,13 @@ package com.unhurdle.spectrum
 			positionElements();
     }
 
-		override protected function positionElements():void{
-			COMPILE::JS
-			{
-				var percent:Number = this.value / (max - min) * 100;
-				handle.style.left = percent + "%";
-				// Set initial track position
-				leftTrack.style.width = percent + '%';
-				rightTrack.style.width = (100 - percent) + '%';
-			}
-		}
+    override protected function positionElements():void{
+        var percent:Number = this.value / (max - min) * 100;
+        handle.style.left = percent + "%";
+        // Set initial track position
+        leftTrack.style.width = percent + '%';
+        rightTrack.style.width = (100 - percent) + '%';
+    }
     private function handleChange():void{
 			// if(valueNode){
 			// 	valueNode.text = "" + value;
@@ -85,10 +82,7 @@ package com.unhurdle.spectrum
     {
     	return _ticks;
     }
-    COMPILE::SWF
-    public function set ticks(value:int):void{}
 
-    COMPILE::JS
     public function set ticks(value:int):void
     {
         if(value != _ticks){
@@ -153,25 +147,12 @@ package com.unhurdle.spectrum
         }
     }
 
-    COMPILE::JS
     private var tickContainer:HTMLElement;
-    COMPILE::SWF
-    private var tickContainer:Object;
-    COMPILE::JS
     private var handle:HTMLElement;
-    COMPILE::SWF
-    private var handle:Object;
-    
-		COMPILE::JS
-		private var leftTrack:HTMLElement;
-		COMPILE::SWF
-		private var leftTrack:Object;
-		COMPILE::JS
+	private var leftTrack:HTMLElement;
   	private var rightTrack:HTMLElement;
-		COMPILE::SWF
-  	private var rightTrack:Object;
 		
-		COMPILE::JS
+	COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         /**
          <div class="spectrum-Slider-controls">
@@ -206,10 +187,10 @@ package com.unhurdle.spectrum
         return elem;
     }
 		// Element interaction
-		COMPILE::JS
 		override protected function onMouseMove(e:MouseEvent):void {
-			var sliderOffsetWidth:Number = element.offsetWidth;
-			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
+            var elem:HTMLElement = element as HTMLElement;
+			var sliderOffsetWidth:Number = elem.offsetWidth;
+			var sliderOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
 
 			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;

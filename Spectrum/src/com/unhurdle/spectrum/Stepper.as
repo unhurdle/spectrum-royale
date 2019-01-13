@@ -40,9 +40,11 @@ package com.unhurdle.spectrum
 			value = newVal;
       dispatchEvent(new Event("change"));
     }
-      private var input:NumberField;
-      private var button1:ActionButton;
-      private var button2:ActionButton;
+    
+    private var input:NumberField;
+    private var button1:ActionButton;
+    private var button2:ActionButton;
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
