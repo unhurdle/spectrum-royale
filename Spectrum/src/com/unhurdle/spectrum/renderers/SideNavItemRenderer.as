@@ -7,8 +7,8 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.getLabelFromData;
   }
+  import org.apache.royale.html.util.getLabelFromData;
   public class SideNavItemRenderer extends DataItemRenderer
   {
     public function SideNavItemRenderer()
@@ -22,24 +22,25 @@ package com.unhurdle.spectrum.renderers
     override public function updateRenderer():void{
       // do nothing
     }
-    COMPILE::JS
+
     override public function set data(value:Object):void{
       super.data = value;
+      var elem:HTMLElement = element as HTMLElement;
       var sideNavItem:SideNavItem = value as SideNavItem;
-      element.className = null;
-      element.style.pointerEvents = null
+      elem.className = null;
+      elem.style.pointerEvents = null
       if(sideNavItem.isHeading){
         textNode.className = appendSelector("-heading");
-        element.style.pointerEvents = "none";
+        elem.style.pointerEvents = "none";
       } else {
-        element.className = appendSelector("-item");
+        elem.className = appendSelector("-item");
       }
       if(sideNavItem.disabled){
-        element.classList.add("is-disabled");
-        element.style.pointerEvents = "none";
+        elem.classList.add("is-disabled");
+        elem.style.pointerEvents = "none";
       }
       if(sideNavItem.selected){
-        element.classList.add("is-selected");
+        elem.classList.add("is-selected");
       }
       textNode.text = getLabelFromData(this,value);
     }
