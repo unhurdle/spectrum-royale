@@ -213,7 +213,7 @@
       <sp:DatePicker quiet="true"/>
       <sp:DatePicker placeHolder="Choose a date"/>
       <sp:Tool />
-      <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/>
+      <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
       <!-- <sp:Alert text="Alert"/>  -->
       <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
       <sp:BarLoader label="Thingies" meter="true" value="90"/>
@@ -334,7 +334,7 @@
       <sp:Heading text=" Heading2 --quiet" size="2" quiet="true"/>
       <sp:Heading text=" Heading2 " size="2"/>
       <sp:Heading text=" Heading2 --strong" size="2" strong="true"/>
-      <sp:DropZone filesAvailable="onFiles(event)"/>
+      <sp:Calender/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>
