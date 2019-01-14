@@ -44,6 +44,7 @@
     <component id="Display" class="com.unhurdle.spectrum.typography.Display"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
+    <component id="ExplicitPagination" class="com.unhurdle.spectrum.ExplicitPagination"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="FieldLabel" class="com.unhurdle.spectrum.FieldLabel"/>

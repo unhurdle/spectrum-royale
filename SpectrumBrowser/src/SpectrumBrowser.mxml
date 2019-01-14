@@ -211,11 +211,13 @@
       <sp:CircleLoader indeterminate="true"  size="large"/>
       <sp:CircleLoader size="small"/>
       <sp:Well/>
+      <sp:ExplicitPagination/>
+      <sp:ExplicitPagination pagesNum="10"/>
+      <sp:ExplicitPagination pagesNum="5" pageIsSelected="3"/>
       <sp:SplitButtonPagination type="cta" text="next" pagesNum="5"/>
       <sp:SplitButtonPagination type="primary" text="next" pagesNum="3" pageIsSelected="3"/>
       <sp:SplitButtonPagination type="secondary" text="next" pagesNum="2" pageIsSelected="1"/>
       <sp:SplitButtonPagination type="cta" text="next" pagesNum="1"/>
-      <sp:Well/>
       <sp:PagePagination pagesNum="5" selected="true"/>
       <sp:PagePagination pagesNum="3" pageIsSelected="1"/>
       <!-- <sp:ColorSlider/>

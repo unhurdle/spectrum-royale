@@ -16,22 +16,21 @@ package com.unhurdle.spectrum
 				return "spectrum-Pagination";
 		}
 
-    private var elem:WrappedHTMLElement;
     private var prew:HTMLLinkElement;
     private var next:HTMLLinkElement;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      elem = addElementToWrapper(this,"nav");
+      var elem:WrappedHTMLElement = addElementToWrapper(this,"nav");
       var buttonBase:String = "spectrum-Button spectrum-Button--primary spectrum-Button--quiet ";
-      prew = newElement("a",buttonBase+"spectrum-Pagination-prevButton") as HTMLLinkElement
+      prew = newElement("a",buttonBase+appendSelector("-prevButton")) as HTMLLinkElement
       var prewSpan:TextNode = new TextNode("");
       prewSpan.element = newElement("span","spectrum-Button-label") as HTMLSpanElement;
       prewSpan.text = "prew";
       prew.appendChild(prewSpan.element);
       prew.addEventListener("click",prewPage);
       elem.appendChild(prew);
-      next = newElement("a",buttonBase + "spectrum-Pagination-nextButton") as HTMLLinkElement
+      next = newElement("a",buttonBase + appendSelector("-nextButton")) as HTMLLinkElement
       var nextSpan:TextNode = new TextNode("");
       nextSpan.element = newElement("span","spectrum-Button-label") as HTMLSpanElement;
       nextSpan.text = "next";
@@ -67,7 +66,7 @@ package com.unhurdle.spectrum
       if(value){
       	_selected = value;
         COMPILE::JS{
-          findChild(elem.children);
+          findChild(element.children);
         }
       }
     }
@@ -135,9 +134,8 @@ package com.unhurdle.spectrum
                 node.text = "" + (i + 1);
                 link.appendChild(node.element);
                 link.addEventListener("click",changeValue);
-                COMPILE::JS
-                {
-                  elem.insertBefore(link,next);
+                COMPILE::JS{
+                  element.insertBefore(link,next);
                 }
             }
         }

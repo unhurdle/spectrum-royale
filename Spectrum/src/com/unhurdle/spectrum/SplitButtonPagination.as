@@ -13,6 +13,8 @@ package com.unhurdle.spectrum
       toggle(valueToSelector("left"),true);
       type = "primary";
       href = "#";
+      pagesNum = 1;
+      pageIsSelected = 1;
     }
 
 		override protected function getSelector():String{
@@ -84,22 +86,19 @@ package com.unhurdle.spectrum
         enableOrDisable();
     }
     private function prewPage():void{
-      pageIsSelected--;
+      pageIsSelected > 1? pageIsSelected--: pageIsSelected = 1;
     }
     private function nextPage():void{
-      pageIsSelected++;
+      pageIsSelected < pagesNum? pageIsSelected++: pageIsSelected = pagesNum;
     }
     private function enableOrDisable():void{
       pageIsSelected == 1? trigger.classList.add("is-disabled"): trigger.classList.remove("is-disabled");
       pageIsSelected >= pagesNum? action.classList.add("is-disabled"): action.classList.remove("is-disabled");
     }
-    private var _pageIsSelected:Number = 2;
+    private var _pageIsSelected:Number;
 
     public function get pageIsSelected():Number
     {
-      if(_pageIsSelected > pagesNum){
-        _pageIsSelected = 1;
-      }
     	return _pageIsSelected;
     }
 

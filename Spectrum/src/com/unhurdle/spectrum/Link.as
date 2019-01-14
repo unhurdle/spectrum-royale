@@ -34,7 +34,12 @@ package com.unhurdle.spectrum
 
     public function set text(value:String):void
     {
-    	_text = value;
+      if(value != !!_text){
+    	  _text = value;
+      }
+      else{
+        _text = "link without text";
+      }
       textNode.text = value;
     }
     private var textNode:TextNode;
