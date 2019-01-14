@@ -49,7 +49,6 @@ package com.unhurdle.spectrum
     }
 
     private function dropped(ev:DragEvent):void{  
-      trace(ev);
       ev.preventDefault();
       toggle("is-dragged",false);
       var fileList:FileList = ev.dataTransfer.files;

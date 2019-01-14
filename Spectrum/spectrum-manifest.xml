@@ -21,6 +21,7 @@
     <component id="CardTitle" class="com.unhurdle.spectrum.card.CardTitle"/>
     <component id="CEPApplication" class="com.unhurdle.spectrum.CEPApplication"/>
     <component id="CoverPhoto" class="com.unhurdle.spectrum.card.CoverPhoto"/>
+    <component id="Calender" class="com.unhurdle.spectrum.Calender"/>
     <component id="CheckBox" class="com.unhurdle.spectrum.CheckBox"/>
     <component id="CircleLoader" class="com.unhurdle.spectrum.CircleLoader"/>
     <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
