@@ -47,6 +47,7 @@
     <component id="DropdownItem" class="com.unhurdle.spectrum.data.DropdownItem"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
     <component id="DropZone" class="com.unhurdle.spectrum.DropZone"/>
+    <component id="ExplicitPagination" class="com.unhurdle.spectrum.ExplicitPagination"/>
     <component id="FieldButton" class="com.unhurdle.spectrum.FieldButton"/>
     <component id="FieldGroup" class="com.unhurdle.spectrum.FieldGroup"/>
     <component id="FieldLabel" class="com.unhurdle.spectrum.FieldLabel"/>
@@ -66,6 +67,7 @@
     <component id="MenuMouseController" class="com.unhurdle.spectrum.MenuMouseController"/>
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>
     <component id="PageTitle" class="com.unhurdle.spectrum.typography.PageTitle"/>
+    <component id="PagePagination" class="com.unhurdle.spectrum.PagePagination"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="QuickActions" class="com.unhurdle.spectrum.QuickActions"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>

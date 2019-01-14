@@ -221,7 +221,9 @@ package com.unhurdle.spectrum
           toggle(valueToSelector(_status), false);
         }
         toggle(valueToSelector(value), true);
+        COMPILE::JS{
         createIcon(value);
+        }
       }
     
       _status = value;
