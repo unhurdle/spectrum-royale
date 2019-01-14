@@ -179,7 +179,7 @@
   <sp:Search id="search" submit="onSubmit()"/>
   <sp:ActionButton id="actionButton" click="actionClick()"
         icon="#spectrum-css-icon-ChevronRightMedium"
-        iconClass="spectrum-Icon spectrum-Icon--sizeXS"
+        iconSize="XS";
         dataProvider="{comboProvider}" change="actionChange()"/>
  
     <sp:ButtonGroup>
