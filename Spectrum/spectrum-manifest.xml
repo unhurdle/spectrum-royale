@@ -63,6 +63,7 @@
     <component id="MenuMouseController" class="com.unhurdle.spectrum.MenuMouseController"/>
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>
     <component id="PageTitle" class="com.unhurdle.spectrum.typography.PageTitle"/>
+    <component id="PagePagination" class="com.unhurdle.spectrum.PagePagination"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="QuickActions" class="com.unhurdle.spectrum.QuickActions"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>

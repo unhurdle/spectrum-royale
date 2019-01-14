@@ -30,8 +30,8 @@ package com.unhurdle.spectrum
       var triggerType:String = IconType.CHEVRON_LEFT_MEDIUM;
       var triggerCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(triggerType));
       triggerCheckIcon.type = triggerType;
-      // triggerCheckIcon.className = appendSelector("-ChevronLeftMedium");
       trigger.appendChild(triggerCheckIcon.element);
+      trigger.addEventListener("click",prewPage);
       elem.appendChild(trigger);
       action = newElement("a",buttonBase + " " + appendSelector("-action")) as HTMLLinkElement
       label = new TextNode("span");
@@ -43,6 +43,7 @@ package com.unhurdle.spectrum
       actionCheckIcon.type = actionType;
       actionCheckIcon.className = appendSelector("-ChevronRightMedium");
       action.appendChild(actionCheckIcon.element);
+      action.addEventListener("click",nextPage);
       elem.appendChild(action);
       return elem;
     }
@@ -67,6 +68,47 @@ package com.unhurdle.spectrum
           action.href = _href;
         }
       }
+    }
+    private var _pagesNum:int;
+
+    public function get pagesNum():int
+    {
+    	return _pagesNum;
+    }
+
+    public function set pagesNum(val:int):void
+    {
+        if(val){
+        	_pagesNum = val;
+        }
+        enableOrDisable();
+    }
+    private function prewPage():void{
+      pageIsSelected--;
+    }
+    private function nextPage():void{
+      pageIsSelected++;
+    }
+    private function enableOrDisable():void{
+      pageIsSelected == 1? trigger.classList.add("is-disabled"): trigger.classList.remove("is-disabled");
+      pageIsSelected >= pagesNum? action.classList.add("is-disabled"): action.classList.remove("is-disabled");
+    }
+    private var _pageIsSelected:Number = 2;
+
+    public function get pageIsSelected():Number
+    {
+      if(_pageIsSelected > pagesNum){
+        _pageIsSelected = 1;
+      }
+    	return _pageIsSelected;
+    }
+
+    public function set pageIsSelected(val:Number):void
+    {
+      if(val && val <= pagesNum){
+      	_pageIsSelected = val;
+      }
+      enableOrDisable();
     }
     private var _type:String;
 
