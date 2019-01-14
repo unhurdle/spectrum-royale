@@ -13,6 +13,19 @@ package com.unhurdle.spectrum
       super();
     }
 
+    /**
+     * The text content.
+     */
+    public function get text():String
+    {
+    	return textNode.text;
+    }
+
+    public function set text(value:String):void
+    {
+    	textNode.text = value;
+    }
+
     protected var textNode:TextNode;
     
     COMPILE::JS
