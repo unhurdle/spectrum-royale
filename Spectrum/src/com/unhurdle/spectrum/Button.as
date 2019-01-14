@@ -190,7 +190,7 @@ package com.unhurdle.spectrum
       (element as HTMLButtonElement).disabled = value;
     }
     
-    private var textNode:TextNode;
+    protected var textNode:TextNode;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{

@@ -38,7 +38,7 @@ package com.unhurdle.spectrum
             elem.appendChild(input);
             var spanBox:Span = new Span();
             spanBox.element.className = appendSelector("-box");
-            var type:String = IconType.CHECKMARK_SMALL
+            var type:String = IconType.CHECKMARK_SMALL;
             var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
             icon.type = type;
             icon.className = appendSelector("-checkmark");
