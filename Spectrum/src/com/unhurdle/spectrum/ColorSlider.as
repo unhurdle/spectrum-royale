@@ -17,6 +17,7 @@ package com.unhurdle.spectrum
     }
     private var handle:HTMLElement;
 		private var track:HTMLElement;
+    COMPILE::JS
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{

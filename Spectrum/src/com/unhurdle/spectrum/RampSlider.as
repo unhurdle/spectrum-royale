@@ -69,6 +69,7 @@ package com.unhurdle.spectrum
 			}
 
     }
+    COMPILE::JS
     override protected function onMouseMove(e:MouseEvent):void {
 			var sliderOffsetWidth:Number = element.offsetWidth;
 			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;

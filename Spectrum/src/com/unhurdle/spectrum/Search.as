@@ -9,7 +9,9 @@ package com.unhurdle.spectrum
 
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.events.Event;
 
+	[Event(name="submit", type="org.apache.royale.events.Event")]
   public class Search extends SpectrumBase
   {
     public function Search(){
@@ -21,6 +23,16 @@ package com.unhurdle.spectrum
     private var input:TextField;
     private var inputIcon:Icon;
     private var button:ClearButton;
+
+    public function get text():String
+    {
+    	return input.text;
+    }
+
+    public function set value(value:String):void
+    {
+    	input.text = value;
+    }
 
     private var _quiet:Boolean; 
 
@@ -52,10 +64,12 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
     addElementToWrapper(this,"form");
     input = new TextField();
+    (input.element as HTMLInputElement).type = "search";
     input.placeholder = "Search"; //getters and setters?
     input.className = appendSelector("-input");
     //TODO forward events
@@ -66,12 +80,17 @@ package com.unhurdle.spectrum
     inputIcon.className = appendSelector("-icon");
     addElement(inputIcon);
     button = new ClearButton();
-    button.small = true;
 
     addElement(button);
-
+    element.addEventListener("submit", handleSubmit);
     return element; 
     }
+    private function handleSubmit(ev:Event):Boolean{
+      ev.preventDefault();
+      dispatchEvent(new Event("submit"));
+      return false;
+    }
+    
   }
 
 }

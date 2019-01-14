@@ -23,7 +23,7 @@ package com.unhurdle.spectrum
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
             button = addElementToWrapper(this,'button') as HTMLButtonElement;
-            button.onclick = remove;
+            button.type = "reset";
             icon = new Icon("");
             addElement(icon);
             return element;
@@ -75,7 +75,5 @@ package com.unhurdle.spectrum
         	_overBackground = value;
         }
 
-        private function remove():void{
-        }
     }
 }

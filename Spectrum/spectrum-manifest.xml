@@ -15,6 +15,7 @@
     <component id="Card" class="com.unhurdle.spectrum.card.Card"/>
     <component id="CardActionButton" class="com.unhurdle.spectrum.card.CardActionButton"/>
     <component id="CardBody" class="com.unhurdle.spectrum.card.CardBody"/>
+    <component id="CardContent" class="com.unhurdle.spectrum.card.CardContent"/>
     <component id="CardDescription" class="com.unhurdle.spectrum.card.CardDescription"/>
     <component id="CardHeader" class="com.unhurdle.spectrum.card.CardHeader"/>
     <component id="CardSubtitle" class="com.unhurdle.spectrum.card.CardSubtitle"/>
@@ -27,6 +28,7 @@
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
     <component id="Code" class="com.unhurdle.spectrum.typography.Code"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
+    <component id="ColorSlider" class="com.unhurdle.spectrum.ColorSlider"/>
     <component id="ComboBoxController" class="com.unhurdle.spectrum.ComboBoxController"/>
     <component id="ComboBoxList" class="com.unhurdle.spectrum.ComboBoxList"/>
     <component id="ComboBoxModel" class="com.unhurdle.spectrum.ComboBoxModel"/>
@@ -66,9 +68,9 @@
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="QuickActions" class="com.unhurdle.spectrum.QuickActions"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
-    <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->
     <!-- <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/> -->
     <component id="Rating" class="com.unhurdle.spectrum.Rating"/>
+    <!-- <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/> -->
     <component id="Rule" class="com.unhurdle.spectrum.Rule"/>
     <component id="Search" class="com.unhurdle.spectrum.Search"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
@@ -77,6 +79,7 @@
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
+    <component id="SplitButtonPagination" class="com.unhurdle.spectrum.SplitButtonPagination"/>
     <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
     <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
     <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>

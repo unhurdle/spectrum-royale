@@ -44,18 +44,6 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var _text:String;
-
-    public function get text():String
-    {
-    	return _text;
-    }
-
-    public function set text(value:String):void
-    {
-    	_text = value || "";
-      textNode.text = _text;
-    }
   }
 }
 

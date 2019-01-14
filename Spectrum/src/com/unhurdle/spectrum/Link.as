@@ -4,7 +4,6 @@ package com.unhurdle.spectrum
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.core.WrappedHTMLElement;
   }
   public class Link extends Group
   {
