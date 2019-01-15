@@ -172,7 +172,10 @@
         var content:String = "searching for: " + search.text;
         new Toast(content).show();
       }
-
+      private function handleSelectedDate():void
+      {
+        new Toast("handleSelectedDate").show();
+      }
       
     ]]>
   </fx:Script>

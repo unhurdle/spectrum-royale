@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.utils.UIUtils;
 	import org.apache.royale.utils.callLater;
 	import org.apache.royale.events.MouseEvent;
+	import org.apache.royale.html.accessories.DateFormatMMDDYYYY;
 
   public class DatePicker extends SpectrumBase
   {
@@ -59,6 +60,20 @@ package com.unhurdle.spectrum
       element.appendChild(input);
       element.appendChild(button);
       element.appendChild(datePicker); 
+
+      popover = new Popover();
+      popover.className = appendSelector("-popover");
+      // popover.className += " is-open";
+      popover.position = "bottom";
+      popover.percentWidth = 100;
+      popover.style = {"margin-top": "30px"};
+      // popover.style = {"z-index":100};//????
+      var calender:Calender = new Calender();
+      popover.addElement(calender);
+      calender.addEventListener("selectedDateChanged",handleSelectedDay)
+      addElement(popover);
+      // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+
       return element;
     }
     private var _quiet:Boolean;
@@ -102,9 +117,24 @@ package com.unhurdle.spectrum
     {
     	input.value = value;
     }
+    private var popover:Popover
     COMPILE::JS
     private function openDatePicker():void{
-      // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+      popover.open = true;
+    }
+    private function handleSelectedDay(ev:*):void{
+      popover.open = false;
+      var date:Date = ev.target.selectedDate;
+
+      var year:String = date.getFullYear().toString();
+
+      var month:String = (1 + date.getMonth()).toString();
+      month = month.length > 1 ? month : '0' + month;
+
+      var day:String = date.getDate().toString();
+      day = day.length > 1 ? day : '0' + day;
+  
+      input.value = month + '/' + day + '/' +  year;
     }
     // public function set popUpVisible(value:Boolean):void
 		// {
@@ -149,5 +179,7 @@ package com.unhurdle.spectrum
     //     //  UIUtils.removePopUp(_popup);
     //   }
 		// }
+
+    
   }
 }

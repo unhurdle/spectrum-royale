@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.collections.IArrayList;
   import com.unhurdle.spectrum.data.MenuItem;
   import org.apache.royale.html.SimpleAlert;
+  import org.apache.royale.events.MouseEvent;
 
   public class Dropdown extends SpectrumBase
   {
@@ -42,7 +43,6 @@ package com.unhurdle.spectrum
       popover.addElement(menu);
       popover.addEventListener("click", handleListChange);
       addElement(popover);
-
       return elem;
     }
     private var popover:Popover;

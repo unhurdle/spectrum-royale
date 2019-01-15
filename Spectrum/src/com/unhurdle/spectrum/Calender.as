@@ -127,7 +127,6 @@ package com.unhurdle.spectrum
             return _firstDayOfWeek;
         }
         
-        
         public function set firstDayOfWeek(value:Number):void
         {
             if (value != _firstDayOfWeek) {
@@ -140,8 +139,6 @@ package com.unhurdle.spectrum
         {
             return _days;
         }
-
-        
         
         public function set days(value:Array):void
         {
@@ -150,21 +147,16 @@ package com.unhurdle.spectrum
                 dispatchEvent( new Event("daysChanged") );
             }
         }
-
-        
         
         public function get selectedDate():Date
-            {
-                return _selectedDate;
-            }
-            
+        {
+            return _selectedDate;
+        }
         
         public function set selectedDate(value:Date):void
         {
-            
             if (value != _selectedDate) {
                 _selectedDate = value;
-                
                 if (value != null) {
                     var needsUpdate:Boolean = false;
                     if (value.getMonth() != _displayedMonth) {
@@ -177,69 +169,67 @@ package com.unhurdle.spectrum
                     }
                     if (needsUpdate) {
                         updateCalendar();
-                        
                     }
                 }
-                
-                dispatchEvent( new Event("selectedDateChanged") );
+                dispatchEvent(new Event("selectedDateChanged"));
             }
         }
         
         
         private function updateCalendar():void
-            {   
-                var numDays:Number = numberOfDaysInMonth(displayedMonth, displayedYear);   
-                var firstDay:Date = new Date(displayedYear,displayedMonth,1);
-                _days = new Array(42);
-                var i:int = firstDay.getDay();
-                var dayNumber:int = 1;
-                while(dayNumber <= numDays){
-                    _days[i++] = new Date(displayedYear, displayedMonth, dayNumber++);
-                }
-            
+        {   
+            var numDays:Number = numberOfDaysInMonth(displayedMonth, displayedYear);   
+            var firstDay:Date = new Date(displayedYear,displayedMonth,1);
+            _days = new Array(42);
+            var i:int = firstDay.getDay();
+            var dayNumber:int = 1;
+            while(dayNumber <= numDays){
+                _days[i++] = new Date(displayedYear, displayedMonth, dayNumber++);
             }
+        
+        }
 
         private function numberOfDaysInMonth(month:Number, year:Number):Number
+        {
+            var n:int;
+            if (month == 1) 
             {
-                var n:int;
-                if (month == 1) 
-                {
-                    if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) // leap year
-                        n = 29;
-                    else
-                        n = 28;
-                }
-                    
-                else if (month == 3 || month == 5 || month == 8 || month == 10)
-                    n = 30;
-                    
+                if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) // leap year
+                    n = 29;
                 else
-                    n = 31;
+                    n = 28;
+            }
                 
-                return n;
-            }  
+            else if (month == 3 || month == 5 || month == 8 || month == 10)
+                n = 30;
+                
+            else
+                n = 31;
+            
+            return n;
+        }  
 
         
         public function getIndexForSelectedDate():Number
-            {
-                if (!_selectedDate) return -1;
+        {
+            if (!_selectedDate) return -1;
 
-                var str:String = _selectedDate.toDateString();
+            var str:String = _selectedDate.toDateString();
 
-                for(var i:int=0; i < _days.length; i++) {
-                    var test:Date = _days[i] as Date;
-                    
-                    if (test && test.toDateString() == str)
-                        return i;
+            for(var i:int=0; i < _days.length; i++) {
+                var test:Date = _days[i] as Date;
+                
+                if (test && test.toDateString() == str)
+                    return i;
 
-                }
-                return -1;
             }
+            return -1;
+        }
         
         private function updateDisplay():void
         {
             title.text = monthNames[displayedMonth] + " " +
-                String(displayedYear);
+            String(displayedYear);
             setDates();
         }
 
@@ -440,7 +430,8 @@ package com.unhurdle.spectrum
                     span.className = "spectrum-Calendar-date";
                     if(_days[k+l]){
                         cell.element.title = days[k+l].getDate();
-                        span.text = days[k+l].getDate(); //here 
+                        span.text = days[k+l].getDate(); //here
+                        span.element.onclick = handleSelectedDay;
                     }
                     cell.element.appendChild(span.element);
                     calenderRow.appendChild(cell.element); 
@@ -449,5 +440,19 @@ package com.unhurdle.spectrum
             }
             table.appendChild(calenderBody); 
         }
+
+        private function handleSelectedDay(ev:*):void{
+            var empty:int =0;
+            for(var i:int =0 ;i<days.length;i++)
+            {
+                if(days[i]){
+                    break;
+                }
+                empty++;
+            }
+            selectedDate = days[Number(ev.target.textContent) + empty - 1];
+        }
+
+        // add is-today is-selected is-focused!!
     }
 }
