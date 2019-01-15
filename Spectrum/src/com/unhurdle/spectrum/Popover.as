@@ -74,7 +74,7 @@ package com.unhurdle.spectrum
         if(_position){
           toggle(valueToSelector(_position),false);
         }
-        toggle(valueToSelector(value),false);
+        toggle(valueToSelector(value),true);
       	_position = value;
       }
     }

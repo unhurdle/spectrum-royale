@@ -36,7 +36,8 @@ package com.unhurdle.spectrum
       popover = new Popover();
       popover.className = appendSelector("-popover");
       popover.position = "bottom";
-      popover.style = {"width":"100%"};
+      popover.percentWidth = 100;
+      // popover.style = {"z-index":100};//????
       menu = new Menu();
       popover.addElement(menu);
       popover.addEventListener("click", handleListChange);
@@ -49,13 +50,7 @@ package com.unhurdle.spectrum
 
     private function toggleDropdown():void{
       popover.open = !popover.open;
-      if(popover.open){
-        button.className += " is-selected";
-        // button.classList.add("is-selected");//?????
-        }
-      else{
-        // button.classList.remove("is-selected");//?????
-      }
+      button.selected = popover.open;
     }
     public function get dataProvider():Object{
       return menu.dataProvider;
@@ -122,169 +117,43 @@ package com.unhurdle.spectrum
     }
 
     private function handleListChange():void{
-      // popover.open = false;
+      popover.open = false;
       if(!selectedItem.isDivider && !selectedItem.disabled){
         button.text = selectedItem.text;
       }
     }
+    
+    private var _invalid:Boolean;
+
+    public function get invalid():Boolean
+    {
+    	return _invalid;
+    }
+
+    public function set invalid(value:Boolean):void
+    {
+      if(value != _invalid){
+        toggle("is-invalid",value);
+        button.invalid = value;
+        //add invalid icon
+      }
+    	_invalid = value;
+    }
+
+    private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+      if(value != !!_disabled){
+        toggle("is-disabled",value);
+        button.disabled = value;
+      }
+    	_disabled = value;
+    }
   }
 }
-// <h4>Closed</h4>
-// <div class="spectrum-Dropdown" style="width: 240px;">
-//   <button class="spectrum-FieldButton spectrum-Dropdown-trigger" >
-//     <span class="spectrum-Dropdown-label is-placeholder">Select a Country</span>
-//     <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false" >
-//       <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
-//     </svg>
-//   </button>
-// </div>
-
-// <h4>Open</h4>
-// <div class="spectrum-Dropdown is-open" style="width: 240px;">
-//   <button class="spectrum-FieldButton spectrum-Dropdown-trigger is-selected" >
-//     <span class="spectrum-Dropdown-label">Ballard</span>
-//     <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false" >
-//       <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
-//     </svg>
-//   </button>
-//   <div class="spectrum-Popover spectrum-Popover--bottom spectrum-Dropdown-popover is-open" style="width: 100%">
-//     <ul class="spectrum-Menu" role="listbox">
-//       <li class="spectrum-Menu-item is-selected" role="option"  tabindex="0">
-//         <span class="spectrum-Menu-itemLabel">Ballard</span>
-//         <svg class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark" focusable="false" >
-//           <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
-//         </svg>
-//       </li>
-//       <li class="spectrum-Menu-item" role="option" tabindex="0">
-//         <span class="spectrum-Menu-itemLabel">Fremont</span>
-//       </li>
-//       <li class="spectrum-Menu-item" role="option" tabindex="0">
-//         <span class="spectrum-Menu-itemLabel">Greenwood</span>
-//       </li>
-//       <li class="spectrum-Menu-divider" role="separator"></li>
-//       <li class="spectrum-Menu-item is-disabled" role="option" >
-//         <span class="spectrum-Menu-itemLabel">United States of America</span>
-//       </li>
-//     </ul>
-//   </div>
-// </div>
-
-// <div class="dummy-spacing"></div>
-
-// <h4>With Thumbnails</h4>
-// <div class="spectrum-Dropdown is-open" style="width: 240px;">
-//   <button class="spectrum-FieldButton spectrum-Dropdown-trigger is-selected" >
-//     <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//       <use xlink:href="#spectrum-icon-18-Image" />
-//     </svg>
-//     <span class="spectrum-Dropdown-label">Ballard</span>
-//     <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false" >
-//       <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
-//     </svg>
-//   </button>
-//   <div class="spectrum-Popover spectrum-Popover--bottom spectrum-Dropdown-popover is-open" style="width: 100%">
-//     <ul class="spectrum-Menu" role="listbox">
-//       <li class="spectrum-Menu-item is-selected" role="option" tabindex="0">
-//         <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//           <use xlink:href="#spectrum-icon-18-Image" />
-//         </svg>
-//         <span class="spectrum-Menu-itemLabel">Ballard</span>
-//         <svg class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark" focusable="false" >
-//           <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
-//         </svg>
-//       </li>
-//       <li class="spectrum-Menu-item" role="option" tabindex="0">
-//         <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//           <use xlink:href="#spectrum-icon-18-Image" />
-//         </svg>
-//         <span class="spectrum-Menu-itemLabel">Fremont</span>
-//       </li>
-//       <li class="spectrum-Menu-item" role="option" tabindex="0">
-//         <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//           <use xlink:href="#spectrum-icon-18-Image" />
-//         </svg>
-//         <span class="spectrum-Menu-itemLabel">Greenwood</span>
-//       </li>
-//       <li class="spectrum-Menu-divider" role="separator"></li>
-//       <li class="spectrum-Menu-item is-disabled" role="option" >
-//         <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//           <use xlink:href="#spectrum-icon-18-Image" />
-//         </svg>
-//         <span class="spectrum-Menu-itemLabel">United States of America</span>
-//       </li>
-//     </ul>
-//   </div>
-// </div>
-
-// <div class="dummy-spacing"></div>
-
-// <h4>Disabled</h4>
-// <div class="spectrum-Dropdown is-disabled" style="width: 240px;">
-//   <button class="spectrum-FieldButton spectrum-Dropdown-trigger" disabled >
-//     <span class="spectrum-Dropdown-label is-placeholder">Select a Country</span>
-//     <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false" >
-//       <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
-//     </svg>
-//   </button>
-// </div>
-
-// <h4>Closed</h4>
-// <div class="spectrum-Dropdown is-invalid" style="width: 240px;">
-//   <button class="spectrum-FieldButton spectrum-Dropdown-trigger is-invalid" >
-//     <span class="spectrum-Dropdown-label is-placeholder">Select a Country</span>
-//     <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//       <use xlink:href="#spectrum-icon-18-Alert" />
-//     </svg>
-//     <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false" >
-//       <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
-//     </svg>
-//   </button>
-// </div>
-
-// <h4>Open</h4>
-// <div class="spectrum-Dropdown is-open is-invalid" style="width: 240px;">
-//   <button class="spectrum-FieldButton spectrum-Dropdown-trigger is-invalid is-selected" >
-//     <span class="spectrum-Dropdown-label">Ballard</span>
-//     <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//       <use xlink:href="#spectrum-icon-18-Alert" />
-//     </svg>
-//     <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false" >
-//       <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
-//     </svg>
-//   </button>
-//   <div class="spectrum-Popover spectrum-Popover--bottom spectrum-Dropdown-popover is-open" style="width: 100%">
-//     <ul class="spectrum-Menu" role="listbox">
-//       <li class="spectrum-Menu-item is-selected" role="option"  tabindex="0">
-//         <span class="spectrum-Menu-itemLabel">Ballard</span>
-//         <svg class="spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark" focusable="false" >
-//           <use xlink:href="#spectrum-css-icon-CheckmarkMedium" />
-//         </svg>
-//       </li>
-//       <li class="spectrum-Menu-item" role="option" tabindex="0">
-//         <span class="spectrum-Menu-itemLabel">Fremont</span>
-//       </li>
-//       <li class="spectrum-Menu-item" role="option" tabindex="0">
-//         <span class="spectrum-Menu-itemLabel">Greenwood</span>
-//       </li>
-//       <li class="spectrum-Menu-divider" role="separator"></li>
-//       <li class="spectrum-Menu-item is-disabled" role="option" >
-//         <span class="spectrum-Menu-itemLabel">United States of America</span>
-//       </li>
-//     </ul>
-//   </div>
-// </div>
-
-// <div class="dummy-spacing"></div>
-
-// <h4>Disabled</h4>
-// <div class="spectrum-Dropdown is-invalid is-disabled" style="width: 240px;">
-//   <button class="spectrum-FieldButton spectrum-Dropdown-trigger is-invalid" disabled >
-//     <span class="spectrum-Dropdown-label is-placeholder">Select a Country</span>
-//     <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" >
-//       <use xlink:href="#spectrum-icon-18-Alert" />
-//     </svg>
-//     <svg class="spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon" focusable="false" >
-//       <use xlink:href="#spectrum-css-icon-ChevronDownMedium" />
-//     </svg>
-//   </button>
-// </div

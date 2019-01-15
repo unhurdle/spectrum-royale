@@ -124,7 +124,6 @@ package com.unhurdle.spectrum
         setIconProps();
         addElementAt(iconElement,0);
       }
-
     }
     private function setIconProps():void{
       iconElement.className = iconClass;
@@ -189,7 +188,36 @@ package com.unhurdle.spectrum
     {
       (element as HTMLButtonElement).disabled = value;
     }
+
+    private var _invalid:Boolean;
+
+    public function get invalid():Boolean
+    {
+    	return _invalid;
+    }
+
+    public function set invalid(value:Boolean):void
+    {
+      if(value != !!_invalid){
+        toggle("is-invalid",value);
+      }
+    	_invalid = value;
+    }
     
+    private var _selected:Boolean;
+
+    public function get selected():Boolean
+    {
+    	return _selected;
+    }
+
+    public function set selected(value:Boolean):void
+    {
+      if(value != !!_selected){
+        toggle("is-selected",value);
+      }
+    	_selected = value;
+    }
     protected var textNode:TextNode;
 
     COMPILE::JS

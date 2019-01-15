@@ -37,22 +37,24 @@ package com.unhurdle.spectrum.renderers
       element.className = "";
       if(menuItem.isHeading){
         textNode.className = appendSelector("-sectionHeading");
+        element.style.pointerEvents = "none";
       } else {
         element.className = appendSelector("-item");
       }
       if(menuItem.isDivider){
         element.className = appendSelector("-divider");
+        element.style.pointerEvents = "none";
       } else {
         // only populate text if it's not a divider
         textNode.text = getLabelFromData(this,value);
       }
       if(menuItem.disabled){
         element.classList.add("is-disabled");
+        element.style.pointerEvents = "none";
       }
       if(menuItem.selected){
         element.classList.add("is-selected");
       }
-
       if(menuItem.icon){
         if(!icon){
           icon = new Icon(menuItem.icon);

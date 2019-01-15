@@ -1,5 +1,7 @@
 package com.unhurdle.spectrum
 {
+  import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.const.IconSize;
 
   public class FieldButton extends Button
   {
@@ -48,6 +50,17 @@ package com.unhurdle.spectrum
         }
       }
     	_placeholderText = value;
+    }
+    public override function get invalid():Boolean{
+      return super.invalid;
+    }
+    public override function set invalid(value:Boolean):void{
+      super.invalid = value;
+      if(value){//check if !=_invalid ??
+        var playIcon:Icon = new Icon(IconPrefix._18 + "Alert");
+        playIcon.size = IconSize.S;
+        addElement(playIcon);
+      }
     }
   }
 }

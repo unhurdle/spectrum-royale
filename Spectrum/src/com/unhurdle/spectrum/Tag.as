@@ -91,19 +91,19 @@ package com.unhurdle.spectrum
       }
     	_isDisabled = value;
     }
-    private var _isInvalid:Boolean;
+    private var _invalid:Boolean;
 
-    public function get isInvalid():Boolean
+    public function get invalid():Boolean
     {
-    	return _isInvalid;
+    	return _invalid;
     }
 
-    public function set isInvalid(value:Boolean):void
+    public function set invalid(value:Boolean):void
     {
-      if(value != !!_isInvalid){
+      if(value != !!_invalid){
         toggle("is-invalid",value);
       }
-    	_isInvalid = value;
+    	_invalid = value;
     }
     private var _deletable:Boolean;
 

@@ -36,11 +36,13 @@ package com.unhurdle.spectrum.renderers
       element.className = "";
       if(dropdownItem.isDivider){
         element.className = appendSelector("-divider");
+        element.style.pointerEvents = "none";
       } else {
         textNode.className = getLabelFromData(this,value);
       }
       if(dropdownItem.disabled){
         element.classList.add("is-disabled");
+        element.style.pointerEvents = "none";
       }
       if(dropdownItem.selected){
         element.classList.add("is-selected");

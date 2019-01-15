@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   }
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.html.elements.Span;
+  import org.apache.royale.events.MouseEvent;
 
   public class Rating extends SpectrumBase
   {
@@ -26,13 +27,14 @@ package com.unhurdle.spectrum
       input.className = appendSelector("-input");
       input.type = "range";
       element.appendChild(input);
-      element.addEventListener("click",handleClick);
+      // element.addEventListener("click",handleClick);
       return element;
     }
     private function handleClick(ev:*):void
     {
       if(ev.target){
-        var index:Number = Number((ev.target as HTMLElement).getAttribute("data-index"));
+        var index:Number = Number(ev.target.id);
+        // var index:Number = Number((ev.target as HTMLElement).getAttribute("data-index"));
         if(!isNaN(index)){
           value = index;
         }
@@ -68,7 +70,8 @@ package com.unhurdle.spectrum
     }
     private function addToArray(amount:Number):void
     {
-      for(var index:int = 0; index < amount; index++)
+      var len:int = iconArray.length + amount;
+      for(var index:int = iconArray.length; index < len; index++)
       {
         span = new Span();
         span.className = appendSelector("-icon");
@@ -84,10 +87,11 @@ package com.unhurdle.spectrum
         icon2.className = appendSelector("-starInactive");
         span.addElement(icon2);
         addElement(span);
-        // element.appendChild(span);
+        span.id = (index + 1).toString();
+        span.addEventListener("click",handleClick);
+        // span.addEventListener("click",changeValue)
         iconArray.push(span);
       }
-      
     }
     private var iconArray:Array;
     public function get value():Number
@@ -148,7 +152,8 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
-//SET VALUE
-
+    private function changeValue(ev:MouseEvent):void{
+      value = ev.target.id + 1;
+    }
   }
 }

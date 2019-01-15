@@ -72,19 +72,19 @@ package com.unhurdle.spectrum
             }
             _text = value;
         }
-        private var _valid:Boolean;
+        private var _invalid:Boolean;
 
-        public function get valid():Boolean
+        public function get invalid():Boolean
         {
-        	return _valid;
+        	return _invalid;
         }
 
-        public function set valid(value:Boolean):void
+        public function set invalid(value:Boolean):void
         {
-            if(value == !!_valid){
+            if(value == !!_invalid){
                 toggle("is-invalid",!value);
             }
-        	_valid = value;
+        	_invalid = value;
         }
         private var _indeterminate:Boolean;
 

@@ -172,6 +172,8 @@
         var content:String = "searching for: " + search.text;
         new Toast(content).show();
       }
+
+      
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -184,16 +186,28 @@
  
     <sp:ButtonGroup>
       <sp:Radio text="radio1" radioName="radioGroup"  />
-      <sp:Radio text="radio2" radioName="radioGroup" valid="true"/>
+      <sp:Radio text="radio2" radioName="radioGroup" invalid="true"/>
       <sp:TextArea placeholder="enter text" required="true"/>
-      <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" valid="false" quiet="true"/><!--indeterminate="true"-->
+      <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" invalid="false" quiet="true"/><!--indeterminate="true"-->
       <sp:ClearButton disabled="true" small="true"/>
       <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/>
       <sp:Dropdown dataProvider="{listProvider}" placeholder="Select a Number"/>
-      <sp:Dropdown placeholder="Select a Number">
+      <sp:Dropdown placeholder="Select a Number" invalid="true">
         <sp:dataProvider>
           <fx:Array>
-            <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image"/>
+            <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" />
+            <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/>
+            <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/>
+            <sp:DropdownItem isDivider="true"/>
+            <sp:DropdownItem text="Four 4"/>
+            <sp:DropdownItem text="Five 5" disabled="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Dropdown>
+      <sp:Dropdown placeholder="Select a Number" invalid="true" disabled="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" />
             <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/>
             <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/>
             <sp:DropdownItem isDivider="true"/>
@@ -205,11 +219,11 @@
       </sp:ButtonGroup>
       <sp:Label text="label" color="red" />
       <sp:CycleButton paused="true"/>
-      <sp:Rating max="5" value="3" disabled="true"/>
+      <sp:Rating max="5" value="3" disabled="true" />
       <sp:Rating max="7" value="7"/>
       <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
       <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
-      <sp:Rating id="rating1" max="9" value="3"/>
+      <sp:Rating id="rating1" max="9" value="3" />
       <sp:DatePicker quiet="true"/>
       <sp:DatePicker placeHolder="Choose a date"/>
       <sp:Tool />

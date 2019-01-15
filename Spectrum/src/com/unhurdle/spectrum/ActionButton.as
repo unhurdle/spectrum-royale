@@ -73,20 +73,20 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var _selected:Boolean = false;
+    // private var _selected:Boolean = false;
 
-    public function get selected():Boolean
-    {
-    	return _selected;
-    }
+    // public  function get selected():Boolean
+    // {
+    //   return _selected;
+    // }
 
-    public function set selected(value:Boolean):void
-    {
-      if(!!value != _selected){
-      	_selected = value;
-        toggle("is-selected",value);
-      }
-    }
+    // public  function set selected(value:Boolean):void
+    // {
+    //   if(!!value != _selected){
+    //   	_selected = value;
+    //     toggle("is-selected",value);
+    //   }
+    // }
 
     private function elementClicked(ev:Event):void{
       selected = !selected;
