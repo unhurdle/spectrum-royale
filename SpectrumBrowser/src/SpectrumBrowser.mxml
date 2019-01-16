@@ -250,12 +250,16 @@
       <sp:SplitButtonPagination type="cta" text="next" pagesNum="1"/>
       <sp:PagePagination pagesNum="5" selected="true"/>
       <sp:PagePagination pagesNum="3" pageIsSelected="1"/>
-      <!-- <sp:ColorSlider/>
+        <sp:RampSlider/>
+        <sp:RangeSlider max="50"/>
+      <sp:VideoPlayerSlider/>
+      <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
+      <sp:ColorSlider/>
       <sp:ColorSlider color="true"/>
-      <sp:ColorSlider color="true" showingAlpha="true"/>
-      <sp:ColorSlider color="false" showingAlpha="true"/>
-      <sp:ColorSlider color="true" showingAlpha="false"/>
-      <sp:ColorSlider color="false"/> -->
+      <sp:ColorSlider color="true" showingAlpha="true" max="50"/>
+      <sp:ColorSlider color="false" showingAlpha="true"/> 
+      <sp:ColorSlider color="true" showingAlpha="false" max="80"/>
+      <sp:ColorSlider color="false"/>
       <!-- <sp:SplitButton dataProvider="{comboProvider}"/> -->
       <sp:SplitButton dataProvider="{comboProvider}" type="cta" text="cta splitButton"/>
       <!-- <sp:SplitButton dataProvider="{comboProvider}" type="cta" left="true"/> -->
@@ -289,7 +293,6 @@
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/>
-      <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
       <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
@@ -343,10 +346,9 @@
         <sp:Rule size="small"/>
         <sp:Rule size="large"/>
         <sp:Rule size="medium"/>
-      <sp:Body text=" Body1 " size="1">
         <sp:Link href="http://printui.com" text="Click Here"/>
+      <sp:Body text=" Body1 " size="1">
       </sp:Body>
-        <!-- <sp:RampSlider/> -->
       <sp:Body text=" Body2" size="2"/>
       <sp:Body text=" Body5" size="5"/>
       <sp:Code text=" Code2" size="2"/>

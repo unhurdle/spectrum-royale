@@ -55,9 +55,9 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        elem.setAttribute("role","group");
-        elem.setAttribute("aria-labelledby","spectrum-Slider-label-4");  // need this?
-        controlsContainer = newElement("div","spectrum-Slider-controls");
+        width = 400;
+        elem.setAttribute("role","group");  // need this?
+        controlsContainer = newElement("div",appendSelector("-controls"));
         controlsContainer.setAttribute("role","presentation");
         //first track
 				leftTrack = newElement("div","spectrum-Slider-track");
@@ -70,7 +70,7 @@ package com.unhurdle.spectrum
         input = newElement("input","spectrum-Slider-input") as HTMLInputElement;
         input.type = "range";
 				input.step = "2";
-        input.onchange = handleChange();
+        max = 100;
         leftHandle.appendChild(input);
         controlsContainer.appendChild(leftHandle);
         //second track
@@ -85,7 +85,7 @@ package com.unhurdle.spectrum
         secondInput = newElement("input","spectrum-Slider-input") as HTMLInputElement;
         secondInput.type = "range";
 				secondInput.step = "2";
-        secondInput.onchange = handleChange();
+        secondMax = 100;
         rightHandle.appendChild(secondInput);
         controlsContainer.appendChild(rightHandle);
         //third track
@@ -101,197 +101,56 @@ package com.unhurdle.spectrum
 			super.addedToParent();
 			positionElements();
     }
-
+     override protected function getValue():String{
+			// override in subclass
+			return label;
+		}    
     override protected function positionElements():void{
-				// var percent:Number = this.value / (max - min) * 100;
-				// handle.style.left = percent + "%";
-		}
-    private function handleChange():void{
       displayValue = true;
-			// if(valueNode){
-			// 	valueNode.text = "" + value;
-			// }
-    }
-    public function get rightValue():Number
-    {
-    	return Number(input.value);
-    }
-
-    public function set rightValue(value:Number):void
-    {
-			//TODO why is this a string?
-			input.value = "" + value;
-			// if(parent){
-			// 	positionElements();
-			// }
-			// if(valueNode){
-			// 	valueNode.text = "" + value;
-			// }
-    }
-    public function get leftValue():Number
-    {
-    	return Number(secondInput.value);
-    }
-
-    public function set leftValue(value:Number):void
-    {
-			//TODO why is this a string?
-			secondInput.value = "" + value;
-			// if(parent){
-			// 	positionElements();
-			// }
-			// if(valueNode){
-			// 	valueNode.text = "" + value;
-			// }
-    }
-    // public function get value():String
-    // {
-    //   if(valueNode){
-		// 		return valueNode.text;
-		// 	}
-    // 	return "";
-    // }
-
-    // public function set value(value:String):void
-    // {
-		// 	//TODO why is this a string?
-		// 	input.value = "" + value;
-		// 	if(parent){
-		// 		positionElements();
-		// 	}
-		// 	if(valueNode){
-		// 		valueNode.text = "" + value;
-		// 	}
-    // }
-    COMPILE::JS
-    override protected function onMouseMove(e:MouseEvent):void {
-			//TODO find the new range...
-      var handle:Object = e.target;//to check
-      var sliderOffsetWidth:Number = element.offsetWidth;
-			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
-
-			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
-			var percent:Number = (x / sliderOffsetWidth) * 100;
-			// var val:Number = (max-min) / (100/percent);
-			// var stepVal:Number = step;
-			// var rem:Number = val % stepVal;
-			// val = val - rem;
-			// if (rem > (stepVal/2)){
-		  //   val += stepVal;
-			// }
-			// value = val;
-        if (handle === leftHandle) {
-              if (percent < parseFloat(rightHandle.style.left)) {
-                handle.style.left = percent + '%';
-                leftTrack.style.width = percent + '%';
-              }
-            }
-            else {
-              if (percent > parseFloat(leftHandle.style.left)) {
-                handle.style.left = percent + '%';
-                rightTrack.style.width = (100 - percent) + '%';
-              }
-            }
-            middleTrack.style.left = leftHandle.style.left;
-            middleTrack.style.right = (100 - parseFloat(rightHandle.style.left)) + '%';
-  // }
-
-       var startPercent:Number = parseFloat(leftHandle.style.left);
+				// var leftPercent:Number = this.leftValue / (max - min) * 100;
+				// leftHandle.style.left = leftPercent + "%";
+        
+				// var rightPercent:Number = this.rightValue / (secondMax - secondMin) * 100;
+				// rightHandle.style.left = rightPercent + "%";
+      var startPercent:Number = parseFloat(leftHandle.style.left);
       var endPercent:Number = parseFloat(rightHandle.style.left);
       leftTrack.style.width = startPercent + '%';
       middleTrack.style.left = startPercent + '%';
       middleTrack.style.right = (100 - endPercent) + '%';
       rightTrack.style.width = (100 - endPercent) + '%';
+      label = startPercent + " - " + endPercent;
+		}
 
-  // if (!element.classList.contains('is-disabled')) {
-  //   element.addEventListener('mousedown', onMouseDown);
-  // }
-  //  if (leftTrack && rightTrack && !isColor) {
-//       leftTrack.style.width = percent + '%';
-//       rightTrack.style.width = (100 - percent) + '%';
-//     }
-//     handle.style.left = percent + '%';
+    COMPILE::JS
+    override protected function onMouseMove(e:MouseEvent):void{
+      var handle:Object = e.target;
+      var sliderOffsetWidth:Number = element.offsetWidth;
+			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
 
-//     if (buffers.length) {
-//       if (percent >= bufferedAmount) {
-//         // Don't show right buffer bar
-//         rightBuffer.style.width = 0;
-//         rightBuffer.style.left = 'auto';
-//         rightBuffer.style.right = 'auto';
-//         leftBuffer.style.width = bufferedAmount + '%';
-//       }
-//       else {
-//         leftBuffer.style.width = percent + '%';
-//         rightBuffer.style.width = 'auto';
-//         rightBuffer.style.left = percent + '%';
-//         rightBuffer.style.right = (100 - bufferedAmount) + '%';
-//       }
-//     }
+			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+			var percent:Number = (x / sliderOffsetWidth) * 100;
+		  if (handle === leftHandle) {
+          if (percent < parseFloat(rightHandle.style.left)) {
+            handle.style.left = percent + '%';
+            leftTrack.style.width = percent + '%';
+          }
+        }
+        else if (handle === rightHandle){
+          if (percent > parseFloat(leftHandle.style.left)) {
+            handle.style.left = percent + '%';
+            rightTrack.style.width = (100 - percent) + '%';
+          }
+        }
+        middleTrack.style.left = leftHandle.style.left;
+        middleTrack.style.right = (100 - parseFloat(rightHandle.style.left)) + '%';
+        input.value = middleTrack.style.left;
+        secondInput.value = middleTrack.style.right;
+        if(parent){
+          positionElements();
+        }
+        if(valueNode){
+          valueNode.text = handle.style.left;
+        }
     }
-                                                                                                                            //     function onMouseMove(e, sliderHandle) {
-                                                                                                                            //     if (!handle) {
-                                                                                                                            //       return;
-                                                                                                                            //     }
-
-                                                                                                                            //     var sliderOffsetWidth = slider.offsetWidth;
-                                                                                                                            //     var sliderOffsetLeft = slider.offsetLeft + slider.offsetParent.offsetLeft;
-
-                                                                                                                            //     var x = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
-                                                                                                                            //     var percent = (x / sliderOffsetWidth) * 100;
-
-//     if (handle === leftHandle) {
-//       if (percent < parseFloat(rightHandle.style.left)) {
-//         handle.style.left = percent + '%';
-//         leftTrack.style.width = percent + '%';
-//       }
-//     }
-//     else {
-//       if (percent > parseFloat(leftHandle.style.left)) {
-//         handle.style.left = percent + '%';
-//         rightTrack.style.width = (100 - percent) + '%';
-//       }
-//     }
-//     middleTrack.style.left = leftHandle.style.left;
-//     middleTrack.style.right = (100 - parseFloat(rightHandle.style.left)) + '%';
-//   }
-
-//   // Set initial track position
-//   var startPercent = parseFloat(leftHandle.style.left);
-//   var endPercent = parseFloat(rightHandle.style.left);
-//   leftTrack.style.width = startPercent + '%';
-//   middleTrack.style.left = startPercent + '%';
-//   middleTrack.style.right = (100 - endPercent) + '%';
-//   rightTrack.style.width = (100 - endPercent) + '%';
-
-//   if (!slider.classList.contains('is-disabled')) {
-//     slider.addEventListener('mousedown', onMouseDown);
-//   }
-// }
-//  var sliderOffsetWidth = slider.offsetWidth;
-//     var sliderOffsetLeft = slider.offsetLeft + slider.offsetParent.offsetLeft;
-
-//     var x = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
-//     var percent = (x / sliderOffsetWidth) * 100;
-//     if (leftTrack && rightTrack && !isColor) {
-//       leftTrack.style.width = percent + '%';
-//       rightTrack.style.width = (100 - percent) + '%';
-//     }
-//     handle.style.left = percent + '%';
-
-//     if (buffers.length) {
-//       if (percent >= bufferedAmount) {
-//         // Don't show right buffer bar
-//         rightBuffer.style.width = 0;
-//         rightBuffer.style.left = 'auto';
-//         rightBuffer.style.right = 'auto';
-//         leftBuffer.style.width = bufferedAmount + '%';
-//       }
-//       else {
-//         leftBuffer.style.width = percent + '%';
-//         rightBuffer.style.width = 'auto';
-//         rightBuffer.style.left = percent + '%';
-//         rightBuffer.style.right = (100 - bufferedAmount) + '%';
-//       }
-//     }
   }
 }

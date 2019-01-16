@@ -21,18 +21,13 @@ package com.unhurdle.spectrum
     }
 
     override protected function positionElements():void{
+        displayValue = true;
         var percent:Number = this.value / (max - min) * 100;
         handle.style.left = percent + "%";
         // Set initial track position
         leftTrack.style.width = percent + '%';
         rightTrack.style.width = (100 - percent) + '%';
     }
-    private function handleChange():void{
-			// if(valueNode){
-			// 	valueNode.text = "" + value;
-			// }
-    }
-
 		override protected function enableDisableInput(value:Boolean):void{
 			input.disabled = value;
 		}
@@ -53,7 +48,6 @@ package com.unhurdle.spectrum
 			if(valueNode){
 				valueNode.text = "" + value;
 			}
-
     }
 
 
@@ -154,36 +148,26 @@ package com.unhurdle.spectrum
 		
 	COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-        /**
-         <div class="spectrum-Slider-controls">
-            <div class="spectrum-Slider-track"></div>
-            <div class="spectrum-Slider-handle" style="left: 40%;">
-            <input type="range" class="spectrum-Slider-input" value="14" step="2" min="10" max="20">
-            </div>
-            <div class="spectrum-Slider-track"></div>
-        </div>
-        */
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
         controlsContainer = newElement("div",appendSelector("-controls"));
         //first track
-				leftTrack = newElement("div",appendSelector("-track"));
+		leftTrack = newElement("div",appendSelector("-track"));
         controlsContainer.appendChild(leftTrack);
         
         //handle
         handle = newElement("div",appendSelector("-handle"));
         input = newElement("input",appendSelector("-input")) as HTMLInputElement;
         input.type = "range";
-				input.step = "1";
-        input.onchange = handleChange();
+		input.step = "1";
         handle.appendChild(input);
         controlsContainer.appendChild(handle);
 
         //second track
-				rightTrack = newElement("div",appendSelector("-track"));
+		rightTrack = newElement("div",appendSelector("-track"));
         controlsContainer.appendChild(rightTrack);
 
         elem.appendChild(controlsContainer);
-    		element.addEventListener('mousedown', onMouseDown);
+        element.addEventListener('mousedown', onMouseDown);
         return elem;
     }
 		// Element interaction
@@ -204,27 +188,5 @@ package com.unhurdle.spectrum
 			value = val;
 			// value = Math.round(val * 10000)/10000;
     }
-
-
-/**
-TODO
-For video player there are additional buffer elements. It probably makes sense to add a separate component for that...
-<div class="spectrum-Slider">
-  <div class="spectrum-Slider-labelContainer">
-    <label class="spectrum-Slider-label" id="spectrum-Slider-label-16" for="spectrum-Slider-input-16">My Video</label>
-    <div class="spectrum-Slider-value">3:48</div>
-  </div>
-  <div class="spectrum-Slider-controls">
-    <div class="spectrum-Slider-track"></div>
-    <div class="spectrum-Slider-buffer" style="width: 20%;" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-labelledby="spectrum-Slider-label-16"></div>
-    <div class="spectrum-Slider-handle" style="left: 20%;">
-      <input type="range" class="spectrum-Slider-input" aria-valuetext="3:48" value="228" min="0" max="760" id="spectrum-Slider-input-16">
-    </div>
-    <div class="spectrum-Slider-buffer" style="left: 20%; width: 30%;"></div>
-    <div class="spectrum-Slider-track"></div>
-  </div>
-</div>
-
- */
   }
 }
