@@ -132,7 +132,7 @@ package com.unhurdle.spectrum
                     }
                     if(_displayValue && !valueNode){
                         valueNode = new TextNode("div");
-            valueNode.className = appendSelector("-value");
+                        valueNode.className = appendSelector("-value");
                         labelContainer.appendChild(valueNode.element);
                     }
             }
@@ -143,7 +143,6 @@ package com.unhurdle.spectrum
                 valueNode.text = getValue();
             }
         }
-
 		protected function getValue():String{
 			// override in subclass
 			return "";

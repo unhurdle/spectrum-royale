@@ -18,6 +18,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
         controlsContainer = newElement("div",appendSelector("-controls"));
+        width = 400;
             var ramp:HTMLDivElement = newElement("div") as HTMLDivElement;
             ramp.className = appendSelector("-ramp");
             var svgElement:SVGElement = newSVGElement("svg","");
@@ -34,32 +35,28 @@ package com.unhurdle.spectrum
             handle.style.left = "40%"
             input = newElement("input",appendSelector("-input")) as HTMLInputElement;
             input.type = "range";
-            input.step = "2";
-            input.onchange = handleChange();
+            input.step = "1";
+            max = 50;
             handle.appendChild(input);
             controlsContainer.appendChild(handle);
             elem.appendChild(controlsContainer);
             element.addEventListener('mousedown', onMouseDown);
             return elem;
     }
+    
     override protected function positionElements():void{
+      displayValue = true;
       var percent:Number = this.value / (max - min) * 100;
       handle.style.left = percent + "%";
 		}
-    private function handleChange():void{
-      displayValue = true;
-			// if(valueNode){
-			// 	valueNode.text = "" + value;
-			// }
-    }
+
     public function get value():Number
     {
     	return Number(input.value);
     }
 
     public function set value(value:Number):void
-    {
-      
+    {      
 			input.value = "" + value;
 			if(parent){
 				positionElements();
@@ -67,13 +64,11 @@ package com.unhurdle.spectrum
 			if(valueNode){
 				valueNode.text = "" + value;
 			}
-
     }
     COMPILE::JS
     override protected function onMouseMove(e:MouseEvent):void {
 			var sliderOffsetWidth:Number = element.offsetWidth;
 			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
-
 			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;
 			var val:Number = (max-min) / (100/percent);

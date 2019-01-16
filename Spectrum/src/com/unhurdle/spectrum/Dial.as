@@ -29,12 +29,10 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-			controlsContainer = newElement("div");
-			controlsContainer.className = appendSelector("-controls");
+			controlsContainer = newElement("div",appendSelector("-controls"));
 			handle = newElement("div") as HTMLDivElement;
 			handle.className = appendSelector("-handle");
 			handle.tabIndex = 0;
-			// handle.setAttribute("tabindex",0);
 			input = newElement("input") as HTMLInputElement;
 			input.className = appendSelector("-input");
 			input.type = "range";
@@ -70,8 +68,8 @@ package com.unhurdle.spectrum
 				//TODO why is this a string?
 				input.max = "" + val;
 		}
+		
 		// Element interaction
-
 		private var _size:String;
 
 		public function get size():String
