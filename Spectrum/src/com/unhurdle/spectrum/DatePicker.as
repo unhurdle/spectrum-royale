@@ -24,7 +24,8 @@ package com.unhurdle.spectrum
 
     private var input:HTMLInputElement;
     private var button:HTMLButtonElement;
-    private var datePicker:HTMLInputElement 
+    private var datePicker:HTMLInputElement;
+    
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -37,6 +38,7 @@ package com.unhurdle.spectrum
       button = newElement("button") as HTMLButtonElement;
       button.className = "spectrum-FieldButton spectrum-InputGroup-button";
       button.onclick = openDatePicker;
+      button.addEventListener("click",toggleButton);
 
       datePicker = newElement("input") as HTMLInputElement;
       datePicker.type = "hidden";
@@ -98,7 +100,15 @@ package com.unhurdle.spectrum
       }
       _quiet = value;
     }
-
+    private function toggleButton():void{
+      popover.open = !popover.open;
+      if(popover.open){
+        button.className += " is-selected";
+      }
+      else{
+        button.className.slice(button.className.indexOf("is-selected"),11); //why ?
+      }
+    }
     public function get placeHolder():String
     {
     	return input.placeholder;
@@ -136,7 +146,8 @@ package com.unhurdle.spectrum
   
       input.value = month + '/' + day + '/' +  year;
     }
-    // public function set popUpVisible(value:Boolean):void
+}
+ // public function set popUpVisible(value:Boolean):void
 		// {
 		// 	if(value){
 		// 		var origin:Point = new Point(0, host.height - 6);
@@ -182,4 +193,4 @@ package com.unhurdle.spectrum
 
     
   }
-}
+

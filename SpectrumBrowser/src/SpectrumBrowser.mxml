@@ -133,7 +133,7 @@
         // else{
         //   value = ev.value.children[0].text;
         // }
-        new Toast("The selected item is: "+value).show();
+        // new Toast("The selected item is: "+value).show();
       }
       private function sideNavClick(ev:*):void{
         var value:String = ev.target.selectedItem.label;
@@ -295,7 +295,19 @@
       <sp:StatusLight status="positive" text="Fi"/>
       <sp:StatusLight status="info" text="Fo"/>
       <sp:ButtonGroup/>
+      <!-- <sp:TabBar se>
+      <sp:Tab/>
+      <sp:Tab/>
+      <sp:Tab/>
+      <sp:Tab/>
+      </sp:TabBar> -->
       <sp:Button text="Show Toast" click="showToast()"/>
+      <sp:CoachMark flavor="dark" quiet="true"/>
+      <sp:CoachMark flavor="light"/>
+      <sp:CoachMark/>
+      <sp:IllustratedMessage type="cta"/>
+      <sp:IllustratedMessage type="default"/>
+      <sp:IllustratedMessage />
       <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange(event)"/>
@@ -314,9 +326,20 @@
             <sp:BreadcrumbsItem text="Home"/>
             <sp:BreadcrumbsItem text="Playground"/>
             <sp:BreadcrumbsItem text="Sliders" isTitle="true" />
-          </fx:Array>
+          </fx:Array>\
         </sp:dataProvider>
       </sp:Breadcrumbs>
+   <sp:Tabs  itemClicked="itemSelected(event)" >
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:TabsItem text="Hi!" icon="Folder"/>
+            <sp:TabsItem text="How are you ?" />
+            <sp:TabsItem text="Have a great day!" icon="Image"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Tabs>
+
+     
       <sp:Popover open="true" relativePosition="true">
         <sp:Menu>
           <sp:dataProvider>
@@ -333,6 +356,7 @@
           </fx:Array>
           </sp:dataProvider>
         </sp:Menu>
+        
       </sp:Popover>
       <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
       <sp:Switch text="Toggle On" checked="false" change="switched(event)"/>
@@ -379,6 +403,8 @@
       <sp:Heading text=" Heading2 " size="2"/>
       <sp:Heading text=" Heading2 --strong" size="2" strong="true"/>
       <sp:Calender/>
+      <sp:DropZone/>
+      
     </sp:View>
   </sp:initialView>  
 </sp:Application>
