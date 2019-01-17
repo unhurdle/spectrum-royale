@@ -88,12 +88,11 @@ package com.unhurdle.spectrum
           }
         }
     }
-
     private function prewPage():void{
-      pageIsSelected--;
+      pageIsSelected > 1? pageIsSelected--: pageIsSelected = 1;
     }
     private function nextPage():void{
-      pageIsSelected++;
+      pageIsSelected < pagesNum? pageIsSelected++: pageIsSelected = pagesNum;
     }
     private function enableOrDisable():void{
       pageIsSelected == 1? prew.classList.add("is-disabled"): prew.classList.remove("is-disabled");

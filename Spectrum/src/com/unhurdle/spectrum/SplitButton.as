@@ -28,10 +28,8 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
       actionButton = new Button();
       actionButton.className = appendSelector("-action");
-      // actionButton.flavor = _type;
       triggerButton = new Button();
       triggerButton.className = appendSelector("-trigger");
-      // triggerButton.flavor = _type;
       triggerButton.icon = IconPrefix.SPECTRUM_CSS_ICON + IconType.CHEVRON_DOWN_MEDIUM;
       triggerButton.iconType = IconType.CHEVRON_DOWN_MEDIUM;
       triggerButton.iconClass = appendSelector("-icon");
