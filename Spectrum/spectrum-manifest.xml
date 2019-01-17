@@ -27,6 +27,7 @@
     <component id="CircleLoader" class="com.unhurdle.spectrum.CircleLoader"/>
     <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
+    <component id="CoachMarkPopover" class="com.unhurdle.spectrum.CoachMarkPopover"/>
     <component id="Code" class="com.unhurdle.spectrum.typography.Code"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
     <component id="ColorSlider" class="com.unhurdle.spectrum.ColorSlider"/>
