@@ -69,6 +69,8 @@
         "Four",
         "Five"
       ];
+      [Bindable]private var date:Date = new Date();
+      [Bindable]private var date1:Date = new Date(2019,01,25);
 
       private function handleSrepperChange(ev:Event):void{
         new Toast("Stepper value" + ev.target.value).show();
@@ -172,8 +174,7 @@
         var content:String = "searching for: " + search.text;
         new Toast(content).show();
       }
-      private function handleSelectedDate():void
-      {
+      private function handleSelectedDate():void{
         new Toast("handleSelectedDate").show();
       }
       
@@ -228,7 +229,9 @@
       <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
       <sp:Rating id="rating1" max="9" value="3" />
       <sp:DatePicker quiet="true"/>
-      <sp:DatePicker placeHolder="Choose a date"/>
+      <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/>
+      <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/>
+      <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/>
       <sp:Tool />
       <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
       <!-- <sp:Alert text="Alert"/>  -->
@@ -293,6 +296,7 @@
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/>
+      <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}"/>
       <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
@@ -359,7 +363,7 @@
       <sp:Heading text=" Heading2 --quiet" size="2" quiet="true"/>
       <sp:Heading text=" Heading2 " size="2"/>
       <sp:Heading text=" Heading2 --strong" size="2" strong="true"/>
-      <sp:Calender/>
+      <sp:Calendar/>
     </sp:View>
   </sp:initialView>  
 </sp:Application>

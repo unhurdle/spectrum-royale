@@ -49,7 +49,6 @@ package com.unhurdle.spectrum
         removeBead(_overlayBead);
       }
     	_showOverlay = value;
-
     }
 
     private var modal:ModalDisplay;
@@ -146,7 +145,6 @@ package com.unhurdle.spectrum
         icon.className = iconClass;
         addElementAt(icon,0);
       }
-
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -178,7 +176,6 @@ package com.unhurdle.spectrum
         }
         button.text = value;
       }
-
     }
     
     public function show():void{
@@ -225,7 +222,6 @@ package com.unhurdle.spectrum
         createIcon(value);
         }
       }
-    
       _status = value;
     }
   }
