@@ -203,10 +203,6 @@ package com.unhurdle.spectrum.models
          */
         public function updateCalendar():void
         {       
-			trace("displayedYear");
-			trace(displayedYear);
-			trace("displayedMonth");
-			trace(displayedMonth);
             var firstDay:Date = new Date(displayedYear,displayedMonth,1);
             
             _days = new Array(42);

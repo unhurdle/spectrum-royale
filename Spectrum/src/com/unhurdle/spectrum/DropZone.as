@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.WrappedHTMLElement;
   }
   import com.unhurdle.spectrum.Icon;
+  import com.unhurdle.spectrum.IllustratedMessage;
   
   import org.apache.royale.file.beads.FileModel;
   import org.apache.royale.file.beads.FileLoader;
@@ -17,6 +18,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.file.FileProxy;
   import org.apache.royale.events.Event;
   import org.apache.royale.textLayout.edit.ElementRange;
+  
   
 	[Event(name="filesAvailable", type="org.apache.royale.events.ValueEvent")]
 
@@ -78,35 +80,40 @@ package com.unhurdle.spectrum
     element.addEventListener('dragover', elementDragged);
     element.addEventListener('drop', dropped);
     
-    var illustratedMessage:HTMLElement = newElement('div');
-    illustratedMessage.className = "spectrum-IllustratedMessage spectrum-IllustratedMessage--cta";
+    var illustratedMessage:IllustratedMessage = new IllustratedMessage();
+    illustratedMessage.type = "cta";
+    illustratedMessage.hyperlink.element.addEventListener('click',uploadFile)
+    element.appendChild(illustratedMessage.element);
+
+    // var illustratedMessage:HTMLElement = newElement('div');
+    // illustratedMessage.className = "spectrum-IllustratedMessage spectrum-IllustratedMessage--cta";
 
  
-    illustratedMessage.appendChild(generateSVG(predefinedSVGElement()));
-    element.appendChild(illustratedMessage);
+    // illustratedMessage.appendChild(generateSVG(predefinedSVGElement()));
+    // element.appendChild(illustratedMessage);
 
-    var header:TextNode = new TextNode("h2");
-    header.className = "spectrum-Heading spectrum-Heading--pageTitle spectrum-IllustratedMessage-heading";
-    header.text = "Drag and Drop Your File";
-    element.appendChild(header.element);
+    // var header:TextNode = new TextNode("h2");
+    // header.className = "spectrum-Heading spectrum-Heading--pageTitle spectrum-IllustratedMessage-heading";
+    // header.text = "Drag and Drop Your File";
+    // element.appendChild(header.element);
 
-    var paragraph:TextNode = new TextNode("p");
-    paragraph.className = "spectrum-Body--secondary spectrum-IllustratedMessage-description";
-    element.appendChild(paragraph.element);
+    // var paragraph:TextNode = new TextNode("p");
+    // paragraph.className = "spectrum-Body--secondary spectrum-IllustratedMessage-description";
+    // element.appendChild(paragraph.element);
 
-    paragraph.text = "or ";  //in the wrong spot
+    // paragraph.text = "or ";  //in the wrong spot
 
-    var hyperlink:TextNode = new TextNode("a");
-    (hyperlink as HTMLLinkElement).href ="#"; 
-    hyperlink.className = "spectrum-Link";
-    hyperlink.text = "Select a File"; 
-    hyperlink.element.addEventListener('click',uploadFile); 
+    // var hyperlink:TextNode = new TextNode("a");
+    // (hyperlink as HTMLLinkElement).href ="#"; 
+    // hyperlink.className = "spectrum-Link";
+    // hyperlink.text = "Select a File"; 
+    // hyperlink.element.addEventListener('click',uploadFile); 
 
-    paragraph.element.appendChild(hyperlink.element);
-    paragraph.text = "from your computer ";  //not displaying
+    // paragraph.element.appendChild(hyperlink.element);
+    // paragraph.text = "from your computer ";  //not displaying
     
-    var br:HTMLElement = newElement("br");
-    paragraph.element.appendChild(br);
+    // var br:HTMLElement = newElement("br");
+    // paragraph.element.appendChild(br);
     return element;
     }
 

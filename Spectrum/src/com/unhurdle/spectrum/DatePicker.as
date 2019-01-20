@@ -29,7 +29,8 @@ package com.unhurdle.spectrum
 
     private var input:HTMLInputElement;
     private var button:HTMLButtonElement;
-    private var datePicker:HTMLInputElement 
+    private var datePicker:HTMLInputElement;
+    
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -39,9 +40,11 @@ package com.unhurdle.spectrum
       input = newElement("input") as HTMLInputElement;
       input.className = appendSelector("-field") + " spectrum-Textfield";
       input.type = "text";
+      input.readOnly = true;
       button = newElement("button") as HTMLButtonElement;
       button.className = "spectrum-FieldButton spectrum-InputGroup-button";
-      button.onclick = openDatePicker;
+      // button.onclick = openDatePicker;
+      button.addEventListener("click",toggleButton);
 
       datePicker = newElement("input") as HTMLInputElement;
       datePicker.type = "hidden";
@@ -101,7 +104,18 @@ package com.unhurdle.spectrum
       }
       _quiet = value;
     }
-
+    private function toggleButton():void{
+      popover.open = !popover.open;
+      if(popover.open){
+        button.className += " is-selected";
+        calendar.startDate = startDate;
+        calendar.endDate = endDate;
+        calendar.selectRange(startDate,endDate);
+      }
+      else{
+        button.className.slice(button.className.indexOf("is-selected"),11); //why ?
+      }
+    }
     public function get placeHolder():String
     {
     	return input.placeholder;
@@ -121,10 +135,10 @@ package com.unhurdle.spectrum
     	input.value = value;
     }
     private var popover:Popover
-    COMPILE::JS
-    private function openDatePicker():void{
-      popover.open = true;
-    }
+    // COMPILE::JS
+    // private function openDatePicker():void{
+    //   popover.open = true;
+    // }
     private function handleSelectedDay(ev:*):void{
       popover.open = false;
       // dispatchEvent(new Event("selectedDateChanged"));
@@ -185,7 +199,8 @@ package com.unhurdle.spectrum
       calendar.endDate = value;
     	_endDate = value;
     }
-    // public function set popUpVisible(value:Boolean):void
+}
+ // public function set popUpVisible(value:Boolean):void
 		// {
 		// 	if(value){
 		// 		var origin:Point = new Point(0, host.height - 6);
@@ -229,4 +244,4 @@ package com.unhurdle.spectrum
     //   }
 		// }
   }
-}
+
