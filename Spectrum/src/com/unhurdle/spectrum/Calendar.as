@@ -46,20 +46,11 @@ package com.unhurdle.spectrum
         
         private var title:TextNode;
         private var _text:String;
-        // private var _monthNames:Array = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-        // private var _days:Array;
-        // private var _displayedYear:Number;
-        // private var _displayedMonth:Number;
-        // private var _firstDayOfWeek:Number = 0;
-        // private var _selectedDate:Date;
-        // private var _dayNames:Array = ["Sunday","Monday","Tuesday","Wednesday","Thurdsay","Friday","Saturday"];
-        // private var dText:Array = ["Su","Mo","Tu","We","Th","Fr","Sa"];
         private var prev:HTMLButtonElement;
         private var next:HTMLButtonElement;
         private var _disabled:Boolean;
         private var table:Table;
         private var calenderBody:TBody;
-        // private var _chosenDate:Date;
         private var _startDate:Date;
         private var _endDate:Date;
         private var displayedDates:Vector.<CalendarDay>;
@@ -84,35 +75,26 @@ package com.unhurdle.spectrum
         public function set dayNames(value:Array):void
         {
             datePickerModel.dayNames = value;
-            // dispatchEvent( new Event("dayNamesChanged") );
         }
 
         public function get monthNames():Array
         {
             return datePickerModel.monthNames;
         }
-
         
         public function set monthNames(value:Array):void
         {
             datePickerModel.monthNames = value;
-            // dispatchEvent( new Event("monthNames") );
         }
 
         public function get displayedYear():Number
         {
             return datePickerModel.displayedYear;
         }
-
         
         public function set displayedYear(value:Number):void
         {
             datePickerModel.displayedYear = value;
-            // if (value != _displayedYear){
-            //     _displayedYear = value;
-            //     updateCalendar();
-            //     dispatchEvent( new Event("displayedYearChanged") );
-            // }
         }
 
         public function get displayedMonth():Number
@@ -124,11 +106,6 @@ package com.unhurdle.spectrum
         public function set displayedMonth(value:Number):void
         {
             datePickerModel.displayedMonth = value;
-            // if (_displayedMonth != value) {
-            //     _displayedMonth = value;
-            //     updateCalendar();
-            //     dispatchEvent( new Event("displayedMonthChanged") );
-            // }
         }
 
         public function get firstDayOfWeek():Number
@@ -139,10 +116,6 @@ package com.unhurdle.spectrum
         public function set firstDayOfWeek(value:Number):void
         {
             datePickerModel.firstDayOfWeek = value;
-            // if (value != _firstDayOfWeek) {
-            //     _firstDayOfWeek = value;
-            //     dispatchEvent( new Event("firstDayOfWeekChanged") );
-            // }
         }
         
         public function get days():Array
@@ -153,10 +126,6 @@ package com.unhurdle.spectrum
         public function set days(value:Array):void
         {
             datePickerModel.days = value;
-            // if (value != _days) {
-            //     _days = value;
-            //     dispatchEvent( new Event("daysChanged") );
-            // }
         }
 
         private var _today:Date;
@@ -182,62 +151,8 @@ package com.unhurdle.spectrum
         public function set selectedDate(value:Date):void
         {
             datePickerModel.selectedDate = value;
-            // if (value != _selectedDate) {
-            //     _selectedDate = value;
-            //     if (value != null) {
-            //         var needsUpdate:Boolean = false;
-            //         if (value.getMonth() != _displayedMonth) {
-            //             needsUpdate = true;
-            //             _displayedMonth = value.getMonth();
-            //         }
-            //         if (value.getFullYear() != _displayedYear) {
-            //             needsUpdate = true;
-            //             _displayedYear  = value.getFullYear();
-            //         }
-            //         if (needsUpdate) {
-            //             updateCalendar();
-            //         }
-            //     }
-            //     // dispatchEvent(new Event("selectedDateChanged"));
-            // }
         }
 
-        // public function get chosenDate():Date
-        // {
-        // 	return _chosenDate;
-        // }
-
-        // public function set chosenDate(value:Date):void
-        // {
-        //     if(!value){
-        //         return;
-        //     }
-        //     if(!startDate){
-        //         if(endDate){
-        //             if(value<endDate){
-        //                 return;
-        //             }
-        //             startDate = value;
-        //             selectRange(startDate,endDate);
-        //         }
-        //         // if(!endDate){
-        //         //     _chosenDate = value;
-        //         // }
-        //         // else{
-        //         //     startDate = value;
-        //         // }
-        //     }else{ 
-        //         if(!endDate && value>startDate){
-        //             endDate = value;
-        //             selectRange(startDate,endDate);
-        //         }else{
-        //             return;
-        //         }
-        //     }
-        // 	_chosenDate = value;
-        //     dispatchEvent(new Event("selectedDateChanged"));
-        // }
-        
         public function get startDate():Date
         {
         	return _startDate;
@@ -261,52 +176,11 @@ package com.unhurdle.spectrum
         {   
             datePickerModel.updateCalendar();
             updateDisplay();
-            // var numDays:Number = numberOfDaysInMonth(displayedMonth, displayedYear);   
-            // var firstDay:Date = new Date(displayedYear,displayedMonth,1);
-            // _days = new Array(42);
-            // var i:int = firstDay.getDay();
-            // var dayNumber:int = 1;
-            // while(dayNumber <= numDays){
-            //     _days[i++] = new Date(displayedYear, displayedMonth, dayNumber++);
-            // }
         }
-
-        // private function numberOfDaysInMonth(month:Number, year:Number):Number
-        // {
-        //     var n:int;
-        //     if (month == 1) 
-        //     {
-        //         if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) // leap year
-        //             n = 29;
-        //         else
-        //             n = 28;
-        //     }
-                
-        //     else if (month == 3 || month == 5 || month == 8 || month == 10)
-        //         n = 30;
-                
-        //     else
-        //         n = 31;
-            
-        //     return n;
-        // }  
-
         
         public function getIndexForSelectedDate():Number
         {
             return datePickerModel.getIndexForSelectedDate();
-            // if (!_selectedDate) return -1;
-
-            // var str:String = _selectedDate.toDateString();
-
-            // for(var i:int=0; i < _days.length; i++) {
-            //     var test:Date = _days[i] as Date;
-                
-            //     if (test && test.toDateString() == str)
-            //         return i;
-
-            // }
-            // return -1;
         }
         
         private function updateDisplay():void
@@ -315,19 +189,10 @@ package com.unhurdle.spectrum
             setDates();
         }
 
-
-
         /**
          * @private
          */
         
-        
-        // private function selectionChangeHandler():void
-        // {
-        //     updateDisplay();
-        //     dispatchEvent(new Event("selectedDateChanged"));
-        //     dispatchEvent( new Event("change") );
-        // }
 
         /**
          * @private
@@ -371,7 +236,6 @@ package com.unhurdle.spectrum
             displayedMonth = month;
             displayedYear = year;
             updateDisplay();
-            // selectRange(); //right now is called here but needs DatePicker
         }
         COMPILE::JS
         override public function addedToParent():void{
@@ -422,7 +286,6 @@ package com.unhurdle.spectrum
         }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            // selectedDate = new Date();
             addElementToWrapper(this,'div');
             var styleStr:String = "width:280px;z-index:1;";
             element.setAttribute("style",styleStr);
@@ -486,15 +349,8 @@ package com.unhurdle.spectrum
                         span.lastInWeek = true;
                     }
                     displayedDates.push(span);
-                    // span.element.setAttribute("role","presentation");
-                    // span.className = "spectrum-Calendar-date";
                     if(days[k+l]){
                         span.isToday = days[k+l].toDateString() == today.toDateString();
-                        if(span.isToday){
-                            trace("days[k+l].getDate()");
-                            trace(days[k+l].getDate());
-                        }
-                        // span.element.classList.add("is-today");
                         var styleStr:String = "width:40px;height:40px;";
                         cell.element.setAttribute("style",styleStr);
                         cell.element.title = days[k+l].getDate();
@@ -511,13 +367,9 @@ package com.unhurdle.spectrum
             var start:Date = selectedDate;
             var end:Date = selectedDate;
             if(startDate){
-                trace("startDate");
-                trace(startDate);
                 start = startDate;
             }
             if(endDate){
-                trace("endDate");
-                trace(endDate);
                 end = endDate;
             }
             selectRange(start,end);
@@ -525,14 +377,6 @@ package com.unhurdle.spectrum
 
         private function handleSelectedDay(ev:*):void{
             var clickedDay:CalendarDay = ev.target as CalendarDay;
-            // var empty:int = 0;
-            // for(var i:int = 0 ;i<days.length;i++){
-            //     if(days[i]){
-            //         break;
-            //     }
-            //     empty++;
-            // }
-            // var date:Date = days[Number(ev.target.textContent) + empty - 1];
             var date:Date = clickedDay.date;
             var start:Date = date;
             var end:Date = date;
@@ -559,12 +403,10 @@ package com.unhurdle.spectrum
                 elementSelected.selected = false;
             }
             selectRange(start,end);
-            // clickedDay.selected = true;
             elementSelected = clickedDay;
         }
         private var elementSelected:CalendarDay;
-        public var focused:Boolean;
 
-        // add is-focused!!
+        //TODO add is-focused!! we need a lits of event dates
     }
 }

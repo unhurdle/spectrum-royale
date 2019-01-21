@@ -1,10 +1,11 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.html.elements.Span;
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  import org.apache.royale.core.CSSClassList;
+  import org.apache.royale.html.elements.Span;
 
   public class CalendarDay extends Span
   {
@@ -12,6 +13,7 @@ package com.unhurdle.spectrum
     {
       super();
       typeNames = "spectrum-Calendar-date";
+      classList = new CSSClassList();
     }
     private var _date:Date;
 
@@ -35,15 +37,9 @@ package com.unhurdle.spectrum
     public function set isToday(value:Boolean):void
     {
       if(value != !!_isToday){
-        if(value){
-          (element as HTMLElement).classList.add("is-today");
-          trace("element as HTMLElement");
-          trace(element as HTMLElement);
-        } else {
-          (element as HTMLElement).classList.remove("is-today");
-        }
+        toggle("is-today",value);
+    	  _isToday = value;
       }
-    	_isToday = value;
     }
 
     private var _selected:Boolean;
@@ -55,11 +51,7 @@ package com.unhurdle.spectrum
 
     public function set selected(value:Boolean):void
     {
-      if(value){
-        (element as HTMLElement).classList.add("is-selected");
-      } else {
-        (element as HTMLElement).classList.remove("is-selected");
-      }
+      toggle("is-selected",value);
     	_selected = value;
     }
 
@@ -67,8 +59,7 @@ package com.unhurdle.spectrum
     public var lastInWeek:Boolean;
 
     public function setRange(start:Date,end:Date):void{
-      if(!_date || !start || !end)
-      {
+      if(!_date || !start || !end){
         return;
       }
       COMPILE::JS
@@ -118,7 +109,6 @@ package com.unhurdle.spectrum
           }
         }
       }
-
     }
     private var _curWeekStart:Boolean = false;
     private function toggleWeekStart(value:Boolean):void{
@@ -127,6 +117,8 @@ package com.unhurdle.spectrum
       }
       if(value != _curWeekStart){
         _curWeekStart = (element as HTMLElement).classList.toggle("is-range-start");
+        // toggle("is-range-start",value);
+        // _curWeekStart = value;
       }
     }
     private var _curWeekEnd:Boolean = false;
@@ -135,7 +127,9 @@ package com.unhurdle.spectrum
         return;
       }
       if(value != _curWeekEnd){
-        _curWeekEnd = (element as HTMLElement).classList.toggle("is-range-end");
+         _curWeekEnd = (element as HTMLElement).classList.toggle("is-range-end");
+        // toggle("is-range-end",value);
+        // _curWeekEnd = value;
       }
     }
 
@@ -143,9 +137,25 @@ package com.unhurdle.spectrum
     override protected function createElement():org.apache.royale.core.WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
       elem.setAttribute("role","presentation");
-      // elem.className = "spectrum-Calendar-date";
-      
+      elem.className = "spectrum-Calendar-date";
       return elem;
     }
+
+    protected var classList:CSSClassList;
+
+    protected function toggle(classNameVal:String,add:Boolean):void
+    {
+      COMPILE::JS
+      {
+        add ? classList.add(classNameVal) : classList.remove(classNameVal);
+        setClassName(computeFinalClassNames());
+      }
+    }
+    COMPILE::JS
+    override protected function computeFinalClassNames():String
+    {
+      return classList.compute() + super.computeFinalClassNames();
+    }
+
   }
 }
