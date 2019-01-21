@@ -36,11 +36,12 @@ package com.unhurdle.spectrum
       popover = new Popover();
       popover.className = appendSelector("-popover");
       popover.position = "bottom";
-      popover.percentWidth = 100;
+      // popover.percentWidth = 100;
       // popover.style = {"z-index":100};//????
       menu = new Menu();
       popover.addElement(menu);
       popover.addEventListener("click", handleListChange);
+      popover.style = {"min-width":"100%","z-index": "1"};
       addElement(popover);
       return elem;
     }
@@ -115,7 +116,7 @@ package com.unhurdle.spectrum
     	button.placeholderText = value;
     }
 
-    private function handleListChange():void{
+    public function handleListChange():void{
       popover.open = false;
       if(!selectedItem.isDivider && !selectedItem.disabled){
         button.text = selectedItem.text;

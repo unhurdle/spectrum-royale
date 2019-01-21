@@ -18,6 +18,7 @@
       import org.apache.royale.events.Event;
       import org.apache.royale.events.BrowserEvent;
       import com.unhurdle.spectrum.Switch;
+      import com.unhurdle.spectrum.SearchWithin;
 
       private function showAlert():void{
         var alert:Alert = new Alert();
@@ -170,8 +171,13 @@
         var status:String = theSwitch.checked ? "On" : "Off";
         (ev.target as Switch).text = "Toggle " + status;
       }
-      private function onSubmit():void{
-        var content:String = "searching for: " + search.text;
+      private function onSubmit(ev:*):void{
+        var searchText:String;
+        if(ev.target is SearchWithin)
+          searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
+        else
+          searchText = ev.target.text;
+        var content:String = "searching for: " + searchText;
         new Toast(content).show();
       }
       private function handleSelectedDate():void{
@@ -182,7 +188,8 @@
   </fx:Script>
   <sp:initialView>
     <sp:View>
-  <sp:Search id="search" submit="onSubmit()"/>
+  <sp:Search id="search" submit="onSubmit(event)"/>
+  <sp:SearchWithin dataProvider="{listProvider}" submit="onSubmit(event)" selectedItem="{listProvider[0]}"/>
   <sp:ActionButton id="actionButton" click="actionClick()"
         icon="#spectrum-css-icon-ChevronRightMedium"
         iconSize="XS";
