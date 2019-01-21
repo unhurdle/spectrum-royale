@@ -279,12 +279,12 @@
       <sp:StatusLight status="positive" text="Fi"/>
       <sp:StatusLight status="info" text="Fo"/>
       <sp:ButtonGroup/>
-      <!-- <sp:TabBar se>
-      <sp:Tab/>
-      <sp:Tab/>
-      <sp:Tab/>
-      <sp:Tab/>
-      </sp:TabBar> -->
+      <sp:TabBar>
+      <sp:Tab text= "TAB1"/>
+      <sp:Tab text= "TAB2"/>
+      <sp:Tab text= "TAB3"/>
+      <sp:Tab text= "TAB4"/>
+      </sp:TabBar>
       <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
       <sp:CoachMark flavor="light"/>
@@ -313,17 +313,7 @@
           </fx:Array>\
         </sp:dataProvider>
       </sp:Breadcrumbs>
-   <sp:Tabs  itemClicked="itemSelected(event)" >
-        <sp:dataProvider>
-          <fx:Array>
-            <sp:TabsItem text="Hi!" icon="Folder"/>
-            <sp:TabsItem text="How are you ?" />
-            <sp:TabsItem text="Have a great day!" icon="Image"/>
-          </fx:Array>
-        </sp:dataProvider>
-      </sp:Tabs>
 
-     
       <sp:Popover open="true" relativePosition="true">
         <sp:Menu>
           <sp:dataProvider>

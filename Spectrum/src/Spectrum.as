@@ -10,7 +10,6 @@ package {
 		import com.unhurdle.spectrum.renderers.ListItemRenderer;ListItemRenderer;
 		import com.unhurdle.spectrum.renderers.SideNavItemRenderer;SideNavItemRenderer;
 		import com.unhurdle.spectrum.renderers.BreadcrumbsItemRenderer;BreadcrumbsItemRenderer;
-		import com.unhurdle.spectrum.renderers.TabsItemRenderer;TabsItemRenderer;
 		import com.unhurdle.spectrum.ThemeManager;ThemeManager;
 	}
 }
