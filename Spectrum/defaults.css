@@ -56,3 +56,7 @@ ComboBox
 	IBeadController: ClassReference("com.unhurdle.spectrum.ComboBoxController");
 	IPopUp: ClassReference("com.unhurdle.spectrum.ComboBoxList");
 }
+DatePicker {
+	IBeadModel:  ClassReference("com.unhurdle.spectrum.models.DatePickerModel");
+	IFormatBead: ClassReference("org.apache.royale.html.accessories.DateFormatYYYYMMDD");
+}

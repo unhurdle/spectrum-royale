@@ -2,6 +2,7 @@
 <componentPackage>
     <!-- <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/> -->
     <component id="ActionButton" class="com.unhurdle.spectrum.ActionButton"/>
+    <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="Avatar" class="com.unhurdle.spectrum.Avatar"/>
@@ -22,11 +23,12 @@
     <component id="CardTitle" class="com.unhurdle.spectrum.card.CardTitle"/>
     <component id="CEPApplication" class="com.unhurdle.spectrum.CEPApplication"/>
     <component id="CoverPhoto" class="com.unhurdle.spectrum.card.CoverPhoto"/>
-    <component id="Calender" class="com.unhurdle.spectrum.Calender"/>
+    <component id="Calendar" class="com.unhurdle.spectrum.Calendar"/>
     <component id="CheckBox" class="com.unhurdle.spectrum.CheckBox"/>
     <component id="CircleLoader" class="com.unhurdle.spectrum.CircleLoader"/>
     <component id="ClearButton" class="com.unhurdle.spectrum.ClearButton"/>
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
+    <component id="CoachMarkPopover" class="com.unhurdle.spectrum.CoachMarkPopover"/>
     <component id="Code" class="com.unhurdle.spectrum.typography.Code"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
     <component id="ColorSlider" class="com.unhurdle.spectrum.ColorSlider"/>

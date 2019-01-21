@@ -6,7 +6,6 @@ package com.unhurdle.spectrum
   }
 
   import com.unhurdle.spectrum.const.IconType;
-  import com.unhurdle.spectrum.data.DropdownItem;
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.collections.IArrayList;
   import com.unhurdle.spectrum.data.MenuItem;

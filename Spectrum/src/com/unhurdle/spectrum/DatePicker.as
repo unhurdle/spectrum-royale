@@ -11,6 +11,11 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.callLater;
 	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.html.accessories.DateFormatMMDDYYYY;
+	import org.apache.royale.html.accessories.DateFormatDDMMYYYY;
+	import org.apache.royale.core.IFormatBead;
+	import org.apache.royale.events.Event;
+	import com.unhurdle.spectrum.models.DatePickerModel;
+	import org.apache.royale.utils.loadBeadFromValuesManager;
 
   public class DatePicker extends SpectrumBase
   {
@@ -35,9 +40,10 @@ package com.unhurdle.spectrum
       input = newElement("input") as HTMLInputElement;
       input.className = appendSelector("-field") + " spectrum-Textfield";
       input.type = "text";
+      input.readOnly = true;
       button = newElement("button") as HTMLButtonElement;
       button.className = "spectrum-FieldButton spectrum-InputGroup-button";
-      button.onclick = openDatePicker;
+      // button.onclick = openDatePicker;
       button.addEventListener("click",toggleButton);
 
       datePicker = newElement("input") as HTMLInputElement;
@@ -65,19 +71,17 @@ package com.unhurdle.spectrum
 
       popover = new Popover();
       popover.className = appendSelector("-popover");
-      // popover.className += " is-open";
       popover.position = "bottom";
-      popover.percentWidth = 100;
-      popover.style = {"margin-top": "30px"};
-      // popover.style = {"z-index":100};//????
-      var calender:Calender = new Calender();
-      popover.addElement(calender);
-      calender.addEventListener("selectedDateChanged",handleSelectedDay)
+      // popover.percentWidth = 100;
+      popover.style = {"margin-top": "30px","z-index":"1"};
+      calendar = new Calendar();
+      popover.addElement(calendar);
       addElement(popover);
       // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 
       return element;
     }
+    private var calendar:Calendar;
     private var _quiet:Boolean;
 
     public function get quiet():Boolean
@@ -104,6 +108,9 @@ package com.unhurdle.spectrum
       popover.open = !popover.open;
       if(popover.open){
         button.className += " is-selected";
+        calendar.startDate = startDate;
+        calendar.endDate = endDate;
+        calendar.selectRange(startDate,endDate);
       }
       else{
         button.className.slice(button.className.indexOf("is-selected"),11); //why ?
@@ -128,23 +135,69 @@ package com.unhurdle.spectrum
     	input.value = value;
     }
     private var popover:Popover
-    COMPILE::JS
-    private function openDatePicker():void{
-      popover.open = true;
-    }
+    // COMPILE::JS
+    // private function openDatePicker():void{
+    //   popover.open = true;
+    // }
     private function handleSelectedDay(ev:*):void{
       popover.open = false;
-      var date:Date = ev.target.selectedDate;
+      // dispatchEvent(new Event("selectedDateChanged"));
+      // var date:Date = ev.target.chosenDate;
 
-      var year:String = date.getFullYear().toString();
+      // var year:String = date.getFullYear().toString();
 
-      var month:String = (1 + date.getMonth()).toString();
-      month = month.length > 1 ? month : '0' + month;
+      // var month:String = (1 + date.getMonth()).toString();
+      // month = month.length > 1 ? month : '0' + month;
 
-      var day:String = date.getDate().toString();
-      day = day.length > 1 ? day : '0' + day;
+      // var day:String = date.getDate().toString();
+      // day = day.length > 1 ? day : '0' + day;
   
-      input.value = month + '/' + day + '/' +  year;
+      // input.value = month + '/' + day + '/' +  year;
+    }
+    override public function addedToParent():void{
+      super.addedToParent();
+      model = calendar.model;
+      (model as DatePickerModel).addEventListener("selectedDateChanged",handleSelectedDay);
+			loadBeadFromValuesManager(IFormatBead, "iFormatBead", this);
+
+			var formatter:IFormatBead = getBeadByType(IFormatBead) as IFormatBead;
+			formatter.addEventListener("formatChanged",handleFormatChanged);
+      // var model:IBeadModel = _strand.getBeadByType(IBeadModel) as IBeadModel;
+			// IEventDispatcher(model).addEventListener("selectedDateChanged", selectionChangeHandler);
+    }
+		private function handleFormatChanged(event:Event):void{
+			var formatter:IFormatBead = event.target as IFormatBead;
+			input.value = formatter.formattedString;
+		}
+
+    private function formatDate(date:Date):String{
+      // var a:DateFormatDDMMYYYY;
+      // a.formattedString
+      return "";
+    }
+    private var _startDate:Date;
+
+    public function get startDate():Date
+    {
+    	return _startDate;
+    }
+
+    public function set startDate(value:Date):void
+    {
+      calendar.startDate = value;
+    	_startDate = value;
+    }
+    private var _endDate:Date;
+
+    public function get endDate():Date
+    {
+    	return _endDate;
+    }
+
+    public function set endDate(value:Date):void
+    {
+      calendar.endDate = value;
+    	_endDate = value;
     }
 }
  // public function set popUpVisible(value:Boolean):void
@@ -190,7 +243,5 @@ package com.unhurdle.spectrum
     //     //  UIUtils.removePopUp(_popup);
     //   }
 		// }
-
-    
   }
 

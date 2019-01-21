@@ -71,7 +71,6 @@ COMPILE::JS
 
 		public function set isCollapsed(value:String):void
 		{
-			//TODO
 			if(value != _isCollapsed){
 				switch (value){
 					case "top":left.style.height = "0";
@@ -109,7 +108,6 @@ COMPILE::JS
 		}
 		public function set directionCollapsed(value:String):void
 		{
-			//TODO generalize this
 			if(value != _directionCollapsed){
 				switch (value){
 					case "Resizable":
