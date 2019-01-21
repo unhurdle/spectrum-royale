@@ -10,6 +10,8 @@ COMPILE::JS
     public function SplitView()
     {
       super();
+			direction = "vertical";
+			isCollapsed = "Resizable";
     }
     override protected function getSelector():String{
         return "spectrum-SplitView";
@@ -22,30 +24,17 @@ COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
 			elem.style.height = "200px";
+			elem.style.width = "500px";
 			left = newElement('div') as HTMLDivElement;
 			left.className = appendSelector("-pane");
 			elem.appendChild(left);
 			splitter = newElement('div') as HTMLDivElement;
 			splitter.className = appendSelector("-splitter");
-			if(_isDraggable){
-						splitter.appendChild(newElement("div",appendSelector("-gripper")));
-			}
 			elem.appendChild(splitter);
 			right = newElement('div') as HTMLDivElement;
 			right.className = appendSelector("-pane");
 			elem.appendChild(right);
 			return elem;
-		}
-		private var _rightSide:Boolean;
-
-		public function get rightSide():Boolean
-		{
-			return _rightSide;
-		}
-
-		public function set rightSide(value:Boolean):void
-		{
-			_rightSide = value;
 		}
 
 		private var _isDraggable:Boolean;
@@ -57,10 +46,35 @@ COMPILE::JS
 
 		public function set isDraggable(value:Boolean):void
 		{
-			if(value != !! _isDraggable){
-				value ? splitter.classList.add("is-draggable") : splitter.classList.remove("is-draggable");
-			}
+			value? splitter.classList.add("is-draggable"): splitter.classList.remove("is-draggable");
 			_isDraggable = value;
+			COMPILE::JS{
+				if(!!_isDraggable){
+					if(!splitter.children.length){
+						splitter.appendChild(newElement("div",appendSelector("-gripper")));
+						element.addEventListener("mousedown",onMouseDown);
+					}
+					direction == "horizontal"? positionElements(parseFloat(splitter.style.left)): positionElements(parseFloat(splitter.style.top));
+				}
+				if(!_isDraggable){
+					if(!!splitter.children.length){
+						splitter.removeChild(splitter.children[0]);
+					}
+						element.removeEventListener("mousedown",onMouseDown);
+				}
+			}
+		}
+		protected function positionElements(val:Number):void{
+					var percent:Number = val;
+					if(direction === "horizontal"){
+						left.style.width = percent + "%";
+						splitter.style.left = "0";
+						right.style.left = percent + "%" + splitter.style.width;
+					}else{
+						left.style.height = percent + "%";
+						splitter.style.top = "0";
+						right.style.top = percent + "%" + splitter.style.height;
+					}
 		}
 		private var _isCollapsed:String;
 
@@ -71,26 +85,29 @@ COMPILE::JS
 
 		public function set isCollapsed(value:String):void
 		{
-			if(value != _isCollapsed){
+			if(value != !!_isCollapsed){
 				switch (value){
-					case "top":left.style.height = "0";
+					case "top":
+						direction != "vertical"? direction = "vertical":direction = direction;
+						splitter.style.top = "0";
 						directionCollapsed = "start";
 						break;
-					case "left":left.style.width = "0";
+					case "left":
+						direction != "horizontal"? direction = "horizontal":direction = direction;
+						splitter.style.left = "0";
 						directionCollapsed = "start";
 						break;
-					case "right":right.style.width = "0";
-						directionCollapsed = "start";
+					case "right":
+						direction != "horizontal"? direction = "horizontal":direction = direction;
+						splitter.style.left = "100%";
+						directionCollapsed = "end";
 						break;
-					case "bottom":right.style.height = "0";
-						directionCollapsed = "start";
+					case "bottom":
+						direction != "vertical"? direction = "vertical":direction = direction;
+						splitter.style.top = "100%";
+						directionCollapsed = "end";
 						break;
 					case "Resizable":
-						if(direction == "horizontal"){
-								left.style.width = "304px";
-						} else{
-								left.style.width = "50px";
-						}  
 						directionCollapsed = "Resizable";
 						break;
 					default:
@@ -98,7 +115,6 @@ COMPILE::JS
 				}
 				_isCollapsed = value;
 			}
-
 		}
 		
 		private var _directionCollapsed:String;
@@ -111,9 +127,14 @@ COMPILE::JS
 			if(value != _directionCollapsed){
 				switch (value){
 					case "Resizable":
-					case "start":right.style.flex = "1";
 						break;
-					case "end":left.style.flex = "1";
+					case "start":
+						left.style.flex = null
+						!isDraggable? right.style.flex = "1": right.style.flex = null;
+						break;
+					case "end":
+						right.style.flex = null;
+							!isDraggable? left.style.flex = "1": left.style.flex = null;
 						break;
 					default:
 						throw new Error("Invalid directioncollapsed: " + value);
@@ -126,22 +147,24 @@ COMPILE::JS
 					var newDirectionCollapsed:String = "is-collapsed-"+value;
 					splitter.classList.add(newDirectionCollapsed);
 					_directionCollapsed = value;
+					isDraggable = !!isDraggable;
 				}
 				else{
+					isDraggable = true;
+					left.style.flex = "auto";
+					right.style.flex = "auto";
 					_directionCollapsed = null;
 				}
 			}
-
 		}
 
 		private var _direction:String;
 		public function get direction():String
 		{
-				return _direction;
+			return _direction;
 		}
 		public function set direction(value:String):void
 		{
-			if(value != _direction){
 				switch (value){
 					case "vertical":
 					case "horizontal":
@@ -155,6 +178,26 @@ COMPILE::JS
 				
 				toggle(valueToSelector(value), true);
 				_direction = value;
+		}
+		private function onMouseDown(e: MouseEvent):void{
+			COMPILE::JS{
+    		element.addEventListener('mouseup', onMouseUp);
+    		element.addEventListener('mousemove', onMouseMove);	
+			}
+		}
+		private function onMouseUp(e: MouseEvent):void{
+			COMPILE::JS{
+				element.removeEventListener('mouseup', onMouseUp);
+				element.removeEventListener('mousemove', onMouseMove);		
+			}
+		}
+		private function onMouseMove(e: MouseEvent):void{
+			COMPILE::JS{
+				var sliderOffsetWidth:Number = element.offsetWidth;
+				var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
+				var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+				var percent:Number = (x / sliderOffsetWidth) * 100;
+				positionElements(percent);
 			}
 		}
   }
