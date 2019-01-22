@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" colorstop="dark">
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="dark">
   <fx:Script>
     <![CDATA[
 
@@ -19,6 +19,7 @@
       import org.apache.royale.events.BrowserEvent;
       import com.unhurdle.spectrum.Switch;
       import com.unhurdle.spectrum.SearchWithin;
+      import org.apache.royale.events.ValueEvent;
 
       private function showAlert():void{
         var alert:Alert = new Alert();
@@ -183,6 +184,11 @@
       private function handleSelectedDate():void{
         new Toast("handleSelectedDate").show();
       }
+
+      private function assetItemSelected(ev:ValueEvent):void
+      {
+        trace(ev);
+      }
       
     ]]>
   </fx:Script>
@@ -194,7 +200,15 @@
         icon="#spectrum-css-icon-ChevronRightMedium"
         iconSize="XS";
         dataProvider="{comboProvider}" change="actionChange()"/>
- 
+ <sp:AssetList itemClicked="assetItemSelected(event)">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:AssetListItem text="Home" selectable="true" src="https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"/>
+            <sp:AssetListItem text="Playground" selectable="true" iconType="FileCSV"/>
+            <sp:AssetListItem text="Sliders" selectable="true" iconType="Folder" isBranch="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:AssetList>
     <sp:ButtonGroup>
       <sp:Radio text="radio1" radioName="radioGroup"  />
       <sp:Radio text="radio2" radioName="radioGroup" invalid="true"/>
@@ -337,7 +351,7 @@
             <sp:BreadcrumbsItem text="Home"/>
             <sp:BreadcrumbsItem text="Playground"/>
             <sp:BreadcrumbsItem text="Sliders" isTitle="true" />
-          </fx:Array>\
+          </fx:Array>
         </sp:dataProvider>
       </sp:Breadcrumbs>
    <sp:Tabs  itemClicked="itemSelected(event)" >
