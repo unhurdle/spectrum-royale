@@ -91,6 +91,8 @@
     <component id="SplitButtonPagination" class="com.unhurdle.spectrum.SplitButtonPagination"/>
     <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
     <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
+    <component id="StepList" class="com.unhurdle.spectrum.StepList"/>
+    <component id="StepsListItem" class="com.unhurdle.spectrum.StepsListItem"/>
     <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
     <component id="Subheading" class="com.unhurdle.spectrum.typography.Subheading"/>
     <component id="Subtitle" class="com.unhurdle.spectrum.typography.Subtitle"/>

@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum
 {
-COMPILE::JS
+	COMPILE::JS
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;

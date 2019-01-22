@@ -264,6 +264,38 @@
       <sp:CircleLoader overBackground="true"/>
       <sp:CircleLoader indeterminate="true"  size="large"/>
       <sp:CircleLoader size="small"/>
+      <!-- <sp:StepList small="true"> -->
+      <sp:StepList isLabel="true">      
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem selected="true"/>
+            <sp:StepsListItem/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:StepList>
+      <sp:StepList isSmall="true">      
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem selected="true"/>
+            <sp:StepsListItem/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:StepList>
+      <sp:StepList isToolTip="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem selected="true"/>
+            <sp:StepsListItem/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:StepList>
+      <!-- <sp:StepList stepsNum="4"/> -->
       <sp:Well/>
       <sp:SplitView isCollapsed="top" isDraggable="false"/>
       <sp:SplitView isCollapsed="left" isDraggable="false"/>
