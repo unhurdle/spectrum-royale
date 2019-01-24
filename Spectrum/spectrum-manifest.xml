@@ -70,6 +70,8 @@
     <component id="MenuItem" class="com.unhurdle.spectrum.data.MenuItem"/>
     <component id="MenuView" class="com.unhurdle.spectrum.MenuView"/>
     <component id="MenuMouseController" class="com.unhurdle.spectrum.MenuMouseController"/>
+    <component id="MillerColumns" class="com.unhurdle.spectrum.MillerColumns"/>
+    <component id="MillerColumnsItem" class="com.unhurdle.spectrum.data.MillerColumnsItem"/>
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>
     <component id="PageTitle" class="com.unhurdle.spectrum.typography.PageTitle"/>
     <component id="PagePagination" class="com.unhurdle.spectrum.PagePagination"/>
