@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
     public function Link()
     {
       super();
+      _text = "";
     }
     override protected function getSelector():String{
       return "spectrum-Link";
@@ -37,10 +38,10 @@ package com.unhurdle.spectrum
       if(value != !!_text){
     	  _text = value;
       }
-      else{
+      else if(!_text){
         _text = "link without text";
       }
-      textNode.text = value;
+      textNode.text = _text;
     }
     private var textNode:TextNode;
 
