@@ -162,6 +162,7 @@ package com.unhurdle.spectrum
     	_autoClose = value;
     }
 
+    [Inspectable(category="General", enumeration="info,positive,negative,warning")]
     /**
      * Set the flavor of the Toast
      * One of info, positive and negative. warning also appears to be an option
