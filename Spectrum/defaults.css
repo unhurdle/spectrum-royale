@@ -106,5 +106,5 @@ ComboBox
 }
 DatePicker {
 	IBeadModel:  ClassReference("com.unhurdle.spectrum.models.DatePickerModel");
-	IFormatBead: ClassReference("org.apache.royale.html.accessories.DateFormatYYYYMMDD");
+	IFormatter: ClassReference("org.apache.royale.html.accessories.DateFormatYYYYMMDD");
 }
