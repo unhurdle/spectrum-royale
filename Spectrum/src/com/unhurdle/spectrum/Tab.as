@@ -16,17 +16,18 @@ package com.unhurdle.spectrum
     public function Tab()
     {
       super();
+      // typeNames = "spectrum-Tabs-item"
     }
-    override protected function getSelector():String{
-      return "spectrum-Tabs-item";
-    }
+    // override protected function getSelector():String{
+    //   return "spectrum-Tabs-item";
+    // }
     private var label:TextNode;
     private var icon:Icon;
     private var _iconType:String;
     private var indicator:HTMLElement;
     private var overflowButton:HTMLElement;
     private var overflowIcon:Icon;
-    private var tabArray:Array = [];
+    
     COMPILE::JS
     private var elem:WrappedHTMLElement;
     COMPILE::SWF
@@ -80,7 +81,9 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     { 
+      
       elem = addElementToWrapper(this,'div');
+      elem.className = "spectrum-Tabs-item" //wasnt adding the className with getSelector() or typeNames
       // var widthAttribute:String = "width:7%;";
       // elem.setAttribute("style",widthAttribute);
       label = new TextNode("label");

@@ -90,7 +90,12 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("submit"));
       return false;
     }
-    
+    COMPILE::JS
+    public function set searchIcon(value:Boolean):void
+    {
+      if(!value){
+        element.removeChild(inputIcon.element);
+      }
+    }
   }
-
 }

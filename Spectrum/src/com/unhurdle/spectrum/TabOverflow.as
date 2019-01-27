@@ -10,11 +10,20 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconSize;
   import org.apache.royale.events.Event;
+  import org.apache.royale.html.elements.Li;
+  import org.apache.royale.html.TextNodeContainerBase;
+  [Event(name="children", type="org.apache.royale.events.Event")]
   public class TabOverflow extends Group
   {
     public function TabOverflow() 
     {
       super();
+      COMPILE::JS
+      {
+     
+        addEventListener("tabs",tabsArray);
+      }
+     
     }
 
     override protected function getSelector():String{
@@ -30,87 +39,99 @@ package com.unhurdle.spectrum
     private var dropPop:Popover;
     private var dropList:HTMLElement;
     private var dropItem:HTMLElement;
+    private var dropItemSpan:HTMLElement;
     private var _compact:Boolean;
     private var _disabled:Boolean;
-    private var tabsArray:Array;
+    private var tabs:Array;
+    COMPILE::JS
+    public var child:HTMLElement;
+    COMPILE::SWF
+    public var child:Object;
+    private var _selected:Object;
 
-    // private var _text:String;
-    // public function get text():String
-    // {
-    // 	return _text;
-    // }
-    // public function set text(value:String):void
-    // {
-    // 	_text = value;
-    //   dropSpan.text = _text;
-    // }
-
-    private var _selected:Boolean;
-
-    public function get selected():Boolean
+    public function get selected():Object
     {
     	return _selected;
     }
 
-    public function set selected(value:Boolean):void
-    {
+    public function set selected(value:Object):void
+    { 
+      if(!value){
+        _selected = tabs[0];
+    }
     	_selected = value;
-      dropItem.classList.add("is-selected"); //needs 2b single selection
-      // dropItem.classList.remove("is-selected"); //find the time 
+      dropSpan.text = selected.textContent;
+      for(var i:Number = 0;i<dropList.children.length;i++){
+        if(dropList.children.item(i).classList.contains("is-selected")){
+          dropList.children.item(i).classList.remove("is-selected");
+          if((selected as HTMLElement).parentElement.classList.contains("spectrum-Menu-item")){//sometimes the ev.value IS the parent. //depending if you click on the div or the span
+            (selected as HTMLElement).parentElement.classList.add("is-selected");
+          }
+          else{
+            (selected as HTMLElement).classList.add("is-selected");
+          }
+        }
+      }
     }
 
-    public function openDropDown():void{
-      dropDownDiv.classList.add("is-open");
-      dropButton.classList.add("is-selected");
-      createPopOver();
-    }
+       
+    private function toggleDropdown():void{
+      if(!dropDownDiv.classList.contains("is-open")){
+           dropDownDiv.classList.add("is-open");
+           createPopOver();
+           return;
+      }
+     else if(dropDownDiv.classList.contains("is-open") ){
+       dropDownDiv.classList.remove("is-open");
+       dropDownDiv.children[0].children[0].remove();
 
+     }
+      
+    }
+  
     private function fillDrop():void
     {
-    dropItem = newElement('li');
-    dropItem.className = "spectrum-Menu-item";
-    dropItem.setAttribute("role","option");
-    dropItem.tabIndex = 0;
-    dropItem.addEventListener("click",selected); //not smart
+      for(var i:Number=0;i<tabs.length;i++){
+      dropItem = tabs[i].element;
+      dropItem.onclick = selectedItem;
+      dropList.appendChild(dropItem);
+      }
+      COMPILE::JS{
+      dropPop.element.appendChild(dropList);
+      }
+    
     popIcon = new Icon("#spectrum-css-icon-CheckmarkMedium");
-    popIcon.className = "spectrum-Menu-itemLabel";
+    popIcon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark";
     addElement(popIcon); 
     popIcon.addedToParent(); //need this?
-    dropList.appendChild(dropItem);
-    //get the tabsArray 
-    //create a dropDownListItem for each of them //need a loop
-    //send to another function that will allow for a click on the tab requested to open that tab
-    //text of the dropItem is the name of the tab element [i] of the tabArray
-    //*************************************************************************************************************************** */
-    //*************************************************************************************************************************** */
-    // for(var i:Number = 0;i<tabsArray.length;i++){ 
-    // need to set the tabsArray[i] to be the element opened when dropItem is pressed
-    //dropItem.text = tabsArray[i].text //name of tab
-    // dropItem = newElement('li');
-    // dropItem.className = "spectrum-Menu-item";
-    // dropItem.setAttribute("role","option");
-    // dropItem.tabIndex = 0;
-    // dropItem.addEventListener("click",selected); //not smart
-    // popIcon = new Icon("#spectrum-css-icon-CheckmarkMedium");
-    // popIcon.className = "spectrum-Menu-itemLabel";
-    // addElement(popIcon); 
-    // popIcon.addedToParent(); //need this?
-    // dropList.appendChild(dropItem);
-    // }
-     //*************************************************************************************************************************** */
-     //*************************************************************************************************************************** */
+    COMPILE::JS{
+    dropButton.appendChild(dropPop.element);
+    }
     }
 
-    public function createPopOver():void{ //markup for popOver here
+
+  private function selectedItem(ev:*):void
+    {
+      selected = ev.target;
+    }
+      
+      
+    private function createPopOver():void{ //markup for popOver here
       dropPop = new Popover();
       dropPop.className = "spectrum-Popover spectrum-Popover--bottom spectrum-Dropdown-popover";
+      COMPILE::JS
+      {
       dropPop.element.classList.add("spectrum-Dropdown-popover--quiet");
       dropPop.element.classList.add("is-open");
+      }
+     
       var popStyle:String = "display: block; margin-left: -5px; margin-top: -9px;";
+      COMPILE::JS
+      {
       dropPop.element.setAttribute("style",popStyle);
       dropList = newElement('ul'); 
+      }
       fillDrop();
-      dropPop.element.appendChild(dropList);
       dummySpacing();
       }
 
@@ -140,18 +161,18 @@ package com.unhurdle.spectrum
     }
     private function dummySpacing():void //what is this
     {
-      var dummySpace:HTMLElement = newElement('div');
+      COMPILE::JS{
+         var dummySpace:HTMLElement = newElement('div');
       dummySpace.className= "dummy-spacing";
        element.appendChild(dummySpace);
-      
-     
+      }
     }
 
-COMPILE::JS
+    COMPILE::JS
     override protected function createElement():WrappedHTMLElement 
-    {
+    {   
         addElementToWrapper(this,'div');
-        element.classList.add(element.classList.add("spectrum-Tabs--horizontal"));//dunno if possibility to be vertical.
+        element.classList.add("spectrum-Tabs--horizontal");//dunno if possibility to be vertical.
         var elemStyle:String = "width: 409px";
         element.setAttribute("style",elemStyle);
         dropDownDiv = newElement('div');
@@ -161,11 +182,11 @@ COMPILE::JS
         dropButton.className = "spectrum-FieldButton";
         dropButton.classList.add("spectrum-FieldButton--quiet");
         dropButton.classList.add("spectrum-Dropdown-trigger");
-        dropButton.onclick = openDropDown;
+        dropButton.addEventListener("click",toggleDropdown)
+       
         dropDownDiv.appendChild(dropButton);
         dropSpan = new TextNode("span");
         dropSpan.className = "spectrum-Dropdown-label";
-        // dropSpan.text  //needs to be the dropDown selected cell name 
         dropDownDiv.appendChild(dropSpan.element);
         dropIcon = new Icon("#spectrum-css-icon-ChevronDownMedium");
         dropIcon.className = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon";
@@ -178,6 +199,14 @@ COMPILE::JS
         indicator.setAttribute("style",indStyle);
         element.appendChild(indicator);
         return element;
+    }
+
+    
+    COMPILE::JS
+    private function tabsArray(ev:ValueEvent):void
+    {
+      tabs = ev.value;
+      dropSpan.text = tabs[0].text; 
     }
   }
 }

@@ -5,6 +5,8 @@
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
+    <component id="AssetList" class="com.unhurdle.spectrum.AssetList"/>
+    <component id="AssetListItem" class="com.unhurdle.spectrum.data.AssetListItem"/>
     <component id="Avatar" class="com.unhurdle.spectrum.Avatar"/>
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
@@ -79,6 +81,7 @@
     <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
     <component id="Rule" class="com.unhurdle.spectrum.Rule"/>
     <component id="Search" class="com.unhurdle.spectrum.Search"/>
+    <component id="SearchWithin" class="com.unhurdle.spectrum.SearchWithin"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="SideNav" class="com.unhurdle.spectrum.SideNav"/>
     <component id="SideNavItem" class="com.unhurdle.spectrum.data.SideNavItem"/>
@@ -94,6 +97,7 @@
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
     <component id="TabBar" class="com.unhurdle.spectrum.TabBar"/>
     <component id="Tab" class="com.unhurdle.spectrum.Tab"/>
+    <component id="TabOverflow" class="com.unhurdle.spectrum.TabOverflow"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
