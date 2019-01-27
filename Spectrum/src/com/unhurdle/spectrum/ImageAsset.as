@@ -18,12 +18,24 @@ package com.unhurdle.spectrum
     {
       if(value != _src){
         if(!imageElement){
-          imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
-          (element as HTMLElement).appendChild(imageElement);
+          createImageElement();
         }
         imageElement.src = value;
         _src = value;
       }
+    }
+    private function createImageElement():void{
+      imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
+      (element as HTMLElement).appendChild(imageElement);
+
+    }
+
+    public function get imageStyle():CSSStyleDeclaration
+    {
+      if(!imageElement){
+        createImageElement();
+      }
+    	return imageElement.style;
     }
   }
 }

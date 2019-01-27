@@ -138,6 +138,7 @@ package com.unhurdle.spectrum
     	return _flavor;
     }
 
+    [Inspectable(category="General", enumeration="cta,primary,secondary,warning,overBackground", defaultValue="primary")]
     public function set flavor(value:String):void
     {
       if(!value){
