@@ -12,7 +12,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.html.accessories.DateFormatMMDDYYYY;
 	import org.apache.royale.html.accessories.DateFormatDDMMYYYY;
-	import org.apache.royale.core.IFormatBead;
+	import org.apache.royale.core.IFormatter;
 	import org.apache.royale.events.Event;
 	import com.unhurdle.spectrum.models.DatePickerModel;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
@@ -158,16 +158,16 @@ package com.unhurdle.spectrum
       super.addedToParent();
       model = calendar.model;
       (model as DatePickerModel).addEventListener("selectedDateChanged",handleSelectedDay);
-			loadBeadFromValuesManager(IFormatBead, "iFormatBead", this);
+			loadBeadFromValuesManager(IFormatter, "IFormatter", this);
 
-			var formatter:IFormatBead = getBeadByType(IFormatBead) as IFormatBead;
-			formatter.addEventListener("formatChanged",handleFormatChanged);
+			var formatter:IFormatter = getBeadByType(IFormatter) as IFormatter;
+			// formatter.addEventListener("formatChanged",handleFormatChanged);
       // var model:IBeadModel = _strand.getBeadByType(IBeadModel) as IBeadModel;
 			// IEventDispatcher(model).addEventListener("selectedDateChanged", selectionChangeHandler);
     }
 		private function handleFormatChanged(event:Event):void{
-			var formatter:IFormatBead = event.target as IFormatBead;
-			input.value = formatter.formattedString;
+			var formatter:IFormatter = event.target as IFormatter;
+			// input.value = formatter.formattedString;
 		}
 
     private function formatDate(date:Date):String{

@@ -58,9 +58,7 @@ package com.unhurdle.spectrum.renderers
         } else if(icon){
           icon.setStyle("display","none");
         }
-
       }
-
     }
     private var icon:Icon;
     private var textNode:TextNode;
