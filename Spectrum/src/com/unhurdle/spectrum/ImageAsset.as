@@ -7,7 +7,7 @@ package com.unhurdle.spectrum
       super();
     }
 
-    private var imageElement:HTMLImageElement;
+    public var imageElement:HTMLImageElement;
     private var _src:String;
     public function get src():String
     {
