@@ -30,7 +30,7 @@ package com.unhurdle.spectrum
       return "spectrum-Tabs" ;
     }
 
-    private var dropDownDiv:HTMLElement; //dropDown element?
+    private var dropDownDiv:HTMLElement;
     private var dropButton:HTMLElement;
     private var dropSpan:TextNode;
     private var dropIcon:Icon;
@@ -48,6 +48,7 @@ package com.unhurdle.spectrum
     COMPILE::SWF
     public var child:Object;
     private var _selected:Object;
+
 
     public function get selected():Object
     {
@@ -84,9 +85,7 @@ package com.unhurdle.spectrum
      else if(dropDownDiv.classList.contains("is-open") ){
        dropDownDiv.classList.remove("is-open");
        dropDownDiv.children[0].children[0].remove();
-
-     }
-      
+      }
     }
   
     private function fillDrop():void
@@ -116,7 +115,7 @@ package com.unhurdle.spectrum
     }
       
       
-    private function createPopOver():void{ //markup for popOver here
+    private function createPopOver():void{ 
       dropPop = new Popover();
       dropPop.className = "spectrum-Popover spectrum-Popover--bottom spectrum-Dropdown-popover";
       COMPILE::JS
@@ -162,10 +161,17 @@ package com.unhurdle.spectrum
     private function dummySpacing():void //what is this
     {
       COMPILE::JS{
-         var dummySpace:HTMLElement = newElement('div');
-      dummySpace.className= "dummy-spacing";
-       element.appendChild(dummySpace);
+        var dummySpace:HTMLElement = newElement('div');
+        dummySpace.className= "dummy-spacing";
+        element.appendChild(dummySpace);
       }
+    }
+
+    COMPILE::JS
+    private function tabsArray(ev:ValueEvent):void
+    {
+      tabs = ev.value;
+      dropSpan.text = tabs[0].text; 
     }
 
     COMPILE::JS
@@ -183,7 +189,6 @@ package com.unhurdle.spectrum
         dropButton.classList.add("spectrum-FieldButton--quiet");
         dropButton.classList.add("spectrum-Dropdown-trigger");
         dropButton.addEventListener("click",toggleDropdown)
-       
         dropDownDiv.appendChild(dropButton);
         dropSpan = new TextNode("span");
         dropSpan.className = "spectrum-Dropdown-label";
@@ -199,14 +204,6 @@ package com.unhurdle.spectrum
         indicator.setAttribute("style",indStyle);
         element.appendChild(indicator);
         return element;
-    }
-
-    
-    COMPILE::JS
-    private function tabsArray(ev:ValueEvent):void
-    {
-      tabs = ev.value;
-      dropSpan.text = tabs[0].text; 
     }
   }
 }

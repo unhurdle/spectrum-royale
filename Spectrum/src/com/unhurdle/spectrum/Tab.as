@@ -10,7 +10,7 @@ package com.unhurdle.spectrum
     import com.unhurdle.spectrum.const.IconPrefix;
     import com.unhurdle.spectrum.const.IconSize;
     import org.apache.royale.events.Event;
-[Event(name="childrenAdded", type="org.apache.royale.events.Event")]
+
   public class Tab extends SpectrumBase
   {
     public function Tab()
@@ -70,7 +70,7 @@ package com.unhurdle.spectrum
       }
     	_iconType = value;
     }
-     public function set selected(value:Boolean):void{ //selected
+     public function set selected(value:Boolean):void{ 
       COMPILE::JS
       {
         if(value){
@@ -84,12 +84,9 @@ package com.unhurdle.spectrum
       
       elem = addElementToWrapper(this,'div');
       elem.className = "spectrum-Tabs-item" //wasnt adding the className with getSelector() or typeNames
-      // var widthAttribute:String = "width:7%;";
-      // elem.setAttribute("style",widthAttribute);
       label = new TextNode("label");
       label.className = "spectrum-Tabs-itemLabel";
       elem.appendChild(label.element);
-      this.dispatchEvent(new ValueEvent("childrenAdded", elem));
       return elem;
     }
   }

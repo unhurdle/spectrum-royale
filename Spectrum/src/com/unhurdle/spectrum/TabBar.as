@@ -9,9 +9,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.textLayout.edit.ElementMark;
   }
-  //internal children - but needs the royale wrapper
-  //getElementAt
-  //override childrenAdded - call super.  create indicator there 
+
   [DefaultProperty("tabs")]
   public class TabBar extends Group
   {
@@ -60,7 +58,7 @@ package com.unhurdle.spectrum
       return _vertical;
     }
     COMPILE::JS
-    public function set vertical(value:Boolean):void //not necc smart....
+    public function set vertical(value:Boolean):void 
     {
       _vertical = value;
       if(value != !!_vertical){
@@ -69,28 +67,13 @@ package com.unhurdle.spectrum
       }
     }
 
-    override public function childrenAdded():void   
-      {
-     
-        super.childrenAdded();
-        // indicator = newElement('div');
-        // indicator.className = "spectrum-Tabs-selectionIndicator";
-        // var styleStr:String = "width: 27px; left: 0px;";
-        // indicator.setAttribute("style",styleStr);
-        // COMPILE::JS{
-        //   element.appendChild(indicator); //not displaying although is there
-        // }
-        }
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
       addElementToWrapper(this,'div');
-      element.classList.add("spectrum-Tabs--horizontal"); //there is a vertical option
-      element.addEventListener("childrenAdded", childrenAdded); //maybe can go straight into resized cuz nx overriding anyway..
+      element.classList.add("spectrum-Tabs--horizontal"); 
       window.addEventListener("resize",resized,false);
-      // window.addEventListener("resize",resized,false);
-   
       return element;
     }                                                                                                                                                   
 
@@ -119,7 +102,7 @@ package com.unhurdle.spectrum
       }
       
      
-      // hasDropdown = true;
+
     }
    
     private var _tabs:Array;
@@ -131,12 +114,21 @@ package com.unhurdle.spectrum
 
     public function set tabs(value:Array):void
     {
+      trace("setting tabs");
       _tabs = value;
       for(var i:int=0;i<value.length;i++){
         COMPILE::JS{
-          element.appendChild(value[i].element); //  addElement(value[i]); //appendChild
+          element.appendChild(value[i].element); 
         }
-         // do something with the indicator
+        
+        
+        }
+        indicator = newElement('div');
+        indicator.className = "spectrum-Tabs-selectionIndicator";
+        var styleStr:String = "width: 27px; left: 0px;";
+        indicator.setAttribute("style",styleStr);
+        COMPILE::JS{
+          element.appendChild(indicator); 
         }
       }
 
@@ -156,9 +148,9 @@ package com.unhurdle.spectrum
     private function resized():void
     {
       var elem:HTMLElement = element as HTMLElement;
-      var barWidth:Number = elem.getBoundingClientRect().width;  //?
+      var barWidth:Number = elem.getBoundingClientRect().width;  
       var barPadding:Number = elem.style.padding as Number; //doesnt HAVE padding.
-      if(barPadding){//?  = "" //?>0
+      if(barPadding){
         var barResult:Number = (barWidth - barPadding);
         barWidth = barResult;
       }
@@ -167,7 +159,7 @@ package com.unhurdle.spectrum
           for(var i:Number=0;i<tabs.length;i++){
           var child:HTMLElement = tabs[i].element;
           tabWidth += child.getBoundingClientRect().width; 
-          if(child.style.marginLeft && child.style.marginRight){ //>0
+          if(child.style.marginLeft && child.style.marginRight){ 
             tabWidth += (child.style.marginLeft as Number);
             tabWidth += (child.style.marginRight as Number);
           }

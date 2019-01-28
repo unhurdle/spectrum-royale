@@ -19,8 +19,7 @@ package com.unhurdle.spectrum
       return "spectrum-MillerColumns";
     }
     public function set dataProvider(value:HierarchicalData):void{
-      trace("value as HierarchicalData");
-      trace(value);
+
       var c:Object = value.source["children"][0];
       addElement(new MillerColumnsItem(c.children));
     }
