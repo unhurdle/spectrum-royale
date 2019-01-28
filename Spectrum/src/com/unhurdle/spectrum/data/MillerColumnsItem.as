@@ -30,8 +30,6 @@ package com.unhurdle.spectrum.data
       // }
       assetList = new AssetList();
       assetList.dataProvider = obj;
-      trace("obj");
-      trace(obj);
       assetList.addEventListener("itemClicked",itemClicked);
       addElement(assetList);
       typeNames = 'spectrum-MillerColumns-item';
@@ -46,10 +44,6 @@ package com.unhurdle.spectrum.data
     }
     private function itemClicked(ev:ValueEvent):void
     {
-      trace("ev");
-      trace(ev);
-      trace("!ev.value.selected");
-      trace(!ev.value.selected);
       // ev.value.selected = !ev.value.selected;
       for each(var item:Object in assetList.dataProvider)
       {

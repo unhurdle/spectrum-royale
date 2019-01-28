@@ -6,16 +6,6 @@ package com.unhurdle.spectrum
     {
       this.text = value;
     }
-    
-    // private var _withLabel:Boolean;
-    // public function get withLabel():Boolean
-    // {
-    // 	return _withLabel;
-    // }
-    // public function set withLabel(value:Boolean):void
-    // {
-    // 	_withLabel = value;
-    // }
     private var _selected:Boolean;
     public function get selected():Boolean
     {

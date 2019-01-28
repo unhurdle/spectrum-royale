@@ -194,30 +194,6 @@
       {
         trace(ev);
       }
-      // [Bindable]
-      // private var assetList:AssetList;
-      // private var assetListArray:Array;
-      // private function fillAssetList():AssetList{
-      //   trace("here");
-      //   assetList = new AssetList();
-      //   assetListArray = new Array();
-      //   assetListArray[0] = new AssetListItem("File1");
-      //   assetListArray[0].selectable = "true";
-      //   assetListArray[0].src = "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7";
-      //   assetListArray[1] = new AssetListItem("File2");
-      //   assetListArray[1].selectable = "true";
-      //   assetListArray[1].iconType = "FileCSV";
-      //   assetListArray[2] = new AssetListItem("File3");
-      //   assetListArray[2].selectable = "true";
-      //   assetListArray[2].iconType = "Folder";
-      //   assetListArray[2].isBranch = "true";
-      //   assetList.dataProvider = assetListArray;
-      //   trace("assetList");
-      //   trace(assetList);
-      //   trace("assetListArray");
-      //   trace(assetListArray);
-      //   return assetList;
-      // }
       [Bindable]
       private var MillerColumnsDataProvider:HierarchicalData = new HierarchicalData(
         {
@@ -320,7 +296,52 @@
       <sp:CircleLoader overBackground="true"/>
       <sp:CircleLoader indeterminate="true"  size="large"/>
       <sp:CircleLoader size="small"/>
-      <!-- <sp:StepList small="true"> -->
+      <sp:TreeViewNested>      
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:TreeViewNestedItem href="#"/>
+            <sp:TreeViewNested>      
+              <sp:dataProvider>
+                <fx:Array>
+                  <sp:TreeViewNestedItem href="#"/>
+                  <sp:TreeViewNestedItem href="#"/> 
+                  <sp:TreeViewNested>      
+                    <sp:dataProvider>
+                      <fx:Array>
+                        <sp:TreeViewNestedItem href="#"/>
+                        <sp:TreeViewNestedItem href="#"/>
+                         <sp:TreeViewNested>      
+                          <sp:dataProvider>
+                            <fx:Array>
+                              <sp:TreeViewNestedItem href="#"/>
+                              <sp:TreeViewNestedItem href="#"/>
+                              <sp:TreeViewNestedItem href="#"/>
+                              <sp:TreeViewNestedItem href="#"/>
+                            </fx:Array>
+                          </sp:dataProvider>
+                        </sp:TreeViewNested>
+                      </fx:Array>
+                    </sp:dataProvider>
+                  </sp:TreeViewNested>
+                  <sp:TreeViewNestedItem href="#"/>
+                </fx:Array>
+              </sp:dataProvider>
+            </sp:TreeViewNested>
+            <sp:TreeViewNestedItem href="#"/>
+            <sp:TreeViewNestedItem href="#"/>
+            <sp:TreeViewNested>      
+              <sp:dataProvider>
+                <fx:Array>
+                  <sp:TreeViewNestedItem href="#"/>
+                  <sp:TreeViewNestedItem href="#"/>
+                  <sp:TreeViewNestedItem href="#"/>
+                  <sp:TreeViewNestedItem href="#"/>
+                </fx:Array>
+              </sp:dataProvider>
+            </sp:TreeViewNested>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:TreeViewNested>
       <sp:StepList isLabel="true">      
         <sp:dataProvider>
           <fx:Array>

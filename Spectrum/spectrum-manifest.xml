@@ -109,6 +109,8 @@
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
 	<component id="Tooltip" class="com.unhurdle.spectrum.Tooltip"/>
+    <component id="TreeViewNested" class="com.unhurdle.spectrum.TreeViewNested"/>
+    <component id="TreeViewNestedItem" class="com.unhurdle.spectrum.TreeViewNestedItem"/>
     <component id="TypographyGroup" class="com.unhurdle.spectrum.TypographyGroup"/>
 	<component id="VideoPlayerSlider" class="com.unhurdle.spectrum.VideoPlayerSlider"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>

@@ -49,7 +49,6 @@ package com.unhurdle.spectrum
           else{
             item = new StepsListItem("");
           }
-          // var item:StepsListItem = new StepsListItem();
           if(value[i].hasOwnProperty("selected")){
             item.selected = value[i]["selected"];
           }
@@ -57,9 +56,6 @@ package com.unhurdle.spectrum
             item.completed = value[i]["completed"];
           }
           item.toolTip = isToolTip;
-          // if(isLabel()){
-          //   item.text = "Step" + i;
-          // }
           value[i] = item;
         }
       }
@@ -88,14 +84,6 @@ package com.unhurdle.spectrum
     }
     public function set isLabel(value:Boolean):void
     {
-      // if(value != !!_isLabel){
-      //   if(value){
-      //     className = getSelector() + "--small";
-      //   }
-      //   else{
-      //     className = "";
-      //   }
-      // }
     	_isLabel = value;
     }
     private var _isToolTip:Boolean;

@@ -1,8 +1,6 @@
 package com.unhurdle.spectrum.renderers
 {
   import org.apache.royale.html.supportClasses.DataItemRenderer;
-  // import com.unhurdle.spectrum.data.SideNavItem;
-  // import com.unhurdle.spectrum.TextNode;
   COMPILE::JS
   {
     import org.apache.royale.html.util.addElementToWrapper;
@@ -19,19 +17,6 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = '';
     }
-  //   <div class="spectrum-Steplist-item u-tooltip-showOnHover is-complete">
-  //   <div class="spectrum-Steplist-markerContainer">
-  //     <div class="spectrum-Tooltip spectrum-Tooltip--top">
-  //       <span class="spectrum-Tooltip-label">Step 1</span>
-  //       <span class="spectrum-Tooltip-tip"></span>
-  //     </div>
-  //     <div class="spectrum-Steplist-marker">
-  //     </div>
-  //   </div>
-
-  //   <span class="spectrum-Steplist-segment">
-  //   </span>
-  // </div>
     protected function appendSelector(value:String):String{
       return "spectrum-Steplist" + value;
     }
@@ -44,7 +29,6 @@ package com.unhurdle.spectrum.renderers
       var elem:HTMLElement = element as HTMLElement;
       var stepsListItem:StepsListItem = value as StepsListItem;
       elem.className = appendSelector("-item");
-      // elem.style.pointerEvents = null
       if(stepsListItem.selected){
         elem.classList.add("is-selected");
       } else {
@@ -57,10 +41,6 @@ package com.unhurdle.spectrum.renderers
       }
       if(!!stepsListItem.text){
         var label:TextNode = new TextNode("");
-        // label.element = newElement("span","spectrum-Steplist-label");
-        // label.text = stepsListItem.text;
-        // label.text = getLabelFromData(this,value);
-        // elem.appendChild(label.element);
         if(!!stepsListItem.toolTip){
           elem.classList.add("u-tooltip-showOnHover");
           var toolTipDiv:HTMLDivElement = newElement("div","spectrum-Tooltip spectrum-Tooltip--top") as HTMLDivElement;
@@ -76,29 +56,7 @@ package com.unhurdle.spectrum.renderers
           label.text = stepsListItem.text;
           elem.insertBefore(label.element,markerContainer);      
         }
-        // label.text = stepsListItem.text;
-      //   elem.classList.remove("is-complete");
       }
-      // if(!!stepsListItem.toolTip){
-      //   label = new TextNode("");
-      //   label.element = newElement("span","spectrum-Steplist-label");
-      //   label.text = stepsListItem.text;
-      //   // label.text = getLabelFromData(this,value);
-      //   // elem.appendChild(label.element);
-      //   elem.insertBefore(label.element,markerContainer || null);
-      // }
-      // else {
-      //   if(!!stepsListItem.text){
-      //     label = new TextNode("");
-      //     label.element = newElement("span","spectrum-Steplist-label");
-      //     label.text = stepsListItem.text;
-      //     // label.text = getLabelFromData(this,value);
-      //     // elem.appendChild(label.element);
-      //     elem.insertBefore(label.element,markerContainer || null);
-      //   }
-      // //   elem.classList.remove("is-complete");
-      // }
-      // textNode.text = getLabelFromData(this,value);
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;
@@ -117,7 +75,6 @@ package com.unhurdle.spectrum.renderers
     override protected function createElement():WrappedHTMLElement
     {
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      // elem.className = appendSelector("-item");
       markerContainer = document.createElement("span") as HTMLSpanElement;
       markerContainer.className = appendSelector("-markerContainer");
       marker = document.createElement("span") as HTMLSpanElement;
