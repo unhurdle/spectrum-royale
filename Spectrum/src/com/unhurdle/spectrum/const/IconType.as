@@ -35,5 +35,7 @@ package com.unhurdle.spectrum.const
     public static const SUCCESS_MEDIUM:String = "SuccessMedium"
     public static const SUCCESS_SMALL:String = "SuccessSmall"
     public static const TRIPLE_GRIPPER:String = "TripleGripper"      
+    public static const LAYERS:String = "Layers"     
+    public static const FOLDER:String = "Folder"   
   }
 }

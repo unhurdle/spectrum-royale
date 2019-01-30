@@ -4,7 +4,14 @@ package com.unhurdle.spectrum
   {
     public function TreeViewNestedItem(value:String)
     {
-      text = value
+      text = value;
+    }
+    private var _withIcon:Boolean = false;
+    public function get withIcon():Boolean{
+    	return _withIcon;
+    }
+    public function set withIcon(value:Boolean):void{
+    	_withIcon = value;
     }
     private var _opened:Boolean = false;
     public function get opened():Boolean
@@ -14,6 +21,15 @@ package com.unhurdle.spectrum
     public function set opened(value:Boolean):void
     {
     	_opened = value;
+    }    
+    private var _disabled:Boolean;
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+    public function set disabled(value:Boolean):void
+    {
+    	_disabled = value;
     }
     private var _isList:Boolean;
     public function get isList():Boolean

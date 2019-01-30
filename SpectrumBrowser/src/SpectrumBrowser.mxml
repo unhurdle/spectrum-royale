@@ -299,18 +299,18 @@
       <sp:TreeViewNested>      
         <sp:dataProvider>
           <fx:Array>
-            <sp:TreeViewNestedItem href="#"/>
-            <sp:TreeViewNested>      
+            <sp:TreeViewNestedItem href="#" withIcon="true"/>
+            <sp:TreeViewNested withIcon="true">      
               <sp:dataProvider>
                 <fx:Array>
-                  <sp:TreeViewNestedItem href="#"/>
+                  <sp:TreeViewNestedItem href="#" disabled="true"/>
                   <sp:TreeViewNestedItem href="#"/> 
                   <sp:TreeViewNested>      
                     <sp:dataProvider>
                       <fx:Array>
                         <sp:TreeViewNestedItem href="#"/>
                         <sp:TreeViewNestedItem href="#"/>
-                         <sp:TreeViewNested>      
+                         <sp:TreeViewNested disabled="true" withIcon="true">      
                           <sp:dataProvider>
                             <fx:Array>
                               <sp:TreeViewNestedItem href="#"/>
@@ -333,7 +333,7 @@
               <sp:dataProvider>
                 <fx:Array>
                   <sp:TreeViewNestedItem href="#"/>
-                  <sp:TreeViewNestedItem href="#"/>
+                  <sp:TreeViewNestedItem href="#" disabled="true"/>
                   <sp:TreeViewNestedItem href="#"/>
                   <sp:TreeViewNestedItem href="#"/>
                 </fx:Array>

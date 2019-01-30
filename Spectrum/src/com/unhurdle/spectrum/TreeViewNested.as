@@ -37,47 +37,64 @@ package com.unhurdle.spectrum
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
         if(value[i] is TreeViewNestedItem){
-           (value[i] as TreeViewNestedItem).isList = false;
-           (value[i] as TreeViewNestedItem).text = "Layer " + (i+1);
-           (value[i] as TreeViewNestedItem).href = value[i].href;
+          (value[i] as TreeViewNestedItem).isList = false;
+          (value[i] as TreeViewNestedItem).text = "Layer " + (i + 1);
+          (value[i] as TreeViewNestedItem).href = value[i].href;
           (value[i] as TreeViewNestedItem).dataProvider = value[i].dataProvider;
+          (value[i] as TreeViewNestedItem).disabled = value[i].disabled;
+          (value[i] as TreeViewNestedItem).withIcon = value[i].withIcon;
           continue;
         } else if(value[i] is TreeViewNested){
-          value[i].text = "Group ??";
+          value[i].text = "Group " + (i + 1);
           (value[i] as TreeViewNestedItem).isList = true;
           value[i].href? (value[i] as TreeViewNestedItem).href = value[i].href: (value[i] as TreeViewNestedItem).href = "";
+          (value[i] as TreeViewNestedItem).disabled = value[i].disabled;
+          (value[i] as TreeViewNestedItem).withIcon = value[i].withIcon;
           continue;
         } else {
           var item:TreeViewNestedItem;
           if(value[i].length == 1){
-           item = new TreeViewNestedItem("Layer " + (i+1));
+           item = new TreeViewNestedItem("Layer " + (i + 1));
+           item.isList = false;
           }
           else{
-            item = new TreeViewNestedItem("Group ??");
-            for (var c:int = 1; c < value[i].length; c++){
-              convertArray(value[i][c]);
-            }
+            item = new TreeViewNestedItem("Group " + (i + 1));
+            item.isList = true;
           }
           if(value[i].hasOwnProperty("opened")){
             item.opened = value[i]["opened"];
-          }
-          
+          }          
+          if(value[i].hasOwnProperty("disabled")){
+            item.disabled = value[i]["disabled"];
+          }          
           if(value[i].hasOwnProperty("isList")){
             item.isList = value[i]["isList"];
+          }          
+          if(value[i].hasOwnProperty("withIcon")){
+            item.withIcon = value[i]["withIcon"];
           }
           item.href = value[i].href;
           value[i] = item;
         }
       }
-    }
-    private var _text:String;
-    public function get text():String
+    }  
+    private var _disabled:Boolean = false;
+    public function get disabled():Boolean
     {
-    	return _text;
+    	return _disabled;
     }
-    public function set text(value:String):void
+    public function set disabled(value:Boolean):void
     {
-    	_text = value;
+    	_disabled = value;
+    }   
+    private var _withIcon:Boolean = false;
+    public function get withIcon():Boolean
+    {
+    	return _withIcon;
+    }
+    public function set withIcon(value:Boolean):void
+    {
+    	_withIcon = value;
     }
   }
 }
