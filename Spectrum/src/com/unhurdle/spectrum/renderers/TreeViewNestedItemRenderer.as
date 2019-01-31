@@ -8,13 +8,13 @@ package com.unhurdle.spectrum.renderers
   import org.apache.royale.html.supportClasses.DataItemRenderer;
   import com.unhurdle.spectrum.newElement;
   import com.unhurdle.spectrum.Icon;
-  import com.unhurdle.spectrum.TreeViewNestedItem;
   import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.TreeViewNested;
   import goog.events.Event;
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconSize;
+  import com.unhurdle.spectrum.data.TreeViewNestedItem;
   
   public class TreeViewNestedItemRenderer extends DataItemRenderer
   {

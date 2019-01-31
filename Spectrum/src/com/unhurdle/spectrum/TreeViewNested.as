@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.html.List;
   import org.apache.royale.collections.IArrayList;
+  import com.unhurdle.spectrum.data.TreeViewNestedItem;
 
   public class TreeViewNested extends org.apache.royale.html.List{
     public function TreeViewNested()

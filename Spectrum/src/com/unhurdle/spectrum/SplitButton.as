@@ -5,8 +5,11 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.const.IconPrefix;  
+  import org.apache.royale.html.util.getLabelFromData;
   import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.collections.IArrayList;
+  import com.unhurdle.spectrum.data.MenuItem;
 
   public class SplitButton extends SpectrumBase
   {
@@ -28,13 +31,26 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
       actionButton = new Button();
       actionButton.className = appendSelector("-action");
+      actionButton.addEventListener("click",toggleDropdown);
       triggerButton = new Button();
       triggerButton.className = appendSelector("-trigger");
-      triggerButton.icon = IconPrefix.SPECTRUM_CSS_ICON + IconType.CHEVRON_DOWN_MEDIUM;
-      triggerButton.iconType = IconType.CHEVRON_DOWN_MEDIUM;
+      triggerButton.addEventListener("click",toggleDropdown);
+      var type:String = IconType.CHEVRON_DOWN_MEDIUM;
+      triggerButton.icon = Icon.getCSSTypeSelector(type);
+      triggerButton.iconType = type;
       triggerButton.iconClass = appendSelector("-icon");
       addElement(actionButton);
       addElement(triggerButton);
+      popover = new Popover();
+      // popover.className = appendSelector("-popover");
+      popover.position = "bottom";
+      // popover.percentWidth = 100;
+      // popover.style = {"z-index":100};//????
+      menu = new Menu();
+      popover.addElement(menu);
+      popover.addEventListener("click", handleListChange);
+      popover.style = {"min-width":"100%","z-index": "1"};
+      addElement(popover);
       return elem;
     }
     private var _type:String;
@@ -95,32 +111,62 @@ package com.unhurdle.spectrum
     	_text = value || "";
       actionButton.text = _text;
     }
-    //TODO add dataProvider and menu
-    private function getModel():IComboBoxModel{
-      return model as IComboBoxModel;
+    private var menu:Menu;
+    private var popover:Popover;
+ private function toggleDropdown():void{
+      popover.open = !popover.open;
     }
-    public function get dataProvider():Object
-		{
-			return getModel().dataProvider;
-		}
-		public function set dataProvider(value:Object):void
-		{
-			getModel().dataProvider = value;
-		}
-    // private var _dataProvider:Object;
+    public function set dataProvider(value:Object):void{
+      if(value is Array){
+        convertArray(value);
+      } else if(value is IArrayList){
+        convertArray(value.source);
+      }
+      menu.dataProvider = value;
+    }
 
-    // public function get dataProvider():Object
-    // {
-    // 	return _dataProvider;
-    // }
+    public function get selectedIndex():int
+    {
+    	return menu.selectedIndex;
+    }
 
-    // public function set dataProvider(value:Object):void
-    // {
-    // 	_dataProvider = value;
-    //   createFlyoutIcon();
-    //   if(menu){
-    //     menu.dataProvider = value;
-    //   }
-    // }
+    public function set selectedIndex(value:int):void
+    {
+    	menu.selectedIndex = value;
+    }
+
+    public function get selectedItem():Object
+    {
+    	return menu.selectedItem;
+    }
+
+    public function set selectedItem(value:Object):void
+    {
+    	menu.selectedItem = value;
+    }
+    private function convertArray(value:Object):void{
+      var newVal:Array;
+      newVal = new Array(value.length);
+      var len:int = value.length;
+      for(var i:int = 0;i<len;i++){
+        var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
+        if(value[i].selected){
+          item.selected = value[i]["selected"];
+        }
+        if(value[i].isDivider){
+          item.isDivider = value[i]["isDivider"];
+        }
+        if(value[i].disabled){
+          item.disabled = value[i]["disabled"];
+        }
+        if(value[i].icon){
+          item.icon = value[i]["icon"];
+        }
+        value[i] = item;
+      }
+    }
+    public function handleListChange():void{
+      popover.open = false;
+    }
   }
 }
