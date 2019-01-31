@@ -113,7 +113,7 @@ package com.unhurdle.spectrum
     }
     private var menu:Menu;
     private var popover:Popover;
- private function toggleDropdown():void{
+    private function toggleDropdown():void{
       popover.open = !popover.open;
     }
     public function set dataProvider(value:Object):void{
