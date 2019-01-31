@@ -114,7 +114,7 @@ package com.unhurdle.spectrum
 
     public function set tabs(value:Array):void
     {
-      trace("setting tabs");
+   
       _tabs = value;
       for(var i:int=0;i<value.length;i++){
         COMPILE::JS{

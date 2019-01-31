@@ -73,6 +73,8 @@ package com.unhurdle.spectrum.renderers
     {
       var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
 
+      
+
       checkBox = new CheckBox();
       checkBox.className += appendSelector("-itemSelector");
       addElement(checkBox);
