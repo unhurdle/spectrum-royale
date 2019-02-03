@@ -23,6 +23,7 @@
       import com.unhurdle.spectrum.AssetList;
       import org.apache.royale.collections.HierarchicalData;
       import com.unhurdle.spectrum.data.AssetListItem;
+      import com.unhurdle.spectrum.SideNav;
 
       private function showAlert():void{
         var alert:Alert = new Alert();
@@ -506,6 +507,34 @@
             <sp:SideNavItem text="Item One"/>
             <sp:SideNavItem text="Item Two"/>
             <sp:SideNavItem text="Item Three" />
+            <sp:SideNavItem text="Category Two" isHeading="true"/>
+            <sp:SideNavItem text="Item One"/>
+            <sp:SideNavItem text="Item Two"/>
+            <sp:SideNavItem text="Item Three" disabled="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:SideNav>
+      <sp:SideNav multiLevel="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:SideNavItem  text="Category One" isHeading="true"/>
+            <sp:SideNavItem text="Item One"/>
+            <sp:SideNavItem text="Item Two"/>
+            <sp:SideNavItem text="Item Three" />
+            <sp:SideNav>
+              <sp:dataProvider>
+                <fx:Array>
+                  <sp:SideNavItem  text="Category One" isHeading="true"/>
+                  <sp:SideNavItem text="Item One"/>
+                  <sp:SideNavItem text="Item Two"/>
+                  <sp:SideNavItem text="Item Three" />
+                  <sp:SideNavItem text="Category Two" isHeading="true"/>
+                  <sp:SideNavItem text="Item One"/>
+                  <sp:SideNavItem text="Item Two"/>
+                  <sp:SideNavItem text="Item Three" disabled="true"/>
+                </fx:Array>
+              </sp:dataProvider>
+            </sp:SideNav>
             <sp:SideNavItem text="Category Two" isHeading="true"/>
             <sp:SideNavItem text="Item One"/>
             <sp:SideNavItem text="Item Two"/>

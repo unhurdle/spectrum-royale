@@ -9,6 +9,10 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import org.apache.royale.html.util.getLabelFromData;
+  import com.unhurdle.spectrum.Toast;
+  import com.unhurdle.spectrum.SideNav;
+  import goog.events.Event;
+
   public class SideNavItemRenderer extends DataItemRenderer
   {
     public function SideNavItemRenderer()
@@ -35,6 +39,18 @@ package com.unhurdle.spectrum.renderers
       } else {
         elem.className = appendSelector("-item");
       }
+      textNode.element.setAttribute("href",sideNavItem.href || "#");
+      isList = !!sideNavItem.isList;
+      if(isList){
+        textNode.text = sideNavItem.text;
+        var ul:SideNav = new SideNav();
+        ul.dataProvider = sideNavItem.dataProvider;
+        ul.multiLevel = (sideNavItem as SideNav).multiLevel;
+        addElement(ul);
+      }else{
+        textNode.text = getLabelFromData(this,value);
+      }
+      elem.addEventListener("click",sideNavClick);
       if(sideNavItem.disabled){
         elem.classList.add("is-disabled");
         elem.style.pointerEvents = "none";
@@ -42,7 +58,6 @@ package com.unhurdle.spectrum.renderers
       if(sideNavItem.selected){
         elem.classList.add("is-selected");
       }
-      textNode.text = getLabelFromData(this,value);
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;
@@ -55,11 +70,22 @@ package com.unhurdle.spectrum.renderers
         }
       }
     }
+    
+    private function sideNavClick(event:Event):void{
+        var styleStr:String;
+         var el:HTMLElement = event.target.closest('.spectrum-SideNav');
+        if(el != null && !el.classList.contains("is-selected")){
+          event.stopPropagation();
+          new Toast("The selected item is: "+event.target.text).show();
+        }
+      }
+
     private var textNode:TextNode;
+    private var isList:Boolean;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
       textNode = new TextNode("a");
       textNode.className = appendSelector("-itemLink");
       textNode.element.style.userSelect = "none";
