@@ -16,8 +16,8 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.IEventDispatcher;
   import org.apache.royale.events.ValueEvent;
+  import org.apache.royale.html.util.getLabelFromData;
 
-  [Event(name="itemClicked", type="org.apache.royale.events.ValueEvent")]
   public class AssetListItemRenderer extends DataItemRenderer
   {
     public function AssetListItemRenderer()
@@ -37,7 +37,7 @@ package com.unhurdle.spectrum.renderers
       super.data = value;
       var assetListItem:AssetListItem;
       assetListItem = value as AssetListItem;
-      span.text = value.text;
+      span.text = getLabelFromData(this,value);
       element.className = appendSelector("-item");
       if(assetListItem.selectable){
         element.classList.add("is-selectable");
@@ -53,6 +53,7 @@ package com.unhurdle.spectrum.renderers
       }
       (element as HTMLElement).classList.toggle("is-selected",false);
       // addEventListener("itemClicked",itemClicked);
+      
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;
@@ -71,6 +72,8 @@ package com.unhurdle.spectrum.renderers
     override protected function createElement():WrappedHTMLElement
     {
       var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
+
+      
 
       checkBox = new CheckBox();
       checkBox.className += appendSelector("-itemSelector");
@@ -136,9 +139,8 @@ package com.unhurdle.spectrum.renderers
     	_iconType = value;
     }
 
-    private function itemClicked(ev:ValueEvent):void
+    private function itemClicked(ev:*):void
     {
-      // dispatchEvent(new ValueEvent("itemClicked",ev.value));
       checkBox.checked = (element as HTMLElement).classList.toggle("is-selected");
     }
   }

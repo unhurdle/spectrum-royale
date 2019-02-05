@@ -31,6 +31,17 @@ package com.unhurdle.spectrum.data
     {
     	_isBranch = value;
     }
+    private var _isChild:Boolean;
+
+    public function get isChild():Boolean
+    {
+    	return _isChild;
+    }
+
+    public function set isChild(value:Boolean):void
+    {
+    	_isChild = value;
+    }
     private var _selectable:Boolean;
 
     public function get selectable():Boolean
@@ -42,6 +53,7 @@ package com.unhurdle.spectrum.data
     {
     	_selectable = value;
     }
+
     private var _iconType:String;
 
     public function get iconType():String

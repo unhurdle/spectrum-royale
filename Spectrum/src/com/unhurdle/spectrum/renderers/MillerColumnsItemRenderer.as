@@ -24,10 +24,7 @@ package com.unhurdle.spectrum.renderers
       super.data = value;
       (element as HTMLElement).className = appendSelector("-item");
       var millerColumnsItem:MillerColumnsItem = value as MillerColumnsItem;
-      trace("value");
-      trace(value);
-      // trace("millerColumnsItem.assetList");
-      // trace(millerColumnsItem.assetList);
+     
       // if(millerColumnsItem.assetList){
       //   (element as HTMLElement).appendChild(millerColumnsItem.assetList.element as HTMLElement);
       //   // addElement(millerColumnsItem.assetList);
