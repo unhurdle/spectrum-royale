@@ -91,6 +91,19 @@ package com.unhurdle.spectrum
       }
       _required = value;
     }
+    private var _left:Boolean;
+    public function get left():Boolean
+    {
+    	return _left;
+    }
+
+    public function set left(value:Boolean):void
+    {
+      if(!!value != !!_left){
+      	toggle(appendSelector("left"),true);
+      }
+      _left = value;
+    }
 
     private var _disabled:Boolean;
 
@@ -105,6 +118,19 @@ package com.unhurdle.spectrum
         input.disabled = value;
       }
       _disabled = value;
+    }
+    private var _multiline:Boolean;
+    public function get multiline():Boolean
+    {
+    	return _multiline;
+    }
+
+    public function set multiline(value:Boolean):void
+    {
+      if(!!value != !!_multiline){
+      	toggle(appendSelector("multiline"),value);
+      }
+      _multiline = value;
     }
 
     private var _quiet:Boolean;
@@ -135,6 +161,20 @@ package com.unhurdle.spectrum
         toggle("is-invalid",value);
       }
     	_invalid = value;
+    }
+    private var _valid:Boolean;
+
+    public function get valid():Boolean
+    {
+    	return _valid;
+    }
+
+    public function set valid(value:Boolean):void
+    {
+      if(value != _valid){
+        toggle("is-valid",value);
+      }
+    	_valid = value;
     }
     protected var input:HTMLInputElement;
 

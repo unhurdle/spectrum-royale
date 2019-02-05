@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <componentPackage>
-    <!-- <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/> -->
+    <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/>
     <component id="ActionButton" class="com.unhurdle.spectrum.ActionButton"/>
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
@@ -46,6 +46,7 @@
     <component id="DialogContent" class="com.unhurdle.spectrum.DialogContent"/>
     <component id="DialogFooter" class="com.unhurdle.spectrum.DialogFooter"/>
     <component id="DialogHeader" class="com.unhurdle.spectrum.DialogHeader"/>
+    <component id="DialogPopover" class="com.unhurdle.spectrum.DialogPopover"/>
     <component id="Display" class="com.unhurdle.spectrum.typography.Display"/>
     <component id="Dropdown" class="com.unhurdle.spectrum.Dropdown"/>
     <component id="DropdownItem" class="com.unhurdle.spectrum.data.DropdownItem"/>
@@ -58,6 +59,8 @@
     <component id="FileAsset" class="com.unhurdle.spectrum.FileAsset"/>
     <component id="FolderAsset" class="com.unhurdle.spectrum.FolderAsset"/>
     <component id="Form" class="com.unhurdle.spectrum.Form"/>
+    <component id="FormItem" class="com.unhurdle.spectrum.FormItem"/>
+    <component id="FormItemField" class="com.unhurdle.spectrum.FormItemField"/>
     <component id="Heading" class="com.unhurdle.spectrum.typography.Heading"/>
     <component id="Icon" class="com.unhurdle.spectrum.Icon"/>
     <component id="IllustratedMessage" class="com.unhurdle.spectrum.IllustratedMessage"/>
@@ -106,6 +109,7 @@
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
+    <component id="TextFieldDecorated" class="com.unhurdle.spectrum.TextFieldDecorated"/>
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
 	<component id="Tooltip" class="com.unhurdle.spectrum.Tooltip"/>

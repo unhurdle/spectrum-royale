@@ -42,10 +42,7 @@ package com.unhurdle.spectrum
       addElement(actionButton);
       addElement(triggerButton);
       popover = new Popover();
-      // popover.className = appendSelector("-popover");
       popover.position = "bottom";
-      // popover.percentWidth = 100;
-      // popover.style = {"z-index":100};//????
       menu = new Menu();
       popover.addElement(menu);
       popover.addEventListener("click", handleListChange);

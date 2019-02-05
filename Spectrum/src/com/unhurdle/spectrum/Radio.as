@@ -45,7 +45,6 @@ package com.unhurdle.spectrum
             }
         	_checked = value;
         }
-
         private var _disabled:Boolean;
 
         public function get disabled():Boolean
@@ -59,6 +58,18 @@ package com.unhurdle.spectrum
                 input.disabled = value;
             }
         	_disabled = value;
+        }
+        private var _labelBelow:Boolean;
+        public function get labelBelow():Boolean
+        {
+            return _labelBelow;
+        }
+        public function set labelBelow(value:Boolean):void
+        {
+            if(value != !!_labelBelow){
+                toggle(valueToSelector("labelBelow"),value);
+            }
+            _labelBelow = value;
         }
         private var _invalid:Boolean;
         public function get invalid():Boolean

@@ -75,6 +75,17 @@ package com.unhurdle.spectrum
         _disabled = value;
       }
     }
+    private var _text:String;
+
+    public function get text():String
+    {
+    	return _text;
+    }
+
+    public function set text(value:String):void
+    {
+      _text = value;
+    }
     private var _position:String;
 
     /**

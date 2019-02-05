@@ -108,7 +108,9 @@ package com.unhurdle.spectrum
         else {
           accordionItem = newElement("div") as HTMLDivElement;
           accordionItem.className = "spectrum-Accordion-item" +type;
-          element.insertBefore(accordionItem, element.childNodes[0] || null);
+          COMPILE::JS{
+            element.insertBefore(accordionItem, element.childNodes[0] || null);
+          }
 
         }
         }

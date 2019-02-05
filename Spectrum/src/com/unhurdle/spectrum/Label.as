@@ -104,5 +104,28 @@ package com.unhurdle.spectrum
             _text = value;
             span.text = value;
         }
+        
+        private var _disabled:Boolean;
+        public function get disabled():Boolean
+        {
+            return _disabled;
+        }
+
+        public function set disabled(value:Boolean):void
+        {
+            toggle("is-disabled",value);
+            _disabled = value;
+        }
+        private var _left:Boolean;
+        public function get left():Boolean
+        {
+            return _left;
+        }
+
+        public function set left(value:Boolean):void
+        {
+            toggle(appendSelector("--left"),value);
+            _left = value;
+        }
     }
 }
