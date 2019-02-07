@@ -228,10 +228,10 @@
       <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
       <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
       <sp:Rating id="rating1" max="9" value="3" />
-      <sp:DatePicker quiet="true"/>
+      <!-- <sp:DatePicker quiet="true"/>
       <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/>
       <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/>
-      <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/>
+      <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/> -->
       <sp:Tool />
       <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
       <!-- <sp:Alert text="Alert"/>  -->

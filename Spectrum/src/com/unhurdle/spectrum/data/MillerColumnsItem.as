@@ -96,7 +96,7 @@ package com.unhurdle.spectrum.data
       }
     }
 
-    
+
   }
 }
     
