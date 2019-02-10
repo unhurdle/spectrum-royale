@@ -18,8 +18,10 @@ package com.unhurdle.spectrum.renderers
 	import com.unhurdle.spectrum.TableCell;
 	import com.unhurdle.spectrum.TableColumn;
 	import com.unhurdle.spectrum.TableRow;
+	import com.unhurdle.spectrum.Table;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import org.apache.royale.html.beads.IListView;
+	import org.apache.royale.events.ValueEvent;
 
 
 	public class AddTableRowForArrayListData implements IBead
@@ -27,6 +29,7 @@ package com.unhurdle.spectrum.renderers
 	
 		public function AddTableRowForArrayListData()
 		{
+			
 		}
 		
 		protected var _strand:IStrand;
@@ -34,12 +37,16 @@ package com.unhurdle.spectrum.renderers
 		public function set strand(value:IStrand):void
 		{
 			_strand = value;
+			table = value as Table;
 			IEventDispatcher(value).addEventListener("initComplete", initComplete);
+
 		}
 
   	protected var labelField:String;
 		
 		protected var model:TableModel;
+
+		protected var table:Table;
 
 	
 		protected function initComplete(event:Event):void
@@ -47,9 +54,11 @@ package com.unhurdle.spectrum.renderers
 			IEventDispatcher(_strand).removeEventListener("initComplete", initComplete);
 			
 			model = _strand.getBeadByType(ISelectionModel) as TableModel;
+			
 			labelField = model.labelField;
 
 			model.addEventListener("dataProviderChanged", dataProviderChangeHandler);	
+			table.addEventListener("multiSelect", handleItemAdded1);
 
 			// invoke now in case "dataProviderChanged" has already been dispatched.
 			dataProviderChangeHandler(null);
@@ -70,10 +79,15 @@ package com.unhurdle.spectrum.renderers
 			// listen for individual items being added in the future.
 			dp.addEventListener(CollectionEvent.ITEM_ADDED, handleItemAdded);
 		}
+		protected function handleItemAdded1(event:ValueEvent):void{
+			trace("event");
+			trace(event);
+		}
 
 		protected function handleItemAdded(event:CollectionEvent):void
+	
 		{
-            var presentationModel:IListPresentationModel = _strand.getBeadByType(IListPresentationModel) as IListPresentationModel;
+      var presentationModel:IListPresentationModel = _strand.getBeadByType(IListPresentationModel) as IListPresentationModel;
 			var column:TableColumn;
 			var ir:TableItemRenderer;
 
@@ -89,7 +103,7 @@ package com.unhurdle.spectrum.renderers
 				{
 					ir = itemRendererFactory.createItemRenderer(itemRendererParent) as TableItemRenderer;
 				}
-
+	
 				labelField =  column.dataField;
 		
 				ir.dataField = labelField;

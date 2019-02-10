@@ -12,7 +12,9 @@ package com.unhurdle.spectrum
     COMPILE::JS
     {
       import org.apache.royale.core.WrappedHTMLElement;
-		import org.apache.royale.html.util.addElementToWrapper;
+			import org.apache.royale.html.util.addElementToWrapper;
+			import org.apache.royale.jewel.supportClasses.table.TBodyContentArea;
+
     }
 
 
@@ -40,8 +42,8 @@ package com.unhurdle.spectrum
 			// this method is not used for now, so it needs to be tested to see if it's correctly implemented
 			var r:DataItemRenderer = renderer as DataItemRenderer;
 			r.itemRendererParent = host; // easy access from renderer to table
-			var tableCell:TableCell = new TableCell();
-			tableCell.addElement(r);
+			// var tableCell:TableCell = new TableCell();
+			// tableCell.addElement(r);
 
 			var row:TableRow;
 			if(r.rowIndex > numElements -1)
@@ -54,7 +56,9 @@ package com.unhurdle.spectrum
 				row = getElementAt(r.rowIndex) as TableRow;
 			}
 
-			row.addElement(tableCell, dispatchAdded);
+			row.addElement(r, dispatchAdded);
+			// row.addElement(tableCell, dispatchAdded);
+			
 			
 			itemRenderers.push(r);
 			dispatchItemAdded(renderer);
@@ -67,9 +71,9 @@ package com.unhurdle.spectrum
 			
 			r.itemRendererParent = host; // easy access from renderer to table
 			
-			var tableCell:TableCell = new TableCell();
-			tableCell.addElement(r);
-
+			// var tableCell:TableCell = new TableCell();
+			// tableCell.addElement(r);
+			
 			var row:TableRow;
 			if(r.rowIndex > numElements - 1)
 			{
@@ -81,8 +85,29 @@ package com.unhurdle.spectrum
 				row = getElementAt(r.rowIndex) as TableRow;
 			}
 
-			row.addElementAt(tableCell, r.columnIndex, true);
-			
+			row.addElementAt(r, r.columnIndex, true);
+			// row.addElementAt(tableCell, r.columnIndex, true);
+			var t:Table = r.itemRendererParent as Table;
+
+			for (var i:Number = 0;i<t.columns.length;i++){
+				if(t.columns[i].columnDividers == true){
+					if(r.dataField == t.columns[i].dataField){
+						COMPILE::JS
+						{
+								r.element.classList.add("spectrum-Table-cell--divider");
+						}
+					
+					}
+					// for each (var c:Object in t.columns[i]){
+					// 	COMPILE::JS
+					// 	{
+					// 			(c as TableCell).element.classList.add("spectrum-Table-cell--divider");
+					// 	}
+					
+					// }
+				
+				}
+			}
 			itemRenderers.push(r);
 			dispatchItemAdded(r);
 		}
@@ -106,7 +131,7 @@ package com.unhurdle.spectrum
 		private var processedRow:TableRow;
 		
 		public function removeAllItemRenderers():void
-		{
+		{ //fix bc no tableCell being used
 			while (numElements > 0) {
 				processedRow = getElementAt(0) as TableRow;
 				while (processedRow.numElements > 0) {
@@ -149,4 +174,4 @@ package com.unhurdle.spectrum
 			return numElements;
 		}
     }
-}
+	}

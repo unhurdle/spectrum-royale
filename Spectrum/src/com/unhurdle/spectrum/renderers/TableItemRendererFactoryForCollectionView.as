@@ -56,10 +56,7 @@ package com.unhurdle.spectrum.renderers
 
 			view = _strand.getBeadByType(IListView) as TableView;
 			tbody = view.dataGroup as TBodyContentArea;
-			trace(1);
-			trace(tbody);
-
-            model = table.model as TableModel;
+			model = table.model as TableModel;
 			model.addEventListener("dataProviderChanged", dataProviderChangeHandler);
 			
 			dataProviderChangeHandler(null);
@@ -85,6 +82,7 @@ package com.unhurdle.spectrum.renderers
         protected var view:TableView;
         protected var model:TableModel;
         protected var table:Table;
+	
 
 		private var tbody:TBodyContentArea;
 		protected function dataProviderChangeHandler(event:Event):void
@@ -142,7 +140,7 @@ package com.unhurdle.spectrum.renderers
                     {
                         ir = itemRendererFactory.createItemRenderer(tbody) as ITextItemRenderer;
                     }
-
+				
 					labelField =  column.dataField;
                     var item:Object = dp.getItemAt(i);
 
@@ -178,8 +176,6 @@ package com.unhurdle.spectrum.renderers
     itemRenderer:ISelectableItemRenderer,
     presentationModel:IListPresentationModel):void
 		{
-			trace(2);
-			trace(tbody);
 			tbody.addItemRendererAt(itemRenderer, index);
 			itemRenderer.labelField = labelField;
 			
@@ -199,6 +195,8 @@ package com.unhurdle.spectrum.renderers
 		{
 			itemRenderer.index = index;
 			itemRenderer.data = data;
+		
+			
 		}
 
         private function createHeader():void

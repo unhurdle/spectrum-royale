@@ -37,7 +37,7 @@ package com.unhurdle.spectrum.model
 		{
             if (value == _dataProvider) return;
 
-            _dataProvider = value as IArrayList;
+       _dataProvider = value as IArrayList;
 			if(!_dataProvider || _selectedIndex >= _dataProvider.length)
 				_selectedIndex = -1;
             

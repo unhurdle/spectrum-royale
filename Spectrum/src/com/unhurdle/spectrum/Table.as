@@ -7,11 +7,17 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.model.TableModel;
 	import org.apache.royale.utils.ClassSelectorList;
 	import org.apache.royale.utils.IClassSelectorListSupport;
+	import org.apache.royale.events.CollectionEvent;
+	import org.apache.royale.collections.ArrayList;
 
 	COMPILE::JS
     {
         import org.apache.royale.core.WrappedHTMLElement;
 		import org.apache.royale.html.util.addElementToWrapper;
+		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
+		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
+		
+		
 			
 				
     }
@@ -21,6 +27,9 @@ package com.unhurdle.spectrum
 	[Event(name="initComplete", type="org.apache.royale.events.Event")]
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
+	
+	
+
 
 	public class Table extends DataContainer implements IClassSelectorListSupport
 	{
@@ -47,7 +56,11 @@ package com.unhurdle.spectrum
 		public function set columns(value:Array):void
 		{
 			TableModel(model).columns = value;
+			//can i add the check- box column here ?
+
 		}
+
+	
 
 		private var _fixedHeader:Boolean;
 		public function get fixedHeader():Boolean
@@ -60,6 +73,42 @@ package com.unhurdle.spectrum
 
 			toggleClass("fixedHeader", _fixedHeader);
 		}
+
+	private var _quiet:Boolean;
+
+    public function get quiet():Boolean
+    {
+    	return _quiet;
+    }
+
+    public function set quiet(value:Boolean):void
+    {
+       if(value != !!_quiet){
+        toggleClass("spectrum-Table--quiet",value);
+        // toggle(valueToSelector("quiet"),value);
+      }
+    	_quiet = value;
+    }
+
+	private var _multiSelect:Boolean;
+
+	public function get multiSelect():Boolean
+	{
+		return _multiSelect;
+	}
+
+	public function set multiSelect(value:Boolean):void
+	{
+		if(value == true){
+			COMPILE::JS
+			{
+			// dispatchEvent("multiSelect");
+			multiSelectHeader();
+			}
+			
+		}
+		_multiSelect = value;
+	}
 
 		// private var _tableDataHeight:Boolean;
 		/**
@@ -99,8 +148,12 @@ package com.unhurdle.spectrum
 		}
 		override public function set dataProvider(value:Object):void
 		{
+			
 			(model as TableModel).dataProvider = value;
+			
 		}
+		
+		
 
 		[Bindable("change")]
         public function get selectedIndex():int
@@ -136,7 +189,8 @@ package com.unhurdle.spectrum
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement
         {
-            return addElementToWrapper(this, 'table');
+            addElementToWrapper(this, 'table');
+			return element;
         }
 
 		
@@ -178,6 +232,40 @@ package com.unhurdle.spectrum
             return false;
             }
         }
+
+	// [Bindable("multiSelect")]
+	COMPILE::JS
+	private function multiSelectHeader():void
+	{ //needs an event to check the checkbox...
+	//prob also needs a function to check all the boxes if checked.
+		var multiSelectHeaderElem:TableHeaderCell = new TableHeaderCell();
+		multiSelectHeaderElem.element.classList.add("spectrum-Table-checkboxCell");
+		var label:HTMLElement = newElement('label');
+		label.className = "spectrum-Checkbox";
+		label.classList.add("spectrum-Table-checkbox");
+		var input:HTMLElement = newElement('input');
+		input.setAttribute("type","checkbox");
+		input.title = "Select All";
+		input.className = "spectrum-Checkbox-input";
+		var span:HTMLElement = newElement('span');
+		span.className = "spectrum-Checkbox-box";
+		var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
+		span.appendChild(icon.element); 
+        icon.addedToParent();
+		label.appendChild(span);
+		label.appendChild(input);
+		multiSelectHeaderElem.element.appendChild(label);
+		// element.appendChild(multiSelectHeaderElem.element);
+		
+		dispatchEvent(new Event("multiSelect",multiSelectHeaderElem)); //deal with this event. //AddTableRow..
+		// dispatchEvent(new Event(CollectionEvent.ITEM_ADDED,multiSelectHeaderElem));
+		
+		
+		}
+
+		
+
+	
     }
 }
 

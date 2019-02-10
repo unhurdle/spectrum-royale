@@ -20,7 +20,8 @@ package com.unhurdle.spectrum
 		{
 			_align = value;
 		}
-
+		public var columnDividers:Boolean;
+		
 		private var _columnLabelAlign:String = ""
 	
 		public function get columnLabelAlign():String

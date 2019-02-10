@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum.renderers
 {
-    	// import com.unhurdle.spectrum.TextNode;
   COMPILE::JS
     {
       import org.apache.royale.core.WrappedHTMLElement;

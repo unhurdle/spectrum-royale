@@ -80,10 +80,11 @@
 		<js:ContainerDataBinding/>
 	</sp:beads>
    
-      <sp:Table id="table" dataProvider= "{_guitarrists}">
-        <sp:TableColumn dataField="guitarrist" label="Guitarrist" itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer"/>
+      <!-- <sp:Table id="table" dataProvider= "{_guitarrists}"> -->
+      <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true" >
+        <sp:TableColumn dataField="guitarrist" label="Guitarrist" itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/>
 				<sp:TableColumn dataField="album" label="Album"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" />
-				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer"/> 
+				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/> 
         <sp:beads>
  
 								<sp:AddTableRowForArrayListData/>
