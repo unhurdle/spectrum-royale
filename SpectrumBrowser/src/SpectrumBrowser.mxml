@@ -34,12 +34,12 @@
        
       //   alert.show();
       // }
-      // private function showToast():void{
-      //   new Toast("Some great news here!").show();
-      //   // var toast:Toast = new Toast();
-      //   // toast.text = "Some great news here!"
-      //   // toast.show();
-      // }
+      private function showToast():void{
+        new Toast("Some great news here!").show();
+        // var toast:Toast = new Toast();
+        // toast.text = "Some great news here!"
+        // toast.show();
+      }
 
       // private function handleCheckboxChange():void
       // {
@@ -66,14 +66,14 @@
       //   "Four",
       //   "Five"
       // ];
-      // [Bindable]
-      // private var comboProvider:Array = [
-      //   "One",
-      //   "Two",
-      //   "Three",
-      //   "Four",
-      //   "Five"
-      // ];
+      [Bindable]
+      private var comboProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ];
       // [Bindable]
       // private var millerColumnsProvider:Array = [,];
       // [Bindable]private var date:Date = new Date();
@@ -414,25 +414,25 @@
       <sp:Tab/>
       <sp:Tab/>
       </sp:TabBar> -->
-      <!-- <sp:Button text="Show Toast" click="showToast()"/>
+      <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
       <sp:CoachMark flavor="light"/>
       <sp:CoachMark/>
       <sp:IllustratedMessage type="cta"/>
       <sp:IllustratedMessage type="default"/>
       <sp:IllustratedMessage />
-      <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
+      <!-- <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" focused="true" quiet="true" min="-10" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange(event)"/>
-      <sp:Dial label="Doodad" displayValue="true" change="onDialChange(event)"/>
+      <sp:Dial label="Doodad" displayValue="true" change="onDialChange(event)"/> -->
       <sp:Dial size="small"/>
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/>
-      <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}"/>
-      <sp:List dataProvider="{listProvider}"/>
+      <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/>
+      <!-- <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
         <sp:dataProvider>
