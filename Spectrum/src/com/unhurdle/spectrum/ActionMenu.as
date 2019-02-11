@@ -19,7 +19,9 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IStrand;
   import org.apache.royale.core.UIBase;
   import org.apache.royale.core.ValuesManager;
+  import org.apache.royale.events.Event;
 
+  [Event(name="change", type="org.apache.royale.events.Event")]
   public class ActionMenu extends SpectrumBase
   {
     public function ActionMenu()
@@ -27,8 +29,8 @@ package com.unhurdle.spectrum
       super();
     }
     private var button:ActionButton;
-    private var popover:Popover;
-    private var menu:Menu;
+    public var popover:Popover;
+    public var menu:Menu;
  
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -57,6 +59,7 @@ package com.unhurdle.spectrum
       
 
       menu = new Menu();
+      menu.addEventListener("change",handleMenuChange);
       popover.addElement(menu);
       addElement(popover);
       return elem;
@@ -96,12 +99,14 @@ package com.unhurdle.spectrum
       if(shown){// close it
 
       } else {//open it
-
 				var origin:Point = new Point(0, height - 6);
 				var relocated:Point = PointUtils.localToGlobal(origin,this);
-				popover.x = relocated.x;
 				popover.y = relocated.y+5;
-				popover.width = button.width;
+        popover.x = relocated.x;
+        if(_alignRight && popover.width>button.width){
+          popover.x -= popover.width-button.width;
+        }
+				// popover.width = button.width;
 
 				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
 				popupHost.popUpParent.addElement(popover);
@@ -120,7 +125,13 @@ package com.unhurdle.spectrum
 		public function set alignRight(value:Boolean):void
 		{
 			_alignRight = value;
-      menu.alignRight = value;
+     
+      // menu.alignRight = value;
 		}
+
+    private function handleMenuChange():void
+    {
+      dispatchEvent(new Event("change"));
+    }
   }
 }

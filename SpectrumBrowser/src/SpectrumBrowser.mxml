@@ -431,7 +431,8 @@
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/>
-      <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/>
+      <!-- <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/> -->
+      <sp:ActionMenu  dataProvider="{comboProvider}" alignRight="true"/>
       <!-- <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
