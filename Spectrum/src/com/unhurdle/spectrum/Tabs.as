@@ -7,7 +7,6 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.core.HTMLElementWrapper;
   import org.apache.royale.collections.IArrayList;
-  import com.unhurdle.spectrum.data.TabsItem;
   import org.apache.royale.events.Event;
       import org.apache.royale.html.List;
 

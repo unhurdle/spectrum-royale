@@ -102,8 +102,9 @@
     <component id="Subheading" class="com.unhurdle.spectrum.typography.Subheading"/>
     <component id="Subtitle" class="com.unhurdle.spectrum.typography.Subtitle"/>
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
-    <component id="Tabs" class="com.unhurdle.spectrum.Tabs"/>
-    <component id="TabsItem" class="com.unhurdle.spectrum.data.TabsItem"/>
+    <component id="TabBar" class="com.unhurdle.spectrum.TabBar"/>
+    <component id="Tab" class="com.unhurdle.spectrum.Tab"/>
+    <component id="TabOverflow" class="com.unhurdle.spectrum.TabOverflow"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>

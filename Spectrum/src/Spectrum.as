@@ -11,10 +11,8 @@ package {
 		import com.unhurdle.spectrum.renderers.SideNavItemRenderer;SideNavItemRenderer;
 		import com.unhurdle.spectrum.renderers.StepsListItemRenderer;StepsListItemRenderer;
 		import com.unhurdle.spectrum.renderers.BreadcrumbsItemRenderer;BreadcrumbsItemRenderer;
-		import com.unhurdle.spectrum.renderers.TabsItemRenderer;TabsItemRenderer;
 		import com.unhurdle.spectrum.renderers.TreeViewNestedItemRenderer;TreeViewNestedItemRenderer;
 		import com.unhurdle.spectrum.renderers.AssetListItemRenderer;AssetListItemRenderer;
-		// import com.unhurdle.spectrum.renderers.MillerColumnsItemRenderer;MillerColumnsItemRenderer;
 		import com.unhurdle.spectrum.ThemeManager;ThemeManager;
 	}
 }
