@@ -172,11 +172,11 @@
       //   trace(ev.target.value);
       // }
 
-      // private function switched(ev:Event):void{
-      //   var theSwitch:Switch = ev.target as Switch;
-      //   var status:String = theSwitch.checked ? "On" : "Off";
-      //   (ev.target as Switch).text = "Toggle " + status;
-      // }
+      private function switched(ev:Event):void{
+        var theSwitch:Switch = ev.target as Switch;
+        var status:String = theSwitch.checked ? "On" : "Off";
+        (ev.target as Switch).text = "Toggle " + status;
+      }
       // private function onSubmit(ev:*):void{
       //   var searchText:String;
       //   if(ev.target is SearchWithin)
@@ -463,10 +463,10 @@
         </sp:Menu>
         
       </sp:Popover> -->
-      <!-- <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
+      <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
       <sp:Switch text="Toggle On" checked="false" change="switched(event)"/>
       <sp:Switch text="Toggle On" checked="true" quiet="true" change="switched(event)"/>
-      <sp:Tooltip text="Label" isOpen="true"/>
+     <!--  <sp:Tooltip text="Label" isOpen="true"/>
       <sp:Tooltip text="Label" isOpen="true" direction="top"/>
       <sp:Tooltip text="Label" isOpen="true" direction="bottom"/>
       <sp:Tooltip text="Label info with icon" flavor="info" icon="info" isOpen="true" direction="left"/>

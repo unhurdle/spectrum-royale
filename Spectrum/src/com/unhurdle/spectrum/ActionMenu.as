@@ -99,8 +99,12 @@ package com.unhurdle.spectrum
       if(shown){// close it
 
       } else {//open it
+				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+        var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
 				var origin:Point = new Point(0, height - 6);
 				var relocated:Point = PointUtils.localToGlobal(origin,this);
+        relocated.x -= offset.x;
+        relocated.y -= offset.y;
 				popover.y = relocated.y+5;
         popover.x = relocated.x;
         if(_alignRight && popover.width>button.width){
@@ -108,7 +112,6 @@ package com.unhurdle.spectrum
         }
 				// popover.width = button.width;
 
-				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
 				popupHost.popUpParent.addElement(popover);
 
       }
