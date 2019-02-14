@@ -15,7 +15,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.elements.Span;
     import org.apache.royale.events.MouseEvent;
     import org.apache.royale.html.elements.Tr;
-    import org.apache.royale.jewel.supportClasses.table.TBody;
+
     import org.apache.royale.html.Table;
 
     [Event(name="dayNamesChanged ", type="org.apache.royale.events.Event")]

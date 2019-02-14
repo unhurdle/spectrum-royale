@@ -62,9 +62,11 @@ package com.unhurdle.spectrum.renderers
 		{
 			var ir:DataItemRenderer;
 			var cell:TableCell;
+			// var cell:TableItemRenderer;
 			var processedRow:TableRow = (itemRendererParent as UIBase).getElementAt(event.index) as TableRow;
 			while (processedRow.numElements > 0) {
 				cell = processedRow.getElementAt(0) as TableCell;
+				// cell = processedRow.getElementAt(0) as TableItemRenderer;
 				ir = cell.getElementAt(0) as DataItemRenderer;
 				itemRendererParent.removeItemRenderer(ir);
 				cell.removeElement(ir);

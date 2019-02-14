@@ -13,9 +13,20 @@ package com.unhurdle.spectrum
     {
       import org.apache.royale.core.WrappedHTMLElement;
 			import org.apache.royale.html.util.addElementToWrapper;
-			import org.apache.royale.jewel.supportClasses.table.TBodyContentArea;
+			import org.apache.royale.core.WrappedHTMLElement;
+			import org.apache.royale.core.WrappedHTMLElement;
+			import org.apache.royale.events.ValueEvent;
+			import org.apache.royale.events.ValueEvent;
+			import org.apache.royale.core.CSSClassList;
+		}
 
-    }
+		import org.apache.royale.file.beads.FileModel;
+		import org.apache.royale.file.beads.FileLoader;
+		import org.apache.royale.file.beads.FileBrowser;
+		import org.apache.royale.file.FileProxy;
+		import com.unhurdle.spectrum.renderers.TableItemRenderer;
+
+
 
 
 	 
@@ -25,14 +36,31 @@ package com.unhurdle.spectrum
 		public function TBodyContentArea()
 		{
 			super();
-
-			typeNames = "spectrum-Table-body";
+			fileProxy = new FileProxy();
+      browser = new FileBrowser();
+      loader = new FileLoader();
+      fileProxy.addBead(loader);  
+      fileProxy.addBead(browser); 
 		}
+
+		private var browser:FileBrowser;
+    private var loader:FileLoader;
+    private var fileProxy:FileProxy;
+
+	
+		COMPILE::JS
+		private var elem:WrappedHTMLElement;
+		
+		
 		
 		COMPILE::JS
         override protected function createElement():WrappedHTMLElement
         {
-			return addElementToWrapper(this, 'tbody');
+		
+			 	elem = addElementToWrapper(this, 'tbody');
+		
+	
+			 	return elem;
         }
 
 		private var itemRenderers:Array = [];
@@ -66,11 +94,32 @@ package com.unhurdle.spectrum
 		
 		public function addItemRendererAt(renderer:IItemRenderer, index:int):void
 		{
-			
+			// COMPILE::JS{
+			// if((r.itemRendererParent as Table).dropZone == true){
+			// element = newElement('div') as WrappedHTMLElement;
+			// element.classList.add('spectrum-Table-body');
+			// element.classList.add('is-drop-target');
+			// element.style.height = 120;
+			// element.setAttribute("role","rowgroup");
+			// }
+			// }
+	
 			var r:DataItemRenderer = renderer as DataItemRenderer;
 			
 			r.itemRendererParent = host; // easy access from renderer to table
-			
+			COMPILE::JS{
+			if((r.itemRendererParent as Table).dropZone == true){
+			// element.classList.add('is-drop-target');
+			element.addEventListener('dragenter', elementDragged);
+    	element.addEventListener('dragleave', elementNotDragged); 
+    	element.addEventListener('dragover', elementDragged);
+    	element.addEventListener('drop', dropped);
+			element.classList.add('spectrum-Table-body');
+			}
+			else{
+				element.className = "spectrum-Table-body";
+			}
+			}
 			// var tableCell:TableCell = new TableCell();
 			// tableCell.addElement(r);
 			
@@ -98,16 +147,10 @@ package com.unhurdle.spectrum
 						}
 					
 					}
-					// for each (var c:Object in t.columns[i]){
-					// 	COMPILE::JS
-					// 	{
-					// 			(c as TableCell).element.classList.add("spectrum-Table-cell--divider");
-					// 	}
-					
-					// }
-				
 				}
 			}
+
+	
 			itemRenderers.push(r);
 			dispatchItemAdded(r);
 		}
@@ -135,10 +178,11 @@ package com.unhurdle.spectrum
 			while (numElements > 0) {
 				processedRow = getElementAt(0) as TableRow;
 				while (processedRow.numElements > 0) {
-					var cell:TableCell = processedRow.getElementAt(0) as TableCell;
-					var ir:IItemRenderer = cell.getElementAt(0) as IItemRenderer;
-					removeItemRenderer(ir);
-					cell.removeElement(ir);
+					var cell:TableItemRenderer = processedRow.getElementAt(0) as TableItemRenderer;
+					// var cell:TableCell = processedRow.getElementAt(0) as TableCell;
+					// var ir:IItemRenderer = cell.getElementAt(0) as IItemRenderer; //pb
+					removeItemRenderer(cell);
+					// cell.removeElement(ir);  //pb
 					processedRow.removeElement(cell);
 				}
 				removeElement(processedRow);
@@ -169,9 +213,50 @@ package com.unhurdle.spectrum
 				}
 			}
 		}
+	
+		COMPILE::JS
+		private function elementDragged(ev:Event):void{
+      ev.preventDefault();
+      // toggle("is-dragged",true);
+			element.classList.toggle('is-drop-target',true);
+    }
+		COMPILE::JS
+    private function elementNotDragged(ev:Event):void{
+      element.classList.toggle('is-drop-target',false);
+    }
+		COMPILE::JS
+    private function dropped(ev:DragEvent):void{  
+      ev.preventDefault();
+      element.classList.toggle('is-drop-target',false);
+      var fileList:FileList = ev.dataTransfer.files;
+      dispatchEvent(new ValueEvent("filesAvailable",fileList));
+    }
 
+	COMPILE::JS
+	private function uploadFile():void{
+		fileProxy.addEventListener("modelChanged",modelChangedHandler);
+		browser.browse();
+	}
+
+	COMPILE::JS
+	protected function modelChangedHandler(event:Event):void
+	{
+			dispatchEvent(new ValueEvent("filesAvailable",[(fileProxy.model as FileModel).file]));
+	}
+	
 		public function get numItemRenderers():int{
 			return numElements;
 		}
+		COMPILE::JS
+		protected var classList:CSSClassList;
+		COMPILE::JS
+    protected function toggle(classNameVal:String,add:Boolean):void
+    {
+      COMPILE::JS
+      {
+        add ? classList.add(classNameVal) : classList.remove(classNameVal);
+        setClassName(computeFinalClassNames());
+      }
+    }
     }
 	}

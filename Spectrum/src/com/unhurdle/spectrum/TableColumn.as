@@ -8,30 +8,34 @@ package com.unhurdle.spectrum
     {
       super();
     }
-
-    private var _align:String = ""
-
-		public function get align():String
-		{
-			return _align;
-		}
-
-		public function set align(value:String):void
-		{
-			_align = value;
-		}
 		public var columnDividers:Boolean;
-		
-		private var _columnLabelAlign:String = ""
-	
-		public function get columnLabelAlign():String
-		{
-			return _columnLabelAlign;
-		}
+		public var sortable:Boolean;
+		public var header:String;
+    // private var _align:String = ""
 
-		public function set columnLabelAlign(value:String):void
-		{
-			_columnLabelAlign = value;
-		}
+		// public function get align():String
+		// {
+		// 	return _align;
+		// }
+
+		// public function set align(value:String):void
+		// {
+		// 	_align = value;
+		// }
+		
+		
+		// private var _columnLabelAlign:String = ""
+	
+		// public function get columnLabelAlign():String
+		// {
+		// 	return _columnLabelAlign;
+		// }
+
+		// public function set columnLabelAlign(value:String):void
+		// {
+		// 	_columnLabelAlign = value;
+		// }
+	
+		
 	}
 }

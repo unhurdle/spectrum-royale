@@ -67,11 +67,13 @@ package com.unhurdle.spectrum.renderers
 			var ir:ISelectableItemRenderer;
 			var processedRow:TableRow = (itemRendererParent as UIBase).getElementAt(event.index) as TableRow;
 			var cell:TableCell;
+			// var cell:TableItemRenderer;
 			var n:int = processedRow.numElements;
 
 			for (var i:int = 0; i < n; i++)
 			{
 				cell = processedRow.getElementAt(i) as TableCell;
+				// cell = processedRow.getElementAt(i) as TableItemRenderer;
 				ir = cell.getElementAt(0) as ISelectableItemRenderer;
 				setData(ir, event.item, event.index);
 			}

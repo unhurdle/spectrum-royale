@@ -105,6 +105,7 @@ package com.unhurdle.spectrum.renderers
 				}
 	
 				labelField =  column.dataField;
+				
 		
 				ir.dataField = labelField;
 				ir.rowIndex = event.index;
@@ -112,10 +113,10 @@ package com.unhurdle.spectrum.renderers
 		
 				fillRenderer(index++, event.item, ir, presentationModel);
 				
-				if(column.align != "")
-				{
-					ir.align = column.align;
-				}
+				// if(column.align != "")
+				// {
+				// 	ir.align = column.align;
+				// }
 			}
 
 			// update the index values in the itemRenderers to correspond to their shifted positions.

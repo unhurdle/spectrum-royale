@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
     {
     import org.apache.royale.core.WrappedHTMLElement;
 		import org.apache.royale.html.util.addElementToWrapper;
+		import org.apache.royale.events.Event;
     }
   public class TableHeaderCell  extends TableCell
   {
@@ -11,34 +12,51 @@ package com.unhurdle.spectrum
     public function TableHeaderCell()
     {
       super();
-      typeNames = 'spectrum-Table-headCell';
+      // typeNames = 'spectrum-Table-headCell';
     }
 
-    private var _sortable:Boolean;
 
+    COMPILE::JS
+    private var elem:WrappedHTMLElement;
+    COMPILE::SWF
+    private var elem:Object;
+
+    private var _sortable:Boolean;
+  
     public function get sortable():Boolean
     {
     	return _sortable;
     }
+    private var icon:Icon;
 
-    // public function set sortable(value:Boolean):void //fix 
-    // {
-    //   element.classList.toggle("is-sortable");
-    //   var icon:Icon = new Icon("#spectrum-css-icon-ArrowDownSmall");
-    //   icon.className = "spectrum-Icon spectrum-UIIcon-ArrowDownSmall spectrum-Table-sortedIcon"; // 2 sep
-    //   icon.setAttribute("focusable",true);
-    //   addElement(icon);
-    //   _sortable = value;
-    // }
+    COMPILE::JS
+    public function set sortable(value:Boolean):void //fix 
+    {   
+      if(value){
+        icon =  new Icon("#spectrum-css-icon-ArrowDownSmall");
+        icon.type = 'ArrowDownSmall';
+        
+        icon.className = "spectrum-Table-sortedIcon";
+        addElement(icon); 
+        icon.addedToParent(); 
+        elem.classList.add("is-sortable");
+    }
+      _sortable = value;
+    }
 
-    // is-sorted-desc -- decide what to do with this.
     
+ 
+
+
+  
+
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement
 		{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'th');
+      elem = addElementToWrapper(this,'th');
+      elem.className = "spectrum-Table-headCell";
       elem.tabIndex = 0;
-			return elem;
+      return elem;
 		}
 
     //event to sort the cells in the column

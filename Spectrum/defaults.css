@@ -111,7 +111,7 @@ DatePicker {
 }
 
 Table {
-	/* IBeadLayout: ClassReference("com.unhurdle.spectrum.layouts.TableLayout");  */
+
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
   IBeadView: ClassReference("com.unhurdle.spectrum.TableView");
   IBeadModel: ClassReference("com.unhurdle.spectrum.model.TableModel");

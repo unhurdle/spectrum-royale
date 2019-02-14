@@ -16,6 +16,7 @@ package com.unhurdle.spectrum
 		import org.apache.royale.html.util.addElementToWrapper;
 		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
 		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
+		import org.apache.royale.events.ValueEvent;
 		
 		
 			
@@ -60,7 +61,17 @@ package com.unhurdle.spectrum
 
 		}
 
-	
+		private var _dropZone:Boolean;
+
+		public function get dropZone():Boolean
+		{
+			return _dropZone;
+		}
+
+		public function set dropZone(value:Boolean):void
+		{
+			_dropZone = value;
+		}
 
 		private var _fixedHeader:Boolean;
 		public function get fixedHeader():Boolean

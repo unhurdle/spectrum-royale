@@ -2,8 +2,7 @@ package com.unhurdle.spectrum.renderers
 {
   import org.apache.royale.core.StyledMXMLItemRenderer;
 	import org.apache.royale.events.Event;
-	import org.apache.royale.jewel.beads.controls.TextAlign; //eh.
-	import org.apache.royale.jewel.beads.itemRenderers.ITextItemRenderer; //eh.
+
 	import org.apache.royale.html.util.getLabelFromData;
 	
 
@@ -16,9 +15,9 @@ package com.unhurdle.spectrum.renderers
     }
 	
 
-	public class ListItemRendererForTable extends StyledMXMLItemRenderer implements ITextItemRenderer
+	public class ListItemRendererForTable extends StyledMXMLItemRenderer 
 	{
-
+		// implements ITextItemRenderer
 		public function ListItemRendererForTable()
 		{
 			super();
@@ -26,8 +25,8 @@ package com.unhurdle.spectrum.renderers
 			typeNames = "spectrum-Table-cell";
 			addClass("selectable");
 
-			textAlign = new TextAlign();
-			addBead(textAlign);
+			// textAlign = new TextAlign();
+			// addBead(textAlign);
 		}
 
 		private var _text:String = "";
@@ -55,17 +54,17 @@ package com.unhurdle.spectrum.renderers
 
 		
 
-		private var textAlign:TextAlign;
+		// private var textAlign:TextAlign;
 
-		public function get align():String
-		{
-			return textAlign.align;
-		}
+		// public function get align():String
+		// {
+		// 	return textAlign.align;
+		// }
 
-		public function set align(value:String):void
-		{
-			textAlign.align = value;
-		}
+		// public function set align(value:String):void
+		// {
+		// 	textAlign.align = value;
+		// }
 
 		
 		override public function set data(value:Object):void
@@ -82,8 +81,8 @@ package com.unhurdle.spectrum.renderers
             
 			if(MXMLDescriptor == null)
 			{
-				textNode = new TextNode('div');
-				element.appendChild(textNode.element);
+				textNode = new TextNode('');
+				textNode.element = element;
 			}
             return element;
         }

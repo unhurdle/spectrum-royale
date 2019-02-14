@@ -27,8 +27,8 @@ package com.unhurdle.spectrum.renderers
           var elem:WrappedHTMLElement = addElementToWrapper(this,'td');
           if(MXMLDescriptor == null)
 			    {
-				  textNode = new TextNode('div');
-				  element.appendChild(textNode.element);
+				  textNode = new TextNode('');
+					textNode.element = element;
 			    }
 
 			

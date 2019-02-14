@@ -111,7 +111,7 @@
     <component id="TableArrayListSelectionModel" class="com.unhurdle.spectrum.model.TableArrayListSelectionModel"/>
     <component id="TableHeaderCell" class="com.unhurdle.spectrum.TableHeaderCell"/>
     <component id="TableRow" class="com.unhurdle.spectrum.TableRow"/>
-    <component id="TableLayout" class="com.unhurdle.spectrum.layouts.TableLayout"/>
+    
     <component id="TableColumn" class="com.unhurdle.spectrum.TableColumn"/>
     <component id="TableView" class="com.unhurdle.spectrum.TableView"/>
     <component id="TBodyContentArea" class="com.unhurdle.spectrum.TBodyContentArea"/>

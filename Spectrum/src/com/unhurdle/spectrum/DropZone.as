@@ -116,7 +116,7 @@ package com.unhurdle.spectrum
     // paragraph.element.appendChild(br);
     return element;
     }
-
+  
   
   }
 }
