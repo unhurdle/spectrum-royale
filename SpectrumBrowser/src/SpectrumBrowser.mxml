@@ -80,17 +80,16 @@
 		<js:ContainerDataBinding/>
 	</sp:beads>
    
-      <!-- <sp:Table id="table" dataProvider= "{_guitarrists}"> dropZone="true"-->
-      <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true" >
+      <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true"> 
+      <!-- <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true" dropZone="true" > -->
         <sp:TableColumn dataField="guitarrist" label="Guitarrist" itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true" sortable="true"/>
-				<sp:TableColumn dataField="album" label="Album"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" />
-				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer"/> 
+				<sp:TableColumn dataField="album" label="Album"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/>
+				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/> 
         <sp:beads>
                 <!-- <js:EasyDataProviderChangeNotifier/> -->
-								<!-- <sp:AddTableRowForArrayListData/>
+								<sp:AddTableRowForArrayListData/>
 								<sp:RemoveTableRowForArrayListData/>
-							
-								<sp:RemoveAllItemRendererForArrayListData/> -->
+							  <sp:RemoveAllItemRendererForArrayListData/> 
                 <!-- <sp:UpdateTableRowForArrayListData/>] -->
                 <!-- <sp:TableItemRendererFactoryForCollectionView/> -->
 					

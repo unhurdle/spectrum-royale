@@ -58,9 +58,6 @@ package com.unhurdle.spectrum.renderers
 			labelField = model.labelField;
 
 			model.addEventListener("dataProviderChanged", dataProviderChangeHandler);	
-			table.addEventListener("multiSelect", handleItemAdded1);
-
-			// invoke now in case "dataProviderChanged" has already been dispatched.
 			dataProviderChangeHandler(null);
 		}
 		
@@ -79,11 +76,6 @@ package com.unhurdle.spectrum.renderers
 			// listen for individual items being added in the future.
 			dp.addEventListener(CollectionEvent.ITEM_ADDED, handleItemAdded);
 		}
-		protected function handleItemAdded1(event:ValueEvent):void{
-			trace("event");
-			trace(event);
-		}
-
 		protected function handleItemAdded(event:CollectionEvent):void
 	
 		{
@@ -161,14 +153,6 @@ package com.unhurdle.spectrum.renderers
             itemRendererParent.addItemRendererAt(itemRenderer, index);
 
             itemRenderer.labelField = labelField;
-
-            if (presentationModel) {
-                var style:SimpleCSSStyles = new SimpleCSSStyles();
-                style.marginBottom = presentationModel.separatorThickness;
-                UIBase(itemRenderer).style = style;
-                UIBase(itemRenderer).height = presentationModel.rowHeight;
-                UIBase(itemRenderer).percentWidth = 100;
-            }
 
             setData(itemRenderer, item, index);
         }

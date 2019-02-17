@@ -59,11 +59,13 @@ package com.unhurdle.spectrum.controllers
 		protected function selectedHandler(event:ItemClickedEvent):void
         {
             var renderer:DataItemRenderer = event.currentTarget as DataItemRenderer;
-			
-            model.labelField = renderer.labelField;
+						model.labelField = renderer.labelField;
+						if(!event.target.element.classList.contains("spectrum-Table-checkboxCell")){
+							
 						model.selectedItem = event.data;
             (model as TableModel).selectedItemProperty = model.selectedItem[model.labelField];
             model.selectedIndex = (model as TableModel).getIndexForSelectedItemProperty();
+						}
 
             view.host.dispatchEvent(new Event(Event.CHANGE));
         }

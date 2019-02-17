@@ -20,15 +20,14 @@ package com.unhurdle.spectrum
 			import org.apache.royale.core.CSSClassList;
 		}
 
-		import org.apache.royale.file.beads.FileModel;
-		import org.apache.royale.file.beads.FileLoader;
-		import org.apache.royale.file.beads.FileBrowser;
-		import org.apache.royale.file.FileProxy;
+		
 		import com.unhurdle.spectrum.renderers.TableItemRenderer;
+		import org.apache.royale.core.IChild;
+		import com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView;
 
 
 
-
+	[Event(name="filesAvailable", type="org.apache.royale.events.ValueEvent")]
 	 
 	public class TBodyContentArea extends ContainerContentArea implements IItemRendererParent
 	{
@@ -36,16 +35,9 @@ package com.unhurdle.spectrum
 		public function TBodyContentArea()
 		{
 			super();
-			fileProxy = new FileProxy();
-      browser = new FileBrowser();
-      loader = new FileLoader();
-      fileProxy.addBead(loader);  
-      fileProxy.addBead(browser); 
+		 
 		}
 
-		private var browser:FileBrowser;
-    private var loader:FileLoader;
-    private var fileProxy:FileProxy;
 
 	
 		COMPILE::JS
@@ -56,7 +48,7 @@ package com.unhurdle.spectrum
 		COMPILE::JS
         override protected function createElement():WrappedHTMLElement
         {
-		
+				
 			 	elem = addElementToWrapper(this, 'tbody');
 		
 	
@@ -67,58 +59,39 @@ package com.unhurdle.spectrum
 
 		public function addItemRenderer(renderer:IItemRenderer, dispatchAdded:Boolean):void
 		{
-			// this method is not used for now, so it needs to be tested to see if it's correctly implemented
-			var r:DataItemRenderer = renderer as DataItemRenderer;
-			r.itemRendererParent = host; // easy access from renderer to table
-			// var tableCell:TableCell = new TableCell();
-			// tableCell.addElement(r);
+		// 	// this method is not used for now, so it needs to be tested to see if it's correctly implemented
+		// 	var r:DataItemRenderer = renderer as DataItemRenderer;
+		// 	r.itemRendererParent = host; // easy access from renderer to table
+		// 	// var tableCell:TableCell = new TableCell();
+		// 	// tableCell.addElement(r);
 
-			var row:TableRow;
-			if(r.rowIndex > numElements -1)
-			{
-				row = new TableRow();
-				addElementAt(row, r.rowIndex, false);
-			} 
-			else
-			{
-				row = getElementAt(r.rowIndex) as TableRow;
-			}
-
-			row.addElement(r, dispatchAdded);
-			// row.addElement(tableCell, dispatchAdded);
-			
-			
-			itemRenderers.push(r);
-			dispatchItemAdded(renderer);
+		// 	var row:TableRow;
+		// 	if(r.rowIndex > numElements -1)
+		// 	{
+		// 		row = new TableRow();
+		// 		addElementAt(row, r.rowIndex, false);
+		// 	} 
+		// 	else
+		// 	{
+		// 		row = getElementAt(r.rowIndex) as TableRow;
+		// 	}
+		// 	row.addElement(r, dispatchAdded);
+		// 	// row.addElement(tableCell, dispatchAdded);
+		// 	itemRenderers.push(r);
+		// 	dispatchItemAdded(renderer);
 		}
 		
 		public function addItemRendererAt(renderer:IItemRenderer, index:int):void
 		{
-			// COMPILE::JS{
-			// if((r.itemRendererParent as Table).dropZone == true){
-			// element = newElement('div') as WrappedHTMLElement;
-			// element.classList.add('spectrum-Table-body');
-			// element.classList.add('is-drop-target');
-			// element.style.height = 120;
-			// element.setAttribute("role","rowgroup");
-			// }
-			// }
-	
+		
+
 			var r:DataItemRenderer = renderer as DataItemRenderer;
 			
 			r.itemRendererParent = host; // easy access from renderer to table
 			COMPILE::JS{
-			if((r.itemRendererParent as Table).dropZone == true){
-			// element.classList.add('is-drop-target');
-			element.addEventListener('dragenter', elementDragged);
-    	element.addEventListener('dragleave', elementNotDragged); 
-    	element.addEventListener('dragover', elementDragged);
-    	element.addEventListener('drop', dropped);
-			element.classList.add('spectrum-Table-body');
-			}
-			else{
+		
 				element.className = "spectrum-Table-body";
-			}
+			
 			}
 			// var tableCell:TableCell = new TableCell();
 			// tableCell.addElement(r);
@@ -133,7 +106,13 @@ package com.unhurdle.spectrum
 			{
 				row = getElementAt(r.rowIndex) as TableRow;
 			}
-
+		//BUT ONLY FOR MULTISELECT! change this.
+			// if(r.columnIndex == 0){
+			// 	COMPILE::JS
+			// 	{
+			// 		r = checkBoxCell();
+			// 	}
+			// }
 			row.addElementAt(r, r.columnIndex, true);
 			// row.addElementAt(tableCell, r.columnIndex, true);
 			var t:Table = r.itemRendererParent as Table;
@@ -145,7 +124,6 @@ package com.unhurdle.spectrum
 						{
 								r.element.classList.add("spectrum-Table-cell--divider");
 						}
-					
 					}
 				}
 			}
@@ -214,36 +192,7 @@ package com.unhurdle.spectrum
 			}
 		}
 	
-		COMPILE::JS
-		private function elementDragged(ev:Event):void{
-      ev.preventDefault();
-      // toggle("is-dragged",true);
-			element.classList.toggle('is-drop-target',true);
-    }
-		COMPILE::JS
-    private function elementNotDragged(ev:Event):void{
-      element.classList.toggle('is-drop-target',false);
-    }
-		COMPILE::JS
-    private function dropped(ev:DragEvent):void{  
-      ev.preventDefault();
-      element.classList.toggle('is-drop-target',false);
-      var fileList:FileList = ev.dataTransfer.files;
-      dispatchEvent(new ValueEvent("filesAvailable",fileList));
-    }
-
-	COMPILE::JS
-	private function uploadFile():void{
-		fileProxy.addEventListener("modelChanged",modelChangedHandler);
-		browser.browse();
-	}
-
-	COMPILE::JS
-	protected function modelChangedHandler(event:Event):void
-	{
-			dispatchEvent(new ValueEvent("filesAvailable",[(fileProxy.model as FileModel).file]));
-	}
-	
+		
 		public function get numItemRenderers():int{
 			return numElements;
 		}
@@ -258,5 +207,37 @@ package com.unhurdle.spectrum
         setClassName(computeFinalClassNames());
       }
     }
-    }
+
+		
+	COMPILE::JS
+	private function checkBoxCell():DataItemRenderer
+	{
+		var ir:TableItemRenderer = new TableItemRenderer();
+		ir.itemRendererParent = host;
+		ir.element.classList.add("spectrum-Table-checkboxCell");
+		var label:HTMLElement = newElement('label');
+		label.className = "spectrum-Checkbox";
+		label.classList.add("spectrum-Table-checkbox");
+		var input:HTMLElement = newElement('input');
+		input.setAttribute("type","checkbox");
+		input.title = "Select All";
+		input.className = "spectrum-Checkbox-input";
+		var span:HTMLElement = newElement('span');
+		span.className = "spectrum-Checkbox-box";
+		var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
+		icon.className = "spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
+		span.appendChild(icon.element); 
+		icon.addedToParent();
+		label.appendChild(input);
+		label.appendChild(span);
+		ir.element.appendChild(label);
+		(parent as Table).model.columns[0].itemRenderer = ir as DataItemRenderer;
+		return ir;
+		}
+		
+		
+	
+	
+   
+ }
 	}

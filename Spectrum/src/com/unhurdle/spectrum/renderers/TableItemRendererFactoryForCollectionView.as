@@ -24,6 +24,7 @@ package com.unhurdle.spectrum.renderers
    	import org.apache.royale.utils.loadBeadFromValuesManager;
     import com.unhurdle.spectrum.TableView;
     import com.unhurdle.spectrum.TBodyContentArea;
+    import com.unhurdle.spectrum.newElement;
     import com.unhurdle.spectrum.model.TableModel;
     import com.unhurdle.spectrum.Table;
     import com.unhurdle.spectrum.TableColumn;
@@ -31,10 +32,13 @@ package com.unhurdle.spectrum.renderers
     import com.unhurdle.spectrum.TableHeaderCell;
     import com.unhurdle.spectrum.THead;
     import com.unhurdle.spectrum.TableRow;
-
-    import org.apache.royale.collections.ArrayList;
+		import org.apache.royale.collections.ArrayList;
     import org.apache.royale.html.beads.EasyDataProviderChangeNotifier;
     import com.unhurdle.spectrum.TextNode;
+    import com.unhurdle.spectrum.Icon;
+    import org.apache.royale.events.ValueEvent;
+    import org.apache.royale.core.IItemRenderer;
+  
    
  
     
@@ -97,88 +101,115 @@ package com.unhurdle.spectrum.renderers
 		private var tbody:TBodyContentArea;
 		protected function dataProviderChangeHandler(event:Event):void
 		{
-			// -- 1) CLEANING PHASE
-            if (!model)
-				return;
-			var dp:ICollectionView = model.dataProvider as ICollectionView;
+		if (!model)
+			return;
+		var dp:ICollectionView = model.dataProvider as ICollectionView;
 			if (!dp)
 			{
 				model.selectedIndex = -1;
 				model.selectedItem = null;
 				model.selectedItemProperty = null;
-
-				// TBodyContentArea - remove data items
 				tbody.removeAllItemRenderers();
 				return;
 			}
-			// remove this and better add beads when needed
-			// listen for individual items being added in the future.
-			// var dped:IEventDispatcher = dp as IEventDispatcher;
-			// dped.addEventListener(CollectionEvent.ITEM_ADDED, itemAddedHandler);
-			// dped.addEventListener(CollectionEvent.ITEM_REMOVED, itemRemovedHandler);
-			// dped.addEventListener(CollectionEvent.ITEM_UPDATED, itemUpdatedHandler);
-			
-	
-
-				
-       // TBodyContentArea - remove data items
-			tbody.removeAllItemRenderers();
-			
-      // THEAD - remove header items
-			removeElements(view.thead);
-		
-			
-			createHeader();
-	
-      
-			
-			
-		
-			var presentationModel:IListPresentationModel = table.presentationModel as IListPresentationModel;
-			
-			labelField = model.labelField;
-			
-            var column:TableColumn;
-            var ir:ITextItemRenderer;
-
-			var n:int = dp.length;
-			var index:int = 0;
+		tbody.removeAllItemRenderers();
+		removeElements(view.thead);
+		createHeader();
+		var presentationModel:IListPresentationModel = table.presentationModel as IListPresentationModel;
+		labelField = model.labelField;
+		var column:TableColumn;
+		var ir:ITextItemRenderer;
+		var n:int = dp.length;
+		var index:int = 0;
 			for (var i:int = 0; i < n; i++)
 			{
-				
-			    for(var j:int = 0; j < model.columns.length; j++)
+				for(var j:int = 0; j < model.columns.length; j++)
 				{
-			        column = model.columns[j] as TableColumn;
-					
-			        if(column.itemRenderer != null)
-                    {
-						ir = column.itemRenderer.newInstance() as ITextItemRenderer;
-                    } else
-                    {
-                        ir = itemRendererFactory.createItemRenderer(tbody) as ITextItemRenderer;
-                    }
+				column = model.columns[j] as TableColumn;
+				if(column.multiSelect == true){
+						checkBoxRenderer(column,i,j,index,presentationModel);
+				}
+				else{
+						if(column.itemRenderer != null)
+    		{
+					ir = column.itemRenderer.newInstance() as ITextItemRenderer;
+    		}
+				else
+    		{
+    		ir = itemRendererFactory.createItemRenderer(tbody) as ITextItemRenderer;
+    		}
 				
-					labelField =  column.dataField;
-					// labelField = tableHeader.dataField; //messes up the rend.
-          	var item:Object = dp.getItemAt(i);
-
-           	(ir as DataItemRenderer).dataField = labelField;
-						(ir as DataItemRenderer).rowIndex = i;
-						(ir as DataItemRenderer).columnIndex = j;
-            fillRenderer(index++, item, (ir as ISelectableItemRenderer), presentationModel);
-			
-                    // if(column.align != "")
-                    // {
-                    //     ir.align = column.align;
-                    // }
-                }
-			}
+				labelField =  column.dataField;
+				var item:Object = dp.getItemAt(i);
+				(ir as DataItemRenderer).dataField = labelField;
+				(ir as DataItemRenderer).rowIndex = i;
+				(ir as DataItemRenderer).columnIndex = j;
 		
 			
-			(_strand as IEventDispatcher).dispatchEvent(new Event("itemsCreated"));
-            table.dispatchEvent(new Event("layoutNeeded"));
-        }
+				fillRenderer(index++, item, (ir as ISelectableItemRenderer), presentationModel);
+				}
+			}
+		(_strand as IEventDispatcher).dispatchEvent(new Event("itemsCreated"));
+    table.dispatchEvent(new Event("layoutNeeded"));
+				}
+			
+    }
+	
+		private function checkBoxRenderer(multiColumn:TableColumn,i:int,j:int,index:int,presentationModel:IListPresentationModel):void
+		{
+			var ir:IItemRenderer;
+			if(multiColumn.itemRenderer != null)
+    		{
+					ir = multiColumn.itemRenderer.newInstance() as TableItemRenderer;
+    		}
+				else
+    		{
+    		ir = itemRendererFactory.createItemRenderer(tbody) as TableItemRenderer;
+    		}
+				
+	// 			// labelField =  column.dataField;
+				var item:Object = model.dataProvider.getItemAt(i);
+				// (ir as DataItemRenderer).dataField = labelField;
+				(ir as DataItemRenderer).rowIndex = i;
+				(ir as DataItemRenderer).columnIndex = j;
+				COMPILE::JS
+				{
+				 ir.element.classList.add("spectrum-Table-checkboxCell");
+				ir.element.appendChild(checkBoxLabel());
+				}
+				fillRenderer(index++, item, (ir as ISelectableItemRenderer), presentationModel);
 
+			
+		(_strand as IEventDispatcher).dispatchEvent(new Event("itemsCreated"));
+    table.dispatchEvent(new Event("layoutNeeded"));
+	}
+		
+	
+		
+	
+	COMPILE::JS
+	
+		private function checkBoxLabel():HTMLElement
+		{
+			var label:HTMLElement = newElement('label');
+		label.className = "spectrum-Checkbox";
+		label.classList.add("spectrum-Table-checkbox");
+		var input:HTMLElement = newElement('input');
+		input.setAttribute("type","checkbox");
+		input.title = "Select All";
+		input.className = "spectrum-Checkbox-input";
+		var span:HTMLElement = newElement('span');
+		span.className = "spectrum-Checkbox-box";
+		var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
+		icon.className = "spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
+		span.appendChild(icon.element); 
+		icon.addedToParent();
+		label.appendChild(input);
+		label.appendChild(span);
+
+		return label;
+		}
+	
 		public function removeElements(container: IParent):void
 		{
 			if(container != null)
@@ -197,14 +228,7 @@ package com.unhurdle.spectrum.renderers
 		{
 			tbody.addItemRendererAt(itemRenderer, index);
 			itemRenderer.labelField = labelField;
-			
-			if (presentationModel) {
-				var style:SimpleCSSStyles = new SimpleCSSStyles();
-				style.marginBottom = presentationModel.separatorThickness;
-				(itemRenderer as UIBase).style = style;
-				(itemRenderer as UIBase).height = presentationModel.rowHeight;
-				(itemRenderer as UIBase).percentWidth = 100;
-			}
+		
 			rendArray.push(itemRenderer);
 			setData(itemRenderer, item, index);
 		
@@ -214,10 +238,15 @@ package com.unhurdle.spectrum.renderers
 		private var rendArray:Array = [];
 		protected function setData(itemRenderer:ISelectableItemRenderer, data:Object, index:int):void
 		{
+			COMPILE::JS
+			{
+			if(!itemRenderer.element.classList.contains("spectrum-Table-checkboxCell")){
 			
-			itemRenderer.index = index;
+			
 			itemRenderer.data = data;
-		
+			}
+		}
+				itemRenderer.index = index;
 		}
 		private var sortArray:Array = [];
 		
@@ -255,12 +284,10 @@ package com.unhurdle.spectrum.renderers
 				}
 			}
 
-
 		COMPILE::JS
-			
 		private function ascArrow(tableHead:Object):void
 		{
-		
+			trace("ever come here ?1");
 			if(tableHead.classList.contains("is-sorted-desc")){
 				tableHead.classList.replace("is-sorted-desc","is-sorted-asc");
 				tableHead.removeAttribute('aria-sort');//maybe dx need
@@ -276,6 +303,7 @@ package com.unhurdle.spectrum.renderers
 
 		private function descArrow(tableHead:Object):void
 		{
+			trace("ever come here ?2");
 			if(tableHead.classList.contains("is-sorted-asc")){
 				tableHead.classList.replace("is-sorted-asc","is-sorted-desc");
 				tableHead.removeAttribute('aria-sort');//maybe dx need
@@ -317,7 +345,37 @@ package com.unhurdle.spectrum.renderers
 
 	private var tableHeader:TableHeaderCell;
 	private var headerRow:TableRow;
+
 	
+	private function multiSelectHeader():void
+	{
+		COMPILE::JS{
+			//prob also needs a function to check all the boxes if checked.
+		tableHeader= new TableHeaderCell();
+		tableHeader.element.classList.add("spectrum-Table-checkboxCell");
+		var label:HTMLElement = newElement('label');
+		label.className = "spectrum-Checkbox";
+		label.classList.add("spectrum-Table-checkbox");
+		var input:HTMLElement = newElement('input');
+		input.setAttribute("type","checkbox");
+		input.title = "Select All";
+		input.className = "spectrum-Checkbox-input";
+		var span:HTMLElement = newElement('span');
+		span.className = "spectrum-Checkbox-box";
+		var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
+		icon.className = "spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
+		span.appendChild(icon.element); 
+    icon.addedToParent();
+		label.appendChild(input);
+		label.appendChild(span);
+		tableHeader.element.appendChild(label);
+		}
+	}
+
+		
+
+
+
 	private function createHeader():void
 	{ 
 	
@@ -343,8 +401,13 @@ package com.unhurdle.spectrum.renderers
 			for(c=0; c < model.columns.length; c++)
 			{
 				test = model.columns[c] as TableColumn;
+				if((model.columns[c] as TableColumn).multiSelect){
+					multiSelectHeader();
+				}
+				else{
+					tableHeader = new TableHeaderCell();
+				}
 				
-				tableHeader = new TableHeaderCell();
 			
 				
 				
@@ -382,7 +445,15 @@ package com.unhurdle.spectrum.renderers
 
 				thead.addElement(headerRow);
 				table.addElement(thead);
+				COMPILE::JS
+				{
+				this.table.element.insertBefore(thead.element,tbody.element);
+				}
 		}
 			}
+
+	
+
+		
 		}
 }

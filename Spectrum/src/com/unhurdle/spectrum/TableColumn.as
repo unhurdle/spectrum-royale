@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
 		public var columnDividers:Boolean;
 		public var sortable:Boolean;
 		public var header:String;
+		public var multiSelect:Boolean;
     // private var _align:String = ""
 
 		// public function get align():String

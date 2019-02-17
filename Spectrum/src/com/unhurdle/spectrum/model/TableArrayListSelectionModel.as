@@ -6,6 +6,7 @@ package com.unhurdle.spectrum.model
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.EventDispatcher;
+	import com.unhurdle.spectrum.Table;
 	
   public class TableArrayListSelectionModel extends EventDispatcher implements ISelectionModel,IRollOverModel
   {
@@ -14,13 +15,15 @@ package com.unhurdle.spectrum.model
     {
       
     }
-
+		protected var table:Table;
     private var _strand:IStrand;
 
      
 		public function set strand(value:IStrand):void
 		{
 			_strand = value;
+			table = value as Table;
+
 		}
 
 		private var _dataProvider:IArrayList;

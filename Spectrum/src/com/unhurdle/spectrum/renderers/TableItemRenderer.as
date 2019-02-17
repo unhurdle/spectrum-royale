@@ -14,8 +14,6 @@ package com.unhurdle.spectrum.renderers
 		public function TableItemRenderer()
 		{
 			super();
-
-		
 			typeNames = "spectrum-Table-cell";
 			
 		}
@@ -25,6 +23,7 @@ package com.unhurdle.spectrum.renderers
         override protected function createElement():WrappedHTMLElement
         {
           var elem:WrappedHTMLElement = addElementToWrapper(this,'td');
+					elem.tabIndex = 0;
           if(MXMLDescriptor == null)
 			    {
 				  textNode = new TextNode('');
