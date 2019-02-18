@@ -1,63 +1,258 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" xmlns:spectrum="com.unhurdle.spectrum.*" xmlns:elements="org.apache.royale.textLayout.elements.*"   colorstop="dark" 
- 
-  
->
- <!-- xmlns:models = "models.*" -->
- <!-- <sp:model>
-		<model:TablesItemModel id="tablesModel"/>
-	</sp:model>
-   -->
-   <!-- <sp:model>
-   <models:TablesModel id="tablesModel"/>
-   </sp:model> -->
-  
-  
-  
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" 
+  xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="dark" >
   <fx:Script>
     <![CDATA[
-    import org.apache.royale.collections.ArrayList;
-    import models.TablesModel;
-    import vos.GuitarristVO;
-    
 
+      import com.unhurdle.spectrum.Alert;
+      import com.unhurdle.spectrum.Toast;
+      import com.unhurdle.spectrum.Dialog;
+      import com.unhurdle.spectrum.DialogContent;
+      import com.unhurdle.spectrum.DialogFooter;
+      import com.unhurdle.spectrum.DialogHeader;
+      import org.apache.royale.html.elements.H1;
+      import org.apache.royale.html.elements.P;
+      import org.apache.royale.events.ValueEvent;
+      import com.unhurdle.spectrum.data.BreadcrumbsItem;
+      import org.apache.royale.events.Event;
+      import org.apache.royale.events.BrowserEvent;
+      import com.unhurdle.spectrum.Switch;
+      import com.unhurdle.spectrum.SearchWithin;
+      import org.apache.royale.events.ValueEvent;
+      import com.unhurdle.spectrum.AssetList;
+      import org.apache.royale.collections.HierarchicalData;
+      import com.unhurdle.spectrum.data.AssetListItem;
+      import com.unhurdle.spectrum.SideNav;
+      import com.unhurdle.spectrum.card.Card;
+      import com.unhurdle.spectrum.QuickActions;
+      import com.unhurdle.spectrum.Asset;
+      import com.unhurdle.spectrum.card.CardBody;
+      import vos.GuitarristVO;
+      import org.apache.royale.collections.ArrayList;
 
-    public var name:String;
-    public var email:String;
-    public var password:Number;
-    // [Bindable]public var tablesModel:TablesModel = new TablesModel();
+      // private function showAlert():void{
+      //   var alert:Alert = new Alert();
+      //   alert.status = Alert.HELP;
+      //   alert.closeText = "Goodbye";
+      //   alert.header = "Hey";
+      //   alert.content = "Need some help?"
+      //   alert.showOverlay = true;
+       
+      //   alert.show();
+      // }
+      private function showToast():void{
+        new Toast("Some great news here!").show();
+        // var toast:Toast = new Toast();
+        // toast.text = "Some great news here!"
+        // toast.show();
+      }
 
-    private var _arraySpot:Object = {
-    "name":name,
-    "email":email,
-    "pass":password
-    };
+      // private function handleCheckboxChange():void
+      // {
+      //   new Toast("Checkbox value: " + myCheckbox.checked).show();
+      // }
+      // [Bindable]
+      // private var listProvider:Array = [
+      //   "One",
+      //   "Two",
+      //   "Three",
+      //   "Four",
+      //   "Five"
 
-    public function get arraySpot():Object
-    {
-    	return _arraySpot;
-    }
+      // ];
+      // private function handleCheckboxChange():void
+      // {
+      //   new Toast("Checkbox value: " + myCheckbox.checked).show();
+      // }
+      // [Bindable]
+      // private var listProvider:Array = [
+      //   "One",
+      //   "Two",
+      //   "Three",
+      //   "Four",
+      //   "Five"
+      // ];
+      [Bindable]
+      private var comboProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ];
+      // [Bindable]
+      // private var millerColumnsProvider:Array = [,];
+      // [Bindable]private var date:Date = new Date();
+      // [Bindable]private var date1:Date = new Date(2019,01,25);
 
-    public function set arraySpot(value:Object):void
-    {
-    	_arraySpot = value;
-    }
+      // private function handleSrepperChange(ev:Event):void{
+      //   new Toast("Stepper value" + ev.target.value).show();
+      // }
 
-  [Bindable]public var arrayInfo:ArrayList = new ArrayList([
-		("Steve Vai", "Passion & Warfare", 1990),
-		("Joe Satriani", "Surfing With The Alien", 1987),
-		("Yngwie Malmsteen", "Rising Force", 1984)
-    // ,
-		// ("Steve Morse", "Southern Steel", 1991),
-		// ("Mark Knopfler", "Local Hero", 1983),
-		// ("Eric Sardinas", "Treat Me Right", 1999),
-		// ("Mike Oldfield", "Tubular Bells", 1973),
-		// ("Van Halen", "1984", 1984)
-		]);
+      // private function actionChange():void{
+      //   var item:String = actionButton.selectedItem.label as String;
+      //   new Toast(item).show();
+      // }
+      // private function actionClick():void{
+      //   var item:Object = actionButton.selectedItem;
+      //   var str:String = "No Item";
+      //   if(item){
+      //     str = item.label;
+      //   }
+      //   new Toast(str).show();
+      // }
+      // private var dialog:Dialog;
+      // private function showDialog():void{
+      //   dialog = new Dialog();
+      //   dialog.size = 1;
+      //   dialog.error = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.show();
+      // }
 
- [Bindable]
+      // private function hideDialog():void{
+      //   dialog.hide();
+      // }
+
+      // private function itemSelected(ev:ValueEvent):void{
+      //   var value:String;
+      //   if(ev.value["label"]){
+      //     value = ev.value["label"];
+      //   } else {
+      //     value = "" + ev.value;
+      //   }
+        
+        // if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
+        //   value = ev.value.children[0].children[0].text;
+        // }
+        // else{
+        //   value = ev.value.children[0].text;
+        // }
+        // new Toast("The selected item is: "+value).show();
+      // }
+      // private function sideNavClick(ev:*):void{
+      //   var value:String = ev.target.selectedItem.label;
+      //   new Toast("The selected item is: "+value).show();
+      // }
+
+      // private function handleChangeOfRange():void{
+      //   rating1.value = ratingStepper.value;
+      // }
+
+      // private function handleTagChange():void{
+      //   new Toast("The tag has been deleted").show();
+      // }
+
+      // private function handleChangeOfMax():void{
+      //   rating1.max = maxStepper.value;
+      //   ratingStepper.max = maxStepper.value;
+      //   if(ratingStepper.value > (maxStepper.value)){
+      //     ratingStepper.value = (maxStepper.value);
+      //   }
+      // }
+      // private function onFiles(ev:ValueEvent):void{
+      //   var files:Array = ev.value;
+      //   new Toast("File name is: " + files[0].name).show();
+      // }
+      // private function onDialChange(ev:Event):void{
+      //   trace(ev.target.value);
+      // }
+
+      // private function switched(ev:Event):void{
+      //   var theSwitch:Switch = ev.target as Switch;
+      //   var status:String = theSwitch.checked ? "On" : "Off";
+      //   (ev.target as Switch).text = "Toggle " + status;
+      // }
+      // private function onSubmit(ev:*):void{
+      //   var searchText:String;
+      //   if(ev.target is SearchWithin)
+      //     searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
+      //   else
+      //     searchText = ev.target.text;
+      //   var content:String = "searching for: " + searchText;
+      //   new Toast(content).show();
+      // }
+      // private function handleSelectedDate():void{
+      //   new Toast("handleSelectedDate").show();
+      // }
+
+      private function assetItemSelected(ev:ValueEvent):void
+      {
+        trace(ev);
+      }
+      [Bindable]
+      private var assetList:AssetList;
+      private var assetListArray:Array;
+      private function fillAssetList():AssetList{
+        trace("here");
+        assetList = new AssetList();
+        assetListArray = new Array();
+        assetListArray[0] = new AssetListItem("File1");
+        assetListArray[0].selectable = "true";
+        assetListArray[0].src = "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7";
+        assetListArray[1] = new AssetListItem("File2");
+        assetListArray[1].selectable = "true";
+        assetListArray[1].iconType = "FileCSV";
+        assetListArray[2] = new AssetListItem("File3");
+        assetListArray[2].selectable = "true";
+        assetListArray[2].iconType = "Folder";
+        assetListArray[2].isBranch = "true";
+        assetList.dataProvider = assetListArray;
+        trace("assetList");
+        trace(assetList);
+        trace("assetListArray");
+        trace(assetListArray);
+        return assetList;
+      }
+      [Bindable]
+      private var MillerColumnsDataProvider:HierarchicalData = new HierarchicalData(
+        {
+          children:[
+            {
+              children:[
+                {text:"1a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
+                {text:"1b", selectable:true, iconType: "FileCSV"},
+                {text:"1c opens", selectable:true, iconType: "Folder", isBranch: "true", 
+                  children:[
+                    {text:"2a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
+                    {text:"2b", selectable:true, iconType: "FileCSV"},
+                    {text:"2c", selectable:true, iconType: "FileCSV" },
+                    {text:"2d opens", selectable:true, iconType: "Folder" , isBranch: "true",  
+                      children:[
+                        {text:"3a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
+                        {text:"3b", selectable:true, iconType: "FileCSV"},
+                        {text:"3c", selectable:true, iconType: "FileCSV" }
+                      ]}
+                  ]}
+              ]
+            }
+          ]
+        }
+        );
+
+         [Bindable]
 		private var _guitarrists:ArrayList = new ArrayList([
 			new GuitarristVO("Steve Vai", "Passion & Warfare", 1990),
 			new GuitarristVO("Joe Satriani", "Surfing With The Alien", 1987),
@@ -69,19 +264,23 @@
 			new GuitarristVO("Van Halen", "1984", 1984)
 		]);
  ]]>
-
+   
   </fx:Script>
-
   <sp:initialView>
     <sp:View>
-  
- 
-  <sp:beads>
-		<js:ContainerDataBinding/>
-	</sp:beads>
+  <!-- <sp:Search id="search" submit="onSubmit(event)"/> -->
+  <!-- <sp:SearchWithin dataProvider="{listProvider}" submit="onSubmit(event)" selectedItem="{listProvider[0]}"/> -->
+  <!-- <sp:ActionButton id="actionButton" click="actionClick()"
+        icon="#spectrum-css-icon-ChevronRightMedium"
+        iconSize="XS";
+        dataProvider="{comboProvider}" change="actionChange()"/> -->
+        
+        <sp:MillerColumns dataProvider="{MillerColumnsDataProvider}">
+        </sp:MillerColumns>
+    
    
       <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true"> 
-      <!-- <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true" dropZone="true" > -->
+      
         <sp:TableColumn dataField="guitarrist" label="Guitarrist" itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true" sortable="true"/>
 				<sp:TableColumn dataField="album" label="Album"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/>
 				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/> 
@@ -89,6 +288,262 @@
           <sp:AddTableRowForArrayListData/>
 				</sp:beads>
     </sp:Table>
-  </sp:View>
+ 
+
+<!-- 
+ <sp:AssetList itemClicked="assetItemSelected(event)">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:AssetListItem text="Home" selectable="true" src="https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"/>
+            <sp:AssetListItem text="Playground" selectable="true" iconType="FileCSV"/>
+            <sp:AssetListItem text="Sliders" selectable="true" iconType="Folder" isBranch="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:AssetList> -->
+    <!-- <sp:ButtonGroup> -->
+      <!-- <sp:Radio text="radio1" radioName="radioGroup"  /> -->
+      <!-- <sp:Radio text="radio2" radioName="radioGroup" invalid="true"/> -->
+      <!-- <sp:TextArea placeholder="enter text" required="true"/> -->
+      <!-- <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" invalid="false" quiet="true"/>indeterminate="true" -->
+      <!-- <sp:ClearButton disabled="true" small="true"/> -->
+      <!-- <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/> -->
+      <!-- <sp:Dropdown dataProvider="{listProvider}" placeholder="Select a Number"/> -->
+      <!-- <sp:Dropdown placeholder="Select a Number" invalid="true"> -->
+        <!-- <sp:dataProvider> -->
+          <!-- <fx:Array> -->
+            <!-- <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" /> -->
+            <!-- <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/> -->
+            <!-- <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/> -->
+            <!-- <sp:DropdownItem isDivider="true"/> -->
+            <!-- <sp:DropdownItem text="Four 4"/> -->
+            <!-- <sp:DropdownItem text="Five 5" disabled="true"/> -->
+          <!-- </fx:Array> -->
+        <!-- </sp:dataProvider> -->
+      <!-- </sp:Dropdown> -->
+      <!-- <sp:Dropdown placeholder="Select a Number" invalid="true" disabled="true"> -->
+        <!-- <sp:dataProvider> -->
+          <!-- <fx:Array> -->
+            <!-- <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" /> -->
+            <!-- <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/> -->
+            <!-- <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/> -->
+            <!-- <sp:DropdownItem isDivider="true"/> -->
+            <!-- <sp:DropdownItem text="Four 4"/> -->
+            <!-- <sp:DropdownItem text="Five 5" disabled="true"/> -->
+          <!-- </fx:Array> -->
+        <!-- </sp:dataProvider> -->
+      <!-- </sp:Dropdown> -->
+      <!-- </sp:ButtonGroup> -->
+      <!-- <sp:Label text="label" color="red" /> -->
+      <!-- <sp:CycleButton paused="true"/> -->
+      <!-- <sp:Rating max="5" value="3" disabled="true" /> -->
+      <!-- <sp:Rating max="7" value="7"/>
+      <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
+      <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
+      <sp:Rating id="rating1" max="9" value="3" />
+      <sp:DatePicker quiet="true"/>
+      <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/>
+      <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/>
+      <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/>
+      <sp:Tool /> -->
+      <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
+      <!-- <sp:Alert text="Alert"/>  -->
+      <!-- <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
+      <sp:BarLoader label="Thingies" meter="true" value="90"/>
+      <sp:CircleLoader min="50" max="410" value="180"/>
+      <sp:CircleLoader indeterminate="true"/>
+      <sp:CircleLoader size="small" indeterminate="true" overBackground="true"/>
+      <sp:CircleLoader overBackground="true"/>
+      <sp:CircleLoader indeterminate="true"  size="large"/>
+      <sp:CircleLoader size="small"/> -->
+      <!-- <sp:StepList small="true"> -->
+      <!-- <sp:StepList isLabel="true">      
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem selected="true"/>
+            <sp:StepsListItem/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:StepList> -->
+      <!-- <sp:StepList isSmall="true">      
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem selected="true"/>
+            <sp:StepsListItem/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:StepList> -->
+      <!-- <sp:StepList isToolTip="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem selected="true"/>
+            <sp:StepsListItem/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:StepList> -->
+      <!-- <sp:StepList stepsNum="4"/> -->
+      <!-- <sp:Well/>
+      <sp:SplitView isCollapsed="top" isDraggable="false"/>
+      <sp:SplitView isCollapsed="left" isDraggable="false"/>
+      <sp:SplitView isCollapsed="right"/>
+      <sp:SplitView isCollapsed="bottom" isDraggable="false"/>
+      <sp:SplitView isCollapsed="Resizable" direction="horizontal"/>
+      <sp:SplitView isCollapsed="Resizable" direction="vertical"/>
+      <sp:CoachMark flavor="dark" quiet="true"/>
+      <sp:CoachMark flavor="light"/>
+      <html:Div style="position='relative'">
+        <sp:CoachMark/>
+        <sp:CoachMarkPopover isAbsolute="true" isOkayButton="true" titleText="First!!!!" contentText="111111111111111111111111111111111111111111111"/>
+      </html:Div> -->
+      <!-- <html:Div style="position='relative'">
+        <sp:CoachMark/>
+        <sp:CoachMarkPopover isAbsolute="false" isTwoButtons="true" titleText="Second!!!!" contentText="2222222222222222222222222222222222222222222"/>
+      </html:Div>
+      <html:Div style="position='relative'">
+        <sp:CoachMark/>
+        <sp:CoachMarkPopover isTwoButtons="true" titleText="Third!!!!" contentText="333333333333333333333333333333333333333333333" isStep="true" pageIsSelected="1" pagesNum="4"/>
+      </html:Div>
+      <html:Div style="position='relative'">
+        <sp:CoachMarkPopover isTwoButtons="true" titleText="Fourth!!!!" contentText="444444444444444444444444444444444444444444444" isImg="true" src="data:image/jpeg;base64,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"/>
+       <sp:CoachMark/>
+      </html:Div> -->
+      <!-- <sp:ExplicitPagination/>
+      <sp:ExplicitPagination pagesNum="10"/>
+      <sp:ExplicitPagination pagesNum="5" pageIsSelected="3"/>
+      <sp:SplitButtonPagination type="cta" text="next" pagesNum="5"/>
+      <sp:SplitButtonPagination type="primary" text="next" pagesNum="3" pageIsSelected="3"/>
+      <sp:SplitButtonPagination type="secondary" text="next" pagesNum="2" pageIsSelected="1"/>
+      <sp:SplitButtonPagination type="cta" text="next" pagesNum="1"/>
+      <sp:PagePagination pagesNum="5" selected="true"/>
+      <sp:PagePagination pagesNum="3" pageIsSelected="1"/>
+        <sp:RampSlider/>
+        <sp:RangeSlider max="50"/>
+      <sp:VideoPlayerSlider/> -->
+      <!-- <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
+      <sp:ColorSlider color="true" showingAlpha="true" max="50"/>
+      <sp:ColorSlider color="false" showingAlpha="true"/> 
+      <sp:ColorSlider color="true" showingAlpha="false" max="80"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="cta" text="cta splitButton"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="cta" left="true"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="primary"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="primary" left="true" text="left primary splitButton"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="secondary" text="right secondary splitButton"/> -->
+      <!-- <sp:SplitButton dataProvider="{comboProvider}" type="secondary" left="true"/> -->
+      <!-- <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog()" flavor="cta"/>
+      <sp:StatusLight status="yellow" text="Fee"/>
+      <sp:StatusLight status="positive" text="Fi"/>
+      <sp:StatusLight status="info" text="Fo"/>
+      <sp:ButtonGroup/> -->
+      <!-- <sp:TabBar se>
+      <sp:Tab/>
+      <sp:Tab/>
+      <sp:Tab/>
+      <sp:Tab/>
+      </sp:TabBar> -->
+      <sp:Button text="Show Toast" click="showToast()"/>
+      <sp:CoachMark flavor="dark" quiet="true"/>
+      <sp:CoachMark flavor="light"/>
+      <sp:CoachMark/>
+      <sp:IllustratedMessage type="cta"/>
+      <sp:IllustratedMessage type="default"/>
+      <sp:IllustratedMessage />
+      <!-- <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
+      <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange(event)"/>
+      <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange(event)"/>
+      <sp:Stepper placeholder="Enter a number" focused="true" quiet="true" min="-10" max="10" step="1" change="handleSrepperChange(event)"/>
+      <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange(event)"/>
+      <sp:Dial label="Doodad" displayValue="true" change="onDialChange(event)"/> -->
+      <sp:Dial size="small"/>
+      <sp:Dial disabled="true"/>
+      <sp:DropIndicator />
+      <sp:DropIndicator direction="vertical"/>
+      <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" />
+      <!-- <sp:List dataProvider="{listProvider}"/>
+      <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
+      <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:BreadcrumbsItem text="Home"/>
+            <sp:BreadcrumbsItem text="Playground"/>
+            <sp:BreadcrumbsItem text="Sliders" isTitle="true" />
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Breadcrumbs> -->
+     
+      <!-- <sp:Popover open="true" relativePosition="true">
+        <sp:Menu>
+          <sp:dataProvider>
+          <fx:Array>
+            <sp:MenuItem text="Category One" isHeading="true"/>
+            <sp:MenuItem text="Item One"/>
+            <sp:MenuItem text="Item Two"/>
+            <sp:MenuItem text="Item Three"/>
+            <sp:MenuItem isDivider="true"/>
+            <sp:MenuItem text="Category Two" isHeading="true"/>
+            <sp:MenuItem text="Item One"/>
+            <sp:MenuItem text="Item Two"/>
+            <sp:MenuItem text="Item Three" disabled="true"/>
+          </fx:Array>
+          </sp:dataProvider>
+        </sp:Menu>
+        
+      </sp:Popover> -->
+      <!-- <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
+      <sp:Switch text="Toggle On" checked="false" change="switched(event)"/>
+      <sp:Switch text="Toggle On" checked="true" quiet="true" change="switched(event)"/>
+      <sp:Tooltip text="Label" isOpen="true"/>
+      <sp:Tooltip text="Label" isOpen="true" direction="top"/>
+      <sp:Tooltip text="Label" isOpen="true" direction="bottom"/>
+      <sp:Tooltip text="Label info with icon" flavor="info" icon="info" isOpen="true" direction="left"/>
+      <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success" isOpen="true" direction="right"/> -->
+      <!-- <sp:SideNav change="sideNavClick(event)">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:SideNavItem  text="Category One" isHeading="true"/>
+            <sp:SideNavItem text="Item One"/>
+            <sp:SideNavItem text="Item Two"/>
+            <sp:SideNavItem text="Item Three" />
+            <sp:SideNavItem text="Category Two" isHeading="true"/>
+            <sp:SideNavItem text="Item One"/>
+            <sp:SideNavItem text="Item Two"/>
+            <sp:SideNavItem text="Item Three" disabled="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:SideNav> -->
+        <!-- <sp:Rule size="small"/>
+        <sp:Rule size="large"/>
+        <sp:Rule size="medium"/>
+        <sp:Link href="http://printui.com" text="Click Here"/> -->
+      <!-- <sp:Link overBackground="true" quiet="true" text="this is my link"/>
+      <sp:Link text=""/>
+      <sp:Link overBackground="true" text="111111111111" href=""/>
+      <sp:Link href="https://translate.google.co.il/?hl=iw" text="Translate"/>
+      <sp:Link disabled="true" text=""/>
+      <sp:Link subtle="true" text=""/>
+      <sp:Body text=" Body1 " size="1"> -->
+      <!-- </sp:Body> -->
+      <!-- <sp:Body text=" Body2" size="2"/>
+      <sp:Body text=" Body5" size="5"/>
+      <sp:Code text=" Code2" size="2"/>
+      <sp:Code text=" Code3" size="3"/> -->
+    
+      <!-- <sp:Display text=" Display1" size="1"/> -->
+     
+      
+      <!-- <sp:Heading text=" Heading2 " size="2"/> -->
+    
+      <!-- <sp:Calendar/> -->
+      <!-- <sp:DropZone/>
+       -->
+    </sp:View>
   </sp:initialView>  
-</sp:Application> 
+</sp:Application>
+ 
+ 
