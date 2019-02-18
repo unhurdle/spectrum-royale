@@ -106,43 +106,6 @@ package com.unhurdle.spectrum.model
 			
 		}
 			
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		COMPILE::JS
 	public function setDropZone():void
 	{

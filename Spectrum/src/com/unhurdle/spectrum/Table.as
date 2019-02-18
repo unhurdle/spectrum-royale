@@ -60,7 +60,7 @@ package com.unhurdle.spectrum
 		public function set columns(value:Array):void
 		{
 			TableModel(model).columns = value;
-			//can i add the check- box column here ?
+			
 
 		}
 

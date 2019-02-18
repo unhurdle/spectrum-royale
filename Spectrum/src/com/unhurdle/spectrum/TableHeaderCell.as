@@ -35,7 +35,6 @@ package com.unhurdle.spectrum
       if(value){
         icon =  new Icon("#spectrum-css-icon-ArrowDownSmall");
         icon.type = 'ArrowDownSmall';
-        
         icon.className = "spectrum-Table-sortedIcon";
         addElement(icon); 
         icon.addedToParent(); 
