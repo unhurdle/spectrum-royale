@@ -17,20 +17,20 @@ package com.unhurdle.spectrum
 		{
 			super();
 			
-		// typeNames = 'spectrum-Table-cell'; //put back 
+		
 		}
 
 		private var _expandColumns:Number = 1;
     
 		public function get expandColumns():Number
 		{
-            return _expandColumns;
+      return _expandColumns;
 		}
 		public function set expandColumns(value:Number):void
 		{
 			if(_expandColumns != value)
 			{
-            	_expandColumns = value;
+        _expandColumns = value;
 
 				COMPILE::JS
 				{
@@ -43,13 +43,13 @@ package com.unhurdle.spectrum
  
 		public function get expandRows():Number
 		{
-            return _expandRows;
+      return _expandRows;
 		}
 		public function set expandRows(value:Number):void
 		{
 			if(_expandRows != value)
 			{
-            	_expandRows = value;
+        _expandRows = value;
 
 				COMPILE::JS
 				{
@@ -66,7 +66,7 @@ package com.unhurdle.spectrum
 			return elem
 		}
 	}
-		}
+}
 
     
 

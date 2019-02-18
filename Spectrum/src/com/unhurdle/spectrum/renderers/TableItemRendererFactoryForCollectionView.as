@@ -40,21 +40,17 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.core.IItemRenderer;
     import com.unhurdle.spectrum.CheckBox;
   
-   
- 
-    
-
-   public class TableItemRendererFactoryForCollectionView extends EventDispatcher implements IBead, IDataProviderItemRendererMapper
+  public class TableItemRendererFactoryForCollectionView extends EventDispatcher implements IBead, IDataProviderItemRendererMapper
 	{
 		public function TableItemRendererFactoryForCollectionView(target:Object = null)
 		{
 			super(target);
 		}
 
-	protected var _strand:IStrand;
+		protected var _strand:IStrand;
 	
 		
-	public function set strand(value:IStrand):void
+		public function set strand(value:IStrand):void
 		{
 			_strand = value;
 			table = value as Table;
@@ -65,7 +61,6 @@ package com.unhurdle.spectrum.renderers
 		{
 			(_strand as IEventDispatcher).removeEventListener("initComplete", initComplete);
 		
-			
 			view = _strand.getBeadByType(IListView) as TableView;
 			tbody = view.dataGroup as TBodyContentArea;
 		
@@ -105,14 +100,14 @@ package com.unhurdle.spectrum.renderers
 		if (!model)
 			return;
 		var dp:ICollectionView = model.dataProvider as ICollectionView;
-			if (!dp)
-			{
-				model.selectedIndex = -1;
-				model.selectedItem = null;
-				model.selectedItemProperty = null;
-				tbody.removeAllItemRenderers();
-				return;
-			}
+		if (!dp)
+		{
+			model.selectedIndex = -1;
+			model.selectedItem = null;
+			model.selectedItemProperty = null;
+			tbody.removeAllItemRenderers();
+			return;
+		}
 		tbody.removeAllItemRenderers();
 		removeElements(view.thead);
 		createHeader();
@@ -169,10 +164,8 @@ package com.unhurdle.spectrum.renderers
     		{
     		ir = itemRendererFactory.createItemRenderer(tbody) as TableItemRenderer;
     		}
-				
-	// 			// labelField =  column.dataField;
 				var item:Object = model.dataProvider.getItemAt(i);
-				// (ir as DataItemRenderer).dataField = labelField;
+		
 				(ir as DataItemRenderer).rowIndex = i;
 				(ir as DataItemRenderer).columnIndex = j;
 				COMPILE::JS
@@ -188,65 +181,56 @@ package com.unhurdle.spectrum.renderers
     table.dispatchEvent(new Event("layoutNeeded"));
 	}
 		
-	private function indeterminate(ev:Event):void
-	{
-		COMPILE::JS
+		private function indeterminate(ev:Event):void
 		{
-		var count:int = 0;
-		for (var i:int = 0;i<ev.currentTarget.parentElement.parentElement.children.length;i++){
-			var tr:Object = ev.currentTarget.parentElement.parentElement.children[i];
-			for (var j:int = 0;j<tr.children.length;j++){
-				var td:Object = tr.children[j];
-				if(td.classList.contains('spectrum-Table-checkboxCell')){
-					if(td.children[0].children[0].checked == true){
-						count++;	
+			COMPILE::JS
+			{
+			var count:int = 0;
+			for (var i:int = 0;i<ev.currentTarget.parentElement.parentElement.children.length;i++){
+				var tr:Object = ev.currentTarget.parentElement.parentElement.children[i];
+				for (var j:int = 0;j<tr.children.length;j++){
+					var td:Object = tr.children[j];
+						if(td.classList.contains('spectrum-Table-checkboxCell')){
+							if(td.children[0].children[0].checked == true){
+								count++;	
+							}
+						}
 					}
+				}
+
+			if(count > 0 && !headerRow.element.children[0].children[0].children[0].checked){
+						headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",true);
+					}
+					else{
+						headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",false);
+						if(headerRow.element.children[0].children[0].children[0].checked){
+								headerRow.element.children[0].children[0].children[0].checked == false;
+								headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",true);
+							}
+						}
+				if(count == i){
+					checkForAll(count, i);
 				}
 			}
 		}
-
-		if(count > 0 && !headerRow.element.children[0].children[0].children[0].checked){
-					headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",true);
-				}
-				else{
-					headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",false);
-					if(headerRow.element.children[0].children[0].children[0].checked){
-						headerRow.element.children[0].children[0].children[0].checked == false;
-						headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",true);
-					}
-					
-			
-				}
-
-				
-				if(count == i){
-				checkForAll(count, i);
-
-				}
-		}
-	}
 		
 	
 		private function checkForAll(count:int,i:int):void
-	{
-		COMPILE::JS
 		{
-			headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",false);
-			headerRow.element.children[0].children[0].children[0].checked = true;
+			COMPILE::JS
+			{
+				headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",false);
+				headerRow.element.children[0].children[0].children[0].checked = true;
+			}
 		}
-		
-		//if all are unchecked - set to x
-		//if all are checked set to check
-	}
 	
-	COMPILE::JS
-	
+		COMPILE::JS
 		private function checkBoxLabel():HTMLElement
 		{
 		var checkBox:CheckBox = new CheckBox();
 		return checkBox.element;
 		}
-	
+
 		public function removeElements(container: IParent):void
 		{
 			if(container != null)
@@ -259,70 +243,54 @@ package com.unhurdle.spectrum.renderers
 		}
 
 		protected function fillRenderer(index:int,
-    item:Object,
-    itemRenderer:ISelectableItemRenderer,
-    presentationModel:IListPresentationModel):void
+		item:Object,
+		itemRenderer:ISelectableItemRenderer,
+		presentationModel:IListPresentationModel):void
 		{
 			tbody.addItemRendererAt(itemRenderer, index);
 			itemRenderer.labelField = labelField;
 		
 			rendArray.push(itemRenderer);
 			setData(itemRenderer, item, index);
-		
-
 		}
-	
+
 		private var rendArray:Array = [];
 		protected function setData(itemRenderer:ISelectableItemRenderer, data:Object, index:int):void
 		{
 			COMPILE::JS
 			{
 			if(!itemRenderer.element.classList.contains("spectrum-Table-checkboxCell")){
-			
-			
 			itemRenderer.data = data;
 			}
 		}
 				itemRenderer.index = index;
 		}
+
 		private var sortArray:Array = [];
 		
 		private function checkToSort(rArray:Array):void
 		{
-		COMPILE::JS
-		{
+			COMPILE::JS
+			{
+			for (var i:int = 0;i<headerRow.element.children.length;i++){
+				if(headerRow.element.children[i].classList.contains('is-sortable')) {
+					if(!isSorted){ //ascending A-Z
+						table.dataProvider = sortByColumn(i,true);
+						isSorted = true;
+					}
+					else{
+					//descending - Z-A
+						table.dataProvider = sortByColumn(i,false);
+						isSorted = false;
+					}
 	
-		for (var i:int = 0;i<headerRow.element.children.length;i++){
-			if(headerRow.element.children[i].classList.contains('is-sortable')) {
-				if(!isSorted){ //ascending A-Z
-					table.dataProvider = sortByColumn(i,true);
-					isSorted = true;
-					
-
+					table.addBead(new EasyDataProviderChangeNotifier());
+					dataProviderChangeHandler(null);
+					return;
+					}						
 				}
-				
-				else{
-				//descending - Z-A
-					table.dataProvider = sortByColumn(i,false);
-					isSorted = false;
-					
-			
-			
-				}
-	
-			table.addBead(new EasyDataProviderChangeNotifier());
-			dataProviderChangeHandler(null);
-			return;
-
-		}						
-	}
-
-		
 			}
 		}
-
-		
-		
 
 		private function sortByColumn(idx:int,ascending:Boolean):ArrayList{
 		var column:TableColumn = table.columns[idx];
@@ -359,7 +327,6 @@ package com.unhurdle.spectrum.renderers
 	private function multiSelectHeader():void
 	{
 		COMPILE::JS{
-			//prob also needs a function to check all the boxes if checked.
 		tableHeader= new TableHeaderCell();
 		tableHeader.element.classList.add("spectrum-Table-checkboxCell");
 
@@ -384,12 +351,10 @@ package com.unhurdle.spectrum.renderers
 						setAllColumnsToChecked(c,false);
 						return;
 					}
-				
 				}
 			}
-	
-			}
 		}
+	}
 
 	private function setAllColumnsToChecked(checked:Object,boolean:Boolean):void
 	{
@@ -402,14 +367,11 @@ package com.unhurdle.spectrum.renderers
 				}
 				else{
 					row.children[0].children[0].children[0].checked = false;
-
+					}
 				}
-			
-
 			}
 		}
-		}
-		}
+	}
 	
 
 	private function createHeader():void
@@ -445,32 +407,26 @@ package com.unhurdle.spectrum.renderers
 				}
 				
 			
-				
-				
-				
 				COMPILE::JS
 				{
 					if(test.sortable == true){
 						tableHeader.sortable = true;
 						tableHeader.addEventListener('click',checkToSort);
 						COMPILE::JS
-			{
+				{
 					if(isSorted){
 					
 						tableHeader.element.classList.add("is-sorted-asc");
 						tableHeader.element.setAttribute('aria-sort','ascending');
-				
-						
-						
 					}
 					else if(isSorted == false){
 						
 						tableHeader.element.classList.add("is-sorted-desc");
 						tableHeader.element.setAttribute('aria-sort','descending');
 					}
-			}
 				}
 			}
+		}
 			COMPILE::JS
 			{
 				var textNode:TextNode = new TextNode('');
@@ -487,11 +443,7 @@ package com.unhurdle.spectrum.renderers
 				{
 				this.table.element.insertBefore(thead.element,tbody.element);
 				}
-		}
 			}
-
-	  
-
-	
 		}
+	}
 }

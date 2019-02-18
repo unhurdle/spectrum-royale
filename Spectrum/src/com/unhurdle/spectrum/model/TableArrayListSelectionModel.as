@@ -76,7 +76,7 @@ package com.unhurdle.spectrum.model
     
 		public function set selectedIndex(value:int):void
 		{
-            if (value == _selectedIndex) return;
+      if (value == _selectedIndex) return;
 
 			_selectedIndex = value;
 			_selectedItem = (value == -1 || _dataProvider == null) ? null : (value < _dataProvider.length) ? _dataProvider.getItemAt(value) : null;

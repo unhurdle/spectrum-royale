@@ -9,16 +9,13 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.THead;
 	import com.unhurdle.spectrum.TFoot;
 
-
-
-	 
 	public class TableView extends ListViewForTable
 	{
-
+		
 		public function TableView()
 		{
 			super();
-        }
+    }
 
 	
 		override public function set strand(value:IStrand):void
@@ -35,7 +32,6 @@ package com.unhurdle.spectrum
 			model.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			model.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 			IEventDispatcher(_strand).addEventListener("itemsCreated", itemsCreatedHandler);
-
 			super.handleInitComplete(event);
 		}
 
@@ -48,22 +44,20 @@ package com.unhurdle.spectrum
 
 
 		public var thead:THead;
-
-
-		public var tfoot:TFoot;
-
+		
 		override protected function selectionChangeHandler(event:Event):void
 		{
 			var ir:ISelectableItemRenderer = dataGroup.getItemRendererAt(lastSelectedIndex) as ISelectableItemRenderer;
-            if (ir)
+      if (ir){
 				ir.selected = false;
+			}
 			
 			ir = dataGroup.getItemRendererAt(listModel.selectedIndex) as ISelectableItemRenderer;
-			if (ir)
+			if (ir){
 				ir.selected = true;
-            lastSelectedIndex = listModel.selectedIndex;
+			}
+      lastSelectedIndex = listModel.selectedIndex;
 		}
+
 	}
-
-
 }

@@ -104,11 +104,6 @@ package com.unhurdle.spectrum.renderers
 				ir.columnIndex = j;
 		
 				fillRenderer(index++, event.item, ir, presentationModel);
-				
-				// if(column.align != "")
-				// {
-				// 	ir.align = column.align;
-				// }
 			}
 
 			// update the index values in the itemRenderers to correspond to their shifted positions.

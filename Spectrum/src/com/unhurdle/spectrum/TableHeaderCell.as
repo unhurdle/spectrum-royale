@@ -12,7 +12,6 @@ package com.unhurdle.spectrum
     public function TableHeaderCell()
     {
       super();
-      // typeNames = 'spectrum-Table-headCell';
     }
 
 

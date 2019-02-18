@@ -11,17 +11,13 @@ package com.unhurdle.spectrum
 	import org.apache.royale.collections.ArrayList;
 
 	COMPILE::JS
-    {
+  {
     import org.apache.royale.core.WrappedHTMLElement;
 		import org.apache.royale.html.util.addElementToWrapper;
 		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
 		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
 		import org.apache.royale.events.ValueEvent;
-		
-		
-			
-				
-    }
+	}
 	
 	[DefaultProperty("columns")]
 
@@ -29,9 +25,6 @@ package com.unhurdle.spectrum
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	
-	
-
-
 	public class Table extends DataContainer implements IClassSelectorListSupport
 	{
 		public function Table()
@@ -42,16 +35,13 @@ package com.unhurdle.spectrum
 			classSelectorList = new ClassSelectorList(this);
 		}
 
-		
-	
-
 		protected var classSelectorList:ClassSelectorList;
 
-        COMPILE::JS
-        override protected function setClassName(value:String):void
-        {
-            classSelectorList.addNames(value);
-        }
+		COMPILE::JS
+		override protected function setClassName(value:String):void
+		{
+				classSelectorList.addNames(value);
+		}
 
 		public function get columns():Array
 		{
@@ -61,7 +51,6 @@ package com.unhurdle.spectrum
 		{
 			TableModel(model).columns = value;
 			
-
 		}
 
 		private var _dropZone:Boolean;
@@ -75,10 +64,9 @@ package com.unhurdle.spectrum
 		{
 			_dropZone = value;
 			if(value){
-				
-		COMPILE::JS{
+				COMPILE::JS{
 				TableModel(model).setDropZone();
-		}
+				}
 			}
 		}
 
@@ -94,7 +82,7 @@ package com.unhurdle.spectrum
 			toggleClass("fixedHeader", _fixedHeader);
 		}
 
-	private var _quiet:Boolean;
+		private var _quiet:Boolean;
 
     public function get quiet():Boolean
     {
@@ -105,23 +93,22 @@ package com.unhurdle.spectrum
     {
        if(value != !!_quiet){
         toggleClass("spectrum-Table--quiet",value);
-        // toggle(valueToSelector("quiet"),value);
       }
     	_quiet = value;
     }
 
-	private var _multiSelect:Boolean;
+		private var _multiSelect:Boolean;
 
-	public function get multiSelect():Boolean
-	{
-		return _multiSelect;
-	}
+		public function get multiSelect():Boolean
+		{
+			return _multiSelect;
+		}
 
-	public function set multiSelect(value:Boolean):void
-	{
-	
-		_multiSelect = value;
-	}
+		public function set multiSelect(value:Boolean):void
+		{
+		
+			_multiSelect = value;
+		}
 
 	
 		override public function get dataProvider():Object
@@ -130,15 +117,11 @@ package com.unhurdle.spectrum
 		}
 		override public function set dataProvider(value:Object):void
 		{
-			
 			(model as TableModel).dataProvider = value;
-			
 		}
 		
-		
-
 		[Bindable("change")]
-        public function get selectedIndex():int
+    public function get selectedIndex():int
 		{
 			return (model as ISelectionModel).selectedIndex;
 		}

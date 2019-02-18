@@ -62,7 +62,7 @@ package com.unhurdle.spectrum.model
 		public function set selectedItemProperty(value:Object):void
 		{
 			if(labelField == null || labelField == "") return;
-            if (value == _selectedItemProperty) return;
+        if (value == _selectedItemProperty) return;
 
 			_selectedItemProperty = value;
 			var n:int = dataProvider.length;
@@ -119,7 +119,6 @@ package com.unhurdle.spectrum.model
 	COMPILE::JS
 	private function elementDragged(ev:Event):void{
 		ev.preventDefault();
-		// toggle("is-dragged",true);
 		table.element.classList.toggle('is-drop-target',true);
 	}
 	COMPILE::JS

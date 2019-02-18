@@ -86,14 +86,8 @@
 				<sp:TableColumn dataField="album" label="Album"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/>
 				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/> 
         <sp:beads>
-                <!-- <js:EasyDataProviderChangeNotifier/> -->
-								<sp:AddTableRowForArrayListData/>
-								<sp:RemoveTableRowForArrayListData/>
-							  <sp:RemoveAllItemRendererForArrayListData/> 
-                <!-- <sp:UpdateTableRowForArrayListData/>] -->
-                <!-- <sp:TableItemRendererFactoryForCollectionView/> -->
-					
-        </sp:beads>
+          <sp:AddTableRowForArrayListData/>
+				</sp:beads>
     </sp:Table>
   </sp:View>
   </sp:initialView>  

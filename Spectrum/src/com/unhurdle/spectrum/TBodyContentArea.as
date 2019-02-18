@@ -7,25 +7,20 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.ItemRemovedEvent;
 	import org.apache.royale.html.supportClasses.ContainerContentArea;
 	import org.apache.royale.html.supportClasses.DataItemRenderer;
+	import com.unhurdle.spectrum.renderers.TableItemRenderer;
+	import org.apache.royale.core.IChild;
+	import com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView;
 
-
-    COMPILE::JS
-    {
-      import org.apache.royale.core.WrappedHTMLElement;
-			import org.apache.royale.html.util.addElementToWrapper;
-			import org.apache.royale.core.WrappedHTMLElement;
-			import org.apache.royale.core.WrappedHTMLElement;
-			import org.apache.royale.events.ValueEvent;
-			import org.apache.royale.events.ValueEvent;
-			import org.apache.royale.core.CSSClassList;
-		}
-
-		
-		import com.unhurdle.spectrum.renderers.TableItemRenderer;
-		import org.apache.royale.core.IChild;
-		import com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView;
-
-
+	COMPILE::JS
+	{
+		import org.apache.royale.core.WrappedHTMLElement;
+		import org.apache.royale.html.util.addElementToWrapper;
+		import org.apache.royale.core.WrappedHTMLElement;
+		import org.apache.royale.core.WrappedHTMLElement;
+		import org.apache.royale.events.ValueEvent;
+		import org.apache.royale.events.ValueEvent;
+		import org.apache.royale.core.CSSClassList;
+	}
 
 	[Event(name="filesAvailable", type="org.apache.royale.events.ValueEvent")]
 	 
@@ -37,23 +32,19 @@ package com.unhurdle.spectrum
 			super();
 		 
 		}
-
-
-	
+		
 		COMPILE::JS
 		private var elem:WrappedHTMLElement;
 		
-		
-		
 		COMPILE::JS
-        override protected function createElement():WrappedHTMLElement
-        {
-				
-			 	elem = addElementToWrapper(this, 'tbody');
+		override protected function createElement():WrappedHTMLElement
+		{
 		
-	
-			 	return elem;
-        }
+		elem = addElementToWrapper(this, 'tbody');
+
+
+		return elem;
+		}
 
 		private var itemRenderers:Array = [];
 
@@ -83,19 +74,11 @@ package com.unhurdle.spectrum
 		
 		public function addItemRendererAt(renderer:IItemRenderer, index:int):void
 		{
-		
-
 			var r:DataItemRenderer = renderer as DataItemRenderer;
-			
 			r.itemRendererParent = host; // easy access from renderer to table
 			COMPILE::JS{
-		
 				element.className = "spectrum-Table-body";
-			
 			}
-			// var tableCell:TableCell = new TableCell();
-			// tableCell.addElement(r);
-			
 			var row:TableRow;
 			if(r.rowIndex > numElements - 1)
 			{
@@ -106,15 +89,9 @@ package com.unhurdle.spectrum
 			{
 				row = getElementAt(r.rowIndex) as TableRow;
 			}
-		//BUT ONLY FOR MULTISELECT! change this.
-			// if(r.columnIndex == 0){
-			// 	COMPILE::JS
-			// 	{
-			// 		r = checkBoxCell();
-			// 	}
-			// }
+
 			row.addElementAt(r, r.columnIndex, true);
-			// row.addElementAt(tableCell, r.columnIndex, true);
+			
 			var t:Table = r.itemRendererParent as Table;
 
 			for (var i:Number = 0;i<t.columns.length;i++){
@@ -122,13 +99,12 @@ package com.unhurdle.spectrum
 					if(r.dataField == t.columns[i].dataField){
 						COMPILE::JS
 						{
-								r.element.classList.add("spectrum-Table-cell--divider");
+							r.element.classList.add("spectrum-Table-cell--divider");
 						}
 					}
 				}
 			}
 
-	
 			itemRenderers.push(r);
 			dispatchItemAdded(r);
 		}
@@ -152,15 +128,12 @@ package com.unhurdle.spectrum
 		private var processedRow:TableRow;
 		
 		public function removeAllItemRenderers():void
-		{ //fix bc no tableCell being used
+		{ 
 			while (numElements > 0) {
 				processedRow = getElementAt(0) as TableRow;
 				while (processedRow.numElements > 0) {
 					var cell:TableItemRenderer = processedRow.getElementAt(0) as TableItemRenderer;
-					// var cell:TableCell = processedRow.getElementAt(0) as TableCell;
-					// var ir:IItemRenderer = cell.getElementAt(0) as IItemRenderer; //pb
 					removeItemRenderer(cell);
-					// cell.removeElement(ir);  //pb
 					processedRow.removeElement(cell);
 				}
 				removeElement(processedRow);
@@ -209,35 +182,30 @@ package com.unhurdle.spectrum
     }
 
 		
-	COMPILE::JS
-	private function checkBoxCell():DataItemRenderer
-	{
-		var ir:TableItemRenderer = new TableItemRenderer();
-		ir.itemRendererParent = host;
-		ir.element.classList.add("spectrum-Table-checkboxCell");
-		var label:HTMLElement = newElement('label');
-		label.className = "spectrum-Checkbox";
-		label.classList.add("spectrum-Table-checkbox");
-		var input:HTMLElement = newElement('input');
-		input.setAttribute("type","checkbox");
-		input.title = "Select All";
-		input.className = "spectrum-Checkbox-input";
-		var span:HTMLElement = newElement('span');
-		span.className = "spectrum-Checkbox-box";
-		var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
-		icon.className = "spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
-		span.appendChild(icon.element); 
-		icon.addedToParent();
-		label.appendChild(input);
-		label.appendChild(span);
-		ir.element.appendChild(label);
-		(parent as Table).model.columns[0].itemRenderer = ir as DataItemRenderer;
-		return ir;
+		COMPILE::JS
+		private function checkBoxCell():DataItemRenderer
+		{
+			var ir:TableItemRenderer = new TableItemRenderer();
+			ir.itemRendererParent = host;
+			ir.element.classList.add("spectrum-Table-checkboxCell");
+			var label:HTMLElement = newElement('label');
+			label.className = "spectrum-Checkbox";
+			label.classList.add("spectrum-Table-checkbox");
+			var input:HTMLElement = newElement('input');
+			input.setAttribute("type","checkbox");
+			input.title = "Select All";
+			input.className = "spectrum-Checkbox-input";
+			var span:HTMLElement = newElement('span');
+			span.className = "spectrum-Checkbox-box";
+			var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
+			icon.className = "spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
+			span.appendChild(icon.element); 
+			icon.addedToParent();
+			label.appendChild(input);
+			label.appendChild(span);
+			ir.element.appendChild(label);
+			(parent as Table).model.columns[0].itemRenderer = ir as DataItemRenderer;
+			return ir;
+			}
 		}
-		
-		
-	
-	
-   
- }
 	}

@@ -1,5 +1,5 @@
 package com.unhurdle.spectrum.renderers
-{
+{//dont use
   import org.apache.royale.core.IBead;
 	import org.apache.royale.core.UIBase;
 	import org.apache.royale.core.IDataProviderModel;
@@ -48,10 +48,9 @@ package com.unhurdle.spectrum.renderers
 		private var dp:IEventDispatcher;
 		protected function dataProviderChangeHandler(event:Event):void
 		{
-		
-				if(dp)
+			if(dp)
 			{
-				dp.removeEventListener(CollectionEvent.ITEM_UPDATED, handleItemUpdated);
+			dp.removeEventListener(CollectionEvent.ITEM_UPDATED, handleItemUpdated);
 			}
 			dp = model.dataProvider as IEventDispatcher;
 			if (!dp)
@@ -73,11 +72,9 @@ package com.unhurdle.spectrum.renderers
 			for (var i:int = 0; i < n; i++)
 			{
 				cell = processedRow.getElementAt(i) as TableCell;
-				// cell = processedRow.getElementAt(i) as TableItemRenderer;
 				ir = cell.getElementAt(0) as ISelectableItemRenderer;
 				setData(ir, event.item, event.index);
 			}
-			
 			(_strand as IEventDispatcher).dispatchEvent(new Event("layoutNeeded"));
 		}
 
