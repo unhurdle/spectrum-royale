@@ -24,6 +24,14 @@ package com.unhurdle.spectrum
             return "#378ef0";
           case "darkest":
             return "#2680eb";
+          case "panelLight":
+            // return "#1473e6"; //?
+          case "panelLightest":
+            return "#1473e6";
+          case "panelDark":
+            // return "#378ef0"; //?
+          case "panelDarkest":
+            return "#378ef0";
       }
       return "#0";
     }
@@ -72,6 +80,10 @@ package com.unhurdle.spectrum
           case "lightest":
           case "dark":
           case "darkest":
+          case "panelLight":
+          case "panelLightest":
+          case "panelDark":
+          case "panelDarkest":
             break;
           default:
             throw new Error("Invalid colorstop: " + value);

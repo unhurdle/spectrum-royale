@@ -86,12 +86,27 @@ package com.unhurdle.spectrum
 			var redShade:Number = appSkinInfo.panelBackgroundColor.color.red;
 			if (redShade > 200) { // exact: 214 (#D6D6D6)
 				app.colorstop = "lightest";
-			} else if (redShade > 180) { // exact: 184 (#B8B8B8)
-				app.colorstop = "light";
-			} else if (redShade > 80) { // exact: 83 (#535353)
-			app.colorstop = "dark";
-			} else if (redShade > 50) { // exact: 52 (#343434)
-				app.colorstop = "darkest";
+			} 
+				else if (redShade > 180) { // exact: 184 (#B8B8B8)
+					app.colorstop = "light";
+			} 
+				else if (redShade > 80) { // exact: 83 (#535353)
+					app.colorstop = "dark";
+			} 
+				else if (redShade > 50) { // exact: 52 (#343434)
+					app.colorstop = "darkest";
+			} 
+				else if (redShade > 180) { // exact: 184 (#B8B8B8)
+					app.colorstop = "panelLightest"; //same as light
+			} 	
+														// 	else if (redShade > 80) { // exact: 83 (#535353)
+														// 		// app.colorstop = "panelLight"; //wrong > number
+														// } 
+														// else if (redShade > 50) { // exact: 52 (#343434)
+															// app.colorstop = "panelDark"; //wrong > number
+														// } 
+				else if (redShade > 80) { // exact: 83 (#535353)
+					app.colorstop = "panelDarkest"; //same as dark
 			}
 			dispatchEvent(new Event(THEME_CHANGED));
 
