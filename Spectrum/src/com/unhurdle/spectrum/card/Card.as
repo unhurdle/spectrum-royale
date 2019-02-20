@@ -4,8 +4,10 @@ package com.unhurdle.spectrum.card
   import com.unhurdle.spectrum.Asset;
   import com.unhurdle.spectrum.QuickActions;
   import org.apache.royale.html.elements.Div;
+  import org.apache.royale.core.IPopUpHost;
+  import org.apache.royale.core.IPopUpHostParent;
 
-  public class Card extends SpectrumBase
+  public class Card extends SpectrumBase implements IPopUpHost, IPopUpHostParent
   {
     public function Card()
     {
@@ -170,5 +172,15 @@ package com.unhurdle.spectrum.card
     override protected function getSelector():String{
       return getCardSelector();
     }
+    public function get popUpParent():IPopUpHostParent
+    {
+        return this;
+    }
+    
+    public function get popUpHost():IPopUpHost
+    {
+        return this;
+    }
+
   }
 }

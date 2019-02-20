@@ -7,7 +7,12 @@ package com.unhurdle.spectrum
       super();
     }
 
-    private var imageElement:HTMLImageElement;
+    private var _imageElement:HTMLImageElement;
+
+    public function get imageElement():HTMLImageElement
+    {
+    	return _imageElement;
+    }
     private var _src:String;
     public function get src():String
     {
@@ -17,25 +22,25 @@ package com.unhurdle.spectrum
     public function set src(value:String):void
     {
       if(value != _src){
-        if(!imageElement){
+        if(!_imageElement){
           createImageElement();
         }
-        imageElement.src = value;
+        _imageElement.src = value;
         _src = value;
       }
     }
     private function createImageElement():void{
-      imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
-      (element as HTMLElement).appendChild(imageElement);
+      _imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
+      (element as HTMLElement).appendChild(_imageElement);
 
     }
 
     public function get imageStyle():CSSStyleDeclaration
     {
-      if(!imageElement){
+      if(!_imageElement){
         createImageElement();
       }
-    	return imageElement.style;
+    	return _imageElement.style;
     }
   }
 }

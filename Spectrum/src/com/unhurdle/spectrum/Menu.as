@@ -35,7 +35,6 @@ package com.unhurdle.spectrum
       super.dataProvider = value;
     }
 		private var _labelField:String = "label";
-		
 		/**
 		 * The name of the field within the data to use as a label. Some itemRenderers use this field to
 		 * identify the value they should show while other itemRenderers ignore this if they are showing
