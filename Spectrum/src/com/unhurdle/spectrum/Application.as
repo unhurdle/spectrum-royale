@@ -14,6 +14,7 @@ package com.unhurdle.spectrum
       return _current;
     }
     public static function getSelectionColor():String{
+      
       // This is the "blue-500" value
       switch(current.colorstop){
           case "light":
@@ -22,17 +23,20 @@ package com.unhurdle.spectrum
             return "#2680eb";
           case "dark":
             return "#378ef0";
-          case "darkest":
+            case "darkest":
             return "#2680eb";
+          case "paneldarkest":
+            return "#2680eb";  //for testing purposes.
       }
       return "#0";
     }
     public function Application()
     {
+      
       super();
       
 			this.valuesImpl = new AllCSSValuesImpl();
-			addBead(new ApplicationDataBinding());
+      addBead(new ApplicationDataBinding());
       // default values
       _colorstop = "light";
       _appScale = "medium";
@@ -43,17 +47,16 @@ package com.unhurdle.spectrum
 
       }
       _current = this;
-      
     }
 
-    private function toggle(selector:String,value:Boolean):void{
+    protected function toggle(selector:String,value:Boolean):void{
       COMPILE::JS
       {
         element.classList.toggle(selector, value);
       }
     }
 
-    private var _colorstop:String;
+    protected var _colorstop:String;
 
     /**
      * The colorstop of the app. One of the four ColorStop values
@@ -72,6 +75,7 @@ package com.unhurdle.spectrum
           case "lightest":
           case "dark":
           case "darkest":
+          case "paneldarkest": //for testing purposes
             break;
           default:
             throw new Error("Invalid colorstop: " + value);
@@ -83,7 +87,7 @@ package com.unhurdle.spectrum
       	_colorstop = value;
       }
     }
-    private function valueToSelector(value:String):String{
+    protected function valueToSelector(value:String):String{
       return "spectrum--" + value;
     }
 

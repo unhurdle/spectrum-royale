@@ -1,7 +1,5 @@
 package com.unhurdle.spectrum
-{//simpleFileUploader
-  //target = _blank -- new tab in browser for hyperlink
-  //draggable html drag n drop
+{
   COMPILE::JS{
   import org.apache.royale.html.util.addElementToWrapper;
   import org.apache.royale.core.WrappedHTMLElement;
@@ -85,38 +83,10 @@ package com.unhurdle.spectrum
     illustratedMessage.hyperlink.element.addEventListener('click',uploadFile)
     element.appendChild(illustratedMessage.element);
 
-    // var illustratedMessage:HTMLElement = newElement('div');
-    // illustratedMessage.className = "spectrum-IllustratedMessage spectrum-IllustratedMessage--cta";
-
- 
-    // illustratedMessage.appendChild(generateSVG(predefinedSVGElement()));
-    // element.appendChild(illustratedMessage);
-
-    // var header:TextNode = new TextNode("h2");
-    // header.className = "spectrum-Heading spectrum-Heading--pageTitle spectrum-IllustratedMessage-heading";
-    // header.text = "Drag and Drop Your File";
-    // element.appendChild(header.element);
-
-    // var paragraph:TextNode = new TextNode("p");
-    // paragraph.className = "spectrum-Body--secondary spectrum-IllustratedMessage-description";
-    // element.appendChild(paragraph.element);
-
-    // paragraph.text = "or ";  //in the wrong spot
-
-    // var hyperlink:TextNode = new TextNode("a");
-    // (hyperlink as HTMLLinkElement).href ="#"; 
-    // hyperlink.className = "spectrum-Link";
-    // hyperlink.text = "Select a File"; 
-    // hyperlink.element.addEventListener('click',uploadFile); 
-
-    // paragraph.element.appendChild(hyperlink.element);
-    // paragraph.text = "from your computer ";  //not displaying
     
-    // var br:HTMLElement = newElement("br");
-    // paragraph.element.appendChild(br);
     return element;
     }
-
+  
   
   }
 }

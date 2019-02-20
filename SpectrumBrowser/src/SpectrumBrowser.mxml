@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" xmlns:spectrum="com.unhurdle.spectrum.*" xmlns:elements="org.apache.royale.textLayout.elements.*" colorstop="dark" >
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" 
+  xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="paneldarkest" >
   <fx:Script>
     <![CDATA[
 
@@ -23,6 +24,14 @@
       import com.unhurdle.spectrum.AssetList;
       import org.apache.royale.collections.HierarchicalData;
       import com.unhurdle.spectrum.data.AssetListItem;
+      import com.unhurdle.spectrum.SideNav;
+      import com.unhurdle.spectrum.card.Card;
+      import com.unhurdle.spectrum.QuickActions;
+      import com.unhurdle.spectrum.Asset;
+      import com.unhurdle.spectrum.card.CardBody;
+      import vos.GuitarristVO;
+      import org.apache.royale.collections.ArrayList;
+      import vos.GuitarristVO;
 
       // private function showAlert():void{
       //   var alert:Alert = new Alert();
@@ -243,7 +252,20 @@
           ]
         }
         );
-    ]]>
+
+         [Bindable]
+		private var _guitarrists:ArrayList = new ArrayList([
+			new GuitarristVO("Steve Vai", "Passion & Warfare", 1990),
+			new GuitarristVO("Joe Satriani", "Surfing With The Alien", 1987),
+			new GuitarristVO("Yngwie Malmsteen", "Rising Force", 1984),
+			new GuitarristVO("Steve Morse", "Southern Steel", 1991),
+			new GuitarristVO("Mark Knopfler", "Local Hero", 1983),
+			new GuitarristVO("Eric Sardinas", "Treat Me Right", 1999),
+			new GuitarristVO("Mike Oldfield", "Tubular Bells", 1973),
+			new GuitarristVO("Van Halen", "1984", 1984)
+		]);
+ ]]>
+   
   </fx:Script>
   <sp:initialView>
     <sp:View>
@@ -256,6 +278,18 @@
         
         <sp:MillerColumns dataProvider="{MillerColumnsDataProvider}">
         </sp:MillerColumns>
+    
+   
+      <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true"> 
+      
+        <sp:TableColumn dataField="guitarrist" label="Guitarrist" itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true" sortable="true"/>
+				<sp:TableColumn dataField="album" label="Album"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/>
+				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/> 
+        <sp:beads>
+          <sp:AddTableRowForArrayListData/>
+				</sp:beads>
+    </sp:Table>
+ 
 
 <!-- 
  <sp:AssetList itemClicked="assetItemSelected(event)">
@@ -431,8 +465,6 @@
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/>
-      <!-- <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/> -->
-      <sp:ActionMenu  dataProvider="{comboProvider}" alignRight="true"/>
       <!-- <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
@@ -513,3 +545,5 @@
     </sp:View>
   </sp:initialView>  
 </sp:Application>
+ 
+ 
