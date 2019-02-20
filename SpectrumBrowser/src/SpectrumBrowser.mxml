@@ -31,6 +31,7 @@
       import com.unhurdle.spectrum.card.CardBody;
       import vos.GuitarristVO;
       import org.apache.royale.collections.ArrayList;
+      import vos.GuitarristVO;
 
       // private function showAlert():void{
       //   var alert:Alert = new Alert();
