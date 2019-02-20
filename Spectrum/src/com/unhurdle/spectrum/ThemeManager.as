@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
 		private static var _instance:ThemeManager;
 		public static function get instance():ThemeManager{return getInstance()}
 		public static function getInstance():ThemeManager {
+			
 			if (_instance == null){
 				_instance = new ThemeManager(new SingletonEnforcer);
 			}
@@ -27,6 +28,7 @@ package com.unhurdle.spectrum
     }
 		private var app:CEPApplication;
 		public function init(application:CEPApplication):void {
+			
 			app = application;
 			
 			// Update the theme
@@ -81,7 +83,6 @@ package com.unhurdle.spectrum
 		{
 			appSkinInfo = new AppSkinInfo(CSInterface.hostEnvironment.appSkinInfo);
 			_backgroundColor = "#" + toHex(appSkinInfo.panelBackgroundColor.color as CepColor)
-			
 			// Using the red value to infer the darkness
 			var redShade:Number = appSkinInfo.panelBackgroundColor.color.red;
 			if (redShade > 200) { // exact: 214 (#D6D6D6)
@@ -96,18 +97,6 @@ package com.unhurdle.spectrum
 				else if (redShade > 50) { // exact: 52 (#343434)
 					app.colorstop = "darkest";
 			} 
-				else if (redShade > 180) { // exact: 184 (#B8B8B8)
-					app.colorstop = "panelLightest"; //same as light
-			} 	
-														// 	else if (redShade > 80) { // exact: 83 (#535353)
-														// 		// app.colorstop = "panelLight"; //wrong > number
-														// } 
-														// else if (redShade > 50) { // exact: 52 (#343434)
-															// app.colorstop = "panelDark"; //wrong > number
-														// } 
-				else if (redShade > 80) { // exact: 83 (#535353)
-					app.colorstop = "panelDarkest"; //same as dark
-			}
 			dispatchEvent(new Event(THEME_CHANGED));
 
 		}
