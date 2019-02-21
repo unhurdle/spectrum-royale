@@ -51,6 +51,22 @@ package com.unhurdle.spectrum
                 _color = value;
             }
         }
+        private var _textColor:String;
+        public function get textColor():String{
+            return _textColor;
+        }
+
+        public function set textColor(value:String):void{
+            if(value != !!_textColor){
+                // span.element
+                COMPILE::JS
+                {
+                    span.element.style.color = value;
+                }
+            }
+            _textColor = value;
+        }
+
         private var _size:String;
         
         /**

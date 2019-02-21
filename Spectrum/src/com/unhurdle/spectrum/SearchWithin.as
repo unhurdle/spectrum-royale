@@ -29,6 +29,13 @@ package com.unhurdle.spectrum
       addElement(search);
       return elem;
     }
+    public function set color(value:String):void{
+      search.color = value;
+    }
+    public function set value(value:String):void{
+      search.value = value;
+    }
+
     private function handleSubmit(ev:Event):Boolean{
       ev.preventDefault();
       dispatchEvent(new Event("submit"));

@@ -19,6 +19,51 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Textfield";
     }
+    // public function get color():String
+    // {
+    //   return input.style.backgroundColor;
+    // }
+
+    public function set color(value:String):void
+    {
+      input.style.backgroundColor = value;
+      input.style.borderColor = value;
+    }
+    
+    public function set textColor(value:String):void
+    {
+      input.style.color = value;
+    }
+    // public function set fontSize(value:String):void
+    // {
+    //   input.style.color = value;
+    // }
+    public function set font(value:String):void
+    {
+      // if(value != _font){
+        switch (value){
+        // check that values are valid
+        case "small":
+        case "large":
+        // case "smaller":
+        // case "larger":
+        case "x-small":
+        case "x-large":
+        // case "xx-small":
+        // case "xx-large":
+        case "medium":
+            break;
+        default:
+            throw new Error("Invalid font: " + value);
+        }
+        input.style.fontSize = value;
+        // var oldFont:String = valueToSelector(_font);
+        // var newFont:String = valueToSelector(value);
+        // toggle(newFont, true);
+        // toggle(oldFont, false);
+      //   _font = value;
+      // }
+    }
 
     public function get placeholder():String
     {

@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.models
+package com.unhurdle.spectrum.model
 {
   import org.apache.royale.events.EventDispatcher;
   import org.apache.royale.core.IDateChooserModel;

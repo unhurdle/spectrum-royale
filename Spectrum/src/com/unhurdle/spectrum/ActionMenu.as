@@ -33,8 +33,7 @@ package com.unhurdle.spectrum
     public var menu:Menu;
  
     COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      
+    override protected function createElement():WrappedHTMLElement{      
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       button = new ActionButton();
       // button.className = //??
@@ -42,7 +41,6 @@ package com.unhurdle.spectrum
       button.iconSize = IconSize.S;
       button.addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       addElement(button);
-      
       popover = new Popover();
       popover.position = "bottom";
 	    // var origin:Point = new Point(0, host.height - 6);
@@ -55,9 +53,6 @@ package com.unhurdle.spectrum
       // trace("host");
       // trace(host);
 			// popupHost.popUpParent.addElement(popover);
-
-      
-
       menu = new Menu();
       menu.addEventListener("change",handleMenuChange);
       popover.addElement(menu);

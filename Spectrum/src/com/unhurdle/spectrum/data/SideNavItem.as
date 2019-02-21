@@ -38,6 +38,18 @@ package com.unhurdle.spectrum.data
     {
     	_dataProvider.push(value);
     }
+    private var _height:String;
+
+    public function get height():String
+    {
+        return _height;
+    }
+
+    public function set height(value:String):void
+    {
+        _height = value;
+    }
+
     private var _text:String;
 
     public function get text():String
@@ -74,6 +86,18 @@ package com.unhurdle.spectrum.data
     {
     	_disabled = value;
     }
+        
+    private var _color:String;
+
+    public function get color():String
+    {
+        return _color;
+    }
+     public function set color(value:String):void
+    {
+        _color = value;
+    }
+
     private var _isHeading:Boolean;
 
     public function get isHeading():Boolean

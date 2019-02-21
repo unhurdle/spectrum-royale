@@ -39,6 +39,7 @@ package com.unhurdle.spectrum.renderers
       assetListItem = value as AssetListItem;
       span.text = getLabelFromData(this,value);
       element.className = appendSelector("-item");
+      element.className = appendSelector("-item");
       if(assetListItem.selectable){
         element.classList.add("is-selectable");
       }

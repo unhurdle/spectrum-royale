@@ -34,6 +34,20 @@ package com.unhurdle.spectrum
       }
       super.dataProvider = value;
     }
+        private var _alignRight:Boolean;
+        public function get alignRight():Boolean
+        {
+            return _alignRight;
+        }
+
+        public function set alignRight(value:Boolean):void
+        {
+            _alignRight = value;
+      if(value){
+        (element as HTMLElement).style.textAlign = "right";
+      }
+        }
+
 		private var _labelField:String = "label";
 		/**
 		 * The name of the field within the data to use as a label. Some itemRenderers use this field to

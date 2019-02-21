@@ -18,7 +18,7 @@ package com.unhurdle.spectrum.renderers
     public function SideNavItemRenderer()
     {
       super();
-      typeNames = '';
+      // typeNames = '';
     }
     protected function appendSelector(value:String):String{
       return "spectrum-SideNav" + value;
@@ -38,8 +38,8 @@ package com.unhurdle.spectrum.renderers
         elem.style.pointerEvents = "none";
       } else {
         elem.className = appendSelector("-item");
+        textNode.element.setAttribute("href",sideNavItem.href || "#");
       }
-      textNode.element.setAttribute("href",sideNavItem.href || "#");
       isList = !!sideNavItem.isList;
       if(isList){
         textNode.text = sideNavItem.text;
@@ -58,6 +58,16 @@ package com.unhurdle.spectrum.renderers
       if(sideNavItem.selected){
         elem.classList.add("is-selected");
       }
+            if(!!sideNavItem.height){
+        elem.style.height = sideNavItem.height;
+      }
+      if(!!sideNavItem.color){
+        textNode.element.style.color = sideNavItem.color;
+      }
+      else{
+        textNode.element.style.color = "black";
+      }
+
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;
@@ -85,7 +95,7 @@ package com.unhurdle.spectrum.renderers
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
+      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       textNode = new TextNode("a");
       textNode.className = appendSelector("-itemLink");
       textNode.element.style.userSelect = "none";

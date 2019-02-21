@@ -5,8 +5,10 @@
       "targets": ["JSRoyale"],
       "source-map": false,
       "js-library-path": [
-          "../Spectrum/target"
+          "../Spectrum/target",
+          "libs"
       ],
+      "js-external-library-path": ["typedefs"],
       "remove-circulars": true,
       "html-template": "index-template.html",
       "js-compiler-option": [

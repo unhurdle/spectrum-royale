@@ -33,6 +33,24 @@ package com.unhurdle.spectrum
     {
     	input.text = value;
     }
+    // public function get color():String
+    // {
+    //   var _color:String = "";
+    //   COMPILE::JS
+    //   {
+    //       _color = input.element.style.backgroundColor;
+    //   }
+    //   return _color;
+    // }
+
+    public function set color(value:String):void
+    {
+      COMPILE::JS
+      {
+          input.element.style.backgroundColor = value;
+          input.element.style.borderColor = value;
+      }
+    }
 
     private var _quiet:Boolean; 
 
