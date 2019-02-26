@@ -40,7 +40,7 @@ package com.unhurdle.spectrum
       return classList.compute() + super.computeFinalClassNames();
     }
     protected function valueToSelector(value:String):String{
-        return getSelector() + "--" + value;
+      return getSelector() + "--" + value;
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{

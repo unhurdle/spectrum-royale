@@ -2,16 +2,11 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS
   {
-  import org.apache.royale.html.util.addElementToWrapper;
   import org.apache.royale.core.WrappedHTMLElement;
-  import org.apache.royale.events.ValueEvent;}
-  import org.apache.royale.events.IEventDispatcher;
   import org.apache.royale.events.ValueEvent;
-  import com.unhurdle.spectrum.const.IconPrefix;
-  import com.unhurdle.spectrum.const.IconSize;
-  import org.apache.royale.events.Event;
-  import org.apache.royale.html.elements.Li;
-  import org.apache.royale.html.TextNodeContainerBase;
+  import org.apache.royale.html.util.addElementToWrapper;
+  }
+  import org.apache.royale.events.ValueEvent;
   [Event(name="children", type="org.apache.royale.events.Event")]
   public class TabOverflow extends Group
   {
@@ -20,34 +15,31 @@ package com.unhurdle.spectrum
       super();
       COMPILE::JS
       {
-     
         addEventListener("tabs",tabsArray);
       }
-     
     }
 
-    override protected function getSelector():String{
-      return "spectrum-Tabs" ;
+    override protected function getSelector():String
+    {
+      return getTabsSelector() + direction; //direction
     }
 
-    private var dropDownDiv:HTMLElement;
-    private var dropButton:HTMLElement;
-    private var dropSpan:TextNode;
-    private var dropIcon:Icon;
-    private var popIcon:Icon;
-    private var indicator:HTMLElement;
-    private var dropPop:Popover;
-    private var dropList:HTMLElement;
+    override protected function appendSelector(value:String):String{
+      return getSelector() + value;
+    }
+    //* == dx have to be global
+    private var dropDownDiv:HTMLElement; 
+    private var dropButton:HTMLElement; 
+    private var dropSpan:TextNode; 
+    private var indicator:HTMLElement; //change //*
+    private var dropPop:Popover; 
+    private var dropList:HTMLElement; 
     private var dropItem:HTMLElement;
-    private var dropItemSpan:HTMLElement;
     private var _compact:Boolean;
     private var _disabled:Boolean;
     private var tabs:Array;
-    COMPILE::JS
-    public var child:HTMLElement;
-    COMPILE::SWF
-    public var child:Object;
     private var _selected:Object;
+    private var direction:String;
 
 
     public function get selected():Object
@@ -78,19 +70,43 @@ package com.unhurdle.spectrum
        
     private function toggleDropdown():void{
       if(!dropDownDiv.classList.contains("is-open")){
-           dropDownDiv.classList.add("is-open");
-           createPopOver();
-           return;
+        dropDownDiv.classList.add("is-open");
+        removeIndicator();
+        createPopOver();
+        return;
       }
      else if(dropDownDiv.classList.contains("is-open") ){
        dropDownDiv.classList.remove("is-open");
        dropDownDiv.children[0].children[0].remove();
+       addIndicator();
       }
     }
-  
+
+    private function checkForSelectedTag():void
+    { 
+      COMPILE::JS
+      {
+        for(var i:Number=0;i<tabs.length;i++){
+        if(tabs[i].selected){
+          tabs[i].selected == false;
+          removeSelectedIndicator(tabs[i]);
+        }
+      }
+      }
+      
+    }
+    private function removeSelectedIndicator(tab:Object):void
+    {
+      for (var i:int =0;i<tab.element.children.length;i++){
+        if(tab.element.children[i].classList.contains("spectrum-Tabs-selectionIndicator")){
+            tab.element.children[i].remove();
+          }
+      }
+    }
     private function fillDrop():void
     {
       for(var i:Number=0;i<tabs.length;i++){
+      // checkForSelectedTag(tabs[i]);
       dropItem = tabs[i].element;
       dropItem.onclick = selectedItem;
       dropList.appendChild(dropItem);
@@ -99,7 +115,7 @@ package com.unhurdle.spectrum
       dropPop.element.appendChild(dropList);
       }
     
-    popIcon = new Icon("#spectrum-css-icon-CheckmarkMedium");
+    var popIcon:Icon = new Icon("#spectrum-css-icon-CheckmarkMedium");
     popIcon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark";
     addElement(popIcon); 
     popIcon.addedToParent(); //need this?
@@ -109,7 +125,7 @@ package com.unhurdle.spectrum
     }
 
 
-  private function selectedItem(ev:*):void
+  private function selectedItem(ev:*):void //*?
     {
       selected = ev.target;
     }
@@ -130,6 +146,7 @@ package com.unhurdle.spectrum
       dropPop.element.setAttribute("style",popStyle);
       dropList = newElement('ul'); 
       }
+      checkForSelectedTag();
       fillDrop();
       dummySpacing();
       }
@@ -178,32 +195,68 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement 
     {   
         addElementToWrapper(this,'div');
-        element.classList.add("spectrum-Tabs--horizontal");//dunno if possibility to be vertical.
+        direction = " spectrum-Tabs--horizontal";
+        element.className = appendSelector("");;
         var elemStyle:String = "width: 409px";
         element.setAttribute("style",elemStyle);
+
         dropDownDiv = newElement('div');
         dropDownDiv.className = "spectrum-Dropdown"; 
         dropDownDiv.classList.add("spectrum-Dropdown--quiet");
+
         dropButton = newElement("button");
         dropButton.className = "spectrum-FieldButton";
         dropButton.classList.add("spectrum-FieldButton--quiet");
         dropButton.classList.add("spectrum-Dropdown-trigger");
-        dropButton.addEventListener("click",toggleDropdown)
+        dropButton.addEventListener("click",toggleDropdown);
+
         dropDownDiv.appendChild(dropButton);
+
         dropSpan = new TextNode("span");
         dropSpan.className = "spectrum-Dropdown-label";
+
         dropDownDiv.appendChild(dropSpan.element);
-        dropIcon = new Icon("#spectrum-css-icon-ChevronDownMedium");
+
+        var dropIcon:Icon = new Icon("#spectrum-css-icon-ChevronDownMedium");
         dropIcon.className = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon";
         addElement(dropIcon); 
-        dropIcon.addedToParent(); //need this?
+        dropIcon.addedToParent(); 
+
         element.appendChild(dropDownDiv);
-        indicator = newElement('div');
-        indicator.className = "spectrum-Tabs-selectionIndicator";
-        var indStyle:String = "width: 50px; left: 8px;";
-        indicator.setAttribute("style",indStyle);
-        element.appendChild(indicator);
+
+
+        // var indicator:TabIndicator = new TabIndicator();
+        // var styleStr:String = "width: 50px; left: 8px;";
+        // indicator.element.setAttribute("style",styleStr);
+        // addElement(indicator);
+        addIndicator();
+
         return element;
     }
+
+    private function removeIndicator():void
+    {
+      COMPILE::JS
+      {
+        for (var i:int = 0;i<element.children.length;i++){
+          if(element.children[i].classList.contains("spectrum-Tabs-selectionIndicator")){
+            element.children[i].remove();
+          }
+        }
+      }
+      
+    }
+
+    private function addIndicator():void
+    { 
+      COMPILE::JS
+      {
+      var indicator:TabIndicator = new TabIndicator();
+      var styleStr:String = "width: 50px; left: 8px;";
+      indicator.element.setAttribute("style",styleStr);
+      addElement(indicator);
+      }
+    }
+      
   }
 }
