@@ -19,27 +19,27 @@ package com.unhurdle.spectrum
     {
     	return _themeManager;
     }
-    override public function set colorstop(value:String):void
-    {
+    // override public function set colorstop(value:String):void
+    // {
       
-      if(value != _colorstop){
-        switch (value){
-          // check that values are valid
-          case "light":
-          case "lightest":
-          case "dark":
-          case "darkest":
-            break;
-          default:
-            throw new Error("Invalid colorstop: " + value);
-        }
-        var oldStop:String = valueToSelector("panel"+_colorstop);
-        var newStop:String = valueToSelector("panel"+value);
-        toggle(newStop, true);
-        toggle(oldStop, false);
-      	_colorstop = value;
-      }
-    }
+    //   if(value != _colorstop){
+    //     switch (value){
+    //       // check that values are valid
+    //       case "light":
+    //       case "lightest":
+    //       case "dark":
+    //       case "darkest":
+    //         break;
+    //       default:
+    //         throw new Error("Invalid colorstop: " + value);
+    //     }
+    //     var oldStop:String = valueToSelector("panel"+_colorstop);
+    //     var newStop:String = valueToSelector("panel"+value);
+    //     toggle(newStop, true);
+    //     toggle(oldStop, false);
+    //   	_colorstop = value;
+    //   }
+    // }
 
   }
 }
