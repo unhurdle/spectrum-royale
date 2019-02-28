@@ -76,7 +76,10 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         if(value){
-          element.classList.toggle("is-selected",value);
+          element.classList.add("is-selected");
+        }
+        else{
+          element.classList.remove("is-selected");
         }
       _selected = value;   
       }
@@ -91,9 +94,9 @@ package com.unhurdle.spectrum
           var tabBar:TabBar = ev.currentTarget.parent as TabBar; 
           checkSelected(tabBar);
           tabSelected.selected = true;
+
         if(tabSelected.selected == true){
           removeIndicator(tabBar);
-          // checkSelected(tabBar);
           setIndicatorSpot(tabBar);
           }
         }
@@ -107,11 +110,10 @@ package com.unhurdle.spectrum
         var barElements:Object = tabBar.element.children; 
         for(var i:int = 0;i<barElements.length;i++){
           var elem:Object = barElements[i]; 
-          // for (var j:int = 0;j<tab.children.length;j++){
-          //   var tabChildren:Object = tab.children[j];
             if(elem.classList.contains("spectrum-Tabs-selectionIndicator")){
               elem.remove();
             }
+            checkTabs(elem);
           }
         
       }
@@ -141,19 +143,17 @@ package com.unhurdle.spectrum
     COMPILE::JS
     {
       var tabs:Object = tabBar.tabs; 
-      //tabBar.tabs = [] of tabs
       for(var i:int = 0;i<tabs.length;i++){
         var tab:Object = tabs[i]; 
         if(tab.selected){
-          tab.selected == false;
+          tab.selected = false;
+          for(var j:int = 0;j<tab.element.children.length;j++){
+            var tabElem:Object = tab.element.children[j];
+            if(tabElem.classList.contains("spectrum-Tabs-selectionIndicator")){
+            tabElem.remove();
+            }
+          }
         }
-      for(var j:int = 0;j<tab.element.children.length;j++){
-        var tabElem:Object = tab.element.children[j];
-        if(tabElem.classList.contains("spectrum-Tabs-selectionIndicator")){
-          tabElem.remove();
-        }
-      }  
-        
       }
     }
   }
@@ -172,5 +172,15 @@ package com.unhurdle.spectrum
 
 
     
+
+    private function checkTabs(elem:Object):void
+    {
+      for(var j:int = 0;j<elem.children.length;j++){
+        var tabElem:Object = elem.children[j];
+        if(tabElem.classList.contains("spectrum-Tabs-selectionIndicator")){
+        tabElem.remove();
+        }
+      }
+    }
   }
 }

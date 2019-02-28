@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.UIBase;
     import org.apache.royale.core.CSSClassList;
+    import org.apache.royale.text.engine.TabAlignment;
   }
     
   
@@ -17,25 +18,33 @@ package com.unhurdle.spectrum
     { 
       super();
     }
-    
+
+    private var _quiet:Boolean;
+    private var _compact:Boolean;
+    private var _vertical:Boolean;
+    private var tabOverflow:TabOverflow; 
+    private var tabWidth:Number;
+    private var hasDropdown:Boolean;
+    private var direction:String;
+    private var _tabs:Array;
+    private var indicator:TabIndicator;
+    private var count:int = 0;
+
     override protected function getSelector():String
     {
-      return getTabsSelector() + direction; //direction
+      return getTabsSelector() + direction; 
     }
 
     override protected function appendSelector(value:String):String{
       return getSelector() + value;
     }
-    
-    private var _quiet:Boolean;
-    private var _compact:Boolean;
-    private var _vertical:Boolean;
-    private var tabOverflow:TabOverflow; //changed from public //test it
-    private var tabWidth:Number;
-    private var hasDropdown:Boolean;
-    private var direction:String;
-    private var _tabs:Array;
 
+    COMPILE::JS
+    override protected function computeFinalClassNames():String
+    {
+      return element.className as String;
+    }
+    
     public function get quiet():Boolean
     {
       return _quiet;
@@ -103,7 +112,37 @@ package com.unhurdle.spectrum
       element.className = appendSelector("");
       window.addEventListener("resize",resized,false);
       return element;
-    }                                                                                                                                                   
+    }  
+
+    private function resized():void
+  {
+    if(!vertical == true){
+    var elem:HTMLElement = element as HTMLElement;
+    var barWidth:Number = elem.getBoundingClientRect().width;  
+    var barPadding:Number = elem.style.padding as Number; //doesnt HAVE padding.
+    if(barPadding){
+      var barResult:Number = (barWidth - barPadding);
+      barWidth = barResult;
+    }
+    if(isNaN(tabWidth)){
+      tabWidth = 0;
+      for(var i:Number=0;i<tabs.length;i++){
+        var child:HTMLElement = tabs[i].element;
+        tabWidth += child.getBoundingClientRect().width; 
+        if(child.style.marginLeft && child.style.marginRight){ 
+          tabWidth += (child.style.marginLeft as Number);
+          tabWidth += (child.style.marginRight as Number);
+        }
+      }
+    }
+    if(tabWidth > barWidth){
+      collapseTabs();
+    } 
+      else {
+        reAddTabs();
+      }
+    }
+  }                                                                                                                                                 
 
     public function removeAllTabs():void
     {
@@ -134,7 +173,7 @@ package com.unhurdle.spectrum
     {
       return _tabs;
     }
-    private var indicator:TabIndicator;
+    
     public function set tabs(value:Array):void
     {
       _tabs = value;
@@ -142,6 +181,7 @@ package com.unhurdle.spectrum
         addElement(value[i] as Tab);
       }
       indicator=new TabIndicator();
+      
       var styleStr:String;
       if(!vertical == true){
         styleStr = "width: 27px; left: 0px;";
@@ -156,11 +196,7 @@ package com.unhurdle.spectrum
       addElement(indicator);
     }
 
-    COMPILE::JS
-    override protected function computeFinalClassNames():String
-    {
-      return element.className as String;
-    }
+    
 
     private function reAddTabs():void
     {
@@ -168,55 +204,36 @@ package com.unhurdle.spectrum
         removeElement(tabOverflow);
         hasDropdown = false;
         count = 0;
-
-        for(var i:int=0;i<tabs.length;i++){
-          addElement(tabs[i]);
-          checkForIndicator(tabs[i]);
-          if(count == tabs.length){
-            addIndicator();
-            
-          }
+      for(var i:int=0;i<tabs.length;i++){
+        addElement(tabs[i]);
+        checkForIndicator(tabs[i]);
+        if(count == tabs.length){
+          addIndicator();
         }
       }
     }
-  private var count:int = 0;
-  private function checkForIndicator(tab:Object):void
+  }
+ 
+  private function checkForIndicator(tab:Tab):void
   {
     if(!tab.selected){
       count++;
     }
-  }
-    private function resized():void
-    {
-      if(!vertical == true){
-      var elem:HTMLElement = element as HTMLElement;
-      var barWidth:Number = elem.getBoundingClientRect().width;  
-      var barPadding:Number = elem.style.padding as Number; //doesnt HAVE padding.
-      if(barPadding){
-        var barResult:Number = (barWidth - barPadding);
-        barWidth = barResult;
+    else{
+      if(tab.selected){
+      indicator = new TabIndicator();
+      var styleStr:String = "width: 27px; left: 0px;";
+      COMPILE::JS
+      {
+        indicator.element.setAttribute("style",styleStr);
+        tab.addElement(indicator); 
       }
-      if(isNaN(tabWidth)){
-        tabWidth = 0;
-        for(var i:Number=0;i<tabs.length;i++){
-          var child:HTMLElement = tabs[i].element;
-          tabWidth += child.getBoundingClientRect().width; 
-          if(child.style.marginLeft && child.style.marginRight){ 
-            tabWidth += (child.style.marginLeft as Number);
-            tabWidth += (child.style.marginRight as Number);
-          }
-        }
-      }
-      if(tabWidth > barWidth){
-        collapseTabs();
-      } 
-        else {
-          reAddTabs();
-        }
+         
       }
     }
+  }
 
-
+  
 
     private function removeIndicator():void
     {
@@ -239,9 +256,9 @@ package com.unhurdle.spectrum
       var styleStr:String = "width: 27px; left: 0px;";
       indicator.element.setAttribute("style",styleStr);
       addElement(indicator);
+    
       }
     }
 
-    
   }
 }

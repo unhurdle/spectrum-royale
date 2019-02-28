@@ -6,11 +6,17 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.ValueEvent;
   import org.apache.royale.html.util.addElementToWrapper;
   }
+  import com.unhurdle.spectrum.data.DropdownItem;
   import org.apache.royale.events.ValueEvent;
+  import com.unhurdle.spectrum.renderers.DropdownItemRenderer;
+  import jQuery.event;
+  import com.unhurdle.spectrum.renderers.MenuItemRenderer;
+  
+
   [Event(name="children", type="org.apache.royale.events.Event")]
   public class TabOverflow extends Group
   {
-    public function TabOverflow() 
+    public function TabOverflow()
     {
       super();
       COMPILE::JS
@@ -18,139 +24,36 @@ package com.unhurdle.spectrum
         addEventListener("tabs",tabsArray);
       }
     }
-
-    override protected function getSelector():String
-    {
-      return getTabsSelector() + direction; //direction
-    }
-
-    override protected function appendSelector(value:String):String{
-      return getSelector() + value;
-    }
-    //* == dx have to be global
-    private var dropDownDiv:HTMLElement; 
-    private var dropButton:HTMLElement; 
-    private var dropSpan:TextNode; 
-    private var indicator:HTMLElement; //change //*
-    private var dropPop:Popover; 
-    private var dropList:HTMLElement; 
-    private var dropItem:HTMLElement;
-    private var _compact:Boolean;
-    private var _disabled:Boolean;
-    private var tabs:Array;
-    private var _selected:Object;
     private var direction:String;
+    private var dropDown:Dropdown;
 
-
-    public function get selected():Object
-    {
-    	return _selected;
-    }
-
-    public function set selected(value:Object):void
+    COMPILE::JS
+    override protected function createElement():WrappedHTMLElement 
     { 
-      if(!value){
-        _selected = tabs[0];
+      addElementToWrapper(this,'div');
+      direction = " spectrum-Tabs--horizontal";
+      element.className = appendSelector("");
+      var elemStyle:String = "width: 409px";
+      element.setAttribute("style",elemStyle);
+      dropDown = new Dropdown();
+      addElement(dropDown);
+      element.appendChild(dummySpacing());
+      addIndicator();
+      return element;
     }
-    	_selected = value;
-      dropSpan.text = selected.textContent;
-      for(var i:Number = 0;i<dropList.children.length;i++){
-        if(dropList.children.item(i).classList.contains("is-selected")){
-          dropList.children.item(i).classList.remove("is-selected");
-          if((selected as HTMLElement).parentElement.classList.contains("spectrum-Menu-item")){//sometimes the ev.value IS the parent. //depending if you click on the div or the span
-            (selected as HTMLElement).parentElement.classList.add("is-selected");
-          }
-          else{
-            (selected as HTMLElement).classList.add("is-selected");
-          }
-        }
-      }
-    }
-
-       
-    private function toggleDropdown():void{
-      if(!dropDownDiv.classList.contains("is-open")){
-        dropDownDiv.classList.add("is-open");
-        removeIndicator();
-        createPopOver();
-        return;
-      }
-     else if(dropDownDiv.classList.contains("is-open") ){
-       dropDownDiv.classList.remove("is-open");
-       dropDownDiv.children[0].children[0].remove();
-       addIndicator();
-      }
-    }
-
-    private function checkForSelectedTag():void
-    { 
-      COMPILE::JS
-      {
-        for(var i:Number=0;i<tabs.length;i++){
-        if(tabs[i].selected){
-          tabs[i].selected == false;
-          removeSelectedIndicator(tabs[i]);
-        }
-      }
-      }
-      
-    }
-    private function removeSelectedIndicator(tab:Object):void
-    {
-      for (var i:int =0;i<tab.element.children.length;i++){
-        if(tab.element.children[i].classList.contains("spectrum-Tabs-selectionIndicator")){
-            tab.element.children[i].remove();
-          }
-      }
-    }
-    private function fillDrop():void
-    {
-      for(var i:Number=0;i<tabs.length;i++){
-      // checkForSelectedTag(tabs[i]);
-      dropItem = tabs[i].element;
-      dropItem.onclick = selectedItem;
-      dropList.appendChild(dropItem);
-      }
-      COMPILE::JS{
-      dropPop.element.appendChild(dropList);
-      }
     
-    var popIcon:Icon = new Icon("#spectrum-css-icon-CheckmarkMedium");
-    popIcon.className = "spectrum-Icon spectrum-UIIcon-CheckmarkMedium spectrum-Menu-checkmark";
-    addElement(popIcon); 
-    popIcon.addedToParent(); //need this?
-    COMPILE::JS{
-    dropButton.appendChild(dropPop.element);
-    }
-    }
-
-
-  private function selectedItem(ev:*):void //*?
-    {
-      selected = ev.target;
-    }
-      
-      
-    private function createPopOver():void{ 
-      dropPop = new Popover();
-      dropPop.className = "spectrum-Popover spectrum-Popover--bottom spectrum-Dropdown-popover";
+    private function addIndicator():void
+    { 
       COMPILE::JS
       {
-      dropPop.element.classList.add("spectrum-Dropdown-popover--quiet");
-      dropPop.element.classList.add("is-open");
+      var indicator:TabIndicator = new TabIndicator();
+      var styleStr:String = "width: 50px; left: 8px;";
+      indicator.element.setAttribute("style",styleStr);
+      addElement(indicator);
       }
-     
-      var popStyle:String = "display: block; margin-left: -5px; margin-top: -9px;";
-      COMPILE::JS
-      {
-      dropPop.element.setAttribute("style",popStyle);
-      dropList = newElement('ul'); 
-      }
-      checkForSelectedTag();
-      fillDrop();
-      dummySpacing();
-      }
+    }
 
+    private var _compact:Boolean;
     public function get compact():Boolean
     {
       return _compact;
@@ -162,101 +65,85 @@ package com.unhurdle.spectrum
       if(value != !!_compact){
       element.classList.add("spectrum-Tabs--compact");
       _compact = value;
-        }
-    }
-     
-    public function get disabled():Boolean
-    {
-      return _disabled;
-    }
-
-    public function set disabled(value:Boolean):void
-    {
-      _disabled = value;
-      dropItem.classList.add("is-disabled");
-    }
-    private function dummySpacing():void //what is this
-    {
-      COMPILE::JS{
-        var dummySpace:HTMLElement = newElement('div');
-        dummySpace.className= "dummy-spacing";
-        element.appendChild(dummySpace);
       }
     }
 
+    COMPILE::JS
+    private function dummySpacing():HTMLElement //what is this
+    {
+      var dummySpace:HTMLElement = newElement('div');
+      dummySpace.className= "dummy-spacing";
+      return dummySpace;
+    }
+
+    private var dpArray:Array = [];
+    private var tabsForDp:Array = [];
     COMPILE::JS
     private function tabsArray(ev:ValueEvent):void
     {
-      tabs = ev.value;
-      dropSpan.text = tabs[0].text; 
+      for(var i:int = 0;i<ev.value.length;i++){
+        tabsForDp.push(ev.value[i]);
+        var dpTab:Object = tabsForDp[i];
+        placeHolder(dpTab);
+        if(!dropDown.placeholder){
+          dropDown.placeholder = (tabsForDp[0] as Object ).text;
+        }
+        dpTab = new DropdownItem(dpTab.text);
+        addEventListener('click',checkForSelected);
+        dpArray.push(dpTab); 
+      }
+      dropDown.dataProvider = dpArray;
     }
 
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement 
-    {   
-        addElementToWrapper(this,'div');
-        direction = " spectrum-Tabs--horizontal";
-        element.className = appendSelector("");;
-        var elemStyle:String = "width: 409px";
-        element.setAttribute("style",elemStyle);
-
-        dropDownDiv = newElement('div');
-        dropDownDiv.className = "spectrum-Dropdown"; 
-        dropDownDiv.classList.add("spectrum-Dropdown--quiet");
-
-        dropButton = newElement("button");
-        dropButton.className = "spectrum-FieldButton";
-        dropButton.classList.add("spectrum-FieldButton--quiet");
-        dropButton.classList.add("spectrum-Dropdown-trigger");
-        dropButton.addEventListener("click",toggleDropdown);
-
-        dropDownDiv.appendChild(dropButton);
-
-        dropSpan = new TextNode("span");
-        dropSpan.className = "spectrum-Dropdown-label";
-
-        dropDownDiv.appendChild(dropSpan.element);
-
-        var dropIcon:Icon = new Icon("#spectrum-css-icon-ChevronDownMedium");
-        dropIcon.className = "spectrum-Icon spectrum-UIIcon-ChevronDownMedium spectrum-Dropdown-icon";
-        addElement(dropIcon); 
-        dropIcon.addedToParent(); 
-
-        element.appendChild(dropDownDiv);
-
-
-        // var indicator:TabIndicator = new TabIndicator();
-        // var styleStr:String = "width: 50px; left: 8px;";
-        // indicator.element.setAttribute("style",styleStr);
-        // addElement(indicator);
-        addIndicator();
-
-        return element;
+    private function placeHolder(tab:Object):void
+    { 
+      if(tab.selected){
+        dropDown.placeholder = tab.text;
+      }
     }
-
-    private function removeIndicator():void
+    private function checkForSelected(ev:Event):void
     {
-      COMPILE::JS
-      {
-        for (var i:int = 0;i<element.children.length;i++){
-          if(element.children[i].classList.contains("spectrum-Tabs-selectionIndicator")){
-            element.children[i].remove();
+      if((ev.target as MenuItemRenderer).selected){
+
+        for(var i:int = 0;i<tabsForDp.length;i++){
+          var tab:Object = tabsForDp[i];
+          COMPILE::JS
+          {
+            if(tab.text == (ev.target as MenuItemRenderer).element.textContent){
+              checkForDuplicateSelected(tabsForDp); 
+              tab.selected = true;
+            }
           }
         }
       }
-      
     }
+  
 
-    private function addIndicator():void
-    { 
-      COMPILE::JS
-      {
-      var indicator:TabIndicator = new TabIndicator();
-      var styleStr:String = "width: 50px; left: 8px;";
-      indicator.element.setAttribute("style",styleStr);
-      addElement(indicator);
+    private function checkForDuplicateSelected(tabsArray:Array):void
+    {
+      for(var i:int=0;i<tabsArray.length;i++){
+        if(tabsArray[i].selected){
+          tabsArray[i].selected = false;
+          dpArray[i].selected = false;
+          removeIndicator(tabsArray[i]);
+        }
       }
     }
-      
+
+    private function removeIndicator(tab:Tab):void
+    {
+      COMPILE::JS
+      {
+        for(var i:int = 0;i<tab.element.children.length;i++){
+          if(tab.element.children[i].classList.contains("spectrum-Tabs-selectionIndicator")){
+            tab.element.children[i].remove();
+          }
+        }
+      }
+    }
+
+    
+
+    
   }
 }
