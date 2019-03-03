@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" xmlns:spectrum="com.unhurdle.spectrum.*" xmlns:elements="org.apache.royale.textLayout.elements.*" colorstop="dark" >
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" 
+  xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="darkest" >
   <fx:Script>
     <![CDATA[
 

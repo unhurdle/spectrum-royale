@@ -81,7 +81,7 @@ package com.unhurdle.spectrum
 
 		private function updateTheme():void
 		{
-			appSkinInfo = new AppSkinInfo(CSInterface.hostEnvironment.appSkinInfo);
+			appSkinInfo = new AppSkinInfo(CSInterface.getHostEnvironment().appSkinInfo);
 			_backgroundColor = "#" + toHex(appSkinInfo.panelBackgroundColor.color as CepColor)
 			// Using the red value to infer the darkness
 			var redShade:Number = appSkinInfo.panelBackgroundColor.color.red;
@@ -91,10 +91,10 @@ package com.unhurdle.spectrum
 				else if (redShade > 180) { // exact: 184 (#B8B8B8)
 					app.colorstop = "light";
 			} 
-				else if (redShade > 80) { // exact: 83 (#535353)
+				else if (redShade > 75) { // exact: 83 (#535353)
 					app.colorstop = "dark";
 			} 
-				else if (redShade > 50) { // exact: 52 (#343434)
+				else { // exact: 52 (#343434)
 					app.colorstop = "darkest";
 			} 
 			dispatchEvent(new Event(THEME_CHANGED));
