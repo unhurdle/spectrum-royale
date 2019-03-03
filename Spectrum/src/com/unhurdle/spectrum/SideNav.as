@@ -58,7 +58,10 @@ package com.unhurdle.spectrum
           (value[i] as SideNavItem).isList = false;
           (value[i] as SideNavItem).text = value[i].text;
           (value[i] as SideNavItem).color = value[i].color;
+          (value[i] as SideNavItem).checked = value[i].checked;
           (value[i] as SideNavItem).isHeading = value[i].isHeading;
+          (value[i] as SideNavItem).withCheckBox = withCheckBox;
+          // (value[i] as SideNavItem).withCheckBox = value[i].withCheckBox;
           (value[i] as SideNavItem).href = value[i].href;
           (value[i] as SideNavItem).selected = value[i].selected;
           (value[i] as SideNavItem).dataProvider = value[i].dataProvider;
@@ -72,7 +75,10 @@ package com.unhurdle.spectrum
           // (value[i] as SideNavItem).href = value[i].href;
           (value[i] as SideNavItem).color = value[i].color;
           (value[i] as SideNavItem).text =  value[i].text;
+          (value[i] as SideNavItem).checked =  value[i].checked;
           (value[i] as SideNavItem).isHeading = value[i].isHeading;
+          (value[i] as SideNavItem).withCheckBox = withCheckBox;
+          // (value[i] as SideNavItem).withCheckBox = value[i].withCheckBox;
           // (value[i] as SideNavItem).href = value[i].href;
           (value[i] as SideNavItem).height = itemsHeight;
 
@@ -88,6 +94,9 @@ package com.unhurdle.spectrum
           }
           if(value[i].hasOwnProperty("isHeading")){
             item.isHeading = value[i]["isHeading"];
+          }
+          if(value[i].hasOwnProperty("withCheckBox")){
+            item.withCheckBox = value[i]["withCheckBox"];
           }
           if(value[i].hasOwnProperty("isList")){
             item.isList = value[i]["isList"];
@@ -162,6 +171,24 @@ package com.unhurdle.spectrum
     public function set isHeading(value:Boolean):void{
         _isHeading = value;
     }
-
+    private var _withCheckBox:Boolean;
+    public function get withCheckBox():Boolean{
+        return _withCheckBox;
+    }
+    public function set withCheckBox(value:Boolean):void{
+        _withCheckBox = value;
+    }
+    private var _checked:Boolean;
+    public function get checked():Boolean
+    {
+      if(!withCheckBox){
+        return null;
+      }
+    	return _checked;
+    }
+    public function set checked(value:Boolean):void
+    {
+    	_checked = value;
+    }
   }
 }

@@ -10,7 +10,7 @@ package com.unhurdle.spectrum
      *  Dispatched when the user checks or un-checks the CheckBox.
      *
      */
-	[Event(name="change", type="org.apache.royale.events.Event")]
+	// [Event(name="change", type="org.apache.royale.events.Event")]
 
     public class CheckBox extends SpectrumBase
     {

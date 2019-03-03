@@ -9,8 +9,13 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.collections.IArrayList;
   import com.unhurdle.spectrum.data.MenuItem;
-  import org.apache.royale.html.SimpleAlert;
   import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.core.IPopUpHost;
+  import org.apache.royale.utils.UIUtils;
+  import org.apache.royale.geom.Point;
+  import org.apache.royale.events.Event;
+  import org.apache.royale.utils.PointUtils;
+	[Event(name="change", type="org.apache.royale.events.Event")]
 
   public class Dropdown extends SpectrumBase
   {
@@ -21,7 +26,7 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Dropdown";
     }
-    private var button:FieldButton;
+    public var button:FieldButton;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
@@ -32,6 +37,7 @@ package com.unhurdle.spectrum
       button.icon = Icon.getCSSTypeSelector(type);
       button.iconType = type;
       button.iconClass = appendSelector("-icon");
+      button.addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       addElement(button);
       popover = new Popover();
       popover.className = appendSelector("-popover");
@@ -39,15 +45,56 @@ package com.unhurdle.spectrum
       // popover.percentWidth = 100;
       // popover.style = {"z-index":100};//????
       menu = new Menu();
+      menu.addEventListener("change", handleListChange);
+      // menu.addEventListener("selected", handleListChange);
       popover.addElement(menu);
-      popover.addEventListener("click", handleListChange);
-      popover.style = {"min-width":"100%","z-index": "1"};
+      // popover.addEventListener(MouseEvent.MOUSE_DOWN, handleListChange);
+      // popover.addEventListener("click", handleListChange);
+      popover.style = {"min-width":"50px","z-index": "1"};
       addElement(popover);
       return elem;
     }
     private var popover:Popover;
     private var menu:Menu;
+    
+    private function toggleMenu():void{
+      var shown:Boolean = popover.open;
+      if(shown){// close it
 
+      } else {//open it
+				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+        var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
+				var origin:Point = new Point(0, height - 6);
+				var relocated:Point = PointUtils.localToGlobal(origin,this);
+        relocated.x -= offset.x;
+        relocated.y -= offset.y;
+				popover.y = relocated.y+5;
+        popover.x = relocated.x;
+        if(_alignRight && popover.width>button.width){
+          popover.x -= popover.width-button.width;
+        }
+				// popover.width = button.width;
+
+				popupHost.popUpParent.addElement(popover);
+
+      }
+      button.selected = popover.open;
+      popover.open = !popover.open;
+    }
+    
+    private var _alignRight:Boolean;
+
+		public function get alignRight():Boolean
+		{
+			return _alignRight;
+		}
+
+		public function set alignRight(value:Boolean):void
+		{
+			_alignRight = value;
+     
+      // menu.alignRight = value;
+		}
     private function toggleDropdown():void{
       popover.open = !popover.open;
       button.selected = popover.open;
@@ -120,7 +167,9 @@ package com.unhurdle.spectrum
       popover.open = false;
       if(!selectedItem.isDivider && !selectedItem.disabled){
         button.text = selectedItem.text;
+        dispatchEvent(new Event("change"));
       }
+      // toggleMenu();
     }
     
     private var _invalid:Boolean;

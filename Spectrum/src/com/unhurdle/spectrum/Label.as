@@ -34,6 +34,18 @@ package com.unhurdle.spectrum
          * inactive (grey)
          * 
          */
+        private var enableColor:Array = [            
+            "grey",
+            "red",
+            "orange",
+            "yellow",
+            "seafoam",
+            "green",
+            "blue",
+            "fuchsia",
+            "active",
+            "inactive"
+        ];
         public function get color():String
         {
             return _color;
@@ -42,7 +54,15 @@ package com.unhurdle.spectrum
         public function set color(value:String):void
         {
             if(value != _color){
-                var newColor:String = valueToSelector(value);
+                if(enableColor.includes(value)){
+                    var newColor:String = valueToSelector(value);
+                    toggle(newColor, true);
+                }else{                    
+                    COMPILE::JS
+                    {
+                        span.element.style.backgroundColor = value;
+                    }
+                }
                 toggle(newColor, true);
                 if(_color){
                     var oldColor:String = valueToSelector(_color);

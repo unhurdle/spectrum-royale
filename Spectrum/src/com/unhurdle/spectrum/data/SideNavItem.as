@@ -1,6 +1,8 @@
 package com.unhurdle.spectrum.data
 {
-  public class SideNavItem
+  import com.unhurdle.spectrum.ISideNav;
+
+  public class SideNavItem implements ISideNav
   {
     public function SideNavItem(text:String = null)
     {
@@ -14,6 +16,18 @@ package com.unhurdle.spectrum.data
     public function set isList(value:Boolean):void
     {
     	_isList = value;
+    }
+    private var _checked:Boolean;
+    public function get checked():Boolean
+    {
+      if(!withCheckBox){
+        return null;
+      }
+    	return _checked;
+    }
+    public function set checked(value:Boolean):void
+    {
+    	_checked = value;
     }
     private var _href:String;
     public function get href():String
@@ -108,6 +122,13 @@ package com.unhurdle.spectrum.data
     public function set isHeading(value:Boolean):void
     {
     	_isHeading = value;
+    }
+    private var _withCheckBox:Boolean;
+    public function get withCheckBox():Boolean{
+        return _withCheckBox;
+    }
+    public function set withCheckBox(value:Boolean):void{
+        _withCheckBox = value;
     }
   }
 }

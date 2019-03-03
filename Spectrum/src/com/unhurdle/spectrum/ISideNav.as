@@ -11,6 +11,8 @@ package com.unhurdle.spectrum
 		function set disabled(value:Boolean):void;
     function get isHeading():Boolean;
 		function set isHeading(value:Boolean):void;
+    function get withCheckBox():Boolean;
+		function set withCheckBox(value:Boolean):void;
 		function set dataProvider(value:Object):void;
     
   } 

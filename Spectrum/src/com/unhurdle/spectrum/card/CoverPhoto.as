@@ -9,6 +9,7 @@ package com.unhurdle.spectrum.card
       super();
       if(src)
         this.src = src;
+      (element as HTMLElement).style.height = "inherit";
     }
     private var _src:String;
 

@@ -16,7 +16,11 @@ package com.unhurdle.spectrum
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,'div');
+      addElementToWrapper(this,'div');
+      label = new Label();
+      addElement(label);
+      return element;
     }
+    public var label:Label;
   }
 }
