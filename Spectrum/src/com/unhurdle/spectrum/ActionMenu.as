@@ -50,11 +50,7 @@ package com.unhurdle.spectrum
 			// popover.x = relocated.x
 			// popover.y = relocated.y;
       // var popupHost:IPopUpHost = UIUtils.findPopUpHost(host);
-      // trace("popupHost");
-      // trace(popupHost);
-      // trace("host");
-      // trace(host);
-			// popupHost.popUpParent.addElement(popover);
+     // popupHost.popUpParent.addElement(popover);
 
       
 

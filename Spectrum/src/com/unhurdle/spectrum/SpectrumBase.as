@@ -34,15 +34,15 @@ package com.unhurdle.spectrum
         setClassName(computeFinalClassNames());
       }
     }
-
+    
     COMPILE::JS
     override protected function computeFinalClassNames():String
-    {
+    { 
       return classList.compute() + super.computeFinalClassNames();
     }
     
     protected function valueToSelector(value:String):String{
-        return getSelector() + "--" + value;
+      return getSelector() + "--" + value;
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
