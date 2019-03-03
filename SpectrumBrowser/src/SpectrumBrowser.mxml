@@ -1,80 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" 
-  xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="light" >
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" xmlns:spectrum="com.unhurdle.spectrum.*" xmlns:elements="org.apache.royale.textLayout.elements.*" colorstop="dark" >
   <fx:Script>
     <![CDATA[
 
-      // import com.unhurdle.spectrum.Alert;
-      // import com.unhurdle.spectrum.Toast;
-      // import com.unhurdle.spectrum.Dialog;
-      // import com.unhurdle.spectrum.DialogContent;
-      // import com.unhurdle.spectrum.DialogFooter;
-      // import com.unhurdle.spectrum.DialogHeader;
-      // import org.apache.royale.html.elements.H1;
-      // import org.apache.royale.html.elements.P;
-      // import org.apache.royale.events.ValueEvent;
-      // import com.unhurdle.spectrum.data.BreadcrumbsItem;
-      // import org.apache.royale.events.Event;
-      // import org.apache.royale.events.BrowserEvent;
-      // import com.unhurdle.spectrum.Switch;
-      // import com.unhurdle.spectrum.SearchWithin;
-      // import org.apache.royale.events.ValueEvent;
-      // import com.unhurdle.spectrum.AssetList;
-      // import org.apache.royale.collections.HierarchicalData;
-      // import com.unhurdle.spectrum.data.AssetListItem;
-      // import com.unhurdle.spectrum.SideNav;
-      // import com.unhurdle.spectrum.card.Card;
-      // import com.unhurdle.spectrum.QuickActions;
-      // import com.unhurdle.spectrum.Asset;
-      // import com.unhurdle.spectrum.card.CardBody;
-      // import vos.GuitarristVO;
-      // import org.apache.royale.collections.ArrayList;
-      // import vos.GuitarristVO;
+      import com.unhurdle.spectrum.Alert;
+      import com.unhurdle.spectrum.Toast;
+      import com.unhurdle.spectrum.Dialog;
+      import com.unhurdle.spectrum.DialogContent;
+      import com.unhurdle.spectrum.DialogFooter;
+      import com.unhurdle.spectrum.DialogHeader;
+      import org.apache.royale.html.elements.H1;
+      import org.apache.royale.html.elements.P;
+      import org.apache.royale.events.ValueEvent;
+      import com.unhurdle.spectrum.data.BreadcrumbsItem;
+      import org.apache.royale.events.Event;
+      import org.apache.royale.events.BrowserEvent;
+      import com.unhurdle.spectrum.Switch;
+      import com.unhurdle.spectrum.SearchWithin;
+      import org.apache.royale.events.ValueEvent;
+      import com.unhurdle.spectrum.AssetList;
+      import org.apache.royale.collections.HierarchicalData;
+      import com.unhurdle.spectrum.data.AssetListItem;
 
-      // // private function showAlert():void{
-      // //   var alert:Alert = new Alert();
-      // //   alert.status = Alert.HELP;
-      // //   alert.closeText = "Goodbye";
-      // //   alert.header = "Hey";
-      // //   alert.content = "Need some help?"
-      // //   alert.showOverlay = true;
+      // private function showAlert():void{
+      //   var alert:Alert = new Alert();
+      //   alert.status = Alert.HELP;
+      //   alert.closeText = "Goodbye";
+      //   alert.header = "Hey";
+      //   alert.content = "Need some help?"
+      //   alert.showOverlay = true;
        
-      // //   alert.show();
-      // // }
+      //   alert.show();
+      // }
       // private function showToast():void{
       //   new Toast("Some great news here!").show();
-      //   // var toast:Toast = new Toast();
-      //   // toast.text = "Some great news here!"
-      //   // toast.show();
+        // var toast:Toast = new Toast();
+        // toast.text = "Some great news here!"
+        // toast.show();
       // }
 
-      // // private function handleCheckboxChange():void
-      // // {
-      // //   new Toast("Checkbox value: " + myCheckbox.checked).show();
-      // // }
-      // // [Bindable]
-      // // private var listProvider:Array = [
-      // //   "One",
-      // //   "Two",
-      // //   "Three",
-      // //   "Four",
-      // //   "Five"
+      // private function handleCheckboxChange():void
+      // {
+      //   new Toast("Checkbox value: " + myCheckbox.checked).show();
+      // }
+      // [Bindable]
+      // private var listProvider:Array = [
+      //   "One",
+      //   "Two",
+      //   "Three",
+      //   "Four",
+      //   "Five"
 
-      // // ];
-      // // private function handleCheckboxChange():void
-      // // {
-      // //   new Toast("Checkbox value: " + myCheckbox.checked).show();
-      // // }
-      // // [Bindable]
-      // // private var listProvider:Array = [
-      // //   "One",
-      // //   "Two",
-      // //   "Three",
-      // //   "Four",
-      // //   "Five"
-      // // ];
+      // ];
+      // private function handleCheckboxChange():void
+      // {
+      //   new Toast("Checkbox value: " + myCheckbox.checked).show();
+      // }
+      // [Bindable]
+      // private var listProvider:Array = [
+      //   "One",
+      //   "Two",
+      //   "Three",
+      //   "Four",
+      //   "Five"
+      // ];
       // [Bindable]
       // private var comboProvider:Array = [
       //   "One",
@@ -83,121 +74,121 @@
       //   "Four",
       //   "Five"
       // ];
-      // // [Bindable]
-      // // private var millerColumnsProvider:Array = [,];
-      // // [Bindable]private var date:Date = new Date();
-      // // [Bindable]private var date1:Date = new Date(2019,01,25);
+      // [Bindable]
+      // private var millerColumnsProvider:Array = [,];
+      [Bindable]private var date:Date = new Date();
+      [Bindable]private var date1:Date = new Date(2019,01,25);
 
-      // // private function handleSrepperChange(ev:Event):void{
-      // //   new Toast("Stepper value" + ev.target.value).show();
-      // // }
+      // private function handleSrepperChange(ev:Event):void{
+      //   new Toast("Stepper value" + ev.target.value).show();
+      // }
 
-      // // private function actionChange():void{
-      // //   var item:String = actionButton.selectedItem.label as String;
-      // //   new Toast(item).show();
-      // // }
-      // // private function actionClick():void{
-      // //   var item:Object = actionButton.selectedItem;
-      // //   var str:String = "No Item";
-      // //   if(item){
-      // //     str = item.label;
-      // //   }
-      // //   new Toast(str).show();
-      // // }
-      // // private var dialog:Dialog;
-      // // private function showDialog():void{
-      // //   dialog = new Dialog();
-      // //   dialog.size = 1;
-      // //   dialog.error = true;
-      // //   var dialogHeader:DialogHeader = new DialogHeader();
-      // //   var h1:H1 = new H1();
-      // //   h1.text = "Dialog";
-      // //   dialogHeader.addElement(h1);
-      // //   var dialogContent:DialogContent = new DialogContent();
-      // //   var p:P = new P();
-      // //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
-      // //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
-      // //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
-      // //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
-      // //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
-      // //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
-      // //   dialogContent.addElement(p);
-      // //   var dialogFooter:DialogFooter = new DialogFooter();
-      // //   var btn:Button = new Button();
-      // //   btn.text = "ok";
-      // //   btn.addEventListener("click",hideDialog)
-      // //   dialogFooter.addElement(btn);
-      // //   dialog.addElement(dialogHeader);
-      // //   dialog.addElement(dialogContent);
-      // //   dialog.addElement(dialogFooter);
-      // //   dialog.show();
-      // // }
+      // private function actionChange():void{
+      //   var item:String = actionButton.selectedItem.label as String;
+      //   new Toast(item).show();
+      // }
+      // private function actionClick():void{
+      //   var item:Object = actionButton.selectedItem;
+      //   var str:String = "No Item";
+      //   if(item){
+      //     str = item.label;
+      //   }
+      //   new Toast(str).show();
+      // }
+      // private var dialog:Dialog;
+      // private function showDialog():void{
+      //   dialog = new Dialog();
+      //   dialog.size = 1;
+      //   dialog.error = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.show();
+      // }
 
-      // // private function hideDialog():void{
-      // //   dialog.hide();
-      // // }
+      // private function hideDialog():void{
+      //   dialog.hide();
+      // }
 
-      // // private function itemSelected(ev:ValueEvent):void{
-      // //   var value:String;
-      // //   if(ev.value["label"]){
-      // //     value = ev.value["label"];
-      // //   } else {
-      // //     value = "" + ev.value;
-      // //   }
+      // private function itemSelected(ev:ValueEvent):void{
+      //   var value:String;
+      //   if(ev.value["label"]){
+      //     value = ev.value["label"];
+      //   } else {
+      //     value = "" + ev.value;
+      //   }
         
-      //   // if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
-      //   //   value = ev.value.children[0].children[0].text;
-      //   // }
-      //   // else{
-      //   //   value = ev.value.children[0].text;
-      //   // }
-      //   // new Toast("The selected item is: "+value).show();
-      // // }
-      // // private function sideNavClick(ev:*):void{
-      // //   var value:String = ev.target.selectedItem.label;
-      // //   new Toast("The selected item is: "+value).show();
-      // // }
+        // if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
+        //   value = ev.value.children[0].children[0].text;
+        // }
+        // else{
+        //   value = ev.value.children[0].text;
+        // }
+        // new Toast("The selected item is: "+value).show();
+      // }
+      // private function sideNavClick(ev:*):void{
+      //   var value:String = ev.target.selectedItem.label;
+      //   new Toast("The selected item is: "+value).show();
+      // }
 
-      // // private function handleChangeOfRange():void{
-      // //   rating1.value = ratingStepper.value;
-      // // }
+      // private function handleChangeOfRange():void{
+      //   rating1.value = ratingStepper.value;
+      // }
 
-      // // private function handleTagChange():void{
-      // //   new Toast("The tag has been deleted").show();
-      // // }
+      // private function handleTagChange():void{
+      //   new Toast("The tag has been deleted").show();
+      // }
 
-      // // private function handleChangeOfMax():void{
-      // //   rating1.max = maxStepper.value;
-      // //   ratingStepper.max = maxStepper.value;
-      // //   if(ratingStepper.value > (maxStepper.value)){
-      // //     ratingStepper.value = (maxStepper.value);
-      // //   }
-      // // }
-      // // private function onFiles(ev:ValueEvent):void{
-      // //   var files:Array = ev.value;
-      // //   new Toast("File name is: " + files[0].name).show();
-      // // }
-      // // private function onDialChange(ev:Event):void{
-      // //   trace(ev.target.value);
-      // // }
+      // private function handleChangeOfMax():void{
+      //   rating1.max = maxStepper.value;
+      //   ratingStepper.max = maxStepper.value;
+      //   if(ratingStepper.value > (maxStepper.value)){
+      //     ratingStepper.value = (maxStepper.value);
+      //   }
+      // }
+      // private function onFiles(ev:ValueEvent):void{
+      //   var files:Array = ev.value;
+      //   new Toast("File name is: " + files[0].name).show();
+      // }
+      // private function onDialChange(ev:Event):void{
+      //   trace(ev.target.value);
+      // }
 
       // private function switched(ev:Event):void{
       //   var theSwitch:Switch = ev.target as Switch;
       //   var status:String = theSwitch.checked ? "On" : "Off";
       //   (ev.target as Switch).text = "Toggle " + status;
       // }
-      // // private function onSubmit(ev:*):void{
-      // //   var searchText:String;
-      // //   if(ev.target is SearchWithin)
-      // //     searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
-      // //   else
-      // //     searchText = ev.target.text;
-      // //   var content:String = "searching for: " + searchText;
-      // //   new Toast(content).show();
-      // // }
-      // // private function handleSelectedDate():void{
-      // //   new Toast("handleSelectedDate").show();
-      // // }
+      // private function onSubmit(ev:*):void{
+      //   var searchText:String;
+      //   if(ev.target is SearchWithin)
+      //     searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
+      //   else
+      //     searchText = ev.target.text;
+      //   var content:String = "searching for: " + searchText;
+      //   new Toast(content).show();
+      // }
+      // private function handleSelectedDate():void{
+      //   new Toast("handleSelectedDate").show();
+      // }
 
       // private function assetItemSelected(ev:ValueEvent):void
       // {
@@ -252,37 +243,10 @@
       //     ]
       //   }
       //   );
-
-    //      [Bindable]
-		// private var _guitarrists:ArrayList = new ArrayList([
-		// 	new GuitarristVO("Steve Vai", "Passion & Warfare", 1990),
-		// 	new GuitarristVO("Joe Satriani", "Surfing With The Alien", 1987),
-		// 	new GuitarristVO("Yngwie Malmsteen", "Rising Force", 1984),
-		// 	new GuitarristVO("Steve Morse", "Southern Steel", 1991),
-		// 	new GuitarristVO("Mark Knopfler", "Local Hero", 1983),
-		// 	new GuitarristVO("Eric Sardinas", "Treat Me Right", 1999),
-		// 	new GuitarristVO("Mike Oldfield", "Tubular Bells", 1973),
-		// 	new GuitarristVO("Van Halen", "1984", 1984)
-		// ]);
- ]]>
-   
+    ]]>
   </fx:Script>
   <sp:initialView>
     <sp:View>
-    <sp:TabBar >
-    <!-- <sp:TabBar vertical="true"> -->
-         <fx:Array>
-           <sp:Tab text="Home"/>
-           <sp:Tab text="Campaigns " />
-           <sp:Tab text="Jobs "/>
-           <sp:Tab text="Templates "/>
-           <sp:Tab text="Home1"/>
-           <sp:Tab text="Campaigns1 " />
-           <sp:Tab text="Jobs1 "/>
-           <sp:Tab text="Templates1 "/>
-           
-         </fx:Array>
-     </sp:TabBar>
   <!-- <sp:Search id="search" submit="onSubmit(event)"/> -->
   <!-- <sp:SearchWithin dataProvider="{listProvider}" submit="onSubmit(event)" selectedItem="{listProvider[0]}"/> -->
   <!-- <sp:ActionButton id="actionButton" click="actionClick()"
@@ -292,18 +256,6 @@
         
         <!-- <sp:MillerColumns dataProvider="{MillerColumnsDataProvider}">
         </sp:MillerColumns> -->
-    
-   
-      <!-- <sp:Table id="table" dataProvider= "{_guitarrists}" multiSelect="true"> 
-      
-        <sp:TableColumn dataField="guitarrist" label="Guitarrist" itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true" sortable="true"/>
-				<sp:TableColumn dataField="album" label="Album"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/>
-				<sp:TableColumn dataField="year" label="Release Year"  itemRenderer="com.unhurdle.spectrum.renderers.TableItemRenderer" columnDividers="true"/> 
-        <sp:beads>
-          <sp:AddTableRowForArrayListData/>
-				</sp:beads>
-    </sp:Table> -->
- 
 
 <!-- 
  <sp:AssetList itemClicked="assetItemSelected(event)">
@@ -351,15 +303,15 @@
       <!-- <sp:Label text="label" color="red" /> -->
       <!-- <sp:CycleButton paused="true"/> -->
       <!-- <sp:Rating max="5" value="3" disabled="true" /> -->
-      <!-- <sp:Rating max="7" value="7"/>
-      <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
-      <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
-      <sp:Rating id="rating1" max="9" value="3" />
-      <sp:DatePicker quiet="true"/>
-      <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/>
-      <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/>
-      <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/>
-      <sp:Tool /> -->
+       <!-- <sp:Rating max="7" value="7"/> -->
+      <!-- <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
+      <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/> -->
+      <!-- <sp:Rating id="rating1" max="9" value="3" /> -->
+      <sp:DatePicker />
+      <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/> -->
+      <!-- <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/> -->
+      <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/> -->
+      <!-- <sp:Tool /> -->
       <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
       <!-- <sp:Alert text="Alert"/>  -->
       <!-- <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
@@ -479,6 +431,8 @@
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/> -->
+      <!-- <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/> -->
+      <!-- <sp:ActionMenu  dataProvider="{comboProvider}"/> -->
       <!-- <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
@@ -517,8 +471,8 @@
       <sp:Tooltip text="Label" isOpen="true" direction="bottom"/>
       <sp:Tooltip text="Label info with icon" flavor="info" icon="info" isOpen="true" direction="left"/>
       <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success" isOpen="true" direction="right"/> -->
-      <!-- <sp:SideNav change="sideNavClick(event)">
-        <sp:dataProvider>
+      <!-- <sp:SideNav change="sideNavClick(event)"> -->
+        <!-- <sp:dataProvider>
           <fx:Array>
             <sp:SideNavItem  text="Category One" isHeading="true"/>
             <sp:SideNavItem text="Item One"/>
@@ -529,8 +483,8 @@
             <sp:SideNavItem text="Item Two"/>
             <sp:SideNavItem text="Item Three" disabled="true"/>
           </fx:Array>
-        </sp:dataProvider>
-      </sp:SideNav> -->
+        </sp:dataProvider> -->
+      <!-- </sp:SideNav> -->
         <!-- <sp:Rule size="small"/>
         <sp:Rule size="large"/>
         <sp:Rule size="medium"/>
@@ -559,5 +513,3 @@
     </sp:View>
   </sp:initialView>  
 </sp:Application>
- 
- 

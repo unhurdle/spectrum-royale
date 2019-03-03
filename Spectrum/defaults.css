@@ -106,7 +106,7 @@ ComboBox
 	IPopUp: ClassReference("com.unhurdle.spectrum.ComboBoxList");
 }
 DatePicker {
-	IBeadModel:  ClassReference("com.unhurdle.spectrum.models.DatePickerModel");
+	IBeadModel:  ClassReference("com.unhurdle.spectrum.model.DatePickerModel");
 	IFormatter: ClassReference("org.apache.royale.html.accessories.DateFormatYYYYMMDD");
 }
 
