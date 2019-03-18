@@ -67,14 +67,14 @@
       //   "Four",
       //   "Five"
       // ];
-      // [Bindable]
-      // private var comboProvider:Array = [
-      //   "One",
-      //   "Two",
-      //   "Three",
-      //   "Four",
-      //   "Five"
-      // ];
+      [Bindable]
+      private var comboProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ];
       // [Bindable]
       // private var millerColumnsProvider:Array = [,];
       [Bindable]private var date:Date = new Date();
@@ -84,18 +84,18 @@
       //   new Toast("Stepper value" + ev.target.value).show();
       // }
 
-      // private function actionChange():void{
-      //   var item:String = actionButton.selectedItem.label as String;
-      //   new Toast(item).show();
-      // }
-      // private function actionClick():void{
-      //   var item:Object = actionButton.selectedItem;
-      //   var str:String = "No Item";
-      //   if(item){
-      //     str = item.label;
-      //   }
-      //   new Toast(str).show();
-      // }
+      private function actionChange():void{
+        var item:String = actionButton.selectedItem.label as String;
+        new Toast(item).show();
+      }
+      private function actionClick():void{
+        var item:Object = actionButton.selectedItem;
+        var str:String = "No Item";
+        if(item){
+          str = item.label;
+        }
+        new Toast(str).show();
+      }
       // private var dialog:Dialog;
       // private function showDialog():void{
       //   dialog = new Dialog();
@@ -248,9 +248,14 @@
   </fx:Script>
   <sp:initialView>
     <sp:View>
+    <!-- <sp:ActionMenu/> -->
+    <sp:ActionButton id="actionButton" click="actionClick()"
+        icon="#spectrum-css-icon-ChevronRightMedium"
+        iconSize="XS";
+        dataProvider="{comboProvider}" change="actionChange()"/> 
   <!-- <sp:Search id="search" submit="onSubmit(event)"/> -->
   <!-- <sp:SearchWithin dataProvider="{listProvider}" submit="onSubmit(event)" selectedItem="{listProvider[0]}"/> -->
-  <!-- <sp:ActionButton id="actionButton" click="actionClick()"
+  <!--  <sp:ActionButton id="actionButton" click="actionClick()"
         icon="#spectrum-css-icon-ChevronRightMedium"
         iconSize="XS";
         dataProvider="{comboProvider}" change="actionChange()"/> -->
@@ -308,7 +313,7 @@
       <!-- <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
       <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/> -->
       <!-- <sp:Rating id="rating1" max="9" value="3" /> -->
-      <sp:DatePicker />
+      <!-- <sp:DatePicker /> -->
       <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/> -->
       <!-- <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/> -->
       <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/> -->
@@ -432,7 +437,7 @@
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
       <sp:DropIndicator direction="vertical"/> -->
-      <!-- <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/> -->
+      <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/>
       <!-- <sp:ActionMenu  dataProvider="{comboProvider}"/> -->
       <!-- <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>

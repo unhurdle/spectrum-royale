@@ -109,7 +109,7 @@ package com.unhurdle.spectrum
 				// popover.width = button.width;
 
 				popupHost.popUpParent.addElement(popover);
-
+        
       }
       popover.open = !popover.open;
       button.selected = popover.open;

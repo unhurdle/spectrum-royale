@@ -35,6 +35,8 @@ package com.unhurdle.spectrum
 
 
     private var flyOutIconHolder:Icon;
+    
+    private var timer:Timer;
 
     private function createFlyoutIcon():void{
       if(!flyOutIconHolder){
@@ -43,9 +45,6 @@ package com.unhurdle.spectrum
         flyOutIconHolder.type = type;
         flyOutIconHolder.className = appendSelector("-hold");
         addElement(flyOutIconHolder);
-        timer = new Timer(1000,1);
-        timer.addEventListener(Timer.TIMER,onTimer);
-
       }
     }
 
@@ -164,7 +163,9 @@ package com.unhurdle.spectrum
     }
 
     private function handleMouseDown(ev:*):void{
-  		window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('mouseup', handleMouseUp);
+      timer = new Timer(1000,1);
+      timer.addEventListener(Timer.TIMER,onTimer);
       timer.start();
     }
 
@@ -175,7 +176,7 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var timer:Timer;
+  
 
     private function onTimer(ev:*):void{
       timer.reset();
