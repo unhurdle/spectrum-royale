@@ -45,6 +45,8 @@ package com.unhurdle.spectrum
         flyOutIconHolder.type = type;
         flyOutIconHolder.className = appendSelector("-hold");
         addElement(flyOutIconHolder);
+        timer = new Timer(1000,1);
+        timer.addEventListener(Timer.TIMER,onTimer);
       }
     }
 
@@ -164,9 +166,10 @@ package com.unhurdle.spectrum
 
     private function handleMouseDown(ev:*):void{
       window.addEventListener('mouseup', handleMouseUp);
-      timer = new Timer(1000,1);
-      timer.addEventListener(Timer.TIMER,onTimer);
-      timer.start();
+      if(timer){
+        timer.start();
+      }
+      
     }
 
     private function handleMouseUp(ev:*):void{
