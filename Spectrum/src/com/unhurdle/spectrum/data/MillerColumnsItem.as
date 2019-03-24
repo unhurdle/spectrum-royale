@@ -9,7 +9,6 @@ package com.unhurdle.spectrum.data
   import com.unhurdle.spectrum.SpectrumBase;
   import org.apache.royale.events.ValueEvent;
   import org.apache.royale.core.IChild;
-  import org.apache.royale.core.WrappedHTMLElement;
 
   public class MillerColumnsItem extends SpectrumBase
   {

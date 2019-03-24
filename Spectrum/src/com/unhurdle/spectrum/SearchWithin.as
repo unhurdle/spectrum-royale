@@ -15,18 +15,27 @@ package com.unhurdle.spectrum
       super();
       typeNames = "spectrum-SearchWithin";
     }
-    private var dropdown:Dropdown;
-    private var search:Search;
+    public function get dropdown():Dropdown
+    {
+      return _dropdown;
+    }
+    public function get search():Search
+    {
+      return _search;
+    }
+    private var _dropdown:Dropdown;
+    private var _search:Search;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'form');
 
-      dropdown = new Dropdown();
-      search = new Search();
-      search.searchIcon = false;
+      _dropdown = new Dropdown();
+      _search = new Search();
+      _search.searchIcon = false;
       search.addEventListener("submit", handleSubmit);
-      addElement(dropdown);
-      addElement(search);
+      addElement(_dropdown);
+      addElement(_search);
+
       return elem;
     }
     private function handleSubmit(ev:Event):Boolean{
@@ -36,22 +45,22 @@ package com.unhurdle.spectrum
     }
     public function get dataProvider():Object
     {
-    	return dropdown.dataProvider;
+    	return _dropdown.dataProvider;
     }
 
     public function set dataProvider(value:Object):void
     {
-      dropdown.dataProvider = value;
+      _dropdown.dataProvider = value;
     }
 
     public function get selectedItem():Object
     {
-    	return dropdown.selectedItem;
+    	return _dropdown.selectedItem;
     }
 
     public function set selectedItem(value:Object):void
     {
-    	dropdown.selectedItem = value;
+    	_dropdown.selectedItem = value;
       dropdown.handleListChange();
     }
     private var _disabled:Boolean;
@@ -64,8 +73,8 @@ package com.unhurdle.spectrum
     public function set disabled(value:Boolean):void
     {
       if(value != !!_disabled){
-        dropdown.disabled = value;
-        search.disabled = value;
+        _dropdown.disabled = value;
+        _search.disabled = value;
       }
     	_disabled = value;
     }
