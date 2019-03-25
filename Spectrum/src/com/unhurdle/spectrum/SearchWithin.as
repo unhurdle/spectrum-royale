@@ -78,5 +78,19 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
+    private var _position:String;
+
+    public function get position():String
+    {
+    	return _position;
+    }
+
+    public function set position(value:String):void
+    {
+      if(value != !!_position){
+        _dropdown.position = value;
+      }
+    	_position = value;
+    }
   }
 }

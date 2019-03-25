@@ -46,15 +46,15 @@
       // {
       //   new Toast("Checkbox value: " + myCheckbox.checked).show();
       // }
-      // [Bindable]
-      // private var listProvider:Array = [
-      //   "One",
-      //   "Two",
-      //   "Three",
-      //   "Four",
-      //   "Five"
+      [Bindable]
+      private var listProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
 
-      // ];
+      ];
       // private function handleCheckboxChange():void
       // {
       //   new Toast("Checkbox value: " + myCheckbox.checked).show();
@@ -173,20 +173,20 @@
       //   trace(ev.target.value);
       // }
 
-      // private function switched(ev:Event):void{
-      //   var theSwitch:Switch = ev.target as Switch;
-      //   var status:String = theSwitch.checked ? "On" : "Off";
-      //   (ev.target as Switch).text = "Toggle " + status;
-      // }
-      // private function onSubmit(ev:*):void{
-      //   var searchText:String;
-      //   if(ev.target is SearchWithin)
-      //     searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
-      //   else
-      //     searchText = ev.target.text;
-      //   var content:String = "searching for: " + searchText;
-      //   new Toast(content).show();
-      // }
+      private function switched(ev:Event):void{
+        var theSwitch:Switch = ev.target as Switch;
+        var status:String = theSwitch.checked ? "On" : "Off";
+        (ev.target as Switch).text = "Toggle " + status;
+      }
+      private function onSubmit(ev:*):void{
+        var searchText:String;
+        if(ev.target is SearchWithin)
+          searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
+        else
+          searchText = ev.target.text;
+        var content:String = "searching for: " + searchText;
+        new Toast(content).show();
+      }
       // private function handleSelectedDate():void{
       //   new Toast("handleSelectedDate").show();
       // }
@@ -248,8 +248,9 @@
   </fx:Script>
   <sp:initialView>
     <sp:View>
-  <!-- <sp:Search id="search" submit="onSubmit(event)"/> -->
-  <!-- <sp:SearchWithin dataProvider="{listProvider}" submit="onSubmit(event)" selectedItem="{listProvider[0]}"/> -->
+  <sp:Search id="search" submit="onSubmit(event)"/>
+  <sp:SearchWithin dataProvider="{listProvider}" />
+  <sp:SearchWithin dataProvider="{listProvider}" position="top" selectedItem="{listProvider[0]}"/>
   <!-- <sp:ActionButton id="actionButton" click="actionClick()"
         icon="#spectrum-css-icon-ChevronRightMedium"
         iconSize="XS";
@@ -418,10 +419,10 @@
       <!-- <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
       <sp:CoachMark flavor="light"/>
-      <sp:CoachMark/>
-      <sp:IllustratedMessage type="cta"/>
-      <sp:IllustratedMessage type="default"/>
-      <sp:IllustratedMessage /> -->
+      <sp:CoachMark/>-->
+      <!-- <sp:IllustratedMessage type="cta"/> -->
+      <!-- <sp:IllustratedMessage type="default"/> -->
+      <!-- <sp:IllustratedMessage /> -->
       <!-- <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange(event)"/>

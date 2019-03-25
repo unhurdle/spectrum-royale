@@ -158,5 +158,32 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
+    private var _position:String;
+
+    public function get position():String
+    {
+    	return _position;
+    }
+
+    public function set position(value:String):void
+    {
+      switch(value){
+        case "bottom":
+        break;
+          case "top":
+              (element as HTMLElement).insertBefore((element as HTMLElement).removeChild(popover.element as HTMLElement),button.element as HTMLElement);
+            popover.style = {"position": "relative"};
+            break;
+          case "right":
+          case "left":
+            break;
+          default:
+            throw new Error("invalid position: " + value);
+      }
+      if(value != !!_position){
+        popover.position = value;
+      }
+    	_position = value;
+    }
   }
 }
