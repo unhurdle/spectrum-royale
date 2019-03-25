@@ -65,6 +65,7 @@
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
     <component id="List" class="com.unhurdle.spectrum.List"/>
+    <component id="ListViewForTable" class="com.unhurdle.spectrum.ListViewForTable"/>
     <component id="LogicButton" class="com.unhurdle.spectrum.LogicButton"/>
     <component id="Menu" class="com.unhurdle.spectrum.Menu"/>
     <component id="MenuItem" class="com.unhurdle.spectrum.data.MenuItem"/>
@@ -102,6 +103,19 @@
     <component id="TabBar" class="com.unhurdle.spectrum.TabBar"/>
     <component id="Tab" class="com.unhurdle.spectrum.Tab"/>
     <component id="TabOverflow" class="com.unhurdle.spectrum.TabOverflow"/>
+    <component id="Table" class="com.unhurdle.spectrum.Table"/>
+    <component id="TBody" class="com.unhurdle.spectrum.TBody"/>
+    <component id="THead" class="com.unhurdle.spectrum.THead"/>
+    <component id="TableCell" class="com.unhurdle.spectrum.TableCell"/>
+    <component id="TableModel" class="com.unhurdle.spectrum.model.TableModel"/>
+    <component id="TableArrayListSelectionModel" class="com.unhurdle.spectrum.model.TableArrayListSelectionModel"/>
+    <component id="TableHeaderCell" class="com.unhurdle.spectrum.TableHeaderCell"/>
+    <component id="TableRow" class="com.unhurdle.spectrum.TableRow"/>
+    
+    <component id="TableColumn" class="com.unhurdle.spectrum.TableColumn"/>
+    <component id="TableView" class="com.unhurdle.spectrum.TableView"/>
+    <component id="TBodyContentArea" class="com.unhurdle.spectrum.TBodyContentArea"/>
+    <component id="TFoot" class="com.unhurdle.spectrum.TFoot"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
@@ -114,4 +128,13 @@
 	<component id="VideoPlayerSlider" class="com.unhurdle.spectrum.VideoPlayerSlider"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
+
+    <component id="AddTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.AddTableRowForArrayListData" />
+    <component id="RemoveTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.RemoveTableRowForArrayListData" />
+    <component id="UpdateTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.UpdateTableRowForArrayListData" />
+    <component id="RemoveAllItemRendererForArrayListData" class="com.unhurdle.spectrum.renderers.RemoveAllItemRendererForArrayListData" />
+    
+    <component id="TableItemRendererFactoryForCollectionView" class="com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView" />
+    <component id="TableItemRenderer" class="com.unhurdle.spectrum.renderers.TableItemRenderer" />
+   
 </componentPackage>

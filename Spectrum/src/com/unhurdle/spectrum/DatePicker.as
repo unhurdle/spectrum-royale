@@ -1,21 +1,12 @@
 package com.unhurdle.spectrum
 {
   COMPILE::JS{
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
   }
-  import org.apache.royale.geom.Point;
-  import org.apache.royale.utils.PointUtils;
-  import org.apache.royale.core.IPopUpHost;
-  import org.apache.royale.utils.UIUtils;
-	import org.apache.royale.utils.callLater;
-	import org.apache.royale.events.MouseEvent;
-	import org.apache.royale.html.accessories.DateFormatMMDDYYYY;
-	import org.apache.royale.html.accessories.DateFormatDDMMYYYY;
-	// import org.apache.royale.core.IFormatter;
-	import org.apache.royale.events.Event;
-	import com.unhurdle.spectrum.models.DatePickerModel;
-	import org.apache.royale.utils.loadBeadFromValuesManager;
+  import com.unhurdle.spectrum.model.DatePickerModel;
+
+  import org.apache.royale.events.Event;
 
   public class DatePicker extends SpectrumBase
   {
@@ -40,7 +31,7 @@ package com.unhurdle.spectrum
       input = newElement("input") as HTMLInputElement;
       input.className = appendSelector("-field") + " spectrum-Textfield";
       input.type = "text";
-      input.readOnly = true;
+      // input.readOnly = true;
       button = newElement("button") as HTMLButtonElement;
       button.className = "spectrum-FieldButton spectrum-InputGroup-button";
       // button.onclick = openDatePicker;
@@ -141,18 +132,18 @@ package com.unhurdle.spectrum
     // }
     private function handleSelectedDay(ev:*):void{
       popover.open = false;
-      // dispatchEvent(new Event("selectedDateChanged"));
-      // var date:Date = ev.target.chosenDate;
+      dispatchEvent(new Event("selectedDateChanged"));
+      var date:Date = ev.target.selectedDate;
 
-      // var year:String = date.getFullYear().toString();
+      var year:String = date.getFullYear().toString();
 
-      // var month:String = (1 + date.getMonth()).toString();
-      // month = month.length > 1 ? month : '0' + month;
+      var month:String = (1 + date.getMonth()).toString();
+      month = month.length > 1 ? month : '0' + month;
 
-      // var day:String = date.getDate().toString();
-      // day = day.length > 1 ? day : '0' + day;
+      var day:String = date.getDate().toString();
+      day = day.length > 1 ? day : '0' + day;
   
-      // input.value = month + '/' + day + '/' +  year;
+      input.value = month + '/' + day + '/' +  year;
     }
     override public function addedToParent():void{
       super.addedToParent();
@@ -250,4 +241,3 @@ package com.unhurdle.spectrum
     //   }
 		// }
   }
-

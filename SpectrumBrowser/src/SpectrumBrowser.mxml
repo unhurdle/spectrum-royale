@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" xmlns:spectrum="com.unhurdle.spectrum.*" xmlns:elements="org.apache.royale.textLayout.elements.*" colorstop="dark" >
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" 
+  xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="darkest" >
   <fx:Script>
     <![CDATA[
 
@@ -34,12 +35,12 @@
        
       //   alert.show();
       // }
-      private function showToast():void{
-        new Toast("Some great news here!").show();
+      // private function showToast():void{
+      //   new Toast("Some great news here!").show();
         // var toast:Toast = new Toast();
         // toast.text = "Some great news here!"
         // toast.show();
-      }
+      // }
 
       // private function handleCheckboxChange():void
       // {
@@ -66,18 +67,18 @@
       //   "Four",
       //   "Five"
       // ];
-      [Bindable]
-      private var comboProvider:Array = [
-        "One",
-        "Two",
-        "Three",
-        "Four",
-        "Five"
-      ];
+      // [Bindable]
+      // private var comboProvider:Array = [
+      //   "One",
+      //   "Two",
+      //   "Three",
+      //   "Four",
+      //   "Five"
+      // ];
       // [Bindable]
       // private var millerColumnsProvider:Array = [,];
-      // [Bindable]private var date:Date = new Date();
-      // [Bindable]private var date1:Date = new Date(2019,01,25);
+      [Bindable]private var date:Date = new Date();
+      [Bindable]private var date1:Date = new Date(2019,01,25);
 
       // private function handleSrepperChange(ev:Event):void{
       //   new Toast("Stepper value" + ev.target.value).show();
@@ -172,11 +173,11 @@
       //   trace(ev.target.value);
       // }
 
-      private function switched(ev:Event):void{
-        var theSwitch:Switch = ev.target as Switch;
-        var status:String = theSwitch.checked ? "On" : "Off";
-        (ev.target as Switch).text = "Toggle " + status;
-      }
+      // private function switched(ev:Event):void{
+      //   var theSwitch:Switch = ev.target as Switch;
+      //   var status:String = theSwitch.checked ? "On" : "Off";
+      //   (ev.target as Switch).text = "Toggle " + status;
+      // }
       // private function onSubmit(ev:*):void{
       //   var searchText:String;
       //   if(ev.target is SearchWithin)
@@ -190,59 +191,59 @@
       //   new Toast("handleSelectedDate").show();
       // }
 
-      private function assetItemSelected(ev:ValueEvent):void
-      {
-        trace(ev);
-      }
-      [Bindable]
-      private var assetList:AssetList;
-      private var assetListArray:Array;
-      private function fillAssetList():AssetList{
-        trace("here");
-        assetList = new AssetList();
-        assetListArray = new Array();
-        assetListArray[0] = new AssetListItem("File1");
-        assetListArray[0].selectable = "true";
-        assetListArray[0].src = "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7";
-        assetListArray[1] = new AssetListItem("File2");
-        assetListArray[1].selectable = "true";
-        assetListArray[1].iconType = "FileCSV";
-        assetListArray[2] = new AssetListItem("File3");
-        assetListArray[2].selectable = "true";
-        assetListArray[2].iconType = "Folder";
-        assetListArray[2].isBranch = "true";
-        assetList.dataProvider = assetListArray;
-        trace("assetList");
-        trace(assetList);
-        trace("assetListArray");
-        trace(assetListArray);
-        return assetList;
-      }
-      [Bindable]
-      private var MillerColumnsDataProvider:HierarchicalData = new HierarchicalData(
-        {
-          children:[
-            {
-              children:[
-                {text:"1a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
-                {text:"1b", selectable:true, iconType: "FileCSV"},
-                {text:"1c opens", selectable:true, iconType: "Folder", isBranch: "true", 
-                  children:[
-                    {text:"2a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
-                    {text:"2b", selectable:true, iconType: "FileCSV"},
-                    {text:"2c", selectable:true, iconType: "FileCSV" },
-                    {text:"2d opens", selectable:true, iconType: "Folder" , isBranch: "true",  
-                      children:[
-                        {text:"3a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
-                        {text:"3b", selectable:true, iconType: "FileCSV"},
-                        {text:"3c", selectable:true, iconType: "FileCSV" }
-                      ]}
-                  ]}
-              ]
-            }
-          ]
-        }
-        );
+      // private function assetItemSelected(ev:ValueEvent):void
+      // {
+      //   trace(ev);
+      // }
+      // [Bindable]
+      // private var assetList:AssetList;
+      // private var assetListArray:Array;
+      // private function fillAssetList():AssetList{
+      //   trace("here");
+      //   assetList = new AssetList();
+      //   assetListArray = new Array();
+      //   assetListArray[0] = new AssetListItem("File1");
+      //   assetListArray[0].selectable = "true";
+      //   assetListArray[0].src = "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7";
+      //   assetListArray[1] = new AssetListItem("File2");
+      //   assetListArray[1].selectable = "true";
+      //   assetListArray[1].iconType = "FileCSV";
+      //   assetListArray[2] = new AssetListItem("File3");
+      //   assetListArray[2].selectable = "true";
+      //   assetListArray[2].iconType = "Folder";
+      //   assetListArray[2].isBranch = "true";
+      //   assetList.dataProvider = assetListArray;
+      //   trace("assetList");
+      //   trace(assetList);
+      //   trace("assetListArray");
+      //   trace(assetListArray);
+      //   return assetList;
+      // }
+      // [Bindable]
+      // private var MillerColumnsDataProvider:HierarchicalData = new HierarchicalData(
+      //   {
+      //     children:[
+      //       {
+      //         children:[
+      //           {text:"1a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
+      //           {text:"1b", selectable:true, iconType: "FileCSV"},
+      //           {text:"1c opens", selectable:true, iconType: "Folder", isBranch: "true", 
+      //             children:[
+      //               {text:"2a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
+      //               {text:"2b", selectable:true, iconType: "FileCSV"},
+      //               {text:"2c", selectable:true, iconType: "FileCSV" },
+      //               {text:"2d opens", selectable:true, iconType: "Folder" , isBranch: "true",  
+      //                 children:[
+      //                   {text:"3a", selectable:true, src: "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"},
+      //                   {text:"3b", selectable:true, iconType: "FileCSV"},
+      //                   {text:"3c", selectable:true, iconType: "FileCSV" }
+      //                 ]}
+      //             ]}
+      //         ]
+      //       }
+      //     ]
+      //   }
+      //   );
     ]]>
   </fx:Script>
   <sp:initialView>
@@ -254,8 +255,8 @@
         iconSize="XS";
         dataProvider="{comboProvider}" change="actionChange()"/> -->
         
-        <sp:MillerColumns dataProvider="{MillerColumnsDataProvider}">
-        </sp:MillerColumns>
+        <!-- <sp:MillerColumns dataProvider="{MillerColumnsDataProvider}">
+        </sp:MillerColumns> -->
 
 <!-- 
  <sp:AssetList itemClicked="assetItemSelected(event)">
@@ -303,15 +304,15 @@
       <!-- <sp:Label text="label" color="red" /> -->
       <!-- <sp:CycleButton paused="true"/> -->
       <!-- <sp:Rating max="5" value="3" disabled="true" /> -->
-      <!-- <sp:Rating max="7" value="7"/>
-      <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
-      <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/>
-      <sp:Rating id="rating1" max="9" value="3" />
-      <sp:DatePicker quiet="true"/>
-      <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/>
-      <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/>
-      <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/>
-      <sp:Tool /> -->
+       <!-- <sp:Rating max="7" value="7"/> -->
+      <!-- <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
+      <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/> -->
+      <!-- <sp:Rating id="rating1" max="9" value="3" /> -->
+      <sp:DatePicker />
+      <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/> -->
+      <!-- <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/> -->
+      <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/> -->
+      <!-- <sp:Tool /> -->
       <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
       <!-- <sp:Alert text="Alert"/>  -->
       <!-- <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
@@ -414,25 +415,25 @@
       <sp:Tab/>
       <sp:Tab/>
       </sp:TabBar> -->
-      <sp:Button text="Show Toast" click="showToast()"/>
+      <!-- <sp:Button text="Show Toast" click="showToast()"/>
       <sp:CoachMark flavor="dark" quiet="true"/>
       <sp:CoachMark flavor="light"/>
       <sp:CoachMark/>
       <sp:IllustratedMessage type="cta"/>
       <sp:IllustratedMessage type="default"/>
-      <sp:IllustratedMessage />
+      <sp:IllustratedMessage /> -->
       <!-- <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" focused="true" quiet="true" min="-10" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" disabled="true" min="0" max="10" step="0.5" change="handleSrepperChange(event)"/>
       <sp:Dial label="Doodad" displayValue="true" change="onDialChange(event)"/> -->
-      <sp:Dial size="small"/>
+      <!-- <sp:Dial size="small"/>
       <sp:Dial disabled="true"/>
       <sp:DropIndicator />
-      <sp:DropIndicator direction="vertical"/>
+      <sp:DropIndicator direction="vertical"/> -->
       <!-- <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/> -->
-      <sp:ActionMenu  dataProvider="{comboProvider}" alignRight="true"/>
+      <!-- <sp:ActionMenu  dataProvider="{comboProvider}"/> -->
       <!-- <sp:List dataProvider="{listProvider}"/>
       <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
@@ -463,16 +464,16 @@
         </sp:Menu>
         
       </sp:Popover> -->
-      <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
+      <!-- <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
       <sp:Switch text="Toggle On" checked="false" change="switched(event)"/>
-      <sp:Switch text="Toggle On" checked="true" quiet="true" change="switched(event)"/>
+      <sp:Switch text="Toggle On" checked="true" quiet="true" change="switched(event)"/> -->
      <!--  <sp:Tooltip text="Label" isOpen="true"/>
       <sp:Tooltip text="Label" isOpen="true" direction="top"/>
       <sp:Tooltip text="Label" isOpen="true" direction="bottom"/>
       <sp:Tooltip text="Label info with icon" flavor="info" icon="info" isOpen="true" direction="left"/>
       <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success" isOpen="true" direction="right"/> -->
-      <!-- <sp:SideNav change="sideNavClick(event)">
-        <sp:dataProvider>
+      <!-- <sp:SideNav change="sideNavClick(event)"> -->
+        <!-- <sp:dataProvider>
           <fx:Array>
             <sp:SideNavItem  text="Category One" isHeading="true"/>
             <sp:SideNavItem text="Item One"/>
@@ -483,8 +484,8 @@
             <sp:SideNavItem text="Item Two"/>
             <sp:SideNavItem text="Item Three" disabled="true"/>
           </fx:Array>
-        </sp:dataProvider>
-      </sp:SideNav> -->
+        </sp:dataProvider> -->
+      <!-- </sp:SideNav> -->
         <!-- <sp:Rule size="small"/>
         <sp:Rule size="large"/>
         <sp:Rule size="medium"/>

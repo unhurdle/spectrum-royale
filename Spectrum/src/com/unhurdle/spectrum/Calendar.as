@@ -1,22 +1,18 @@
 package com.unhurdle.spectrum
 {
     COMPILE::JS {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
   
     }
-    import org.apache.royale.core.IStrand;
-    import org.apache.royale.core.IBeadModel;
-    import org.apache.royale.html.elements.Tbody;
-    import org.apache.royale.events.IEventDispatcher;
+    import com.unhurdle.spectrum.model.DatePickerModel;
+
     import org.apache.royale.events.Event;
-    import com.unhurdle.spectrum.models.DatePickerModel;
-    import org.apache.royale.html.elements.Td;
-    import org.apache.royale.html.elements.Span;
     import org.apache.royale.events.MouseEvent;
+  
+    import org.apache.royale.html.elements.Td;
     import org.apache.royale.html.elements.Tr;
-    import org.apache.royale.jewel.supportClasses.table.TBody;
-    import org.apache.royale.html.elements.Table;
+ 
 
     [Event(name="dayNamesChanged ", type="org.apache.royale.events.Event")]
     [Event(name="monthNames ", type="org.apache.royale.events.Event")]
