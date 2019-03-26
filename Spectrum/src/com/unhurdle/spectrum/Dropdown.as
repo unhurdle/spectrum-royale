@@ -172,8 +172,8 @@ package com.unhurdle.spectrum
         case "bottom":
         break;
           case "top":
-              (element as HTMLElement).insertBefore((element as HTMLElement).removeChild(popover.element as HTMLElement),button.element as HTMLElement);
-            popover.style = {"position": "relative"};
+              // (element as HTMLElement).insertBefore((element as HTMLElement).removeChild(popover.element as HTMLElement),button.element as HTMLElement);
+            popover.style = {"bottom":"30px"};
             break;
           case "right":
           case "left":

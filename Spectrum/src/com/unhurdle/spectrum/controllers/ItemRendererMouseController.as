@@ -14,9 +14,10 @@ COMPILE::JS {
 	import org.apache.royale.events.BrowserEvent;
 	import goog.events.Event;
 	import goog.events.EventType;
-    import goog.events;
+  import goog.events;
 }
 	import org.apache.royale.events.ItemClickedEvent;
+	import org.apache.royale.core.IRuntimeSelectableItemRenderer;
 
 	
 	public class ItemRendererMouseController implements IBeadController
@@ -26,7 +27,7 @@ COMPILE::JS {
 		{
 		}
 		
-        private var renderer:ISelectableItemRenderer;
+    private var renderer:ISelectableItemRenderer;
 		private var _strand:IStrand;
 		
 
@@ -36,12 +37,12 @@ COMPILE::JS {
       renderer = value as ISelectableItemRenderer;
 					
 			
-			COMPILE::SWF {
-	            renderer.addEventListener(MouseEvent.ROLL_OVER, rollOverHandler);
-	            renderer.addEventListener(MouseEvent.ROLL_OUT, rollOutHandler);
-				renderer.addEventListener(MouseEvent.MOUSE_DOWN, mouseDownHandler);
-				renderer.addEventListener(MouseEvent.MOUSE_UP, mouseUpHandler);
-			}
+			// COMPILE::SWF {
+	    //         renderer.addEventListener(MouseEvent.ROLL_OVER, rollOverHandler);
+	    //         renderer.addEventListener(MouseEvent.ROLL_OUT, rollOutHandler);
+			// 	renderer.addEventListener(MouseEvent.MOUSE_DOWN, mouseDownHandler);
+			// 	renderer.addEventListener(MouseEvent.MOUSE_UP, mouseUpHandler);
+			// }
 				
 			COMPILE::JS {
 				var element:WrappedHTMLElement = (_strand as UIBase).element;
@@ -54,17 +55,11 @@ COMPILE::JS {
 		}
 		
 	
-		COMPILE::SWF
-		protected function rollOverHandler(event:MouseEvent):void
-		{
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
-			if (target)
-			{
-				target.dispatchEvent(new Event("itemRollOver",true));
-			}
-		}
 		
 	
+		/**
+		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 */
 		COMPILE::JS
 		protected function handleMouseOver(event:BrowserEvent):void
 		{
@@ -75,16 +70,9 @@ COMPILE::JS {
 		}
 		
 
-		COMPILE::SWF
-		protected function rollOutHandler(event:MouseEvent):void
-		{
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
-			if (target)
-			{
-				target.dispatchEvent(new Event("itemRollOut",true));
-			}
-		}
-	
+		/**
+		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 */
 		COMPILE::JS
 		protected function handleMouseOut(event:BrowserEvent):void
 		{
@@ -95,17 +83,10 @@ COMPILE::JS {
 			}
 		}
 
-		COMPILE::SWF
-		protected function mouseDownHandler(event:MouseEvent):void
-		{
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
-			if (target)
-			{
-                target.down = true;
-				target.addEventListener(MouseEvent.MOUSE_UP, mouseUpHandler);
-			}
-		}
 	
+		/**
+		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 */
 		COMPILE::JS
 		protected function handleMouseDown(event:BrowserEvent):void
 		{
@@ -118,29 +99,14 @@ COMPILE::JS {
 		}
 		
 
-		COMPILE::SWF
-		protected function mouseUpHandler(event:MouseEvent):void
-		{
-			event.stopImmediatePropagation();
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
-			if (target)
-			{				
-				var newEvent:ItemClickedEvent = new ItemClickedEvent("itemClicked");
-				newEvent.data = target.data;
-				newEvent.multipleSelection = event.shiftKey;
-				newEvent.index = target.index;
-				
-                target.removeEventListener(MouseEvent.MOUSE_UP, mouseUpHandler);                
-				target.dispatchEvent(newEvent);
-			}			
-		}
-		
-	
+		/**
+		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 */
 		COMPILE::JS
 		protected function handleMouseUp(event:BrowserEvent):void
 		{
 			event.stopImmediatePropagation();
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
+			var target:IRuntimeSelectableItemRenderer = event.currentTarget as IRuntimeSelectableItemRenderer;
 			if (target && target.selectable)
 			{
 				var newEvent:ItemClickedEvent = new ItemClickedEvent("itemClicked");
