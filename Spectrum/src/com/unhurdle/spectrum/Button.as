@@ -113,9 +113,9 @@ package com.unhurdle.spectrum
         iconElement.type = value;
       }
     }
-    private var iconElement:Icon;
+    protected var iconElement:Icon;
 
-    private function createIcon(selector:String):void{
+    protected function createIcon(selector:String):void{
       if(iconElement){
         iconElement.selector = selector;
         setIconProps();
@@ -125,7 +125,7 @@ package com.unhurdle.spectrum
         addElementAt(iconElement,0);
       }
     }
-    private function setIconProps():void{
+    protected function setIconProps():void{
       iconElement.className = iconClass;
       iconElement.size = iconSize;
       iconElement.type = iconType;

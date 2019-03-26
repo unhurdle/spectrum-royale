@@ -62,5 +62,16 @@ package com.unhurdle.spectrum
         addElement(playIcon);
       }
     }
+    override protected function createIcon(selector:String):void{
+      if(iconElement){
+        iconElement.selector = selector;
+        setIconProps();
+      } else {
+        iconElement = new Icon(selector);
+        setIconProps();
+        addElement(iconElement);
+      }
+    }
+
   }
 }

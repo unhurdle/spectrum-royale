@@ -12,7 +12,8 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.SimpleAlert;
   import org.apache.royale.events.MouseEvent;
   import org.apache.royale.events.Event;
-  [Event(name="selectedItem", type="org.apache.royale.events.Event")]
+
+	[Event(name="change", type="org.apache.royale.events.Event")]
   public class Dropdown extends SpectrumBase
   {
     public function Dropdown()
@@ -119,11 +120,11 @@ package com.unhurdle.spectrum
     }
 
     public function handleListChange():void{
-      dispatchEvent(new Event("selectedItem"));
       popover.open = false;
       if(!selectedItem.isDivider && !selectedItem.disabled){
         button.text = selectedItem.text;
       }
+      dispatchEvent(new Event("change"));
     }
     
     private var _invalid:Boolean;
