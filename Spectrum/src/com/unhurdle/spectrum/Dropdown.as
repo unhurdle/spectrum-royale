@@ -28,6 +28,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       button = new FieldButton();
+      button.labelClass = appendSelector("-label");
       button.className = appendSelector("-trigger");
       button.addEventListener("click",toggleDropdown);
       var type:String = IconType.CHEVRON_DOWN_MEDIUM;

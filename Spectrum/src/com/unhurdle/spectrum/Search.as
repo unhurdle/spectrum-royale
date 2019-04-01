@@ -94,7 +94,8 @@ package com.unhurdle.spectrum
     public function set searchIcon(value:Boolean):void
     {
       if(!value){
-        element.removeChild(inputIcon.element);
+        removeElement(inputIcon);
+        input.className = "";
       }
     }
   }
