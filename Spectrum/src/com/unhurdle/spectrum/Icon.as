@@ -80,13 +80,21 @@ package com.unhurdle.spectrum
     {
     	return _selector;
     }
-
+    
     public function set selector(value:String):void
     {
     	_selector = value;
       useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', value);
     }
 
+    override public function set x(value:Number):void{
+      super.x = value;
+      setAttribute("x",value);
+    }
+    override public function set y(value:Number):void{
+      super.y = value;
+      setAttribute("y",value);
+    }
     public function setAttribute(name:String, value:Object):void{
       COMPILE::JS
       {
