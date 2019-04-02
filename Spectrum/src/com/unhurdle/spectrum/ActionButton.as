@@ -165,7 +165,9 @@ package com.unhurdle.spectrum
 
     private function handleMouseDown(ev:*):void{
   		window.addEventListener('mouseup', handleMouseUp);
-      timer.start();
+      if(timer){
+        timer.start();
+      }
     }
 
     private function handleMouseUp(ev:*):void{
