@@ -72,10 +72,12 @@ package com.unhurdle.spectrum
       menu.dataProvider = value;
     }
     private function convertArray(value:Object):void{
-      var newVal:Array;
-      newVal = new Array(value.length);
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
+        if(value[i] is MenuItem){
+          continue;
+        }
+
         var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
         value[i] = item;
       }
