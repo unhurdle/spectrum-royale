@@ -7,8 +7,8 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.events.Event;
 
-  [Event(name="submit", type="org.apache.royale.events.Event")]
-  [Event(name="change", type="org.apache.royale.events.Event")]
+  [Event(name="search", type="org.apache.royale.events.Event")]
+  [Event(name="menuChange", type="org.apache.royale.events.Event")]
   public class SearchWithin extends SpectrumBase
   {
     public function SearchWithin()
@@ -33,7 +33,6 @@ package com.unhurdle.spectrum
 
       _dropdown = new Dropdown();
       input = new TextField();
-      (input.element as HTMLInputElement).type = "search";
       input.placeholder = "Search";
       button = new ClearButton();
 
@@ -41,7 +40,7 @@ package com.unhurdle.spectrum
       addElement(_dropdown);
       addElement(input);
       addElement(button);
-      _dropdown.addEventListener("change",handleChange);
+      // input.element.addEventListener("change",cancelChange);
 
       return elem;
     }
@@ -56,11 +55,11 @@ package com.unhurdle.spectrum
      */
     private function handleSubmit(ev:Event):Boolean{
       ev.preventDefault();
-      dispatchEvent(new Event("submit"));
+      dispatchEvent(new Event("search"));
       return false;
     }
     private function handleChange(ev:Event):void{
-      dispatchEvent(new Event("change"));
+      dispatchEvent(new Event("menuChange"));
     }
     public function get dataProvider():Object
     {
