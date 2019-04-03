@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
 
   [Event(name="submit", type="org.apache.royale.events.Event")]
+  [Event(name="change", type="org.apache.royale.events.Event")]
   public class SearchWithin extends SpectrumBase
   {
     public function SearchWithin()
@@ -19,29 +20,47 @@ package com.unhurdle.spectrum
     {
       return _dropdown;
     }
-    public function get search():Search
-    {
-      return _search;
-    }
+    // public function get search():Search
+    // {
+    //   return _search;
+    // }
     private var _dropdown:Dropdown;
-    private var _search:Search;
+    private var input:TextField;
+    private var button:ClearButton;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'form');
 
       _dropdown = new Dropdown();
-      _search = new Search();
-      _search.searchIcon = false;
-      search.addEventListener("submit", handleSubmit);
+      input = new TextField();
+      (input.element as HTMLInputElement).type = "search";
+      input.placeholder = "Search";
+      button = new ClearButton();
+
+      element.addEventListener("submit", handleSubmit);
       addElement(_dropdown);
-      addElement(_search);
+      addElement(input);
+      addElement(button);
+      _dropdown.addEventListener("change",handleChange);
 
       return elem;
     }
+    /**
+     *   <input type="text" placeholder="Search" class="spectrum-Textfield">
+  <button type="reset" class="spectrum-ClearButton">
+    <svg class="spectrum-Icon spectrum-UIIcon-CrossSmall" focusable="false" aria-hidden="true">
+      <use xlink:href="#spectrum-css-icon-CrossSmall" />
+    </svg>
+  </button>
+
+     */
     private function handleSubmit(ev:Event):Boolean{
       ev.preventDefault();
       dispatchEvent(new Event("submit"));
       return false;
+    }
+    private function handleChange(ev:Event):void{
+      dispatchEvent(new Event("change"));
     }
     public function get dataProvider():Object
     {
@@ -74,7 +93,8 @@ package com.unhurdle.spectrum
     {
       if(value != !!_disabled){
         _dropdown.disabled = value;
-        _search.disabled = value;
+        input.disabled = value;
+        button.disabled = value;
       }
     	_disabled = value;
     }
@@ -91,6 +111,26 @@ package com.unhurdle.spectrum
         _dropdown.position = value;
       }
     	_position = value;
+    }
+
+    public function get placeholder():String
+    {
+    	return input.placeholder;
+    }
+
+    public function set placeholder(value:String):void
+    {
+    	input.placeholder = value;
+    }
+
+    public function get text():String
+    {
+    	return input.text;
+    }
+
+    public function set text(value:String):void
+    {
+    	input.text = value;
     }
   }
 }
