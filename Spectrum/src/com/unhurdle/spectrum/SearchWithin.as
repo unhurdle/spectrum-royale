@@ -40,6 +40,7 @@ package com.unhurdle.spectrum
       addElement(_dropdown);
       addElement(input);
       addElement(button);
+      _dropdown.addEventListener("change",handleChange);
       // input.element.addEventListener("change",cancelChange);
 
       return elem;
