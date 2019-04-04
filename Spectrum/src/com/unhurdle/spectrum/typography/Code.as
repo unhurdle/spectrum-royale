@@ -11,6 +11,7 @@ package com.unhurdle.spectrum.typography
     public function Code()
     {
       super();
+      _size = 1;
     }
     override protected function getTypographySelector():String{
       return "spectrum-Code";

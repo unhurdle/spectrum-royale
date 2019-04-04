@@ -6,6 +6,7 @@ package com.unhurdle.spectrum.typography
     public function Display()
     {
       super();
+      _size = 1;
     }
 
     override protected function getSelector():String{

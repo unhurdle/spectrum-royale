@@ -6,6 +6,7 @@ package com.unhurdle.spectrum.typography
     public function Heading()
     {
       super();
+      _size = 1;
     }
     override protected function getSuffix():String{
       var suffix:String = "";

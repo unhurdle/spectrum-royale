@@ -22,8 +22,8 @@ package com.unhurdle.spectrum.typography
       return "";
     }
     override protected function getSelector():String{
-      var sizeStr:String = size ? "" + size : "";
-      return getTypographySelector() + size + getSuffix();
+      var sizeStr:String = isNaN(size) || !size ? "" : "" + size;
+      return getTypographySelector() + sizeStr + getSuffix();
     }
     protected function getSuffix():String{
       return "";
