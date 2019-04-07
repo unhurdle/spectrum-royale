@@ -47,6 +47,14 @@ package com.unhurdle.spectrum
       return addElementToWrapper(this,'div');
     }
 
+    public function setStyle(property:String,value:Object):void
+    {
+      COMPILE::JS
+      {
+        element.style[property] = value;
+      }
+    }
+
 
   }
 }

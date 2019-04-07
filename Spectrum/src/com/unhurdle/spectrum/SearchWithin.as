@@ -41,6 +41,7 @@ package com.unhurdle.spectrum
       addElement(input);
       addElement(button);
       _dropdown.addEventListener("change",handleChange);
+      _dropdown.addEventListener("showMenu",handleShowMenu);
       // input.element.addEventListener("change",cancelChange);
 
       return elem;
@@ -61,6 +62,9 @@ package com.unhurdle.spectrum
     }
     private function handleChange(ev:Event):void{
       dispatchEvent(new Event("menuChange"));
+    }
+    private function handleShowMenu(ev:Event):void{
+      _dropdown.popupWidth = width;
     }
     public function get dataProvider():Object
     {

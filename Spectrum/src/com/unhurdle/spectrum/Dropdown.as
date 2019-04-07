@@ -12,8 +12,14 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.SimpleAlert;
   import org.apache.royale.events.MouseEvent;
   import org.apache.royale.events.Event;
+  import org.apache.royale.geom.Rectangle;
+  import org.apache.royale.utils.DisplayUtils;
+  import org.apache.royale.core.IPopUpHost;
+  import org.apache.royale.utils.UIUtils;
+	import org.apache.royale.utils.callLater;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
+	[Event(name="showMenu", type="org.apache.royale.events.Event")]
   public class Dropdown extends SpectrumBase
   {
     public function Dropdown()
@@ -43,9 +49,9 @@ package com.unhurdle.spectrum
       // popover.style = {"z-index":100};//????
       menu = new Menu();
       popover.addElement(menu);
-      popover.addEventListener("click", handleListChange);
-      popover.style = {"min-width":"100%","z-index": "1"};
-      addElement(popover);
+      menu.addEventListener("change", handleListChange);
+      popover.style = {"z-index": "2"};
+      // addElement(popover);
       return elem;
     }
     private var popover:Popover;
@@ -53,9 +59,96 @@ package com.unhurdle.spectrum
 
     private function toggleDropdown(ev:*):void{
       ev.preventDefault();
-      popover.open = !popover.open;
-      button.selected = popover.open;
+      var open:Boolean = !popover.open;
+      if(open){
+        // Figure out direction and max size
+        var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
+        var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
+        var spaceToBottom:Number = appBounds.bottom - componentBounds.bottom;
+        var spaceToTop:Number = componentBounds.top - appBounds.top;
+        var spaceOnBottom:Boolean = spaceToBottom >= spaceToTop;
+        var pxStr:String = "px";
+        switch(_position)
+        {
+          case "top":
+            if(spaceToTop >= _minMenuHeight || !spaceOnBottom){
+              positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
+            } else {
+              positionPopoverBottom(componentBounds,spaceToBottom);
+
+            }
+            break;
+        
+          default:
+            if(spaceToBottom >= _minMenuHeight || spaceOnBottom){
+              positionPopoverBottom(componentBounds,spaceToBottom);
+            } else {
+              positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
+            }
+            break;
+        }
+        popover.x = componentBounds.x;
+        if(isNaN(_popupWidth)){
+          popover.width = width;
+        }
+        dispatchEvent(new Event("showMenu"));
+				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+				popupHost.popUpParent.addElement(popover);
+				callLater(openPopup)
+      } else {
+        closePopup();
+      }
+      button.selected = !open;
     }
+    private function openPopup():void{
+      popover.open = true;
+			button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+      popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+    }
+    private function closePopup():void{
+      if(popover && popover.open){
+  			popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+	  		button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+        if(popover.parent){
+          popover.parent.removeElement(popover);
+        }
+        popover.open = false;
+        //  UIUtils.removePopUp(_popup);
+      }
+
+    }
+    private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
+      var pxStr:String;
+      popover.setStyle("bottom","");
+      pxStr = componentBounds.bottom + "px";
+      popover.setStyle("top",pxStr);
+      pxStr = maxHeight + "px";
+      popover.setStyle("max-height",pxStr);
+      if(popover.position == "top"){
+        popover.position = "bottom";
+      }
+    }
+    private function positionPopoverTop(bottom:Number,maxHeight:Number):void{
+      var pxStr:String;
+      pxStr = bottom + "px";
+      popover.setStyle("top","");
+      popover.setStyle("bottom",pxStr);
+      pxStr = maxHeight + "px";
+      popover.setStyle("max-height",pxStr);
+      if(popover.position == "bottom"){
+        popover.position = "top";
+      }
+    }
+		protected function handleControlMouseDown(event:MouseEvent):void
+		{			
+			event.stopImmediatePropagation();
+		}
+		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
+		{
+      closePopup();
+		}
     public function get dataProvider():Object{
       return menu.dataProvider;
     }
@@ -76,6 +169,20 @@ package com.unhurdle.spectrum
     public function set selectedIndex(value:int):void
     {
     	menu.selectedIndex = value;
+      setButtonText();
+    }
+
+    private function setButtonText():void{
+      if(selectedIndex < 0){
+        button.text = "";
+      }
+      else if(!selectedItem || selectedItem.isDivider){
+        button.text = "";
+      }
+      else{
+        button.text = selectedItem.text;
+      }
+
     }
 
     public function get selectedItem():Object
@@ -86,6 +193,7 @@ package com.unhurdle.spectrum
     public function set selectedItem(value:Object):void
     {
     	menu.selectedItem = value;
+      setButtonText();
     }
     private function convertArray(value:Object):void{
       var newVal:Array;
@@ -121,10 +229,8 @@ package com.unhurdle.spectrum
     }
 
     public function handleListChange():void{
-      popover.open = false;
-      if(!selectedItem.isDivider && !selectedItem.disabled){
-        button.text = selectedItem.text;
-      }
+      closePopup();
+      setButtonText();
       dispatchEvent(new Event("change"));
     }
     
@@ -160,6 +266,18 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
+    private var _popupWidth:Number;
+
+    public function get popupWidth():Number
+    {
+    	return _popupWidth;
+    }
+
+    public function set popupWidth(value:Number):void
+    {
+    	_popupWidth = value;
+      popover.width = value;
+    }
     private var _position:String;
 
     public function get position():String
@@ -167,15 +285,27 @@ package com.unhurdle.spectrum
     	return _position;
     }
 
+    private var _minMenuHeight:Number = 60;
+
+    public function get minMenuHeight():Number
+    {
+    	return _minMenuHeight;
+    }
+
+    public function set minMenuHeight(value:Number):void
+    {
+    	_minMenuHeight = value;
+    }
+
     public function set position(value:String):void
     {
       switch(value){
         case "bottom":
-        break;
+        // break;
           case "top":
               // (element as HTMLElement).insertBefore((element as HTMLElement).removeChild(popover.element as HTMLElement),button.element as HTMLElement);
-            popover.style = {"bottom":"30px"};
-            break;
+            // popover.style = {"bottom":"30px"};
+            // break;
           case "right":
           case "left":
             break;
