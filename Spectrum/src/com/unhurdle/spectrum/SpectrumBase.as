@@ -49,5 +49,26 @@ package com.unhurdle.spectrum
       return addElementToWrapper(this,'div');
     }
 
+    private var _flexGrow:int = -1;
+
+    public function get flexGrow():int
+    {
+    	return _flexGrow;
+    }
+
+    public function set flexGrow(value:int):void
+    {
+    	_flexGrow = value;
+      COMPILE::JS
+      {
+        if(value < 0){
+          element.style.removeProperty("flex-grow");
+        } else {
+          element.style.flexGrow = value;
+        }
+
+      }
+    }
+
   }
 }
