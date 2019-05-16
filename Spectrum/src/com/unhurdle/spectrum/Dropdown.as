@@ -17,6 +17,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IPopUpHost;
   import org.apache.royale.utils.UIUtils;
 	import org.apache.royale.utils.callLater;
+	import com.unhurdle.spectrum.data.IMenuItem;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="showMenu", type="org.apache.royale.events.Event")]
@@ -200,6 +201,9 @@ package com.unhurdle.spectrum
       newVal = new Array(value.length);
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
+        if(value[i] is IMenuItem){
+          continue;
+        }
         var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
         if(value[i].selected){
           item.selected = value[i]["selected"];

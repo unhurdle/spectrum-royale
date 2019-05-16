@@ -69,6 +69,9 @@ package com.unhurdle.spectrum
     }
 
     private var outerElement:HTMLElement;
+    /**
+     * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement
+     */
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
@@ -79,6 +82,9 @@ package com.unhurdle.spectrum
     }
     /**
      * The HTMLElement used to position the component.
+     */
+     /**
+     * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement
      */
     COMPILE::JS
     override public function get positioner():WrappedHTMLElement

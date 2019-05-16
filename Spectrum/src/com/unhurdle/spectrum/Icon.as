@@ -117,6 +117,9 @@ package com.unhurdle.spectrum
 		{
 			element.setAttribute('class', value);
 		}
+    /**
+     * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement
+     */
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:SVGElement = newSVGElement("svg","");

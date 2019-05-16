@@ -14,6 +14,7 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.const.IconPrefix;
   import org.apache.royale.html.util.getLabelFromData;
+  import com.unhurdle.spectrum.data.IMenuItem;
 
   public class MenuItemRenderer extends DataItemRenderer
   {
@@ -32,8 +33,8 @@ package com.unhurdle.spectrum.renderers
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
-      var menuItem:MenuItem;
-      menuItem = value as MenuItem;
+      var menuItem:IMenuItem;
+      menuItem = value as IMenuItem;
       element.className = "";
       if(menuItem.isHeading){
         textNode.className = appendSelector("-sectionHeading");

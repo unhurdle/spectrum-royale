@@ -2,7 +2,6 @@ package com.unhurdle.spectrum.renderers
 {
   import org.apache.royale.html.supportClasses.DataItemRenderer;
   import org.apache.royale.html.util.getLabelFromData;
-  import com.unhurdle.spectrum.data.MenuItem;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.Icon;
 

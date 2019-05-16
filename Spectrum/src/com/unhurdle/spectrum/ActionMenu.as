@@ -57,7 +57,7 @@ package com.unhurdle.spectrum
       menu = new Menu();
       menu.addEventListener("change",handleMenuChange);
       popover.addElement(menu);
-      addElement(popover);
+      // addElement(popover);
       return elem;
     }
      public function get dataProvider():Object{
@@ -94,10 +94,11 @@ package com.unhurdle.spectrum
     }
     private function toggleMenu():void{
       var shown:Boolean = popover.open;
+			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
       if(shown){// close it
+				popupHost.popUpParent.removeElement(popover);
 
       } else {//open it
-				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
         var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
 				var origin:Point = new Point(0, height - 6);
 				var relocated:Point = PointUtils.localToGlobal(origin,this);

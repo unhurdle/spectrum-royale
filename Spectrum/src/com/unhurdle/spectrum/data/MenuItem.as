@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum.data
 {
-  public class MenuItem
+  public class MenuItem implements IMenuItem
   {
     public function MenuItem(text:String = null)
     {
