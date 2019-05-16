@@ -1,5 +1,9 @@
 package com.unhurdle.spectrum
 {
+  import org.apache.royale.utils.MXMLDataInterpreter;
+  import org.apache.royale.core.UIBase;
+  import org.apache.royale.events.Event;
+
   public class CEPApplication extends Application
   {
     /**
@@ -14,6 +18,30 @@ package com.unhurdle.spectrum
       _themeManager.init(this);
     }
     private var _themeManager:ThemeManager;
+
+    COMPILE::JS
+		override protected function initialize():void
+		{
+			MXMLDataInterpreter.generateMXMLInstances(this, instanceParent, MXMLDescriptor);
+			
+			dispatchEvent('initialize');
+			
+			if (initialView)
+			{
+        initialView.applicationModel = model;
+        addElement(initialView);
+                
+				var baseView:UIBase = initialView as UIBase;
+				if (!isNaN(baseView.percentWidth) || !isNaN(baseView.percentHeight)) {
+					this.element.style.height = baseView.percentHeight + 'vh';
+					this.element.style.width = baseView.percentWidth + 'vw';
+					this.initialView.dispatchEvent(new Event("sizeChanged")); // kick off layout if % sizes
+				}
+				
+				dispatchEvent(new Event("viewChanged"));
+			}
+			dispatchEvent(new Event("applicationComplete"));
+		}
 
     public function get themeManager():ThemeManager
     {

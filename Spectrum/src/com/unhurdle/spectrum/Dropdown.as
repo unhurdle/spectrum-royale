@@ -59,6 +59,7 @@ package com.unhurdle.spectrum
     private var menu:Menu;
 
     private function toggleDropdown(ev:*):void{
+      var minHeight:Number = _minMenuHeight + 6;
       ev.preventDefault();
       var open:Boolean = !popover.open;
       if(open){
@@ -72,7 +73,7 @@ package com.unhurdle.spectrum
         switch(_position)
         {
           case "top":
-            if(spaceToTop >= _minMenuHeight || !spaceOnBottom){
+            if(spaceToTop >= minHeight || !spaceOnBottom){
               positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
             } else {
               positionPopoverBottom(componentBounds,spaceToBottom);
@@ -81,7 +82,7 @@ package com.unhurdle.spectrum
             break;
         
           default:
-            if(spaceToBottom >= _minMenuHeight || spaceOnBottom){
+            if(spaceToBottom >= minHeight || spaceOnBottom){
               positionPopoverBottom(componentBounds,spaceToBottom);
             } else {
               positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
@@ -121,6 +122,7 @@ package com.unhurdle.spectrum
 
     }
     private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
+      maxHeight -= 6;
       var pxStr:String;
       popover.setStyle("bottom","");
       pxStr = componentBounds.bottom + "px";
@@ -132,6 +134,7 @@ package com.unhurdle.spectrum
       }
     }
     private function positionPopoverTop(bottom:Number,maxHeight:Number):void{
+      maxHeight -= 6;
       var pxStr:String;
       pxStr = bottom + "px";
       popover.setStyle("top","");
