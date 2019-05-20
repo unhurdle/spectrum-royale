@@ -129,7 +129,7 @@ package com.unhurdle.spectrum
             var minVal:Number = min;
             var maxVal:Number = max;
             var span:Number = maxVal - minVal;
-            var increment:Number = span/numTicks;
+            var increment:Number = span/(numTicks - 1);
         }
         for(var i:int=0;i<numTicks;i++){
             if(_showTickValues){
