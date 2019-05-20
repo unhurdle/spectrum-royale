@@ -22,8 +22,10 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
 
   [Event(name="change", type="org.apache.royale.events.Event")]
+  [Event(name="beforeShow", type="org.apache.royale.events.Event")]
   public class ActionMenu extends SpectrumBase
   {
+    public static const BEFORE_SHOW:String = "beforeShow";
     public function ActionMenu()
     {
       super();
@@ -94,6 +96,9 @@ package com.unhurdle.spectrum
     }
     private function toggleMenu():void{
       var shown:Boolean = popover.open;
+      if(!shown){
+        dispatchEvent(new Event("beforeShow"));
+      }
 			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
       if(shown){// close it
 				popupHost.popUpParent.removeElement(popover);
