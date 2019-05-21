@@ -20,9 +20,9 @@ package com.unhurdle.spectrum
 			positionElements();
     }
 
-    override protected function positionElements():void{
+    override protected function positionElements():void{ 
         displayValue = true;
-        var percent:Number = this.value / (max - min) * 100;
+        var percent:Number = (this.value - min) / (max - min) * 100;
         handle.style.left = percent + "%";
         // Set initial track position
         leftTrack.style.width = percent + '%';
@@ -178,10 +178,10 @@ package com.unhurdle.spectrum
 
 			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;
-			var val:Number = (max-min) / (100/percent);
+			var val:Number = (max-min) / (100/percent) + min;
 			var stepVal:Number = step;
 			var rem:Number = val % stepVal;
-			val = val - rem;
+            val = val - rem;
 			if (rem > (stepVal/2)){
 		    val += stepVal;
 			}
