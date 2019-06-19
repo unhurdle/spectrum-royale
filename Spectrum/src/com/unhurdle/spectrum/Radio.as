@@ -33,12 +33,12 @@ package com.unhurdle.spectrum
         }
         private var _checked:Boolean;
 
-        private function get checked():Boolean
+        public function get checked():Boolean
         {
         	return _checked;
         }
 
-        private function set checked(value:Boolean):void
+        public function set checked(value:Boolean):void
         {
             if(value != !!_checked){
                 input.checked = value;
