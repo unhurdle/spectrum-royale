@@ -6,7 +6,12 @@ package com.unhurdle.spectrum
   {
     public function Popover()
     {
-      
+      super();
+      COMPILE::JS
+      {
+        element.style.zIndex = 500;// very high number to makie sure it's above everything else
+      }
+
     }
     override protected function getSelector():String{
       return "spectrum-Popover";
