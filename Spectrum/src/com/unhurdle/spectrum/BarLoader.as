@@ -232,6 +232,15 @@ package com.unhurdle.spectrum
             }
             _overBackground = value;
         }
+        public function showPercentage(value:Boolean):void
+        {
+            if(value){
+                percentNode.element.style.visibility = "visible";
+            }
+            else{
+                percentNode.element.style.visibility = "hidden";
+            }
+        }
 /**
  * spectrum-BarLoader--overBackground
  * is-positive
