@@ -35,7 +35,7 @@ package com.unhurdle.spectrum
       input = new TextField();
       input.placeholder = "Search";
       button = new ClearButton();
-
+      button.addEventListener("clear" , clear);
       element.addEventListener("submit", handleSubmit);
       addElement(_dropdown);
       addElement(input);
@@ -55,6 +55,10 @@ package com.unhurdle.spectrum
   </button>
 
      */
+    private function clear(ev:Event):void{
+      input.text = "";
+      dispatchEvent(new Event("search"));
+    }
     private function handleSubmit(ev:Event):Boolean{
       ev.preventDefault();
       dispatchEvent(new Event("search"));
