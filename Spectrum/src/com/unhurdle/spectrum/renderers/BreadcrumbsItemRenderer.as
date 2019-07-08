@@ -16,6 +16,7 @@ package com.unhurdle.spectrum.renderers
   import org.apache.royale.events.ValueEvent;
   import org.apache.royale.events.IEventDispatcher;
   import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.events.MouseEvent;
   
   public class BreadcrumbsItemRenderer extends DataItemRenderer
   {
@@ -49,15 +50,16 @@ package com.unhurdle.spectrum.renderers
         h1.appendChild(textNode.element);
         element.appendChild(h1);
       }
+      addEventListener(MouseEvent.CLICK,handleClicked);
+    }
+    private function handleClicked(ev:MouseEvent):void{
+      COMPILE::JS
+      {
+        (parent as IEventDispatcher).dispatchEvent(new ValueEvent("itemClicked",ev.target.data));
+      }
     }
     override public function set selected(value:Boolean):void{
       super.selected = value;
-      COMPILE::JS
-      {
-        if(value){
-          (parent as IEventDispatcher).dispatchEvent(new ValueEvent("itemClicked",data));
-        } 
-      }
     }
     private var icon:Icon;
     private var textNode:TextNode;
