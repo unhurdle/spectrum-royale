@@ -69,6 +69,7 @@ package com.unhurdle.spectrum.renderers
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       textNode = new TextNode("a");
       textNode.className = appendSelector("-itemLink");
+      textNode.element.style.fontSize = '12px';
       elem.appendChild(textNode.element);
       var type:String = IconType.CHEVRON_RIGHT_SMALL;
       icon = new Icon(Icon.getCSSTypeSelector(type));
