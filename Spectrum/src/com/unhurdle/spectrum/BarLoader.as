@@ -235,10 +235,10 @@ package com.unhurdle.spectrum
         public function showPercentage(value:Boolean):void
         {
             if(value){
-                percentNode.element.style.visibility = "visible";
+                percentNode.element.style.display = "inherit";
             }
             else{
-                percentNode.element.style.visibility = "hidden";
+                percentNode.element.style.display = "none";
             }
         }
 /**
