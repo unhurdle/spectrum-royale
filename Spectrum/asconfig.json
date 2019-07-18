@@ -25,9 +25,7 @@
             "libs"
         ],
         "js-external-library-path": [
-            "${royalelib}/../js/libs"
-        ],
-        "js-library-path": [
+            "${royalelib}/../js/libs",
             "${royalelib}/js/libs",
             "libs"
         ],
