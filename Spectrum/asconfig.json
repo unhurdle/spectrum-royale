@@ -43,5 +43,6 @@
             "src"
         ],
         "output": "target/Spectrum.swc"
-    }
+    },
+    "additionalOptions": "-js-output-optimization=skipAsCoercions -js-dynamic-access-unknown-members=true -allow-private-constructors=true -js-complex-implicit-coercions=false -js-vector-index-checks=false"
 }

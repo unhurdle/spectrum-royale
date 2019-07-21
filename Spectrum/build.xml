@@ -63,6 +63,10 @@
             <arg value="-load-config=${basedir}/compile-config.xml" />
             <arg value="-js-load-config=${basedir}/js-compile-config.xml" />
             <arg value="-js-output-optimization=skipAsCoercions"/>
+            <arg value="-js-dynamic-access-unknown-members=true"/>
+            <arg value="-allow-private-constructors=true"/>
+            <arg value="-js-complex-implicit-coercions=false"/>
+            <arg value="-js-vector-index-checks=false"/>
         </java>
     </target>
     
