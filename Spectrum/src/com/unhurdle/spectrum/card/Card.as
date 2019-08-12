@@ -7,7 +7,7 @@ package com.unhurdle.spectrum.card
   import org.apache.royale.core.IPopUpHost;
   import org.apache.royale.core.IPopUpHostParent;
 
-  public class Card extends SpectrumBase implements IPopUpHost, IPopUpHostParent
+  public class Card extends SpectrumBase 
   {
     public function Card()
     {
@@ -171,15 +171,6 @@ package com.unhurdle.spectrum.card
 
     override protected function getSelector():String{
       return getCardSelector();
-    }
-    public function get popUpParent():IPopUpHostParent
-    {
-        return this;
-    }
-    
-    public function get popUpHost():IPopUpHost
-    {
-        return this;
     }
 
   }
