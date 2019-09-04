@@ -71,6 +71,17 @@ package com.unhurdle.spectrum
         	_value = value;
             calculatePosition();
         }
+        private var _valueSuffix:String = "%";
+
+        public function get valueSuffix():String
+        {
+        	return _valueSuffix;
+        }
+
+        public function set valueSuffix(value:String):void
+        {
+        	_valueSuffix = value;
+        }
         override public function addedToParent():void{
             super.addedToParent();
             calculatePosition();
@@ -98,7 +109,7 @@ package com.unhurdle.spectrum
                 setColor("");
             }
             var percentStr:String = percent + "%";
-            percentNode.text = percentStr;
+            valueNode.text = value + _valueSuffix;
             COMPILE::JS
             {
                 fill.style.width = percentStr;
@@ -111,7 +122,7 @@ package com.unhurdle.spectrum
 
         private var fill:HTMLElement;
 
-        private var percentNode:TextNode;
+        private var valueNode:TextNode;
 
         private var labelNode:TextNode;
 
@@ -124,9 +135,9 @@ package com.unhurdle.spectrum
             labelNode = new TextNode("div");
             labelNode.className = baseSelector + "-label";
             elem.appendChild(labelNode.element);
-            percentNode = new TextNode("div");
-            percentNode.className = baseSelector + "-percentage";
-            elem.appendChild(percentNode.element);
+            valueNode = new TextNode("div");
+            valueNode.className = baseSelector + "-percentage";
+            elem.appendChild(valueNode.element);
 
             var track:HTMLElement = newElement("div");
             track.className = baseSelector + "-track";
@@ -235,10 +246,10 @@ package com.unhurdle.spectrum
         public function showPercentage(value:Boolean):void
         {
             if(value){
-                percentNode.element.style.display = "inherit";
+                valueNode.element.style.display = "inherit";
             }
             else{
-                percentNode.element.style.display = "none";
+                valueNode.element.style.display = "none";
             }
         }
 /**
