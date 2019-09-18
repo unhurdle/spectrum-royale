@@ -2,24 +2,23 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
   }
   // import org.apache.royale.html.List;
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconSize;
-  import org.apache.royale.events.MouseEvent;
   import com.unhurdle.spectrum.data.MenuItem;
-  import org.apache.royale.html.util.getLabelFromData;
+
   import org.apache.royale.collections.IArrayList;
+  import org.apache.royale.core.IParentIUIBase;
   import org.apache.royale.core.IPopUpHost;
-  import org.apache.royale.utils.UIUtils;
-  import org.apache.royale.geom.Point;
-  import org.apache.royale.utils.PointUtils;
-  import org.apache.royale.core.IStrand;
-  import org.apache.royale.core.UIBase;
-  import org.apache.royale.core.ValuesManager;
   import org.apache.royale.events.Event;
+  import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.geom.Point;
+  import org.apache.royale.html.util.getLabelFromData;
+  import org.apache.royale.utils.PointUtils;
+  import org.apache.royale.utils.UIUtils;
 
   [Event(name="change", type="org.apache.royale.events.Event")]
   [Event(name="beforeShow", type="org.apache.royale.events.Event")]
@@ -104,20 +103,20 @@ package com.unhurdle.spectrum
 				popupHost.popUpParent.removeElement(popover);
 
       } else {//open it
+				popupHost.popUpParent.addElement(popover);
         var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
 				var origin:Point = new Point(0, height - 6);
 				var relocated:Point = PointUtils.localToGlobal(origin,this);
         relocated.x -= offset.x;
         relocated.y -= offset.y;
-				popover.y = relocated.y+5;
+				popover.y = determinePosition(relocated.y);
         popover.x = relocated.x;
         if(_alignRight && popover.width>button.width){
           popover.x -= popover.width-button.width;
         }
 				// popover.width = button.width;
-
-				popupHost.popUpParent.addElement(popover);
-
+        
+        
       }
       popover.open = !popover.open;
       button.selected = popover.open;
@@ -140,5 +139,19 @@ package com.unhurdle.spectrum
     {
       dispatchEvent(new Event("change"));
     }
+    public function determinePosition(ptY:Number):Number
+		{
+			var screenHeight:Number = (UIUtils.findPopUpHost(this).popUpParent as IParentIUIBase).height;
+      var h:Number = popover.height;
+			if(ptY + h > screenHeight){
+			  ptY -= (h + 25);
+        popover.position = "top";
+			}
+      else{
+        ptY += 5;
+        popover.position = "bottom";
+      }
+      return ptY;
+		}
   }
 }
