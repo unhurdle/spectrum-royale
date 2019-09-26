@@ -76,6 +76,7 @@ package com.unhurdle.spectrum
     }
     public function hide():void
     {
+      visible = false;
       toggle("is-open",false);
       parent.removeElement(this);
       dispatchEvent(new Event("modalHidden"));
