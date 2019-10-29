@@ -15,6 +15,8 @@ package com.unhurdle.spectrum.data
     function set isHeading(value:Boolean):void
     function get icon():String;
     function set icon(value:String):void;
+    function get imageIcon():String;
+    function set imageIcon(value:String):void;
     function get subMenu():Array
     function set subMenu(value:Array):void
   }

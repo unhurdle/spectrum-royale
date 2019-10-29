@@ -62,6 +62,7 @@
     <component id="Icon" class="com.unhurdle.spectrum.Icon"/>
     <component id="IllustratedMessage" class="com.unhurdle.spectrum.IllustratedMessage"/>
     <component id="ImageAsset" class="com.unhurdle.spectrum.ImageAsset"/>
+    <component id="ImageIcon" class="com.unhurdle.spectrum.ImageIcon"/>
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
     <component id="List" class="com.unhurdle.spectrum.List"/>

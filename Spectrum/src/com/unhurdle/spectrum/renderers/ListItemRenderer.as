@@ -13,6 +13,7 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.Application;
   import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.const.IconSize;
+  import com.unhurdle.spectrum.ImageIcon;
 
   public class ListItemRenderer extends DataItemRenderer
   {
@@ -57,9 +58,23 @@ package com.unhurdle.spectrum.renderers
         } else if(icon){
           icon.setStyle("display","none");
         }
+        if(value["imageIcon"]){
+          var iconSrc:String = value["imageIcon"];
+          if(!imageIcon){
+            imageIcon = new ImageIcon(iconSrc);
+            imageIcon.size = IconSize.S;
+            addElementAt(imageIcon,0);
+          } else {
+            imageIcon.setStyle("display",null);
+            imageIcon.src = iconSrc;
+          }
+        } else if(imageIcon){
+          imageIcon.setStyle("display","none");
+        }
       }
     }
     private var icon:Icon;
+    private var imageIcon:ImageIcon;
     private var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement

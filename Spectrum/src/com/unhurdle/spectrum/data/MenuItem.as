@@ -78,6 +78,20 @@ package com.unhurdle.spectrum.data
     	_icon = value;
     }
 
+    private var _imageIcon:String;
+    /**
+     * src of an icon to be rendered an an img
+     */
+    public function get imageIcon():String
+    {
+    	return _imageIcon;
+    }
+
+    public function set imageIcon(value:String):void
+    {
+    	_imageIcon = value;
+    }
+
     private var _subMenu:Array;
 
     public function get subMenu():Array

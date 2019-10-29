@@ -15,6 +15,7 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.const.IconPrefix;
   import org.apache.royale.html.util.getLabelFromData;
   import com.unhurdle.spectrum.data.IMenuItem;
+  import com.unhurdle.spectrum.ImageIcon;
 
   public class MenuItemRenderer extends DataItemRenderer
   {
@@ -69,6 +70,19 @@ package com.unhurdle.spectrum.renderers
       } else if(icon){
         icon.setStyle("display","none");
       }
+      if(menuItem.imageIcon){
+        if(!imageIcon){
+          imageIcon = new ImageIcon(menuItem.imageIcon);
+          imageIcon.size = IconSize.S;
+          element.insertBefore(imageIcon.element,element.childNodes[0] || null);
+          imageIcon.addedToParent();
+        } else {
+          imageIcon.setStyle("display",null);
+          imageIcon.src = menuItem.imageIcon;
+        }
+      } else if(imageIcon){
+        imageIcon.setStyle("display","none");
+      }
 
     }
     override public function set selected(value:Boolean):void{
@@ -84,6 +98,7 @@ package com.unhurdle.spectrum.renderers
       }
     }
     private var icon:Icon;
+    private var imageIcon:ImageIcon;
     private var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement

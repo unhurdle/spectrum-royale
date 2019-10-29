@@ -64,7 +64,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     protected function modelChangedHandler(event:Event):void
 		{
-        dispatchEvent(new ValueEvent("filesAvailable",[(fileProxy.model as FileModel).file]));
+        dispatchEvent(new ValueEvent("filesAvailable",[(fileProxy.model as FileModel).fileReference]));
 		}
   
   COMPILE::JS
