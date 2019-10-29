@@ -17,6 +17,7 @@ package com.unhurdle.spectrum.renderers
   import org.apache.royale.events.IEventDispatcher;
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.MouseEvent;
+  import com.unhurdle.spectrum.ActionButton;
   
   public class BreadcrumbsItemRenderer extends DataItemRenderer
   {
@@ -50,6 +51,21 @@ package com.unhurdle.spectrum.renderers
         h1.appendChild(textNode.element);
         element.appendChild(h1);
       }
+      if(breadCrumbsItem && breadCrumbsItem.isFolder){
+        element.removeChild(textNode.element);
+        var button:ActionButton = new ActionButton();
+        button.quiet = true;
+        var type:String = IconType.FOLDER_BREADCRUMB;
+        var folderIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+        folderIcon.style = {"width": "18px","height": "18px","margin-right": "5px"};
+        folderIcon.type = type;
+        folderIcon.className = appendSelector("-folder");
+        button.addElement(folderIcon);
+        element.appendChild(button.element);
+      }
+      else{
+        element.style.marginTop = '8px';
+      }
       addEventListener(MouseEvent.CLICK,handleClicked);
     }
     private function handleClicked(ev:MouseEvent):void{
@@ -69,6 +85,7 @@ package com.unhurdle.spectrum.renderers
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       textNode = new TextNode("a");
       textNode.className = appendSelector("-itemLink");
+      textNode.element.setAttribute('tabindex',"0");
       elem.appendChild(textNode.element);
       var type:String = IconType.CHEVRON_RIGHT_SMALL;
       icon = new Icon(Icon.getCSSTypeSelector(type));

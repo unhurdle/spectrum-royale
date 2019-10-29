@@ -23,6 +23,7 @@ package com.unhurdle.spectrum.const
     public static const CROSS_SMALL:String = "CrossSmall"
     public static const DASH_SMALL:String = "DashSmall"
     public static const DOUBLE_GRIPPER:String = "DoubleGripper"
+    public static const FOLDER_BREADCRUMB:String = "FolderBreadcrumb"
     public static const HELP_MEDIUM:String = "HelpMedium"
     public static const HELP_SMALL:String = "HelpSmall"
     public static const INFO_MEDIUM:String = "InfoMedium"

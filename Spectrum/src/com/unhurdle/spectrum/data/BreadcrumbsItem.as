@@ -31,5 +31,16 @@ package com.unhurdle.spectrum.data
     {
     	_isTitle = value;
     }
+    private var _isFolder:Boolean = false;
+
+    public function get isFolder():Boolean
+    {
+    	return _isFolder;
+    }
+
+    public function set isFolder(value:Boolean):void
+    {
+    	_isFolder = value;
+    }
   }
 }
