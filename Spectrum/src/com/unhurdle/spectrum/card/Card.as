@@ -99,7 +99,7 @@ package com.unhurdle.spectrum.card
         }
         previewDiv = new Div();
         previewDiv.className = appendSelector("-preview");
-        addElement(previewDiv);
+        addElementAt(previewDiv,0);
       }
       while(previewDiv.numElements > 0){
         previewDiv.removeElement(previewDiv.getElementAt(0));
