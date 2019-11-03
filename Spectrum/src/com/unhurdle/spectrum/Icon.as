@@ -11,7 +11,7 @@ package com.unhurdle.spectrum
     public static function getCSSTypeSelector(type:String):String{
       return IconPrefix.SPECTRUM_CSS_ICON + type;
     }
-    public function Icon(selector:String)
+    public function Icon(selector:String="")
     {
       _selector = selector;
       super();

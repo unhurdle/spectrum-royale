@@ -5,6 +5,7 @@
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
+    <component id="Asset" class="com.unhurdle.spectrum.Asset"/>
     <component id="AssetList" class="com.unhurdle.spectrum.AssetList"/>
     <component id="AssetListItem" class="com.unhurdle.spectrum.data.AssetListItem"/>
     <component id="Avatar" class="com.unhurdle.spectrum.Avatar"/>

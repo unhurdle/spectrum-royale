@@ -4,6 +4,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+    import org.apache.royale.events.Event;
+    
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
   public class Slider extends SliderBase
@@ -186,6 +188,7 @@ package com.unhurdle.spectrum
 		    val += stepVal;
 			}
 			value = val;
+            dispatchEvent(new Event("change"));
 			// value = Math.round(val * 10000)/10000;
     }
   }
