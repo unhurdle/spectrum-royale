@@ -55,6 +55,7 @@ package com.unhurdle.spectrum.renderers
         element.removeChild(textNode.element);
         var button:ActionButton = new ActionButton();
         button.quiet = true;
+        button.element.style.height = '100%';
         var type:String = IconType.FOLDER_BREADCRUMB;
         var folderIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
         folderIcon.style = {"width": "18px","height": "18px","margin-right": "5px"};
@@ -62,6 +63,7 @@ package com.unhurdle.spectrum.renderers
         folderIcon.className = appendSelector("-folder");
         button.addElement(folderIcon);
         element.appendChild(button.element);
+        element.style.marginTop = '6px';
       }
       else{
         element.style.marginTop = '8px';
