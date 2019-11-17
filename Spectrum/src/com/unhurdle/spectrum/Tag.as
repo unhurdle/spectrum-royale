@@ -27,6 +27,7 @@ package com.unhurdle.spectrum
       elem.appendChild(span.element);
       clearButton = new ClearButton();
       clearButton.small = true;
+      clearButton.visible = false;
       addElement(clearButton);
       clearButton.addEventListener("click",removeTag);
       return elem;
