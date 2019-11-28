@@ -12,6 +12,7 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.StepsListItem;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.newElement;
+  import com.unhurdle.spectrum.Link;
   public class StepsListItemRenderer extends DataItemRenderer
   {
     public function StepsListItemRenderer()
@@ -45,6 +46,14 @@ package com.unhurdle.spectrum.renderers
       var stepsListItem:StepsListItem = value as StepsListItem;
       elem.className = appendSelector("-item");
       // elem.style.pointerEvents = null
+      if(stepsListItem.interactive){
+        var link:HTMLElement = newElement("a",appendSelector("-link"))
+        link.tabIndex = -1;
+        link.appendChild(markerContainer);
+        elem.insertBefore(link,segment);
+      } else {
+        elem.insertBefore(markerContainer,segment);
+      }
       if(stepsListItem.selected){
         elem.classList.add("is-selected");
       } else {
@@ -63,6 +72,10 @@ package com.unhurdle.spectrum.renderers
         // elem.appendChild(label.element);
         if(!!stepsListItem.toolTip){
           elem.classList.add("u-tooltip-showOnHover");
+          // var toolTipDiv:ShowOnOverTooltip = new ShowOnOverTooltip();
+          // var toolTipDiv:ShowOnOverTooltip = new ShowOnOverTooltip();
+          // toolTipDiv.direction = "top";
+          // toolTipDiv.text = stepsListItem.text;
           var toolTipDiv:HTMLDivElement = newElement("div","spectrum-Tooltip spectrum-Tooltip--top") as HTMLDivElement;
           label.element = newElement("span","spectrum-Tooltip-label");
           label.text = stepsListItem.text;
@@ -113,6 +126,7 @@ package com.unhurdle.spectrum.renderers
     }
     private var markerContainer:HTMLSpanElement;
     private var marker:HTMLSpanElement;
+    private var segment:HTMLSpanElement
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
@@ -123,8 +137,7 @@ package com.unhurdle.spectrum.renderers
       marker = document.createElement("span") as HTMLSpanElement;
       marker.className = appendSelector("-marker");
       markerContainer.appendChild(marker);
-      elem.appendChild(markerContainer);
-      var segment:HTMLSpanElement = document.createElement("span") as HTMLSpanElement;
+      segment = document.createElement("span") as HTMLSpanElement;
       segment.className = appendSelector("-segment");
       elem.appendChild(segment);
       return elem;

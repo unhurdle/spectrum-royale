@@ -43,7 +43,20 @@ package com.unhurdle.spectrum
         
       }
     }
+    private var _disabled:String;
 
+    public function get disabled():String
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:String):void
+    {
+      if(value != _disabled){
+          toggle("is-disabled", value);
+      }
+      _disabled = value;
+    }
   }
 }
 
