@@ -71,6 +71,44 @@ package com.unhurdle.spectrum
     	_filled = value;
         toggle(valueToSelector("filled"),value);
     }
+    private var _filledOffsetRight:Boolean;
+
+    public function get filledOffsetRight():Boolean
+    {
+    	return _filledOffsetRight;
+    }
+
+    public function set filledOffsetRight(value:Boolean):void
+    {
+    	_filledOffsetRight = value;
+        if(filledOffset){
+            value? fillTrack.classList.add(appendSelector("-right")):fillTrack.classList.remove(appendSelector("-right"));
+        }
+    }
+    private var _filledOffset:Number;
+
+    public function get filledOffset():Number
+    {
+    	return _filledOffset;
+    }
+
+    public function set filledOffset(value:Number):void
+    {
+    	_filledOffset = value;
+        if(value){
+            if(!fillTrack){
+                fillTrack = newElement("div",appendSelector("-fill"));
+            }
+            fillTrack.style.left = handle.style.left + "%";
+            fillTrack.style.width = value + "%";
+            controlsContainer.appendChild(fillTrack);
+        }else{
+            if(controlsContainer.contains(fillTrack)){
+                fillTrack = null
+                controlsContainer.removeChild(fillTrack);
+            }
+        }
+    }
 
     private var _ticks:int;
 
@@ -82,6 +120,7 @@ package com.unhurdle.spectrum
     public function set ticks(value:int):void
     {
         if(value != _ticks){
+            toggle(valueToSelector("tick"),!!value);
             var base:String = getSelector();
         	_ticks = value;
             if(!tickContainer){
@@ -126,6 +165,7 @@ package com.unhurdle.spectrum
             return;
         }
         if(_showTickValues){
+            toggle(valueToSelector("tick"),false);
             // don't bother figuring this out if we're not showing them
             var numTicks:Number = tickArray.length;
             var minVal:Number = min;
@@ -145,6 +185,7 @@ package com.unhurdle.spectrum
 
     private var tickContainer:HTMLElement;
     private var handle:HTMLElement;
+    private var fillTrack:HTMLElement;
 	private var leftTrack:HTMLElement;
   	private var rightTrack:HTMLElement;
 		

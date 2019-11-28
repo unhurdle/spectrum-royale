@@ -121,20 +121,32 @@ package com.unhurdle.spectrum
       }
     	_quiet = value;
     }
-
-    private var _invalid:Boolean;
-
-    public function get invalid():Boolean
+    private var _isValid:Boolean;
+    public function get isValid():Boolean
     {
-    	return _invalid;
+      return _isValid;
     }
-
-    public function set invalid(value:Boolean):void
+    public function set isValid(value:Boolean):void
     {
-      if(value != _invalid){
-        toggle("is-invalid",value);
+      if(_isValid != "undefined"){
+        var oldIsValid:String;
+        if(_isValid){
+            oldIsValid = "is-valid";
+        }
+        else{
+            oldIsValid = "is-invalid";
+        }
+        toggle(oldIsValid, false);
       }
-    	_invalid = value;
+      var newIsValid:String;
+      if(value){
+        newIsValid = "is-valid";
+      }
+      else{
+          newIsValid = "is-invalid";
+      }
+      toggle(newIsValid, true);
+      _isValid = value;
     }
     protected var input:HTMLInputElement;
 

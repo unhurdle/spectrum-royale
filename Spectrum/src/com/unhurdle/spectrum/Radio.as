@@ -45,6 +45,20 @@ package com.unhurdle.spectrum
             }
         	_checked = value;
         }
+        private var _labelBelow:Boolean;
+
+        public function get labelBelow():Boolean
+        {
+        	return _labelBelow;
+        }
+
+        public function set labelBelow(value:Boolean):void
+        {
+            if(value != !!_labelBelow){
+                toggle(valueToSelector("labelBelow"),value);
+            }
+        	_labelBelow = value;
+        }
 
         private var _disabled:Boolean;
 
@@ -82,6 +96,17 @@ package com.unhurdle.spectrum
         {
         	_text = value
         	label.text = value;
+        }
+
+        private var _quiet:String;
+        public function get quiet():String
+        {
+        	return _quiet;
+        }
+
+        public function set quiet(value:String):void
+        {
+        	_quiet = value
         }
          public function get radioName():String
         {
