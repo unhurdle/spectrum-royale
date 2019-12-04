@@ -111,7 +111,6 @@ COMPILE::JS {
 			{
 				var newEvent:ItemClickedEvent = new ItemClickedEvent("itemClicked");
 				newEvent.data = target.data;
-				newEvent.multipleSelection = event.shiftKey;
 				newEvent.index = target.index;
 
 				target.dispatchEvent(newEvent);
