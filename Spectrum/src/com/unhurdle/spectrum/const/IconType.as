@@ -36,5 +36,7 @@ package com.unhurdle.spectrum.const
     public static const SUCCESS_MEDIUM:String = "SuccessMedium"
     public static const SUCCESS_SMALL:String = "SuccessSmall"
     public static const TRIPLE_GRIPPER:String = "TripleGripper"      
+    public static const VIEW_LIST:String = "viewList"      
+    public static const VIEW_GRID:String = "viewGrid"      
   }
 }
