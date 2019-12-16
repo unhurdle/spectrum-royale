@@ -249,6 +249,7 @@
   <sp:initialView>
     <sp:View>
   <sp:Search id="search" submit="onSubmit(event)"/>
+  <sp:ActionButton text="ActionButton"/>
   <sp:SearchWithin dataProvider="{listProvider}" />
   <sp:SearchWithin dataProvider="{listProvider}" position="top" selectedItem="{listProvider[0]}"/>
   <!-- <sp:ActionButton id="actionButton" click="actionClick()"
