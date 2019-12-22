@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.core.IPopUp;
+  import org.apache.royale.events.Event;
 
   public class Popover extends Group implements IPopUp
   {
@@ -27,6 +28,7 @@ package com.unhurdle.spectrum
     {
     	_open = value;
       toggle("is-open",value);
+      dispatchEvent(new Event("openChanged"));
     }
 
     private var _relativePosition:Boolean;
