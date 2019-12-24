@@ -25,6 +25,7 @@ package com.unhurdle.spectrum
   public class ActionMenu extends SpectrumBase
   {
     public static const BEFORE_SHOW:String = "beforeShow";
+    public static var _openMenu:ActionMenu;
     public function ActionMenu()
     {
       super();
@@ -94,15 +95,16 @@ package com.unhurdle.spectrum
       button.text = value;
     }
     private function toggleMenu():void{
-      var shown:Boolean = popover.open;
-      if(!shown){
-        dispatchEvent(new Event("beforeShow"));
+      if(_openMenu && _openMenu != this){
+        _openMenu.close();
       }
-			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+      var shown:Boolean = popover.open;
       if(shown){// close it
-				popupHost.popUpParent.removeElement(popover);
+        close();
 
       } else {//open it
+        dispatchEvent(new Event("beforeShow"));
+  			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
 				popupHost.popUpParent.addElement(popover);
         var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
 				var origin:Point = new Point(0, height - 6);
@@ -116,10 +118,16 @@ package com.unhurdle.spectrum
         }
 				// popover.width = button.width;
         
-        
+        popover.open = button.selected = true;
+        _openMenu = this;
       }
-      popover.open = !popover.open;
-      button.selected = popover.open;
+    }
+    private function close():void{
+			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+      popupHost.popUpParent.removeElement(popover);
+      popover.open = button.selected = false;
+      _openMenu = null;
+
     }
     private var _alignRight:Boolean;
 
