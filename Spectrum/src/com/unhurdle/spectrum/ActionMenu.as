@@ -25,6 +25,7 @@ package com.unhurdle.spectrum
   public class ActionMenu extends SpectrumBase
   {
     public static const BEFORE_SHOW:String = "beforeShow";
+    public static var _openMenu:ActionMenu;
     public function ActionMenu()
     {
       super();
@@ -32,6 +33,8 @@ package com.unhurdle.spectrum
     private var button:ActionButton;
     public var popover:Popover;
     public var menu:Menu;
+    private var _icon:String;
+    private var _iconSize:String;
  
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -39,8 +42,6 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       button = new ActionButton();
       // button.className = //??
-      button.icon = IconPrefix._18 + "More";
-      button.iconSize = IconSize.S;
       button.addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       addElement(button);
       
@@ -61,9 +62,38 @@ package com.unhurdle.spectrum
       // addElement(popover);
       return elem;
     }
+
+    override public function addedToParent():void
+	  {
+		  super.addedToParent();
+		  button.icon = icon ? icon : IconPrefix._18 + "More";
+		  button.iconSize = iconSize ? iconSize : IconSize.S;
+	  }
+
      public function get dataProvider():Object{
       return menu.dataProvider;
     }
+
+    public function set iconSize(value:String):void
+	  {
+		  _iconSize = value;
+	  }
+
+    public function get iconSize():String
+	  {
+		  return _iconSize;
+	  }
+
+    public function set icon(value:String):void
+	  {
+		  _icon = value;
+	  }
+
+    public function get icon():String
+	  {
+		  return _icon;
+	  }
+
     public function set dataProvider(value:Object):void{
       if(value is Array){
         convertArray(value);
@@ -94,15 +124,16 @@ package com.unhurdle.spectrum
       button.text = value;
     }
     private function toggleMenu():void{
-      var shown:Boolean = popover.open;
-      if(!shown){
-        dispatchEvent(new Event("beforeShow"));
+      if(_openMenu && _openMenu != this){
+        _openMenu.close();
       }
-			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+      var shown:Boolean = popover.open;
       if(shown){// close it
-				popupHost.popUpParent.removeElement(popover);
+        close();
 
       } else {//open it
+        dispatchEvent(new Event("beforeShow"));
+  			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
 				popupHost.popUpParent.addElement(popover);
         var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
 				var origin:Point = new Point(0, height - 6);
@@ -116,10 +147,16 @@ package com.unhurdle.spectrum
         }
 				// popover.width = button.width;
         
-        
+        popover.open = button.selected = true;
+        _openMenu = this;
       }
-      popover.open = !popover.open;
-      button.selected = popover.open;
+    }
+    private function close():void{
+			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+      popupHost.popUpParent.removeElement(popover);
+      popover.open = button.selected = false;
+      _openMenu = null;
+
     }
     private var _alignRight:Boolean;
 
