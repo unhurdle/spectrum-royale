@@ -29,7 +29,7 @@ package com.unhurdle.spectrum.renderers
       addEventListener("setSelected",setSelected);
       var treeListData:TreeListData = listData as TreeListData;
       if(treeListData.depth != -1){
-        this.style = {'marginLeft' :(treeListData.depth - 1) * 30};
+        this.style = {'marginLeft' :(treeListData.depth - 1) * 10};
       }
     }
     COMPILE::JS
