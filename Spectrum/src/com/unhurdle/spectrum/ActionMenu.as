@@ -32,6 +32,8 @@ package com.unhurdle.spectrum
     private var button:ActionButton;
     public var popover:Popover;
     public var menu:Menu;
+    private var _icon:String;
+    private var _iconSize:String;
  
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -39,8 +41,6 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       button = new ActionButton();
       // button.className = //??
-      button.icon = IconPrefix._18 + "More";
-      button.iconSize = IconSize.S;
       button.addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       addElement(button);
       
@@ -61,9 +61,38 @@ package com.unhurdle.spectrum
       // addElement(popover);
       return elem;
     }
+
+    override public function addedToParent():void
+	  {
+		  super.addedToParent();
+		  button.icon = icon ? icon : IconPrefix._18 + "More";
+		  button.iconSize = iconSize ? iconSize : IconSize.S;
+	  }
+
      public function get dataProvider():Object{
       return menu.dataProvider;
     }
+
+    public function set iconSize(value:String):void
+	  {
+		  _iconSize = value;
+	  }
+
+    public function get iconSize():String
+	  {
+		  return _iconSize;
+	  }
+
+    public function set icon(value:String):void
+	  {
+		  _icon = value;
+	  }
+
+    public function get icon():String
+	  {
+		  return _icon;
+	  }
+
     public function set dataProvider(value:Object):void{
       if(value is Array){
         convertArray(value);
