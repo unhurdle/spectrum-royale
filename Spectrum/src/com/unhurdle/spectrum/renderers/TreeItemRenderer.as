@@ -17,7 +17,7 @@ package com.unhurdle.spectrum.renderers
       typeNames = '';
     }
     protected function appendSelector(value:String):String{
-      return "pectrum-TreeView" + value;
+      return "spectrum-TreeView" + value;
     }
     override public function updateRenderer():void{
       // do nothing
