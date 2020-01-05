@@ -9,6 +9,13 @@ package com.unhurdle.spectrum
   [Event(name="itemClicked", type="org.apache.royale.events.ValueEvent")]
   public class Breadcrumbs extends org.apache.royale.html.List
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/breadcrumb/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public function Breadcrumbs()
     {
       super();

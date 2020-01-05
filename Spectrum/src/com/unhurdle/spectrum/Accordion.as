@@ -9,6 +9,12 @@ package com.unhurdle.spectrum
 
   public class Accordion extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/accordion/dist.css">
+     * </inject_html>
+     * 
+     */
 
     private var indicator:Icon;
 

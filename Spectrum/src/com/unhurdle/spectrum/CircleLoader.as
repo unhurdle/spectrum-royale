@@ -9,6 +9,12 @@ package com.unhurdle.spectrum
    
     public class CircleLoader extends SpectrumBase
     {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/circleloader/dist.css">
+     * </inject_html>
+     * 
+     */
         public function CircleLoader()
         {
             super();

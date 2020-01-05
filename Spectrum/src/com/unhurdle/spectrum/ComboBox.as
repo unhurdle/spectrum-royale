@@ -4,6 +4,12 @@ package com.unhurdle.spectrum
 
   public class ComboBox extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/inputgroup/dist.css">
+     * </inject_html>
+     * 
+     */
 
     public function ComboBox()
     {

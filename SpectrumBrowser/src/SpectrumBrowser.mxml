@@ -310,21 +310,21 @@
       <!-- <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
       <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/> -->
       <!-- <sp:Rating id="rating1" max="9" value="3" /> -->
-      <sp:DatePicker />
+      <!-- <sp:DatePicker /> -->
       <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}"/> -->
       <!-- <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/> -->
       <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/> -->
       <!-- <sp:Tool /> -->
       <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
       <!-- <sp:Alert text="Alert"/>  -->
-      <!-- <sp:Banner header="Most Popular" type="info" content="Include Awesome"/>
-      <sp:BarLoader label="Thingies" meter="true" value="90"/>
+      <!-- <sp:Banner header="Most Popular" type="info" content="Include Awesome"/> -->
+      <sp:BarLoader label="Thingies" meter="true" value="90" indeterminate="true"/>
       <sp:CircleLoader min="50" max="410" value="180"/>
       <sp:CircleLoader indeterminate="true"/>
       <sp:CircleLoader size="small" indeterminate="true" overBackground="true"/>
       <sp:CircleLoader overBackground="true"/>
       <sp:CircleLoader indeterminate="true"  size="large"/>
-      <sp:CircleLoader size="small"/> -->
+      <sp:CircleLoader size="small"/>
       <!-- <sp:StepList small="true"> -->
       <!-- <sp:StepList isLabel="true">      
         <sp:dataProvider>

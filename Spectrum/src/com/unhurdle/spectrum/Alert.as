@@ -12,8 +12,14 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.Icon;
   
   public class Alert extends SpectrumBase
-  
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/alert/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public function Alert(){
       super();
       visible = false;

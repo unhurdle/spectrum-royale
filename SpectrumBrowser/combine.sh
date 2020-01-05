@@ -10,7 +10,7 @@
       rm -f index-vars.css
       rm -f package.json
       rm -f vars.css
-      cat *.css */*.css > combined.css
+      cat *.css */*.css > dist.css
       cd ..
     done
 

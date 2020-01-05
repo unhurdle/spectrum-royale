@@ -9,6 +9,13 @@ package com.unhurdle.spectrum.card
 
   public class Card extends SpectrumBase 
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/card/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public function Card()
     {
       super();

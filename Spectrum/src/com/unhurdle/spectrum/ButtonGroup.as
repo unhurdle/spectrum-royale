@@ -2,6 +2,13 @@ package com.unhurdle.spectrum
 {
   public class ButtonGroup extends Group
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/buttongroup/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public function ButtonGroup()
     {
       super();

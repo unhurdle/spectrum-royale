@@ -10,6 +10,13 @@ package com.unhurdle.spectrum
   [Event(name="itemClicked", type="org.apache.royale.events.ValueEvent")]
   public class AssetList extends org.apache.royale.html.List
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/assetlist/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public function AssetList()
     {
       super();

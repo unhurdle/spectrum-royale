@@ -8,6 +8,13 @@ package com.unhurdle.spectrum
 
     public class Banner extends SpectrumBase
     {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/banner/dist.css">
+     * </inject_html>
+     * 
+     */
+
         public function Banner()
         {
             super();

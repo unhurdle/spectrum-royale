@@ -10,6 +10,12 @@ package com.unhurdle.spectrum
 
   public class DatePicker extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/inputgroup/dist.css">
+     * </inject_html>
+     * 
+     */
     public function DatePicker()
     {
       super();

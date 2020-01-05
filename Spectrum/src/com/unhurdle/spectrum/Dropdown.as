@@ -23,6 +23,12 @@ package com.unhurdle.spectrum
 	[Event(name="showMenu", type="org.apache.royale.events.Event")]
   public class Dropdown extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/dropdown/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Dropdown()
     {
       super();

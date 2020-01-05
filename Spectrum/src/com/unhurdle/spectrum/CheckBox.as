@@ -14,6 +14,13 @@ package com.unhurdle.spectrum
 
     public class CheckBox extends SpectrumBase
     {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/checkbox/dist.css">
+     * </inject_html>
+     * 
+     */
+
         public function CheckBox()
         {
             super();

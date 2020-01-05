@@ -8,6 +8,12 @@ package com.unhurdle.spectrum
 
     public class CoachMark extends SpectrumBase
     {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/coachmark/dist.css">
+     * </inject_html>
+     * 
+     */
         public static const DARK:String = "dark";
         public static const LIGHT:String = "light";
         public function CoachMark()

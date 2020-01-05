@@ -24,6 +24,13 @@ package com.unhurdle.spectrum
 
   public class Button extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/button/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public static const CTA:String = "cta";
     public static const PRIMARY:String = "primary";
     public static const SECONDARY:String = "secondary";

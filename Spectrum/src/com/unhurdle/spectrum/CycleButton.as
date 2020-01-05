@@ -10,6 +10,13 @@ package com.unhurdle.spectrum
 
   public class CycleButton extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/cyclebutton/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public function CycleButton()
     {
       super();

@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
 
   public class Dialog extends Group
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/dialog/dist.css">
+     * </inject_html>
+     * 
+     */
     public static const ALERT:int = 1;
     public static const REGULAR:int = 2;
     public static const FULLSCREEN:int = 3;

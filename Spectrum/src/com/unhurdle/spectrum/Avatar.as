@@ -8,6 +8,13 @@ package com.unhurdle.spectrum
   }
   public class Avatar extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/avatar/dist.css">
+     * </inject_html>
+     * 
+     */
+
     public function Avatar()
     {    
       super(); 
