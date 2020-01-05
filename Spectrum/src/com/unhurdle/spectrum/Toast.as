@@ -24,12 +24,6 @@ package com.unhurdle.spectrum
      * 
      */
     // flag to set the keyframes on  the first instantiation
-    private static var keyFramesSet:Boolean;
-
-    public static const INFO:String = "info";
-    public static const NEGATIVE:String = "negative";
-    public static const POSITIVE:String = "positive";
-    public static const WARNING:String = "warning";
 
     public function Toast(content:String = null)
     {
@@ -42,6 +36,13 @@ package com.unhurdle.spectrum
         setKeyFrames()
       }
     }
+    private static var keyFramesSet:Boolean;
+
+    public static const INFO:String = "info";
+    public static const NEGATIVE:String = "negative";
+    public static const POSITIVE:String = "positive";
+    public static const WARNING:String = "warning";
+
     override protected function getSelector():String{
       return "spectrum-Toast";
     }

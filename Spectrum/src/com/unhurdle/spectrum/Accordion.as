@@ -5,7 +5,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import com.unhurdle.spectrum.const.IconType;
-  
 
   public class Accordion extends SpectrumBase
   {
@@ -16,14 +15,13 @@ package com.unhurdle.spectrum
      * 
      */
 
-    private var indicator:Icon;
-
     public function Accordion()
-      {
-        super();
-        typeNames = "spectrum-Accordion"
-      }
+    {
+      super();
+      typeNames = "spectrum-Accordion"
+    }
 
+    private var indicator:Icon;
     private var accordionItem:HTMLDivElement;
     private var headerElem:HTMLDivElement;
     private var itemContent:HTMLDivElement;

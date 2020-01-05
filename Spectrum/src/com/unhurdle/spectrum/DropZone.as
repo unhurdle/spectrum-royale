@@ -28,9 +28,6 @@ package com.unhurdle.spectrum
      * </inject_html>
      * 
      */
-    private var browser:FileBrowser;
-    private var loader:FileLoader;
-    private var fileProxy:FileProxy;
    
     public function DropZone(){
       super();
@@ -40,6 +37,10 @@ package com.unhurdle.spectrum
       fileProxy.addBead(loader);  
       fileProxy.addBead(browser); 
     }
+
+    private var browser:FileBrowser;
+    private var loader:FileLoader;
+    private var fileProxy:FileProxy;
 
     override protected function getSelector():String{
       return "spectrum-Dropzone";

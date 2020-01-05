@@ -19,6 +19,7 @@ package com.unhurdle.spectrum
         {
             super();
         }
+        
         override protected function getSelector():String{
           return "spectrum-BarLoader";
         }

@@ -10,8 +10,26 @@ package com.unhurdle.spectrum
      * <inject_html>
      * <link rel="stylesheet" href="assets/css/components/page/dist.css">
      * </inject_html>
-     * 
      */
+
+    public function Application()
+    {
+      
+      super();
+      
+			this.valuesImpl = new AllCSSValuesImpl();
+      addBead(new ApplicationDataBinding());
+      // default values
+      _colorstop = "light";
+      _appScale = "medium";
+      
+      COMPILE::JS
+      {
+        element.className = 'Application spectrum spectrum--medium spectrum--light';
+
+      }
+      _current = this;
+    }
     private static var _current:com.unhurdle.spectrum.Application;
     /**
      * Global getter to get a reference to the top-level application
@@ -35,24 +53,6 @@ package com.unhurdle.spectrum
             return "#2680eb";  //for testing purposes.
       }
       return "#0";
-    }
-    public function Application()
-    {
-      
-      super();
-      
-			this.valuesImpl = new AllCSSValuesImpl();
-      addBead(new ApplicationDataBinding());
-      // default values
-      _colorstop = "light";
-      _appScale = "medium";
-      
-      COMPILE::JS
-      {
-        element.className = 'Application spectrum spectrum--medium spectrum--light';
-
-      }
-      _current = this;
     }
 
     protected function toggle(selector:String,value:Boolean):void{
