@@ -1,0 +1,279 @@
+.spectrum--large .spectrum-SideNav-item {
+
+  margin: 5px 0;
+}
+.spectrum--large .spectrum-SideNav-itemLink {
+  min-height: 40px;
+
+  padding: 6px 15px;
+
+  border-radius: 5px;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  transition: background-color 130ms ease-out,
+              color 130ms ease-out;
+}
+.spectrum--large .spectrum-SideNav-itemLink.focus-ring::before {
+
+    border: 2px solid transparent;
+    border-radius: 5px;
+  }
+.spectrum--large .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+    margin-right: 10px;
+  }
+.spectrum--large .spectrum-SideNav-heading {
+  height: 40px;
+  line-height: 40px;
+
+  margin: 20px 0 5px 0;
+  padding: 0 15px;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav-itemLink {
+    font-weight: 700;
+  }
+.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+      font-weight: 400;
+
+      padding-left: 30px;
+    }
+.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+        padding-left: 45px;
+      }
+.spectrum-SideNav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.spectrum-SideNav-item {
+  list-style-type: none;
+
+  margin: 4px 0;
+}
+.spectrum-SideNav-itemLink {
+  position: relative;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: left;
+      justify-content: left;
+  box-sizing: border-box;
+
+  width: 100%;
+  min-height: 32px;
+
+  padding: 5px 12px;
+
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+
+  word-break: break-word;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+
+  cursor: pointer;
+
+  transition: background-color 130ms ease-out,
+              color 130ms ease-out;
+}
+.spectrum-SideNav-itemLink:focus {
+    outline: none;
+  }
+.spectrum-SideNav-itemLink.focus-ring::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+.spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+    margin-right: 8px;
+  }
+.spectrum-SideNav-heading {
+  height: 32px;
+  line-height: 32px;
+
+  margin: 16px 0 4px 0;
+  padding: 0 12px;
+
+  border-radius: 4px;
+
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+.spectrum-SideNav--multiLevel .spectrum-SideNav-itemLink {
+    font-weight: 700;
+  }
+.spectrum-SideNav--multiLevel .spectrum-SideNav {
+    margin: 0;
+    padding: 0;
+  }
+.spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+      font-weight: 400;
+
+      padding-left: 24px;
+    }
+.spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+        padding-left: 36px;
+      }
+.spectrum--dark .spectrum-SideNav-item.is-selected > .spectrum-SideNav-itemLink {
+      color: rgb(255, 255, 255);
+      background-color: rgba(255,255,255,0.07);
+    }
+.spectrum--dark .spectrum-SideNav-item .is-active > .spectrum-SideNav-itemLink {
+      background-color: rgba(255,255,255,0.07);
+    }
+.spectrum--dark .spectrum-SideNav-item.is-disabled .spectrum-SideNav-itemLink {
+      background-color: transparent;
+      color: rgb(110, 110, 110);
+
+      cursor: default;
+      pointer-events: none;
+    }
+.spectrum--dark .spectrum-SideNav-itemLink {
+  background-color: transparent;
+  color: rgb(227, 227, 227);
+}
+.spectrum--dark .spectrum-SideNav-itemLink:hover {
+    background-color: rgba(255,255,255,0.07);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-SideNav-itemLink:active {
+    background-color: rgba(255,255,255,0.07);
+  }
+.spectrum--dark .spectrum-SideNav-itemLink.focus-ring {
+    background-color: rgba(255,255,255,0.07);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-SideNav-itemLink.focus-ring::before {
+      border-color: rgb(38, 128, 235);
+    }
+.spectrum--dark .spectrum-SideNav-heading {
+  color: rgb(185, 185, 185);
+}
+.spectrum--darkest .spectrum-SideNav-item.is-selected > .spectrum-SideNav-itemLink {
+      color: rgb(239, 239, 239);
+      background-color: rgba(239,239,239,0.08);
+    }
+.spectrum--darkest .spectrum-SideNav-item .is-active > .spectrum-SideNav-itemLink {
+      background-color: rgba(239,239,239,0.08);
+    }
+.spectrum--darkest .spectrum-SideNav-item.is-disabled .spectrum-SideNav-itemLink {
+      background-color: transparent;
+      color: rgb(92, 92, 92);
+
+      cursor: default;
+      pointer-events: none;
+    }
+.spectrum--darkest .spectrum-SideNav-itemLink {
+  background-color: transparent;
+  color: rgb(200, 200, 200);
+}
+.spectrum--darkest .spectrum-SideNav-itemLink:hover {
+    background-color: rgba(239,239,239,0.08);
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-SideNav-itemLink:active {
+    background-color: rgba(239,239,239,0.08);
+  }
+.spectrum--darkest .spectrum-SideNav-itemLink.focus-ring {
+    background-color: rgba(239,239,239,0.08);
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-SideNav-itemLink.focus-ring::before {
+      border-color: rgb(20, 115, 230);
+    }
+.spectrum--darkest .spectrum-SideNav-heading {
+  color: rgb(162, 162, 162);
+}
+.spectrum--light .spectrum-SideNav-item.is-selected > .spectrum-SideNav-itemLink {
+      color: rgb(44, 44, 44);
+      background-color: rgba(44,44,44,0.06);
+    }
+.spectrum--light .spectrum-SideNav-item .is-active > .spectrum-SideNav-itemLink {
+      background-color: rgba(44,44,44,0.06);
+    }
+.spectrum--light .spectrum-SideNav-item.is-disabled .spectrum-SideNav-itemLink {
+      background-color: transparent;
+      color: rgb(179, 179, 179);
+
+      cursor: default;
+      pointer-events: none;
+    }
+.spectrum--light .spectrum-SideNav-itemLink {
+  background-color: transparent;
+  color: rgb(75, 75, 75);
+}
+.spectrum--light .spectrum-SideNav-itemLink:hover {
+    background-color: rgba(44,44,44,0.06);
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-SideNav-itemLink:active {
+    background-color: rgba(44,44,44,0.06);
+  }
+.spectrum--light .spectrum-SideNav-itemLink.focus-ring {
+    background-color: rgba(44,44,44,0.06);
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-SideNav-itemLink.focus-ring::before {
+      border-color: rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-SideNav-heading {
+  color: rgb(110, 110, 110);
+}
+.spectrum--lightest .spectrum-SideNav-item.is-selected > .spectrum-SideNav-itemLink {
+      color: rgb(50, 50, 50);
+      background-color: rgba(50,50,50,0.06);
+    }
+.spectrum--lightest .spectrum-SideNav-item .is-active > .spectrum-SideNav-itemLink {
+      background-color: rgba(50,50,50,0.06);
+    }
+.spectrum--lightest .spectrum-SideNav-item.is-disabled .spectrum-SideNav-itemLink {
+      background-color: transparent;
+      color: rgb(188, 188, 188);
+
+      cursor: default;
+      pointer-events: none;
+    }
+.spectrum--lightest .spectrum-SideNav-itemLink {
+  background-color: transparent;
+  color: rgb(80, 80, 80);
+}
+.spectrum--lightest .spectrum-SideNav-itemLink:hover {
+    background-color: rgba(50,50,50,0.06);
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-SideNav-itemLink:active {
+    background-color: rgba(50,50,50,0.06);
+  }
+.spectrum--lightest .spectrum-SideNav-itemLink.focus-ring {
+    background-color: rgba(50,50,50,0.06);
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-SideNav-itemLink.focus-ring::before {
+      border-color: rgb(55, 142, 240);
+    }
+.spectrum--lightest .spectrum-SideNav-heading {
+  color: rgb(116, 116, 116);
+}

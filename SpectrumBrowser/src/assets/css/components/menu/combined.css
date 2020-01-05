@@ -1,0 +1,338 @@
+.spectrum--large .spectrum-Menu {
+
+  margin: 5px 0;
+}
+.spectrum--large .spectrum-Menu > .spectrum-Menu-sectionHeading {
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+.spectrum--large .spectrum-Menu.is-selectable .spectrum-Menu-item {
+      padding-right: 41px;
+    }
+.spectrum--large .spectrum-Menu.is-selectable .spectrum-Menu-item.is-selected {
+        padding-right: 11px;
+      }
+.spectrum--large .spectrum-Menu-item {
+
+  padding: 9px 12px 9px 10px;
+
+  border-left: 2px solid transparent;
+
+  min-height: 48px;
+
+  font-size: 17px;
+  font-weight: 400;
+}
+.spectrum--large .spectrum-Menu-item.is-selected {
+    padding-right: 11px
+  }
+.spectrum--large .spectrum-Menu-item .spectrum-Icon + .spectrum-Menu-itemLabel,
+  .spectrum--large .spectrum-Menu-item .spectrum-Menu-itemIcon  + .spectrum-Menu-itemLabel {
+    margin-left: 10px;
+  }
+.spectrum--large .spectrum-Menu-itemLabel {
+  line-height: 1.3;
+}
+.spectrum--large .spectrum-Menu-checkmark,
+.spectrum--large .spectrum-Menu-chevron {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+.spectrum--large .spectrum-Menu-divider {
+
+  height: 2px;
+  margin: 1.5px 12px;
+}
+.spectrum--large .spectrum-Menu-sectionHeading {
+  margin: 8px 0 0 0;
+  padding: 0 45px 0 15px;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 25px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.spectrum-Menu {
+  display: inline-block;
+
+  box-sizing: border-box;
+
+  margin: 4px 0;
+  padding: 0;
+
+  list-style-type: none;
+
+  overflow: auto;
+}
+.spectrum-Menu > .spectrum-Menu-sectionHeading {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+.spectrum-Menu.is-selectable .spectrum-Menu-item {
+      padding-right: 32px;
+    }
+.spectrum-Menu.is-selectable .spectrum-Menu-item.is-selected {
+        padding-right: 11px;
+      }
+.spectrum-Menu-checkmark {
+  transform: scale(1);
+  opacity: 1;
+}
+.spectrum-Menu-item {
+  cursor: pointer;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+
+  box-sizing: border-box;
+
+  padding: 7px 12px 7px 10px;
+
+  margin: 0;
+
+  border-left: 2px solid transparent;
+
+  min-height: 32px;
+
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}
+.spectrum-Menu-item:focus {
+    outline: none;
+  }
+.spectrum-Menu-item.is-selected {
+    padding-right: 11px;
+  }
+.spectrum-Menu-item.is-selected .spectrum-Menu-checkmark {
+      display: block;
+    }
+.spectrum-Menu-item .spectrum-Icon,
+  .spectrum-Menu-item .spectrum-Menu-itemIcon {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+  }
+.spectrum-Menu-item .spectrum-Icon + .spectrum-Menu-itemLabel,
+  .spectrum-Menu-item .spectrum-Menu-itemIcon  + .spectrum-Menu-itemLabel {
+    margin-left: 8px;
+  }
+.spectrum-Menu-itemLabel {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  line-height: 1.3;
+  word-break: break-all;
+}
+.spectrum-Menu-itemLabel--wrapping {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.spectrum-Menu-checkmark {
+  display: none;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.spectrum-Menu-checkmark,
+.spectrum-Menu-chevron {
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+  margin-left: 12px;
+  margin-top: 4px;
+}
+.spectrum-Menu-divider {
+  box-sizing: content-box;
+  overflow: visible;
+
+  height: 2px;
+  margin: 1.5px 12px;
+  padding: 0 0;
+  border: none;
+}
+.spectrum-Menu-sectionHeading {
+  display: block;
+  margin: 6px 0 0 0;
+  padding: 0 36px 0 12px;
+
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.spectrum-Menu .spectrum-Menu {
+  display: block;
+}
+.spectrum--dark .spectrum-Menu {
+  background-color: transparent;
+}
+.spectrum--dark .spectrum-Menu-item {
+  background-color: transparent;
+  color: rgb(227, 227, 227);
+}
+.spectrum--dark .spectrum-Menu-item.focus-ring,
+.spectrum--dark .spectrum-Menu-item.is-focused {
+    background-color: rgba(255,255,255,0.06);
+    color: rgb(227, 227, 227);
+    border-left-color: rgb(38, 128, 235);
+  }
+.spectrum--dark .spectrum-Menu-item:hover,
+.spectrum--dark .spectrum-Menu-item:focus,
+.spectrum--dark .spectrum-Menu-item.is-highlighted,
+.spectrum--dark .spectrum-Menu-item.is-open {
+    background-color: rgba(255,255,255,0.06);
+    color: rgb(227, 227, 227);
+  }
+.spectrum--dark .spectrum-Menu-item.is-selected {
+    color: rgb(227, 227, 227);
+  }
+.spectrum--dark .spectrum-Menu-item.is-selected .spectrum-Menu-checkmark {
+      color: rgb(55, 142, 240);
+    }
+.spectrum--dark .spectrum-Menu-item .is-active,
+.spectrum--dark .spectrum-Menu-item:active {
+    background-color: rgba(255,255,255,0.06);
+  }
+.spectrum--dark .spectrum-Menu-item.is-disabled {
+    background-color: transparent;
+    background-image: none;
+    color: rgb(110, 110, 110);
+    cursor: default;
+  }
+.spectrum--dark .spectrum-Menu-sectionHeading {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Menu-divider {
+  background-color: rgb(50, 50, 50);
+}
+.spectrum--darkest .spectrum-Menu {
+  background-color: transparent;
+}
+.spectrum--darkest .spectrum-Menu-item {
+  background-color: transparent;
+  color: rgb(200, 200, 200);
+}
+.spectrum--darkest .spectrum-Menu-item.focus-ring,
+.spectrum--darkest .spectrum-Menu-item.is-focused {
+    background-color: rgba(239,239,239,0.08);
+    color: rgb(200, 200, 200);
+    border-left-color: rgb(20, 115, 230);
+  }
+.spectrum--darkest .spectrum-Menu-item:hover,
+.spectrum--darkest .spectrum-Menu-item:focus,
+.spectrum--darkest .spectrum-Menu-item.is-highlighted,
+.spectrum--darkest .spectrum-Menu-item.is-open {
+    background-color: rgba(239,239,239,0.08);
+    color: rgb(200, 200, 200);
+  }
+.spectrum--darkest .spectrum-Menu-item.is-selected {
+    color: rgb(200, 200, 200);
+  }
+.spectrum--darkest .spectrum-Menu-item.is-selected .spectrum-Menu-checkmark {
+      color: rgb(38, 128, 235);
+    }
+.spectrum--darkest .spectrum-Menu-item .is-active,
+.spectrum--darkest .spectrum-Menu-item:active {
+    background-color: rgba(239,239,239,0.08);
+  }
+.spectrum--darkest .spectrum-Menu-item.is-disabled {
+    background-color: transparent;
+    background-image: none;
+    color: rgb(92, 92, 92);
+    cursor: default;
+  }
+.spectrum--darkest .spectrum-Menu-sectionHeading {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-Menu-divider {
+  background-color: rgb(30, 30, 30);
+}
+.spectrum--light .spectrum-Menu {
+  background-color: transparent;
+}
+.spectrum--light .spectrum-Menu-item {
+  background-color: transparent;
+  color: rgb(75, 75, 75);
+}
+.spectrum--light .spectrum-Menu-item.focus-ring,
+.spectrum--light .spectrum-Menu-item.is-focused {
+    background-color: rgba(44,44,44,0.04);
+    color: rgb(75, 75, 75);
+    border-left-color: rgb(38, 128, 235);
+  }
+.spectrum--light .spectrum-Menu-item:hover,
+.spectrum--light .spectrum-Menu-item:focus,
+.spectrum--light .spectrum-Menu-item.is-highlighted,
+.spectrum--light .spectrum-Menu-item.is-open {
+    background-color: rgba(44,44,44,0.04);
+    color: rgb(75, 75, 75);
+  }
+.spectrum--light .spectrum-Menu-item.is-selected {
+    color: rgb(75, 75, 75);
+  }
+.spectrum--light .spectrum-Menu-item.is-selected .spectrum-Menu-checkmark {
+      color: rgb(20, 115, 230);
+    }
+.spectrum--light .spectrum-Menu-item .is-active,
+.spectrum--light .spectrum-Menu-item:active {
+    background-color: rgba(44,44,44,0.04);
+  }
+.spectrum--light .spectrum-Menu-item.is-disabled {
+    background-color: transparent;
+    background-image: none;
+    color: rgb(179, 179, 179);
+    cursor: default;
+  }
+.spectrum--light .spectrum-Menu-sectionHeading {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Menu-divider {
+  background-color: rgb(245, 245, 245);
+}
+.spectrum--lightest .spectrum-Menu {
+  background-color: transparent;
+}
+.spectrum--lightest .spectrum-Menu-item {
+  background-color: transparent;
+  color: rgb(80, 80, 80);
+}
+.spectrum--lightest .spectrum-Menu-item.focus-ring,
+.spectrum--lightest .spectrum-Menu-item.is-focused {
+    background-color: rgba(50,50,50,0.04);
+    color: rgb(80, 80, 80);
+    border-left-color: rgb(55, 142, 240);
+  }
+.spectrum--lightest .spectrum-Menu-item:hover,
+.spectrum--lightest .spectrum-Menu-item:focus,
+.spectrum--lightest .spectrum-Menu-item.is-highlighted,
+.spectrum--lightest .spectrum-Menu-item.is-open {
+    background-color: rgba(50,50,50,0.04);
+    color: rgb(80, 80, 80);
+  }
+.spectrum--lightest .spectrum-Menu-item.is-selected {
+    color: rgb(80, 80, 80);
+  }
+.spectrum--lightest .spectrum-Menu-item.is-selected .spectrum-Menu-checkmark {
+      color: rgb(38, 128, 235);
+    }
+.spectrum--lightest .spectrum-Menu-item .is-active,
+.spectrum--lightest .spectrum-Menu-item:active {
+    background-color: rgba(50,50,50,0.04);
+  }
+.spectrum--lightest .spectrum-Menu-item.is-disabled {
+    background-color: transparent;
+    background-image: none;
+    color: rgb(188, 188, 188);
+    cursor: default;
+  }
+.spectrum--lightest .spectrum-Menu-sectionHeading {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Menu-divider {
+  background-color: rgb(255, 255, 255);
+}

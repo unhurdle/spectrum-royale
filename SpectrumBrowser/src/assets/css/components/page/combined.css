@@ -1,0 +1,18 @@
+
+
+.spectrum--dark  {
+  background-color: rgb(50, 50, 50);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.spectrum--darkest  {
+  background-color: rgb(30, 30, 30);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.spectrum--light  {
+  background-color: rgb(245, 245, 245);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+.spectrum--lightest  {
+  background-color: rgb(255, 255, 255);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

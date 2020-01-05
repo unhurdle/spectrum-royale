@@ -1,0 +1,15 @@
+.spectrum--dark .spectrum-Search-icon {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(110, 110, 110);
+    }
+.spectrum--dark .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }

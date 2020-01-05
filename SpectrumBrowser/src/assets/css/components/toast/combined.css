@@ -1,0 +1,276 @@
+.spectrum--large .spectrum-Toast {
+
+  border-radius: 4px;
+
+  padding: 10px 10px 10px 20px;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+.spectrum--large .spectrum-Toast-typeIcon {
+
+  margin: 9px 15px 9px 0;
+}
+.spectrum--large .spectrum-Toast-content {
+  padding: 6px 20px 6px 0;
+}
+.spectrum--large .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,
+    .spectrum--large .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,
+    .spectrum--large .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,
+    .spectrum--large .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-ClearButton {
+      margin-left: 10px;
+    }
+.spectrum--large .spectrum-Toast-body .spectrum-Button {
+    margin-right: 14px;
+  }
+.spectrum--large .spectrum-Toast-body + .spectrum-Toast-buttons {
+    padding-left: 10px;
+  }
+.spectrum-Toast {
+  box-sizing: border-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: stretch;
+      align-items: stretch;
+
+  border-radius: 4px;
+
+  padding: 8px 8px 8px 16px;
+
+  font-size: 14px;
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+}
+.spectrum-Toast-typeIcon {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-positive: 0;
+      flex-grow: 0;
+
+  margin: 7px 12px 7px 0;
+}
+.spectrum-Toast-content {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 5px 16px 5px 0;
+  text-align: left;
+}
+.spectrum-Toast-buttons {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+  -ms-flex-align: start;
+      align-items: flex-start;
+}
+.spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,
+    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,
+    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,
+    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-ClearButton {
+      margin-left: 8px;
+    }
+.spectrum-Toast-body {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+.spectrum-Toast-body .spectrum-Button {
+    float: right;
+    margin-right: 11px;
+  }
+.spectrum-Toast-body + .spectrum-Toast-buttons {
+    padding-left: 8px;
+
+    border-left-width: 1px;
+    border-left-style: solid;
+  }
+.spectrum--dark .spectrum-Toast {
+  background-color: rgb(116, 116, 116);
+  color: rgb(116, 116, 116);
+}
+.spectrum--dark .spectrum-Toast-content {
+  color: rgb(255, 255, 255);
+}
+.spectrum--dark .spectrum-Toast-typeIcon {
+  color: white;
+}
+.spectrum--dark .spectrum-Toast-buttons {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+.spectrum--dark .spectrum-Toast--warning {
+  background-color: rgb(203, 111, 16);
+  color: rgb(203, 111, 16);
+}
+.spectrum--dark .spectrum-Toast--warning .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(203, 111, 16);
+    }
+.spectrum--dark .spectrum-Toast--negative,
+.spectrum--dark .spectrum-Toast--error {
+  background-color: rgb(201, 37, 45);
+  color: rgb(201, 37, 45);
+}
+.spectrum--dark .spectrum-Toast--negative .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--dark .spectrum-Toast--error .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(201, 37, 45);
+    }
+.spectrum--dark .spectrum-Toast--info {
+  background-color: rgb(13, 102, 208);
+  color: rgb(13, 102, 208);
+}
+.spectrum--dark .spectrum-Toast--info .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(13, 102, 208);
+    }
+.spectrum--dark .spectrum-Toast--positive,
+.spectrum--dark .spectrum-Toast--success {
+  background-color: rgb(18, 128, 92);
+  color: rgb(18, 128, 92);
+}
+.spectrum--dark .spectrum-Toast--positive .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--dark .spectrum-Toast--success .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(18, 128, 92);
+    }
+
+.spectrum--darkest .spectrum-Toast {
+  background-color: rgb(116, 116, 116);
+  color: rgb(116, 116, 116);
+}
+.spectrum--darkest .spectrum-Toast-content {
+  color: rgb(255, 255, 255);
+}
+.spectrum--darkest .spectrum-Toast-typeIcon {
+  color: white;
+}
+.spectrum--darkest .spectrum-Toast-buttons {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+.spectrum--darkest .spectrum-Toast--warning {
+  background-color: rgb(203, 111, 16);
+  color: rgb(203, 111, 16);
+}
+.spectrum--darkest .spectrum-Toast--warning .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(203, 111, 16);
+    }
+.spectrum--darkest .spectrum-Toast--negative,
+.spectrum--darkest .spectrum-Toast--error {
+  background-color: rgb(201, 37, 45);
+  color: rgb(201, 37, 45);
+}
+.spectrum--darkest .spectrum-Toast--negative .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--darkest .spectrum-Toast--error .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(201, 37, 45);
+    }
+.spectrum--darkest .spectrum-Toast--info {
+  background-color: rgb(13, 102, 208);
+  color: rgb(13, 102, 208);
+}
+.spectrum--darkest .spectrum-Toast--info .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(13, 102, 208);
+    }
+.spectrum--darkest .spectrum-Toast--positive,
+.spectrum--darkest .spectrum-Toast--success {
+  background-color: rgb(18, 128, 92);
+  color: rgb(18, 128, 92);
+}
+.spectrum--darkest .spectrum-Toast--positive .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--darkest .spectrum-Toast--success .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(18, 128, 92);
+    }
+
+.spectrum--light .spectrum-Toast {
+  background-color: rgb(116, 116, 116);
+  color: rgb(116, 116, 116);
+}
+.spectrum--light .spectrum-Toast-content {
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Toast-typeIcon {
+  color: white;
+}
+.spectrum--light .spectrum-Toast-buttons {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+.spectrum--light .spectrum-Toast--warning {
+  background-color: rgb(203, 111, 16);
+  color: rgb(203, 111, 16);
+}
+.spectrum--light .spectrum-Toast--warning .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(203, 111, 16);
+    }
+.spectrum--light .spectrum-Toast--negative,
+.spectrum--light .spectrum-Toast--error {
+  background-color: rgb(201, 37, 45);
+  color: rgb(201, 37, 45);
+}
+.spectrum--light .spectrum-Toast--negative .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--light .spectrum-Toast--error .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(201, 37, 45);
+    }
+.spectrum--light .spectrum-Toast--info {
+  background-color: rgb(13, 102, 208);
+  color: rgb(13, 102, 208);
+}
+.spectrum--light .spectrum-Toast--info .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(13, 102, 208);
+    }
+.spectrum--light .spectrum-Toast--positive,
+.spectrum--light .spectrum-Toast--success {
+  background-color: rgb(18, 128, 92);
+  color: rgb(18, 128, 92);
+}
+.spectrum--light .spectrum-Toast--positive .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--light .spectrum-Toast--success .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(18, 128, 92);
+    }
+
+.spectrum--lightest .spectrum-Toast {
+  background-color: rgb(116, 116, 116);
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Toast-content {
+  color: rgb(255, 255, 255);
+}
+.spectrum--lightest .spectrum-Toast-typeIcon {
+  color: white;
+}
+.spectrum--lightest .spectrum-Toast-buttons {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+.spectrum--lightest .spectrum-Toast--warning {
+  background-color: rgb(203, 111, 16);
+  color: rgb(203, 111, 16);
+}
+.spectrum--lightest .spectrum-Toast--warning .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(203, 111, 16);
+    }
+.spectrum--lightest .spectrum-Toast--negative,
+.spectrum--lightest .spectrum-Toast--error {
+  background-color: rgb(201, 37, 45);
+  color: rgb(201, 37, 45);
+}
+.spectrum--lightest .spectrum-Toast--negative .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--lightest .spectrum-Toast--error .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(201, 37, 45);
+    }
+.spectrum--lightest .spectrum-Toast--info {
+  background-color: rgb(13, 102, 208);
+  color: rgb(13, 102, 208);
+}
+.spectrum--lightest .spectrum-Toast--info .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(13, 102, 208);
+    }
+.spectrum--lightest .spectrum-Toast--positive,
+.spectrum--lightest .spectrum-Toast--success {
+  background-color: rgb(18, 128, 92);
+  color: rgb(18, 128, 92);
+}
+.spectrum--lightest .spectrum-Toast--positive .spectrum-Toast-closeButton.focus-ring:not(:active),
+.spectrum--lightest .spectrum-Toast--success .spectrum-Toast-closeButton.focus-ring:not(:active) {
+      color: rgb(18, 128, 92);
+    }
+

@@ -1,0 +1,32 @@
+.spectrum--large .spectrum-Well {
+  min-width: 300px;
+  padding: 20px;
+  margin-top: 5px;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.spectrum-Well {
+  display: block;
+  min-width: 240px;
+  padding: 16px;
+  margin-top: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}
+.spectrum--dark .spectrum-Well {
+  background-color: rgba(227,227,227,0.02);
+  border-color: rgba(255,255,255,0.05);
+}
+.spectrum--darkest .spectrum-Well {
+  background-color: rgba(200,200,200,0.02);
+  border-color: rgba(239,239,239,0.05);
+}
+.spectrum--light .spectrum-Well {
+  background-color: rgba(75,75,75,0.02);
+  border-color: rgba(44,44,44,0.05);
+}
+.spectrum--lightest .spectrum-Well {
+  background-color: rgba(80,80,80,0.02);
+  border-color: rgba(50,50,50,0.05);
+}

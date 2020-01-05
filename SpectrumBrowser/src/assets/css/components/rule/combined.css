@@ -1,0 +1,99 @@
+.spectrum--large .spectrum-Rule {
+  border-width: 2px;
+  border-radius: 2px;
+}
+.spectrum--large .spectrum-Rule--large {
+  height: 4px;
+
+  border-radius: 2px;
+}
+.spectrum--large .spectrum-Rule--medium {
+  height: 2px;
+
+  border-radius: 1px;
+}
+.spectrum--large .spectrum-Rule--small {
+  height: 1px;
+
+  border-radius: 1px;
+}
+.spectrum--large .spectrum-Rule--vertical.spectrum-Rule--large {
+    width: 4px;
+  }
+.spectrum--large .spectrum-Rule--vertical.spectrum-Rule--medium {
+    width: 2px;
+  }
+.spectrum--large .spectrum-Rule--vertical.spectrum-Rule--small {
+    width: 1px;
+  }
+.spectrum-Rule {
+  width: 100%;
+  overflow: visible;
+
+  border: none;
+  border-width: 2px;
+  border-radius: 2px;
+}
+.spectrum-Rule--large {
+  height: 4px;
+
+  border-radius: 2px;
+}
+.spectrum-Rule--medium {
+  height: 2px;
+
+  border-radius: 1px;
+}
+.spectrum-Rule--small {
+  height: 1px;
+
+  border-radius: 1px;
+}
+.spectrum-Rule--vertical {
+  height: 100%;
+}
+.spectrum-Rule--vertical.spectrum-Rule--large {
+    width: 4px;
+  }
+.spectrum-Rule--vertical.spectrum-Rule--medium {
+    width: 2px;
+  }
+.spectrum-Rule--vertical.spectrum-Rule--small {
+    width: 1px;
+  }
+.spectrum--dark .spectrum-Rule--large {
+  background-color: rgb(227, 227, 227);
+}
+.spectrum--dark .spectrum-Rule--medium {
+  background-color: rgb(74, 74, 74);
+}
+.spectrum--dark .spectrum-Rule--small {
+  background-color: rgb(74, 74, 74);
+}
+.spectrum--darkest .spectrum-Rule--large {
+  background-color: rgb(200, 200, 200);
+}
+.spectrum--darkest .spectrum-Rule--medium {
+  background-color: rgb(57, 57, 57);
+}
+.spectrum--darkest .spectrum-Rule--small {
+  background-color: rgb(57, 57, 57);
+}
+.spectrum--light .spectrum-Rule--large {
+  background-color: rgb(75, 75, 75);
+}
+.spectrum--light .spectrum-Rule--medium {
+  background-color: rgb(225, 225, 225);
+}
+.spectrum--light .spectrum-Rule--small {
+  background-color: rgb(225, 225, 225);
+}
+.spectrum--lightest .spectrum-Rule--large {
+  background-color: rgb(80, 80, 80);
+}
+.spectrum--lightest .spectrum-Rule--medium {
+  background-color: rgb(234, 234, 234);
+}
+.spectrum--lightest .spectrum-Rule--small {
+  background-color: rgb(234, 234, 234);
+}
