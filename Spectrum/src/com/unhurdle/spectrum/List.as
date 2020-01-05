@@ -9,6 +9,12 @@ package com.unhurdle.spectrum
 
   public class List extends org.apache.royale.html.List
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/menu/dist.css">
+     * </inject_html>
+     * 
+     */
     public function List()
     {
       super();

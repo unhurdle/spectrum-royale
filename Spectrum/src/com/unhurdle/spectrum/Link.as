@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
   }
   public class Link extends Group
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/link/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Link()
     {
       super();

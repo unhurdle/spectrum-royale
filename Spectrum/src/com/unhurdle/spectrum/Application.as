@@ -6,6 +6,12 @@ package com.unhurdle.spectrum
 
   public class Application extends org.apache.royale.core.Application
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/page/dist.css">
+     * </inject_html>
+     * 
+     */
     private static var _current:com.unhurdle.spectrum.Application;
     /**
      * Global getter to get a reference to the top-level application

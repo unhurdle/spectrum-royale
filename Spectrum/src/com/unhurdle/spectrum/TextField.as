@@ -10,14 +10,11 @@ package com.unhurdle.spectrum
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
  * <input type="text" placeholder="Enter your name" name="field" value="A valid input" class="spectrum-Textfield spectrum-Textfield--quiet is-valid" pattern="[\w\s]+" required disabled>
  */
-  public class TextField extends SpectrumBase
+  public class TextField extends TextFieldBase
   {
     public function TextField()
     {
       super();
-    }
-    override protected function getSelector():String{
-      return "spectrum-Textfield";
     }
 
     public function get placeholder():String
@@ -107,35 +104,6 @@ package com.unhurdle.spectrum
       _disabled = value;
     }
 
-    private var _quiet:Boolean;
-
-    public function get quiet():Boolean
-    {
-    	return _quiet;
-    }
-
-    public function set quiet(value:Boolean):void
-    {
-      if(value != !!_quiet){
-          toggle(valueToSelector("quiet"),value);
-      }
-    	_quiet = value;
-    }
-
-    private var _invalid:Boolean;
-
-    public function get invalid():Boolean
-    {
-    	return _invalid;
-    }
-
-    public function set invalid(value:Boolean):void
-    {
-      if(value != _invalid){
-        toggle("is-invalid",value);
-      }
-    	_invalid = value;
-    }
     protected var input:HTMLInputElement;
 
     COMPILE::JS

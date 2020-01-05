@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconType;
   public class Tooltip extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/tooltip/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Tooltip()
     {
       super();

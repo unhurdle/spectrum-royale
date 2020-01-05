@@ -9,6 +9,12 @@ package com.unhurdle.spectrum
 
   public class FieldLabel extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/fieldlabel/dist.css">
+     * </inject_html>
+     * 
+     */
     public function FieldLabel()
     {
       super();

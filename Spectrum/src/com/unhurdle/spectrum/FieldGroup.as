@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
   }
   public class FieldGroup extends Group
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/fieldgroup/dist.css">
+     * </inject_html>
+     * 
+     */
     public function FieldGroup()
     {
       super();

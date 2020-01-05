@@ -22,6 +22,12 @@ package com.unhurdle.spectrum
 
   public class DropZone extends SpectrumBase 
   { 
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/dropzone/dist.css">
+     * </inject_html>
+     * 
+     */
     private var browser:FileBrowser;
     private var loader:FileLoader;
     private var fileProxy:FileProxy;

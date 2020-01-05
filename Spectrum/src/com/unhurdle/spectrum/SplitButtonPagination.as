@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconType;
   public class SplitButtonPagination extends SpectrumBase
   {
+    //TODO this does not import the CSS
     public function SplitButtonPagination()
     {
       super();

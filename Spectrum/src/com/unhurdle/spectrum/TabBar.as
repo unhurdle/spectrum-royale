@@ -14,6 +14,12 @@ package com.unhurdle.spectrum
   [DefaultProperty("tabs")]
   public class TabBar extends Group
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/tabs/dist.css">
+     * </inject_html>
+     * 
+     */
     public function TabBar()
     { 
       super();

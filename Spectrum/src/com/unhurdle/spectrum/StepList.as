@@ -9,6 +9,12 @@ package com.unhurdle.spectrum
   import org.apache.royale.collections.IArrayList;
 
   public class StepList extends org.apache.royale.html.List{
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/steplist/dist.css">
+     * </inject_html>
+     * 
+     */
     public function StepList()
     {
       super();

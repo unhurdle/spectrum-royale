@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
   }
   public class Rule extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/rule/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Rule()
     {
       super();

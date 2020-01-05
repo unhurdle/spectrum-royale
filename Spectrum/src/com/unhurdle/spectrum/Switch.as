@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Switch extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/toggle/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Switch()
     {
       super();

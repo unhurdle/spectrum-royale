@@ -11,6 +11,12 @@ package com.unhurdle.spectrum
 
   public class Rating extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/rating/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Rating()
     {
       super();

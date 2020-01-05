@@ -14,6 +14,12 @@ package com.unhurdle.spectrum
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Stepper extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/stepper/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Stepper()
     {
       super();

@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
   }
   public class SplitView extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/splitview/dist.css">
+     * </inject_html>
+     * 
+     */
     public function SplitView()
     {
       super();

@@ -11,6 +11,12 @@ package com.unhurdle.spectrum
   [Event(name="menuChange", type="org.apache.royale.events.Event")]
   public class SearchWithin extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/searchwithin/dist.css">
+     * </inject_html>
+     * 
+     */
     public function SearchWithin()
     {
       super();

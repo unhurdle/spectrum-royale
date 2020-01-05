@@ -17,6 +17,12 @@ package com.unhurdle.spectrum
   
   public class Toast extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/toast/dist.css">
+     * </inject_html>
+     * 
+     */
     // flag to set the keyframes on  the first instantiation
     private static var keyFramesSet:Boolean;
 

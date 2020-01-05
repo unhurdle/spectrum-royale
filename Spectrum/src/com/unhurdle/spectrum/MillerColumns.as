@@ -10,6 +10,12 @@ package com.unhurdle.spectrum
 
   public class MillerColumns extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/miller/dist.css">
+     * </inject_html>
+     * 
+     */
     public function MillerColumns()
     {
       super();

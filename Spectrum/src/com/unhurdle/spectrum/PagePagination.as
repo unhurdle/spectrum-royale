@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
   }
   public class PagePagination extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/pagination/dist.css">
+     * </inject_html>
+     * 
+     */
     public function PagePagination()
     {
       super();

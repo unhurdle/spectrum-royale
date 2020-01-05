@@ -12,6 +12,12 @@ package com.unhurdle.spectrum
 
   public class SideNav extends org.apache.royale.html.List
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/sidenav/dist.css">
+     * </inject_html>
+     * 
+     */
     public function SideNav()
     {
       super();

@@ -14,6 +14,12 @@ package com.unhurdle.spectrum
 
   public class SpectrumOverlay extends EventDispatcher implements IBead
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/underlay/dist.css">
+     * </inject_html>
+     * 
+     */
     public function SpectrumOverlay()
     {
       super();
