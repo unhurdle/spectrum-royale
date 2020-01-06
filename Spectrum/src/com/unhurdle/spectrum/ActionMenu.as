@@ -150,7 +150,7 @@ package com.unhurdle.spectrum
       _openMenu = null;
     }
     private function handlePopoverChange(ev:Event):void{
-      if(popover.open)
+      if(!popover.open)
       {
   			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
         popupHost.popUpParent.removeElement(popover);
