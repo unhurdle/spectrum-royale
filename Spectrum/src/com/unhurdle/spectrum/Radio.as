@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
 
     public class Radio extends SpectrumBase
     {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/radio/dist.css">
+     * </inject_html>
+     * 
+     */
         public function Radio()
         {
             super();

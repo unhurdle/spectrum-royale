@@ -13,10 +13,6 @@ package com.unhurdle.spectrum
      * </inject_html>
      * 
      */
-    public static const ALERT:int = 1;
-    public static const REGULAR:int = 2;
-    public static const FULLSCREEN:int = 3;
-    public static const FULLSCREEN_TAKEOVER:int = 4;
 
     public function Dialog()
     {
@@ -27,6 +23,12 @@ package com.unhurdle.spectrum
       addEventListener("modalShown",handleModalShow);
       addEventListener("modalHidden",handleModalHidden);
     }
+
+    public static const ALERT:int = 1;
+    public static const REGULAR:int = 2;
+    public static const FULLSCREEN:int = 3;
+    public static const FULLSCREEN_TAKEOVER:int = 4;
+    
     override protected function getSelector():String{
       return "spectrum-Dialog";
     }

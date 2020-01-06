@@ -27,6 +27,12 @@ package com.unhurdle.spectrum
 	
 	public class Table extends DataContainer implements IClassSelectorListSupport
 	{
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/table/dist.css">
+     * </inject_html>
+     * 
+     */
 		public function Table()
 		{
 			super();

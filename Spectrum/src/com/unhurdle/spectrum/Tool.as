@@ -8,6 +8,8 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconSize;
   public class Tool extends SpectrumBase
   {
+    //TODO the CSS for this exists in Button. We might need to create ButtonBase to import the CSS
+    // Also, there is no handling of click and hold to show a menu.
     public function Tool()
     {
       super();
@@ -64,6 +66,8 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
+    //TODO rather than setting `cornerTriangle`, we should have a setter for a menu which creates the cornerTriangle automatically.
+    // We also need logic to show the menu and change the tools
     private var _cornerTriangle:Boolean;
 
     public function get cornerTriangle():Boolean

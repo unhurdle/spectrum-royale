@@ -8,7 +8,7 @@ package com.unhurdle.spectrum.typography
   import com.unhurdle.spectrum.Group;
   import com.unhurdle.spectrum.TextNode;
 
-  public class Typography extends Group
+  public class Typography extends TypographyBase
   {
     public static const STRONG:String = "strong;"
     public static const QUIET:String = "quiet;"
@@ -27,16 +27,6 @@ package com.unhurdle.spectrum.typography
     }
     protected function getSuffix():String{
       return "";
-    }
-
-    public function get text():String
-    {
-    	return textNode.text;
-    }
-
-    public function set text(value:String):void
-    {
-    	textNode.text = value;
     }
 
     protected var _size:Number;
@@ -67,14 +57,5 @@ package com.unhurdle.spectrum.typography
       }
     }
 
-    protected var textNode:TextNode;
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,"p");
-      textNode = new TextNode("");
-      textNode.element = element;
-      return element;
-    }
   }
 }

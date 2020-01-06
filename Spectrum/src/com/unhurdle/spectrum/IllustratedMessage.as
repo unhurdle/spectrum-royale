@@ -13,6 +13,12 @@ package com.unhurdle.spectrum
 
   public class IllustratedMessage extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/illustratedmessage/dist.css">
+     * </inject_html>
+     * 
+     */
     public function IllustratedMessage() 
     {
       super();

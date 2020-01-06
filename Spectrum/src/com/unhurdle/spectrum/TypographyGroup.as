@@ -2,6 +2,12 @@ package com.unhurdle.spectrum
 {
   public class TypographyGroup extends Group
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/typography/dist.css">
+     * </inject_html>
+     * 
+     */
     public function TypographyGroup()
     {
       super();

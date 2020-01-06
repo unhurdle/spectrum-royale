@@ -14,6 +14,12 @@ package com.unhurdle.spectrum
 	[Event(name="submit", type="org.apache.royale.events.Event")]
   public class Search extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/search/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Search(){
       super();
     }

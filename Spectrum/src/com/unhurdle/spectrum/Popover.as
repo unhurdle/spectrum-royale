@@ -5,6 +5,12 @@ package com.unhurdle.spectrum
 
   public class Popover extends Group implements IPopUp
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/popover/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Popover()
     {
       super();

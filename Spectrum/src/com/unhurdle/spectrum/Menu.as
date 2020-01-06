@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.html.List;
 
   COMPILE::JS
   {
@@ -13,12 +12,11 @@ package com.unhurdle.spectrum
   import org.apache.royale.collections.IArrayList;
   import com.unhurdle.spectrum.data.IMenuItem;
 
-  public class Menu extends org.apache.royale.html.List
+  public class Menu extends List
   {
     public function Menu()
     {
       super();
-      typeNames = "spectrum-Menu";
     }
 
     COMPILE::JS

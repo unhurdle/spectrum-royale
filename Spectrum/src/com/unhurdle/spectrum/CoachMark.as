@@ -14,12 +14,14 @@ package com.unhurdle.spectrum
      * </inject_html>
      * 
      */
-        public static const DARK:String = "dark";
-        public static const LIGHT:String = "light";
         public function CoachMark()
         {
             super();
         }
+
+        public static const DARK:String = "dark";
+        public static const LIGHT:String = "light";
+        
         override protected function getSelector():String{
             return "spectrum-CoachMarkIndicator";
         }

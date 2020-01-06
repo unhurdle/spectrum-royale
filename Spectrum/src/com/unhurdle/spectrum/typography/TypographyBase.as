@@ -5,10 +5,10 @@ package com.unhurdle.spectrum.typography
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
-  import com.unhurdle.spectrum.Group;
   import com.unhurdle.spectrum.TextNode;
+  import com.unhurdle.spectrum.TypographyGroup;
 
-  public class TypographyBase extends Group
+  public class TypographyBase extends TypographyGroup
   {
     public function TypographyBase()
     {

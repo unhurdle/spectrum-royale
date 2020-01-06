@@ -31,18 +31,19 @@ package com.unhurdle.spectrum
      * 
      */
 
-    public static const CTA:String = "cta";
-    public static const PRIMARY:String = "primary";
-    public static const SECONDARY:String = "secondary";
-    public static const WARNING:String = "warning";
-    public static const OVER_BACKGROUND:String = "overBackground";
-
     public function Button()
     {
       super();
       flavor = "primary";
       _text = "";
     }
+
+    public static const CTA:String = "cta";
+    public static const PRIMARY:String = "primary";
+    public static const SECONDARY:String = "secondary";
+    public static const WARNING:String = "warning";
+    public static const OVER_BACKGROUND:String = "overBackground";
+
     override protected function getSelector():String{
       return "spectrum-Button";
     }

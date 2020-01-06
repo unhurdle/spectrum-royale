@@ -10,6 +10,12 @@ package com.unhurdle.spectrum
 
   public class SplitButton extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/splitbutton/dist.css">
+     * </inject_html>
+     * 
+     */
     public function SplitButton()
     {
       super();

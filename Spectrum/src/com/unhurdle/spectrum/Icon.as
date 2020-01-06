@@ -8,6 +8,12 @@ package com.unhurdle.spectrum
 
   public class Icon extends SpectrumBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/icon/dist.css">
+     * </inject_html>
+     * 
+     */
     public static function getCSSTypeSelector(type:String):String{
       return IconPrefix.SPECTRUM_CSS_ICON + type;
     }

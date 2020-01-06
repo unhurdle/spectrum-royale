@@ -8,6 +8,12 @@ package com.unhurdle.spectrum
   }
   public class StatusLight extends TextBase
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/statuslight/dist.css">
+     * </inject_html>
+     * 
+     */
 
     public function StatusLight()
     {

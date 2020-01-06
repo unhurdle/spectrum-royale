@@ -8,6 +8,12 @@ package com.unhurdle.spectrum
 
   public class Tree extends org.apache.royale.html.Tree
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/treeview/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Tree()
     {
       super();

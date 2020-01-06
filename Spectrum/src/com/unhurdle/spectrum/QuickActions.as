@@ -7,6 +7,12 @@ package com.unhurdle.spectrum
 
   public class QuickActions extends Group
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/quickaction/dist.css">
+     * </inject_html>
+     * 
+     */
     public function QuickActions()
     {
       super();
