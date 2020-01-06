@@ -47,6 +47,7 @@ package com.unhurdle.spectrum
       
       popover = new Popover();
       popover.position = "bottom";
+      popover.addEventListener("openChanged",handlePopoverChange);
 	    // var origin:Point = new Point(0, host.height - 6);
 			// var relocated:Point = PointUtils.localToGlobal(origin,host);
 			// popover.x = relocated.x
@@ -145,11 +146,15 @@ package com.unhurdle.spectrum
       }
     }
     private function close():void{
-			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
-      popupHost.popUpParent.removeElement(popover);
       popover.open = button.selected = false;
       _openMenu = null;
-
+    }
+    private function handlePopoverChange(ev:Event):void{
+      if(popover.open)
+      {
+  			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+        popupHost.popUpParent.removeElement(popover);
+      }
     }
     private var _alignRight:Boolean;
 
