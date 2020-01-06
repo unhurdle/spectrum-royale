@@ -1,0 +1,168 @@
+.spectrum--large .spectrum-Label {
+
+  padding: 5px 13px;
+
+  border-radius: 5px;
+
+  font-size: 15px;
+  line-height: 1.5;
+}
+.spectrum--large .spectrum-Label--large {
+  font-size: 18px;
+  padding: 10px 15px;
+}
+.spectrum--large .spectrum-Label--small {
+  font-size: 13px;
+  padding: 4px 9px;
+}
+.spectrum-Label {
+  display: inline-block;
+  position: relative;
+
+  width: auto;
+
+  padding: 4px 10px;
+
+  border-radius: 4px;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  cursor: default;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-smoothing: subpixel-antialiased;
+}
+.spectrum-Label--large {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+.spectrum-Label--small {
+  font-size: 11px;
+  padding: 3px 7px;
+}
+.spectrum--dark .spectrum-Label {
+  color: rgb(255, 255, 255);
+}
+.spectrum--dark .spectrum-Label--inactive,
+.spectrum--dark .spectrum-Label--grey {
+  background-color: rgb(116, 116, 116);
+}
+.spectrum--dark .spectrum-Label--red {
+  background-color: rgb(215, 55, 63);
+}
+.spectrum--dark .spectrum-Label--orange,
+.spectrum--dark .spectrum-Label--or {
+  background-color: rgb(218, 123, 17);
+}
+.spectrum--dark .spectrum-Label--yellow {
+  background-color: rgb(223, 191, 0);
+}
+.spectrum--dark .spectrum-Label--seafoam  {
+  background-color: rgb(27, 149, 154);
+}
+.spectrum--dark .spectrum-Label--green {
+  background-color: rgb(38, 142, 108);
+}
+.spectrum--dark .spectrum-Label--blue,
+.spectrum--dark .spectrum-Label--active,
+.spectrum--dark .spectrum-Label--and  {
+  background-color: rgb(20, 115, 230);
+}
+.spectrum--dark .spectrum-Label--fuchsia  {
+  background-color: rgb(192, 56, 204);
+}
+.spectrum--darkest .spectrum-Label {
+  color: rgb(255, 255, 255);
+}
+.spectrum--darkest .spectrum-Label--inactive,
+.spectrum--darkest .spectrum-Label--grey {
+  background-color: rgb(116, 116, 116);
+}
+.spectrum--darkest .spectrum-Label--red {
+  background-color: rgb(215, 55, 63);
+}
+.spectrum--darkest .spectrum-Label--orange,
+.spectrum--darkest .spectrum-Label--or {
+  background-color: rgb(218, 123, 17);
+}
+.spectrum--darkest .spectrum-Label--yellow {
+  background-color: rgb(210, 178, 0);
+}
+.spectrum--darkest .spectrum-Label--seafoam  {
+  background-color: rgb(22, 135, 140);
+}
+.spectrum--darkest .spectrum-Label--green {
+  background-color: rgb(38, 142, 108);
+}
+.spectrum--darkest .spectrum-Label--blue,
+.spectrum--darkest .spectrum-Label--active,
+.spectrum--darkest .spectrum-Label--and  {
+  background-color: rgb(20, 115, 230);
+}
+.spectrum--darkest .spectrum-Label--fuchsia  {
+  background-color: rgb(177, 48, 189);
+}
+.spectrum--light .spectrum-Label {
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Label--inactive,
+.spectrum--light .spectrum-Label--grey {
+  background-color: rgb(116, 116, 116);
+}
+.spectrum--light .spectrum-Label--red {
+  background-color: rgb(215, 55, 63);
+}
+.spectrum--light .spectrum-Label--orange,
+.spectrum--light .spectrum-Label--or {
+  background-color: rgb(218, 123, 17);
+}
+.spectrum--light .spectrum-Label--yellow {
+  background-color: rgb(223, 191, 0);
+}
+.spectrum--light .spectrum-Label--seafoam  {
+  background-color: rgb(27, 149, 154);
+}
+.spectrum--light .spectrum-Label--green {
+  background-color: rgb(38, 142, 108);
+}
+.spectrum--light .spectrum-Label--blue,
+.spectrum--light .spectrum-Label--active,
+.spectrum--light .spectrum-Label--and  {
+  background-color: rgb(20, 115, 230);
+}
+.spectrum--light .spectrum-Label--fuchsia  {
+  background-color: rgb(192, 56, 204);
+}
+.spectrum--lightest .spectrum-Label {
+  color: rgb(255, 255, 255);
+}
+.spectrum--lightest .spectrum-Label--inactive,
+.spectrum--lightest .spectrum-Label--grey {
+  background-color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Label--red {
+  background-color: rgb(215, 55, 63);
+}
+.spectrum--lightest .spectrum-Label--orange,
+.spectrum--lightest .spectrum-Label--or {
+  background-color: rgb(218, 123, 17);
+}
+.spectrum--lightest .spectrum-Label--yellow {
+  background-color: rgb(237, 204, 0);
+}
+.spectrum--lightest .spectrum-Label--seafoam  {
+  background-color: rgb(32, 163, 168);
+}
+.spectrum--lightest .spectrum-Label--green {
+  background-color: rgb(38, 142, 108);
+}
+.spectrum--lightest .spectrum-Label--blue,
+.spectrum--lightest .spectrum-Label--active,
+.spectrum--lightest .spectrum-Label--and  {
+  background-color: rgb(20, 115, 230);
+}
+.spectrum--lightest .spectrum-Label--fuchsia  {
+  background-color: rgb(207, 62, 220);
+}

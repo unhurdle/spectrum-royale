@@ -1,0 +1,75 @@
+.spectrum--large .spectrum-Pagination-input {
+  width: 60px;
+  min-width: 60px;
+}
+.spectrum--large .spectrum-Pagination-counter {
+  margin-left: 6px;
+}
+.spectrum--large .spectrum-Pagination-prevButton {
+  margin-right: 6px;
+}
+.spectrum--large .spectrum-Pagination-nextButton {
+  margin-left: 6px;
+}
+.spectrum-Pagination--explicit,
+.spectrum-Pagination--listing {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.spectrum-Pagination-input {
+  width: 48px;
+  min-width: 48px;
+}
+.spectrum-Pagination-counter {
+  margin-left: 5px;
+}
+.spectrum-Pagination-prevButton {
+  margin-right: 5px;
+}
+.spectrum-Pagination-nextButton {
+  margin-left: 5px;
+}
+.spectrum--dark .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(255,255,255,0.06);
+  }
+.spectrum--dark .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(38, 128, 235);
+  }
+.spectrum--dark .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(227, 227, 227);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--darkest .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(239,239,239,0.08);
+  }
+.spectrum--darkest .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(20, 115, 230);
+  }
+.spectrum--darkest .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(200, 200, 200);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(44,44,44,0.04);
+  }
+.spectrum--light .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(38, 128, 235);
+  }
+.spectrum--light .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(75, 75, 75);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--lightest .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(50,50,50,0.04);
+  }
+.spectrum--lightest .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(55, 142, 240);
+  }
+.spectrum--lightest .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(80, 80, 80);
+    color: rgb(255, 255, 255);
+  }

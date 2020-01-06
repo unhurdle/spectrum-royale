@@ -1,0 +1,454 @@
+.spectrum--large .spectrum-Tabs {
+  padding: 0 10px;
+}
+.spectrum--large .spectrum-Tabs-item {
+
+  height: 58px;
+  line-height: 58px;
+
+  transition: color 130ms ease-out;
+}
+.spectrum--large .spectrum-Tabs-item .spectrum-Icon {
+    height: 58px;
+  }
+.spectrum--large .spectrum-Tabs-item .spectrum-Icon + .spectrum-Tabs-itemLabel {
+      margin-left: 6px;
+    }
+.spectrum--large .spectrum-Tabs-item::before {
+
+    height: 40px;
+    margin-top: -19px;
+    left: -10px;
+    right: -10px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+  }
+.spectrum--large .spectrum-Tabs-itemLabel {
+
+  font-size: 17px;
+  font-weight: 400
+}
+.spectrum--large .spectrum-Tabs-selectionIndicator {
+
+  transition: transform 130ms ease-in-out;
+
+  border-radius: 1px;
+}
+.spectrum--large .spectrum-Tabs--compact .spectrum-Tabs-item {
+    height: 38px;
+    line-height: 38px;
+  }
+.spectrum--large .spectrum-Tabs--compact .spectrum-Tabs-item .spectrum-Icon {
+      height: 38px;
+    }
+.spectrum--large .spectrum-Tabs--horizontal {
+
+  border-bottom: 2px solid;
+}
+.spectrum--large .spectrum-Tabs--horizontal .spectrum-Tabs-item + *:not(.spectrum-Tabs-selectionIndicator) {
+      margin-left: 30px;
+    }
+.spectrum--large .spectrum-Tabs--horizontal .spectrum-Tabs-selectionIndicator {
+    height: 2px;
+
+    bottom: -2px;
+  }
+.spectrum--large .spectrum-Tabs--horizontal.spectrum-Tabs--compact {
+    height: 38px;
+  }
+.spectrum--large .spectrum-Tabs--vertical {
+  border-left: 2px solid;
+}
+.spectrum--large .spectrum-Tabs--vertical .spectrum-Tabs-item {
+    height: 56px;
+    padding: 0 10px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+  }
+.spectrum--large .spectrum-Tabs--vertical .spectrum-Tabs-item::before {
+      left: -2px;
+      right: -2px;
+      margin-top: -20px;
+    }
+.spectrum--large .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-item {
+      height: 40px;
+      line-height: 40px;
+      margin-bottom: 5px;
+    }
+.spectrum--large .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-item .spectrum-Icon {
+        height: 40px;
+      }
+.spectrum--large .spectrum-Tabs--vertical .spectrum-Tabs-selectionIndicator {
+    width: 2px;
+
+    left: -2px;
+  }
+.spectrum-Tabs {
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  z-index: 0;
+
+  margin: 0;
+  padding: 0 8px;
+  vertical-align: top;
+}
+.spectrum-Tabs-item {
+  position: relative;
+
+  box-sizing: border-box;
+
+  height: 46px;
+  line-height: 46px;
+  z-index: 1;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 130ms ease-out;
+  cursor: pointer;
+  outline: none;
+}
+.spectrum-Tabs-item.is-disabled {
+    cursor: default;
+  }
+.spectrum-Tabs-item.is-disabled .spectrum-Tabs-itemLabel {
+      cursor: default;
+    }
+.spectrum-Tabs-item .spectrum-Icon {
+    height: 46px;
+  }
+.spectrum-Tabs-item .spectrum-Icon + .spectrum-Tabs-itemLabel {
+      margin-left: 5px;
+    }
+.spectrum-Tabs-item::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+
+    box-sizing: border-box;
+
+    height: 32px;
+    margin-top: -15px;
+    left: -8px;
+    right: -8px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+
+    pointer-events: none;
+  }
+.spectrum-Tabs-itemLabel {
+  cursor: pointer;
+  vertical-align: top;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 400;
+}
+.spectrum-Tabs-itemLabel:empty {
+    display: none;
+  }
+.spectrum-Tabs-selectionIndicator {
+  position: absolute;
+  left: 0;
+  z-index: 0;
+
+  transition: transform 130ms ease-in-out;
+  transform-origin: top left;
+
+  border-radius: 1px;
+}
+.spectrum-Tabs--compact .spectrum-Tabs-item {
+    height: 30px;
+    line-height: 30px;
+  }
+.spectrum-Tabs--compact .spectrum-Tabs-item .spectrum-Icon {
+      height: 30px;
+    }
+.spectrum-Tabs--horizontal {
+  -ms-flex-align: center;
+      align-items: center;
+
+  border-bottom: 2px solid;
+}
+.spectrum-Tabs--horizontal .spectrum-Tabs-item {
+    vertical-align: top;
+  }
+.spectrum-Tabs--horizontal .spectrum-Tabs-item + *:not(.spectrum-Tabs-selectionIndicator) {
+      margin-left: 24px;
+    }
+.spectrum-Tabs--horizontal .spectrum-Tabs-selectionIndicator {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+
+    bottom: -2px;
+  }
+.spectrum-Tabs--horizontal.spectrum-Tabs--compact {
+    box-sizing: content-box;
+    height: 30px;
+    -ms-flex-align: end;
+        align-items: end;
+  }
+.spectrum-Tabs--quiet {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.spectrum-Tabs--vertical {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  padding: 0;
+  border-left: 2px solid;
+}
+.spectrum-Tabs--vertical .spectrum-Tabs-item {
+    height: 44px;
+    padding: 0 8px;
+    margin-left: 4px;
+    margin-bottom: 4px;
+  }
+.spectrum-Tabs--vertical .spectrum-Tabs-item::before {
+      left: -2px;
+      right: -2px;
+      margin-top: -16px;
+    }
+.spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-item {
+      height: 32px;
+      line-height: 32px;
+      margin-bottom: 4px;
+    }
+.spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-item .spectrum-Icon {
+        height: 32px;
+      }
+.spectrum-Tabs--vertical .spectrum-Tabs-selectionIndicator {
+    position: absolute;
+    left: 0px;
+    width: 2px;
+
+    left: -2px;
+  }
+.spectrum--dark .spectrum-Tabs {
+  border-bottom-color: rgb(62, 62, 62);
+}
+.spectrum--dark .spectrum-Tabs--vertical {
+  border-left-color: rgb(62, 62, 62);
+}
+.spectrum--dark .spectrum-Tabs-selectionIndicator {
+  background-color: rgb(255, 255, 255);
+}
+.spectrum--dark .spectrum-Tabs-item {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Tabs-item .spectrum-Icon {
+    color: rgb(185, 185, 185)
+  }
+.spectrum--dark .spectrum-Tabs-item:hover {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Tabs-item:hover .spectrum-Icon {
+      color: rgb(255, 255, 255)
+    }
+.spectrum--dark .spectrum-Tabs-item.is-selected {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Tabs-item.is-selected .spectrum-Icon {
+      color: rgb(255, 255, 255)
+    }
+.spectrum--dark .spectrum-Tabs-item.focus-ring {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Tabs-item.focus-ring::before {
+      border-color: rgb(38, 128, 235);
+    }
+.spectrum--dark .spectrum-Tabs-item.focus-ring .spectrum-Icon {
+      color: rgb(255, 255, 255)
+    }
+.spectrum--dark .spectrum-Tabs-item.is-disabled {
+    color: rgb(110, 110, 110);
+  }
+.spectrum--dark .spectrum-Tabs-item.is-disabled .spectrum-Icon {
+      color: rgb(90, 90, 90)
+    }
+.spectrum--dark .spectrum-Tabs--quiet {
+  border-bottom-color: transparent;
+}
+.spectrum--dark .spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator {
+    background-color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+.spectrum--dark .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+    border-left-color: transparent;
+  }
+.spectrum--dark .spectrum-Tabs--vertical.spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator,
+.spectrum--dark .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-selectionIndicator {
+      background-color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Tabs {
+  border-bottom-color: rgb(44, 44, 44);
+}
+.spectrum--darkest .spectrum-Tabs--vertical {
+  border-left-color: rgb(44, 44, 44);
+}
+.spectrum--darkest .spectrum-Tabs-selectionIndicator {
+  background-color: rgb(239, 239, 239);
+}
+.spectrum--darkest .spectrum-Tabs-item {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-Tabs-item .spectrum-Icon {
+    color: rgb(162, 162, 162)
+  }
+.spectrum--darkest .spectrum-Tabs-item:hover {
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-Tabs-item:hover .spectrum-Icon {
+      color: rgb(239, 239, 239)
+    }
+.spectrum--darkest .spectrum-Tabs-item.is-selected {
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-Tabs-item.is-selected .spectrum-Icon {
+      color: rgb(239, 239, 239)
+    }
+.spectrum--darkest .spectrum-Tabs-item.focus-ring {
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-Tabs-item.focus-ring::before {
+      border-color: rgb(20, 115, 230);
+    }
+.spectrum--darkest .spectrum-Tabs-item.focus-ring .spectrum-Icon {
+      color: rgb(239, 239, 239)
+    }
+.spectrum--darkest .spectrum-Tabs-item.is-disabled {
+    color: rgb(92, 92, 92);
+  }
+.spectrum--darkest .spectrum-Tabs-item.is-disabled .spectrum-Icon {
+      color: rgb(73, 73, 73)
+    }
+.spectrum--darkest .spectrum-Tabs--quiet {
+  border-bottom-color: transparent;
+}
+.spectrum--darkest .spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator {
+    background-color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+.spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+    border-left-color: transparent;
+  }
+.spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator,
+.spectrum--darkest .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-selectionIndicator {
+      background-color: rgb(239, 239, 239);
+    }
+.spectrum--light .spectrum-Tabs {
+  border-bottom-color: rgb(234, 234, 234);
+}
+.spectrum--light .spectrum-Tabs--vertical {
+  border-left-color: rgb(234, 234, 234);
+}
+.spectrum--light .spectrum-Tabs-selectionIndicator {
+  background-color: rgb(44, 44, 44);
+}
+.spectrum--light .spectrum-Tabs-item {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Tabs-item .spectrum-Icon {
+    color: rgb(110, 110, 110)
+  }
+.spectrum--light .spectrum-Tabs-item:hover {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-Tabs-item:hover .spectrum-Icon {
+      color: rgb(44, 44, 44)
+    }
+.spectrum--light .spectrum-Tabs-item.is-selected {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-Tabs-item.is-selected .spectrum-Icon {
+      color: rgb(44, 44, 44)
+    }
+.spectrum--light .spectrum-Tabs-item.focus-ring {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-Tabs-item.focus-ring::before {
+      border-color: rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-Tabs-item.focus-ring .spectrum-Icon {
+      color: rgb(44, 44, 44)
+    }
+.spectrum--light .spectrum-Tabs-item.is-disabled {
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-Tabs-item.is-disabled .spectrum-Icon {
+      color: rgb(202, 202, 202)
+    }
+.spectrum--light .spectrum-Tabs--quiet {
+  border-bottom-color: transparent;
+}
+.spectrum--light .spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator {
+    background-color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+.spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+    border-left-color: transparent;
+  }
+.spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator,
+.spectrum--light .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-selectionIndicator {
+      background-color: rgb(44, 44, 44);
+    }
+.spectrum--lightest .spectrum-Tabs {
+  border-bottom-color: rgb(244, 244, 244);
+}
+.spectrum--lightest .spectrum-Tabs--vertical {
+  border-left-color: rgb(244, 244, 244);
+}
+.spectrum--lightest .spectrum-Tabs-selectionIndicator {
+  background-color: rgb(50, 50, 50);
+}
+.spectrum--lightest .spectrum-Tabs-item {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Tabs-item .spectrum-Icon {
+    color: rgb(116, 116, 116)
+  }
+.spectrum--lightest .spectrum-Tabs-item:hover {
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-Tabs-item:hover .spectrum-Icon {
+      color: rgb(50, 50, 50)
+    }
+.spectrum--lightest .spectrum-Tabs-item.is-selected {
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-Tabs-item.is-selected .spectrum-Icon {
+      color: rgb(50, 50, 50)
+    }
+.spectrum--lightest .spectrum-Tabs-item.focus-ring {
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-Tabs-item.focus-ring::before {
+      border-color: rgb(55, 142, 240);
+    }
+.spectrum--lightest .spectrum-Tabs-item.focus-ring .spectrum-Icon {
+      color: rgb(50, 50, 50)
+    }
+.spectrum--lightest .spectrum-Tabs-item.is-disabled {
+    color: rgb(188, 188, 188);
+  }
+.spectrum--lightest .spectrum-Tabs-item.is-disabled .spectrum-Icon {
+      color: rgb(211, 211, 211)
+    }
+.spectrum--lightest .spectrum-Tabs--quiet {
+  border-bottom-color: transparent;
+}
+.spectrum--lightest .spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator {
+    background-color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+.spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+    border-left-color: transparent;
+  }
+.spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator,
+.spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-selectionIndicator {
+      background-color: rgb(50, 50, 50);
+    }

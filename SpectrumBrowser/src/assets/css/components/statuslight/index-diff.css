@@ -1,0 +1,14 @@
+.spectrum--large .spectrum-StatusLight {
+  min-height: 40px;
+
+  padding: 7px 0 9px 0;
+
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.44;
+}
+.spectrum--large .spectrum-StatusLight::before {
+    width: 10px;
+    height: 10px;
+    margin: 9px 15px 7px 15px;
+  }

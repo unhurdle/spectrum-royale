@@ -1,0 +1,117 @@
+.spectrum--large .spectrum-Search-input {
+  padding-left: 36px;
+  padding-right: 28px;
+}
+.spectrum--large .spectrum-Search-input.spectrum-Textfield--quiet {
+    padding-left: 24px;
+    padding-right: 20px
+  }
+.spectrum--large .spectrum-Search-icon {
+  top: 10px;
+
+  transition: color 130ms ease-in-out;
+}
+.spectrum-Search {
+  display: inline-block;
+  position: relative;
+}
+.spectrum-Search .spectrum-ClearButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+.spectrum-Search-input {
+  display: block;
+  -webkit-appearance: none;
+  outline-offset: -2px;
+  padding-left: 36px;
+  text-indent: 0;
+  padding-right: 28px;
+}
+.spectrum-Search-input::-webkit-search-cancel-button,
+  .spectrum-Search-input::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+.spectrum-Search-input.spectrum-Textfield--quiet {
+    padding-left: 24px;
+    padding-right: 20px;
+  }
+.spectrum-Search-input.spectrum-Textfield--quiet ~ .spectrum-Search-icon {
+      left: 0;
+    }
+.spectrum-Search-input.spectrum-Textfield--quiet ~ .spectrum-Search-clear {
+      right: -8px;
+    }
+.spectrum-Search-input.spectrum-Textfield--quiet ~ .spectrum-Search-rightIcon {
+      right: 0;
+    }
+.spectrum-Search-icon {
+  display: block;
+  position: absolute;
+  left: 12px;
+  top: 8px;
+
+  transition: color 130ms ease-in-out;
+
+  pointer-events: none;
+}
+.spectrum--dark .spectrum-Search-icon {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(110, 110, 110);
+    }
+.spectrum--dark .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Search-icon {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(92, 92, 92);
+    }
+.spectrum--darkest .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(239, 239, 239);
+    }
+.spectrum--darkest .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(239, 239, 239);
+    }
+.spectrum--darkest .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(239, 239, 239);
+    }
+.spectrum--light .spectrum-Search-icon {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(179, 179, 179);
+    }
+.spectrum--light .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(44, 44, 44);
+    }
+.spectrum--light .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(44, 44, 44);
+    }
+.spectrum--light .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(44, 44, 44);
+    }
+.spectrum--lightest .spectrum-Search-icon {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(188, 188, 188);
+    }
+.spectrum--lightest .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(50, 50, 50);
+    }

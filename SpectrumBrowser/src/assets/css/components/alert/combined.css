@@ -1,0 +1,227 @@
+.spectrum--large .spectrum-Alert {
+  min-width: 368px;
+  min-height: 38px;
+  padding: 20px 20px;
+
+  border-width: 2px;
+  border-radius: 4px;
+}
+.spectrum--large .spectrum-Alert-content {
+  margin: 8px 0 0 0;
+}
+.spectrum-Alert {
+  position: relative;
+
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 368px;
+  min-height: 38px;
+  margin: 8px 0;
+  padding: 20px 20px;
+
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+}
+.spectrum-Alert-icon {
+  position: absolute;
+  display: block;
+  top: 20px;
+  right: 20px;
+}
+.spectrum-Alert-header {
+  display: inline-block;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  padding-right: 30px;
+
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 14px;
+  text-transform: none;
+}
+.spectrum-Alert-content {
+  display: block;
+  margin: 8px 0 0 0;
+  padding: 0;
+
+  font-size: 14px;
+  word-wrap: break-word;
+}
+.spectrum-Alert-footer {
+  display: block;
+
+  text-align: right;
+
+  padding-top: 0.5rem;
+}
+.spectrum-Alert-footer:empty {
+    display: none;
+  }
+.spectrum-Alert-footer .spectrum-Button {
+    margin-right: 0;
+    margin-left: 0.75rem;
+  }
+.spectrum--dark .spectrum-Alert {
+  background-color: rgb(37, 37, 37);
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Alert-header {
+  color: rgb(255, 255, 255);
+}
+.spectrum--dark .spectrum-Alert-content {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Alert--info {
+  border-color: rgb(38, 128, 235);
+}
+.spectrum--dark .spectrum-Alert--info .spectrum-Alert-icon {
+    color: rgb(75, 156, 245);
+  }
+.spectrum--dark .spectrum-Alert--help {
+  border-color: rgb(38, 128, 235);
+}
+.spectrum--dark .spectrum-Alert--help .spectrum-Alert-icon {
+    color: rgb(75, 156, 245);
+  }
+.spectrum--dark .spectrum-Alert--error {
+  border-color: rgb(227, 72, 80);
+}
+.spectrum--dark .spectrum-Alert--error .spectrum-Alert-icon {
+    color: rgb(247, 109, 116);
+  }
+.spectrum--dark .spectrum-Alert--success {
+  border-color: rgb(45, 157, 120);
+}
+.spectrum--dark .spectrum-Alert--success .spectrum-Alert-icon {
+    color: rgb(57, 185, 144);
+  }
+.spectrum--dark .spectrum-Alert--warning {
+  border-color: rgb(230, 134, 25);
+}
+.spectrum--dark .spectrum-Alert--warning .spectrum-Alert-icon {
+    color: rgb(249, 164, 63);
+  }
+.spectrum--darkest .spectrum-Alert {
+  background-color: rgb(8, 8, 8);
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-Alert-header {
+  color: rgb(239, 239, 239);
+}
+.spectrum--darkest .spectrum-Alert-content {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-Alert--info {
+  border-color: rgb(20, 115, 230);
+}
+.spectrum--darkest .spectrum-Alert--info .spectrum-Alert-icon {
+    color: rgb(55, 142, 240);
+  }
+.spectrum--darkest .spectrum-Alert--help {
+  border-color: rgb(20, 115, 230);
+}
+.spectrum--darkest .spectrum-Alert--help .spectrum-Alert-icon {
+    color: rgb(55, 142, 240);
+  }
+.spectrum--darkest .spectrum-Alert--error {
+  border-color: rgb(215, 55, 63);
+}
+.spectrum--darkest .spectrum-Alert--error .spectrum-Alert-icon {
+    color: rgb(236, 91, 98);
+  }
+.spectrum--darkest .spectrum-Alert--success {
+  border-color: rgb(38, 142, 108);
+}
+.spectrum--darkest .spectrum-Alert--success .spectrum-Alert-icon {
+    color: rgb(51, 171, 132);
+  }
+.spectrum--darkest .spectrum-Alert--warning {
+  border-color: rgb(218, 123, 17);
+}
+.spectrum--darkest .spectrum-Alert--warning .spectrum-Alert-icon {
+    color: rgb(242, 148, 35);
+  }
+.spectrum--light .spectrum-Alert {
+  background-color: rgb(255, 255, 255);
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Alert-header {
+  color: rgb(44, 44, 44);
+}
+.spectrum--light .spectrum-Alert-content {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Alert--info {
+  border-color: rgb(38, 128, 235);
+}
+.spectrum--light .spectrum-Alert--info .spectrum-Alert-icon {
+    color: rgb(13, 102, 208);
+  }
+.spectrum--light .spectrum-Alert--help {
+  border-color: rgb(38, 128, 235);
+}
+.spectrum--light .spectrum-Alert--help .spectrum-Alert-icon {
+    color: rgb(13, 102, 208);
+  }
+.spectrum--light .spectrum-Alert--error {
+  border-color: rgb(227, 72, 80);
+}
+.spectrum--light .spectrum-Alert--error .spectrum-Alert-icon {
+    color: rgb(201, 37, 45);
+  }
+.spectrum--light .spectrum-Alert--success {
+  border-color: rgb(45, 157, 120);
+}
+.spectrum--light .spectrum-Alert--success .spectrum-Alert-icon {
+    color: rgb(18, 128, 92);
+  }
+.spectrum--light .spectrum-Alert--warning {
+  border-color: rgb(230, 134, 25);
+}
+.spectrum--light .spectrum-Alert--warning .spectrum-Alert-icon {
+    color: rgb(203, 111, 16);
+  }
+.spectrum--lightest .spectrum-Alert {
+  background-color: rgb(255, 255, 255);
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Alert-header {
+  color: rgb(50, 50, 50);
+}
+.spectrum--lightest .spectrum-Alert-content {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Alert--info {
+  border-color: rgb(55, 142, 240);
+}
+.spectrum--lightest .spectrum-Alert--info .spectrum-Alert-icon {
+    color: rgb(20, 115, 230);
+  }
+.spectrum--lightest .spectrum-Alert--help {
+  border-color: rgb(55, 142, 240);
+}
+.spectrum--lightest .spectrum-Alert--help .spectrum-Alert-icon {
+    color: rgb(20, 115, 230);
+  }
+.spectrum--lightest .spectrum-Alert--error {
+  border-color: rgb(236, 91, 98);
+}
+.spectrum--lightest .spectrum-Alert--error .spectrum-Alert-icon {
+    color: rgb(215, 55, 63);
+  }
+.spectrum--lightest .spectrum-Alert--success {
+  border-color: rgb(51, 171, 132);
+}
+.spectrum--lightest .spectrum-Alert--success .spectrum-Alert-icon {
+    color: rgb(38, 142, 108);
+  }
+.spectrum--lightest .spectrum-Alert--warning {
+  border-color: rgb(242, 148, 35);
+}
+.spectrum--lightest .spectrum-Alert--warning .spectrum-Alert-icon {
+    color: rgb(218, 123, 17);
+  }
