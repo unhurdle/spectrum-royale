@@ -32,9 +32,11 @@ package com.unhurdle.spectrum
 
     public function set open(value:Boolean):void
     {
-    	_open = value;
-      toggle("is-open",value);
-      dispatchEvent(new Event("openChanged"));
+      if(!!_open != value){
+        _open = value;
+        toggle("is-open",value);
+        dispatchEvent(new Event("openChanged"));
+      }
     }
 
     private var _relativePosition:Boolean;
