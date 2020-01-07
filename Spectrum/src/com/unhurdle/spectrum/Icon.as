@@ -14,14 +14,16 @@ package com.unhurdle.spectrum
      * </inject_html>
      * 
      */
-    public static function getCSSTypeSelector(type:String):String{
-      return IconPrefix.SPECTRUM_CSS_ICON + type;
-    }
     public function Icon(selector:String="")
     {
       _selector = selector;
       super();
     }
+
+    public static function getCSSTypeSelector(type:String):String{
+      return IconPrefix.SPECTRUM_CSS_ICON + type;
+    }
+    
     override protected function getSelector():String{
       return "spectrum-Icon";
     }
