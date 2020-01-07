@@ -18,7 +18,7 @@
     <component id="Button" class="com.unhurdle.spectrum.Button"/>
     <component id="ButtonGroup" class="com.unhurdle.spectrum.ButtonGroup"/>
     <component id="Card" class="com.unhurdle.spectrum.card.Card"/>
-    <component id="CardActionButton" class="com.unhurdle.spectrum.card.CardActionButton"/>
+    <component id="CardActionMenu" class="com.unhurdle.spectrum.card.CardActionMenu"/>
     <component id="CardBody" class="com.unhurdle.spectrum.card.CardBody"/>
     <component id="CardContent" class="com.unhurdle.spectrum.card.CardContent"/>
     <component id="CardDescription" class="com.unhurdle.spectrum.card.CardDescription"/>

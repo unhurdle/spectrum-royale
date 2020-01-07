@@ -22,7 +22,7 @@ package com.unhurdle.spectrum
 
   [Event(name="change", type="org.apache.royale.events.Event")]
   [Event(name="beforeShow", type="org.apache.royale.events.Event")]
-  public class ActionMenu extends SpectrumBase
+  public class ActionMenu extends ActionButton
   {
     public static const BEFORE_SHOW:String = "beforeShow";
     public static var _openMenu:ActionMenu;
@@ -30,20 +30,17 @@ package com.unhurdle.spectrum
     {
       super();
     }
-    private var button:ActionButton;
     public var popover:Popover;
     public var menu:Menu;
  
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      button = new ActionButton();
+      var elem:WrappedHTMLElement = super.createElement();
       // button.className = //??
-      button.icon = IconPrefix._18 + "More";
-      button.iconSize = IconSize.S;
-      button.addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
-      addElement(button);
+      icon = IconPrefix._18 + "More";
+      iconSize = IconSize.S;
+      addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       
       popover = new Popover();
       popover.position = "bottom";
@@ -55,8 +52,6 @@ package com.unhurdle.spectrum
       // var popupHost:IPopUpHost = UIUtils.findPopUpHost(host);
      // popupHost.popUpParent.addElement(popover);
 
-      
-
       menu = new Menu();
       menu.addEventListener("change",handleMenuChange);
       popover.addElement(menu);
@@ -64,31 +59,11 @@ package com.unhurdle.spectrum
       return elem;
     }
 
-     public function get dataProvider():Object{
+     override public function get dataProvider():Object{
       return menu.dataProvider;
     }
 
-    public function set iconSize(value:String):void
-	  {
-		  button.iconSize = value;
-	  }
-
-    public function get iconSize():String
-	  {
-		  return button.iconSize;
-	  }
-
-    public function set icon(value:String):void
-	  {
-		  button.icon = value;
-	  }
-
-    public function get icon():String
-	  {
-		  return button.icon;
-	  }
-
-    public function set dataProvider(value:Object):void{
+    override public function set dataProvider(value:Object):void{
       if(value is Array){
         convertArray(value);
       } else if(value is IArrayList){
@@ -108,15 +83,6 @@ package com.unhurdle.spectrum
       }
     }
 
-    public function get text():String
-    {
-    	return button.text;
-    }
-
-    public function set text(value:String):void
-    {
-      button.text = value;
-    }
     private function toggleMenu():void{
       if(_openMenu && _openMenu != this){
         _openMenu.close();
@@ -136,17 +102,17 @@ package com.unhurdle.spectrum
         relocated.y -= offset.y;
 				popover.y = determinePosition(relocated.y);
         popover.x = relocated.x;
-        if(_alignRight && popover.width>button.width){
-          popover.x -= popover.width-button.width;
+        if(_alignRight && popover.width>width){
+          popover.x -= popover.width-width;
         }
 				// popover.width = button.width;
         
-        popover.open = button.selected = true;
+        popover.open = selected = true;
         _openMenu = this;
       }
     }
     private function close():void{
-      popover.open = button.selected = false;
+      popover.open = selected = false;
       _openMenu = null;
     }
     private function handlePopoverChange(ev:Event):void{

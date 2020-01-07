@@ -20,6 +20,36 @@ package com.unhurdle.spectrum.card
     {
       super();
     }
+    private var _focused:Boolean;
+
+    public function get focused():Boolean
+    {
+    	return _focused;
+    }
+
+    public function set focused(value:Boolean):void
+    {
+      if(value != _focused){
+        toggle("is-focused",value);
+      }
+    	_focused = value;
+    }
+
+    private var _selected:Boolean;
+
+    public function get selected():Boolean
+    {
+    	return _selected;
+    }
+
+    public function set selected(value:Boolean):void
+    {
+      if(value != _selected){
+        toggle("is-selected",value);
+      }
+    	_selected = value;
+    }
+
     private var _quiet:Boolean;
 
     public function get quiet():Boolean
