@@ -16,6 +16,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconType;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
+	[Event(name="selectionChanged", type="org.apache.royale.events.Event")]
   public class ActionButton extends Button
   {
     public function ActionButton()
@@ -90,6 +91,7 @@ package com.unhurdle.spectrum
 
     private function elementClicked(ev:Event):void{
       selected = !selected;
+      dispatchEvent(new Event("selectionChanged"));
     }
     private function elementClickedForMenu(ev:Event):void{
       if(popup && popup.open){
