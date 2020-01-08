@@ -44,7 +44,7 @@ package com.unhurdle.spectrum
 
     
  
-
+  private var textNode:TextNode;
 
   
 
@@ -53,10 +53,22 @@ package com.unhurdle.spectrum
 		{
       elem = addElementToWrapper(this,'th');
       elem.className = "spectrum-Table-headCell";
-      elem.tabIndex = 0;
+      // elem.tabIndex = 0;
+      textNode = new TextNode("");
+      textNode.element = elem;
       return elem;
 		}
 
+
+    public function get text():String
+    {
+    	return textNode.text;
+    }
+
+    public function set text(value:String):void
+    {
+    	textNode.text = value;
+    }
     //event to sort the cells in the column
     //text needs to be label of the first cell in the column ?
   }
