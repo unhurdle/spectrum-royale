@@ -93,7 +93,6 @@ package com.unhurdle.spectrum
       label.for = textField.id; 
       var type:String = IconType.ASTERISK;
       var icon:Icon = new Icon(IconType.INFO_MEDIUM);
-      icon.size = IconSize.S;
       elem.appendChild(icon.element);
       return element;
     }
