@@ -60,7 +60,6 @@ package com.unhurdle.spectrum.renderers
       if(menuItem.icon){
         if(!icon){
           icon = new Icon(menuItem.icon);
-          icon.size = IconSize.S;
           element.insertBefore(icon.element,element.childNodes[0] || null);
           icon.addedToParent();
         } else {
@@ -73,7 +72,6 @@ package com.unhurdle.spectrum.renderers
       if(menuItem.imageIcon){
         if(!imageIcon){
           imageIcon = new ImageIcon(menuItem.imageIcon);
-          imageIcon.size = IconSize.S;
           element.insertBefore(imageIcon.element,element.childNodes[0] || null);
           imageIcon.addedToParent();
         } else {

@@ -65,7 +65,6 @@ package com.unhurdle.spectrum.renderers
       if(sideNavItem.icon && !elementParentIsSideNavItem(elem)){
         if(!icon){
           icon = new Icon(sideNavItem.icon);
-          icon.size = IconSize.S;
           element.insertBefore(icon.element,element.childNodes[0] || null);
           icon.addedToParent();
         } else {
@@ -78,7 +77,6 @@ package com.unhurdle.spectrum.renderers
       if(sideNavItem.imageIcon && !elementParentIsSideNavItem(elem)){
         if(!imageIcon){
           imageIcon = new ImageIcon(sideNavItem.imageIcon);
-          imageIcon.size = IconSize.S;
           elem.insertBefore(imageIcon.element,element.childNodes[0] || null);
           imageIcon.addedToParent();
         } else {

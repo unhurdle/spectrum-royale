@@ -58,7 +58,6 @@ package com.unhurdle.spectrum
             throw new Error("Invalid icon: " + value);
         }
       icon = new Icon(IconPrefix._18 + value); //allow the user to specify an icon..
-      icon.size = IconSize.S;
       addElement(icon); //really its there but the SVGIcon doesnt exist.. 
       icon.addedToParent(); 
       }

@@ -21,7 +21,6 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       button = addElementToWrapper(this,'button') as HTMLButtonElement;
       icon = new Icon("");
-      icon.size = IconSize.S;
       button.appendChild(icon.element);
       icon.addedToParent();
       return element;

@@ -20,7 +20,7 @@ package com.unhurdle.spectrum
       return "spectrum-Icon";
     }
 
-    private var _size:String;
+    private var _size:String = "S";
 
     public function get size():String
     {

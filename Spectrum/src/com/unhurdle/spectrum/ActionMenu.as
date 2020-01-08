@@ -42,7 +42,6 @@ package com.unhurdle.spectrum
       button.quiet = true;
       // button.className = //??
       button.icon = IconPrefix._18 + "More";
-      button.iconSize = IconSize.S;
       button.addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       addElement(button);
       
