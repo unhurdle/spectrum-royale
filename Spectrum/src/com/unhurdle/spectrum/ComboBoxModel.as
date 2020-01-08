@@ -70,5 +70,14 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("disabledChange"));
     }
 
+		private var _quiet:Boolean = false;
+    public function get quiet():Boolean{
+      return _quiet;
+    }
+		public function set quiet(value:Boolean):void{
+      _quiet = value;
+      dispatchEvent(new Event("quietChange"));
+    }
+
   }
 }

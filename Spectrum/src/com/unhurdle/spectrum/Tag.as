@@ -24,6 +24,7 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       span = new TextNode("");
       span.element = newElement("span") as HTMLSpanElement;
+      span.className = appendSelector("-itemLabel");
       elem.appendChild(span.element);
       clearButton = new ClearButton();
       clearButton.small = true;

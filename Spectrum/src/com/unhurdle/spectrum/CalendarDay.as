@@ -25,6 +25,10 @@ package com.unhurdle.spectrum
       text = "" + value.getDate();
     	_date = value;
     }
+    private function toggleClassName(value:String):void{
+      className = className? className:"";
+      className += " " + value;
+    }
     private var _isToday:Boolean;
 
     public function get isToday():Boolean
@@ -34,14 +38,76 @@ package com.unhurdle.spectrum
 
     public function set isToday(value:Boolean):void
     {
-      if(value != !!_isToday){
+      // if(value != !!_isToday){
         if(value){
-          (element as HTMLElement).classList.add("is-today");
-        } else {
-          (element as HTMLElement).classList.remove("is-today");
+          toggleClassName(" is-today");
+        //   (element as HTMLElement).classList.add("is-today");
+        // } else {
+        //   (element as HTMLElement).classList.remove("is-today");
         }
-      }
+      // }
     	_isToday = value;
+    }
+    private var _isFocused:Boolean;
+
+    public function get isFocused():Boolean
+    {
+    	return _isFocused;
+    }
+
+    public function set isFocused(value:Boolean):void
+    {
+      // if(value != !!_isFocused){
+        if(value){
+          className = " is-focused";
+        //   (element as HTMLElement).classList.add("is-focused");
+        // } else {
+        //   (element as HTMLElement).classList.remove("is-focused");
+        }
+      // }
+    	_isFocused = value;
+    }
+    private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+      // if(value != !!_disabled){
+        if(value){
+          className = " is-disabled";
+          // (element as HTMLElement).classList.add("is-disabled");
+        // } else {
+          // if(className.includes(" is-disabled")){
+          //   className = className.substr(className.indexOf(" is-disabled"),12);
+          // }
+          // (element as HTMLElement).classList.remove("is-disabled");
+        }
+      // }
+    	_disabled = value;
+    }
+
+    private var _isOutsideMonth:Boolean;
+
+    public function get isOutsideMonth():Boolean
+    {
+    	return _isOutsideMonth;
+    }
+
+    public function set isOutsideMonth(value:Boolean):void
+    {
+      // if(value != !!_isOutsideMonth){
+        if(value){
+          className = " is-outsideMonth";
+        //   (element as HTMLElement).classList.add("is-outsideMonth");
+        // } else {
+        //   (element as HTMLElement).classList.remove("is-outsideMonth");
+        }
+      // }
+    	_isOutsideMonth = value;
     }
 
     private var _selected:Boolean;
@@ -92,31 +158,39 @@ package com.unhurdle.spectrum
         }
         var isSelectedClass:String = "is-selected";
         var isRangeClass:String = "is-range-selection";
-        if(!atStart && !atEnd && !between){
+        if(atStart || atEnd || between){          
+          // element.classList.add(isSelectedClass);
+          toggleClassName(isSelectedClass);
+          // className = isSelectedClass;
+          toggleWeekStart(true);
+          toggleWeekEnd(true);
+          // }
+          if(atStart && atEnd){
+            // no range
+            element.classList.remove(isRangeClass);
+          } else {
+            if(atStart){
+              // element.classList.add(selectionStart);
+              toggleClassName(selectionStart);
+              // className = selectionStart;
+            } else if(atEnd){
+              // element.classList.add(selectionEnd);
+              toggleClassName(selectionEnd);
+              // className = selectionEnd;
+            }
+            // have a range
+            // element.classList.add(isRangeClass);
+            toggleClassName(isRangeClass);
+            // className = isRangeClass;
+          }
+        } else {
           toggleWeekStart(false);
           toggleWeekEnd(false);
           element.classList.remove(isSelectedClass);
           element.classList.remove(isRangeClass);
           // not selected
-        } else {
-          element.classList.add(isSelectedClass);
-          toggleWeekStart(true);
-          toggleWeekEnd(true);
-        }
-        if(atStart && atEnd){
-          // no range
-          element.classList.remove(isRangeClass);
-        } else {
-          // have a range
-          element.classList.add(isRangeClass);
-          if(atStart){
-            element.classList.add(selectionStart);
-          } else if(atEnd){
-            element.classList.add(selectionEnd);
-          }
         }
       }
-
     }
     private var _curWeekStart:Boolean = false;
     private function toggleWeekStart(value:Boolean):void{
