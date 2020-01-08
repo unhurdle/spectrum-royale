@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
     }
     import com.unhurdle.spectrum.const.IconType;
     import org.apache.royale.html.elements.Span;
+    import org.apache.royale.events.Event;
     /**
      *  Dispatched when the user checks or un-checks the CheckBox.
      *

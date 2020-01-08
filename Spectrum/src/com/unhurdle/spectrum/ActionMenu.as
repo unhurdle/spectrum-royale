@@ -42,6 +42,7 @@ package com.unhurdle.spectrum
       addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       
       popover = new Popover();
+      popover.element.style.position = "absolute";
       popover.position = "bottom";
       popover.addEventListener("openChanged",handlePopoverChange);
 	    // var origin:Point = new Point(0, host.height - 6);

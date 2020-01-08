@@ -24,9 +24,10 @@ package com.unhurdle.spectrum.card
     }
     public var menu:ActionMenu;
 
-    // private function handleChange(event:Event):void{
-    //   dispatchEvent(event);
-    // }
+    private function handleChange(event:Event):void{
+	    dispatchEvent(event);
+    }
+
     private function handleBeforeShow(event:Event):void{
       dispatchEvent(new Event("beforeShow"));
     }
@@ -36,7 +37,7 @@ package com.unhurdle.spectrum.card
       var elem:WrappedHTMLElement =  addElementToWrapper(this,'div');
       menu = new ActionMenu();
       //change should bubble automatically
-      // menu.addEventListener("change",handleChange)
+      menu.addEventListener("change",handleChange)
       menu.addEventListener("beforeShow",handleBeforeShow)
       addElement(menu);
       return elem;
