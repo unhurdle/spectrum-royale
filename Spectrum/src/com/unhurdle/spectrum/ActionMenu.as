@@ -154,6 +154,7 @@ package com.unhurdle.spectrum
       {
   			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
         popupHost.popUpParent.removeElement(popover);
+        button.selected = false;
       }
     }
     private var _alignRight:Boolean;
