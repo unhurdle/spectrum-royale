@@ -164,7 +164,7 @@ package com.unhurdle.spectrum
       addElementToWrapper(this,'div');
       element.className = getSelector();
       label = new TextNode("label");
-      label.className = appendSelector("Label"); //-- need this //class="spectrum-Tabs-itemLabel"
+      label.className = appendSelector("itemLabel"); 
       element.appendChild(label.element); //addElem
       element.tabIndex = 0;
       return element;

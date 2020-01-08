@@ -9,6 +9,8 @@ package com.unhurdle.spectrum.data
     function set selected(value:Boolean):void
     function get isDivider():Boolean;
     function set isDivider(value:Boolean):void
+    function get isOpen():Boolean;
+    function set isOpen(value:Boolean):void
     function get disabled():Boolean;
     function set disabled(value:Boolean):void
     function get isHeading():Boolean;
