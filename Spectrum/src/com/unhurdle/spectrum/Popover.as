@@ -17,6 +17,7 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         element.style.zIndex = 500;// very high number to makie sure it's above everything else
+        element.style.position = "absolute";
       }
 
     }
