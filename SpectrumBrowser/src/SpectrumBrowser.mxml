@@ -2,7 +2,7 @@
 <sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
   xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" 
-  xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="darkest" >
+  xmlns:spectrum="com.unhurdle.spectrum.*" colorstop="lightest" >
   <fx:Script>
     <![CDATA[
 
@@ -12,6 +12,8 @@
       import com.unhurdle.spectrum.DialogContent;
       import com.unhurdle.spectrum.DialogFooter;
       import com.unhurdle.spectrum.DialogHeader;
+      import com.unhurdle.spectrum.DialogTitle;
+      import com.unhurdle.spectrum.DialogTypeIcon;
       import org.apache.royale.html.elements.H1;
       import org.apache.royale.html.elements.P;
       import org.apache.royale.events.ValueEvent;
@@ -24,6 +26,8 @@
       import com.unhurdle.spectrum.AssetList;
       import org.apache.royale.collections.HierarchicalData;
       import com.unhurdle.spectrum.data.AssetListItem;
+      import com.unhurdle.spectrum.Button;
+      import com.unhurdle.spectrum.data.MenuItem;
 
       // private function showAlert():void{
       //   var alert:Alert = new Alert();
@@ -37,11 +41,11 @@
       // }
       // private function showToast():void{
       //   new Toast("Some great news here!").show();
-        // var toast:Toast = new Toast();
-        // toast.text = "Some great news here!"
-        // toast.show();
+      //   var toast:Toast = new Toast();
+      //   toast.text = "Some great news here!";
+      //   toast.flavor = "success";
+      //   toast.show();
       // }
-
       // private function handleCheckboxChange():void
       // {
       //   new Toast("Checkbox value: " + myCheckbox.checked).show();
@@ -67,14 +71,25 @@
       //   "Four",
       //   "Five"
       // ];
+      [Bindable]
+      private var comboProvider:Array = [
+        "One",
+        "Two",
+        "Three",
+        "Four",
+        "Five"
+      ];
       // [Bindable]
-      // private var comboProvider:Array = [
-      //   "One",
-      //   "Two",
-      //   "Three",
-      //   "Four",
-      //   "Five"
-      // ];
+      // private var subMenuProvider:Array = [
+      //   item1,item2,item3
+      //   // new MenuItem("Sub Item One"),
+      //   // new MenuItem("Sub Item Two"),
+      //   // new MenuItem("Sub Item Three")
+      // private var item1:MenuItem = new MenuItem("Sub Item One");
+      // private var item2:MenuItem = new MenuItem("Sub Item Two");
+      // private var item3:MenuItem = new MenuItem("Sub Item Three");
+      // // ];
+
       // [Bindable]
       // private var millerColumnsProvider:Array = [,];
       [Bindable]private var date:Date = new Date();
@@ -101,6 +116,44 @@
       //   dialog = new Dialog();
       //   dialog.size = 1;
       //   dialog.error = true;
+      //   // src\SpectrumBrowser.mxml
+      //   // Spectrum\src\com\unhurdle\assets
+      //   // SpectrumBrowser
+      //   // dialog.hero = "http://printui.com";
+      //   dialog.hero = "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7";
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   // p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   // p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   // p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   // p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   // p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.show();
+      //   // showDialog1();
+      //   // showDialog2();
+      //   // showDialog3();
+      //   // showDialog4();
+      //   // showDialog5();
+      //   // showDialog6();
+      //   // showDialog7();
+      // }
+      // private function showDialog1():void{
+      //   dialog = new Dialog();
+      //   dialog.error = true;
       //   var dialogHeader:DialogHeader = new DialogHeader();
       //   var h1:H1 = new H1();
       //   h1.text = "Dialog";
@@ -122,10 +175,202 @@
       //   dialog.addElement(dialogHeader);
       //   dialog.addElement(dialogContent);
       //   dialog.addElement(dialogFooter);
+      //   dialog.size = 1;
       //   dialog.show();
       // }
+      // private function showDialog2():void{
+      //   dialog = new Dialog();
+      //   dialog.error = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.size = 2;
+      //   dialog.show();
+      // }
+      // private function showDialog3():void{
+      //   dialog = new Dialog();
+      //   dialog.error = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.size = 3;
+      //   dialog.show();
+      // }
+      // private function showDialog4():void{
+      //   dialog = new Dialog();
+      //   dialog.error = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.size = 4;
+      //   dialog.show();
+      // }
+      // private function showDialog5():void{
+      //   dialog = new Dialog();
+      //   dialog.success = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.size = 5;
+      //   dialog.show();
+      // }
+      // private function showDialog6():void{
+      //   dialog = new Dialog();
+      //   dialog.dismissible = true;
+      //   dialog.noDivider = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.size = 6;
+      //   dialog.show();
+      // }
+      // private function showDialog7():void{
+      //   dialog = new Dialog();
+      //   dialog.dismissible = true;
+      //   var dialogHeader:DialogHeader = new DialogHeader();
+      //   var h1:H1 = new H1();
+      //   h1.text = "Dialog";
+      //   dialogHeader.addElement(h1);
+      //   var dialogContent:DialogContent = new DialogContent();
+      //   var p:P = new P();
+      //   p.text = "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   p.text += "aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg aaaaaaaaaaaaaa bbbbbbb ccccccc ddddddd eeeeee ffffffff ggggggg";
+      //   dialogContent.addElement(p);
+      //   var dialogFooter:DialogFooter = new DialogFooter();
+      //   var btn:Button = new Button();
+      //   btn.text = "ok";
+      //   btn.addEventListener("click",hideDialog)
+      //   dialogFooter.addElement(btn);
+      //   dialog.addElement(dialogHeader);
+      //   dialog.addElement(dialogContent);
+      //   dialog.addElement(dialogFooter);
+      //   dialog.size = 7;
+      //   dialog.show();
+      // }
+      // // private function showDialog():void{//////////////
+      // //   // dialog = new Dialog();
+      // //   dialog.success = true;
+      // //   var dialogHeader:DialogHeader = new DialogHeader();
+      // //   var dialogTitle:DialogTitle = new DialogTitle();
+      // //   var dialogTypeIcon:DialogTypeIcon = new DialogTypeIcon();
+      // //   var h1:H1 = new H1();
+      // //   h1.text = "Success Popover";
+      // //   dialogTitle.addElement(h1);
+      // //   dialogHeader.addElement(dialogTitle);
+      // //   dialogHeader.addElement(dialogTypeIcon);
+      // //   var dialogContent:DialogContent = new DialogContent();
+      // //   var p:P = new P();
+      // //   p.text = "Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah";
+      // //   dialogContent.addElement(p);
+      // //   var dialogFooter:DialogFooter = new DialogFooter();
+      // //   var btn:Button = new Button();
+      // //   btn.text = "ok";
+      // //   btn.addEventListener("click",hideDialog)
+      // //   dialogFooter.addElement(btn);
+      // //   dialog.addElement(dialogHeader);
+      // //   dialog.addElement(dialogContent);
+      // //   dialog.addElement(dialogFooter);
+      // //   popWithDialog.addElement(dialog);
+      // //   dialog.visible = true;
+      // //   // dialog.show();
+      // // }
 
       // private function hideDialog():void{
+      //   // dialog.visible = false;
       //   dialog.hide();
       // }
 
@@ -137,18 +382,18 @@
       //     value = "" + ev.value;
       //   }
         
-        // if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
-        //   value = ev.value.children[0].children[0].text;
-        // }
-        // else{
-        //   value = ev.value.children[0].text;
-        // }
-        // new Toast("The selected item is: "+value).show();
-      // }
-      // private function sideNavClick(ev:*):void{
-      //   var value:String = ev.target.selectedItem.label;
+      //   if(ev.value.children[0].classList.contains("spectrum-Heading--pageTitle")){
+      //     value = ev.value.children[0].children[0].text;
+      //   }
+      //   else{
+      //     value = ev.value.children[0].text;
+      //   }
       //   new Toast("The selected item is: "+value).show();
       // }
+      private function sideNavClick(ev:*):void{
+        var value:String = ev.target.selectedItem.label;
+        new Toast("The selected item is: "+value).show();
+      }
 
       // private function handleChangeOfRange():void{
       //   rating1.value = ratingStepper.value;
@@ -173,20 +418,20 @@
       //   trace(ev.target.value);
       // }
 
-      private function switched(ev:Event):void{
-        var theSwitch:Switch = ev.target as Switch;
-        var status:String = theSwitch.checked ? "On" : "Off";
-        (ev.target as Switch).text = "Toggle " + status;
-      }
-      private function onSubmit(ev:*):void{
-        var searchText:String;
-        if(ev.target is SearchWithin)
-          searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
-        else
-          searchText = ev.target.text;
-        var content:String = "searching for: " + searchText;
-        new Toast(content).show();
-      }
+      // private function switched(ev:Event):void{
+      //   var theSwitch:Switch = ev.target as Switch;
+      //   var status:String = theSwitch.checked ? "On" : "Off";
+      //   (ev.target as Switch).text = "Toggle " + status;
+      // }
+      // private function onSubmit(ev:*):void{
+      //   var searchText:String;
+      //   if(ev.target is SearchWithin)
+      //     searchText = ev.target.com_unhurdle_spectrum_SearchWithin_search.text + ", within: " + ev.target.com_unhurdle_spectrum_SearchWithin_dropdown.selectedItem.text;
+      //   else
+      //     searchText = ev.target.text;
+      //   var content:String = "searching for: " + searchText;
+      //   new Toast(content).show();
+      // }
       // private function handleSelectedDate():void{
       //   new Toast("handleSelectedDate").show();
       // }
@@ -204,7 +449,8 @@
       //   assetListArray = new Array();
       //   assetListArray[0] = new AssetListItem("File1");
       //   assetListArray[0].selectable = "true";
-      //   assetListArray[0].src = "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7";
+      //   // assetListArray[0].src = "https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7";
+      //   assetListArray[0].src="../Spectrum/src/com/unhurdle/assets/avatar.jpg";
       //   assetListArray[1] = new AssetListItem("File2");
       //   assetListArray[1].selectable = "true";
       //   assetListArray[1].iconType = "FileCSV";
@@ -248,10 +494,10 @@
   </fx:Script>
   <sp:initialView>
     <sp:View>
-  <sp:Search id="search" submit="onSubmit(event)"/>
   <sp:ActionButton text="ActionButton"/>
+  <!-- <sp:Search id="search" submit="onSubmit(event)"/>
   <sp:SearchWithin dataProvider="{listProvider}" />
-  <sp:SearchWithin dataProvider="{listProvider}" position="top" selectedItem="{listProvider[0]}"/>
+  <sp:SearchWithin dataProvider="{listProvider}" position="top" selectedItem="{listProvider[0]}"/> -->
   <!-- <sp:ActionButton id="actionButton" click="actionClick()"
         icon="#spectrum-css-icon-ChevronRightMedium"
         iconSize="XS";
@@ -260,8 +506,20 @@
         <!-- <sp:MillerColumns dataProvider="{MillerColumnsDataProvider}">
         </sp:MillerColumns> -->
 
-<!-- 
- <sp:AssetList itemClicked="assetItemSelected(event)">
+<!-- <sp:Accordion headerText="RECENT" contentText="file 1"/>
+<sp:Accordion headerText="RECENT 2" contentText="file 2" status="disabled"/> -->
+<!-- <sp:Accordion>
+  <sp:dataProvider>
+    <fx:Array>
+      <sp:AccordionItem headerText="Recent" contentText="Item 1" isOpen="true"/>
+      <sp:AccordionItem headerText="Architecture" contentText="Item 2" isDisabled="true"/>
+      <sp:AccordionItem headerText="Nature" contentText="Item 3"/>
+      <sp:AccordionItem headerText="Really Long Accordion Item According to Our Predictions" contentText="Item 4"/>
+    </fx:Array>
+  </sp:dataProvider>
+</sp:Accordion> -->
+<!-- <sp:Accordion headerText="RECENT" text="file 1" status="disabled"/> -->
+ <!-- <sp:AssetList itemClicked="assetItemSelected(event)">
         <sp:dataProvider>
           <fx:Array>
             <sp:AssetListItem text="Home" selectable="true" src="https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7"/>
@@ -270,43 +528,57 @@
           </fx:Array>
         </sp:dataProvider>
       </sp:AssetList> -->
-    <!-- <sp:ButtonGroup> -->
-      <!-- <sp:Radio text="radio1" radioName="radioGroup"  /> -->
-      <!-- <sp:Radio text="radio2" radioName="radioGroup" invalid="true"/> -->
-      <!-- <sp:TextArea placeholder="enter text" required="true"/> -->
-      <!-- <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" invalid="false" quiet="true"/>indeterminate="true" -->
-      <!-- <sp:ClearButton disabled="true" small="true"/> -->
-      <!-- <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/> -->
-      <!-- <sp:Dropdown dataProvider="{listProvider}" placeholder="Select a Number"/> -->
-      <!-- <sp:Dropdown placeholder="Select a Number" invalid="true"> -->
-        <!-- <sp:dataProvider> -->
-          <!-- <fx:Array> -->
-            <!-- <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" /> -->
-            <!-- <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/> -->
-            <!-- <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/> -->
-            <!-- <sp:DropdownItem isDivider="true"/> -->
-            <!-- <sp:DropdownItem text="Four 4"/> -->
-            <!-- <sp:DropdownItem text="Five 5" disabled="true"/> -->
-          <!-- </fx:Array> -->
-        <!-- </sp:dataProvider> -->
-      <!-- </sp:Dropdown> -->
-      <!-- <sp:Dropdown placeholder="Select a Number" invalid="true" disabled="true"> -->
-        <!-- <sp:dataProvider> -->
-          <!-- <fx:Array> -->
-            <!-- <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" /> -->
-            <!-- <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/> -->
-            <!-- <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/> -->
-            <!-- <sp:DropdownItem isDivider="true"/> -->
-            <!-- <sp:DropdownItem text="Four 4"/> -->
-            <!-- <sp:DropdownItem text="Five 5" disabled="true"/> -->
-          <!-- </fx:Array> -->
-        <!-- </sp:dataProvider> -->
-      <!-- </sp:Dropdown> -->
-      <!-- </sp:ButtonGroup> -->
+    <!-- <sp:ButtonGroup vertical="true">
+      <sp:Radio text="radio1" radioName="radioGroup" quiet="true" labelBelow="true"/>
+      <sp:Radio text="radio2" radioName="radioGroup" invalid="true" labelBelow="true"/> -->
+      <!-- <sp:TextField placeholder="A valid input" text="A valid input" quiet="true" valid="true" pattern="[\w\s]+"/> -->
+      <!-- <sp:TextField placeholder="A valid input" text="A valid input" quiet="true" isValid="true" pattern="[\\w\\s]+"/>
+      <sp:TextField placeholder="enter text" required="true"/>
+      <sp:TextField placeholder="enter text" pattern="[\\d]+" required="false"/>
+      <sp:TextField placeholder="enter text" quiet="true" pattern="[\\d]+" disabled="true"/>
+      <sp:TextField placeholder="Not a valid input" isValid="false"/> -->
+      <!-- <sp:TextField placeholder="Not a valid input" invalid="true"/> -->
+      <!-- <sp:TextArea placeholder="enter text" required="true"/>
+      <sp:CheckBox id="myCheckbox" checked="true" change="handleCheckboxChange()" text="check box1" indeterminate="true" invalid="false" quiet="true"/>// indeterminate="true" //
+      <sp:ClearButton disabled="true" small="true"/>
+      <sp:ComboBox placeholder="Type here" dataProvider="{comboProvider}"/>
+      <sp:Dropdown dataProvider="{listProvider}" placeholder="Select a Number" quiet="true"/>
+      <sp:Dropdown dataProvider="{listProvider}" placeholder="Select a Number"/>
+      <sp:Dropdown dataProvider="{listProvider}" placeholder="Select a Number" invalid="true"/>
+      <sp:Dropdown dataProvider="{listProvider}" placeholder="Select a Number" invalid="true" disabled="true"/>
+      <sp:Dropdown placeholder="Select a Number" invalid="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" />
+            <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/>
+            <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/>
+            <sp:DropdownItem isDivider="true"/>
+            <sp:DropdownItem text="Four 4"/>
+            <sp:DropdownItem text="Five 5" disabled="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Dropdown>
+      <sp:Dropdown placeholder="Select a Number" invalid="true" disabled="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:DropdownItem text="One 1" icon="#spectrum-icon-18-Image" />
+            <sp:DropdownItem text="Two 2" icon="#spectrum-icon-18-Image"/>
+            <sp:DropdownItem text="Three 3" icon="#spectrum-icon-18-Image"/>
+            <sp:DropdownItem isDivider="true"/>
+            <sp:DropdownItem text="Four 4"/>
+            <sp:DropdownItem text="Five 5" disabled="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Dropdown>
+      </sp:ButtonGroup> -->
       <!-- <sp:Label text="label" color="red" /> -->
       <!-- <sp:CycleButton paused="true"/> -->
-      <!-- <sp:Rating max="5" value="3" disabled="true" /> -->
-       <!-- <sp:Rating max="7" value="7"/> -->
+      <!-- <sp:Rating max="5" value="3" disabled="true" />
+      <sp:Rating max="5" value="5" disabled="true" />
+      <sp:Rating max="5" value="3" quiet="true" />
+       <sp:Rating max="7" value="7"/>
+       <sp:Rating max="7" value="5"/> -->
+       <!-- <sp:Rating max="7" value="5" readOnly="true"/> -->
       <!-- <sp:Stepper id="ratingStepper" placeholder="Change range" step="1" min="0" max="9" change="handleChangeOfRange()"/>
       <sp:Stepper id="maxStepper" placeholder="Change max" step="1" min="0" max="9" change="handleChangeOfMax()"/> -->
       <!-- <sp:Rating id="rating1" max="9" value="3" /> -->
@@ -315,7 +587,17 @@
       <!-- <sp:DatePicker quiet="true" placeHolder="Choose a date" endDate="{date}"/> -->
       <!-- <sp:DatePicker placeHolder="Choose a date" startDate="{date}" endDate="{date1}"/> -->
       <!-- <sp:Tool /> -->
+      <!-- C:\Users\Yehudit\Documents\github\spectrum-royale\Spectrum\src\com\unhurdle\assets -->
+      <!-- C:\Users\Yehudit\Documents\github\spectrum-royale\SpectrumBrowser\src -->
+      <!-- https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7 -->
       <!-- <sp:Tag text="tag 1" deletable="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
+      <!-- <sp:Tag text="tag 1" deletable="true" src="C:/Users/Yehudit/Documents/github/spectrum-royale/Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
+      <!-- <sp:Tag text="tag 1" deletable="true" src="https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7" change="handleTagChange()"/>
+      <sp:Tag text="tag 1" deletable="true" isDisabled="true" src="https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7" change="handleTagChange()"/>
+      <sp:Tag text="tag 1" deletable="true" invalid="true" src="https://s3.amazonaws.com/graphicfilesbucket/00e27c50129911e9ae6367d418596fc7" change="handleTagChange()"/>
+      <sp:Tag text="tag 1" deletable="true" src="" change="handleTagChange()"/> -->
+      <!-- <sp:Tag text="tag 1" deletable="true" isDisabled="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
+      <!-- <sp:Tag text="tag 1" deletable="true" invalid="true" src="../Spectrum/src/com/unhurdle/assets/avatar.jpg" change="handleTagChange()"/> -->
       <!-- <sp:Alert text="Alert"/>  -->
       <!-- <sp:Banner header="Most Popular" type="info" content="Include Awesome"/> -->
       <sp:BarLoader label="Thingies" meter="true" value="90" indeterminate="true"/>
@@ -326,7 +608,18 @@
       <sp:CircleLoader indeterminate="true"  size="large"/>
       <sp:CircleLoader size="small"/>
       <!-- <sp:StepList small="true"> -->
-      <!-- <sp:StepList isLabel="true">      
+      <!-- <sp:StepList isLabel="true" interactive="true"> -->
+      <!-- <sp:StepList isLabel="true" >
+         <sp:dataProvider>
+          <fx:Array>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem completed="true"/>
+            <sp:StepsListItem selected="true"/>
+            <sp:StepsListItem/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:StepList>
+      <sp:StepList isSmall="true">      
         <sp:dataProvider>
           <fx:Array>
             <sp:StepsListItem completed="true"/>
@@ -335,18 +628,8 @@
             <sp:StepsListItem/>
           </fx:Array>
         </sp:dataProvider>
-      </sp:StepList> -->
-      <!-- <sp:StepList isSmall="true">      
-        <sp:dataProvider>
-          <fx:Array>
-            <sp:StepsListItem completed="true"/>
-            <sp:StepsListItem completed="true"/>
-            <sp:StepsListItem selected="true"/>
-            <sp:StepsListItem/>
-          </fx:Array>
-        </sp:dataProvider>
-      </sp:StepList> -->
-      <!-- <sp:StepList isToolTip="true">
+      </sp:StepList>
+      <sp:StepList isToolTip="true" interactive="true">
         <sp:dataProvider>
           <fx:Array>
             <sp:StepsListItem completed="true"/>
@@ -394,8 +677,12 @@
         <sp:RampSlider/>
         <sp:RangeSlider max="50"/>
       <sp:VideoPlayerSlider/> -->
-      <!-- <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
-      <sp:ColorSlider color="true" showingAlpha="true" max="50"/>
+      <!-- <sp:Slider filledOffset="20" filledOffsetRight="true" max="150" value="30" displayValue="true" label="Foo" width="400" step="4" />
+      <sp:Slider filledOffset="30" max="150" value="30" displayValue="true" label="Foo" width="400" step="4" /> -->
+      <!-- <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9"/>
+      <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="9" showTickValues="true"/>
+      <sp:Slider max="150" value="30" displayValue="true" label="Foo" width="400" step="4" ticks="0" showTickValues="true"/> -->
+      <!-- <sp:ColorSlider color="true" showingAlpha="true" max="50"/>
       <sp:ColorSlider color="false" showingAlpha="true"/> 
       <sp:ColorSlider color="true" showingAlpha="false" max="80"/> -->
       <!-- <sp:SplitButton dataProvider="{comboProvider}"/> -->
@@ -405,25 +692,34 @@
       <!-- <sp:SplitButton dataProvider="{comboProvider}" type="primary" left="true" text="left primary splitButton"/> -->
       <!-- <sp:SplitButton dataProvider="{comboProvider}" type="secondary" text="right secondary splitButton"/> -->
       <!-- <sp:SplitButton dataProvider="{comboProvider}" type="secondary" left="true"/> -->
-      <!-- <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/>
-      <sp:Button text="Show Dialog" click="showDialog()" flavor="cta"/>
+      <!-- <sp:Button text="Show Alert" click="showAlert()" flavor="cta"/> -->
+      <!-- <sp:Button text="Show Dialog" click="showDialog()" flavor="cta"/> -->
+      <!-- <sp:Button text="Show Dialog" click="showDialog1()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog2()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog3()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog4()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog5()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog6()" flavor="cta"/>
+      <sp:Button text="Show Dialog" click="showDialog7()" flavor="cta"/> -->
+      <!-- <sp:StatusLight status="purple" disabled="true" text="purple"/>
       <sp:StatusLight status="yellow" text="Fee"/>
       <sp:StatusLight status="positive" text="Fi"/>
-      <sp:StatusLight status="info" text="Fo"/>
-      <sp:ButtonGroup/> -->
+      <sp:StatusLight status="info" text="Fo"/> -->
+      <!-- <sp:ButtonGroup/> -->
       <!-- <sp:TabBar se>
       <sp:Tab/>
       <sp:Tab/>
       <sp:Tab/>
       <sp:Tab/>
       </sp:TabBar> -->
-      <!-- <sp:Button text="Show Toast" click="showToast()"/>
-      <sp:CoachMark flavor="dark" quiet="true"/>
+      <!-- <sp:Button text="Show Toast" click="showToast()"/> -->
+      <!-- <sp:CoachMark flavor="dark" quiet="true"/>
       <sp:CoachMark flavor="light"/>
       <sp:CoachMark/>-->
-      <!-- <sp:IllustratedMessage type="cta"/> -->
-      <!-- <sp:IllustratedMessage type="default"/> -->
-      <!-- <sp:IllustratedMessage /> -->
+      <!-- <sp:IllustratedMessage type="cta"/>
+      <sp:IllustratedMessage type="default"/>
+      <sp:IllustratedMessage type="overBackground"/>
+      <sp:IllustratedMessage /> -->
       <!-- <sp:Stepper placeholder="Enter a number" min="-2" max="10" step="2" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" quiet="true" min="0" max="10" step="1" change="handleSrepperChange(event)"/>
       <sp:Stepper placeholder="Enter a number" invalid="true" min="1" max="9" step="3" change="handleSrepperChange(event)"/>
@@ -436,8 +732,8 @@
       <sp:DropIndicator direction="vertical"/> -->
       <!-- <sp:ActionMenu text="More Actions" dataProvider="{comboProvider}" alignRight="true"/> -->
       <!-- <sp:ActionMenu  dataProvider="{comboProvider}"/> -->
-      <!-- <sp:List dataProvider="{listProvider}"/>
-      <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
+      <!-- <sp:List dataProvider="{listProvider}"/> -->
+      <!-- <sp:Breadcrumbs dataProvider="{listProvider}" itemClicked="itemSelected(event)"/>
       <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
         <sp:dataProvider>
           <fx:Array>
@@ -446,15 +742,105 @@
             <sp:BreadcrumbsItem text="Sliders" isTitle="true" />
           </fx:Array>
         </sp:dataProvider>
+      </sp:Breadcrumbs>
+      <sp:Breadcrumbs isTitle="true" itemClicked="itemSelected(event)">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:BreadcrumbsItem text="Home" isFolder="true"/>// ??? //
+            <sp:BreadcrumbsItem text="Playground"/>
+            <sp:BreadcrumbsItem text="Sliders" isTitle="true" />
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+      <sp:Breadcrumbs itemClicked="itemSelected(event)" compact="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:BreadcrumbsItem text="Home"/>
+            <sp:BreadcrumbsItem text="Playground" isFolder="true"/>
+            <sp:BreadcrumbsItem text="Sliders"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+      <sp:Breadcrumbs itemClicked="itemSelected(event)">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:BreadcrumbsItem text="Home"/>
+            <sp:BreadcrumbsItem text="Playground" isDragged="true"/>// ???//
+            <sp:BreadcrumbsItem text="Sliders"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+      <sp:Breadcrumbs itemClicked="itemSelected(event)" multiline="true">// ???//
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:BreadcrumbsItem text="Home"/>
+            <sp:BreadcrumbsItem text="Playground"/>
+            <sp:BreadcrumbsItem text="Sliders"/>
+          </fx:Array>
+        </sp:dataProvider>
       </sp:Breadcrumbs> -->
      
-      <!-- <sp:Popover open="true" relativePosition="true">
+      <!-- <sp:Popover open="true" id="popWithDialog" relativePosition="true" dialog="true" top="true">
+        <sp:Dialog id="dialog">
+        </sp:Dialog>
+      </sp:Popover> -->
+       <!-- <sp:Menu id="sub_menu">
+          <sp:dataProvider>
+          <fx:Array>
+            <sp:MenuItem text="Sub Item One"/>
+            <sp:MenuItem text="Sub Item Two"/>
+            <sp:MenuItem text="Sub Item Three" disabled="true"/>
+          </fx:Array>
+          </sp:dataProvider>
+        </sp:Menu> -->
+      <sp:Popover open="true" relativePosition="true">
         <sp:Menu>
           <sp:dataProvider>
           <fx:Array>
             <sp:MenuItem text="Category One" isHeading="true"/>
-            <sp:MenuItem text="Item One"/>
-            <sp:MenuItem text="Item Two"/>
+            <sp:MenuItem text="Item One" selected="true"/>
+            <!-- ///// <sp:MenuItem text="Item Two"/>  -->
+            <!-- ///// <sp:MenuItem text="Item Two" subMenu="{sub_menu}"/>  -->
+            <!-- <sp:MenuItem text="Item Two" subMenu="{listProvider}"/> -->
+            <sp:Menu>
+              <sp:dataProvider>
+              <fx:Array>
+                <sp:MenuItem text="Category One" isHeading="true"/>
+                <sp:MenuItem text="Item One"/>
+                <!-- ///// <sp:MenuItem text="Item Two"/>  -->
+                <!-- ///// <sp:MenuItem text="Item Two" subMenu="{sub_menu}"/>  -->
+                <!-- <sp:MenuItem text="Item Two" subMenu="{listProvider}"/> -->
+                <sp:MenuItem text="Item Two"/>
+                <!-- <sp:Menu>
+                  <sp:dataProvider>
+                  <fx:Array>
+                    <sp:MenuItem text="Category One" isHeading="true"/>
+                    <sp:MenuItem text="Item One"/>
+                    ///// <sp:MenuItem text="Item Two"/>
+                    ///// <sp:MenuItem text="Item Two" subMenu="{sub_menu}"/>
+                    <sp:MenuItem text="Item Two" subMenu="{listProvider}"/>
+                    <sp:MenuItem text="Item Two"/>
+                    ///// <sp:MenuItem text="Item Two" subMenu="{subMenuProvider}"/>
+                    <sp:MenuItem text="Item Three"/>
+                    <sp:MenuItem isDivider="true"/>
+                    <sp:MenuItem text="Category Two" isHeading="true"/>
+                    <sp:MenuItem text="Item One"/>
+                    <sp:MenuItem text="Item Two"/>
+                    <sp:MenuItem text="Item Three" disabled="true"/>
+                  </fx:Array>
+                  </sp:dataProvider>
+                </sp:Menu> -->
+                <!-- ///// <sp:MenuItem text="Item Two" subMenu="{subMenuProvider}"/> -->
+                <sp:MenuItem text="Item Three"/>
+                <sp:MenuItem isDivider="true"/>
+                <sp:MenuItem text="Category Two" isHeading="true"/>
+                <sp:MenuItem text="Item One"/>
+                <sp:MenuItem text="Item Two"/>
+                <sp:MenuItem text="Item Three" disabled="true"/>
+              </fx:Array>
+              </sp:dataProvider>
+            </sp:Menu>
+            <!-- ///// <sp:MenuItem text="Item Two" subMenu="{subMenuProvider}"/> -->
             <sp:MenuItem text="Item Three"/>
             <sp:MenuItem isDivider="true"/>
             <sp:MenuItem text="Category Two" isHeading="true"/>
@@ -465,17 +851,20 @@
           </sp:dataProvider>
         </sp:Menu>
         
-      </sp:Popover> -->
+      </sp:Popover>
       <!-- <sp:Switch text="Toggle 1" checked="true" onOff="false" change="switched(event)"/>
       <sp:Switch text="Toggle On" checked="false" change="switched(event)"/>
       <sp:Switch text="Toggle On" checked="true" quiet="true" change="switched(event)"/> -->
-     <!--  <sp:Tooltip text="Label" isOpen="true"/>
+      <!-- <sp:Tooltip text="Label" isOpen="true"/>
       <sp:Tooltip text="Label" isOpen="true" direction="top"/>
       <sp:Tooltip text="Label" isOpen="true" direction="bottom"/>
       <sp:Tooltip text="Label info with icon" flavor="info" icon="info" isOpen="true" direction="left"/>
-      <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success" isOpen="true" direction="right"/> -->
-      <!-- <sp:SideNav change="sideNavClick(event)"> -->
-        <!-- <sp:dataProvider>
+      <sp:Tooltip text="Label positive with icon" flavor="positive" icon="success" isOpen="true" direction="right"/>
+      <sp:Tooltip text="Label error" flavor="error"  isOpen="true" direction="top"/>
+      <sp:Tooltip text="Label succes" flavor="success" isOpen="true" direction="right"/>
+      <sp:ShowOnOverTooltip visibleText="here" text="Show On Over Tooltip" flavor="success" direction="right"/> -->
+      <!-- <sp:SideNav change="sideNavClick(event)">
+        <sp:dataProvider>
           <fx:Array>
             <sp:SideNavItem  text="Category One" isHeading="true"/>
             <sp:SideNavItem text="Item One"/>
@@ -486,12 +875,57 @@
             <sp:SideNavItem text="Item Two"/>
             <sp:SideNavItem text="Item Three" disabled="true"/>
           </fx:Array>
-        </sp:dataProvider> -->
-      <!-- </sp:SideNav> -->
+        </sp:dataProvider>
+      </sp:SideNav> -->
+      <!-- <sp:SideNav multiLevel="true">
+        <sp:dataProvider>
+          <fx:Array>
+            <sp:SideNavItem  text="Category One" isHeading="true"/>
+            <sp:SideNavItem text="Item One Level 1"/>
+            <sp:SideNavItem text="Item Two Level 1"/>
+            <sp:SideNavItem text="Item Three Level 1" />
+            <sp:SideNav>
+              <sp:dataProvider>
+                <fx:Array>
+                  <sp:SideNavItem  text="Category One" isHeading="true"/>
+                  <sp:SideNavItem text="Item One Level 2"/>
+                  <sp:SideNavItem text="Item Two Level 2"/>
+                  <sp:SideNavItem text="Item Three Level 2" />
+                   <sp:SideNav>
+                    <sp:dataProvider>
+                      <fx:Array>
+                        <sp:SideNavItem  text="Category One" isHeading="true"/>
+                        <sp:SideNavItem text="Item One Level 3"/>
+                        <sp:SideNavItem text="Item Two Level 3"/>
+                        <sp:SideNavItem text="Item Three Level 3" />
+                        <sp:SideNavItem text="Category Two" isHeading="true"/>
+                        <sp:SideNavItem text="Item One Level 3"/>
+                        <sp:SideNavItem text="Item Two Level 3"/>
+                        <sp:SideNavItem text="Item Three Level 3" disabled="true"/>
+                      </fx:Array>
+                    </sp:dataProvider>
+                  </sp:SideNav>
+                  <sp:SideNavItem text="Category Two" isHeading="true"/>
+                  <sp:SideNavItem text="Item One Level 2"/>
+                  <sp:SideNavItem text="Item Two Level 2"/>
+                  <sp:SideNavItem text="Item Three Level 2" disabled="true"/>
+                </fx:Array>
+              </sp:dataProvider>
+            </sp:SideNav>
+            <sp:SideNavItem text="Category Two" isHeading="true"/>
+            <sp:SideNavItem text="Item One Level 1"/>
+            <sp:SideNavItem text="Item Two Level 1"/>
+            <sp:SideNavItem text="Item Three Level 1" disabled="true"/>
+          </fx:Array>
+        </sp:dataProvider>
+      </sp:SideNav> -->
         <!-- <sp:Rule size="small"/>
         <sp:Rule size="large"/>
         <sp:Rule size="medium"/>
-        <sp:Link href="http://printui.com" text="Click Here"/> -->
+        <sp:Rule size="small" vertical="true"/>
+        <sp:Rule size="large" vertical="true"/>
+        <sp:Rule size="medium" vertical="true"/> -->
+        <!-- <sp:Link href="http://printui.com" text="Click Here"/> -->
       <!-- <sp:Link overBackground="true" quiet="true" text="this is my link"/>
       <sp:Link text=""/>
       <sp:Link overBackground="true" text="111111111111" href=""/>
@@ -500,6 +934,10 @@
       <sp:Link subtle="true" text=""/>
       <sp:Body text=" Body1 " size="1"> -->
       <!-- </sp:Body> -->
+      <!-- <sp:Body text=" small Body" textSize="small"/>
+      <sp:Body text=" large Body" textSize="large"/>
+      <sp:Body text=" secondary Body" isSecondary="true"/>
+      <sp:Body text=" italic Body" isItalic="true"/> -->
       <!-- <sp:Body text=" Body2" size="2"/>
       <sp:Body text=" Body5" size="5"/>
       <sp:Code text=" Code2" size="2"/>
@@ -510,7 +948,9 @@
       
       <!-- <sp:Heading text=" Heading2 " size="2"/> -->
     
-      <!-- <sp:Calendar/> -->
+      <!-- <sp:Calendar/>
+      <sp:Calendar disabled="true"/>
+      <sp:Calendar startDate="{date}" endDate="{date1}"/>??? -->
       <!-- <sp:DropZone/>
        -->
     </sp:View>

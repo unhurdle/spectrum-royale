@@ -26,6 +26,20 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       return addElementToWrapper(this,"hr");;
     }
+    private var _vertical:Boolean;
+
+    public function get vertical():Boolean
+    {
+    	return _vertical;
+    }
+
+    public function set vertical(value:Boolean):void
+    {
+      if(value != !!_vertical){
+        toggle(valueToSelector("vertical"),value);
+      }
+    	_vertical = value;
+    }
     
         private var _size:String;
 

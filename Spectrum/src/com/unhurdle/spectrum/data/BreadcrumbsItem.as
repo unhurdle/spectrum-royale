@@ -42,5 +42,16 @@ package com.unhurdle.spectrum.data
     {
     	_isFolder = value;
     }
+    private var _isDragged:Boolean = false;
+
+    public function get isDragged():Boolean
+    {
+    	return _isDragged;
+    }
+
+    public function set isDragged(value:Boolean):void
+    {
+    	_isDragged = value;
+    }
   }
 }

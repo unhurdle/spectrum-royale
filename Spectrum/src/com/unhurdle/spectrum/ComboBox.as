@@ -22,7 +22,7 @@ package com.unhurdle.spectrum
       return model as IComboBoxModel;
     }
 
-		
+		// is-open?????????????????????????????????????????????????????????????
 		/**
 		 *  The data for display by the ComboBox.
 		 */
@@ -123,6 +123,34 @@ package com.unhurdle.spectrum
 			}
 			_invalid = value;
 		}
+		private var _quiet:Boolean;
+
+		public function get quiet():Boolean
+		{
+			return _quiet;
+		}
+
+		public function set quiet(value:Boolean):void
+		{
+			if(value != !!_quiet){
+				toggle(valueToSelector("quiet"),value);
+			}
+			_quiet = value;
+		}
+		// private var _open:Boolean;
+
+		// public function get open():Boolean
+		// {
+		// 	return _open;
+		// }
+
+		// public function set open(value:Boolean):void
+		// {
+		// 	if(value != !!_open){
+		// 		toggle("is-open",value);
+		// 	}
+		// 	_open = value;
+		// }
 
   }
 }

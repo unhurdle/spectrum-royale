@@ -35,12 +35,10 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'button');
       // var type:String =
       playIcon = new Icon(IconPrefix._18 + "PlayCircle");
-      playIcon.size = IconSize.S;
       playIcon.className = appendSelector("-item is-selected");
       _paused = false;
       addElement(playIcon);
       pauseIcon = new Icon(IconPrefix._18 + "PauseCircle");
-      pauseIcon.size = IconSize.S;
       pauseIcon.className = appendSelector("-item");
       addElement(pauseIcon);
       element.onclick = handleClick;

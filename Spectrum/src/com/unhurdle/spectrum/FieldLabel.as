@@ -114,10 +114,26 @@ package com.unhurdle.spectrum
     	_position = value;
     }
 
+    public function get text():String
+    {
+    	return textNode.text;
+    }
+
+    public function set text(value:String):void
+    {
+      if(value != textNode.text){
+        textNode.text = value;
+      }
+    }
+
+    private var textNode:TextNode;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,"label");
+      addElementToWrapper(this,"label");
+      textNode = new TextNode("");
+      textNode.element = element;
+      return element;
     }
   }
 }

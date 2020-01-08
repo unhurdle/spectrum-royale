@@ -93,7 +93,7 @@ package com.unhurdle.spectrum
         iconElement.className = value;
       }
     }
-    private var _iconSize:String;
+    private var _iconSize:String; "S"
 
     public function get iconSize():String
     {

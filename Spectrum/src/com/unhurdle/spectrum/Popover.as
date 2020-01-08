@@ -39,6 +39,18 @@ package com.unhurdle.spectrum
         dispatchEvent(new Event("openChanged"));
       }
     }
+    private var _quiet:Boolean;
+
+    public function get quiet():Boolean
+    {
+    	return _quiet;
+    }
+
+    public function set quiet(value:Boolean):void
+    {
+    	_quiet = value;
+      toggle(valueToSelector("quiet"),value);
+    }
 
     private var _relativePosition:Boolean;
 
@@ -59,6 +71,72 @@ package com.unhurdle.spectrum
             element.style.position = null;
           }
         }
+      }
+    }
+
+    private var _dialog:Boolean;
+
+    public function get dialog():Boolean
+    {
+    	return _dialog;
+    }
+
+    public function set dialog(value:Boolean):void
+    {
+      if(value != !!_dialog){
+      	_dialog = value;
+        toggle(valueToSelector("dialog"),value);
+        COMPILE::JS
+        {
+          if(value){          
+            var tip:HTMLDivElement = newElement("div",valueToSelector("tip")) as HTMLDivElement;
+            element.appendChild(tip);
+          }else{
+            if(element.contains(tip)){
+              element.removeChild(tip);
+            }
+          }
+        }
+      }
+    }
+
+    // private var _tip:Boolean;
+
+    // public function get tip():Boolean
+    // {
+    // 	return _tip;
+    // }
+
+    // public function set tip(value:Boolean):void
+    // {
+    //   if(value != !!_tip){
+    //   	_tip = value;
+    //     // toggle(valueToSelector("tip"),value);
+    //     COMPILE::JS
+    //     {
+    //       if(value){          
+    //         var tip:HTMLDivElement = newElement("div",valueToSelector("tip")) as HTMLDivElement;
+    //         element.appendChild(tip);
+    //       }else{
+    //         if(element.contains(tip)){
+    //           element.removeChild(tip);
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    private var _top:Boolean;
+
+    public function get top():Boolean
+    {
+    	return _top;
+    }
+
+    public function set top(value:Boolean):void
+    {
+      if(value != !!_top){
+      	_top = value;
+        toggle(valueToSelector("top"),value);
       }
     }
 

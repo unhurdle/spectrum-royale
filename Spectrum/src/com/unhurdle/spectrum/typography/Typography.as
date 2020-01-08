@@ -49,6 +49,69 @@ package com.unhurdle.spectrum.typography
       }
     }
 
+    protected var _textSize:String;
+
+    public function get textSize():String
+    {
+        return _textSize;
+    }
+    public function set textSize(value:String):void
+    {
+      if(value != _textSize){
+        if(value){
+          _size = 0;
+        }
+        switch (value){
+          case "small":
+          case "large":
+          case "":
+              break;
+          default:
+              throw new Error("Invalid size: " + value);
+        }
+        if(_textSize){
+          toggle(valueToSelector(_textSize), false);
+        }
+        if(value == "small" || value == "large"){
+          toggle(valueToSelector(value),true);
+        }
+        _textSize = value;
+      }
+    }    
+    private var _italic:Boolean;
+
+    public function get isItalic():Boolean
+    {
+        return _italic;
+    }
+
+    public function set isItalic(value:Boolean):void
+    {
+        if(value != !!_italic){
+            if(value){
+              _size = 0;
+            }
+            toggle(valueToSelector("italic"),value);
+        }
+        _italic = value;
+    }
+    private var _isSecondary:Boolean;
+
+    public function get isSecondary():Boolean
+    {
+    	return _isSecondary;
+    }
+
+    public function set isSecondary(value:Boolean):void
+    {
+      if(value != !!_isSecondary){
+        if(value){
+          _size = 0;
+        }
+        toggle(valueToSelector("secondary"),value);
+      }
+      _isSecondary = value;
+    }
     protected function setTypeNames():void{
       typeNames = getSelector();
       COMPILE::JS

@@ -38,6 +38,9 @@ package com.unhurdle.spectrum
     }
     private function handleClick(ev:*):void
     {
+      if(_readOnly){
+        return;
+      }
       if(ev.target){
         var index:Number = Number(ev.target.id);
         // var index:Number = Number((ev.target as HTMLElement).getAttribute("data-index"));
@@ -113,27 +116,33 @@ package com.unhurdle.spectrum
       if(!iconArray){
         iconArray = [];
         addToArray(max);
-        for(var i:int = 0;i<iconArray.length;i++){
+        for(var i:int = 1;i<=iconArray.length;i++){
           //// span.className = appendSelector("-icon");
           // elem.children[i].className = appendSelector("-icon");
           //// elem.children[i].className = "spectrum-Rating-icon";
           if(i <= val){
             elem.children[i].classList.add("is-selected");
+            if(i == val){
+              elem.children[i].classList.add("is-currentValue");              
+            }
             // span.className += " is-selected";
           }
           // span.elem.setAttribute("data-index",i);
         }
       }
       else{
-        if(val < Number(input.value)){
-          for(i = Number(input.value); i > val ; i--){
+        var inputVal: Number = Number(input.value);
+        elem.children[inputVal].classList.remove("is-currentValue");
+        elem.children[val].classList.add("is-currentValue");
+        if(val < inputVal){
+          for(i = inputVal; i > val ; i--){
             if(elem.children[i]){
               elem.children[i].classList.remove("is-selected");
             }
           }
         }
-        else if(val > Number(input.value)){
-          for(i = Number(input.value); i <= val; i++){
+        else if(val > inputVal){
+          for(i = inputVal; i <= val; i++){
             if(elem.children[i]){
               elem.children[i].classList.add("is-selected");
             }
@@ -157,6 +166,35 @@ package com.unhurdle.spectrum
         input.disabled = value;
       }
     	_disabled = value;
+    }
+    private var _quiet:Boolean;
+
+    public function get quiet():Boolean
+    {
+    	return _quiet;
+    }
+
+    public function set quiet(value:Boolean):void
+    {
+      if(value != !!_quiet){
+        toggle(valueToSelector("quiet"),value);
+      }
+    	_quiet = value;
+    }
+    private var _readOnly:Boolean;
+
+    public function get readOnly():Boolean
+    {
+    	return _readOnly;
+    }
+
+    public function set readOnly(value:Boolean):void
+    {
+      if(value != !!_readOnly){
+        toggle("is-readOnly",value);
+        input.readOnly = value;
+      }
+    	_readOnly = value;
     }
     private function changeValue(ev:MouseEvent):void{
       value = ev.target.id + 1;

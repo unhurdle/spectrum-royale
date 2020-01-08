@@ -164,6 +164,7 @@ package com.unhurdle.spectrum
         public function set startDate(value:Date):void
         {
         	_startDate = value;
+            updateDisplay();
         }
 
         public function get endDate():Date
@@ -174,6 +175,7 @@ package com.unhurdle.spectrum
         public function set endDate(value:Date):void
         {
         	_endDate = value;
+            updateDisplay();
         }
         private function updateCalendar():void
         {   
@@ -351,6 +353,7 @@ package com.unhurdle.spectrum
                     } else if (j == 6){
                         span.lastInWeek = true;
                     }
+                    span.disabled = disabled;
                     displayedDates.push(span);
                     if(days[k+l]){
                         span.isToday = days[k+l].toDateString() == today.toDateString();
@@ -360,6 +363,8 @@ package com.unhurdle.spectrum
                         span.date = days[k+l] as Date;
                         
                         span.addEventListener(MouseEvent.CLICK,handleSelectedDay);
+                    }else{
+                        span.isOutsideMonth = true;
                     }
                     cell.addElement(span);
                     calenderRow.addElement(cell); 
@@ -411,5 +416,6 @@ package com.unhurdle.spectrum
         private var elementSelected:CalendarDay;
 
         //TODO add is-focused!! we need a lits of event dates
+        ///////////////////////////////////////////how to do???
     }
 }

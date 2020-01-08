@@ -50,7 +50,6 @@ package com.unhurdle.spectrum.renderers
       if(dropdownItem.icon){
         if(!icon){
           icon = new Icon(dropdownItem.icon);
-          icon.size = IconSize.S;
           element.insertBefore(icon.element,element.childNodes[0] || null);
           icon.addedToParent();
         } else {

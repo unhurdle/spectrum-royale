@@ -39,7 +39,6 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = super.createElement();
       // button.className = //??
       icon = IconPrefix._18 + "More";
-      iconSize = IconSize.S;
       addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       
       popover = new Popover();
@@ -116,10 +115,11 @@ package com.unhurdle.spectrum
       _openMenu = null;
     }
     private function handlePopoverChange(ev:Event):void{
-      if(popover.open)
+      if(!popover.open)
       {
   			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
         popupHost.popUpParent.removeElement(popover);
+        selected = false;
       }
     }
     private var _alignRight:Boolean;

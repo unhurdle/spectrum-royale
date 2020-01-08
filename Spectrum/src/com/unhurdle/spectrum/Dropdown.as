@@ -17,7 +17,9 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IPopUpHost;
   import org.apache.royale.utils.UIUtils;
 	import org.apache.royale.utils.callLater;
-	import com.unhurdle.spectrum.data.IMenuItem;
+	// import com.unhurdle.spectrum.data.IMenuItem;
+	import com.unhurdle.spectrum.const.IconPrefix;
+	import com.unhurdle.spectrum.const.IconSize;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="showMenu", type="org.apache.royale.events.Event")]
@@ -68,6 +70,7 @@ package com.unhurdle.spectrum
       var minHeight:Number = _minMenuHeight + 6;
       ev.preventDefault();
       var open:Boolean = !popover.open;
+      toggle("is-open",open);
       if(open){
         // Figure out direction and max size
         var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
@@ -134,7 +137,7 @@ package com.unhurdle.spectrum
       pxStr = componentBounds.bottom + "px";
       popover.setStyle("top",pxStr);
       pxStr = maxHeight + "px";
-      popover.setStyle("max-height",pxStr);
+      // popover.setStyle("max-height",pxStr);
       if(popover.position == "top"){
         popover.position = "bottom";
       }
@@ -146,7 +149,7 @@ package com.unhurdle.spectrum
       popover.setStyle("top","");
       popover.setStyle("bottom",pxStr);
       pxStr = maxHeight + "px";
-      popover.setStyle("max-height",pxStr);
+      // popover.setStyle("max-height",pxStr);
       if(popover.position == "bottom"){
         popover.position = "top";
       }
@@ -210,7 +213,8 @@ package com.unhurdle.spectrum
       newVal = new Array(value.length);
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
-        if(value[i] is IMenuItem){
+        // if(value[i] is IMenuItem){
+        if(value[i] is MenuItem){
           continue;
         }
         var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
@@ -244,6 +248,7 @@ package com.unhurdle.spectrum
     public function handleListChange():void{
       closePopup();
       setButtonText();
+      toggle("is-open",false);
       dispatchEvent(new Event("change"));
     }
     
@@ -259,9 +264,30 @@ package com.unhurdle.spectrum
       if(value != _invalid){
         toggle("is-invalid",value);
         button.invalid = value;
-        //add invalid icon
+        if(value){
+          var invalidIcon:Icon = new Icon(IconPrefix._18 + "Alert");
+          button.addElement(invalidIcon);
+        }else{
+          button.removeElement(invalidIcon);
+        }
       }
     	_invalid = value;
+    }
+    private var _quiet:Boolean;
+
+    public function get quiet():Boolean
+    {
+    	return _quiet;
+    }
+
+    public function set quiet(value:Boolean):void
+    {
+      if(value != _quiet){
+        toggle(valueToSelector("quiet"),value);
+        button.quiet = value;
+        popover.quiet = value;
+      }
+    	_quiet = value;
     }
 
     private var _disabled:Boolean;

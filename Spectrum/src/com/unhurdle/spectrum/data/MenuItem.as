@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum.data
 {
-  public class MenuItem implements IMenuItem
+  // public class MenuItem implements IMenuItem
+  public class MenuItem
   {
     public function MenuItem(text:String = null)
     {
@@ -42,6 +43,17 @@ package com.unhurdle.spectrum.data
     public function set isDivider(value:Boolean):void
     {
     	_isDivider = value;
+    }
+    private var _isOpen:Boolean = false;
+
+    public function get isOpen():Boolean
+    {
+    	return _isOpen;
+    }
+
+    public function set isOpen(value:Boolean):void
+    {
+    	_isOpen = value;
     }
     private var _disabled:Boolean;
 
@@ -92,14 +104,26 @@ package com.unhurdle.spectrum.data
     	_imageIcon = value;
     }
 
-    private var _subMenu:Array;
+    private var _dataProvider:Array=[];
 
-    public function get subMenu():Array
+    public function get dataProvider():Array
+    {
+    	return _dataProvider;
+    }
+
+    public function set dataProvider(value:Array):void
+    {
+    	_dataProvider = value;
+    }
+
+    private var _subMenu:Boolean;
+
+    public function get subMenu():Boolean
     {
     	return _subMenu;
     }
 
-    public function set subMenu(value:Array):void
+    public function set subMenu(value:Boolean):void
     {
     	_subMenu = value;
     }

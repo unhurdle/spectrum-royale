@@ -1,12 +1,13 @@
 package com.unhurdle.spectrum
 {
   COMPILE::JS{
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
+      import org.apache.royale.core.WrappedHTMLElement;
+      import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.html.List;
 
-  public class Accordion extends SpectrumBase
+  public class Accordion extends org.apache.royale.html.List
   {
     /**
      * <inject_html>
@@ -18,7 +19,7 @@ package com.unhurdle.spectrum
     public function Accordion()
     {
       super();
-      typeNames = "spectrum-Accordion"
+      typeNames = getSelector();
     }
 
     private var indicator:Icon;
@@ -26,6 +27,12 @@ package com.unhurdle.spectrum
     private var headerElem:HTMLDivElement;
     private var itemContent:HTMLDivElement;
     
+    
+
+    private function getSelector():String{
+      return "spectrum-Accordion";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
@@ -46,75 +53,5 @@ package com.unhurdle.spectrum
       return elem
 
     }
-    
-    private var _text:String;
-
-    public function get text():String{
-      return _text;
-    }
-
-    public function set text(value:String):void{
-      _text = value;
-    }
-
-    private var _status:String;
-
-    public function get status():String
-    {
-      return _status;
-    }
-    
-    public function set status(value:String):void
-    {
-      COMPILE::JS
-      {
-        if(value != _status){
-          switch(value){
-            case Accordion.OPEN:
-            case Accordion.DISABLED:
-            case Accordion.DEFAULT:
-              break;
-            default:
-              throw new Error("Invalid status: " + value);
-          }
-          var oldStatus:String = valueToSelector(_status);
-          var newStatus:String = valueToSelector(value);
-          toggle(newStatus, true);
-          toggle(oldStatus, false);
-          setAccordionType(value);
-        }
-      }
-      _status = value;
-    }
-
-  public static const OPEN:String = "open";
-  public static const DISABLED:String = "disabled";
-  public static const DEFAULT:String = "default";
-
-  public function setAccordionType(status:String):void
-  {
-    var type:String;
-
-        switch(status){
-          case Accordion.OPEN:
-          type = " is-open";
-          case Accordion.DISABLED:
-          type = " is-disabled";
-          case Accordion.DEFAULT:
-          type = "";
-        }
-        if(!type){
-          type == "";
-        }
-        if(accordionItem){
-          accordionItem.className = "spectrum-Accordion-item" +type;
-        } 
-        else {
-          accordionItem = newElement("div") as HTMLDivElement;
-          accordionItem.className = "spectrum-Accordion-item" +type;
-          element.insertBefore(accordionItem, element.childNodes[0] || null);
-
-        }
-        }
   }
 }

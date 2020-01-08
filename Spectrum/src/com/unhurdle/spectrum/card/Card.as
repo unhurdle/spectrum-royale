@@ -78,6 +78,20 @@ package com.unhurdle.spectrum.card
       }
     	_small = value;
     }
+    private var _horizontal:Boolean;
+
+    public function get horizontal():Boolean
+    {
+    	return _horizontal;
+    }
+
+    public function set horizontal(value:Boolean):void
+    {
+      if(value != !!_horizontal){
+        toggle(valueToSelector("horizontal"),value);
+      }
+    	_horizontal = value;
+    }
     private var _gallery:Boolean;
 
     public function get gallery():Boolean
@@ -203,6 +217,7 @@ package com.unhurdle.spectrum.card
         }
         addElement(value);
       	_quickActions = value;
+        //spectrum-Card-quickActions - need this class??
       }
     }
 

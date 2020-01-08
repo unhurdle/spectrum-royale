@@ -72,6 +72,8 @@ package com.unhurdle.spectrum
 
       header = new PageTitle(); 
       header.element.classList.add("spectrum-IllustratedMessage-heading");
+      header.element.classList.add("spectrum-heading");
+      header.element.classList.add(header.typeNames);
       
       element.appendChild(header.element);
 

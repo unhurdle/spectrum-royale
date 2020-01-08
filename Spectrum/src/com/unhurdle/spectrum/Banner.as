@@ -106,7 +106,7 @@ package com.unhurdle.spectrum
         public function set corner(value:Boolean):void
         {
             if(value != !!_corner){
-                toggle("spectrum-Banner--corner",value);
+                toggle(valueToSelector("corner"),value);
             }
             _corner = value;
         }

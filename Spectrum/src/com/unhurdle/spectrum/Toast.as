@@ -42,6 +42,7 @@ package com.unhurdle.spectrum
     public static const NEGATIVE:String = "negative";
     public static const POSITIVE:String = "positive";
     public static const WARNING:String = "warning";
+    public static const SUCCESS:String = "success";
 
     override protected function getSelector():String{
       return "spectrum-Toast";
@@ -169,10 +170,10 @@ package com.unhurdle.spectrum
     	_autoClose = value;
     }
 
-    [Inspectable(category="General", enumeration="info,positive,negative,warning")]
+    [Inspectable(category="General", enumeration="info,success,positive,negative,warning")]
     /**
      * Set the flavor of the Toast
-     * One of info, positive and negative. warning also appears to be an option
+     * One of info, success, positive and negative. warning also appears to be an option
      * To set the Toast to the default, specify an empty string
      */
     public function set flavor(value:String):void
@@ -181,6 +182,7 @@ package com.unhurdle.spectrum
         switch(value){
           case "info":
           case "positive":
+          case "success":
           case "negative":
           case "warning":
           case "":
@@ -190,11 +192,11 @@ package com.unhurdle.spectrum
         }
         if(_flavor){
           var oldFlavor:String = valueToSelector(_flavor);
-          toggle(oldFlavor,false);
+          toast.classList.remove(oldFlavor);
         }
         var newFlavor:String = valueToSelector(value);
-        toggle(newFlavor,true);
-        createIcon(value);
+          toast.classList.add(newFlavor);
+          createIcon(value);
       }
     	_flavor = value;
     }
@@ -207,6 +209,7 @@ package com.unhurdle.spectrum
       switch(flavor){
         case "negative":type = "Alert";break;
         case "positive":type = "Success";break;
+        case "success":type = "Success";break;
         case "info":type = "Info";break;
         case "warning":type = "Alert";break;
         default: return; // no default icon
@@ -226,6 +229,7 @@ package com.unhurdle.spectrum
       }
 
     }
+    private var toast:HTMLElement;
     private var contentNode:TextNode;
     
     COMPILE::JS
@@ -233,7 +237,7 @@ package com.unhurdle.spectrum
       var styleStr:String = "visibility:hidden;position:fixed;bottom:30px;width:100%;display:flex;align-items:center;justify-content:center;z-index:100;";
       var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
       elem.setAttribute("style",styleStr);
-      var toast:HTMLElement = newElement("div");
+      toast = newElement("div");
       toast.className = getSelector();
       body = newElement("div");
       body.className = appendSelector("-body");

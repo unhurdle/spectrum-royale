@@ -140,6 +140,7 @@ package com.unhurdle.spectrum{
       model.addEventListener("patternChange",handlePatternChange);
       model.addEventListener("requiredChange",handleRequiredChange);
       model.addEventListener("disabledChange",handleDisabledChange);
+      model.addEventListener("quietChange",handleQuietChange);
 			(_strand as IEventDispatcher).addEventListener("sizeChanged",handleSizeChange);
 			
 			// set initial value and positions using default sizes
@@ -147,6 +148,7 @@ package com.unhurdle.spectrum{
       handlePatternChange(null);
       handleRequiredChange(null);
       handleDisabledChange(null);
+      handleQuietChange(null);
 
 			itemChangeAction();
 			// sizeChangeAction();
@@ -244,6 +246,9 @@ package com.unhurdle.spectrum{
     }
     protected function handleDisabledChange(event:Event):void{
       button.disabled = input.disabled = model.disabled;
+    }
+    protected function handleQuietChange(event:Event):void{
+      button.quiet = input.quiet = model.quiet;
     }
 		/**
 		 * @private

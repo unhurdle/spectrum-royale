@@ -62,7 +62,6 @@ package com.unhurdle.spectrum
       super.invalid = value;
       if(value){//check if !=_invalid ??
         var playIcon:Icon = new Icon(IconPrefix._18 + "Alert");
-        playIcon.size = IconSize.S;
         addElement(playIcon);
       }
     }

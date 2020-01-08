@@ -49,7 +49,6 @@ package com.unhurdle.spectrum.renderers
           var iconSelector:String = value["icon"];
           if(!icon){
             icon = new Icon(iconSelector);
-            icon.size = IconSize.S;
             addElementAt(icon,0);
           } else {
             icon.setStyle("display",null);
@@ -62,7 +61,6 @@ package com.unhurdle.spectrum.renderers
           var iconSrc:String = value["imageIcon"];
           if(!imageIcon){
             imageIcon = new ImageIcon(iconSrc);
-            imageIcon.size = IconSize.S;
             addElementAt(imageIcon,0);
           } else {
             imageIcon.setStyle("display",null);
