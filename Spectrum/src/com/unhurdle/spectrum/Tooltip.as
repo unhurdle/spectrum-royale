@@ -50,7 +50,7 @@ package com.unhurdle.spectrum
 
     /**
      * The flavor of the Tooltip
-     * One of info, positive and negative.
+     * One of info, positive and negative, success and error.
      * To set the Tooltip to the default, specify an empty string
      */
     public function get flavor():String
@@ -65,6 +65,8 @@ package com.unhurdle.spectrum
           case "info":
           case "positive":
           case "negative":
+          case "success":
+          case "error":
           case "":
             break;
           default:

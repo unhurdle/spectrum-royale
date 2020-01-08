@@ -40,30 +40,35 @@ package com.unhurdle.spectrum.renderers
       breadCrumbsItem = value as BreadcrumbsItem;
       textNode.text = getLabelFromData(this,value);
       element.className = appendSelector("-item");
-      if(breadCrumbsItem && breadCrumbsItem.isTitle){
-        var h1:HTMLElement = newElement("h1");
-        h1.className = "spectrum-Heading--pageTitle";
-        // element.removeChild(textNode.element);
-        if(icon.parent){
-          removeElement(icon);
+      if(breadCrumbsItem){
+        if(breadCrumbsItem.isTitle){
+          var h1:HTMLElement = newElement("h1");
+          h1.className = "spectrum-Heading--pageTitle";
+          // element.removeChild(textNode.element);
+          if(icon.parent){
+            removeElement(icon);
+          }
+          // element.removeChild(icon.getElement());
+          h1.appendChild(textNode.element);
+          element.appendChild(h1);
         }
-        // element.removeChild(icon.getElement());
-        h1.appendChild(textNode.element);
-        element.appendChild(h1);
-      }
-      if(breadCrumbsItem && breadCrumbsItem.isFolder){
-        element.removeChild(textNode.element);
-        var button:ActionButton = new ActionButton();
-        button.quiet = true;
-        button.element.style.height = '100%';
-        var type:String = IconType.FOLDER_BREADCRUMB;
-        var folderIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
-        folderIcon.style = {"width": "18px","height": "18px","margin-right": "5px"};
-        folderIcon.type = type;
-        folderIcon.className = appendSelector("-folder");
-        button.addElement(folderIcon);
-        element.appendChild(button.element);
-        element.style.marginTop = '6px';
+        if(breadCrumbsItem.isDragged){
+          element.classList.add("is-dragged");
+        }
+        if(breadCrumbsItem.isFolder){
+          element.removeChild(textNode.element);
+          var button:ActionButton = new ActionButton();
+          button.quiet = true;
+          button.element.style.height = '100%';
+          var type:String = IconType.FOLDER_BREADCRUMB;
+          var folderIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+          folderIcon.style = {"width": "18px","height": "18px","margin-right": "5px"};
+          folderIcon.type = type;
+          folderIcon.className = appendSelector("-folder");
+          button.addElement(folderIcon);
+          element.appendChild(button.element);
+          element.style.marginTop = '6px';
+        }
       }
       else{
         element.style.marginTop = '8px';

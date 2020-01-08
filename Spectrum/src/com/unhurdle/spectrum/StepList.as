@@ -40,6 +40,7 @@ package com.unhurdle.spectrum
             (value[i] as StepsListItem).text = "Step " + (i+1);
           }
           (value[i] as StepsListItem).toolTip = isToolTip;
+          (value[i] as StepsListItem).interactive = interactive;
           continue;
         } else {
           var item:StepsListItem;
@@ -57,6 +58,7 @@ package com.unhurdle.spectrum
             item.completed = value[i]["completed"];
           }
           item.toolTip = isToolTip;
+          item.interactive = interactive;
           // if(isLabel()){
           //   item.text = "Step" + i;
           // }
@@ -80,6 +82,23 @@ package com.unhurdle.spectrum
         }
       }
     	_isSmall = value;
+    }
+    private var _interactive:Boolean;
+    public function get interactive():Boolean
+    {
+    	return _interactive;
+    }
+    public function set interactive(value:Boolean):void
+    {
+      if(value != !!_interactive){
+        if(value){
+          className = getSelector() + "--interactive";
+        }
+        else{
+          className = "";
+        }
+      }
+    	_interactive = value;
     }
     private var _isLabel:Boolean;
     public function get isLabel():Boolean

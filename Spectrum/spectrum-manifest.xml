@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <componentPackage>
-    <!-- <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/> -->
+    <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/>
+    <component id="AccordionItem" class="com.unhurdle.spectrum.data.AccordionItem"/>
     <component id="ActionButton" class="com.unhurdle.spectrum.ActionButton"/>
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
@@ -47,6 +48,8 @@
     <component id="DialogContent" class="com.unhurdle.spectrum.DialogContent"/>
     <component id="DialogFooter" class="com.unhurdle.spectrum.DialogFooter"/>
     <component id="DialogHeader" class="com.unhurdle.spectrum.DialogHeader"/>
+    <component id="DialogTitle" class="com.unhurdle.spectrum.DialogTitle"/>
+    <component id="DialogTypeIcon" class="com.unhurdle.spectrum.DialogTypeIcon"/>
     <component id="Display" class="com.unhurdle.spectrum.typography.Display"/>
     <component id="Dropdown" class="com.unhurdle.spectrum.Dropdown"/>
     <component id="DropdownItem" class="com.unhurdle.spectrum.data.DropdownItem"/>
@@ -90,6 +93,7 @@
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="SideNav" class="com.unhurdle.spectrum.SideNav"/>
     <component id="SideNavItem" class="com.unhurdle.spectrum.data.SideNavItem"/>
+	<component id="ShowOnOverTooltip" class="com.unhurdle.spectrum.ShowOnOverTooltip"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>

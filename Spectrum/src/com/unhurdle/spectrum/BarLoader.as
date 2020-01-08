@@ -252,28 +252,28 @@ package com.unhurdle.spectrum
                 valueNode.element.style.display = "none";
             }
         }
-        // private var _indeterminate:Boolean;
+        private var _indeterminate:Boolean;
 
-        // public function get indeterminate():Boolean
-        // {
-        //     return _indeterminate;
-        // }
+        public function get indeterminate():Boolean
+        {
+            return _indeterminate;
+        }
 
-        // public function set indeterminate(value:Boolean):void
-        // {
-        //     if(value){
-        //         // set the bar to defaults
-        //         setColor("");
-        //         percentNode.text = "";
-        //         fill.style.width = "";
-        //     } else {
-        //         calculatePosition();
-        //     }
-        //     if(value != !!_indeterminate){
-        //         toggle(valueToSelector("indeterminate"),value);
-        //     }
-        //     _indeterminate = value;
-        // }
+        public function set indeterminate(value:Boolean):void
+        {
+            // if(value){
+            //     // set the bar to defaults
+            //     setColor("");
+            //     percentNode.text = "";
+            //     fill.style.width = "";
+            // } else {
+            //     calculatePosition();
+            // }
+            if(value != !!_indeterminate){
+                toggle(valueToSelector("indeterminate"),value);
+            }
+            _indeterminate = value;
+        }
 
 /**
  * spectrum-BarLoader--overBackground

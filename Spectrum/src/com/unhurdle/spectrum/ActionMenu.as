@@ -39,6 +39,7 @@ package com.unhurdle.spectrum
       
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       button = new ActionButton();
+      button.quiet = true;
       // button.className = //??
       button.icon = IconPrefix._18 + "More";
       button.iconSize = IconSize.S;

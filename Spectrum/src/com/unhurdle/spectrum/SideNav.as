@@ -15,12 +15,17 @@ package com.unhurdle.spectrum
     public function SideNav()
     {
       super();
-      typeNames = "spectrum-SideNav";
+      typeNames = getSelector();
     }
+    
+    private function getSelector():String{
+      return "spectrum-SideNav";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      return addElementToWrapper(this,'div');
+      return addElementToWrapper(this,'ul');
     }
 
 		private var _labelField:String = "label";
@@ -53,6 +58,22 @@ package com.unhurdle.spectrum
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
         if(value[i] is SideNavItem){
+          (value[i] as SideNavItem).isList = false;
+          (value[i] as SideNavItem).text = value[i].text;
+          (value[i] as SideNavItem).isHeading = value[i].isHeading;
+          (value[i] as SideNavItem).href = value[i].href;
+          (value[i] as SideNavItem).selected = value[i].selected;
+          (value[i] as SideNavItem).dataProvider = value[i].dataProvider;
+          (value[i] as SideNavItem).disabled = value[i].disabled;
+          (value[i] as SideNavItem).icon = value[i].icon;
+          continue;
+        } else if(value[i] is SideNav){
+          (value[i] as SideNav).multiLevel = (value[i] as SideNav).multiLevel;
+          (value[i] as SideNavItem).isList = true;
+          (value[i] as SideNavItem).text = "new sideNav";
+          (value[i] as SideNavItem).href = value[i].href;
+          (value[i] as SideNavItem).disabled = value[i].disabled;
+          (value[i] as SideNavItem).icon = value[i].icon;
           continue;
         } else {
           var item:SideNavItem = new SideNavItem(getLabelFromData(this,value[i]));
@@ -65,9 +86,50 @@ package com.unhurdle.spectrum
           if(value[i].hasOwnProperty("isHeading")){
             item.isHeading = value[i]["isHeading"];
           }
+          if(value[i].hasOwnProperty("isList")){
+            item.isList = value[i]["isList"];
+          }
+          if(value[i].hasOwnProperty("icon")){
+            item.icon = value[i]["icon"];
+          }
           value[i] = item;
         }
       }
+    }
+    private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+    	_disabled = value;
+    }
+    private var _multiLevel:Boolean;
+
+		public function get multiLevel():Boolean
+		{
+			return _multiLevel;
+		}
+
+		public function set multiLevel(value:Boolean):void
+		{
+			if(value != !!_multiLevel){
+        COMPILE::JS
+        {
+          !!value? element.classList.add("spectrum-SideNav--multiLevel"):element.classList.remove("spectrum-SideNav--multiLevel");
+          var elementClassList:String = "";
+          for(var i:int = 0; i < element.classList.length; i++)
+          {
+            elementClassList += element.classList[i] + " ";
+
+          }
+          className = elementClassList;
+        }
+      }
+			_multiLevel = value;
     }
   }
 }

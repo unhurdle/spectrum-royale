@@ -53,5 +53,16 @@ package com.unhurdle.spectrum
     {
     	_text = value;
     }
+    private var _interactive:Boolean;
+
+    public function get interactive():Boolean
+    {
+    	return _interactive;
+    }
+
+    public function set interactive(value:Boolean):void
+    {
+    	_interactive = value;
+    }
   }
 }
