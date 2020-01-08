@@ -137,6 +137,7 @@ package com.unhurdle.spectrum
                 indeterminate = false;
             }
         	_checked = value;
+		dispatchEvent(new Event("change"));
         }
         private var _quiet:Boolean;
 
