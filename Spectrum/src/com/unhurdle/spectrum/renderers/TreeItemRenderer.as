@@ -15,34 +15,28 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = '';
     }
-    override protected function appendSelector(value:String):String{
-      return "spectrum-TreeView" + value;
-    }
-    override public function updateRenderer():void{
-      // do nothing
+    public static var indent:Number = 10;
+    override protected function getSelector():String{
+      return "spectrum-TreeView";
     }
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
       element.className = appendSelector("-item");
-      addEventListener("setSelected",setSelected);
       var treeListData:TreeListData = listData as TreeListData;
       if(treeListData.depth != -1){
-        this.style = {'marginLeft' :(treeListData.depth - 1) * 10};
+        this.style = {'marginLeft' :(treeListData.depth - 1) * indent};
       }
     }
     COMPILE::JS
-    private function setSelected(ev:ValueEvent):void
+    override public function set selected(value:Boolean):void
     {
-      var children:NodeList = element.parentElement.children;
-      for(var i:int = 0;i<children.length;i++){
-        if(children[i].style.background == 'rgb(55, 142, 240)'){
-          children[i].style.background = 'none';
-          break;
-        }
-      }
-      if(ev.value){
+      super.selected = value;
+      //TODO can we avoid writing these style directly?
+      if(value){
         element.style.background = 'rgb(55, 142, 240)';
+      } else {
+        element.style.background = 'none';
       }
     }
     COMPILE::JS

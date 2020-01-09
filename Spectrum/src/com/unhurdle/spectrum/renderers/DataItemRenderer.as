@@ -55,5 +55,13 @@ package com.unhurdle.spectrum.renderers
         element.style[property] = value;
       }
     }
+    // override the super behavior and do nothing.
+		override public function updateRenderer():void{
+    }
+    override public function set selected(value:Boolean):void{
+      super.selected = value;
+      toggle("is-selected",value);
+    }
+
   }
 }
