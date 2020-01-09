@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum.renderers
 {
-  import org.apache.royale.html.supportClasses.DataItemRenderer;
   COMPILE::JS
   {
     import org.apache.royale.html.util.addElementToWrapper;
@@ -16,7 +15,7 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = '';
     }
-    protected function appendSelector(value:String):String{
+    override protected function appendSelector(value:String):String{
       return "spectrum-TreeView" + value;
     }
     override public function updateRenderer():void{

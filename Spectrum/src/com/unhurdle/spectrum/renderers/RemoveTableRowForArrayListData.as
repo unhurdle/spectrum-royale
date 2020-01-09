@@ -8,7 +8,6 @@ package com.unhurdle.spectrum.renderers
 	import org.apache.royale.events.CollectionEvent;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.IEventDispatcher;
-	import org.apache.royale.html.supportClasses.DataItemRenderer;
 	import org.apache.royale.html.beads.IListView;
 	import org.apache.royale.core.IItemRenderer;
 	import com.unhurdle.spectrum.TableCell;

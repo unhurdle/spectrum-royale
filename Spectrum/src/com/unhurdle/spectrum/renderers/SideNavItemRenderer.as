@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum.renderers
 {
-  import org.apache.royale.html.supportClasses.DataItemRenderer;
   import com.unhurdle.spectrum.data.SideNavItem;
   import com.unhurdle.spectrum.TextNode;
   COMPILE::JS
@@ -23,7 +22,7 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = '';
     }
-    protected function appendSelector(value:String):String{
+    override protected function appendSelector(value:String):String{
       return "spectrum-SideNav" + value;
     }
     override public function updateRenderer():void{

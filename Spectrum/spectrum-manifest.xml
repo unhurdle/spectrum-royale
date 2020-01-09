@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <componentPackage>
     <component id="Accordion" class="com.unhurdle.spectrum.Accordion"/>
-    <component id="AccordionItem" class="com.unhurdle.spectrum.data.AccordionItem"/>
+    <component id="AccordionContent" class="com.unhurdle.spectrum.AccordionContent"/>
+    <component id="AccordionSection" class="com.unhurdle.spectrum.AccordionSection"/>
     <component id="ActionButton" class="com.unhurdle.spectrum.ActionButton"/>
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>

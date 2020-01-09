@@ -5,7 +5,6 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import org.apache.royale.html.supportClasses.DataItemRenderer;
   import com.unhurdle.spectrum.data.AssetListItem;
   import com.unhurdle.spectrum.newElement;
   import com.unhurdle.spectrum.CheckBox;
@@ -23,9 +22,8 @@ package com.unhurdle.spectrum.renderers
     public function AssetListItemRenderer()
     {
       super();
-      typeNames = '';
     }
-    protected function appendSelector(value:String):String{
+    override protected function appendSelector(value:String):String{
       return "spectrum-AssetList" + value;
     }
     override public function updateRenderer():void{

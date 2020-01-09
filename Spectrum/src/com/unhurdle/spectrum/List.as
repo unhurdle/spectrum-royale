@@ -18,8 +18,19 @@ package com.unhurdle.spectrum
     public function List()
     {
       super();
-      typeNames = "spectrum-Menu";
+      typeNames = getSelector();
     }
+
+    protected function getSelector():String{
+      return "spectrum-Menu";
+    }
+    protected function appendSelector(value:String):String{
+      return getSelector() + value;
+    }
+    protected function valueToSelector(value:String):String{
+      return getSelector() + "--" + value;
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {

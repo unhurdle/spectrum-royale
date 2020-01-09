@@ -109,7 +109,7 @@ package com.unhurdle.spectrum
         var barElements:Object = tabBar.element.children; 
         for(var i:int = 0;i<barElements.length;i++){
           var elem:Object = barElements[i]; 
-            if(elem.classList.contains("spectrum-Tabs-selectionIndicator")){
+            if(elem.classList.contains(getTabsSelector() +"-selectionIndicator")){
               elem.remove();
             }
             checkTabs(elem);
@@ -148,7 +148,7 @@ package com.unhurdle.spectrum
           tab.selected = false;
           for(var j:int = 0;j<tab.element.children.length;j++){
             var tabElem:Object = tab.element.children[j];
-            if(tabElem.classList.contains("spectrum-Tabs-selectionIndicator")){
+            if(tabElem.classList.contains(getTabsSelector() + "-selectionIndicator")){
             tabElem.remove();
             }
           }
@@ -163,7 +163,7 @@ package com.unhurdle.spectrum
       addElementToWrapper(this,'div');
       element.className = getSelector();
       label = new TextNode("label");
-      label.className = appendSelector("itemLabel"); 
+      label.className = getTabsSelector() + "-itemLabel"; 
       element.appendChild(label.element); //addElem
       element.tabIndex = 0;
       return element;
@@ -176,7 +176,7 @@ package com.unhurdle.spectrum
     {
       for(var j:int = 0;j<elem.children.length;j++){
         var tabElem:Object = elem.children[j];
-        if(tabElem.classList.contains("spectrum-Tabs-selectionIndicator")){
+        if(tabElem.classList.contains( getTabsSelector() +"-selectionIndicator")){
         tabElem.remove();
         }
       }

@@ -19,7 +19,6 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.events.EventDispatcher;
     import org.apache.royale.events.IEventDispatcher;
     import org.apache.royale.html.beads.IListView;
-    import org.apache.royale.html.supportClasses.DataItemRenderer;
 		import com.unhurdle.spectrum.renderers.ITextItemRenderer;
    	import org.apache.royale.utils.loadBeadFromValuesManager;
     import com.unhurdle.spectrum.TableView;

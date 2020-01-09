@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum.renderers
 {
-  import org.apache.royale.html.supportClasses.DataItemRenderer;
   import org.apache.royale.html.util.getLabelFromData;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.Icon;
@@ -22,7 +21,7 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = appendSelector('-item');
     }
-    protected function appendSelector(value:String):String{
+    override protected function appendSelector(value:String):String{
       return "spectrum-Menu" + value;
     }
 		override public function updateRenderer():void{

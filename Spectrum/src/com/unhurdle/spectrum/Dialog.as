@@ -118,7 +118,7 @@ package com.unhurdle.spectrum
           if(value){
             var closeButton:ActionButton = new ActionButton();
             closeButton.quiet = true;
-            closeButton.element.classList.add(appendSelector("closeButton"));
+            closeButton.element.classList.add(appendSelector("-closeButton"));
             addElement(closeButton);
           }else{
             removeElement(closeButton);

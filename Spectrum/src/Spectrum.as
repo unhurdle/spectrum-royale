@@ -17,7 +17,6 @@ package {
 		import com.unhurdle.spectrum.renderers.StepsListItemRenderer;StepsListItemRenderer;
 		import com.unhurdle.spectrum.renderers.BreadcrumbsItemRenderer;BreadcrumbsItemRenderer;
 		import com.unhurdle.spectrum.renderers.AssetListItemRenderer;AssetListItemRenderer;
-		import com.unhurdle.spectrum.renderers.AccordionItemRenderer;AccordionItemRenderer;
 		import com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView;TableItemRendererFactoryForCollectionView;
 		import com.unhurdle.spectrum.controllers.TableCellSelectionMouseController;TableCellSelectionMouseController;
 		import com.unhurdle.spectrum.controllers.ItemRendererMouseController;ItemRendererMouseController;

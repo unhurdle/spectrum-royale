@@ -1,7 +1,6 @@
 package com.unhurdle.spectrum.renderers
 {
 
-  import org.apache.royale.html.supportClasses.DataItemRenderer;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.Icon;
   import org.apache.royale.html.util.getLabelFromData;
@@ -24,9 +23,8 @@ package com.unhurdle.spectrum.renderers
     public function BreadcrumbsItemRenderer()
     {
       super();
-      typeNames = '';
     }
-    protected function appendSelector(value:String):String{
+    override protected function appendSelector(value:String):String{
       return "spectrum-Breadcrumbs" + value;
     }
 		override public function updateRenderer():void{

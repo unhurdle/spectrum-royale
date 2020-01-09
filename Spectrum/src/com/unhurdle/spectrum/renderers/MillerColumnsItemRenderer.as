@@ -5,7 +5,6 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import org.apache.royale.html.supportClasses.DataItemRenderer;
   import com.unhurdle.spectrum.AssetList;
   import com.unhurdle.spectrum.data.AssetListItem;
   import com.unhurdle.spectrum.data.MillerColumnsItem;
@@ -17,9 +16,10 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = '';
     }
-    protected function appendSelector(value:String):String{
-      return "spectrum-MillerColumns" + value;
+    override protected function getSelector():String{
+      return "spectrum-MillerColumns";
     }
+
     override public function set data(value:Object):void{
       super.data = value;
       (element as HTMLElement).className = appendSelector("-item");

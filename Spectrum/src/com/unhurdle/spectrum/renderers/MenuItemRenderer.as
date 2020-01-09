@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum.renderers
 {
-  import org.apache.royale.html.supportClasses.DataItemRenderer;
   import com.unhurdle.spectrum.data.MenuItem;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.Icon;
@@ -24,9 +23,8 @@ package com.unhurdle.spectrum.renderers
     public function MenuItemRenderer()
     {
       super();
-      typeNames = '';
     }
-    protected function appendSelector(value:String):String{
+    override protected function appendSelector(value:String):String{
       return "spectrum-Menu" + value;
     }
 		override public function updateRenderer():void{
