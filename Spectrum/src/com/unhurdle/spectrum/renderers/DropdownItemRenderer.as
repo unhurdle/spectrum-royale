@@ -21,12 +21,10 @@ package com.unhurdle.spectrum.renderers
     {
       super();
     }
-    override protected function appendSelector(value:String):String{
-      return "spectrum-Menu" + value;
+    override protected function getSelector():String{
+      return "spectrum-AssetList";
     }
-    override public function updateRenderer():void{
-      // do nothing
-    }
+
     override public function set data(value:Object):void{
       super.data = value;
       // var elem:HTMLElement = element as HTMLElement;

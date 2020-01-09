@@ -23,11 +23,8 @@ package com.unhurdle.spectrum.renderers
     {
       super();
     }
-    override protected function appendSelector(value:String):String{
-      return "spectrum-AssetList" + value;
-    }
-    override public function updateRenderer():void{
-      // do nothing
+    override protected function getSelector():String{
+      return "spectrum-AssetList";
     }
 
     COMPILE::JS
@@ -49,19 +46,20 @@ package com.unhurdle.spectrum.renderers
       if(assetListItem.isBranch){
         (element as HTMLElement).classList.add("is-branch");
       }
-      (element as HTMLElement).classList.toggle("is-selected",false);
+      // (element as HTMLElement).classList.toggle("is-selected",false);
       // addEventListener("itemClicked",itemClicked);
       
     }
-    override public function set selected(value:Boolean):void{
-      super.selected = value;
-      COMPILE::JS
-      {
-        if(value){
-          (parent as IEventDispatcher).dispatchEvent(new ValueEvent("itemClicked",data));
-        } 
-      }
-    }
+    //TODO is this right???
+    // override public function set selected(value:Boolean):void{
+    //   super.selected = value;
+    //   COMPILE::JS
+    //   {
+    //     if(value){
+    //       (parent as IEventDispatcher).dispatchEvent(new ValueEvent("itemClicked",data));
+    //     } 
+    //   }
+    // }
     private var image:HTMLImageElement;
     private var span:TextNode;
     private var iconImage:Icon;

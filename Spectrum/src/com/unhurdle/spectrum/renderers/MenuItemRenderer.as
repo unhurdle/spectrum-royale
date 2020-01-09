@@ -24,11 +24,8 @@ package com.unhurdle.spectrum.renderers
     {
       super();
     }
-    override protected function appendSelector(value:String):String{
-      return "spectrum-Menu" + value;
-    }
-		override public function updateRenderer():void{
-      // do nothing
+    override protected function getSelector():String{
+      return "spectrum-Menu";
     }
 
     COMPILE::JS
@@ -74,9 +71,9 @@ package com.unhurdle.spectrum.renderers
         element.classList.add("is-disabled");
         element.style.pointerEvents = "none";
       }
-      if(menuItem.selected){
-        element.classList.add("is-selected");
-      }
+      // if(menuItem.selected){
+      //   element.classList.add("is-selected");
+      // }
       if(menuItem.icon){
         if(!icon){
           icon = new Icon(menuItem.icon);
@@ -180,7 +177,7 @@ package com.unhurdle.spectrum.renderers
           }
           removeSelectedFromOtherLevel(elemWithListToRemove.parentElement.children);
           // if(){
-            element.classList.add("is-selected");
+            // element.classList.add("is-selected");
           // }
         } 
       }

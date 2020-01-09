@@ -21,23 +21,24 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = appendSelector('-item');
     }
-    override protected function appendSelector(value:String):String{
-      return "spectrum-Menu" + value;
+    override protected function getSelector():String{
+      return "spectrum-Menu";
     }
-		override public function updateRenderer():void{
-      COMPILE::JS
-      {
-        // Hover is handled by the css classes
-				if (selected){
-					element.style.backgroundColor = Application.getSelectionColor();
-          element.style.color = "#FFFFFF";
-        } else {
-          element.style.backgroundColor = null;
-          element.style.color = null
-        }
 
-      }
-    }
+		// override public function updateRenderer():void{
+    //   COMPILE::JS
+    //   {
+    //     // Hover is handled by the css classes
+		// 		if (selected){
+		// 			element.style.backgroundColor = Application.getSelectionColor();
+    //       element.style.color = "#FFFFFF";
+    //     } else {
+    //       element.style.backgroundColor = null;
+    //       element.style.color = null
+    //     }
+
+    //   }
+    // }
 
     override public function set data(value:Object):void{
       super.data = value;

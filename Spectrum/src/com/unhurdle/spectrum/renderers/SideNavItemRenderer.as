@@ -22,11 +22,8 @@ package com.unhurdle.spectrum.renderers
       super();
       typeNames = '';
     }
-    override protected function appendSelector(value:String):String{
-      return "spectrum-SideNav" + value;
-    }
-    override public function updateRenderer():void{
-      // do nothing
+    override protected function getSelector():String{
+      return "spectrum-SideNav";
     }
 
     COMPILE::JS
@@ -100,43 +97,12 @@ package com.unhurdle.spectrum.renderers
       COMPILE::JS
       {
         if(value){
-          // if(elementParentIsSideNavItem(element)){
-          //   element.parentElement.parentElement.classList.remove("is-selected");
-          //   removeSelectedFromOtherLevel(element.parentElement.parentElement.parentElement.children);
-          // }else if(elementParentIsMultiLevel(element) || elementParentIsSideNavItem(element)){
-          //   var array:* = element.parentElement.children;
-          //   for(var index:int = 0; index < array.length; index++){
-          //     var elem:Element = array[index];
-          //     if(elementHasSideNav(elem)){
-          //       removeSelectedFromOtherLevel(elem.children[1].children);
-          //       // break;
-          //     }
-          //   }
-          // }
           var elemWithListToRemove:Element = element;
           while(!elementParentIsMultiLevel(elemWithListToRemove)){
-            //  elementParentIsSideNavItem(elemWithListToRemove)
-            // trace("elemWithListToRemove.parentElement");
-            // trace(elemWithListToRemove.parentElement);
-            // trace("elemWithListToRemove.parentElement.parentElement");
-            // trace(elemWithListToRemove.parentElement.parentElement);
             elemWithListToRemove = elemWithListToRemove.parentElement.parentElement;
           }
           removeSelectedFromOtherLevel(elemWithListToRemove.parentElement.children);
-          element.classList.add("is-selected");
         } 
-        // else {
-        //   element.classList.remove("is-selected");
-        //   if(elementHasSideNav(element)){
-        //     // for each(var ch:Element in element.children[1].children){
-        //     //   if(ch.classList.contains("is-selected")){
-        //     //     ch.classList.remove("is-selected")
-        //     //     return;
-        //     //   }
-        //     // }
-        //     removeSelectedFromOtherLevel(element.children[1].children);
-        //   }
-        // }
       }
     }
     private function removeSelectedFromOtherLevel(list:*):void{
@@ -155,12 +121,6 @@ package com.unhurdle.spectrum.renderers
       }
     }
     private function sideNavClick(event:Event):void{
-        var styleStr:String;
-        var el:HTMLElement = event.target.closest('.spectrum-SideNav');
-        if(el != null && !el.classList.contains("is-selected")){
-          event.stopPropagation();
-          new Toast("The selected item is: "+event.target.text).show();
-        }
         COMPILE::JS
         {
           if(elementHasSideNav(element)){

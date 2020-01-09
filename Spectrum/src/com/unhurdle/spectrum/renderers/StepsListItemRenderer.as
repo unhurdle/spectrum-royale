@@ -30,11 +30,8 @@ package com.unhurdle.spectrum.renderers
   //   <span class="spectrum-Steplist-segment">
   //   </span>
   // </div>
-    override protected function appendSelector(value:String):String{
-      return "spectrum-Steplist" + value;
-    }
-    override public function updateRenderer():void{
-      // do nothing
+    override protected function getSelector():String{
+      return "spectrum-Steplist";
     }
 
     override public function set data(value:Object):void{
@@ -51,11 +48,11 @@ package com.unhurdle.spectrum.renderers
       } else {
         elem.insertBefore(markerContainer,segment);
       }
-      if(stepsListItem.selected){
-        elem.classList.add("is-selected");
-      } else {
-        elem.classList.remove("is-selected");
-      }
+      // if(stepsListItem.selected){
+      //   elem.classList.add("is-selected");
+      // } else {
+      //   elem.classList.remove("is-selected");
+      // }
       if(stepsListItem.completed){
         elem.classList.add("is-complete");
       } else {
@@ -109,17 +106,6 @@ package com.unhurdle.spectrum.renderers
       // //   elem.classList.remove("is-complete");
       // }
       // textNode.text = getLabelFromData(this,value);
-    }
-    override public function set selected(value:Boolean):void{
-      super.selected = value;
-      COMPILE::JS
-      {
-        if(value){
-          element.classList.add("is-selected");
-        } else {
-          element.classList.remove("is-selected");
-        }
-      }
     }
     private var markerContainer:HTMLSpanElement;
     private var marker:HTMLSpanElement;

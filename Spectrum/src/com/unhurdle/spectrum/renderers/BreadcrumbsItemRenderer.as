@@ -24,11 +24,8 @@ package com.unhurdle.spectrum.renderers
     {
       super();
     }
-    override protected function appendSelector(value:String):String{
-      return "spectrum-Breadcrumbs" + value;
-    }
-		override public function updateRenderer():void{
-      // do nothing
+    override protected function getSelector():String{
+      return "spectrum-Breadcrumbs";
     }
 
     COMPILE::JS
