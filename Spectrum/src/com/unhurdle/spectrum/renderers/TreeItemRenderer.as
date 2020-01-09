@@ -24,20 +24,23 @@ package com.unhurdle.spectrum.renderers
       super.data = value;
       element.className = appendSelector("-item");
       var treeListData:TreeListData = listData as TreeListData;
+      var indentVal:String = "";
       if(treeListData.depth != -1){
-        this.style = {'marginLeft' :(treeListData.depth - 1) * indent};
+        
+        indentVal = (treeListData.depth - 1) * indent + "px";
       }
+      element.style.marginLeft = indentVal;
     }
     COMPILE::JS
     override public function set selected(value:Boolean):void
     {
       super.selected = value;
       //TODO can we avoid writing these style directly?
+      var background:String = "";
       if(value){
-        element.style.background = 'rgb(55, 142, 240)';
-      } else {
-        element.style.background = 'none';
+        background = 'rgb(55, 142, 240)';
       }
+      element.style.background = background;
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
