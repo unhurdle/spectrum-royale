@@ -20,7 +20,9 @@ package com.unhurdle.spectrum
 	// import com.unhurdle.spectrum.data.IMenuItem;
 	import com.unhurdle.spectrum.const.IconPrefix;
 	import com.unhurdle.spectrum.const.IconSize;
-
+  /**
+   * TODO maybe add flexible with styling of min-width: 0;width:auto;
+   */
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="showMenu", type="org.apache.royale.events.Event")]
   public class Dropdown extends SpectrumBase

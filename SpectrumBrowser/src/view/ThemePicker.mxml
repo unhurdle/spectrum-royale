@@ -1,4 +1,44 @@
-<sp:FieldGroup xmlns:fx="http://ns.adobe.com/mxml/2009"
-  xmlns:sp="library://ns.unhurdle.com/spectrum">
-  
-</sp:FieldGroup>
+<sp:FlexContainer xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:sp="library://ns.unhurdle.com/spectrum" initComplete="onComplete()" justifyContent="flex-end" wrap="true">
+  <fx:Script>
+    <![CDATA[
+      import models.Theme;
+      
+      private function onComplete():void{
+        themeDropdown.selectedIndex = lowercaseArray(themeDropdown.dataProvider as Array).indexOf(Theme.getTheme());
+        sizeDropdown.selectedIndex = lowercaseArray(sizeDropdown.dataProvider as Array).indexOf(Theme.getSize());
+      }
+      private function lowercaseArray(value:Array):Array{
+        return value.map(function(x:String):String{return x.toLowerCase()});
+      }
+      private function notifyThemeChange():void{
+        Theme.setTheme(themeDropdown.selectedItem as String);
+      }
+      private function notifySizeChange():void{
+        Theme.setSize(sizeDropdown.selectedItem as String);
+      }
+    ]]>
+  </fx:Script>
+  <sp:FieldGroup>
+    <sp:FieldLabel text="Theme"/>
+    <sp:Dropdown id="themeDropdown" quiet="true" change="notifyThemeChange()">
+      <sp:dataProvider>
+        <fx:Array>
+          <fx:String>Lightest</fx:String>
+          <fx:String>Light</fx:String>
+          <fx:String>Dark</fx:String>
+          <fx:String>Darkest</fx:String>
+        </fx:Array>
+      </sp:dataProvider>
+    </sp:Dropdown>
+    <sp:FieldLabel text="Theme"/>
+    <sp:Dropdown id="sizeDropdown" quiet="true" change="notifySizeChange()">
+      <sp:dataProvider>
+        <fx:Array>
+          <fx:String>Medium</fx:String>
+          <fx:String>Large</fx:String>
+        </fx:Array>
+      </sp:dataProvider>
+    </sp:Dropdown>
+  </sp:FieldGroup>
+</sp:FlexContainer>>
