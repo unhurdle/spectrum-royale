@@ -5,15 +5,10 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.includes.IconInclude;
 
-  public class Icon extends SpectrumBase
+  public class Icon extends Group
   {
-    /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/icon/dist.css">
-     * </inject_html>
-     * 
-     */
     public function Icon(selector:String="")
     {
       _selector = selector;
@@ -29,7 +24,7 @@ package com.unhurdle.spectrum
     }
     
     override protected function getSelector():String{
-      return "spectrum-Icon";
+      return IconInclude.getSelector();
     }
 
     private var _size:String;
@@ -122,9 +117,9 @@ package com.unhurdle.spectrum
       }
     }
 
-    public function setStyle(attribute:String,value:Object):void{
-      (element as HTMLElement).style[attribute] = value;
-    }
+    // public function setStyle(attribute:String,value:Object):void{
+    //   (element as HTMLElement).style[attribute] = value;
+    // }
 
 		COMPILE::JS
 		override protected function setClassName(value:String):void

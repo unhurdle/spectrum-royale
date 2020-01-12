@@ -110,6 +110,7 @@
     <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
     <component id="Subheading" class="com.unhurdle.spectrum.typography.Subheading"/>
     <component id="Subtitle" class="com.unhurdle.spectrum.typography.Subtitle"/>
+    <component id="SVGIcon" class="com.unhurdle.spectrum.SVGIcon"/>
     <component id="Switch" class="com.unhurdle.spectrum.Switch"/>
     <component id="TabBar" class="com.unhurdle.spectrum.TabBar"/>
     <component id="Tab" class="com.unhurdle.spectrum.Tab"/>

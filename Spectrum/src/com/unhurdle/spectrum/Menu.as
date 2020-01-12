@@ -14,6 +14,12 @@ package com.unhurdle.spectrum
 
   public class Menu extends com.unhurdle.spectrum.List
   {
+    /**
+     * <inject_html>
+     * <link rel="stylesheet" href="assets/css/components/menu/dist.css">
+     * </inject_html>
+     * 
+     */
     public function Menu()
     {
       super();

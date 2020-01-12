@@ -124,24 +124,40 @@ package com.unhurdle.spectrum
         iconElement.type = value;
       }
     }
-    protected var iconElement:Icon;
+    private var _iconElement:Icon;
+
+    public function get iconElement():Icon
+    {
+    	return _iconElement;
+    }
+
+    public function set iconElement(value:Icon):void
+    {
+      if(_iconElement){
+        removeElement(_iconElement);
+      }
+    	_iconElement = value;
+      if(_iconElement){
+        addElementAt(_iconElement,0);
+      }
+    }
 
     protected function createIcon(selector:String):void{
-      if(iconElement){
-        iconElement.selector = selector;
+      if(_iconElement){
+        _iconElement.selector = selector;
         setIconProps();
       } else {
-        iconElement = new Icon(selector);
+        _iconElement = new Icon(selector);
         setIconProps();
-        addElementAt(iconElement,0);
+        addElementAt(_iconElement,0);
       }
     }
     protected function setIconProps():void{
       if(iconClass){
-        iconElement.className = iconClass;
+        _iconElement.className = iconClass;
       }
-      iconElement.size = iconSize;
-      iconElement.type = iconType;
+      _iconElement.size = iconSize;
+      _iconElement.type = iconType;
     }
 
     private var _flavor:String;

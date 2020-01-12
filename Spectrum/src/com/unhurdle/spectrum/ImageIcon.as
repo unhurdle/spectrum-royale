@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.includes.IconInclude;
 
   public class ImageIcon extends SpectrumBase
   {
@@ -15,15 +16,16 @@ package com.unhurdle.spectrum
     public function ImageIcon(src:String = null)
     {
       super();
+      size = "S";
       if(src){
         this.src = src;
       }
     }
     override protected function getSelector():String{
-      return "spectrum-Icon";
+      return IconInclude.getSelector();
     }
 
-    private var _size:String = "S";
+    private var _size:String;
 
     public function get size():String
     {

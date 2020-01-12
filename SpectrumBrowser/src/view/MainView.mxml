@@ -5,11 +5,13 @@
         import view.panes.AccordionPane;
         import models.NavProvider;
         import view.DemoPane;
+        import view.panes.ActionBarPane;
+        import view.panes.ActionButtonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
-        new NavProvider("Accordion",AccordionPane),
-        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Action Bar",ActionBarPane),
+        new NavProvider("Action Button",ActionButtonPane),
         new NavProvider("Accordion",AccordionPane),
         new NavProvider("Accordion",AccordionPane),
         new NavProvider("Accordion",AccordionPane),
@@ -46,7 +48,7 @@
     }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">
-    <sp:AssetList id="sideNav" dataProvider="{navProvider}" change="onNavChange()"/>
+    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()"/>
   </sp:FlexContainer>
 
 </sp:View>

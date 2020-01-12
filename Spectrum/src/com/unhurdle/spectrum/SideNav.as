@@ -9,22 +9,17 @@ package com.unhurdle.spectrum
   import org.apache.royale.collections.IArrayList;
   import com.unhurdle.spectrum.data.SideNavItem;
   import org.apache.royale.html.util.getLabelFromData;
+  import com.unhurdle.spectrum.includes.SideNavInclude;
 
   public class SideNav extends Tree
   {
-    /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/sidenav/dist.css">
-     * </inject_html>
-     * 
-     */
     public function SideNav()
     {
       super();
     }
     
     override protected function getSelector():String{
-      return "spectrum-SideNav";
+      return SideNavInclude.getSelector();
     }
 
     private var _multiLevel:Boolean;

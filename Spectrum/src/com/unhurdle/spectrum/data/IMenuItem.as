@@ -1,10 +1,7 @@
 package com.unhurdle.spectrum.data
 {
-  public interface IMenuItem
+  public interface IMenuItem extends IListItem
   {
-    function get text():String;
-    function set text(value:String):void;
-    function get label():String;
     function get selected():Boolean;
     function set selected(value:Boolean):void
     function get isDivider():Boolean;
@@ -15,10 +12,6 @@ package com.unhurdle.spectrum.data
     function set disabled(value:Boolean):void
     function get isHeading():Boolean;
     function set isHeading(value:Boolean):void
-    function get icon():String;
-    function set icon(value:String):void;
-    function get imageIcon():String;
-    function set imageIcon(value:String):void;
     function get subMenu():Array
     function set subMenu(value:Array):void
   }

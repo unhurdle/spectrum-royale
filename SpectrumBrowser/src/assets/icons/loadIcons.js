@@ -91,4 +91,4 @@ governing permissions and limitations under the License.
 loadIcons('assets/icons/spectrum-css-icons.svg');
 // add this in once the icons are available
 // https://github.com/adobe/spectrum-css/issues/60
-// loadIcons('assets/icons/spectrum-icons.svg');
+loadIcons('assets/icons/spectrum-icons.svg');

@@ -6,13 +6,17 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import org.apache.royale.html.List;
+  import com.unhurdle.spectrum.includes.SideNavInclude;
 
   public class List extends org.apache.royale.html.List
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/menu/dist.css">
-     * </inject_html>
+     * List is for basic selectable lists. The content of the list is provided by a dataProvider and the rendering is done by DataRendererers.
+     * The basic ListDataRenderer accepts text and an optional icon.
+     * If the dataProvider is a list of strings, the data will not be converted.
+     * Use List for compact selectable lists. If you want check-able lists, use Menu.
+     * For a more spaced styling with room for checkboxes, icons, etc. use AssetList.
+     * List uses the styling for SideNav because it is more compact than AssetList and has background selection unlike Menu.
      * 
      */
     public function List()
@@ -22,7 +26,7 @@ package com.unhurdle.spectrum
     }
 
     protected function getSelector():String{
-      return "spectrum-Menu";
+      return SideNavInclude.getSelector();
     }
     protected function appendSelector(value:String):String{
       return getSelector() + value;
@@ -34,7 +38,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      return addElementToWrapper(this,'div');
+      return addElementToWrapper(this,'ul');
     }
   }
 }

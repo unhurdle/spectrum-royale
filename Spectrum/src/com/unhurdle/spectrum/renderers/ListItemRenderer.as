@@ -13,6 +13,7 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.const.IconSize;
   import com.unhurdle.spectrum.ImageIcon;
+  import com.unhurdle.spectrum.data.IListItem;
 
   public class ListItemRenderer extends DataItemRenderer
   {
@@ -22,7 +23,7 @@ package com.unhurdle.spectrum.renderers
       typeNames = appendSelector('-item');
     }
     override protected function getSelector():String{
-      return "spectrum-Menu";
+      return "spectrum-SideNav";
     }
 
 		// override public function updateRenderer():void{
@@ -45,8 +46,8 @@ package com.unhurdle.spectrum.renderers
       textNode.text = getLabelFromData(this,value);
       COMPILE::JS
       {
-        if(value["icon"]){
-          var iconSelector:String = value["icon"];
+        var iconSelector:String = getIconSelector();
+        if(iconSelector){
           if(!icon){
             icon = new Icon(iconSelector);
             addElementAt(icon,0);
@@ -57,8 +58,9 @@ package com.unhurdle.spectrum.renderers
         } else if(icon){
           icon.setStyle("display","none");
         }
-        if(value["imageIcon"]){
-          var iconSrc:String = value["imageIcon"];
+        
+        var iconSrc:String = getImageIcon();
+        if(iconSrc){
           if(!imageIcon){
             imageIcon = new ImageIcon(iconSrc);
             addElementAt(imageIcon,0);
@@ -71,22 +73,30 @@ package com.unhurdle.spectrum.renderers
         }
       }
     }
+    private function getIconSelector():String{
+      if(data is IListItem){
+        return (data as IListItem).icon;
+      }
+      return data["icon"];
+    }
+    private function getImageIcon():String{
+      if(data is IListItem){
+        return (data as IListItem).imageIcon;
+      }
+      return data["imageIcon"];
+    }
     private var icon:Icon;
     private var imageIcon:ImageIcon;
     private var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
       textNode = new TextNode("span");
-      textNode.className = appendSelector("-itemLabel");
+      textNode.className = appendSelector("-itemLink");
       textNode.element.style.userSelect = "none";
       elem.appendChild(textNode.element);
-      var type:String = IconType.CHECKMARK_MEDIUM;
-      var checkIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
-      checkIcon.type = type;
-      checkIcon.className = appendSelector("-checkmark");
-      addElement(checkIcon);
+      // setStyle("cursor","default");
       return elem;
     }
 

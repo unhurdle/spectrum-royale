@@ -1,0 +1,117 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:html="library://ns.apache.org/royale/html" xmlns:assets="view.assets.*" title="Action Button">
+  <fx:Script>
+    <![CDATA[
+import com.unhurdle.spectrum.const.IconPrefix;
+
+      [Bindable]public var codeString:String = 
+'  <sp:FieldGroup vertical="true">\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton text="Edit"/>\n'+
+'      <sp:ActionButton text="Edit" selected="true"/>\n'+
+'      <sp:ActionButton text="Edit" disabled="true"/>\n'+
+'      <sp:ActionButton text="Edit" disabled="true" selected="true"/>\n'+
+'    </sp:ButtonGroup>\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton text="Edit" icon="{iconSelector}"/>\n'+
+'      <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true"/>\n'+
+'      <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
+'      <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+'    </sp:ButtonGroup>\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton icon="{iconSelector}"/>\n'+
+'      <sp:ActionButton icon="{iconSelector}" selected="true"/>\n'+
+'      <sp:ActionButton icon="{iconSelector}" disabled="true"/>\n'+
+'      <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+'    </sp:ButtonGroup>\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
+'      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
+'      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
+'      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+'    </sp:ButtonGroup>\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton text="Button">\n'+
+'      <sp:iconElement>\n'+
+'        <assets:CalendarIcon/>\n'+
+'      </sp:iconElement>\n'+
+'      </sp:ActionButton>\n'+
+'      <sp:ActionButton text="Button" selected="true">\n'+
+'      <sp:iconElement>\n'+
+'        <assets:CalendarIcon/>\n'+
+'      </sp:iconElement>\n'+
+'      </sp:ActionButton>\n'+
+'      <sp:ActionButton text="Button" disabled="true">\n'+
+'      <sp:iconElement>\n'+
+'        <assets:CalendarIcon/>\n'+
+'      </sp:iconElement>\n'+
+'      </sp:ActionButton>\n'+
+'      <sp:ActionButton text="Button" disabled="true" selected="true">\n'+
+'      <sp:iconElement>\n'+
+'        <assets:CalendarIcon/>\n'+
+'      </sp:iconElement>\n'+
+'      </sp:ActionButton>\n'+
+'    </sp:ButtonGroup>\n'+
+'  </sp:FieldGroup>';
+      [Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";
+      [Bindable]public var flyoutList:Array = ["One","Two","Three"];
+    ]]>
+  </fx:Script>
+  <sp:Heading size="4" text="Standard"/>
+  <html:Div height="12"/>
+  <sp:FieldGroup vertical="true">
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton text="Edit"/>
+      <sp:ActionButton text="Edit" selected="true"/>
+      <sp:ActionButton text="Edit" disabled="true"/>
+      <sp:ActionButton text="Edit" disabled="true" selected="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton text="Edit" icon="{iconSelector}"/>
+      <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true"/>
+      <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true"/>
+      <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton icon="{iconSelector}"/>
+      <sp:ActionButton icon="{iconSelector}" selected="true"/>
+      <sp:ActionButton icon="{iconSelector}" disabled="true"/>
+      <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}"/>
+      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>
+      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>
+      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton text="Button">
+      <sp:iconElement>
+        <assets:CalendarIcon/>
+      </sp:iconElement>
+      </sp:ActionButton>
+      <sp:ActionButton text="Button" selected="true">
+      <sp:iconElement>
+        <assets:CalendarIcon/>
+      </sp:iconElement>
+      </sp:ActionButton>
+      <sp:ActionButton text="Button" disabled="true">
+      <sp:iconElement>
+        <assets:CalendarIcon/>
+      </sp:iconElement>
+      </sp:ActionButton>
+      <sp:ActionButton text="Button" disabled="true" selected="true">
+      <sp:iconElement>
+        <assets:CalendarIcon/>
+      </sp:iconElement>
+      </sp:ActionButton>
+    </sp:ButtonGroup>
+  </sp:FieldGroup>
+  <html:Div height="12"/>
+ <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text="{codeString}" size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+</view:DemoPane>
