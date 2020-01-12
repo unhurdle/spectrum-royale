@@ -100,7 +100,15 @@ package com.unhurdle.spectrum
             }
             break;
         }
-        popover.x = componentBounds.x;
+        var leftSpace:Number = componentBounds.x;
+        var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
+        if(rightSpace < leftSpace){
+          popover.setStyle("right",rightSpace + "px");
+          popover.setStyle("left",null);
+        } else {
+          popover.setStyle("right",null);
+          popover.setStyle("left",leftSpace + "px");
+        }
         if(isNaN(_popupWidth)){
           popover.setStyle("minWidth",width + "px");
           // popover.width = width;
