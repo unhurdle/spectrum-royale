@@ -207,7 +207,7 @@ package com.unhurdle.spectrum
 				popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 			});
     }
-    private var menu:Menu;
+    public var menu:Menu;
     private var popup:ComboBoxList;
 
     private function handleMenuChange(ev:Event):void{

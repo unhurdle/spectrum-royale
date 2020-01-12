@@ -31,7 +31,6 @@ package com.unhurdle.spectrum
       super();
     }
     public var popover:Popover;
-    public var menu:Menu;
  
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
