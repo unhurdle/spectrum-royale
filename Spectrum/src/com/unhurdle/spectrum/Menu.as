@@ -50,37 +50,13 @@ package com.unhurdle.spectrum
 
     private function convertArray(value:Object):void{
       var newVal:Array
-      newVal = new Array(value.length);
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
         // if(value[i] is IMenuItem){
         if(value[i] is MenuItem){
           /////
-          (value[i] as MenuItem).disabled = value[i].disabled;
-          (value[i] as MenuItem).isDivider = value[i].isDivider;
-          (value[i] as MenuItem).isHeading = value[i].isHeading;
-          (value[i] as MenuItem).isOpen = false;
-          // (value[i] as MenuItem).label = value[i].label;
-          (value[i] as MenuItem).subMenu = false;
-          (value[i] as MenuItem).dataProvider = value[i].dataProvider;
-          (value[i] as MenuItem).text = value[i].text;
-          (value[i] as MenuItem).selected = value[i].selected;
-          (value[i] as MenuItem).icon = value[i].icon;
-          (value[i] as MenuItem).imageIcon = value[i].imageIcon;
-          continue;
         }else if(value[i] is Menu){
-          ////
-          (value[i] as MenuItem).subMenu = true;
-          (value[i] as MenuItem).text = "new sub menu";
-          (value[i] as MenuItem).disabled = value[i].disabled;
-          // (value[i] as MenuItem).isDivider = value[i].isDivider;
-          // (value[i] as MenuItem).isHeading = value[i].isHeading;
-          (value[i] as MenuItem).isOpen = value[i].isOpen;
-          // (value[i] as MenuItem).label = value[i].label;
-          (value[i] as MenuItem).selected = value[i].selected;
-          (value[i] as MenuItem).icon = value[i].icon;
-          (value[i] as MenuItem).imageIcon = value[i].imageIcon;
-          continue;
+          // do nothing
         }else{
           var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
           if(value[i].hasOwnProperty("selected")){

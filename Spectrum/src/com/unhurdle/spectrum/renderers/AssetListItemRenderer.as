@@ -33,7 +33,7 @@ package com.unhurdle.spectrum.renderers
       var assetListItem:AssetListItem;
       assetListItem = value as AssetListItem;
       span.text = getLabelFromData(this,value);
-      element.className = appendSelector("-item");
+      toggle(appendSelector("-item"),true);
       if(assetListItem.selectable){
         element.classList.add("is-selectable");
       }
@@ -85,7 +85,6 @@ package com.unhurdle.spectrum.renderers
       icon.className = appendSelector("-itemChildIndicator");
       addElement(icon);
       
-      addEventListener("click",itemClicked);
       return elem;
     }
 

@@ -104,26 +104,14 @@ package com.unhurdle.spectrum.data
     	_imageIcon = value;
     }
 
-    private var _dataProvider:Array=[];
+    private var _subMenu:Array;
 
-    public function get dataProvider():Array
-    {
-    	return _dataProvider;
-    }
-
-    public function set dataProvider(value:Array):void
-    {
-    	_dataProvider = value;
-    }
-
-    private var _subMenu:Boolean;
-
-    public function get subMenu():Boolean
+    public function get subMenu():Array
     {
     	return _subMenu;
     }
 
-    public function set subMenu(value:Boolean):void
+    public function set subMenu(value:Array):void
     {
     	_subMenu = value;
     }

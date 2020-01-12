@@ -24,6 +24,9 @@ package com.unhurdle.spectrum
     public static function getCSSTypeSelector(type:String):String{
       return IconPrefix.SPECTRUM_CSS_ICON + type;
     }
+    public static function getUIIconSelector(type:String):String{
+      return IconPrefix.SPECTRUM_UI_ICON + type;
+    }
     
     override protected function getSelector():String{
       return "spectrum-Icon";
@@ -76,10 +79,10 @@ package com.unhurdle.spectrum
     {
       if(value != _type){
         if(_type){
-          toggle("spectrum-UIIcon-" + _type,false);
+          toggle(IconPrefix.SPECTRUM_UI_ICON + _type,false);
         }
         if(value){
-          toggle("spectrum-UIIcon-" + value,true);
+          toggle(IconPrefix.SPECTRUM_UI_ICON + value,true);
         }
       }
     	_type = value;

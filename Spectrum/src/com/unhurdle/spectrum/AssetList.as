@@ -5,10 +5,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import org.apache.royale.html.List;
 
   [Event(name="itemClicked", type="org.apache.royale.events.ValueEvent")]
-  public class AssetList extends org.apache.royale.html.List
+  public class AssetList extends List
   {
     /**
      * <inject_html>
@@ -20,9 +19,8 @@ package com.unhurdle.spectrum
     public function AssetList()
     {
       super();
-      typeNames = getSelector();
     }
-    private function getSelector():String{
+    override protected function getSelector():String{
       return "spectrum-AssetList";
     }
     COMPILE::JS

@@ -46,7 +46,7 @@
     }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">
-    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()"/>
+    <sp:AssetList id="sideNav" dataProvider="{navProvider}" change="onNavChange()"/>
   </sp:FlexContainer>
 
 </sp:View>

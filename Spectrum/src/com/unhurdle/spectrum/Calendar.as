@@ -306,9 +306,9 @@ package com.unhurdle.spectrum
             prev = newElement('button') as HTMLButtonElement;
             prev.className = "spectrum-ActionButton spectrum-ActionButton--quiet spectrum-Calendar-prevMonth";
             prev.addEventListener("click",prevMonthClickHandler);
-
-            var prevIcon:Icon = new Icon("#spectrum-css-icon-ChevronLeftLarge");
-            prevIcon.className = "spectrum-Icon spectrum-UIIcon-ChevronLeftLarge";
+            var type:String = "ChevronLeftLarge";
+            var prevIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+            prevIcon.type = type;
             prev.appendChild(prevIcon.element);
             prevIcon.addedToParent();
             header.appendChild(prev);
@@ -316,9 +316,9 @@ package com.unhurdle.spectrum
             next = newElement('button') as HTMLButtonElement;
             next.className = "spectrum-ActionButton spectrum-ActionButton--quiet spectrum-Calendar-nextMonth";
             next.addEventListener("click",nextMonthClickHandler);
-           
-            var nextIcon:Icon = new Icon("#spectrum-css-icon-ChevronRightLarge");
-            nextIcon.className = "spectrum-Icon spectrum-UIIcon-ChevronRightLarge";
+            type = "ChevronRightLarge";
+            var nextIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+            nextIcon.type = type;
             next.appendChild(nextIcon.element);
             nextIcon.addedToParent();
             header.appendChild(next);

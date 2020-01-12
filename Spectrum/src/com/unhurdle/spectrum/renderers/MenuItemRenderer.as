@@ -28,7 +28,7 @@ package com.unhurdle.spectrum.renderers
     override protected function getSelector():String{
       return "spectrum-Menu";
     }
-
+    private var submenu:Menu;
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
@@ -49,14 +49,12 @@ package com.unhurdle.spectrum.renderers
         // only populate text if it's not a divider
         textNode.text = getLabelFromData(this,value);
       }
-      if(menuItem.subMenu){
-        // element.classList.add("is-open");
-        textNode.text = menuItem.text;
-        var ul:Menu = new Menu();
-        ul.dataProvider = menuItem.dataProvider;
-        addElement(ul);
+      if(menuItem.subMenu && menuItem.isOpen){
+        submenu = new Menu();
+        submenu.dataProvider = menuItem.subMenu;
+        addElement(submenu);
       } 
-      toggle("is-open",menuItem.isOpen)
+      toggle("is-open",menuItem.isOpen);
       // if(menuItem.subMenu){
       //   // var nestedType:String = IconType.CHEVRON_RIGHT_MEDIUM;
       //   // var nestedCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(nestedType));
@@ -64,8 +62,8 @@ package com.unhurdle.spectrum.renderers
       //   // nestedCheckIcon.className = appendSelector("-ChevronRightMedium");
       //   // element.appendChild(nestedCheckIcon.element);
       // }
-      element.addEventListener("click",openSubMenu);
-      toggle("is-disabled",menuItem.disabled);
+      addEventListener("click",openSubMenu);
+      disabled = menuItem.disabled;
       if(menuItem.icon){
         if(!icon){
           icon = new Icon(menuItem.icon);
@@ -98,27 +96,46 @@ package com.unhurdle.spectrum.renderers
     }
     COMPILE::JS
     private function openSubMenu(event:Event):void{
-      // var ul:Menu = new Menu();
-      // ul.dataProvider = (element as IMenuItem).subMenu;
-      // element.classList.add("is-open");
-        var el:HTMLElement = event.target.closest('.spectrum-Menu');
-        if(el != null && !el.classList.contains("is-selected")){
-          event.stopPropagation();
-        //   // new Toast("The selected item is: "+event.target.text).show();
-        }
-      if(elementHasSubMenu(element)){
+
+        // var el:HTMLElement = event.target.closest('.spectrum-Menu');
+        // if(el != null && !el.classList.contains("is-selected")){
+        //   event.stopPropagation();
+        // //   // new Toast("The selected item is: "+event.target.text).show();
+        // }
+      if(data is MenuItem){
         var menuItem:MenuItem = data as MenuItem;
-        menuItem.isOpen = !menuItem.isOpen;
-        toggle("is-open",menuItem.isOpen);
-        element.children[2].style.display = element.children[2].style.display == "block"?"none":"block";
-        // element.children[2].style.visibility = element.children[2].style.visibility == "visible"?"hidden":"visible";
-        // element.children[2].style.visibility = element.children[2].style.visibility == "visible"?"hidden":"visible";
-        // element.children[2].hidden = !element.children[2].hidden;
+        if(menuItem.subMenu){
+          menuItem.isOpen = !menuItem.isOpen;
+          toggle("is-open",menuItem.isOpen);
+          if(menuItem.isOpen){
+            if(!submenu){
+              submenu = new Menu();
+              submenu.dataProvider = menuItem.subMenu;
+              addElement(submenu);
+            }
+          } else {
+            removeElement(submenu);
+            submenu = null;
+          }
+        }
+        createIcon();
       }
-      createIcon()
     }
     COMPILE::JS
     private function createIcon():void{
+      var menuItem:MenuItem = data as MenuItem;
+      if(menuItem.subMenu){
+        type = (data as MenuItem).isOpen? IconType.CHEVRON_DOWN_MEDIUM:IconType.CHEVRON_RIGHT_MEDIUM;
+        if(indicator){
+          indicator.selector = Icon.getCSSTypeSelector(type);
+        } else {
+          indicator = new Icon(Icon.getCSSTypeSelector(type));
+          indicator.className = appendSelector("-chevron") + " " + appendSelector("-itemIcon");
+          addElement(indicator);
+        }
+        indicator.type = type;
+
+      }
       if(elementHasSubMenu(element)){
         if(indicator){
           removeElement(indicator);

@@ -197,8 +197,10 @@ package com.unhurdle.spectrum
 			input.className = "spectrum-Checkbox-input";
 			var span:HTMLElement = newElement('span');
 			span.className = "spectrum-Checkbox-box";
-			var icon:Icon = new Icon("#spectrum-css-icon-CheckmarkSmall");
-			icon.className = "spectrum-UIIcon-CheckmarkSmall spectrum-Checkbox-checkmark";
+			var type:String = "CheckmarkSmall";
+			var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+			icon.type = type;
+			icon.className = "spectrum-Checkbox-checkmark";
 			span.appendChild(icon.element); 
 			icon.addedToParent();
 			label.appendChild(input);
