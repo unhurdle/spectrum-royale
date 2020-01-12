@@ -1,0 +1,281 @@
+.spectrum--large .spectrum-TreeView-itemLink {
+
+  padding: 12px 30px;
+}
+.spectrum--large .spectrum-TreeView-itemLink .spectrum-Icon {
+    margin-right: 10px;
+  }
+.spectrum--large .spectrum-TreeView-itemLink::before {
+    left: 2px;
+    margin-top: -8px;
+
+    height: 45px;
+
+    border-radius: 5px;
+  }
+.spectrum--large .spectrum-TreeView-indicator {
+
+  left: 13px;
+  top: -6px;
+  margin-left: -42px;
+  margin-bottom: -13px;
+
+  padding: 13px;
+
+  transition: transform ease 130ms;
+}
+.spectrum--large .spectrum-TreeView .spectrum-TreeView {
+
+  padding-left: 35px;
+}
+.spectrum--large .spectrum-TreeView-item--indent1 {
+  padding-left: 35px;
+}
+.spectrum--large .spectrum-TreeView-item--indent2 {
+  padding-left: 70px;
+}
+.spectrum--large .spectrum-TreeView-item--indent3 {
+  padding-left: 105px;
+}
+.spectrum--large .spectrum-TreeView-item--indent4 {
+  padding-left: 140px;
+}
+.spectrum--large .spectrum-TreeView-item--indent5 {
+  padding-left: 175px;
+}
+.spectrum--large .spectrum-TreeView-item--indent6 {
+  padding-left: 210px;
+}
+.spectrum--large .spectrum-TreeView-item--indent7 {
+  padding-left: 245px;
+}
+.spectrum--large .spectrum-TreeView-item--indent8 {
+  padding-left: 280px;
+}
+.spectrum--large .spectrum-TreeView-item--indent9 {
+  padding-left: 315px;
+}
+.spectrum--large .spectrum-TreeView-item--indent10 {
+  padding-left: 350px;
+}
+.spectrum-TreeView {
+  display: block;
+  list-style: none;
+  position: relative;
+  padding: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+}
+.spectrum-TreeView-item {
+  overflow: hidden;
+}
+.spectrum-TreeView-item.is-open > .spectrum-TreeView-itemLink > .spectrum-TreeView-indicator {
+      transform: rotate(90deg);
+    }
+.spectrum-TreeView-item.is-open > .spectrum-TreeView {
+      height: auto;
+      visibility: visible;
+    }
+.spectrum-TreeView-itemLink {
+  display: block;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  padding: 12px 30px;
+
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.spectrum-TreeView-itemLink:focus {
+    outline: none;
+  }
+.spectrum-TreeView-itemLink .spectrum-Icon {
+    vertical-align: top;
+    margin-right: 8px;
+  }
+.spectrum-TreeView-itemLink::before {
+    content: '';
+
+    position: absolute;
+    left: 2px;
+    right: 0;
+    z-index: -1;
+    margin-top: -8px;
+
+    height: 36px;
+
+    background-color: transparent;
+
+    border-radius: 4px;
+  }
+.spectrum-TreeView-indicator {
+  display: block;
+
+  float: left;
+  position: relative;
+
+  left: 10px;
+  top: -5px;
+  margin-left: -34px;
+  margin-bottom: -10px;
+
+  padding: 10px;
+
+  transition: transform ease 130ms;
+
+  pointer-events: all !important;
+}
+.spectrum-TreeView .spectrum-TreeView {
+  position: static;
+
+  padding-left: 28px;
+  height: 0;
+  visibility: hidden;
+}
+.spectrum-TreeView-item--indent1 {
+  padding-left: 28px;
+}
+.spectrum-TreeView-item--indent2 {
+  padding-left: 56px;
+}
+.spectrum-TreeView-item--indent3 {
+  padding-left: 84px;
+}
+.spectrum-TreeView-item--indent4 {
+  padding-left: 112px;
+}
+.spectrum-TreeView-item--indent5 {
+  padding-left: 140px;
+}
+.spectrum-TreeView-item--indent6 {
+  padding-left: 168px;
+}
+.spectrum-TreeView-item--indent7 {
+  padding-left: 196px;
+}
+.spectrum-TreeView-item--indent8 {
+  padding-left: 224px;
+}
+.spectrum-TreeView-item--indent9 {
+  padding-left: 252px;
+}
+.spectrum-TreeView-item--indent10 {
+  padding-left: 280px;
+}
+.spectrum--dark .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(110, 110, 110);
+    }
+.spectrum--dark .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(90, 90, 90);
+      }
+.spectrum--dark .spectrum-TreeView-itemLink {
+  color: rgb(227, 227, 227);
+}
+.spectrum--dark .spectrum-TreeView-itemLink:hover,
+.spectrum--dark .spectrum-TreeView-itemLink.is-selected {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-TreeView-itemLink:hover::before,
+.spectrum--dark .spectrum-TreeView-itemLink.is-selected::before {
+      background-color: rgba(255,255,255,0.06);
+    }
+.spectrum--dark .spectrum-TreeView-itemLink.focus-ring {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-TreeView-itemLink.focus-ring::before {
+      background-color: rgba(255,255,255,0.06);
+      box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+    }
+.spectrum--dark .spectrum-TreeView-itemLink.is-drop-target::before {
+      background-color: rgba(55,142,240,0.15);
+      box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+    }
+.spectrum--darkest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(92, 92, 92);
+    }
+.spectrum--darkest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(73, 73, 73);
+      }
+.spectrum--darkest .spectrum-TreeView-itemLink {
+  color: rgb(200, 200, 200);
+}
+.spectrum--darkest .spectrum-TreeView-itemLink:hover,
+.spectrum--darkest .spectrum-TreeView-itemLink.is-selected {
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-TreeView-itemLink:hover::before,
+.spectrum--darkest .spectrum-TreeView-itemLink.is-selected::before {
+      background-color: rgba(239,239,239,0.08);
+    }
+.spectrum--darkest .spectrum-TreeView-itemLink.focus-ring {
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-TreeView-itemLink.focus-ring::before {
+      background-color: rgba(239,239,239,0.08);
+      box-shadow: 0px 0px 0px 2px rgb(20, 115, 230) inset;
+    }
+.spectrum--darkest .spectrum-TreeView-itemLink.is-drop-target::before {
+      background-color: rgba(38,128,235,0.2);
+      box-shadow: 0px 0px 0px 2px rgb(20, 115, 230) inset;
+    }
+.spectrum--light .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(179, 179, 179);
+    }
+.spectrum--light .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(202, 202, 202);
+      }
+.spectrum--light .spectrum-TreeView-itemLink {
+  color: rgb(75, 75, 75);
+}
+.spectrum--light .spectrum-TreeView-itemLink:hover,
+.spectrum--light .spectrum-TreeView-itemLink.is-selected {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-TreeView-itemLink:hover::before,
+.spectrum--light .spectrum-TreeView-itemLink.is-selected::before {
+      background-color: rgba(44,44,44,0.04);
+    }
+.spectrum--light .spectrum-TreeView-itemLink.focus-ring {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-TreeView-itemLink.focus-ring::before {
+      background-color: rgba(44,44,44,0.04);
+      box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+    }
+.spectrum--light .spectrum-TreeView-itemLink.is-drop-target::before {
+      background-color: rgba(20,115,230,0.1);
+      box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+    }
+.spectrum--lightest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(188, 188, 188);
+    }
+.spectrum--lightest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(211, 211, 211);
+      }
+.spectrum--lightest .spectrum-TreeView-itemLink {
+  color: rgb(80, 80, 80);
+}
+.spectrum--lightest .spectrum-TreeView-itemLink:hover,
+.spectrum--lightest .spectrum-TreeView-itemLink.is-selected {
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-TreeView-itemLink:hover::before,
+.spectrum--lightest .spectrum-TreeView-itemLink.is-selected::before {
+      background-color: rgba(50,50,50,0.04);
+    }
+.spectrum--lightest .spectrum-TreeView-itemLink.focus-ring {
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-TreeView-itemLink.focus-ring::before {
+      background-color: rgba(50,50,50,0.04);
+      box-shadow: 0px 0px 0px 2px rgb(55, 142, 240) inset;
+    }
+.spectrum--lightest .spectrum-TreeView-itemLink.is-drop-target::before {
+      background-color: rgba(38,128,235,0.1);
+      box-shadow: 0px 0px 0px 2px rgb(55, 142, 240) inset;
+    }

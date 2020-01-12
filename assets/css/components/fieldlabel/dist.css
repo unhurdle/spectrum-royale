@@ -1,0 +1,152 @@
+.spectrum--large .spectrum-FieldLabel,
+.spectrum--large .spectrum-Form-itemLabel {
+
+  padding: 5px 0 6px;
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.spectrum--large .spectrum-FieldLabel-requiredIcon {
+  margin: 5px 0 0 2px;
+}
+.spectrum--large .spectrum-FieldLabel--left {
+  padding: 10px 10px 0 0;
+}
+.spectrum--large .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon {
+    margin: 0px 0 0 2px;
+  }
+.spectrum--large .spectrum-FieldLabel--right {
+  padding: 10px 10px 0 0;
+}
+.spectrum--large .spectrum-Form {
+  border-spacing: 0 30px;
+  margin: -25px 0;
+}
+.spectrum--large .spectrum-Form--labelsAbove .spectrum-Form-item + .spectrum-Form-item {
+      margin-top: 10px;
+    }
+.spectrum-FieldLabel,
+.spectrum-Form-itemLabel {
+  display: block;
+
+  box-sizing: border-box;
+
+  padding: 4px 0 5px;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+
+  vertical-align: top;
+
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  font-smoothing: subpixel-antialiased;
+}
+.spectrum-FieldLabel-requiredIcon {
+  margin: 4px 0 0 2px;
+}
+.spectrum-FieldLabel--left {
+  display: inline-block;
+  padding: 8px 8px 0 0;
+}
+.spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon {
+    margin: 0px 0 0 2px;
+  }
+.spectrum-FieldLabel--right {
+  display: inline-block;
+  text-align: right;
+  padding: 8px 8px 0 0;
+}
+.spectrum-Form {
+  display: table;
+  border-collapse: separate;
+  border-spacing: 0 24px;
+  margin: -20px 0;
+}
+.spectrum-Form-item {
+  display: table-row;
+}
+.spectrum-Form-itemLabel {
+  display: table-cell;
+}
+.spectrum-Form-itemField {
+  display: table-cell;
+}
+.spectrum-Form--labelsAbove {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin: 0;
+}
+.spectrum-Form--labelsAbove .spectrum-Form-item {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+  }
+.spectrum-Form--labelsAbove .spectrum-Form-item + .spectrum-Form-item {
+      margin-top: 8px;
+    }
+.spectrum--dark .spectrum-FieldLabel,
+.spectrum--dark .spectrum-Form-itemLabel {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-FieldLabel.is-disabled,
+.spectrum--dark .spectrum-Form-itemLabel.is-disabled {
+    color: rgb(110, 110, 110);
+  }
+.spectrum--dark .spectrum-FieldLabel.is-disabled .spectrum-FieldLabel-requiredIcon,
+.spectrum--dark .spectrum-Form-itemLabel.is-disabled .spectrum-FieldLabel-requiredIcon {
+      color: rgb(110, 110, 110);
+    }
+.spectrum--dark .spectrum-FieldLabel-requiredIcon {
+  color: rgb(144, 144, 144);
+}
+.spectrum--darkest .spectrum-FieldLabel,
+.spectrum--darkest .spectrum-Form-itemLabel {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-FieldLabel.is-disabled,
+.spectrum--darkest .spectrum-Form-itemLabel.is-disabled {
+    color: rgb(92, 92, 92);
+  }
+.spectrum--darkest .spectrum-FieldLabel.is-disabled .spectrum-FieldLabel-requiredIcon,
+.spectrum--darkest .spectrum-Form-itemLabel.is-disabled .spectrum-FieldLabel-requiredIcon {
+      color: rgb(92, 92, 92);
+    }
+.spectrum--darkest .spectrum-FieldLabel-requiredIcon {
+  color: rgb(124, 124, 124);
+}
+.spectrum--light .spectrum-FieldLabel,
+.spectrum--light .spectrum-Form-itemLabel {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-FieldLabel.is-disabled,
+.spectrum--light .spectrum-Form-itemLabel.is-disabled {
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-FieldLabel.is-disabled .spectrum-FieldLabel-requiredIcon,
+.spectrum--light .spectrum-Form-itemLabel.is-disabled .spectrum-FieldLabel-requiredIcon {
+      color: rgb(179, 179, 179);
+    }
+.spectrum--light .spectrum-FieldLabel-requiredIcon {
+  color: rgb(142, 142, 142);
+}
+.spectrum--lightest .spectrum-FieldLabel,
+.spectrum--lightest .spectrum-Form-itemLabel {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-FieldLabel.is-disabled,
+.spectrum--lightest .spectrum-Form-itemLabel.is-disabled {
+    color: rgb(188, 188, 188);
+  }
+.spectrum--lightest .spectrum-FieldLabel.is-disabled .spectrum-FieldLabel-requiredIcon,
+.spectrum--lightest .spectrum-Form-itemLabel.is-disabled .spectrum-FieldLabel-requiredIcon {
+      color: rgb(188, 188, 188);
+    }
+.spectrum--lightest .spectrum-FieldLabel-requiredIcon {
+  color: rgb(149, 149, 149);
+}

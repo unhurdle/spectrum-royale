@@ -1,0 +1,214 @@
+.spectrum--large .spectrum-AssetList-item {
+
+  width: 272px;
+  height: 40px;
+
+  padding: 0 16px 0 16px;
+  margin: 0 0 4px 0;
+
+  border-radius: 4px;
+
+  transition: background-color 130ms ease-in-out;
+
+  font-size: 17px;
+  font-weight: 400;
+}
+.spectrum--large .spectrum-AssetList-item::before {
+
+    height: 40px;
+
+    border-radius: 4px;
+  }
+.spectrum--large .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+  }
+.spectrum--large .spectrum-AssetList-itemSelector {
+  margin: 0;
+}
+.spectrum--large .spectrum-AssetList-itemChildIndicator {
+  transition: transform ease 130ms;
+}
+.spectrum--large .spectrum-AssetList-itemLabel {
+  padding-left: 8px;
+}
+.spectrum-AssetList {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+.spectrum-AssetList-item {
+  position: relative;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  box-sizing: border-box;
+  -ms-flex-align: center;
+      align-items: center;
+
+  width: 272px;
+  height: 40px;
+
+  padding: 0 16px 0 16px;
+  margin: 0 0 4px 0;
+
+  border-radius: 4px;
+
+  transition: background-color 130ms ease-in-out;
+
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+
+  cursor: pointer;
+
+  outline: none;
+}
+.spectrum-AssetList-item::before {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    height: 40px;
+
+    background-color: transparent;
+
+    border-radius: 4px;
+  }
+.spectrum-AssetList-item.is-selectable .spectrum-Checkbox, .spectrum-AssetList-item.is-selected .spectrum-Checkbox, .spectrum-AssetList-item:hover .spectrum-Checkbox, .spectrum-AssetList-item:focus .spectrum-Checkbox {
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+    }
+.spectrum-AssetList-item.is-branch .spectrum-AssetList-itemChildIndicator {
+      display: block;
+    }
+.spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    border-style: none;
+
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+.spectrum-AssetList-itemSelector {
+  display: none;
+  margin: 0;
+}
+.spectrum-AssetList-itemChildIndicator {
+  display: none;
+  transition: transform ease 130ms;
+}
+.spectrum-AssetList-itemLabel {
+  -ms-flex: 1;
+      flex: 1;
+  padding-left: 8px;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.spectrum--dark .spectrum-AssetList-item:hover {
+    background-color: rgb(62, 62, 62);
+  }
+.spectrum--dark .spectrum-AssetList-item:focus.focus-ring,
+.spectrum--dark .spectrum-AssetList-item:focus.is-focused {
+      background-color: rgb(62, 62, 62);
+    }
+.spectrum--dark .spectrum-AssetList-item:focus.focus-ring::before,
+.spectrum--dark .spectrum-AssetList-item:focus.is-focused::before {
+        box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+      }
+.spectrum--dark .spectrum-AssetList-item.is-navigated {
+    background-color: rgb(74, 74, 74);
+  }
+.spectrum--dark .spectrum-AssetList-item.is-navigated:hover,
+.spectrum--dark .spectrum-AssetList-item.is-navigated:focus {
+      background-color: rgb(74, 74, 74);
+    }
+.spectrum--dark .spectrum-AssetList-item.is-selected {
+    background-color: rgba(55,142,240,0.1);
+  }
+.spectrum--dark .spectrum-AssetList-item.is-selected:hover,
+.spectrum--dark .spectrum-AssetList-item.is-selected:focus {
+      background-color: rgba(55,142,240,0.2);
+    }
+.spectrum--darkest .spectrum-AssetList-item:hover {
+    background-color: rgb(44, 44, 44);
+  }
+.spectrum--darkest .spectrum-AssetList-item:focus.focus-ring,
+.spectrum--darkest .spectrum-AssetList-item:focus.is-focused {
+      background-color: rgb(44, 44, 44);
+    }
+.spectrum--darkest .spectrum-AssetList-item:focus.focus-ring::before,
+.spectrum--darkest .spectrum-AssetList-item:focus.is-focused::before {
+        box-shadow: 0px 0px 0px 2px rgb(20, 115, 230) inset;
+      }
+.spectrum--darkest .spectrum-AssetList-item.is-navigated {
+    background-color: rgb(57, 57, 57);
+  }
+.spectrum--darkest .spectrum-AssetList-item.is-navigated:hover,
+.spectrum--darkest .spectrum-AssetList-item.is-navigated:focus {
+      background-color: rgb(57, 57, 57);
+    }
+.spectrum--darkest .spectrum-AssetList-item.is-selected {
+    background-color: rgba(38,128,235,0.1);
+  }
+.spectrum--darkest .spectrum-AssetList-item.is-selected:hover,
+.spectrum--darkest .spectrum-AssetList-item.is-selected:focus {
+      background-color: rgba(38,128,235,0.2);
+    }
+.spectrum--light .spectrum-AssetList-item:hover {
+    background-color: rgb(234, 234, 234);
+  }
+.spectrum--light .spectrum-AssetList-item:focus.focus-ring,
+.spectrum--light .spectrum-AssetList-item:focus.is-focused {
+      background-color: rgb(234, 234, 234);
+    }
+.spectrum--light .spectrum-AssetList-item:focus.focus-ring::before,
+.spectrum--light .spectrum-AssetList-item:focus.is-focused::before {
+        box-shadow: 0px 0px 0px 2px rgb(38, 128, 235) inset;
+      }
+.spectrum--light .spectrum-AssetList-item.is-navigated {
+    background-color: rgb(225, 225, 225);
+  }
+.spectrum--light .spectrum-AssetList-item.is-navigated:hover,
+.spectrum--light .spectrum-AssetList-item.is-navigated:focus {
+      background-color: rgb(225, 225, 225);
+    }
+.spectrum--light .spectrum-AssetList-item.is-selected {
+    background-color: rgba(20,115,230,0.1);
+  }
+.spectrum--light .spectrum-AssetList-item.is-selected:hover,
+.spectrum--light .spectrum-AssetList-item.is-selected:focus {
+      background-color: rgba(20,115,230,0.2);
+    }
+.spectrum--lightest .spectrum-AssetList-item:hover {
+    background-color: rgb(244, 244, 244);
+  }
+.spectrum--lightest .spectrum-AssetList-item:focus.focus-ring,
+.spectrum--lightest .spectrum-AssetList-item:focus.is-focused {
+      background-color: rgb(244, 244, 244);
+    }
+.spectrum--lightest .spectrum-AssetList-item:focus.focus-ring::before,
+.spectrum--lightest .spectrum-AssetList-item:focus.is-focused::before {
+        box-shadow: 0px 0px 0px 2px rgb(55, 142, 240) inset;
+      }
+.spectrum--lightest .spectrum-AssetList-item.is-navigated {
+    background-color: rgb(234, 234, 234);
+  }
+.spectrum--lightest .spectrum-AssetList-item.is-navigated:hover,
+.spectrum--lightest .spectrum-AssetList-item.is-navigated:focus {
+      background-color: rgb(234, 234, 234);
+    }
+.spectrum--lightest .spectrum-AssetList-item.is-selected {
+    background-color: rgba(38,128,235,0.1);
+  }
+.spectrum--lightest .spectrum-AssetList-item.is-selected:hover,
+.spectrum--lightest .spectrum-AssetList-item.is-selected:focus {
+      background-color: rgba(38,128,235,0.2);
+    }

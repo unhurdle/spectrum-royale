@@ -6,6 +6,11 @@
 import com.unhurdle.spectrum.const.IconPrefix;
 
       [Bindable]public var codeString:String = 
+
+'      [Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";\n'+
+'      [Bindable]public var flyoutList:Array = ["One","Two","Three"];\n'+
+'\n'+
+'\n'+
 '  <sp:FieldGroup vertical="true">\n'+
 '    <sp:ButtonGroup style="padding-bottom:18px">\n'+
 '      <sp:ActionButton text="Edit"/>\n'+

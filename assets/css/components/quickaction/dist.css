@@ -1,0 +1,114 @@
+.spectrum--large .spectrum-QuickActions {
+  visibility: hidden;
+
+  opacity: 0;
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+
+  pointer-events: none;
+}
+.spectrum--large .spectrum-QuickActions.is-open {
+  visibility: visible;
+
+  opacity: 1;
+
+  transition-delay: 0ms;
+
+  pointer-events: auto;
+}
+.spectrum--large .spectrum-QuickActions--left.is-open {
+  transform: translateX(8px);
+}
+.spectrum--large .spectrum-QuickActions--right.is-open {
+  transform: translateX(-8px);
+}
+.spectrum--large .spectrum-QuickActions {
+
+  padding: 5px 5px;
+
+  height: 50px;
+
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-QuickActions .spectrum-ActionButton + .spectrum-ActionButton {
+    margin-left: 10px;
+  }
+.spectrum--large .spectrum-QuickActions--textOnly .spectrum-ActionButton + .spectrum-ActionButton {
+    margin-left: 5px;
+  }
+.spectrum-QuickActions {
+  visibility: hidden;
+
+  opacity: 0;
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+
+  pointer-events: none;
+}
+.spectrum-QuickActions.is-open {
+  visibility: visible;
+
+  opacity: 1;
+
+  transition-delay: 0ms;
+
+  pointer-events: auto;
+}
+.spectrum-QuickActions--left.is-open {
+  transform: translateX(6px);
+}
+.spectrum-QuickActions--right.is-open {
+  transform: translateX(-6px);
+}
+.spectrum-QuickActions {
+  box-sizing: border-box;
+
+  display: -ms-inline-flexbox;
+
+  display: inline-flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+
+  padding: 4px 4px;
+
+  height: 40px;
+
+  border-radius: 4px;
+}
+.spectrum-QuickActions .spectrum-ActionButton + .spectrum-ActionButton {
+    margin-left: 8px;
+  }
+.spectrum-QuickActions--textOnly .spectrum-ActionButton + .spectrum-ActionButton {
+    margin-left: 4px;
+  }
+
+.spectrum--dark .spectrum-QuickActions-overlay {
+  background-color: rgba(0,0,0,0.2);
+}
+.spectrum--dark .spectrum-QuickActions {
+  background-color: rgba(50,50,50,0.9);
+}
+.spectrum--darkest .spectrum-QuickActions-overlay {
+  background-color: rgba(0,0,0,0.2);
+}
+.spectrum--darkest .spectrum-QuickActions {
+  background-color: rgba(30,30,30,0.9);
+}
+.spectrum--light .spectrum-QuickActions-overlay {
+  background-color: rgba(0,0,0,0.2);
+}
+.spectrum--light .spectrum-QuickActions {
+  background-color: rgba(245,245,245,0.9);
+}
+.spectrum--lightest .spectrum-QuickActions-overlay {
+  background-color: rgba(0,0,0,0.2);
+}
+.spectrum--lightest .spectrum-QuickActions {
+  background-color: rgba(255,255,255,0.9);
+}

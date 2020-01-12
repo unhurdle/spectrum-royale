@@ -1,0 +1,62 @@
+.spectrum--large .spectrum-IllustratedMessage-illustration {
+  margin-bottom: 24px;
+}
+.spectrum--large .spectrum-IllustratedMessage-heading {
+  max-width: 500px;
+  margin: 0;
+}
+.spectrum--large .spectrum-IllustratedMessage-description {
+  max-width: 500px;
+  margin: 4px 0 0 0;
+}
+.spectrum-IllustratedMessage {
+  height: 100%;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+
+  text-align: center;
+}
+.spectrum-IllustratedMessage-illustration {
+  margin-bottom: 24px;
+}
+.spectrum-IllustratedMessage-heading {
+  max-width: 500px;
+  margin: 0;
+}
+.spectrum-IllustratedMessage-description {
+  max-width: 500px;
+  margin: 4px 0 0 0;
+
+  font-style: italic;
+}
+.spectrum-IllustratedMessage--cta .spectrum-IllustratedMessage-description {
+    font-style: normal;
+  }
+.spectrum--dark .spectrum-IllustratedMessage-illustration {
+  color: rgb(110, 110, 110);
+  fill: currentColor;
+  stroke: currentColor;
+}
+.spectrum--darkest .spectrum-IllustratedMessage-illustration {
+  color: rgb(92, 92, 92);
+  fill: currentColor;
+  stroke: currentColor;
+}
+.spectrum--light .spectrum-IllustratedMessage-illustration {
+  color: rgb(179, 179, 179);
+  fill: currentColor;
+  stroke: currentColor;
+}
+.spectrum--lightest .spectrum-IllustratedMessage-illustration {
+  color: rgb(188, 188, 188);
+  fill: currentColor;
+  stroke: currentColor;
+}
