@@ -35,16 +35,7 @@ package com.unhurdle.spectrum
     {
     	return _size;
     }
-
-    public function set size(value:String):void
-    {
-      if(!value || value == _size){
-        return;
-      }
-      if(_size){
-        toggle(valueToSelector("size" + _size),false);
-      }
-    	_size = value;
+    public static function validateSize(value:String):Boolean{
       switch(value){
         case "XXS":
         case "XS":
@@ -53,10 +44,24 @@ package com.unhurdle.spectrum
         case "L":
         case "XL":
         case "XXL":
-          break;
+          return true;
         default:
+          return false;
+      }
+
+    }
+    public function set size(value:String):void
+    {
+      if(!value || value == _size){
+        return;
+      }
+      if(!validateSize(value)){
           throw new Error("invalid size: " + value);
       }
+      if(_size){
+        toggle(valueToSelector("size" + _size),false);
+      }
+    	_size = value;
       toggle(valueToSelector("size" + value),true);
     }
 

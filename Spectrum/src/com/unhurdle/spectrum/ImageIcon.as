@@ -32,28 +32,16 @@ package com.unhurdle.spectrum
 
     public function set size(value:String):void
     {
-      if(value == _size){
+      if(!value || value == _size){
         return;
+      }
+      if(!Icon.validateSize(value)){
+        throw new Error("invalid size: " + value);
       }
       if(_size){
         toggle(valueToSelector("size" + _size),false);
       }
     	_size = value;
-      if(!value){
-        return;
-      }
-      switch(value){
-        case "XXS":
-        case "XS":
-        case "S":
-        case "M":
-        case "L":
-        case "XL":
-        case "XXL":
-          break;
-        default:
-          throw new Error("invalid size: " + value);
-      }
       toggle(valueToSelector("size" + value),true);
     }
 

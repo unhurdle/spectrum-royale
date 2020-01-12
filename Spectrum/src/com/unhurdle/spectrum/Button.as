@@ -102,7 +102,7 @@ package com.unhurdle.spectrum
 
     public function set iconSize(value:String):void
     {
-      if(!value){
+      if(!Icon.validateSize(value)){
         return;
       }
     	_iconSize = value;
