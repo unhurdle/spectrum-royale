@@ -102,7 +102,8 @@ package com.unhurdle.spectrum
         }
         popover.x = componentBounds.x;
         if(isNaN(_popupWidth)){
-          popover.width = width;
+          popover.setStyle("minWidth",width + "px");
+          // popover.width = width;
         }
         dispatchEvent(new Event("showMenu"));
 				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);

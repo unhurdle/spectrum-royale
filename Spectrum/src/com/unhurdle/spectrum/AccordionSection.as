@@ -56,9 +56,9 @@ package com.unhurdle.spectrum
       if(value != _open){
       	_open = value;
         toggle("is-open",value);
-        var type:String = value ? IconType.CHEVRON_DOWN_MEDIUM:IconType.CHEVRON_RIGHT_MEDIUM;
-        headerIcon.selector = Icon.getCSSTypeSelector(type);
-        headerIcon.type = type;
+        // var type:String = value ? IconType.CHEVRON_DOWN_MEDIUM:IconType.CHEVRON_RIGHT_MEDIUM;
+        // headerIcon.selector = Icon.getCSSTypeSelector(type);
+        // headerIcon.type = type;
       }
     }
     private function toggleSection():void{

@@ -36,12 +36,13 @@
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
     <component id="CoachMarkPopover" class="com.unhurdle.spectrum.CoachMarkPopover"/>
     <component id="Code" class="com.unhurdle.spectrum.typography.Code"/>
-    <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
     <component id="ColorSlider" class="com.unhurdle.spectrum.ColorSlider"/>
+    <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
     <component id="ComboBoxController" class="com.unhurdle.spectrum.ComboBoxController"/>
     <component id="ComboBoxList" class="com.unhurdle.spectrum.ComboBoxList"/>
     <component id="ComboBoxModel" class="com.unhurdle.spectrum.ComboBoxModel"/>
     <component id="ComboBoxView" class="com.unhurdle.spectrum.ComboBoxView"/>
+    <component id="Container" class="com.unhurdle.spectrum.Container"/>
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="DatePicker" class="com.unhurdle.spectrum.DatePicker"/>
     <component id="Detail" class="com.unhurdle.spectrum.typography.Detail"/>
