@@ -1,10 +1,52 @@
 <sp:View xmlns:fx="http://ns.adobe.com/mxml/2009"
-  xmlns:sp="library://ns.unhurdle.com/spectrum">
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:panes="view.panes.*" initComplete="setNavSelection()">
   <fx:Script>
     <![CDATA[
-      
+        import view.panes.AccordionPane;
+        import models.NavProvider;
+        import view.DemoPane;
+
+      [Bindable]public var navProvider:Array = [
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane),
+        new NavProvider("Accordion",AccordionPane)
+      ];
+      private function setNavSelection():void{
+        sideNav.selectedIndex = 0;
+        onNavChange()
+      }
+      private function onNavChange():void{
+        if(currentPane){
+          mainGroup.removeElement(currentPane);
+        }
+        var provider:NavProvider = sideNav.selectedItem as NavProvider;
+        currentPane = new provider.reference();
+        mainGroup.addElement(currentPane);
+      }
+      private var currentPane:DemoPane;
     ]]>
   </fx:Script>
-  <sp:SideNav dataProvider=""/>
-  
+  <fx:Style>
+    .pane-container{
+      padding:"20px";
+    }
+  </fx:Style>
+  <sp:FlexContainer id="mainGroup" wrap="false">
+    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()"/>
+  </sp:FlexContainer>
+
 </sp:View>

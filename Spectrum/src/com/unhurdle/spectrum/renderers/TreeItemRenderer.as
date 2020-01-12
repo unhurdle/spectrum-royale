@@ -23,13 +23,15 @@ package com.unhurdle.spectrum.renderers
     override public function set data(value:Object):void{
       super.data = value;
       element.className = appendSelector("-item");
-      var treeListData:TreeListData = listData as TreeListData;
-      var indentVal:String = "";
-      if(treeListData.depth != -1){
-        
-        indentVal = (treeListData.depth - 1) * indent + "px";
+      if(listData is TreeListData){
+        var treeListData:TreeListData = listData as TreeListData;
+        var indentVal:String = "";
+        if(treeListData.depth != -1){
+          
+          indentVal = (treeListData.depth - 1) * indent + "px";
+        }
+        element.style.marginLeft = indentVal;
       }
-      element.style.marginLeft = indentVal;
     }
     COMPILE::JS
     override public function set selected(value:Boolean):void

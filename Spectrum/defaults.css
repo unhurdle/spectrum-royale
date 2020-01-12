@@ -27,11 +27,11 @@ List
 }
 SideNav
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadModel: ClassReference("org.apache.royale.html.beads.models.TreeModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.TreeSingleSelectionMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
-	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
+	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForHierarchicalData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SideNavItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
@@ -40,7 +40,7 @@ SideNav
 Tree
 {
 	IBeadModel: ClassReference("org.apache.royale.html.beads.models.TreeModel");
-	IBeadView:  ClassReference("org.apache.royale.html.beads.ListView");	
+	IBeadView:  ClassReference("org.apache.royale.html.beads.ListView");
 	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.TreeSingleSelectionMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForHierarchicalData");

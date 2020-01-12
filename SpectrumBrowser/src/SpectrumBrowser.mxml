@@ -1,98 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<sp:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+<sp:Application
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:js="library://ns.apache.org/royale/basic"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:engine="org.apache.royale.text.engine.*" xmlns:html="library://ns.apache.org/royale/html" 
-  xmlns:spectrum="com.unhurdle.spectrum.*" xmlns:panes="view.panes.*" colorstop="dark" appScale="medium" preinitialize="preinit()">
+  xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:view="view.*" preinitialize="preinit()">
   <fx:Script>
     <![CDATA[
 
-      import com.unhurdle.spectrum.Alert;
-      import com.unhurdle.spectrum.Toast;
-      import com.unhurdle.spectrum.Dialog;
-      import com.unhurdle.spectrum.DialogContent;
-      import com.unhurdle.spectrum.DialogFooter;
-      import com.unhurdle.spectrum.DialogHeader;
-      import com.unhurdle.spectrum.DialogTitle;
-      import com.unhurdle.spectrum.DialogTypeIcon;
-      import org.apache.royale.html.elements.H1;
-      import org.apache.royale.html.elements.P;
-      import org.apache.royale.events.ValueEvent;
-      import com.unhurdle.spectrum.data.BreadcrumbsItem;
-      import org.apache.royale.events.Event;
-      import org.apache.royale.events.BrowserEvent;
-      import com.unhurdle.spectrum.Switch;
-      import com.unhurdle.spectrum.SearchWithin;
-      import org.apache.royale.events.ValueEvent;
-      import com.unhurdle.spectrum.AssetList;
-      import org.apache.royale.collections.HierarchicalData;
-      import com.unhurdle.spectrum.data.AssetListItem;
-      import com.unhurdle.spectrum.Button;
-      import com.unhurdle.spectrum.data.MenuItem;
       import models.Theme;
-
-
       private function preinit():void{
         Theme.app = this;
-      }
-
-      [Bindable]
-      private var listProvider:Array = [
-        "One",
-        "Two",
-        "Three",
-        "Four",
-        "Five"
-
-      ];
-      // private function handleCheckboxChange():void
-      // {
-      //   new Toast("Checkbox value: " + myCheckbox.checked).show();
-      // }
-      // [Bindable]
-      // private var listProvider:Array = [
-      //   "One",
-      //   "Two",
-      //   "Three",
-      //   "Four",
-      //   "Five"
-      // ];
-      [Bindable]
-      private var comboProvider:Array = [
-        "One",
-        "Two",
-        "Three",
-        "Four",
-        "Five"
-      ];
-      // [Bindable]
-      // private var subMenuProvider:Array = [
-      //   item1,item2,item3
-      //   // new MenuItem("Sub Item One"),
-      //   // new MenuItem("Sub Item Two"),
-      //   // new MenuItem("Sub Item Three")
-      // private var item1:MenuItem = new MenuItem("Sub Item One");
-      // private var item2:MenuItem = new MenuItem("Sub Item Two");
-      // private var item3:MenuItem = new MenuItem("Sub Item Three");
-      // // ];
-
-      // [Bindable]
-      // private var millerColumnsProvider:Array = [,];
-      [Bindable]private var date:Date = new Date();
-      [Bindable]private var date1:Date = new Date(2019,1,25);
-
-      private function sideNavClick(ev:*):void{
-        var value:String = ev.target.selectedItem.label;
-        new Toast("The selected item is: "+value).show();
       }
 
     ]]>
   </fx:Script>
   <sp:initialView>
-    <sp:View>
-
-      <panes:AccordionPane/>
-
-
-    </sp:View>
+  <view:MainView/>
   </sp:initialView>  
 </sp:Application>

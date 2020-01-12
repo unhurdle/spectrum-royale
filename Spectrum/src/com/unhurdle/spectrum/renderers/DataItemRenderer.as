@@ -62,6 +62,18 @@ package com.unhurdle.spectrum.renderers
       super.selected = value;
       toggle("is-selected",value);
     }
+    private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void{
+    	_disabled = value;
+      toggle("is-disabled",value);
+    }
+    
 
   }
 }

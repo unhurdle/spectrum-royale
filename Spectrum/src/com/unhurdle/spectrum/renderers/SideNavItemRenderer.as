@@ -14,6 +14,8 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.Icon;
   import com.unhurdle.spectrum.const.IconSize;
   import com.unhurdle.spectrum.ImageIcon;
+  import com.unhurdle.spectrum.data.MenuItem;
+  import org.apache.royale.html.supportClasses.TreeListData;
 
   public class SideNavItemRenderer extends DataItemRenderer
   {
@@ -25,32 +27,48 @@ package com.unhurdle.spectrum.renderers
     override protected function getSelector():String{
       return "spectrum-SideNav";
     }
-
+    public static var indent:Number = 10;
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
       var elem:HTMLElement = element as HTMLElement;
+      if(value is MenuItem){
+        var menuItem:MenuItem = value as MenuItem;
+        if(menuItem.isHeading){
+          toggle(appendSelector("-heading"),true);
+          toggle(appendSelector("-item"),false);
+        } else {
+          toggle(appendSelector("-heading"),false);
+          toggle(appendSelector("-item"),true);
+        }
+      }
+
+      if(listData is TreeListData){
+        var treeListData:TreeListData = listData as TreeListData;
+        var indentVal:String = "";
+        if(treeListData.depth != -1){
+          
+          indentVal = (treeListData.depth - 1) * indent + "px";
+        }
+        element.style.marginLeft = indentVal;
+      }
+
       var sideNavItem:SideNavItem = value as SideNavItem;
-      elem.className = null;
-      elem.style.pointerEvents = null
-      if(sideNavItem.isHeading){
-        textNode.className = appendSelector("-heading");
-        elem.style.pointerEvents = "none";
-      } else {
-        elem.className = appendSelector("-item");
-      }
-      textNode.element.setAttribute("href",sideNavItem.href || "#");
-      isList = !!sideNavItem.isList;
-      if(isList){
-        textNode.text = sideNavItem.text;
-        var ul:SideNav = new SideNav();
-        ul.dataProvider = sideNavItem.dataProvider;
-        ul.multiLevel = (sideNavItem as SideNav).multiLevel;
-        addElement(ul);
-      }else{
-        textNode.text = getLabelFromData(this,value);
-      }
+      // elem.style.pointerEvents = null
+      // textNode.element.setAttribute("href",sideNavItem.href || "#");
+      //TODO nested lists?
+      // isList = !!sideNavItem.isList;
+      // if(isList){
+      //   textNode.text = sideNavItem.text;
+      //   var ul:SideNav = new SideNav();
+      //   ul.dataProvider = sideNavItem.dataProvider;
+      //   ul.multiLevel = (sideNavItem as SideNav).multiLevel;
+      //   addElement(ul);
+      // }else{
+      //   textNode.text = getLabelFromData(this,value);
+      // }
       elem.addEventListener("click",sideNavClick);
+      disabled = sideNavItem.disabled;
       if(sideNavItem.disabled){
         elem.classList.add("is-disabled");
         elem.style.pointerEvents = "none";

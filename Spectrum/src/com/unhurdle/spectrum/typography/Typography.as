@@ -22,17 +22,23 @@ package com.unhurdle.spectrum.typography
       return "";
     }
     override protected function getSelector():String{
-      var sizeStr:String = isNaN(size) || !size ? "" : "" + size;
+      var sizeStr:String = "" + size;
       return getTypographySelector() + sizeStr + getSuffix();
     }
     protected function getSuffix():String{
       return "";
+    }
+    protected function getDefaultSize():Number{
+      return 1;
     }
 
     protected var _size:Number;
 
     public function get size():Number
     {
+      if(isNaN(_size)){
+        _size = getDefaultSize();
+      }
     	return _size;
     }
     protected function getMax():int{

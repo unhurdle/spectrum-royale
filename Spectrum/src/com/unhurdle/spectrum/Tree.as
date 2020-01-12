@@ -5,6 +5,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+    import org.apache.royale.core.CSSClassList;
 
   public class Tree extends org.apache.royale.html.Tree
   {
@@ -17,7 +18,35 @@ package com.unhurdle.spectrum
     public function Tree()
     {
       super();
-      typeNames = "spectrum-TreeView"
+      typeNames = getSelector();
+    }
+
+    protected function getSelector():String{
+      return "spectrum-TreeView";
+    }
+    protected function appendSelector(value:String):String{
+      return getSelector() + value;
+    }
+
+    protected var classList:CSSClassList;
+
+    protected function toggle(classNameVal:String,add:Boolean):void
+    {
+      COMPILE::JS
+      {
+        add ? classList.add(classNameVal) : classList.remove(classNameVal);
+        setClassName(computeFinalClassNames());
+      }
+    }
+    
+    COMPILE::JS
+    override protected function computeFinalClassNames():String
+    { 
+      return classList.compute() + super.computeFinalClassNames();
+    }
+    
+    protected function valueToSelector(value:String):String{
+      return getSelector() + "--" + value;
     }
     override public function set dataProvider(value:Object):void{
       super.dataProvider = value;

@@ -11,7 +11,6 @@ package com.unhurdle.spectrum.typography
     public function Subtitle()
     {
       super();
-      _size = 1;
     }
     override protected function getSelector():String{
       return getTypographySelector() + "--subtitle" + size;

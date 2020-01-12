@@ -7,12 +7,14 @@ package view
   import com.unhurdle.spectrum.typography.Body;
   import com.unhurdle.spectrum.Container;
   import com.unhurdle.spectrum.Group;
+  import com.unhurdle.spectrum.typography.Article;
 
   public class DemoPane extends Container
   {
     public function DemoPane()
     {
       super();
+      typeNames = 'pane-container';
       addElement(new ThemePicker());
       addVarients();
     }
@@ -37,8 +39,10 @@ package view
     }
     public function set title(value:String):void{
       if(!titleElem){
+        var article:Article = new Article();
         titleElem = new Display();
-        addElementAt(titleElem,1);
+        article.addElement(titleElem);
+        addElementAt(article,1);
       }
     	_title = value;
       titleElem.text = value;
