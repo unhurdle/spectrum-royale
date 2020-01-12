@@ -18,6 +18,7 @@ package com.unhurdle.spectrum
     {
       _selector = selector;
       super();
+      size = "S";
     }
 
     public static function getCSSTypeSelector(type:String):String{
@@ -28,7 +29,7 @@ package com.unhurdle.spectrum
       return "spectrum-Icon";
     }
 
-    private var _size:String = "S";
+    private var _size:String;
 
     public function get size():String
     {
@@ -37,16 +38,13 @@ package com.unhurdle.spectrum
 
     public function set size(value:String):void
     {
-      if(value == _size){
+      if(!value || value == _size){
         return;
       }
       if(_size){
         toggle(valueToSelector("size" + _size),false);
       }
     	_size = value;
-      if(!value){
-        return;
-      }
       switch(value){
         case "XXS":
         case "XS":

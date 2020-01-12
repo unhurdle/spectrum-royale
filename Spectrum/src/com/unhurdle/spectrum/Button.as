@@ -102,6 +102,9 @@ package com.unhurdle.spectrum
 
     public function set iconSize(value:String):void
     {
+      if(!value){
+        return;
+      }
     	_iconSize = value;
       if(iconElement){
         iconElement.size = value;
@@ -134,7 +137,9 @@ package com.unhurdle.spectrum
       }
     }
     protected function setIconProps():void{
-      iconElement.className = iconClass;
+      if(iconClass){
+        iconElement.className = iconClass;
+      }
       iconElement.size = iconSize;
       iconElement.type = iconType;
     }
