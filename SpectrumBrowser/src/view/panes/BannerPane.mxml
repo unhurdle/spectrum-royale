@@ -1,0 +1,63 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:html="library://ns.apache.org/royale/html"
+  title="Banner">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var cornerString:String = 
+'  <html:Div style="width: 255px; height: 325px; background-color: #ccc; position: relative;">\n'+
+'    <sp:Banner header="Most Popular" content="Includes Illustrator CC" corner="true"/>\n'+
+'  </html:Div>';
+
+    ]]>
+  </fx:Script>
+  
+   <sp:Heading size="4" text="Error"/>
+  <html:Div height="12"/>
+  <sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text='&lt;sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/&gt;' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Info"/>
+  <html:Div height="12"/>
+  <sp:Banner header="Most Popular" content="Includes Illustrator CC"/>
+  <sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text='&lt;sp:Banner header="Most Popular" content="Includes Illustrator CC"/&gt;\n' size="4" style="white-space:break-spaces;"/>
+    <sp:Code text='&lt;sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/&gt;' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Error"/>
+  <html:Div height="12"/>
+  <sp:Banner type="warning" header="Purchase Soon" content="Your trial is about to expire"/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text='&lt;sp:Banner type="warning" header="Purchase Soon" content="Your trial is about to expire"/&gt;' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Corner Placement"/>
+  <html:Div height="12"/>
+  <html:Div style="width: 255px; height: 325px; background-color: #ccc; position: relative;">
+    <sp:Banner header="Most Popular" content="Includes Illustrator CC" corner="true"/>
+  </html:Div>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text='{cornerString}' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+</view:DemoPane>

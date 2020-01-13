@@ -11,6 +11,9 @@
         import view.panes.AlertPane;
         import view.panes.AssetPane;
         import view.panes.AssetListPane;
+        import view.panes.AvatarPane;
+        import view.panes.BannerPane;
+        import view.panes.ComingSoonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -20,16 +23,74 @@
         new NavProvider("Alert",AlertPane),
         new NavProvider("Asset",AssetPane),
         new NavProvider("AssetList",AssetListPane),
-        new NavProvider("Avatar",AccordionPane),
-        new NavProvider("Banner",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane),
-        new NavProvider("Coming Soon...",AccordionPane)
+        new NavProvider("Avatar",AvatarPane),
+        new NavProvider("Banner",BannerPane),
+        new NavProvider("Bar Loader",ComingSoonPane),
+        new NavProvider("Breadcrumbs",ComingSoonPane),
+        new NavProvider("Button - CTA",ComingSoonPane),
+        new NavProvider("Button - Over Background",ComingSoonPane),
+        new NavProvider("Button - Primary",ComingSoonPane),
+        new NavProvider("Button - Secondary",ComingSoonPane),
+        new NavProvider("Button - Warning",ComingSoonPane),
+        new NavProvider("Calendar",ComingSoonPane),
+        new NavProvider("Card - Asset preview",ComingSoonPane),
+        new NavProvider("Card - Gallery",ComingSoonPane),
+        new NavProvider("Card",ComingSoonPane),
+        new NavProvider("Checkbox",ComingSoonPane),
+        new NavProvider("Circle Loader",ComingSoonPane),
+        new NavProvider("Clear Button",ComingSoonPane),
+        new NavProvider("Coach Mark",ComingSoonPane),
+        new NavProvider("Combobox",ComingSoonPane),
+        new NavProvider("Cycle Button",ComingSoonPane),
+        new NavProvider("Date ",ComingSoonPane),
+        new NavProvider("Text Field - Decorated",ComingSoonPane),
+        new NavProvider("Dial",ComingSoonPane),
+        new NavProvider("Dialog",ComingSoonPane),
+        new NavProvider("Dropdown",ComingSoonPane),
+        new NavProvider("Drop ",ComingSoonPane),
+        new NavProvider("Dropzone",ComingSoonPane),
+        new NavProvider("Field ",ComingSoonPane),
+        new NavProvider("Field ",ComingSoonPane),
+        new NavProvider("Form",ComingSoonPane),
+        new NavProvider("Illustrated Message",ComingSoonPane),
+        new NavProvider("Label",ComingSoonPane),
+        new NavProvider("Link",ComingSoonPane),
+        new NavProvider("Logic Button",ComingSoonPane),
+        new NavProvider("Menu",ComingSoonPane),
+        new NavProvider("Meter",ComingSoonPane),
+        new NavProvider("Miller Columns",ComingSoonPane),
+        new NavProvider("Page",ComingSoonPane),
+        new NavProvider("Pagination - Button Style",ComingSoonPane),
+        new NavProvider("Pagination - Explicit",ComingSoonPane),
+        new NavProvider("Pagination - Page",ComingSoonPane),
+        new NavProvider("Popover",ComingSoonPane),
+        new NavProvider("Quick Actions",ComingSoonPane),
+        new NavProvider("Radio",ComingSoonPane),
+        new NavProvider("Rating",ComingSoonPane),
+        new NavProvider("Rule",ComingSoonPane),
+        new NavProvider("Search",ComingSoonPane),
+        new NavProvider("Search Within",ComingSoonPane),
+        new NavProvider("Side Navigation",ComingSoonPane),
+        new NavProvider("Slider",ComingSoonPane),
+        new NavProvider("Split Button",ComingSoonPane),
+        new NavProvider("SplitView",ComingSoonPane),
+        new NavProvider("Status Light",ComingSoonPane),
+        new NavProvider("Steplist",ComingSoonPane),
+        new NavProvider("Stepper",ComingSoonPane),
+        new NavProvider("Table",ComingSoonPane),
+        new NavProvider("Tabs",ComingSoonPane),
+        new NavProvider("Tags",ComingSoonPane),
+        new NavProvider("Text area",ComingSoonPane),
+        new NavProvider("Text Field",ComingSoonPane),
+        new NavProvider("Toast",ComingSoonPane),
+        new NavProvider("Switch",ComingSoonPane),
+        new NavProvider("Tool",ComingSoonPane),
+        new NavProvider("Tooltip",ComingSoonPane),
+        new NavProvider("Tree View",ComingSoonPane),
+        new NavProvider("Typography (Deprecated)",ComingSoonPane),
+        new NavProvider("Typography (Internationalized)",ComingSoonPane),
+        new NavProvider("Typography",ComingSoonPane),
+        new NavProvider("Well",ComingSoonPane)
       ];
       private function setNavSelection():void{
         sideNav.selectedIndex = 0;
@@ -52,7 +113,7 @@
     }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">
-    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()"/>
+    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;"/>
   </sp:FlexContainer>
 
 </sp:View>

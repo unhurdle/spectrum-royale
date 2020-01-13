@@ -1,0 +1,5 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum" title="Coming Soon" notes="We're still building out the demo">
+  <sp:Heading size="4" text="Standard"/>
+  
+</view:DemoPane>

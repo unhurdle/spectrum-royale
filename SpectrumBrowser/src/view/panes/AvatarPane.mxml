@@ -1,0 +1,22 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:html="library://ns.apache.org/royale/html"
+  title="Avatar">
+  <fx:Script>
+    <![CDATA[
+    ]]>
+  </fx:Script>
+  
+  <sp:Heading size="4" text="Standard"/>
+  <html:Div height="12"/>
+  <sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" />
+  <sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" disabled="true"/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text='&lt;sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" disabled="true"/&gt;\n' size="4" style="white-space:break-spaces;"/>
+    <sp:Code text='&lt;sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" /&gt;' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+</view:DemoPane>
