@@ -30,6 +30,21 @@ package com.unhurdle.spectrum
       return "spectrum-Alert";
     }
 
+    private var _noDismiss:Boolean;
+
+    public function get noDismiss():Boolean
+    {
+    	return _noDismiss;
+    }
+
+    public function set noDismiss(value:Boolean):void
+    {
+    	_noDismiss = value;
+      if(_overlayBead){
+        _overlayBead.hideOnClick = !value;
+      }
+    }
+
     private var _showOverlay:Boolean;
 
     public function get showOverlay():Boolean
@@ -54,6 +69,7 @@ package com.unhurdle.spectrum
         _overlayBead = new SpectrumOverlay();
         addBead(_overlayBead);
       }
+      _overlayBead.hideOnClick = !_noDismiss;
       return _overlayBead
     }
     private var _overlayBead:SpectrumOverlay;
