@@ -12,6 +12,7 @@
     <component id="AssetList" class="com.unhurdle.spectrum.AssetList"/>
     <component id="AssetListItem" class="com.unhurdle.spectrum.data.AssetListItem"/>
     <component id="Avatar" class="com.unhurdle.spectrum.Avatar"/>
+    <component id="Background" class="com.unhurdle.spectrum.Background"/>
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
     <component id="BinaryImageAsset" class="com.unhurdle.spectrum.BinaryImageAsset"/>

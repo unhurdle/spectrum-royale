@@ -17,17 +17,9 @@
           loader6.value += 1;
           loader7.value += 1;
           loader8.value += 1;
-          // loader1.value += 1;
-          // loader1.value += 1;
-          // loader1.value += 1;
         });
         timer.start();
       }
-      [Bindable]public var cornerString:String = 
-'  <html:Div style="width: 255px; height: 325px; background-color: #ccc; position: relative;">\n'+
-'    <sp:Banner header="Most Popular" content="Includes Illustrator CC" corner="true"/>\n'+
-'  </html:Div>';
-
     ]]>
   </fx:Script>
   

@@ -1,0 +1,196 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:html="library://ns.apache.org/royale/html"
+  title="Button">
+  <fx:Script>
+    <![CDATA[
+      import com.unhurdle.spectrum.const.IconPrefix;
+
+      [Bindable]public var stringWithIcons:String = 
+'<sp:Button flavor="primary" text="Edit" icon="{IconPrefix._18 + \'Edit\'}"/>\n\n'+
+'<sp:Button flavor="primary" text="Edit" icon="{IconPrefix._18 + \'Edit\'}" disabled="true"/>';
+
+    ]]>
+  </fx:Script>
+  
+   <sp:Heading size="4" text="CTA"/>
+   <sp:Body size="4" text="The call to action button communicates strong emphasis and is reserved for encouraging critical actions."/>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="cta" text="Button"/>
+    <sp:Button flavor="cta" text="Button" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="cta" text="Button"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="cta" text="Button" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+   <sp:Heading size="4" text="Over Background"/>
+   <sp:Body size="4" text="When a button needs to be placed on top of a colored background or a visual, use the over background button. In order to implement this button, you must set the CSS color property of a parent element to the same value as the background the button is placed against. The Spectrum Royale components includes a 'Background' component which takes care of this."/>
+  <html:Div height="12"/>
+<sp:Background color="rgb(15, 121, 125)" style="padding: 15px 20px; display: inline-block;">    <sp:Button flavor="overBackground" text="Button"/>
+    <sp:Button flavor="overBackground" text="Button" disabled="true"/>
+</sp:Background>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="overBackground" text="Button"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="overBackground" text="Button" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Over Background (quiet)"/>
+  <html:Div height="12"/>
+<sp:Background color="rgb(15, 121, 125)" style="padding: 15px 20px; display: inline-block;">    <sp:Button flavor="overBackground" text="Button" quiet="true"/>
+    <sp:Button flavor="overBackground" text="Button" quiet="true" disabled="true"/>
+</sp:Background>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="overBackground" text="Button" quiet="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="overBackground" text="Button" quiet="true" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Primary"/>
+  <sp:Body size="4" text="The primary button is used for medium emphasis."/>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="primary" text="Button"/>
+    <sp:Button flavor="primary" text="Button" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="primary" text="Edit" icon="{IconPrefix._18 + 'Edit'}"/>
+    <sp:Button flavor="primary" text="Edit" icon="{IconPrefix._18 + 'Edit'}" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="primary" text="Button"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="primary" text="Button" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+    <sp:Code text='{stringWithIcons}' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Primary (quiet)"/>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="primary" text="Button" quiet="true"/>
+    <sp:Button flavor="primary" text="Button" quiet="true" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="primary" text="Button" quiet="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="primary" text="Button" quiet="true" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Secondary"/>
+  <sp:Body size="4" text="The secondary button is for low emphasis."/>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="secondary" text="Button"/>
+    <sp:Button flavor="secondary" text="Button" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="secondary" text="Button"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="secondary" text="Button" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Secondary (quiet)"/>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="secondary" text="Button" quiet="true"/>
+    <sp:Button flavor="secondary" text="Button" quiet="true" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="secondary" text="Button" quiet="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="secondary" text="Button" quiet="true" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Warning"/>
+  <sp:Body size="4" text="The negative button is for high emphasis of negative or destructive actions."/>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="warning" text="Button"/>
+    <sp:Button flavor="warning" text="Button" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="warning" text="Button"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="warning" text="Button" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+  <sp:Heading size="4" text="Warning (quiet)"/>
+  <html:Div height="12"/>
+  <sp:ButtonGroup>
+    <sp:Button flavor="warning" text="Button" quiet="true"/>
+    <sp:Button flavor="warning" text="Button" quiet="true" disabled="true"/>
+  </sp:ButtonGroup>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="warning" text="Button" quiet="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+    <html:P>
+      <sp:Code text='&lt;sp:Button flavor="warning" text="Button" quiet="true" disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+    </html:P>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+</view:DemoPane>

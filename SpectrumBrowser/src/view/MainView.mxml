@@ -15,6 +15,7 @@
         import view.panes.BannerPane;
         import view.panes.ComingSoonPane;
         import view.panes.BarLoaderPane;
+        import view.panes.ButtonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -28,11 +29,7 @@
         new NavProvider("Banner",BannerPane),
         new NavProvider("Bar Loader",BarLoaderPane),
         new NavProvider("Breadcrumbs",ComingSoonPane),
-        new NavProvider("Button - CTA",ComingSoonPane),
-        new NavProvider("Button - Over Background",ComingSoonPane),
-        new NavProvider("Button - Primary",ComingSoonPane),
-        new NavProvider("Button - Secondary",ComingSoonPane),
-        new NavProvider("Button - Warning",ComingSoonPane),
+        new NavProvider("Button",ButtonPane),
         new NavProvider("Calendar",ComingSoonPane),
         new NavProvider("Card - Asset preview",ComingSoonPane),
         new NavProvider("Card - Gallery",ComingSoonPane),
@@ -112,6 +109,8 @@
     .pane-container{
       padding:"40px";
       flex-grow:1;
+      max-height:100vh;
+      overflow: auto;
     }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">
