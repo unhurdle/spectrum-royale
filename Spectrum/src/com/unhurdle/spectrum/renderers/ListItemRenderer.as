@@ -40,7 +40,7 @@ package com.unhurdle.spectrum.renderers
 
     //   }
     // }
-
+    protected var firstElementPosition:Number = 0;
     override public function set data(value:Object):void{
       super.data = value;
       textNode.text = getLabelFromData(this,value);
@@ -50,7 +50,7 @@ package com.unhurdle.spectrum.renderers
         if(iconSelector){
           if(!icon){
             icon = new Icon(iconSelector);
-            addElementAt(icon,0);
+            addElementAt(icon,firstElementPosition);
           } else {
             icon.setStyle("display",null);
             icon.selector = iconSelector;
@@ -63,7 +63,7 @@ package com.unhurdle.spectrum.renderers
         if(iconSrc){
           if(!imageIcon){
             imageIcon = new ImageIcon(iconSrc);
-            addElementAt(imageIcon,0);
+            addElementAt(imageIcon,firstElementPosition);
           } else {
             imageIcon.setStyle("display",null);
             imageIcon.src = iconSrc;
@@ -87,7 +87,7 @@ package com.unhurdle.spectrum.renderers
     }
     private var icon:Icon;
     private var imageIcon:ImageIcon;
-    private var textNode:TextNode;
+    protected var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {

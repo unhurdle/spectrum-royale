@@ -1,24 +1,10 @@
 package com.unhurdle.spectrum.data
 {
-  public class AssetListItem
+  public class AssetListItem extends ListItem
   {
     public function AssetListItem(text:String = null)
     {
-      this.text = text;
-    }
-    private var _text:String;
-
-    public function get text():String
-    {
-    	return _text;
-    }
-
-    public function set text(value:String):void
-    {
-    	_text = value;
-    }
-    public function get label():String{
-      return _text;
+      super(text);
     }
     private var _isBranch:Boolean;
 
@@ -53,28 +39,17 @@ package com.unhurdle.spectrum.data
     {
     	_selectable = value;
     }
+    private var _selected:Boolean;
 
-    private var _iconType:String;
-
-    public function get iconType():String
+    public function get selected():Boolean
     {
-    	return _iconType;
+    	return _selected;
     }
 
-    public function set iconType(value:String):void
+    public function set selected(value:Boolean):void
     {
-    	_iconType = value;
-    }
-    private var _src:String;
-
-    public function get src():String
-    {
-    	return _src;
+    	_selected = value;
     }
 
-    public function set src(value:String):void
-    {
-    	_src = value;
-    }
   }
 }

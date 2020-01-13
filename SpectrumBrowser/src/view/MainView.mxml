@@ -10,6 +10,7 @@
         import view.panes.ActionMenuPane;
         import view.panes.AlertPane;
         import view.panes.AssetPane;
+        import view.panes.AssetListPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -18,7 +19,7 @@
         new NavProvider("Action Menu",ActionMenuPane),
         new NavProvider("Alert",AlertPane),
         new NavProvider("Asset",AssetPane),
-        new NavProvider("AssetList",AccordionPane),
+        new NavProvider("AssetList",AssetListPane),
         new NavProvider("Avatar",AccordionPane),
         new NavProvider("Banner",AccordionPane),
         new NavProvider("Coming Soon...",AccordionPane),

@@ -1,0 +1,40 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:html="library://ns.apache.org/royale/html"
+  title="Asset List" notes="A selectable list of Assets, often used inside of Miller Columns. (sublists not yet implemented)" initComplete="onComplete()">
+  <fx:Script>
+    <![CDATA[
+      import com.unhurdle.spectrum.data.AssetListItem;
+      import com.unhurdle.spectrum.const.IconPrefix;
+
+      private function onComplete():void{
+        var arr:Array = [];
+        var item:AssetListItem = new AssetListItem("Shantanu.jpg");
+        item.imageIcon = "https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg";
+        item.selectable = true;
+        arr.push(item);
+        item = new AssetListItem("Resource Allocation.csv");
+        item.icon = IconPrefix._24 + "FileCSV";
+        item.selectable = true;
+        arr.push(item);
+        item = new AssetListItem("Frontend Projects");
+        item.icon = IconPrefix._24 + "Folder";
+        item.selectable = true;
+        item.isBranch = true;
+        arr.push(item);
+        provider = arr;
+      }
+      [Bindable]public var provider:Array;
+      [Bindable]public var codeString:String = '<sp:AssetList dataProvider="{provider}"/>';
+    ]]>
+  </fx:Script>
+  <sp:Heading size="4" text="Standard"/>
+  <html:Div height="12"/>
+  <sp:AssetList dataProvider="{provider}"/>
+  <html:Div height="12"/>
+ <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text='{codeString}' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+</view:DemoPane>

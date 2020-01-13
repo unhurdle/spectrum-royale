@@ -57,6 +57,7 @@ package view
       if(value){
         if(!notesGroup){
           _notesBody = new Body();
+          _notesBody.size = 3;
           wrapNotesBody();
         }
           _notesBody.text = value;
@@ -83,6 +84,9 @@ package view
       spacer.height = 33;
       notesGroup.addElement(spacer);
       notesGroup.addElement(_notesBody);
+      spacer = new Spacer();
+      spacer.height = 33;
+      notesGroup.addElement(spacer);
       addElementAt(notesGroup,2);
       
     }

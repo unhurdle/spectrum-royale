@@ -2,22 +2,21 @@ package com.unhurdle.spectrum.renderers
 {
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
   }
-  import com.unhurdle.spectrum.data.AssetListItem;
-  import com.unhurdle.spectrum.newElement;
   import com.unhurdle.spectrum.CheckBox;
-  import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.Icon;
+  import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconSize;
-  import com.unhurdle.spectrum.const.IconType;
-  import org.apache.royale.events.IEventDispatcher;
-  import org.apache.royale.events.ValueEvent;
+  import com.unhurdle.spectrum.data.AssetListItem;
+  import com.unhurdle.spectrum.newElement;
+
+  import org.apache.royale.events.Event;
   import org.apache.royale.html.util.getLabelFromData;
 
-  public class AssetListItemRenderer extends DataItemRenderer
+  public class AssetListItemRenderer extends ListItemRenderer
   {
     public function AssetListItemRenderer()
     {
@@ -32,24 +31,67 @@ package com.unhurdle.spectrum.renderers
       super.data = value;
       var assetListItem:AssetListItem;
       assetListItem = value as AssetListItem;
-      span.text = getLabelFromData(this,value);
       toggle(appendSelector("-item"),true);
-      if(assetListItem.selectable){
-        element.classList.add("is-selectable");
-      }
-      if(assetListItem.src){
-        src = assetListItem.src;
-      }
-      if(assetListItem.iconType){
-        iconType = assetListItem.iconType;
-      }
-      if(assetListItem.isBranch){
-        (element as HTMLElement).classList.add("is-branch");
-      }
+      setSelectable();
+      //TODO submenus
+      // if(assetListItem.isBranch){
+      //   (element as HTMLElement).classList.add("is-branch");
+      // }
       // (element as HTMLElement).classList.toggle("is-selected",false);
       // addEventListener("itemClicked",itemClicked);
       
     }
+    private function handleCheckClick(event:Event):void{
+      setSelected(checkBox.checked);
+      event.stopImmediatePropagation();
+      trace(event);
+    }
+    private function setSelectable():void{
+      if(getSelectable()){
+        toggle("is-selectable",true);
+        if(!checkBox){
+          checkBox = new CheckBox();
+          checkBox.className = appendSelector("-itemSelector");
+          checkBox.checked = getSelected();
+          checkBox.addEventListener("click",handleCheckClick)
+          addElementAt(checkBox,0);
+          firstElementPosition = 1;
+        }
+      } else{
+        toggle("is-selectable",false);
+        if(checkBox){
+          checkBox.removeEventListener("click",handleCheckClick);
+          removeElement(checkBox);
+          checkBox = null;
+          firstElementPosition = 0;
+        }
+
+      }
+    }
+
+    private function getSelectable():Boolean{
+      if(data is AssetListItem){
+        return (data as AssetListItem).selectable;
+      }
+      return data["selectable"];
+    }
+
+    private function setSelected(value:Boolean):void{
+      if(data is AssetListItem){
+        (data as AssetListItem).selected = value;
+      }
+      if(!(data is String)){
+        data["selected"] = value;
+
+      }
+    }
+    private function getSelected():Boolean{
+      if(data is AssetListItem){
+        return (data as AssetListItem).selected;
+      }
+      return data["selected"];
+    }
+
     //TODO is this right???
     // override public function set selected(value:Boolean):void{
     //   super.selected = value;
@@ -61,7 +103,6 @@ package com.unhurdle.spectrum.renderers
     //   }
     // }
     private var image:HTMLImageElement;
-    private var span:TextNode;
     private var iconImage:Icon;
     private var checkBox:CheckBox;
     COMPILE::JS
@@ -69,74 +110,23 @@ package com.unhurdle.spectrum.renderers
     {
       var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
 
-      
-
-      checkBox = new CheckBox();
-      checkBox.className += appendSelector("-itemSelector");
-      addElement(checkBox);
-
-      span = new TextNode("span");
-      span.className = appendSelector("-itemLabel");
-      elem.appendChild(span.element);
-
-      var type:String = IconType.CHEVRON_RIGHT_MEDIUM;
-      var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
-      icon.type = type;
-      icon.className = appendSelector("-itemChildIndicator");
-      addElement(icon);
+      textNode = new TextNode("span");
+      textNode.className = appendSelector("-itemLabel");
+      elem.appendChild(textNode.element);
+      //TODO submenus
+      // var type:String = IconType.CHEVRON_RIGHT_MEDIUM;
+      // var icon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+      // icon.type = type;
+      // icon.className = appendSelector("-itemChildIndicator");
+      // addElement(icon);
       
       return elem;
     }
 
-    public function get src():String
-    {
-      if(image)
-    	  return image.src;
-      return "";
-    }
-    COMPILE::SWF
-    public function set src(value:String):void{}
 
-    COMPILE::JS
-    public function set src(value:String):void
-    {
-      if(iconImage){
-        element.removeChild(iconImage.element);
-      }
-      if(!image){
-        image = newElement("img") as HTMLImageElement;
-        image.className = appendSelector("-itemThumbnail");
-        element.insertBefore(image,span.element);
-      }
-      image.src = value;
-    }
-    private var _iconType:String;
-
-    public function get iconType():String
-    {
-    	return _iconType;
-    }
-
-    public function set iconType(value:String):void
-    {
-      if(image){
-        (element as HTMLElement).removeChild(image);
-      }
-      if(!iconImage){
-        iconImage = new Icon(IconPrefix._24 + value);
-        iconImage.size = IconSize.M;
-        iconImage.className = appendSelector("-itemThumbnail");
-        (element as HTMLElement).insertBefore(iconImage.element as HTMLElement,span.element as HTMLElement);
-      }
-      else{
-        iconImage.selector = IconPrefix._24 + value;
-      }
-    	_iconType = value;
-    }
-
-    private function itemClicked(ev:*):void
-    {
-      checkBox.checked = (element as HTMLElement).classList.toggle("is-selected");
-    }
+    // private function itemClicked(ev:*):void
+    // {
+    //   checkBox.checked = (element as HTMLElement).classList.toggle("is-selected");
+    // }
   }
 }
