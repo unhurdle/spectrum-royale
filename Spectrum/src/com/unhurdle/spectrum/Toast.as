@@ -25,13 +25,14 @@ package com.unhurdle.spectrum
      */
     // flag to set the keyframes on  the first instantiation
 
-    public function Toast(content:String = null)
+    public function Toast(content:String = null,autoClose:int=0)
     {
       super();
       typeNames = appendSelector("-container");
       if(content){
         text = content;
       }
+      this.autoClose = autoClose;
       if(!keyFramesSet){
         setKeyFrames()
       }
@@ -121,6 +122,9 @@ package com.unhurdle.spectrum
 
     private var timer:Timer;
     public function show():void{
+      if(_shown){
+        return;
+      }
       _shown = true;
       Application.current.addElement(this);
       toggle("show",true);
@@ -129,8 +133,9 @@ package com.unhurdle.spectrum
         element.style.visibility = null;
       }
       if(autoClose){
-        var timer:Timer = new Timer(autoClose);
+        timer = new Timer(autoClose);
         timer.addEventListener(Timer.TIMER,onTimer)
+        timer.start();
       }
     }
 

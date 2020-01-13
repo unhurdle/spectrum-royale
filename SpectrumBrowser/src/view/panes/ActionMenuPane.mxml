@@ -23,7 +23,7 @@
       private function handleSelection(ev:Event):void{
         var item:String = ev.target.selectedItem.label;
         if(item){
-          new Toast(item + " selected").show();
+          new Toast(item + " selected",1500).show();
         }
         // ev.target.selectedIndex = -1;
       }
