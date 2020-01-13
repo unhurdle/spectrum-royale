@@ -170,6 +170,15 @@ package com.unhurdle.spectrum.renderers
     //     // }
     //   }
     // }
+    override public function set selected(value:Boolean):void{
+      super.selected = value;
+      if(value){
+        checkIcon.setStyle("display",null);
+      }else{
+        checkIcon.setStyle("display","none");
+      }
+
+    }
     //TODO deal with sub-menus
     // override public function set selected(value:Boolean):void{
     //   super.selected = value;
@@ -199,6 +208,7 @@ package com.unhurdle.spectrum.renderers
     private var textNode:TextNode;
     private var indicator:Icon;
     private var type:String;
+    private var checkIcon:Icon;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
@@ -208,10 +218,12 @@ package com.unhurdle.spectrum.renderers
       textNode.element.style.userSelect = "none";
       elem.appendChild(textNode.element);
       var type:String = IconType.CHECKMARK_MEDIUM;
-      var checkIcon:Icon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
+      checkIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
       checkIcon.type = type;
       checkIcon.className = appendSelector("-checkmark");
+      checkIcon.setStyle("display","none");
       addElement(checkIcon);
+
 
       return elem;
     }

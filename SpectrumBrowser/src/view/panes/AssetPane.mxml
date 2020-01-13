@@ -1,0 +1,44 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:html="library://ns.apache.org/royale/html" title="Accordion">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString:String = 
+'  <sp:Accordion>\n'+
+'    <sp:AccordionSection headerText="Recent">\n'+
+'      <sp:AccordionContent text="Item 1"/>\n'+
+'    </sp:AccordionSection>\n'+
+'    <sp:AccordionSection headerText="Architecture" disabled="true">\n'+
+'      <sp:AccordionContent text="Item 2"/>\n'+
+'    </sp:AccordionSection>\n'+
+'    <sp:AccordionSection headerText="Nature">\n'+
+'      <sp:AccordionContent text="Item 3"/>\n'+
+'    </sp:AccordionSection>\n'+
+'    <sp:AccordionSection headerText="Really Long Accordion Item According to Our Predictions">\n'+
+'      <sp:AccordionContent text="Item 4"/>\n'+
+'    </sp:AccordionSection>\n'+
+'  </sp:Accordion>\n';
+    ]]>
+  </fx:Script>
+  <sp:Heading size="4" text="Standard"/>
+  <html:Div height="12"/>
+  <sp:Accordion>
+    <sp:AccordionSection headerText="Recent">
+      <sp:AccordionContent text="Item 1"/>
+    </sp:AccordionSection>
+    <sp:AccordionSection headerText="Architecture" disabled="true">
+      <sp:AccordionContent text="Item 2"/>
+    </sp:AccordionSection>
+    <sp:AccordionSection headerText="Nature">
+      <sp:AccordionContent text="Item 3"/>
+    </sp:AccordionSection>
+    <sp:AccordionSection headerText="Really Long Accordion Item According to Our Predictions">
+      <sp:AccordionContent text="Item 4"/>
+    </sp:AccordionSection>
+  </sp:Accordion>
+  <html:Div height="12"/>
+ <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text="{codeString}" size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+</view:DemoPane>

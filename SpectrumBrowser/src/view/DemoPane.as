@@ -16,13 +16,13 @@ package view
       super();
       typeNames = 'pane-container';
       addElement(new ThemePicker());
-      addVarients();
+      addVariants();
     }
-    private function addVarients():void{
+    private function addVariants():void{
       var group:Group = new Group();
       var heading:Heading = new Heading();
       heading.size = 3;
-      heading.text = "Varients";
+      heading.text = "Variants";
       group.addElement(heading);
       var rule:Rule = new Rule();
       rule.size = "large";

@@ -31,6 +31,9 @@ package com.unhurdle.spectrum
       super();
     }
     public var popover:Popover;
+    override protected function createFlyoutIcon():void{
+      // do nothing because we don't want the icon
+    }
  
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -139,6 +142,7 @@ package com.unhurdle.spectrum
     private function handleMenuChange():void
     {
       dispatchEvent(new Event("change"));
+      close();
     }
     public function determinePosition(ptY:Number):Number
 		{

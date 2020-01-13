@@ -59,6 +59,29 @@ import com.unhurdle.spectrum.const.IconPrefix;
 '      </sp:ActionButton>\n'+
 '    </sp:ButtonGroup>\n'+
 '  </sp:FieldGroup>';
+
+[Bindable] public var string2:String = 
+'  <sp:FieldGroup vertical="true">\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}"/>\n'+
+'      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" selected="true"/>\n'+
+'      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
+'      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+'    </sp:ButtonGroup>\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton quiet="true" icon="{iconSelector}"/>\n'+
+'      <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true"/>\n'+
+'      <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true"/>\n'+
+'      <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+'    </sp:ButtonGroup>\n'+
+'    <sp:ButtonGroup style="padding-bottom:18px">\n'+
+'      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
+'      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
+'      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
+'      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+'    </sp:ButtonGroup>\n'+
+'  </sp:FieldGroup>';
+
       [Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";
       [Bindable]public var flyoutList:Array = ["One","Two","Three"];
     ]]>
@@ -119,4 +142,34 @@ import com.unhurdle.spectrum.const.IconPrefix;
     <html:Div height="12"/>
     <sp:Code text="{codeString}" size="4" style="white-space:break-spaces;"/>
   </sp:TypographyGroup>
+  <html:Div height="24"/>
+  <sp:Heading size="4" text="Quiet"/>
+  <html:Div height="12"/>
+  <sp:FieldGroup vertical="true">
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}"/>
+      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" selected="true"/>
+      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true"/>
+      <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton quiet="true" icon="{iconSelector}"/>
+      <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true"/>
+      <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true"/>
+      <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup style="padding-bottom:18px">
+      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}"/>
+      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>
+      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>
+      <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>
+    </sp:ButtonGroup>
+  </sp:FieldGroup>
+  <html:Div height="12"/>
+ <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+    <sp:Code text="{string2}" size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+
 </view:DemoPane>

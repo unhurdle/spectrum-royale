@@ -35,9 +35,9 @@ package com.unhurdle.spectrum
     }
 
 
-    private var flyOutIconHolder:Icon;
+    protected var flyOutIconHolder:Icon;
 
-    private function createFlyoutIcon():void{
+    protected function createFlyoutIcon():void{
       if(!flyOutIconHolder){
         var type:String = IconType.CORNER_TRIANGLE;
         flyOutIconHolder = new Icon(Icon.getCSSTypeSelector(type));
