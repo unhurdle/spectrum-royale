@@ -110,7 +110,7 @@
   </fx:Script>
   <fx:Style>
     .pane-container{
-      padding:"40";
+      padding:"40px";
       flex-grow:1;
     }
   </fx:Style>
