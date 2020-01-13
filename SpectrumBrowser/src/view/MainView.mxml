@@ -14,6 +14,7 @@
         import view.panes.AvatarPane;
         import view.panes.BannerPane;
         import view.panes.ComingSoonPane;
+        import view.panes.BarLoaderPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -25,7 +26,7 @@
         new NavProvider("AssetList",AssetListPane),
         new NavProvider("Avatar",AvatarPane),
         new NavProvider("Banner",BannerPane),
-        new NavProvider("Bar Loader",ComingSoonPane),
+        new NavProvider("Bar Loader",BarLoaderPane),
         new NavProvider("Breadcrumbs",ComingSoonPane),
         new NavProvider("Button - CTA",ComingSoonPane),
         new NavProvider("Button - Over Background",ComingSoonPane),

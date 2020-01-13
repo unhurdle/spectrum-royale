@@ -95,7 +95,7 @@ package com.unhurdle.spectrum
             calculatePosition();
         }
         private function calculatePosition():void{
-            if(!parent){
+            if(!parent || _indeterminate){
                 return;
             }
             if(value){
@@ -251,7 +251,12 @@ package com.unhurdle.spectrum
             }
             _overBackground = value;
         }
-        public function showPercentage(value:Boolean):void
+
+        private var _showPercentage:Boolean = true;
+        public function get showPercentage():Boolean{
+            return _showPercentage;
+        }
+        public function set showPercentage(value:Boolean):void
         {
             if(value){
                 valueNode.element.style.display = "inherit";
@@ -269,18 +274,18 @@ package com.unhurdle.spectrum
 
         public function set indeterminate(value:Boolean):void
         {
-            if(value){
-                // set the bar to defaults
-                setColor("");
-                valueNode.text = "";
-                fill.style.width = "";
-            } else {
-                calculatePosition();
-            }
             if(value != !!_indeterminate){
+                _indeterminate = value;
+                if(value){
+                    // set the bar to defaults
+                    setColor("");
+                    valueNode.text = "";
+                    fill.style.width = "";
+                } else {
+                    calculatePosition();
+                }
                 toggle(valueToSelector("indeterminate"),value);
             }
-            _indeterminate = value;
         }
 
 /**
