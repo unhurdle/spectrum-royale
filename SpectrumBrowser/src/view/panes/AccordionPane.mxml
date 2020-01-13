@@ -1,5 +1,7 @@
 <view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
-  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:html="library://ns.apache.org/royale/html" title="Accordion">
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:html="library://ns.apache.org/royale/html"
+  title="Accordion">
   <fx:Script>
     <![CDATA[
       [Bindable]public var codeString:String = 
