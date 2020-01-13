@@ -18,24 +18,23 @@ package com.unhurdle.spectrum
       return "spectrum-Tool";
     }
     private var button:HTMLButtonElement;
-    private var icon:Icon;
+    private var iconElement:Icon;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       button = addElementToWrapper(this,'button') as HTMLButtonElement;
-      icon = new Icon("");
-      button.appendChild(icon.element);
-      icon.addedToParent();
+      iconElement = new Icon("");
+      addElement(iconElement);
       return element;
     }
 
-    public function get toolName():String
+    public function get icon():String
     {
-    	return icon.selector;
+    	return iconElement.selector;
     }
 
-    public function set toolName(value:String):void
+    public function set icon(value:String):void
     {
-    	icon.selector = value;
+    	iconElement.selector = value;
     }
     private var _selected:Boolean;
 
@@ -80,7 +79,7 @@ package com.unhurdle.spectrum
         if(!cornerIcon ){
           var type:String = IconType.CORNER_TRIANGLE;
           cornerIcon = new Icon(Icon.getCSSTypeSelector(type));
-          icon.type = type;
+          iconElement.type = type;
           cornerIcon.className = appendSelector("-hold");
           var cornerElem:HTMLElement = cornerIcon.element as HTMLElement;
           button.appendChild(cornerElem);

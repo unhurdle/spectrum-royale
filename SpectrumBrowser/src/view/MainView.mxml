@@ -2,20 +2,22 @@
   xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:panes="view.panes.*" initComplete="setNavSelection()">
   <fx:Script>
     <![CDATA[
-        import view.panes.AccordionPane;
         import models.NavProvider;
+
         import view.DemoPane;
+        import view.panes.AccordionPane;
         import view.panes.ActionBarPane;
         import view.panes.ActionButtonPane;
         import view.panes.ActionMenuPane;
         import view.panes.AlertPane;
-        import view.panes.AssetPane;
         import view.panes.AssetListPane;
+        import view.panes.AssetPane;
         import view.panes.AvatarPane;
         import view.panes.BannerPane;
-        import view.panes.ComingSoonPane;
         import view.panes.BarLoaderPane;
+        import view.panes.ButtonGroupPane;
         import view.panes.ButtonPane;
+        import view.panes.ComingSoonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -30,6 +32,7 @@
         new NavProvider("Bar Loader",BarLoaderPane),
         new NavProvider("Breadcrumbs",ComingSoonPane),
         new NavProvider("Button",ButtonPane),
+        new NavProvider("Button Group",ButtonGroupPane),
         new NavProvider("Calendar",ComingSoonPane),
         new NavProvider("Card - Asset preview",ComingSoonPane),
         new NavProvider("Card - Gallery",ComingSoonPane),
