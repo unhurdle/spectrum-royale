@@ -110,7 +110,8 @@
   </fx:Script>
   <fx:Style>
     .pane-container{
-      padding:"20px";
+      padding:"40";
+      flex-grow:1;
     }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">
