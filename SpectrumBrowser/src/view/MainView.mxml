@@ -19,6 +19,7 @@
         import view.panes.ButtonPane;
         import view.panes.ComingSoonPane;
         import view.panes.CalendarPane;
+        import view.panes.CardPreviewPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -35,7 +36,7 @@
         new NavProvider("Button",ButtonPane),
         new NavProvider("Button Group",ButtonGroupPane),
         new NavProvider("Calendar",CalendarPane),
-        new NavProvider("Card - Asset preview",ComingSoonPane),
+        new NavProvider("Card - Asset preview",CardPreviewPane),
         new NavProvider("Card - Gallery",ComingSoonPane),
         new NavProvider("Card",ComingSoonPane),
         new NavProvider("Checkbox",ComingSoonPane),
