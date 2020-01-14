@@ -23,20 +23,6 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      /* 
-        <div class="spectrum-Slider spectrum-Slider--color">
-          <div class="spectrum-Slider-labelContainer">
-            <label class="spectrum-Slider-label" id="spectrum-Slider--color-label-0" for="spectrum-Slider--color-input-0">Color</label>
-            <div class="spectrum-Slider-value" role="textbox" aria-readonly="true" aria-labelledby="spectrum-Slider--color-label-0">#2680eb</div>
-          </div>
-          <div class="spectrum-Slider-controls">
-            <div class="spectrum-Slider-track" style="background: linear-gradient(to right, rgb(38, 128, 235), rgb(9, 90, 186))"></div>
-            <div class="spectrum-Slider-handle" style="left: 40%;">
-              <input type="range" class="spectrum-Slider-input" value="14" aria-valuetext="#2680eb" step="2" min="10" max="20" id="spectrum-Slider--color-input-0">
-            </div>
-          </div>
-        </div>
-      */
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
         width = 400;
         controlsContainer = newElement("div",appendSelector("-controls"));

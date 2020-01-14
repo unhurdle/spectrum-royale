@@ -215,6 +215,7 @@ package com.unhurdle.spectrum.card
         if(_quickActions){
           removeElement(_quickActions);
         }
+        value.className = appendSelector("-quickActions");
         addElement(value);
       	_quickActions = value;
         //spectrum-Card-quickActions - need this class??

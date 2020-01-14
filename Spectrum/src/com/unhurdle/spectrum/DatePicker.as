@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.model.DatePickerModel;
 
   import org.apache.royale.events.Event;
+  import org.apache.royale.svg.elements.Path;
 
   public class DatePicker extends SpectrumBase
   {
@@ -24,8 +25,8 @@ package com.unhurdle.spectrum
       return "spectrum-InputGroup";
     }
 
-    private var input:HTMLInputElement;
-    private var button:HTMLButtonElement;
+    private var input:TextField;
+    private var button:FieldButton;
     private var datePicker:HTMLInputElement;
     
     
@@ -34,36 +35,32 @@ package com.unhurdle.spectrum
       //TODO how much of this can be done in Icons and other classes?
       addElementToWrapper(this,'div');
       className = "spectrum-Datepicker";
-      input = newElement("input") as HTMLInputElement;
-      input.className = appendSelector("-field") + " spectrum-Textfield";
-      input.type = "text";
+      input = new TextField();
+      input.className = appendSelector("-field");
       // input.readOnly = true;
-      button = newElement("button") as HTMLButtonElement;
-      button.className = "spectrum-FieldButton spectrum-InputGroup-button";
+      button = new FieldButton()
+      button.className = appendSelector("-button");
       // button.onclick = openDatePicker;
       button.addEventListener("click",toggleButton);
 
       datePicker = newElement("input") as HTMLInputElement;
       datePicker.type = "hidden";
       
-      var iconClass:String = "spectrum-Icon spectrum-Icon--sizeS";
-      
-      var svgElement:SVGElement = newSVGElement("svg",iconClass);
+      var svgElement:SVGIcon = new SVGIcon();
       svgElement.setAttribute("focusable",false);
       svgElement.setAttribute("viewBox","0 0 36 36");
       svgElement.setAttribute("role","img");
       
-      var path:SVGPathElement = newSVGElement("path","") as SVGPathElement;
-      path.setAttribute("d","M33 6h-5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3H10V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v3H1a1 1 0 0 0-1 1v26a1 1 0 0 0 1 1h32a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-1 26H2V8h4v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h14v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h4z");
-      svgElement.appendChild(path);
+      var path:Path = new Path();
+      path.d = "M33 6h-5V3a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v3H10V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v3H1a1 1 0 0 0-1 1v26a1 1 0 0 0 1 1h32a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zm-1 26H2V8h4v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h14v1a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V8h4z";
+      svgElement.addElement(path);
 
-      path = newSVGElement("path","") as SVGPathElement;
-      path.setAttribute("d","M6 12h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 18h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 24h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4z");
-      svgElement.appendChild(path);
-      
-      button.appendChild(svgElement);
-      element.appendChild(input);
-      element.appendChild(button);
+      path = new Path();
+      path.d = "M6 12h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 18h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4zM6 24h4v4H6zm6 0h4v4h-4zm6 0h4v4h-4zm6 0h4v4h-4z";
+      svgElement.addElement(path);
+      button.iconElement = svgElement;
+      addElement(input);
+      addElement(button);
       element.appendChild(datePicker); 
 
       popover = new Popover();
@@ -89,28 +86,19 @@ package com.unhurdle.spectrum
     public function set quiet(value:Boolean):void
     {
     	if(_quiet != !!value){
-        toggle(appendSelector("--quiet"),value);
-        if(value){
-          input.classList.add("spectrum-Textfield--quiet");
-          button.classList.add("spectrum-FieldButton--quiet");
-        }
-        else{
-          input.classList.remove("spectrum-Textfield--quiet");
-          button.classList.remove("spectrum-FieldButton--quiet");
-        }
+        toggle(valueToSelector("quiet"),value);
+        input.quiet = value;
+        button.quiet = value;
       }
       _quiet = value;
     }
     private function toggleButton():void{
       popover.open = !popover.open;
+      button.selected = popover.open;
       if(popover.open){
-        button.className += " is-selected";
         calendar.startDate = startDate;
         calendar.endDate = endDate;
         calendar.selectRange(startDate,endDate);
-      }
-      else{
-        button.className.slice(button.className.indexOf("is-selected"),11); //why ?
       }
     }
     public function get placeHolder():String
@@ -122,14 +110,14 @@ package com.unhurdle.spectrum
     {
     	input.placeholder = value;
     }
-     public function get value():String
+     public function get text():String
     {
-    	return input.value;
+    	return input.text;
     }
 
-    public function set value(value:String):void
+    public function set text(value:String):void
     {
-    	input.value = value;
+    	input.text = value;
     }
     private var popover:Popover
     // COMPILE::JS
@@ -148,8 +136,8 @@ package com.unhurdle.spectrum
 
       var day:String = date.getDate().toString();
       day = day.length > 1 ? day : '0' + day;
-  
-      input.value = month + '/' + day + '/' +  year;
+      //TODO international formatting
+      input.text = month + '/' + day + '/' +  year;
     }
     override public function addedToParent():void{
       super.addedToParent();

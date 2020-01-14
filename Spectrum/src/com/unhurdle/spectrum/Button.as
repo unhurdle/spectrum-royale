@@ -6,21 +6,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
 
-/**
- * <button class="spectrum-Button spectrum-Button--cta" disabled>
-    <span class="spectrum-Button-label">Button</span>
-    </button>
-<button class="spectrum-Button spectrum-Button--overBackground" disabled>
-    <span class="spectrum-Button-label">Button</span>
-  </button>
-<button class="spectrum-Button spectrum-Button--primary">
-  <svg class="spectrum-Icon spectrum-Icon--sizeS" focusable="false" aria-hidden="true" aria-label="Edit">
-    <use xlink:href="#spectrum-icon-18-Edit" />
-  </svg>
-  <span class="spectrum-Button-label">Edit</span>
-</button>
- */
-
 
   public class Button extends SpectrumBase
   {

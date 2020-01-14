@@ -266,27 +266,6 @@ package com.unhurdle.spectrum
     }
 
     private var body:HTMLElement;
-    /**
-<div class="spectrum-Toast spectrum-Toast--info">
-  <svg class="spectrum-Icon spectrum-UIIcon-InfoMedium spectrum-Toast-typeIcon" focusable="false" aria-hidden="true">
-    <use xlink:href="#spectrum-css-icon-InfoMedium"></use>
-  </svg>
-  <div class="spectrum-Toast-body">
-    <div class="spectrum-Toast-content">
-      A new version of Lightroom Classic is now available
-    </div>
-    <button class="spectrum-Button spectrum-Button--overBackground spectrum-Button--quiet">
-      <span class="spectrum-Button-label">Update</span>
-    </button>
-  </div>
-  <div class="spectrum-Toast-buttons">
-    <button class="spectrum-ClearButton spectrum-ClearButton--medium spectrum-ClearButton--overBackground">
-      <svg class="spectrum-Icon spectrum-UIIcon-CrossMedium focusable=" false"="" aria-hidden="true">
-        <use xlink:href="#spectrum-css-icon-CrossMedium"></use>
-      </svg>
-    </button>
-  </div>
 
-     */
   }
 }

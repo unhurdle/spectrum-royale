@@ -53,15 +53,6 @@ package com.unhurdle.spectrum
 
       return elem;
     }
-    /**
-     *   <input type="text" placeholder="Search" class="spectrum-Textfield">
-  <button type="reset" class="spectrum-ClearButton">
-    <svg class="spectrum-Icon spectrum-UIIcon-CrossSmall" focusable="false" aria-hidden="true">
-      <use xlink:href="#spectrum-css-icon-CrossSmall" />
-    </svg>
-  </button>
-
-     */
     private function clear(ev:Event):void{
       input.text = "";
       dispatchEvent(new Event("search"));
