@@ -64,12 +64,25 @@ package com.unhurdle.spectrum
 
     public function set overlay(value:Boolean):void
     {
+      COMPILE::JS
+      {
       if(value != !!_overlay){
         if(value){
+          if(outerElement == element){
+            outerElement = newElement("div") as WrappedHTMLElement;
+            (outerElement as WrappedHTMLElement).royale_wrapper = this;
+            var parent:Element = element.parentElement;
+            if(parent){
+              parent.insertBefore(outerElement,element);
+            }
+            outerElement.appendChild(element);
+          }
           outerElement.className = appendSelector("-overlay");
         } else {
           outerElement.className = null;
         }
+      }
+
       }
     	_overlay = value;
     }
@@ -81,9 +94,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
-      outerElement = newElement("div") as WrappedHTMLElement;
-      (outerElement as WrappedHTMLElement).royale_wrapper = this;
-      outerElement.appendChild(elem);
+      outerElement = elem;
       return elem;
     }
     /**

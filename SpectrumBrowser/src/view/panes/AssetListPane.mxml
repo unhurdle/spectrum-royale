@@ -1,6 +1,6 @@
 <view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
-  xmlns:html="library://ns.apache.org/royale/html"
+  xmlns:html="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
   title="Asset List" notes="A selectable list of Assets, often used inside of Miller Columns. (sublists not yet implemented)" initComplete="onComplete()">
   <fx:Script>
     <![CDATA[
@@ -28,13 +28,10 @@
       [Bindable]public var codeString:String = '<sp:AssetList dataProvider="{provider}"/>';
     ]]>
   </fx:Script>
-  <sp:Heading size="4" text="Standard"/>
-  <html:Div height="12"/>
-  <sp:AssetList dataProvider="{provider}"/>
-  <html:Div height="12"/>
- <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <sp:Code text='{codeString}' size="4" style="white-space:break-spaces;"/>
-  </sp:TypographyGroup>
+  <comp:Variant>
+    <sp:AssetList dataProvider="{provider}"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString}'/>
+  </comp:Markup>
 </view:DemoPane>

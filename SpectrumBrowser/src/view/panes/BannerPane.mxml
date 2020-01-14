@@ -1,6 +1,6 @@
 <view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
-  xmlns:html="library://ns.apache.org/royale/html"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
   title="Banner">
   <fx:Script>
     <![CDATA[
@@ -11,53 +11,38 @@
 
     ]]>
   </fx:Script>
-  
+  <comp:Variant header="Error">
+    <sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/&gt;'/>  </comp:Markup>
    <sp:Heading size="4" text="Error"/>
-  <html:Div height="12"/>
-  <sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/>
-  <html:Div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <sp:Code text='&lt;sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/&gt;' size="4" style="white-space:break-spaces;"/>
-  </sp:TypographyGroup>
-  <html:Div height="12"/>
 
-  <sp:Heading size="4" text="Info"/>
-  <html:Div height="12"/>
-  <sp:Banner header="Most Popular" content="Includes Illustrator CC"/>
-  <sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/>
-  <html:Div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <sp:Code text='&lt;sp:Banner header="Most Popular" content="Includes Illustrator CC"/&gt;\n' size="4" style="white-space:break-spaces;"/>
-    <sp:Code text='&lt;sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/&gt;' size="4" style="white-space:break-spaces;"/>
-  </sp:TypographyGroup>
-  <html:Div height="12"/>
+  <comp:Variant header="Info">
+    <sp:Banner header="Most Popular" content="Includes Illustrator CC"/>
+    <sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Banner header="Most Popular" content="Includes Illustrator CC"/&gt;\n'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/&gt;'/>
+  </comp:Markup>
 
-  <sp:Heading size="4" text="Error"/>
-  <html:Div height="12"/>
-  <sp:Banner type="warning" header="Purchase Soon" content="Your trial is about to expire"/>
-  <html:Div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <sp:Code text='&lt;sp:Banner type="warning" header="Purchase Soon" content="Your trial is about to expire"/&gt;' size="4" style="white-space:break-spaces;"/>
-  </sp:TypographyGroup>
-  <html:Div height="12"/>
+  <comp:Variant header="Error">
+    <sp:Banner type="warning" header="Purchase Soon" content="Your trial is about to expire"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Banner type="warning" header="Purchase Soon" content="Your trial is about to expire"/&gt;'/>
+  </comp:Markup>
 
-  <sp:Heading size="4" text="Corner Placement"/>
-  <html:Div height="12"/>
-  <html:Div style="width: 255px; height: 325px; background-color: #ccc; position: relative;">
-    <sp:Banner header="Most Popular" content="Includes Illustrator CC" corner="true"/>
-  </html:Div>
-  <html:Div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <sp:Code text='{cornerString}' size="4" style="white-space:break-spaces;"/>
-  </sp:TypographyGroup>
-  <html:Div height="12"/>
+  <comp:Variant header="Corner Placement">
+    <Div style="width: 255px; height: 325px; background-color: #ccc; position: relative;">
+      <sp:Banner header="Most Popular" content="Includes Illustrator CC" corner="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{cornerString}'/>
+  </comp:Markup>
+
 
 </view:DemoPane>

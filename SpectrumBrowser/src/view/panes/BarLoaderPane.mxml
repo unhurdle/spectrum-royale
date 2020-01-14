@@ -1,6 +1,6 @@
 <view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
-  xmlns:html="library://ns.apache.org/royale/html"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
   title="Bar Loader" initComplete="onComplete()">
   <fx:Script>
     <![CDATA[
@@ -23,98 +23,74 @@
     ]]>
   </fx:Script>
   
-   <sp:Heading size="4" text="Standard"/>
-  <html:Div height="12"/>
-  <html:Div style="width: 200px; height: 25px; padding-top: 10px;">
-    <sp:BarLoader localId="loader1" showPercentage="false"/>
-  </html:Div>
-  <html:Div style="width: 200px; height: 25px; padding-top: 10px;">
-    <sp:BarLoader localId="loader2" small="true" showPercentage="false"/>
-  </html:Div>
-  <html:Div style="width: 200px; height: 25px; padding-top: 10px;">
-    <sp:BarLoader localId="loader3" label="Loading" showPercentage="true"/>
-  </html:Div>
-  <html:Div style="margin: 20px 0;">
-    <sp:BarLoader localId="loader4" label="Loading" showPercentage="true" small="true"/>
-  </html:Div>
-  <html:Div style="margin: 20px 0;">
-    <sp:BarLoader localId="loader5" label="Loading" sideLabel="true" showPercentage="true" small="true"/>
-  </html:Div>
-  <html:Div style="margin: 50px 0;">
-    <sp:BarLoader localId="loader6" label="Loading" sideLabel="true" showPercentage="true"/>
-  </html:Div>
-  <html:Div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader1" showPercentage="false"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader2" small="true" showPercentage="false"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader3" label="Loading" showPercentage="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader4" label="Loading" showPercentage="true" small="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader5" label="Loading" sideLabel="true" showPercentage="true" small="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader6" label="Loading" sideLabel="true" showPercentage="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-  </sp:TypographyGroup>
-  <html:Div height="12"/>
-   <sp:Heading size="4" text="Over Background"/>
-  <html:Div height="12"/>
-<html:Div style="width: 400px; height: 200px; background-color: rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
-  <sp:BarLoader localId="loader7" label="Loading" showPercentage="true" overBackground="true"/>
-  <sp:BarLoader localId="loader8" label="Loading" showPercentage="true" small="true" overBackground="true"/>
-</html:Div>
-  <html:Div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader7" label="Loading" showPercentage="true" overBackground="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader localId="loader8" label="Loading" showPercentage="true" small="true" overBackground="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-  </sp:TypographyGroup>
-  <html:Div height="12"/>
-   <sp:Heading size="4" text="Indeterminate"/>
-  <html:Div height="12"/>
-  <html:Div style="width: 200px; height: 25px; padding-top: 10px;">
-    <sp:BarLoader showPercentage="false" indeterminate="true"/>
-  </html:Div>
-  <html:Div style="width: 200px; height: 25px; padding-top: 10px;">
-    <sp:BarLoader small="true" showPercentage="false" indeterminate="true"/>
-  </html:Div>
-  <html:Div style="width: 200px; height: 25px; padding-top: 10px;">
-    <sp:BarLoader label="Loading" showPercentage="true" indeterminate="true"/>
-  </html:Div>
-  <html:Div style="margin: 20px 0;">
-    <sp:BarLoader label="Loading" showPercentage="true" small="true" indeterminate="true"/>
-  </html:Div>
-  <html:Div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader showPercentage="false" indeterminate="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader small="true" showPercentage="false" indeterminate="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader label="Loading" showPercentage="true" indeterminate="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-    <html:P>
-      <sp:Code text='&lt;sp:BarLoader label="Loading" showPercentage="true" small="true" indeterminate="true"/&gt;' size="4" style="white-space:break-spaces;"/>
-    </html:P>
-  </sp:TypographyGroup>
-  <html:Div height="12"/>
+  <comp:Variant>
+    <Div style="width: 200px; height: 25px; padding-top: 10px;">
+      <sp:BarLoader localId="loader1" showPercentage="false"/>
+    </Div>
+    <Div style="width: 200px; height: 25px; padding-top: 10px;">
+      <sp:BarLoader localId="loader2" small="true" showPercentage="false"/>
+    </Div>
+    <Div style="width: 200px; height: 25px; padding-top: 10px;">
+      <sp:BarLoader localId="loader3" label="Loading" showPercentage="true"/>
+    </Div>
+    <Div style="margin: 20px 0;">
+      <sp:BarLoader localId="loader4" label="Loading" showPercentage="true" small="true"/>
+    </Div>
+    <Div style="margin: 20px 0;">
+      <sp:BarLoader localId="loader5" label="Loading" sideLabel="true" showPercentage="true" small="true"/>
+    </Div>
+    <Div style="margin: 50px 0;">
+      <sp:BarLoader localId="loader6" label="Loading" sideLabel="true" showPercentage="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader1" showPercentage="false"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader2" small="true" showPercentage="false"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader3" label="Loading" showPercentage="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader4" label="Loading" showPercentage="true" small="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader5" label="Loading" sideLabel="true" showPercentage="true" small="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader6" label="Loading" sideLabel="true" showPercentage="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Over Background">
+    <Div style="width: 400px; height: 200px; background-color: rgba(0,0,0,0.4); display: flex; flex-direction: column; align-items: center; justify-content: space-around;">
+      <sp:BarLoader localId="loader7" label="Loading" showPercentage="true" overBackground="true"/>
+      <sp:BarLoader localId="loader8" label="Loading" showPercentage="true" small="true" overBackground="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader7" label="Loading" showPercentage="true" overBackground="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader localId="loader8" label="Loading" showPercentage="true" small="true" overBackground="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Indeterminate">
+    <Div style="width: 200px; height: 25px; padding-top: 10px;">
+      <sp:BarLoader showPercentage="false" indeterminate="true"/>
+    </Div>
+    <Div style="width: 200px; height: 25px; padding-top: 10px;">
+      <sp:BarLoader small="true" showPercentage="false" indeterminate="true"/>
+    </Div>
+    <Div style="width: 200px; height: 25px; padding-top: 10px;">
+      <sp:BarLoader label="Loading" showPercentage="true" indeterminate="true"/>
+    </Div>
+    <Div style="margin: 20px 0;">
+      <sp:BarLoader label="Loading" showPercentage="true" small="true" indeterminate="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:BarLoader showPercentage="false" indeterminate="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader small="true" showPercentage="false" indeterminate="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader label="Loading" showPercentage="true" indeterminate="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:BarLoader label="Loading" showPercentage="true" small="true" indeterminate="true"/&gt;'/>
+  </comp:Markup>
+
 </view:DemoPane>

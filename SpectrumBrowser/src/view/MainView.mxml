@@ -20,6 +20,7 @@
         import view.panes.ComingSoonPane;
         import view.panes.CalendarPane;
         import view.panes.CardPreviewPane;
+        import view.panes.CheckboxPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -39,7 +40,7 @@
         new NavProvider("Card - Asset preview",CardPreviewPane),
         new NavProvider("Card - Gallery",ComingSoonPane),
         new NavProvider("Card",ComingSoonPane),
-        new NavProvider("Checkbox",ComingSoonPane),
+        new NavProvider("Checkbox",CheckboxPane),
         new NavProvider("Circle Loader",ComingSoonPane),
         new NavProvider("Clear Button",ComingSoonPane),
         new NavProvider("Coach Mark",ComingSoonPane),
@@ -112,14 +113,29 @@
   </fx:Script>
   <fx:Style>
     .pane-container{
-      padding:"40px";
+      padding:40px;
       flex-grow:1;
       max-height:100vh;
       overflow: auto;
     }
+    .variant-container{
+      padding-top:36px;
+    }
+    .variant-header{
+      padding-bottom:12px;
+    }
+    .markup-section{
+      margin:36px 24px;
+    }
+    .markup-header{
+      padding-bottom:12px;
+    }
+    .variant-header-padding{
+      height: 36px
+    }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">
-    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;"/>
+    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;flex-shrink: 0; background-color:rgba(0.5,0.5,0.5,0.05)"/>
   </sp:FlexContainer>
 
 </sp:View>

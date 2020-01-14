@@ -27,9 +27,6 @@ package view
       var rule:Rule = new Rule();
       rule.size = "large";
       group.addElement(rule);
-      var spacer:Spacer = new Spacer();
-      spacer.height = 33;
-      group.addElement(spacer);
       addElement(group);
     }
     private var titleElem:Display;
@@ -40,6 +37,7 @@ package view
     public function set title(value:String):void{
       if(!titleElem){
         var article:Article = new Article();
+        article.setStyle("paddingBottom","33px");
         titleElem = new Display();
         article.addElement(titleElem);
         addElementAt(article,1);

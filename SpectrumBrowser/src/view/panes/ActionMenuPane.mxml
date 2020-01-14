@@ -1,6 +1,6 @@
 <view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
-  xmlns:html="library://ns.apache.org/royale/html"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
   title="Action Menu">
   <fx:Script>
     <![CDATA[
@@ -8,17 +8,14 @@
       import com.unhurdle.spectrum.Toast;
 
       [Bindable]public var codeString:String = 
-'  <sp:FlexContainer vertical="true" alignItems="flex-start">\n'+
-'  <html:Div style="margin-bottom:10px">\n'+
+'<sp:FlexContainer vertical="true" alignItems="flex-start">\n'+
+'  <sp:ButtonGroup vertical="true" style="align-items:flex-start;">\n'+
 '    <sp:ActionMenu text="More Actions" dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>\n'+
-'  </html:Div>\n'+
-'  <html:Div style="margin-bottom:10px">\n'+
 '    <sp:ActionMenu dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>\n'+
-'  </html:Div>\n'+
-'  <html:Div style="margin-bottom:10px">\n'+
 '    <sp:ActionMenu quiet="true" text="More Actions" dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>\n'+
-'  </html:Div>\n'+
-'  </sp:FlexContainer>';
+'  </sp:ButtonGroup>\n'+
+'</sp:FlexContainer>';
+
 
       private function handleSelection(ev:Event):void{
         var item:String = ev.target.selectedItem.label;
@@ -29,23 +26,16 @@
       }
     ]]>
   </fx:Script>
-  <sp:Heading size="4" text="Standard"/>
-  <html:Div height="12"/>
-  <sp:FlexContainer vertical="true" alignItems="flex-start">
-  <html:Div style="margin-bottom:10px">
-    <sp:ActionMenu text="More Actions" dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>
-  </html:Div>
-  <html:Div style="margin-bottom:10px">
-    <sp:ActionMenu dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>
-  </html:Div>
-  <html:Div style="margin-bottom:10px">
-    <sp:ActionMenu quiet="true" text="More Actions" dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>
-  </html:Div>
-  </sp:FlexContainer>
-  <html:Div height="12"/>
- <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <html:Div height="12"/>
-    <sp:Code text="{codeString}" size="4" style="white-space:break-spaces;"/>
-  </sp:TypographyGroup>
+  <comp:Variant>
+    <sp:FlexContainer vertical="true" alignItems="flex-start">
+      <sp:ButtonGroup vertical="true" style="align-items:flex-start;">
+        <sp:ActionMenu text="More Actions" dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>
+        <sp:ActionMenu dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>
+        <sp:ActionMenu quiet="true" text="More Actions" dataProvider="[Action 1,Action 2,Action 3,Action 4]" change="handleSelection(event)"/>
+      </sp:ButtonGroup>
+    </sp:FlexContainer>
+    <comp:Markup>
+      <comp:StyledCode text="{codeString}"/>
+    </comp:Markup>
+  </comp:Variant>
 </view:DemoPane>

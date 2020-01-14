@@ -57,17 +57,10 @@ package com.unhurdle.spectrum
             icon.className = appendSelector("-partialCheckmark");
             spanBox.addElement(icon);
             elem.appendChild(spanBox.element);
-            spanLabel = new TextNode("");
-            spanLabel.element = newElement("span") as HTMLSpanElement;
-            spanLabel.className = appendSelector("-label");
-            if(!_text){
-                _text = "";
-            }
-            elem.appendChild(spanLabel.element);
             return elem;
         }
 
-        private var _text:String;
+        private var _text:String = "";
         public function get text():String
         {
         	return _text;
@@ -75,8 +68,16 @@ package com.unhurdle.spectrum
 
         public function set text(value:String):void
         {
+            COMPILE::JS
+            {
             if(_text != value){
+                if(!spanLabel){
+                    spanLabel = new TextNode("span");
+                    spanLabel.className = appendSelector("-label");
+                    element.appendChild(spanLabel.element);
+                }
                 spanLabel.text = value;
+            }
             }
             _text = value;
         }

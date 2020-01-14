@@ -1,66 +1,61 @@
 <view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
-  xmlns="library://ns.apache.org/royale/html"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
   title="Card - Asset preview">
   <fx:Script>
     <![CDATA[
       [Bindable]public var markupText:String = 
-'  <div width="108">\n'+
-'    <sp:Card>\n'+
-'    <sp:preview>\n'+
-'      <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg"/>\n'+
-'    </sp:preview>\n'+
-'    <sp:body>\n'+
-'      <sp:CardBody>\n'+
-'        <sp:CardHeader>\n'+
-'          <sp:CardTitle text="Card Title"/>\n'+
-'        </sp:CardHeader>\n'+
-'        <sp:CardContent>\n'+
-'          <sp:CardSubtitle text="jpg"/>\n'+
-'        </sp:CardContent>\n'+
-'      </sp:CardBody>\n'+
-'    </sp:body>\n'+
-'    <sp:quickActions>\n'+
-'      <sp:QuickActions>\n'+
-'        <sp:CheckBox/>\n'+
-'      </sp:QuickActions>\n'+
-'    </sp:quickActions>\n'+
-'    </sp:Card>\n'+
-'  </div>';
+'<Div width="108">\n'+
+'  <sp:Card>\n'+
+'  <sp:preview>\n'+
+'    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg"/>\n'+
+'  </sp:preview>\n'+
+'  <sp:body>\n'+
+'    <sp:CardBody>\n'+
+'      <sp:CardHeader>\n'+
+'        <sp:CardTitle text="Card Title"/>\n'+
+'      </sp:CardHeader>\n'+
+'      <sp:CardContent>\n'+
+'        <sp:CardSubtitle text="jpg"/>\n'+
+'      </sp:CardContent>\n'+
+'    </sp:CardBody>\n'+
+'  </sp:body>\n'+
+'  <sp:quickActions>\n'+
+'    <sp:QuickActions>\n'+
+'      <sp:CheckBox/>\n'+
+'    </sp:QuickActions>\n'+
+'  </sp:quickActions>\n'+
+'  </sp:Card>\n'+
+'</Div>';
     ]]>
   </fx:Script>
-  
-   <sp:Heading size="4" text="Standard"/>
-  <div height="12"/>
-  <div width="108">
-    <sp:Card>
-    <sp:preview>
-      <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg"/>
-    </sp:preview>
-    <sp:body>
-      <sp:CardBody>
-        <sp:CardHeader>
-          <sp:CardTitle text="Card Title"/>
-        </sp:CardHeader>
-        <sp:CardContent>
-          <sp:CardSubtitle text="jpg"/>
-        </sp:CardContent>
-      </sp:CardBody>
-    </sp:body>
-    <sp:quickActions>
-      <sp:QuickActions>
-        <sp:CheckBox/>
-      </sp:QuickActions>
-    </sp:quickActions>
-    </sp:Card>
-  </div>
-  <div height="12"/>
-  <sp:TypographyGroup>
-    <sp:Heading size="5" text="Markup"/>
-    <div height="12"/>
-      <sp:Code text='{markupText}' size="5" style="white-space:break-spaces;"/>
-  </sp:TypographyGroup>
-  <div height="12"/>
+  <comp:Variant>
+    <Div width="108">
+      <sp:Card>
+      <sp:preview>
+        <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg"/>
+      </sp:preview>
+      <sp:body>
+        <sp:CardBody>
+          <sp:CardHeader>
+            <sp:CardTitle text="Card Title"/>
+          </sp:CardHeader>
+          <sp:CardContent>
+            <sp:CardSubtitle text="jpg"/>
+          </sp:CardContent>
+        </sp:CardBody>
+      </sp:body>
+      <sp:quickActions>
+        <sp:QuickActions>
+          <sp:CheckBox/>
+        </sp:QuickActions>
+      </sp:quickActions>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{markupText}'/>
+  </comp:Markup>
 
 
 </view:DemoPane>
