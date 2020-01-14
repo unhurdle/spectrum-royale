@@ -12,6 +12,9 @@ package com.unhurdle.spectrum
   
     import org.apache.royale.html.elements.Td;
     import org.apache.royale.html.elements.Tr;
+    import org.apache.royale.html.elements.Table;
+    import org.apache.royale.html.elements.Tbody;
+    import org.apache.royale.html.elements.Div;
  
 
     [Event(name="dayNamesChanged ", type="org.apache.royale.events.Event")]
@@ -49,11 +52,11 @@ package com.unhurdle.spectrum
         
         private var title:TextNode;
         private var _text:String;
-        private var prev:HTMLButtonElement;
-        private var next:HTMLButtonElement;
+        private var prev:ActionButton;
+        private var next:ActionButton;
         private var _disabled:Boolean;
-        private var table:Table;
-        private var calenderBody:TBody;
+        private var table:org.apache.royale.html.elements.Table;
+        private var calenderBody:org.apache.royale.html.elements.Tbody;
         private var _startDate:Date;
         private var _endDate:Date;
         private var displayedDates:Vector.<CalendarDay>;
@@ -193,16 +196,6 @@ package com.unhurdle.spectrum
             title.text = monthNames[displayedMonth] + " " + String(displayedYear);
             setDates();
         }
-
-        /**
-         * @private
-         */
-        
-
-        /**
-         * @private
-         */
-        
         
         private function handleModelChange(event:Event):void{   
           updateDisplay();
@@ -252,12 +245,12 @@ package com.unhurdle.spectrum
                 displayedMonth = today.getMonth();
             }
             var body:HTMLElement = newElement('div');
-            body.className = "spectrum-Calendar-body";
+            body.className = appendSelector("-body");
             body.setAttribute("role","grid");
             body.tabIndex = 0;
 
-            table = new Table();
-            table.className = "spectrum-Calendar-table";
+            table = new org.apache.royale.html.elements.Table();
+            table.className = appendSelector("-table");
             table.element.setAttribute("role","presentation");
 
             var daysOfTheWeekHeader:HTMLElement = newElement('thead');
@@ -268,12 +261,12 @@ package com.unhurdle.spectrum
 
             for(var i:int = 0 ; i <7; i++){
                 var dayOfWeek:HTMLElement = newElement('th'); 
-                dayOfWeek.className = "spectrum-Calendar-tableCell"; 
+                dayOfWeek.className = appendSelector("-tableCell"); 
                 dayOfWeek.setAttribute("role","columnheader");
                 dayOfWeek.setAttribute("scope","col");
 
                 var d:TextNode = new TextNode('abbr');  
-                d.className = "spectrum-Calendar-dayOfWeek";
+                d.className = appendSelector("-dayOfWeek");
                 d.text = datePickerModel.shortDayNames[i]; 
                 d.element.title = dayNames[i];
                 dayOfWeek.appendChild(d.element); 
@@ -295,34 +288,34 @@ package com.unhurdle.spectrum
             var styleStr:String = "width:280px;z-index:1;";
             element.setAttribute("style",styleStr);
 
-            var header:HTMLElement = newElement('div');
-            header.className = "spectrum-Calendar-header";
+            var header:Div = new Div();
+            header.className = appendSelector("-header");
             
             title = new TextNode('div');   
-            title.className = "spectrum-Calendar-title";
+            title.className = appendSelector("-title");
             title.element.setAttribute("role","heading");
-            header.appendChild(title.element);
+            header.element.appendChild(title.element);
     
-            prev = newElement('button') as HTMLButtonElement;
-            prev.className = "spectrum-ActionButton spectrum-ActionButton--quiet spectrum-Calendar-prevMonth";
+            prev = new ActionButton();
+            prev.quiet = true;
+            prev.className = appendSelector("-prevMonth");
             prev.addEventListener("click",prevMonthClickHandler);
             var type:String = "ChevronLeftLarge";
             var prevIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
             prevIcon.type = type;
-            prev.appendChild(prevIcon.element);
-            prevIcon.addedToParent();
-            header.appendChild(prev);
+            prev.addElement(prevIcon);
+            header.addElement(prev);
 
-            next = newElement('button') as HTMLButtonElement;
-            next.className = "spectrum-ActionButton spectrum-ActionButton--quiet spectrum-Calendar-nextMonth";
+            next = new ActionButton();
+            next.quiet = true;
+            next.className = appendSelector("-nextMonth");
             next.addEventListener("click",nextMonthClickHandler);
             type = "ChevronRightLarge";
             var nextIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
             nextIcon.type = type;
-            next.appendChild(nextIcon.element);
-            nextIcon.addedToParent();
-            header.appendChild(next);
-            element.appendChild(header);
+            next.addElement(nextIcon);
+            header.addElement(next);
+            addElement(header);
 
             return element
         }
@@ -336,7 +329,7 @@ package com.unhurdle.spectrum
             if(table.numElements && calenderBody){
                 table.removeElement(calenderBody);
             }
-            calenderBody = new TBody();
+            calenderBody = new org.apache.royale.html.elements.Tbody();
             calenderBody.element.setAttribute("role","presentation");
             var l:int = 0;
             for (var k:int = 0; k<6;k++,l--){
@@ -345,7 +338,7 @@ package com.unhurdle.spectrum
                for(var j:int = 0; j<7; j++,l++){
                     var cell:Td = new Td();  
                     cell.element.setAttribute("role", "gridcell");
-                    cell.className = "spectrum-Calendar-tableCell";
+                    cell.className = appendSelector("-tableCell");
                     cell.element.tabIndex = -1;
                     var span:CalendarDay = new CalendarDay();
                     if(j == 0){

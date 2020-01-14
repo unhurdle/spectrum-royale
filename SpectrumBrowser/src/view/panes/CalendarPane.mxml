@@ -1,0 +1,80 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:html="library://ns.apache.org/royale/html"
+  title="Calendar" initComplete="onComplete()">
+  <fx:Script>
+    <![CDATA[
+        [Bindable]public var firstDate:Date;
+        [Bindable]public var lastDate:Date;
+        [Bindable]public var rangeText:String = '<sp:Calendar startDate="{firstDate}" endDate="{lastDate}"/>';
+        [Bindable]public var startText:String = '<sp:Calendar startDate="{firstDate}"/>';
+        [Bindable]public var endText:String = '<sp:Calendar endDate="{lastDate}"/>';
+        private function onComplete():void{
+          var now:Date = new Date();
+          var first:Date = new Date();
+          first.setDate(now.getDate()-3);
+          firstDate = first;
+          var last:Date = new Date();
+          last.setDate(now.getDate()+3);
+          lastDate = last;
+        }
+
+    ]]>
+  </fx:Script>
+  
+   <sp:Heading size="4" text="Standard"/>
+  <html:Div height="12"/>
+  <sp:Calendar/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+      <sp:Code text='&lt;sp:Calendar/&gt;' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+   <sp:Heading size="4" text="Disabled"/>
+  <html:Div height="12"/>
+  <sp:Calendar disabled="true" />
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+      <sp:Code text='&lt;sp:Calendar disabled="true"/&gt;' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+   <sp:Heading size="4" text="Range"/>
+  <html:Div height="12"/>
+  <sp:Calendar startDate="{firstDate}" endDate="{lastDate}"/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+      <sp:Code text='{rangeText}' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+   <sp:Heading size="4" text="Start Range"/>
+  <html:Div height="12"/>
+  <sp:Calendar startDate="{firstDate}"/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+      <sp:Code text='{startText}' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+   <sp:Heading size="4" text="End Range"/>
+  <html:Div height="12"/>
+  <sp:Calendar endDate="{lastDate}"/>
+  <html:Div height="12"/>
+  <sp:TypographyGroup>
+    <sp:Heading size="5" text="Markup"/>
+    <html:Div height="12"/>
+      <sp:Code text='{endText}' size="4" style="white-space:break-spaces;"/>
+  </sp:TypographyGroup>
+  <html:Div height="12"/>
+
+</view:DemoPane>
