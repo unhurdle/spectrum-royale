@@ -1,5 +1,8 @@
 package com.unhurdle.spectrum
 {
+  import org.apache.royale.core.ValuesManager;
+  import org.apache.royale.core.IValuesImpl;
+
   public class ImageAsset extends Asset
   {
     public function ImageAsset()
@@ -41,6 +44,14 @@ package com.unhurdle.spectrum
         createImageElement();
       }
     	return _imageElement.style;
+    }
+    public function set imageStyleString(value:String):void{
+      var valuesImpl:IValuesImpl = ValuesManager.valuesImpl;
+      var styles:Object = valuesImpl.parseStyles(value);
+      var imgStyles:CSSStyleDeclaration = imageStyle;
+      for(var x:String in styles){
+        imgStyles[x] = styles[x];
+      }      
     }
   }
 }

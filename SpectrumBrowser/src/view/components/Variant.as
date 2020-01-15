@@ -12,6 +12,7 @@ package view.components
       super();
       typeNames = "variant-container";
       vertical = true;
+      alignItems = "flex-start";
       headerElem = new Heading();
       headerElem.size = 4;
       headerElem.className = "variant-header";

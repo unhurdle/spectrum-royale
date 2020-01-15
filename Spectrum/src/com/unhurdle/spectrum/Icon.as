@@ -7,7 +7,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.includes.IconInclude;
 
-  public class Icon extends Group
+  public class Icon extends Group implements IAsset
   {
     public function Icon(selector:String="")
     {

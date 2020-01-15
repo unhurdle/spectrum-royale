@@ -6,6 +6,7 @@ package com.unhurdle.spectrum.card
   import org.apache.royale.html.elements.Div;
   import org.apache.royale.core.IPopUpHost;
   import org.apache.royale.core.IPopUpHostParent;
+  import com.unhurdle.spectrum.IAsset;
 
   public class Card extends SpectrumBase 
   {
@@ -129,14 +130,14 @@ package com.unhurdle.spectrum.card
     	_coverSrc = value;
     }
     private var previewDiv:Div;
-    private var _preview:Asset;
+    private var _preview:IAsset;
 
-    public function get preview():Asset
+    public function get preview():IAsset
     {
     	return _preview;
     }
 
-    public function set preview(value:Asset):void
+    public function set preview(value:IAsset):void
     {
       if(value == _preview){
         return;
@@ -217,6 +218,7 @@ package com.unhurdle.spectrum.card
         if(_actions){
           removeElement(_actions);
         }
+        value.toggle(appendSelector("-actions"),true);
         addElement(value);
       	_actions = value;
       }
@@ -234,7 +236,7 @@ package com.unhurdle.spectrum.card
         if(_quickActions){
           removeElement(_quickActions);
         }
-        value.className = appendSelector("-quickActions");
+        value.toggle(appendSelector("-quickActions"),true);
         addElement(value);
       	_quickActions = value;
         //spectrum-Card-quickActions - need this class??
