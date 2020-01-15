@@ -21,7 +21,7 @@
     ]]>
   </fx:Script>
   <comp:Variant>
-    <Div style="width: 250px; height: 150px; display: flex; align-items: center; justify-content: space-around;"><!-- id="standard-loaders"-->
+    <Div style="width: 250px; height: 150px; display: flex; align-items: center; justify-content: space-around;">
       <sp:CircleLoader localId="loader1" size="small"/>
       <sp:CircleLoader localId="loader2"/>
       <sp:CircleLoader localId="loader3" size="large"/>
@@ -36,11 +36,11 @@
   </comp:Markup>
 
 <comp:Variant header="Over Background">
-    <Div style="width: 250px; height: 150px; background-color: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: space-around;"><!-- id="standard-loaders"-->
+    <sp:Background color="rgba(0,0,0,0.4)" style="width: 250px; height: 150px; display: flex; align-items: center; justify-content: space-around;">
       <sp:CircleLoader localId="loader4" size="small" overBackground="true"/>
       <sp:CircleLoader localId="loader5" overBackground="true"/>
       <sp:CircleLoader localId="loader6" size="large" overBackground="true"/>
-    </Div>
+    </sp:Background>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:CircleLoader localId="loader4" size="small" overBackground="true"&gt;'/>
