@@ -25,6 +25,7 @@
     <component id="CardActionMenu" class="com.unhurdle.spectrum.card.CardActionMenu"/>
     <component id="CardBody" class="com.unhurdle.spectrum.card.CardBody"/>
     <component id="CardContent" class="com.unhurdle.spectrum.card.CardContent"/>
+    <component id="CardFooter" class="com.unhurdle.spectrum.card.CardFooter"/>
     <component id="CardDescription" class="com.unhurdle.spectrum.card.CardDescription"/>
     <component id="CardHeader" class="com.unhurdle.spectrum.card.CardHeader"/>
     <component id="CardSubtitle" class="com.unhurdle.spectrum.card.CardSubtitle"/>

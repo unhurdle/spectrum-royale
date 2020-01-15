@@ -183,6 +183,25 @@ package com.unhurdle.spectrum.card
         _body = value;
       }
     }
+    private var _footer:CardFooter;
+
+    public function get footer():CardFooter
+    {
+    	return _footer;
+    }
+
+    public function set footer(value:CardFooter):void
+    {
+      if(_footer == value){
+        return;
+      }
+      if(_footer){
+        removeElement(_footer);
+      }
+    	_footer = value;
+      // we can add the footer at the end. If there's a body assigned, that will be inserted before the footer either way.
+      addElement(_footer);
+    }
 
     // The order of actions and quickActions does not matter
     private var _actions:QuickActions;

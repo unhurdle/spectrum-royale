@@ -17,10 +17,11 @@
         import view.panes.BarLoaderPane;
         import view.panes.ButtonGroupPane;
         import view.panes.ButtonPane;
-        import view.panes.ComingSoonPane;
         import view.panes.CalendarPane;
         import view.panes.CardPreviewPane;
         import view.panes.CheckboxPane;
+        import view.panes.ComingSoonPane;
+        import view.panes.CardPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -37,9 +38,9 @@
         new NavProvider("Button",ButtonPane),
         new NavProvider("Button Group",ButtonGroupPane),
         new NavProvider("Calendar",CalendarPane),
+        new NavProvider("Card",CardPane),
         new NavProvider("Card - Asset preview",CardPreviewPane),
         new NavProvider("Card - Gallery",ComingSoonPane),
-        new NavProvider("Card",ComingSoonPane),
         new NavProvider("Checkbox",CheckboxPane),
         new NavProvider("Circle Loader",ComingSoonPane),
         new NavProvider("Clear Button",ComingSoonPane),
