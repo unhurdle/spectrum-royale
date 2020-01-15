@@ -1,0 +1,61 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Card - Gallery">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var markupText:String = 
+        '<Div width="532" height="224">\n'+
+        '  <sp:Card gallery="true">\n'+
+        '  <sp:preview>\n'+
+        '    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-card-landscape.jpeg"/>\n'+
+        '  </sp:preview>\n'+
+        '  <sp:body>\n'+
+        '    <sp:CardBody>\n'+
+        '      <sp:CardHeader>\n'+
+        '        <sp:CardTitle text="Card Title"/>\n'+
+        '        <sp:CardSubtitle text="jpg"/>\n'+
+        '        <sp:CardDescription text="10/15/18"/>\n'+
+        '        <sp:CardActionMenu/>\n'+
+        '      </sp:CardHeader>\n'+
+        '    </sp:CardBody>\n'+
+        '  </sp:body>\n'+
+        '  <sp:quickActions>\n'+
+        '    <sp:QuickActions>\n'+
+        '      <sp:CheckBox/>\n'+
+        '    </sp:QuickActions>\n'+
+        '  </sp:quickActions>\n'+
+        '  </sp:Card>\n'+
+        '</Div>';
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <Div width="532" height="224">
+      <sp:Card gallery="true">
+      <sp:preview>
+        <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-card-landscape.jpeg"/>
+      </sp:preview>
+      <sp:body>
+        <sp:CardBody>
+          <sp:CardHeader>
+            <sp:CardTitle text="Card Title"/>
+            <sp:CardSubtitle text="jpg"/>
+            <sp:CardDescription text="10/15/18"/>
+            <sp:CardActionMenu/>
+          </sp:CardHeader>
+        </sp:CardBody>
+      </sp:body>
+      <sp:quickActions>
+        <sp:QuickActions>
+          <sp:CheckBox/>
+        </sp:QuickActions>
+      </sp:quickActions>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{markupText}'/>
+  </comp:Markup>
+
+
+</view:DemoPane>

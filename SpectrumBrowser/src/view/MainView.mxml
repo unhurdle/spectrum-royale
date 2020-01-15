@@ -18,13 +18,14 @@
         import view.panes.ButtonGroupPane;
         import view.panes.ButtonPane;
         import view.panes.CalendarPane;
+        import view.panes.CardGalleryPane;
+        import view.panes.CardPane;
         import view.panes.CardPreviewPane;
         import view.panes.CheckboxPane;
-        import view.panes.ComingSoonPane;
-        import view.panes.CardPane;
         import view.panes.CircleLoaderPane;
-        import view.panes.WellPane;
+        import view.panes.ComingSoonPane;
         import view.panes.TypographyPane;
+        import view.panes.WellPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -43,7 +44,7 @@
         new NavProvider("Calendar",CalendarPane),
         new NavProvider("Card",CardPane),
         new NavProvider("Card - Asset preview",CardPreviewPane),
-        new NavProvider("Card - Gallery",ComingSoonPane),
+        new NavProvider("Card - Gallery",CardGalleryPane),
         new NavProvider("Checkbox",CheckboxPane),
         new NavProvider("Circle Loader",CircleLoaderPane),
         new NavProvider("Clear Button",ComingSoonPane),
