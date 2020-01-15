@@ -135,6 +135,9 @@
     .variant-header-padding{
       height: 36px
     }
+    .spectrum-FieldGroup--vertical > .spectrum-ButtonGroup + .spectrum-ButtonGroup{
+      margin-top: 21px;
+    }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">
     <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;flex-shrink: 0; background-color:rgba(0.5,0.5,0.5,0.05)"/>

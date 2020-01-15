@@ -38,7 +38,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function computeFinalClassNames():String
     { 
-      return classList.compute() + super.computeFinalClassNames();
+      return (classList.compute() + super.computeFinalClassNames()).trim();
     }
     
     protected function valueToSelector(value:String):String{

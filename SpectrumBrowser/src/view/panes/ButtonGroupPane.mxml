@@ -78,35 +78,30 @@
       <sp:ActionButton text="Disabled" disabled="true"/>
       <sp:ActionButton text=" Disabled Selected" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" />
       <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" selected="true"/>
       <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
       <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:ActionButton quiet="true" text="Normal"/>
       <sp:ActionButton quiet="true" text="Selected" selected="true"/>
       <sp:ActionButton quiet="true" text="Disabled" disabled="true"/>
       <sp:ActionButton quiet="true" text=" Disabled Selected" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" />
       <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" selected="true"/>
       <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
       <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:Tool icon="{IconPrefix._18 + 'Brush'}" />
       <sp:Tool icon="{IconPrefix._18 + 'Select'}" selected="true"/>
       <sp:Tool icon="{IconPrefix._18 + 'Select'}" disabled="true"/>
       <sp:Tool icon="{IconPrefix._18 + 'Select'}" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{horizontalString}'/>
@@ -131,7 +126,6 @@
         <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
         <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
       </sp:ButtonGroup>
-      <Br/>
       <sp:ButtonGroup vertical="true">
         <sp:Tool icon="{IconPrefix._18 + 'Brush'}" />
         <sp:Tool icon="{IconPrefix._18 + 'Select'}" selected="true"/>
