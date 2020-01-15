@@ -85,8 +85,8 @@ package com.unhurdle.spectrum.renderers
       }
       return data["imageIcon"];
     }
-    private var icon:Icon;
-    private var imageIcon:ImageIcon;
+    protected var icon:Icon;
+    protected var imageIcon:ImageIcon;
     protected var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement

@@ -172,7 +172,7 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		protected var classList:CSSClassList;
 		COMPILE::JS
-    protected function toggle(classNameVal:String,add:Boolean):void
+    public function toggle(classNameVal:String,add:Boolean):void
     {
       COMPILE::JS
       {
