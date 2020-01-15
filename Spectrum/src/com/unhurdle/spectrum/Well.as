@@ -4,7 +4,7 @@ package com.unhurdle.spectrum
       import org.apache.royale.core.WrappedHTMLElement;
       import org.apache.royale.html.util.addElementToWrapper;
     }
-  public class Well extends SpectrumBase
+  public class Well extends Group
   {
     /**
      * <inject_html>

@@ -23,6 +23,8 @@
         import view.panes.ComingSoonPane;
         import view.panes.CardPane;
         import view.panes.CircleLoaderPane;
+        import view.panes.WellPane;
+        import view.panes.TypographyPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -93,10 +95,9 @@
         new NavProvider("Tool",ComingSoonPane),
         new NavProvider("Tooltip",ComingSoonPane),
         new NavProvider("Tree View",ComingSoonPane),
-        new NavProvider("Typography (Deprecated)",ComingSoonPane),
         new NavProvider("Typography (Internationalized)",ComingSoonPane),
-        new NavProvider("Typography",ComingSoonPane),
-        new NavProvider("Well",ComingSoonPane)
+        new NavProvider("Typography",TypographyPane),
+        new NavProvider("Well",WellPane)
       ];
       private function setNavSelection():void{
         sideNav.selectedIndex = 0;
