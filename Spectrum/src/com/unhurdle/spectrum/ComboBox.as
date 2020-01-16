@@ -1,22 +1,16 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.html.ComboBox;
+  import com.unhurdle.spectrum.includes.InputGroupInclude;
 
   public class ComboBox extends SpectrumBase
   {
-    /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/inputgroup/dist.css">
-     * </inject_html>
-     * 
-     */
-
     public function ComboBox()
     {
       super();
     }
     override protected function getSelector():String{
-      return "spectrum-InputGroup";
+      return InputGroupInclude.getSelector();
     }
     private function getModel():IComboBoxModel{
       return model as IComboBoxModel;
@@ -113,29 +107,23 @@ package com.unhurdle.spectrum
 
 		public function get invalid():Boolean
 		{
-			return _invalid;
+			return getModel().invalid;
 		}
 
 		public function set invalid(value:Boolean):void
 		{
-			if(value != !!_invalid){
-				toggle("is-invalid",value);
-			}
-			_invalid = value;
+			getModel().invalid = value;
 		}
 		private var _quiet:Boolean;
 
 		public function get quiet():Boolean
 		{
-			return _quiet;
+			return getModel().quiet;
 		}
 
 		public function set quiet(value:Boolean):void
 		{
-			if(value != !!_quiet){
-				toggle(valueToSelector("quiet"),value);
-			}
-			_quiet = value;
+			getModel().quiet = value;
 		}
 		// private var _open:Boolean;
 

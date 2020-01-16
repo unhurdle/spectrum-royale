@@ -60,10 +60,11 @@ package com.unhurdle.spectrum
     }
     public override function set invalid(value:Boolean):void{
       super.invalid = value;
-      if(value){//check if !=_invalid ??
-        var playIcon:Icon = new Icon(IconPrefix._18 + "Alert");
-        addElement(playIcon);
-      }
+      //TODO what was this here for?
+      // if(value){//check if !=_invalid ??
+      //   var playIcon:Icon = new Icon(IconPrefix._18 + "Alert");
+      //   addElement(playIcon);
+      // }
     }
     override protected function createIcon(selector:String):void{
       if(iconElement){

@@ -38,7 +38,8 @@ package com.unhurdle.spectrum.renderers
       menuItem = value as MenuItem;
       // element.className = "";
       toggle(appendSelector("-sectionHeading"),menuItem.isHeading);
-      toggle(appendSelector("-item"),!menuItem.isHeading);
+      var isItem:Boolean = !menuItem.isHeading && !menuItem.isDivider;
+      toggle(appendSelector("-item"),isItem);
       if(menuItem.isHeading){
         // element.style.pointerEvents = "none";
       }

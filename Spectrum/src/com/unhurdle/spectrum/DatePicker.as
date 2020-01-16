@@ -8,21 +8,16 @@ package com.unhurdle.spectrum
 
   import org.apache.royale.events.Event;
   import org.apache.royale.svg.elements.Path;
+  import com.unhurdle.spectrum.includes.InputGroupInclude;
 
   public class DatePicker extends SpectrumBase
   {
-    /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/inputgroup/dist.css">
-     * </inject_html>
-     * 
-     */
     public function DatePicker()
     {
       super();
     }
     override protected function getSelector():String{
-      return "spectrum-InputGroup";
+      return InputGroupInclude.getSelector();
     }
 
     private var input:TextField;
