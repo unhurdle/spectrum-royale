@@ -7,17 +7,17 @@
     ]]>
   </fx:Script>
   <comp:Variant>
-    <sp:DecoratedTextField placeholder="Enter your name" text="Search"/>
+    <sp:DecoratedTextField placeholder="Enter your name" label="Search"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:DecoratedTextField placeholder="Enter your name" text="Search"&gt;'/>
+    <comp:StyledCode text='&lt;sp:DecoratedTextField placeholder="Enter your name" label="Search"&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Multiline">
-    <sp:DecoratedTextField multiline="true" placeholder="Enter your life story" text="Search"/>
+    <sp:DecoratedTextField multiline="true" placeholder="Enter your life story" label="Search"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:DecoratedTextField multiline="true" placeholder="Enter your life story" text="Search"&gt;'/>
+    <comp:StyledCode text='&lt;sp:DecoratedTextField multiline="true" placeholder="Enter your life story" label="Search"&gt;'/>
   </comp:Markup>
 
 </view:DemoPane>
