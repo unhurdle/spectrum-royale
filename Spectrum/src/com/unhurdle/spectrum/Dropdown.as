@@ -65,7 +65,7 @@ package com.unhurdle.spectrum
       // addElement(popover);
       return elem;
     }
-    private var popover:Popover;
+    public var popover:Popover;
     private var menu:Menu;
 
     private function toggleDropdown(ev:*):void{

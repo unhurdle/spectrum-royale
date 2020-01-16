@@ -114,7 +114,7 @@ package com.unhurdle.spectrum
     {
     	input.text = value;
     }
-    private var popover:Popover
+    public var popover:Popover
     // COMPILE::JS
     // private function openDatePicker():void{
     //   popover.open = true;

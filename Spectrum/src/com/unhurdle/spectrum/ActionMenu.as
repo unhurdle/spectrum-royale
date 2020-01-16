@@ -19,6 +19,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.utils.PointUtils;
   import org.apache.royale.utils.UIUtils;
+  import org.apache.royale.utils.callLater;
 
   [Event(name="change", type="org.apache.royale.events.Event")]
   [Event(name="beforeShow", type="org.apache.royale.events.Event")]
@@ -30,7 +31,6 @@ package com.unhurdle.spectrum
     {
       super();
     }
-    public var popover:Popover;
     override protected function createFlyoutIcon():void{
       // do nothing because we don't want the icon
     }
@@ -43,26 +43,7 @@ package com.unhurdle.spectrum
       icon = IconPrefix._18 + "More";
       addEventListener(MouseEvent.MOUSE_DOWN,toggleMenu);
       
-      popover = new Popover();
-      popover.element.style.position = "absolute";
-      popover.position = "bottom";
-      popover.addEventListener("openChanged",handlePopoverChange);
-	    // var origin:Point = new Point(0, host.height - 6);
-			// var relocated:Point = PointUtils.localToGlobal(origin,host);
-			// popover.x = relocated.x
-			// popover.y = relocated.y;
-      // var popupHost:IPopUpHost = UIUtils.findPopUpHost(host);
-     // popupHost.popUpParent.addElement(popover);
-
-      menu = new Menu();
-      menu.addEventListener("change",handleMenuChange);
-      popover.addElement(menu);
-      // addElement(popover);
       return elem;
-    }
-
-     override public function get dataProvider():Object{
-      return menu.dataProvider;
     }
 
     override public function set dataProvider(value:Object):void{
@@ -71,8 +52,9 @@ package com.unhurdle.spectrum
       } else if(value is IArrayList){
         convertArray(value.source);
       }
-      menu.dataProvider = value;
+      super.dataProvider = value;
     }
+
     private function convertArray(value:Object):void{
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
@@ -85,18 +67,27 @@ package com.unhurdle.spectrum
       }
     }
 
-    private function toggleMenu():void{
+    private function toggleMenu(event:Event):void{
       if(_openMenu && _openMenu != this){
-        _openMenu.close();
+        _openMenu.closePopup();
       }
-      var shown:Boolean = popover.open;
+      event.stopImmediatePropagation();
+      var shown:Boolean = popover && popover.open;
       if(shown){// close it
-        close();
+        closePopup();
 
       } else {//open it
-        dispatchEvent(new Event("beforeShow"));
+        showMenu();
+      }
+    }
+    override public function showMenu():void{
+      super.showMenu();
+      selected = true;
+      _openMenu = this;
+    }
+    override protected function positionPopup():void{
+
   			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
-				popupHost.popUpParent.addElement(popover);
         var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
 				var origin:Point = new Point(0, height - 6);
 				var relocated:Point = PointUtils.localToGlobal(origin,this);
@@ -107,23 +98,12 @@ package com.unhurdle.spectrum
         if(_alignRight && popover.width>width){
           popover.x -= popover.width-width;
         }
-				// popover.width = button.width;
-        
-        popover.open = selected = true;
-        _openMenu = this;
-      }
+
     }
-    private function close():void{
-      popover.open = selected = false;
+    override protected function closePopup():void{
+      super.closePopup();
+      selected = false;
       _openMenu = null;
-    }
-    private function handlePopoverChange(ev:Event):void{
-      if(!popover.open)
-      {
-  			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
-        popupHost.popUpParent.removeElement(popover);
-        selected = false;
-      }
     }
     private var _alignRight:Boolean;
 
@@ -139,11 +119,6 @@ package com.unhurdle.spectrum
       // menu.alignRight = value;
 		}
 
-    private function handleMenuChange():void
-    {
-      dispatchEvent(new Event("change"));
-      close();
-    }
     public function determinePosition(ptY:Number):Number
 		{
 			var screenHeight:Number = (UIUtils.findPopUpHost(this).popUpParent as IParentIUIBase).height;

@@ -94,7 +94,7 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("selectionChanged"));
     }
     private function elementClickedForMenu(ev:Event):void{
-      if(popup && popup.open){
+      if(popover && popover.open){
         ev.stopImmediatePropagation();
       }
     }
@@ -187,28 +187,32 @@ package com.unhurdle.spectrum
     }
     public function showMenu():void{
       // construct if necessary and show the menu.
-      if(!popup){
-        popup = new ComboBoxList();
-        menu = popup.list;
+      if(!popover){
+        popover = new ComboBoxList();
+        menu = popover.list;
         menu.dataProvider = dataProvider;
         menu.addEventListener("change",handleMenuChange);
       }
-      var origin:Point = new Point(width, height);
-      var relocated:Point = PointUtils.localToGlobal(origin,this);
-      popup.x = relocated.x
-      popup.y = relocated.y;
-
+      dispatchEvent(new Event("beforeShow"));
 			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
-			popupHost.popUpParent.addElement(popup);
-      popup.open = true;
-			popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			popupHost.popUpParent.addElement(popover);
+      positionPopup();
+      popover.open = true;
+			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			this.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			callLater(function():void {
-				popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+				popover.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 			});
     }
+    protected function positionPopup():void{
+      var origin:Point = new Point(width, height);
+      var relocated:Point = PointUtils.localToGlobal(origin,this);
+      popover.x = relocated.x
+      popover.y = relocated.y;
+
+    }
     public var menu:Menu;
-    private var popup:ComboBoxList;
+    public var popover:ComboBoxList;
 
     private function handleMenuChange(ev:Event):void{
       closePopup();
@@ -223,13 +227,15 @@ package com.unhurdle.spectrum
 		{
       closePopup();
 		}
-    private function closePopup():void{
-      if(popup && popup.open){
-  			popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+    protected function closePopup():void{
+      if(popover && popover.open){
+  			popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-		  	popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-        UIUtils.removePopUp(popup);
-        popup.open = false;
+		  	popover.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+        try{
+          UIUtils.removePopUp(popover);
+        }catch(err:Error){}
+        popover.open = false;
       }
     }
 		
