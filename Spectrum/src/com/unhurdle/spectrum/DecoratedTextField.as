@@ -58,7 +58,6 @@ package com.unhurdle.spectrum
       if(textArea){
         textArea.name = value;
       }
-        multiline?textArea.name = value:textField.name = value;
         _name = name;
     }
 
