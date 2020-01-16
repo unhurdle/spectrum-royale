@@ -7,10 +7,10 @@
     ]]>
   </fx:Script>
   <comp:Variant>
-    <sp:ButtonGroup>
-      <sp:ClearButton/>
-      <sp:ClearButton disabled="true"/>
-    </sp:ButtonGroup>
+  <sp:ButtonGroup>
+    <sp:ClearButton/>
+    <sp:ClearButton disabled="true"/>
+  </sp:ButtonGroup>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:ClearButton&gt;'/>
@@ -19,10 +19,10 @@
   </comp:Markup>
 
   <comp:Variant header="Small">
-    <sp:ButtonGroup>
-      <sp:ClearButton small="true"/>
-      <sp:ClearButton small="true" disabled="true"/>
-    </sp:ButtonGroup>
+  <sp:ButtonGroup>
+    <sp:ClearButton small="true"/>
+    <sp:ClearButton small="true" disabled="true"/>
+  </sp:ButtonGroup>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:ClearButton small="true"&gt;'/>

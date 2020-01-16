@@ -29,7 +29,7 @@ package com.unhurdle.spectrum.renderers
 
     protected var classList:CSSClassList;
 
-    protected function toggle(classNameVal:String,add:Boolean):void
+    public function toggle(classNameVal:String,add:Boolean):void
     {
       COMPILE::JS
       {

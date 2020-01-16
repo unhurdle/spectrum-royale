@@ -55,7 +55,7 @@ package com.unhurdle.spectrum
       return "#0";
     }
 
-    protected function toggle(selector:String,value:Boolean):void{
+    public function toggle(selector:String,value:Boolean):void{
       COMPILE::JS
       {
         element.classList.toggle(selector, value);

@@ -18,14 +18,17 @@
         import view.panes.ButtonGroupPane;
         import view.panes.ButtonPane;
         import view.panes.CalendarPane;
+        import view.panes.CardGalleryPane;
+        import view.panes.CardPane;
         import view.panes.CardPreviewPane;
         import view.panes.CheckboxPane;
-        import view.panes.ComingSoonPane;
-        import view.panes.CardPane;
         import view.panes.CircleLoaderPane;
-        import view.panes.ClearButtonPane;
         import view.panes.CoachMarkPane;
         import view.panes.TextFieldDecoratedPane;
+        import view.panes.ComingSoonPane;
+        import view.panes.TypographyPane;
+        import view.panes.WellPane;
+        import view.panes.ClearButtonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -44,7 +47,7 @@
         new NavProvider("Calendar",CalendarPane),
         new NavProvider("Card",CardPane),
         new NavProvider("Card - Asset preview",CardPreviewPane),
-        new NavProvider("Card - Gallery",ComingSoonPane),
+        new NavProvider("Card - Gallery",CardGalleryPane),
         new NavProvider("Checkbox",CheckboxPane),
         new NavProvider("Circle Loader",CircleLoaderPane),
         new NavProvider("Clear Button",ClearButtonPane),
@@ -96,10 +99,9 @@
         new NavProvider("Tool",ComingSoonPane),
         new NavProvider("Tooltip",ComingSoonPane),
         new NavProvider("Tree View",ComingSoonPane),
-        new NavProvider("Typography (Deprecated)",ComingSoonPane),
         new NavProvider("Typography (Internationalized)",ComingSoonPane),
-        new NavProvider("Typography",ComingSoonPane),
-        new NavProvider("Well",ComingSoonPane)
+        new NavProvider("Typography",TypographyPane),
+        new NavProvider("Well",WellPane)
       ];
       private function setNavSelection():void{
         sideNav.selectedIndex = 0;
@@ -137,6 +139,9 @@
     }
     .variant-header-padding{
       height: 36px
+    }
+    .spectrum-FieldGroup--vertical > .spectrum-ButtonGroup + .spectrum-ButtonGroup{
+      margin-top: 21px;
     }
   </fx:Style>
   <sp:FlexContainer id="mainGroup" wrap="false">

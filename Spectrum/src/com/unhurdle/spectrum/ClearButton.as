@@ -13,7 +13,6 @@ package com.unhurdle.spectrum
         public function ClearButton()
         {
             super();
-            small = false;
         }
         override protected function getSelector():String{
             return "spectrum-ClearButton";
@@ -32,9 +31,6 @@ package com.unhurdle.spectrum
             button.onclick = function():void{
                 dispatchEvent("clear");
             }
-            // icon = new Icon("");
-            // icon.type = IconType.ALERT_SMALL;
-            // addElement(icon);
             return element;
         }
         public var button:HTMLButtonElement;
@@ -52,7 +48,7 @@ package com.unhurdle.spectrum
             }
         	_disabled = value;
         }
-        private var _small:Boolean;
+        private var _small:Boolean = false;
 
         public function get small():Boolean
         {
@@ -63,10 +59,10 @@ package com.unhurdle.spectrum
         {
             if(value != _small){
                 toggle(valueToSelector("small"),value);
-                toggle(valueToSelector("medium"),!value);
-                var type:String = value ? IconType.CROSS_SMALL : IconType.CROSS_MEDIUM;
-                icon.selector = Icon.getCSSTypeSelector(type);
-                icon.type = type;
+                // it seems like both versions use the small x
+                // var type:String = value ? IconType.CROSS_SMALL : IconType.CROSS_MEDIUM;
+                // icon.selector = Icon.getCSSTypeSelector(type);
+                // icon.type = type;
                 _small = value;
             }
         }

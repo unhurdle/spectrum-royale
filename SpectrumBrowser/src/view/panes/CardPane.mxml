@@ -5,7 +5,7 @@
   <fx:Script>
     <![CDATA[
       [Bindable]public var standardMarkup:String =
-    '<sp:Card localId="card1" width="200" coverSrc="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">\n'+
+    '<sp:Card localId="card1" coverSrc="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">\n'+
     '  <sp:body>\n'+
     '    <sp:CardBody>\n'+
     '      <sp:CardHeader>\n'+
@@ -26,19 +26,171 @@
     '    <sp:CardFooter text="Footer"/>\n'+
     '  </sp:footer>\n'+
     '</sp:Card>';
+      [Bindable]public var quietMarkup:String = 
+    '<Div width="208" height="264">\n'+
+    '  <sp:Card localId="card2" >\n'+
+    '  <sp:preview>\n'+
+    '    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>\n'+
+    '  </sp:preview>\n'+
+    '    <sp:body>\n'+
+    '      <sp:CardBody>\n'+
+    '        <sp:CardHeader>\n'+
+    '          <sp:CardTitle text="Name"/>\n'+
+    '          <sp:CardActionMenu localId="actionMenu2" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1" change="changeFocus()"/>\n'+
+    '        </sp:CardHeader>\n'+
+    '        <sp:CardContent>\n'+
+    '          <sp:CardSubtitle text="jpg"/>\n'+
+    '          <sp:CardDescription text="10/15/18"/>\n'+
+    '        </sp:CardContent>\n'+
+    '      </sp:CardBody>\n'+
+    '    </sp:body>\n'+
+    '    <sp:quickActions>\n'+
+    '      <sp:QuickActions>\n'+
+    '        <sp:CheckBox/>\n'+
+    '      </sp:QuickActions>\n'+
+    '    </sp:quickActions>\n'+
+    '  </sp:Card>\n'+
+    '</Div>';
+
+      [Bindable]public var fileMarkup:String = 
+    '<Div width="208" height="264">\n'+
+    '  <sp:Card>\n'+
+    '  <sp:preview>\n'+
+    '    <sp:FileAsset/>\n'+
+    '  </sp:preview>\n'+
+    '    <sp:body>\n'+
+    '      <sp:CardBody>\n'+
+    '        <sp:CardHeader>\n'+
+    '          <sp:CardTitle text="File Name"/>\n'+
+    '        </sp:CardHeader>\n'+
+    '        <sp:CardContent>\n'+
+    '          <sp:CardSubtitle text="pdf"/>\n'+
+    '        </sp:CardContent>\n'+
+    '      </sp:CardBody>\n'+
+    '    </sp:body>\n'+
+    '    <sp:quickActions>\n'+
+    '      <sp:QuickActions>\n'+
+    '        <sp:CheckBox/>\n'+
+    '      </sp:QuickActions>\n'+
+    '    </sp:quickActions>\n'+
+    '  </sp:Card>\n'+
+    '</Div>';
+
+      [Bindable]public var folderMarkup:String = 
+    '<Div width="208" height="264">\n'+
+    '  <sp:Card>\n'+
+    '  <sp:preview>\n'+
+    '    <sp:FolderAsset/>\n'+
+    '  </sp:preview>\n'+
+    '    <sp:body>\n'+
+    '      <sp:CardBody>\n'+
+    '        <sp:CardHeader>\n'+
+    '          <sp:CardTitle text="Folder Name"/>\n'+
+    '        </sp:CardHeader>\n'+
+    '        <sp:CardContent>\n'+
+    '          <sp:CardSubtitle text="folder"/>\n'+
+    '        </sp:CardContent>\n'+
+    '      </sp:CardBody>\n'+
+    '    </sp:body>\n'+
+    '    <sp:quickActions>\n'+
+    '      <sp:QuickActions>\n'+
+    '        <sp:CheckBox/>\n'+
+    '      </sp:QuickActions>\n'+
+    '    </sp:quickActions>\n'+
+    '  </sp:Card>\n'+
+    '</Div>';
+      
+      [Bindable]public var smallMarkup:String = 
+
+    '<Div width="208">\n'+
+    '  <sp:Card small="true">\n'+
+    '  <sp:preview>\n'+
+    '    <sp:FolderAsset/>\n'+
+    '  </sp:preview>\n'+
+    '    <sp:body>\n'+
+    '      <sp:CardBody>\n'+
+    '        <sp:CardHeader>\n'+
+    '          <sp:CardTitle text="Card Title"/>\n'+
+    '        </sp:CardHeader>\n'+
+    '        <sp:CardContent>\n'+
+    '          <sp:CardSubtitle text="jpg"/>\n'+
+    '        </sp:CardContent>\n'+
+    '      </sp:CardBody>\n'+
+    '    </sp:body>\n'+
+    '    <sp:quickActions>\n'+
+    '      <sp:QuickActions>\n'+
+    '        <sp:CheckBox/>\n'+
+    '      </sp:QuickActions>\n'+
+    '    </sp:quickActions>\n'+
+    '    <sp:footer>\n'+
+    '      <sp:CardFooter text="Footer"/>\n'+
+    '    </sp:footer>\n'+
+    '  </sp:Card>\n'+
+    '</Div>';
+      
+      [Bindable]public var horizontalMarkup:String = 
+    '<Div width="208">\n'+
+    '  <sp:Card small="true" horizontal="true">\n'+
+    '    <sp:preview>\n'+
+    '      <sp:Icon size="L" selector="#spectrum-icon-18-FileTxt"/>\n'+
+    '    </sp:preview>\n'+
+    '    <sp:body>\n'+
+    '      <sp:CardBody>\n'+
+    '        <sp:CardHeader>\n'+
+    '          <sp:CardTitle text="Card Title"/>\n'+
+    '        </sp:CardHeader>\n'+
+    '        <sp:CardContent>\n'+
+    '          <sp:CardSubtitle text="jpg"/>\n'+
+    '        </sp:CardContent>\n'+
+    '      </sp:CardBody>\n'+
+    '    </sp:body>\n'+
+    '  </sp:Card>\n'+
+    '</Div>';
+
+      [Bindable]public var smallQuiet:String = 
+    '<Div width="112" height="136">\n'+
+    '  <sp:Card localId="card3" small="true" quiet="true">\n'+
+    '    <sp:preview>\n'+
+    '      <sp:ImageAsset imageStyleString="max-width: 75%; max-height: 75%; object-fit: contain" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" />\n'+
+    '    </sp:preview>\n'+
+    '    <sp:body>\n'+
+    '      <sp:CardBody>\n'+
+    '        <sp:CardHeader>\n'+
+    '          <sp:CardTitle text="Card Title"/>\n'+
+    '        </sp:CardHeader>\n'+
+    '        <sp:CardContent>\n'+
+    '          <sp:CardSubtitle text="jpg"/>\n'+
+    '        </sp:CardContent>\n'+
+    '      </sp:CardBody>\n'+
+    '    </sp:body>\n'+
+    '    <sp:actions>\n'+
+    '      <sp:QuickActions>\n'+
+    '        <sp:ActionMenu localId="actionMenu3" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1" change="changeFocus()"/>\n'+
+    '      </sp:QuickActions>\n'+
+    '    </sp:actions>\n'+
+    '    <sp:quickActions>\n'+
+    '      <sp:QuickActions>\n'+
+    '        <sp:CheckBox/>\n'+
+    '      </sp:QuickActions>\n'+
+    '    </sp:quickActions>\n'+
+    '  </sp:Card>\n'+
+    '</Div>';
+
       private function changeFocus():void{
-          card1.focused = actionMenu.selectedIndex == 0;
+          card1.focused = actionMenu1.selectedIndex == 0;
+          card2.focused = actionMenu2.selectedIndex == 0;
+          card3.focused = actionMenu3.selectedIndex == 0;
       }
     ]]>
   </fx:Script>
 
   <comp:Variant notes="A standard card with cover photo and footer. Change the menu selection in the card to change focus.">
-    <sp:Card localId="card1" width="200" coverSrc="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">
+    <sp:Card localId="card1" coverSrc="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">
       <sp:body>
         <sp:CardBody>
           <sp:CardHeader>
             <sp:CardTitle text="Card Title"/>
-            <sp:CardActionMenu localId="actionMenu" dataProvider="['Focused','Unfocused']" selectedIndex="1" change="changeFocus()"/>
+            <sp:CardActionMenu localId="actionMenu1" dataProvider="['Focused','Unfocused']" selectedIndex="1" change="changeFocus()"/>
           </sp:CardHeader>
           <sp:CardContent>
             <sp:CardSubtitle text="jpg"/>
@@ -59,5 +211,174 @@
     <comp:StyledCode text='{standardMarkup}'/>
   </comp:Markup>
 
+  <comp:Variant header="Quiet" notes="A quiet card for an image.">
+    <Div width="208" height="264">
+      <sp:Card localId="card2" quiet="true">
+      <sp:preview>
+        <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>
+      </sp:preview>
+        <sp:body>
+          <sp:CardBody>
+            <sp:CardHeader>
+              <sp:CardTitle text="Name"/>
+              <sp:CardActionMenu localId="actionMenu2" dataProvider="['Focused','Unfocused']" selectedIndex="1" change="changeFocus()"/>
+            </sp:CardHeader>
+            <sp:CardContent>
+              <sp:CardSubtitle text="jpg"/>
+              <sp:CardDescription text="10/15/18"/>
+            </sp:CardContent>
+          </sp:CardBody>
+        </sp:body>
+        <sp:quickActions>
+          <sp:QuickActions>
+            <sp:CheckBox/>
+          </sp:QuickActions>
+        </sp:quickActions>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{quietMarkup}"/>
+  </comp:Markup>
+
+  <comp:Variant header="Quiet (file)" notes="A quiet card for a file asset.">
+    <Div width="208" height="264">
+      <sp:Card quiet="true">
+      <sp:preview>
+        <sp:FileAsset/>
+      </sp:preview>
+        <sp:body>
+          <sp:CardBody>
+            <sp:CardHeader>
+              <sp:CardTitle text="File Name"/>
+            </sp:CardHeader>
+            <sp:CardContent>
+              <sp:CardSubtitle text="pdf"/>
+            </sp:CardContent>
+          </sp:CardBody>
+        </sp:body>
+        <sp:quickActions>
+          <sp:QuickActions>
+            <sp:CheckBox/>
+          </sp:QuickActions>
+        </sp:quickActions>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{fileMarkup}"/>
+  </comp:Markup>
+
+  <comp:Variant header="Quiet (folder)" notes="A quiet card for a folder asset.">
+    <Div width="208" height="264">
+      <sp:Card quiet="true">
+      <sp:preview>
+        <sp:FolderAsset/>
+      </sp:preview>
+        <sp:body>
+          <sp:CardBody>
+            <sp:CardHeader>
+              <sp:CardTitle text="Folder Name"/>
+            </sp:CardHeader>
+            <sp:CardContent>
+              <sp:CardSubtitle text="folder"/>
+            </sp:CardContent>
+          </sp:CardBody>
+        </sp:body>
+        <sp:quickActions>
+          <sp:QuickActions>
+            <sp:CheckBox/>
+          </sp:QuickActions>
+        </sp:quickActions>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{folderMarkup}"/>
+  </comp:Markup>
+
+  <comp:Variant header="Small" notes="A small card. Small cards should not normally be used without quiet.">
+    <Div width="208">
+      <sp:Card small="true" coverSrc="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">
+        <sp:body>
+          <sp:CardBody>
+            <sp:CardHeader>
+              <sp:CardTitle text="Card Title"/>
+            </sp:CardHeader>
+            <sp:CardContent>
+              <sp:CardSubtitle text="jpg"/>
+            </sp:CardContent>
+          </sp:CardBody>
+        </sp:body>
+        <sp:quickActions>
+          <sp:QuickActions>
+            <sp:CheckBox/>
+          </sp:QuickActions>
+        </sp:quickActions>
+        <sp:footer>
+          <sp:CardFooter text="Footer"/>
+        </sp:footer>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{smallMarkup}"/>
+  </comp:Markup>
+
+  <comp:Variant header="Small (horizontal)" notes="A small, horizontal card. Small cards should not normally be used with without quiet.">
+    <Div width="208">
+      <sp:Card small="true" horizontal="true">
+        <sp:preview>
+          <sp:Icon size="L" selector="#spectrum-icon-18-FileTxt"/>
+        </sp:preview>
+        <sp:body>
+          <sp:CardBody>
+            <sp:CardHeader>
+              <sp:CardTitle text="Card Title"/>
+            </sp:CardHeader>
+            <sp:CardContent>
+              <sp:CardSubtitle text="jpg"/>
+            </sp:CardContent>
+          </sp:CardBody>
+        </sp:body>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{horizontalMarkup}"/>
+  </comp:Markup>
+
+  <comp:Variant header="Small (quiet)" notes="A small, quiet card.">
+    <Div width="112" height="136">
+      <sp:Card localId="card3" small="true" quiet="true">
+        <sp:preview>
+          <sp:ImageAsset imageStyleString="max-width: 75%; max-height: 75%; object-fit: contain" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" />
+        </sp:preview>
+        <sp:body>
+          <sp:CardBody>
+            <sp:CardHeader>
+              <sp:CardTitle text="Card Title"/>
+            </sp:CardHeader>
+            <sp:CardContent>
+              <sp:CardSubtitle text="jpg"/>
+            </sp:CardContent>
+          </sp:CardBody>
+        </sp:body>
+        <sp:actions>
+          <sp:QuickActions>
+            <sp:ActionMenu localId="actionMenu3" dataProvider="['Focused','Unfocused']" selectedIndex="1" change="changeFocus()"/>
+          </sp:QuickActions>
+        </sp:actions>
+        <sp:quickActions>
+          <sp:QuickActions>
+            <sp:CheckBox/>
+          </sp:QuickActions>
+        </sp:quickActions>
+      </sp:Card>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{smallQuiet}"/>
+  </comp:Markup>
 
 </view:DemoPane>

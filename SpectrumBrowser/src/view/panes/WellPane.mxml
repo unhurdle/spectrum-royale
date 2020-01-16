@@ -1,0 +1,47 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Well">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString:String = 
+      '<sp:Subtitle size="2" text="Well Label (Optional)"/>\n'+
+      '<sp:Well>\n'+
+      '  <Em>Well done is better than well said.</Em>\n'+
+      '  <Br/>\n'+
+      '  <Strong text="Benjamin Franklin"/>\n'+
+      '  <Br/><Br/>\n'+
+      '  <Span>Well said Ben!</Span>\n'+
+      '  <sp:Well>\n'+
+      '    <Em>Well done is better than well said.</Em>\n'+
+      '    <Br/>\n'+
+      '    <Strong text="Benjamin Franklin"/>\n'+
+      '    <Br/><Br/>\n'+
+      '    <Span>Well said Ben!</Span>\n'+
+      '  </sp:Well>\n'+
+      '</sp:Well>\n';
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <sp:Subtitle size="2" text="Well Label (Optional)"/>
+    <sp:Well>
+      <Em>Well done is better than well said.</Em>
+      <Br/>
+      <Strong text="Benjamin Franklin"/>
+      <Br/><Br/>
+      <Span>Well said Ben!</Span>
+      <sp:Well>
+        <Em>Well done is better than well said.</Em>
+        <Br/>
+        <Strong text="Benjamin Franklin"/>
+        <Br/><Br/>
+        <Span>Well said Ben!</Span>
+      </sp:Well>
+    </sp:Well>
+    <comp:Markup>
+      <comp:StyledCode text="{codeString}"/>
+    </comp:Markup>
+  </comp:Variant>
+</view:DemoPane>
+          

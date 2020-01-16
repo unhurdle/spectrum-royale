@@ -33,6 +33,12 @@ package com.unhurdle.spectrum.renderers
       assetListItem = value as AssetListItem;
       toggle(appendSelector("-item"),true);
       setSelectable();
+      if(icon){
+        icon.toggle(appendSelector("-itemThumbnail"),true);
+      }
+      if(imageIcon){
+        imageIcon.toggle(appendSelector("-itemThumbnail"),true);
+      }
       //TODO submenus
       // if(assetListItem.isBranch){
       //   (element as HTMLElement).classList.add("is-branch");

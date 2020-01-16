@@ -13,28 +13,24 @@
 '  <sp:ActionButton text="Disabled" disabled="true"/>\n'+
 '  <sp:ActionButton text=" Disabled Selected" disabled="true" selected="true"/>\n'+
 '</sp:ButtonGroup>\n'+
-'<html:Br/>\n'+
 '<sp:ButtonGroup>\n'+
 '  <sp:ActionButton icon="{IconPrefix._18 + \'Delete\'}" />\n'+
 '  <sp:ActionButton icon="{IconPrefix._18 + \'Delete\'}" selected="true"/>\n'+
 '  <sp:ActionButton icon="{IconPrefix._18 + \'Delete\'}" disabled="true"/>\n'+
 '  <sp:ActionButton icon="{IconPrefix._18 + \'Delete\'}" disabled="true" selected="true"/>\n'+
 '</sp:ButtonGroup>\n'+
-'<html:Br/>\n'+
 '<sp:ButtonGroup>\n'+
 '  <sp:ActionButton quiet="true" text="Normal"/>\n'+
 '  <sp:ActionButton quiet="true" text="Selected" selected="true"/>\n'+
 '  <sp:ActionButton quiet="true" text="Disabled" disabled="true"/>\n'+
 '  <sp:ActionButton quiet="true" text=" Disabled Selected" disabled="true" selected="true"/>\n'+
 '</sp:ButtonGroup>\n'+
-'<html:Br/>\n'+
 '<sp:ButtonGroup>\n'+
 '  <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Delete\'}" />\n'+
 '  <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Delete\'}" selected="true"/>\n'+
 '  <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Delete\'}" disabled="true"/>\n'+
 '  <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Delete\'}" disabled="true" selected="true"/>\n'+
 '</sp:ButtonGroup>\n'+
-'<html:Br/>\n'+
 '<sp:ButtonGroup>\n'+
 '  <sp:Tool icon="{IconPrefix._18 + \'Brush\'}" />\n'+
 '  <sp:Tool icon="{IconPrefix._18 + \'Select\'}" selected="true"/>\n'+
@@ -72,46 +68,42 @@
     ]]>
   </fx:Script>
   <comp:Variant header="Horizontal">
-    <sp:ButtonGroup>
-      <sp:ActionButton text="Normal"/>
-      <sp:ActionButton text="Selected" selected="true"/>
-      <sp:ActionButton text="Disabled" disabled="true"/>
-      <sp:ActionButton text=" Disabled Selected" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <Br/>
-    <sp:ButtonGroup>
-      <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" />
-      <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" selected="true"/>
-      <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
-      <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <Br/>
-    <sp:ButtonGroup>
-      <sp:ActionButton quiet="true" text="Normal"/>
-      <sp:ActionButton quiet="true" text="Selected" selected="true"/>
-      <sp:ActionButton quiet="true" text="Disabled" disabled="true"/>
-      <sp:ActionButton quiet="true" text=" Disabled Selected" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <Br/>
-    <sp:ButtonGroup>
-      <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" />
-      <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" selected="true"/>
-      <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
-      <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <Br/>
-    <sp:ButtonGroup>
-      <sp:Tool icon="{IconPrefix._18 + 'Brush'}" />
-      <sp:Tool icon="{IconPrefix._18 + 'Select'}" selected="true"/>
-      <sp:Tool icon="{IconPrefix._18 + 'Select'}" disabled="true"/>
-      <sp:Tool icon="{IconPrefix._18 + 'Select'}" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <Br/>
+    <sp:FieldGroup vertical="true">
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Normal"/>
+        <sp:ActionButton text="Selected" selected="true"/>
+        <sp:ActionButton text="Disabled" disabled="true"/>
+        <sp:ActionButton text=" Disabled Selected" disabled="true" selected="true"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" />
+        <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" selected="true"/>
+        <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
+        <sp:ActionButton icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton quiet="true" text="Normal"/>
+        <sp:ActionButton quiet="true" text="Selected" selected="true"/>
+        <sp:ActionButton quiet="true" text="Disabled" disabled="true"/>
+        <sp:ActionButton quiet="true" text=" Disabled Selected" disabled="true" selected="true"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" />
+        <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" selected="true"/>
+        <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
+        <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:Tool icon="{IconPrefix._18 + 'Brush'}" />
+        <sp:Tool icon="{IconPrefix._18 + 'Select'}" selected="true"/>
+        <sp:Tool icon="{IconPrefix._18 + 'Select'}" disabled="true"/>
+        <sp:Tool icon="{IconPrefix._18 + 'Select'}" disabled="true" selected="true"/>
+      </sp:ButtonGroup>
+    </sp:FieldGroup>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{horizontalString}'/>
   </comp:Markup>
-
   <comp:Variant header="Vertical">
     <sp:FlexContainer justifyContent="space-between" width="400">
       <sp:ButtonGroup vertical="true">
@@ -131,7 +123,6 @@
         <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true"/>
         <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}" disabled="true" selected="true"/>
       </sp:ButtonGroup>
-      <Br/>
       <sp:ButtonGroup vertical="true">
         <sp:Tool icon="{IconPrefix._18 + 'Brush'}" />
         <sp:Tool icon="{IconPrefix._18 + 'Select'}" selected="true"/>

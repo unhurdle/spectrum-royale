@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum
 {
-  public class Asset extends SpectrumBase
+  public class Asset extends SpectrumBase implements IAsset
   {
     /**
      * <inject_html>

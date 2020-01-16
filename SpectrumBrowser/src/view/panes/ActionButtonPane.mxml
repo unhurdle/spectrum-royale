@@ -19,28 +19,24 @@ import com.unhurdle.spectrum.const.IconPrefix;
 '    <sp:ActionButton text="Edit" disabled="true"/>\n'+
 '    <sp:ActionButton text="Edit" disabled="true" selected="true"/>\n'+
 '  </sp:ButtonGroup>\n'+
-'  <Br/>\n'+
 '  <sp:ButtonGroup>\n'+
 '    <sp:ActionButton text="Edit" icon="{iconSelector}"/>\n'+
 '    <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true"/>\n'+
 '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
 '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
 '  </sp:ButtonGroup>\n'+
-'  <Br/>\n'+
 '  <sp:ButtonGroup>\n'+
 '    <sp:ActionButton icon="{iconSelector}"/>\n'+
 '    <sp:ActionButton icon="{iconSelector}" selected="true"/>\n'+
 '    <sp:ActionButton icon="{iconSelector}" disabled="true"/>\n'+
 '    <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true"/>\n'+
 '  </sp:ButtonGroup>\n'+
-'  <Br/>\n'+
 '  <sp:ButtonGroup>\n'+
 '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
 '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
 '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
 '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
 '  </sp:ButtonGroup>\n'+
-'  <Br/>\n'+
 '  <sp:ButtonGroup>\n'+
 '    <sp:ActionButton text="Button">\n'+
 '    <sp:iconElement>\n'+
@@ -73,14 +69,12 @@ import com.unhurdle.spectrum.const.IconPrefix;
 '    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
 '    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
 '  </sp:ButtonGroup>\n'+
-'  <Br/>\n'+
 '  <sp:ButtonGroup>\n'+
 '    <sp:ActionButton quiet="true" icon="{iconSelector}"/>\n'+
 '    <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true"/>\n'+
 '    <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true"/>\n'+
 '    <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
 '  </sp:ButtonGroup>\n'+
-'  <Br/>\n'+
 '  <sp:ButtonGroup>\n'+
 '    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
 '    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
@@ -101,28 +95,24 @@ import com.unhurdle.spectrum.const.IconPrefix;
       <sp:ActionButton text="Edit" disabled="true"/>
       <sp:ActionButton text="Edit" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:ActionButton text="Edit" icon="{iconSelector}"/>
       <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true"/>
       <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true"/>
       <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:ActionButton icon="{iconSelector}"/>
       <sp:ActionButton icon="{iconSelector}" selected="true"/>
       <sp:ActionButton icon="{iconSelector}" disabled="true"/>
       <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}"/>
       <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>
       <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>
       <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>
     </sp:ButtonGroup>
-    <Br/>
     <sp:ButtonGroup>
       <sp:ActionButton text="Button">
       <sp:iconElement>
@@ -158,14 +148,12 @@ import com.unhurdle.spectrum.const.IconPrefix;
         <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true"/>
         <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>
       </sp:ButtonGroup>
-      <Br/>
       <sp:ButtonGroup>
         <sp:ActionButton quiet="true" icon="{iconSelector}"/>
         <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true"/>
         <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true"/>
         <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true"/>
       </sp:ButtonGroup>
-      <Br/>
       <sp:ButtonGroup>
         <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}"/>
         <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>

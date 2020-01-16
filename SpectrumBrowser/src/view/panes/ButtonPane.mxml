@@ -10,7 +10,6 @@
 '  <sp:Button flavor="primary" text="Button"/>\n'+
 '  <sp:Button flavor="primary" text="Button" disabled="true"/>\n'+
 '</sp:ButtonGroup>\n'+
-'<Br/>\n'+
 '<sp:ButtonGroup>\n'+
 '  <sp:Button flavor="primary" text="Edit" icon="{IconPrefix._18 + \'Edit\'}"/>\n'+
 '  <sp:Button flavor="primary" text="Edit" icon="{IconPrefix._18 + \'Edit\'}" disabled="true"/>\n'+
