@@ -62,7 +62,6 @@
         new NavProvider("Drop ",ComingSoonPane),
         new NavProvider("Dropzone",ComingSoonPane),
         new NavProvider("Field ",ComingSoonPane),
-        new NavProvider("Field ",ComingSoonPane),
         new NavProvider("Form",ComingSoonPane),
         new NavProvider("Illustrated Message",ComingSoonPane),
         new NavProvider("Label",ComingSoonPane),
