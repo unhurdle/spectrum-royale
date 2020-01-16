@@ -25,6 +25,7 @@
         import view.panes.CircleLoaderPane;
         import view.panes.ClearButtonPane;
         import view.panes.CoachMarkPane;
+        import view.panes.TextFieldDecoratedPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -51,7 +52,7 @@
         new NavProvider("Combobox",ComingSoonPane),
         new NavProvider("Cycle Button",ComingSoonPane),
         new NavProvider("Date ",ComingSoonPane),
-        new NavProvider("Text Field - Decorated",ComingSoonPane),
+        new NavProvider("Text Field - Decorated",TextFieldDecoratedPane),
         new NavProvider("Dial",ComingSoonPane),
         new NavProvider("Dialog",ComingSoonPane),
         new NavProvider("Dropdown",ComingSoonPane),
