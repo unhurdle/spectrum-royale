@@ -23,6 +23,8 @@
         import view.panes.CardPreviewPane;
         import view.panes.CheckboxPane;
         import view.panes.CircleLoaderPane;
+        import view.panes.CoachMarkPane;
+        import view.panes.TextFieldDecoratedPane;
         import view.panes.ComingSoonPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
@@ -49,11 +51,11 @@
         new NavProvider("Checkbox",CheckboxPane),
         new NavProvider("Circle Loader",CircleLoaderPane),
         new NavProvider("Clear Button",ClearButtonPane),
-        new NavProvider("Coach Mark",ComingSoonPane),
+        new NavProvider("Coach Mark",CoachMarkPane),
         new NavProvider("Combobox",ComingSoonPane),
         new NavProvider("Cycle Button",ComingSoonPane),
         new NavProvider("Date ",ComingSoonPane),
-        new NavProvider("Text Field - Decorated",ComingSoonPane),
+        new NavProvider("Text Field - Decorated",TextFieldDecoratedPane),
         new NavProvider("Dial",ComingSoonPane),
         new NavProvider("Dialog",ComingSoonPane),
         new NavProvider("Dropdown",ComingSoonPane),
