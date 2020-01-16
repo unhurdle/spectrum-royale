@@ -24,6 +24,7 @@
         import view.panes.CardPane;
         import view.panes.CircleLoaderPane;
         import view.panes.ClearButtonPane;
+        import view.panes.CoachMarkPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -46,7 +47,7 @@
         new NavProvider("Checkbox",CheckboxPane),
         new NavProvider("Circle Loader",CircleLoaderPane),
         new NavProvider("Clear Button",ClearButtonPane),
-        new NavProvider("Coach Mark",ComingSoonPane),
+        new NavProvider("Coach Mark",CoachMarkPane),
         new NavProvider("Combobox",ComingSoonPane),
         new NavProvider("Cycle Button",ComingSoonPane),
         new NavProvider("Date ",ComingSoonPane),
