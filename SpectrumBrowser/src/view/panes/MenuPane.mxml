@@ -10,7 +10,6 @@
             '        <sp:MenuItem text="Select Inverse"/> \n'+
             '        <sp:MenuItem text="Feather..."/> \n'+
             '        <sp:MenuItem text="Select and Mask"/> \n'+
-            '        <sp:MenuItem isDivider="true"/> \n'+
             '        <sp:MenuItem text="Save Selection"/> \n'+
             '        <sp:MenuItem disabled="true" text="Make Work Path"/> \n'+
             '     </sp:dataProvider> \n'+
@@ -21,7 +20,6 @@
             '        <sp:MenuItem text="Action 1"/> \n'+
             '        <sp:MenuItem text="Action 2"/> \n'+
             '        <sp:MenuItem text="Action 3"/> \n'+
-            '        <sp:MenuItem isDivider="true"/> \n'+
             '        <sp:MenuItem isHeading = "true" text="Section Heading"/> \n'+
             '        <sp:MenuItem icon="#spectrum-icon-18-SaveFloppy"> \n'+
             '        <sp:text>Save</sp:text> \n'+
@@ -37,7 +35,6 @@
             '        <sp:MenuItem text="Financial District"/> \n'+
             '        <sp:MenuItem text="South of Market"/> \n'+
             '        <sp:MenuItem text="North Beach"/> \n'+
-            '        <sp:MenuItem isDivider="true"/> \n'+
             '    </sp:dataProvider> \n'+
             '</sp:Menu> \n'+
             '<sp:Menu> \n'+
@@ -76,7 +73,6 @@
                     <sp:MenuItem text="Select Inverse"/>
                     <sp:MenuItem text="Feather..."/>
                     <sp:MenuItem text="Select and Mask"/>
-                    <sp:MenuItem isDivider="true"/>
                     <sp:MenuItem text="Save Selection"/>
                     <sp:MenuItem disabled="true" text="Make Work Path"/>
                 </sp:dataProvider>
@@ -87,7 +83,6 @@
                     <sp:MenuItem text="Action 1"/>  
                     <sp:MenuItem text="Action 2"/>  
                     <sp:MenuItem text="Action 3"/>  
-                    <sp:MenuItem isDivider="true"/>  
                     <sp:MenuItem isHeading = "true" text="Section Heading"/>
                     <sp:MenuItem icon="#spectrum-icon-18-SaveFloppy"> 
                        <sp:text>Save</sp:text>
@@ -103,7 +98,6 @@
                     <sp:MenuItem text="Financial District"/>
                     <sp:MenuItem text="South of Market"/>
                     <sp:MenuItem text="North Beach"/>
-                    <sp:MenuItem isDivider="true"/>
                 </sp:dataProvider>
             </sp:Menu>
             <sp:Menu>
