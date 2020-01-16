@@ -140,12 +140,11 @@ package com.unhurdle.spectrum.renderers
         if(indicator){
           removeElement(indicator);
         }
-        type = (data as MenuItem).isOpen? IconType.CHEVRON_DOWN_MEDIUM:IconType.CHEVRON_RIGHT_MEDIUM;
         indicator = new Icon(Icon.getCSSTypeSelector(type));
         indicator.className = appendSelector("-itemIndicator");
         indicator.type = type;
         // addElement(indicator);
-        element.insertBefore(indicator.element,element.firstElementChild());
+        element.insertBefore(indicator.element,element.firstElementChild);
       }
     }
     //TODO deal with sub-menus
@@ -174,6 +173,7 @@ package com.unhurdle.spectrum.renderers
       super.selected = value;
       if(value){
         checkIcon.setStyle("display",null);
+        //set the color of the text to the color of the checkmark ? rgb(20, 115, 230) #1473e6
       }else{
         checkIcon.setStyle("display","none");
       }
