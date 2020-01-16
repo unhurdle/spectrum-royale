@@ -21,6 +21,16 @@ package com.unhurdle.spectrum
     private var footer:HTMLDivElement;
     private var header:HTMLDivElement;
     private var imageElement:HTMLImageElement;
+    private function getImageElement():HTMLImageElement{
+      COMPILE::JS
+      {
+      if(!imageElement){
+        imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
+        popover.insertBefore(imageElement, popover.childNodes[0] || null);
+      }
+      }
+      return imageElement;
+    }
     private var nextButton:Button;
     private var skipTourButton:Button;
     private var popover:HTMLDivElement;
@@ -57,41 +67,41 @@ package com.unhurdle.spectrum
         	_isOnTop = value;
           positionElements();
         }
-        private var _isQuiet:Boolean = false;
+        private var _quiet:Boolean = false;
 
-        public function get isQuiet():Boolean
+        public function get quiet():Boolean
         {
-        	return _isQuiet;
+        	return _quiet;
         }
 
-        public function set isQuiet(value:Boolean):void
+        public function set quiet(value:Boolean):void
         {
           coachMark.quiet = value;
-        	_isQuiet = value;
+        	_quiet = value;
         }
 
-        private var _isAbsolute:Boolean;
+        private var _absolutePositioned:Boolean;
 
-        public function get isAbsolute():Boolean
+        public function get absolutePositioned():Boolean
         {
-        	return _isAbsolute;
+        	return _absolutePositioned;
         }
 
-        public function set isAbsolute(value:Boolean):void
+        public function set absolutePositioned(value:Boolean):void
         {
-        	_isAbsolute = value;
+        	_absolutePositioned = value;
           positionElements();
         }
-        private var _isOkayButton:Boolean;
+        private var _okButton:String;
 
-        public function get isOkayButton():Boolean
+        public function get okButton():String
         {
-        	return _isOkayButton;
+        	return _okButton;
         }
 
-        public function set isOkayButton(value:Boolean):void
+        public function set okButton(value:String):void
         {
-        	_isOkayButton = value;
+        	_okButton = value;
           positionElements();
         }
         private var _isTwoButtons:Boolean;
@@ -114,16 +124,6 @@ package com.unhurdle.spectrum
         public function set isStep(value:Boolean):void
         {
         	_isStep = value;
-          positionElements();
-        }
-        private var _isImg:Boolean;
-        public function get isImg():Boolean
-        {
-        	return _isImg;
-        }
-        public function set isImg(value:Boolean):void
-        {
-        	_isImg = value;
           positionElements();
         }
         private var _titleText:String;
@@ -157,13 +157,14 @@ package com.unhurdle.spectrum
           if(value == _src){
             return;
           }
-          imageElement.src = value;
+          getImageElement().src = value;
           _src = value;
         }
+        private var okButtonElement:Button;
         protected function positionElements():void{
           COMPILE::JS
           {
-            if(isAbsolute){
+            if(absolutePositioned){
               coachMark.style = {'position': "absolute"};
               popover.style.marginLeft = "34px";
             }
@@ -185,11 +186,14 @@ package com.unhurdle.spectrum
                 nextButton.addEventListener("click",nextPage);
                 footer.appendChild(nextButton.element);
               }
-              if(isOkayButton){
-                var button:Button = new Button();
-                button.text = "Okay";
-                button.flavor = "primary";
-                footer.appendChild(button.element);
+              if(okButton){
+                if(!okButtonElement){
+                  okButtonElement = new Button();
+                  okButtonElement.flavor = "primary";
+                  footer.appendChild(okButtonElement.element);
+                  okButtonElement.addedToParent();
+                }
+                okButtonElement.text = okButton;
               }
             }
             if(isStep){
@@ -200,11 +204,6 @@ package com.unhurdle.spectrum
             if(isOnTop){
               removeElement(coachMark);
               addElement(coachMark);
-            }
-            if(isImg){
-              imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
-              imageElement.src = src;
-              popover.insertBefore(imageElement, popover.childNodes[0] || null);
             }
           }
         }
