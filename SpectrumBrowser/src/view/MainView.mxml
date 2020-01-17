@@ -30,6 +30,7 @@
         import view.panes.WellPane;
         import view.panes.ClearButtonPane;
         import view.panes.ComboboxPane;
+        import view.panes.CycleButtonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -54,7 +55,7 @@
         new NavProvider("Clear Button",ClearButtonPane),
         new NavProvider("Coach Mark",CoachMarkPane),
         new NavProvider("Combobox",ComboboxPane),
-        new NavProvider("Cycle Button",ComingSoonPane),
+        new NavProvider("Cycle Button",CycleButtonPane),
         new NavProvider("Date ",ComingSoonPane),
         new NavProvider("Text Field - Decorated",TextFieldDecoratedPane),
         new NavProvider("Dial",ComingSoonPane),
