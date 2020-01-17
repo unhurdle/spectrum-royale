@@ -59,13 +59,13 @@ package com.unhurdle.spectrum
       element.appendChild(datePicker); 
 
       popover = new Popover();
+      popover.floating = true;
       popover.className = appendSelector("-popover");
       popover.position = "bottom";
       // popover.percentWidth = 100;
       popover.style = {"margin-top": "30px","z-index":"1"};
       calendar = new Calendar();
       popover.addElement(calendar);
-      addElement(popover);
       // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 
       return element;

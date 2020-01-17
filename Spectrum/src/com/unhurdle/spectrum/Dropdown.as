@@ -53,20 +53,20 @@ package com.unhurdle.spectrum
       button.iconType = type;
       button.iconClass = appendSelector("-icon");
       addElement(button);
-      popover = new Popover();
+      popover = new ComboBoxList();
       popover.className = appendSelector("-popover");
-      popover.position = "bottom";
       // popover.percentWidth = 100;
       // popover.style = {"z-index":100};//????
-      menu = new Menu();
-      popover.addElement(menu);
+      // menu = new Menu();
+      // popover.addElement(menu);
       menu.addEventListener("change", handleListChange);
       popover.style = {"z-index": "2"};
-      // addElement(popover);
       return elem;
     }
-    public var popover:Popover;
-    private var menu:Menu;
+    public var popover:ComboBoxList;
+    private function get menu():Menu{
+      return popover.list;
+    }
 
     private function toggleDropdown(ev:*):void{
       var minHeight:Number = _minMenuHeight + 6;
@@ -114,8 +114,6 @@ package com.unhurdle.spectrum
           // popover.width = width;
         }
         dispatchEvent(new Event("showMenu"));
-				var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
-				popupHost.popUpParent.addElement(popover);
 				callLater(openPopup)
       } else {
         closePopup();
@@ -133,11 +131,7 @@ package com.unhurdle.spectrum
   			popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 	  		button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-        if(popover.parent){
-          popover.parent.removeElement(popover);
-        }
         popover.open = false;
-        //  UIUtils.removePopUp(_popup);
       }
 
     }

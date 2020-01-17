@@ -195,9 +195,8 @@ package com.unhurdle.spectrum
       }
       dispatchEvent(new Event("beforeShow"));
 			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
-			popupHost.popUpParent.addElement(popover);
-      positionPopup();
       popover.open = true;
+      positionPopup();
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			this.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			callLater(function():void {
@@ -232,9 +231,6 @@ package com.unhurdle.spectrum
   			popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	popover.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-        try{
-          UIUtils.removePopUp(popover);
-        }catch(err:Error){}
         popover.open = false;
       }
     }
