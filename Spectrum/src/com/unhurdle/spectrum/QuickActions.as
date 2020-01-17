@@ -99,8 +99,6 @@ package com.unhurdle.spectrum
     }
     /**
      * The HTMLElement used to position the component.
-     */
-     /**
      * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement
      */
     COMPILE::JS

@@ -1,0 +1,91 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Dialog">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var loremIpsum:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque gravida. Libero volutpat sed ornare arcu. Quisque egestas diam in arcu cursus euismod quis viverra. Posuere ac ut consequat semper viverra nam libero justo laoreet. Enim ut tellus elementum sagittis vitae et leo duis ut. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Diam volutpat commodo sed egestas egestas. Dolor magna eget est lorem ipsum dolor. Vitae suscipit tellus mauris a diam maecenas sed. Turpis in eu mi bibendum neque egestas congue. Rhoncus est pellentesque elit ullamcorper dignissim cras lobortis.";
+      [Bindable] public var standardMarkup:String = 
+        '<sp:FieldGroup vertical="true">\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial/>\n'+
+        '    <sp:Dial disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial size="small"/>\n'+
+        '    <sp:Dial size="small" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '</sp:FieldGroup>';
+
+      [Bindable] public var labelMarkup:String = 
+        '<sp:FieldGroup vertical="true">\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial label="Label"/>\n'+
+        '    <sp:Dial label="Label" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial label="Label" displayValue="true" value="50"/>\n'+
+        '    <sp:Dial label="Label" displayValue="true" value="50" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '</sp:FieldGroup>';
+
+    ]]>
+  </fx:Script>
+  <fx:Declarations>
+    <sp:Dialog id="smallDialog" size="{Dialog.SMALL}" easyDismiss="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="mediumDialog" size="{Dialog.MEDIUM}" easyDismiss="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="largeDialog" size="{Dialog.LARGE}" easyDismiss="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="dismissableDialog" size="{Dialog.MEDIUM}" dismissible="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="noDivider" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="heroDialog" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true"
+      hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+  </fx:Declarations>
+  <comp:Variant>
+    <sp:ButtonGroup vertical="true">
+      <sp:Button text="Open Small" click="{smallDialog.show()}"/>
+      <sp:Button text="Open Medium" click="{mediumDialog.show()}"/>
+      <sp:Button text="Open Large" click="{largeDialog.show()}"/>
+      <sp:Button text="Open Dismissable" click="{dismissableDialog.show()}"/>
+      <sp:Button text="Open No Divider" click="{noDivider.show()}"/>
+      <sp:Button text="Open Hero Dialog" click="{heroDialog.show()}"/>
+    </sp:ButtonGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{standardMarkup}'/>
+  </comp:Markup>
+
+  <comp:Variant header="With label">
+  <sp:FieldGroup vertical="true">
+    <sp:ButtonGroup>
+      <sp:Dial label="Label"/>
+      <sp:Dial label="Label" disabled="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup>
+      <sp:Dial label="Label" displayValue="true" value="50"/>
+      <sp:Dial label="Label" displayValue="true" value="50" disabled="true"/>
+    </sp:ButtonGroup>
+  </sp:FieldGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{labelMarkup}'/>
+  </comp:Markup>
+
+</view:DemoPane>
