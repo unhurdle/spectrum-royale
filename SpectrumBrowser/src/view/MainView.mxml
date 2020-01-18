@@ -33,6 +33,7 @@
         import view.panes.CycleButtonPane;
         import view.panes.DialPane;
         import view.panes.DialogPane;
+        import view.panes.DropIndicatorPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -63,7 +64,7 @@
         new NavProvider("Dial",DialPane),
         new NavProvider("Dialog",DialogPane),
         new NavProvider("Dropdown",ComingSoonPane),
-        new NavProvider("Drop ",ComingSoonPane),
+        new NavProvider("Drop Indicator",DropIndicatorPane),
         new NavProvider("Dropzone",ComingSoonPane),
         new NavProvider("Field ",ComingSoonPane),
         new NavProvider("Field ",ComingSoonPane),

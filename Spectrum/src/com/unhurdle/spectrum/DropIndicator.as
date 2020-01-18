@@ -40,21 +40,16 @@ package com.unhurdle.spectrum
             var elem:HTMLElement = element as HTMLElement;
             if(value != _direction){
                 switch (value){
-                    case "vertical":elem.offsetWidth = 20;
-                                    elem.offsetHeight = 2;
-                        break;
-                    case "horizontal":elem.offsetWidth = 2;
-                                    elem.offsetHeight = 20;
+                    case "vertical":
+                    case "horizontal":
                         break;
                     default:
                         throw new Error("Invalid direction: " + value);
                 }
                 if(_direction){
-                    var oldDirection:String = valueToSelector(_direction);
-                    toggle(oldDirection, false);
+                    toggle(valueToSelector(_direction), false);
                 }
-                var newDirection:String = valueToSelector(value);
-                toggle(newDirection, true);
+                toggle(valueToSelector(value), true);
                 _direction = value;
             }
         }
