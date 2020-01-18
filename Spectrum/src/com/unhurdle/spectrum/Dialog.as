@@ -6,9 +6,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.elements.Div;
-    import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.const.IconType;
   }
+    import com.unhurdle.spectrum.const.IconType;
+    import org.apache.royale.core.IChild;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -61,6 +61,45 @@ package com.unhurdle.spectrum
     override public function get positioner():WrappedHTMLElement
     {
         return outerElement as WrappedHTMLElement;
+    }
+
+    override public function addedToParent():void{
+      super.addedToParent();
+      if(dismissible){
+        var head:DialogHeader = getHeaderElement();
+        head.addElementAt(getCloseButton(),head.numElements);
+      }
+    }
+    private var headerElem:DialogHeader;
+    private function getHeaderElement():DialogHeader{
+      if(!headerElem){
+        for(var i:int=0;i<numElements;i++){
+          var elem:IChild = getElementAt(i);
+          if(elem is DialogHeader){
+            headerElem = elem as DialogHeader;
+            break;
+          }
+        }
+        if(!headerElem){
+          headerElem = new DialogHeader();
+          var position:int = hero ? 1 : 0;
+          addElementAt(headerElem,position);
+        }
+      }
+      return headerElem
+    }
+    private var _closeButton:ActionButton;
+    private function getCloseButton():ActionButton{
+      if(!_closeButton){
+        _closeButton = new ActionButton();
+        _closeButton.quiet = true;
+        _closeButton.className = appendSelector("-closeButton");
+        var type:String = IconType.CROSS_LARGE;
+        _closeButton.icon = Icon.getCSSTypeSelector(type);
+        _closeButton.iconType = type;
+        _closeButton.addEventListener("click",hide);
+      }
+      return _closeButton;
     }
 
     private var _size:int;
@@ -127,25 +166,21 @@ package com.unhurdle.spectrum
     {
     	return _dismissible;
     }
-    private var closeButton:ActionButton;
     public function set dismissible(value:Boolean):void
     {
       if(value != !!_dismissible){
         toggle(valueToSelector("dismissible"),value);
         COMPILE::JS{
-          if(value){
-            if(!closeButton){
-              closeButton = new ActionButton();
-              closeButton.quiet = true;
-              closeButton.className = appendSelector("-closeButton");
-              var type:String = IconType.CROSS_LARGE;
-              closeButton.icon = Icon.getCSSTypeSelector(type);
-              closeButton.iconType = type;
-              closeButton.addEventListener("click",hide);
+          // already added, so we need to update elements
+          if(parent){
+            if(value){
+              var head:DialogHeader = getHeaderElement();
+              head.addElementAt(getCloseButton(),head.numElements);
+            } else {
+              if(_closeButton && _closeButton.parent){
+                _closeButton.parent.removeElement(_closeButton);
+              }
             }
-            addElement(closeButton);
-          }else{
-            removeElement(closeButton);
           }
         }          
       }
