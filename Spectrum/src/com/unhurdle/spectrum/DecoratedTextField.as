@@ -43,12 +43,24 @@ package com.unhurdle.spectrum
     }
 
     private var _name:String;
+
+    COMPILE::SWF
+    override public function get name():String
+    {
+      return super.name;
+    }
+    COMPILE::SWF
+    override public function set name(value:String):void
+    {
+      super.name = value;
+    }
+
     COMPILE::JS
     public function get name():String
     {
     	return _name;
     }
-
+    
     COMPILE::JS
     public function set name(value:String):void
     {

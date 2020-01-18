@@ -23,6 +23,10 @@ package com.unhurdle.spectrum
       return "spectrum-FieldLabel";
     }
 
+    public static const TOP:String = "top";
+    public static const LEFT:String = "left";
+    public static const RIGHT:String = "right";
+    
     private var _for:String;
 
     public function get for():String
