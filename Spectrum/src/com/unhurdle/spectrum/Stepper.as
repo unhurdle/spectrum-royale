@@ -27,10 +27,12 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Stepper";
     }
-    private function button1Clicked():void{
+    private function button1Clicked(event:Event):void{
+      event.preventDefault();
       nudgeValue(true);
     }
-    private function button2Clicked():void{
+    private function button2Clicked(event:Event):void{
+      event.preventDefault();
       nudgeValue(false);
     }
     private function nudgeValue(up:Boolean):void{
@@ -40,6 +42,7 @@ package com.unhurdle.spectrum
       }
       var newVal:Number = value + stepVal;
 			var rem:Number = newVal % stepVal;
+      rem = isNaN(rem) ? 0 : rem;
 			newVal = newVal - rem;
       newVal = Math.min(newVal,max);
       newVal = Math.max(newVal,min);
@@ -56,7 +59,9 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       input = new NumberField();
       input.className = "spectrum-Stepper-input";
-      (input.element as HTMLInputElement).type = "number";
+      // default to any valid integer
+      input.min = Number.MIN_SAFE_INTEGER;
+      input.max = Number.MAX_SAFE_INTEGER;
       addElement(input);
       var span:Span = new Span();
       // var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;

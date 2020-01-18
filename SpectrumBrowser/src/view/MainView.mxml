@@ -36,6 +36,7 @@
         import view.panes.DropIndicatorPane;
         import view.panes.FieldGroupPane;
         import view.panes.FieldLabelPane;
+        import view.panes.FormPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -70,7 +71,7 @@
         new NavProvider("Dropzone",ComingSoonPane),
         new NavProvider("Field Group",FieldGroupPane),
         new NavProvider("Field Label",FieldLabelPane),
-        new NavProvider("Form",ComingSoonPane),
+        new NavProvider("Form",FormPane),
         new NavProvider("Illustrated Message",ComingSoonPane),
         new NavProvider("Label",ComingSoonPane),
         new NavProvider("Link",ComingSoonPane),

@@ -6,27 +6,22 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.const.IconType;
+  import com.unhurdle.spectrum.includes.FieldLabelInclude;
 
   public class FieldLabel extends SpectrumBase
   {
-    /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/fieldlabel/dist.css">
-     * </inject_html>
-     * 
-     */
     public function FieldLabel()
     {
       super();
     }
     override protected function getSelector():String{
-      return "spectrum-FieldLabel";
+      return FieldLabelInclude.getSelector();
     }
 
     public static const TOP:String = "top";
     public static const LEFT:String = "left";
     public static const RIGHT:String = "right";
-    
+
     private var _for:String;
 
     public function get for():String
