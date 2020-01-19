@@ -50,7 +50,7 @@ package com.unhurdle.spectrum
     	return _src;
     }
 
-    private var imageElement:HTMLImageElement;
+    private var imageElement:Avatar;
     private var icon:Icon;
     public function set src(value:String):void
     {
@@ -64,9 +64,8 @@ package com.unhurdle.spectrum
           icon = null;
         }
         if(!imageElement){
-          imageElement = newElement("img") as HTMLImageElement;
-          imageElement.className = "spectrum-Avatar";
-          elem.insertBefore(imageElement, elem.childNodes[0] || null);
+          imageElement = new Avatar();
+          addElementAt(imageElement,0);
         }
         imageElement.src = value;
       }

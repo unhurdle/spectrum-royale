@@ -16,44 +16,44 @@ package com.unhurdle.spectrum
 		public function TableCell()
 		{
 			super();
-			
+			typeNames = "spectrum-Table-cell";
 		
 		}
 
-		private var _expandColumns:Number = 1;
+		private var _colSpan:Number = 1;
     
-		public function get expandColumns():Number
+		public function get colSpan():Number
 		{
-      return _expandColumns;
+      return _colSpan;
 		}
-		public function set expandColumns(value:Number):void
+		public function set colSpan(value:Number):void
 		{
-			if(_expandColumns != value)
+			if(_colSpan != value)
 			{
-        _expandColumns = value;
+        _colSpan = value;
 
 				COMPILE::JS
 				{
-					element.setAttribute('colspan', _expandColumns);
+					element.setAttribute('colspan', _colSpan);
 				}
 			}
 		}
 		
-		private var _expandRows:Number = 1;
+		private var _rowSpan:Number = 1;
  
-		public function get expandRows():Number
+		public function get rowSpan():Number
 		{
-      return _expandRows;
+      return _rowSpan;
 		}
-		public function set expandRows(value:Number):void
+		public function set rowSpan(value:Number):void
 		{
-			if(_expandRows != value)
+			if(_rowSpan != value)
 			{
-        _expandRows = value;
+        _rowSpan = value;
 
 				COMPILE::JS
 				{
-					element.setAttribute('rowspan', _expandRows);
+					element.setAttribute('rowspan', _rowSpan);
 				}
 			}
 		}
@@ -61,9 +61,7 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement
 		{
-			var elem:WrappedHTMLElement = addElementToWrapper(this,'td');
-			elem.className = "spectrum-Table-cell"; 
-			return elem
+			return addElementToWrapper(this,'td');
 		}
 	}
 }

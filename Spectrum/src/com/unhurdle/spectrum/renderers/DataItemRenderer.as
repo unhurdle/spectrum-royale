@@ -90,7 +90,7 @@ package com.unhurdle.spectrum.renderers
     public function set disabled(value:Boolean):void{
     	_disabled = value;
       toggle("is-disabled",value);
-      element.style.pointerEvents = "none";
+      setStyle("pointerEvents","none");
     }
     
 
