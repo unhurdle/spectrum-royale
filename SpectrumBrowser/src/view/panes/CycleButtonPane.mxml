@@ -1,0 +1,17 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Cycle Button">
+  <fx:Script>
+    <![CDATA[
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+  <sp:CycleButton/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;p:CycleButton/&gt;'/>
+  </comp:Markup>
+
+</view:DemoPane>

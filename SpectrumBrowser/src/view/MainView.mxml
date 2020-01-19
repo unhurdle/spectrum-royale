@@ -29,6 +29,14 @@
         import view.panes.TypographyPane;
         import view.panes.WellPane;
         import view.panes.ClearButtonPane;
+        import view.panes.ComboboxPane;
+        import view.panes.CycleButtonPane;
+        import view.panes.DialPane;
+        import view.panes.DialogPane;
+        import view.panes.DropIndicatorPane;
+        import view.panes.FieldGroupPane;
+        import view.panes.FieldLabelPane;
+        import view.panes.FormPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -55,15 +63,18 @@
         new NavProvider("Combobox",ComingSoonPane),
         new NavProvider("Cycle Button",ComingSoonPane),
         new NavProvider("Date Picker",ComingSoonPane),
+        new NavProvider("Combobox",ComboboxPane),
+        new NavProvider("Cycle Button",CycleButtonPane),
+        new NavProvider("Date ",ComingSoonPane),
         new NavProvider("Text Field - Decorated",TextFieldDecoratedPane),
-        new NavProvider("Dial",ComingSoonPane),
-        new NavProvider("Dialog",ComingSoonPane),
+        new NavProvider("Dial",DialPane),
+        new NavProvider("Dialog",DialogPane),
         new NavProvider("Dropdown",ComingSoonPane),
-        new NavProvider("Drop ",ComingSoonPane),
+        new NavProvider("Drop Indicator",DropIndicatorPane),
         new NavProvider("Dropzone",ComingSoonPane),
-        new NavProvider("Field ",ComingSoonPane),
-        new NavProvider("Field ",ComingSoonPane),
-        new NavProvider("Form",ComingSoonPane),
+        new NavProvider("Field Group",FieldGroupPane),
+        new NavProvider("Field Label",FieldLabelPane),
+        new NavProvider("Form",FormPane),
         new NavProvider("Illustrated Message",ComingSoonPane),
         new NavProvider("Label",ComingSoonPane),
         new NavProvider("Link",ComingSoonPane),

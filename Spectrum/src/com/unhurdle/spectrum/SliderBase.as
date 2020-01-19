@@ -4,22 +4,18 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  import com.unhurdle.spectrum.includes.SliderInclude;
+  
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
   public class SliderBase extends SpectrumBase
   {
-    /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/slider/dist.css">
-     * </inject_html>
-     * 
-     */
     public function SliderBase()
     {
       super();
     }
     override protected function getSelector():String{
-      return "spectrum-Slider";
+      return SliderInclude.getSliderSelector();
     }
     override public function addedToParent():void{
 			super.addedToParent();

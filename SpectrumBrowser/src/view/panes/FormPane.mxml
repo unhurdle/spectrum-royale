@@ -1,0 +1,270 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*" xmlns:js="library://ns.apache.org/royale/basic"
+  title="Form" notes="Form provides structure and spacing for your form fields.">
+  <fx:Script>
+    <![CDATA[
+      [Bindable] public var form1:String = 
+        '<sp:Form labelPosition="left">\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Company Title"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:TextArea placeholder="Enter your life story"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Email Address"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:TextField placeholder="Enter your e-mail address"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Country"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:Dropdown placeholder="Select a Country"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Interests"/>\n'+
+        '    <sp:FormField>\n'+
+        '    <sp:FieldGroup>\n'+
+        '      <sp:Radio text="Kittens"/>\n'+
+        '      <sp:Radio text="Dogs"/>\n'+
+        '    </sp:FieldGroup>\n'+
+        '    <sp:FieldGroup>\n'+
+        '      <sp:CheckBox text="Something"/>\n'+
+        '      <sp:CheckBox text="Something Else"/>\n'+
+        '    </sp:FieldGroup>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Age"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:Stepper/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '</sp:Form>';
+
+      [Bindable] public var form2:String = 
+        '<sp:Form labelPosition="right">\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Company Title"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:TextArea placeholder="Enter your life story"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Email Address"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:TextField placeholder="Enter your e-mail address"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Country"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:Dropdown placeholder="Select a Country"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Interests"/>\n'+
+        '    <sp:FormField>\n'+
+        '    <sp:FieldGroup>\n'+
+        '      <sp:Radio text="Kittens"/>\n'+
+        '      <sp:Radio text="Dogs"/>\n'+
+        '    </sp:FieldGroup>\n'+
+        '    <sp:FieldGroup>\n'+
+        '      <sp:CheckBox text="Something"/>\n'+
+        '      <sp:CheckBox text="Something Else"/>\n'+
+        '    </sp:FieldGroup>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Age"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:Stepper/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '</sp:Form>';
+
+      [Bindable] public var form3:String = 
+        '<sp:Form labelPosition="top">\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Company Title"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:TextArea placeholder="Enter your life story"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Email Address"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:TextField placeholder="Enter your e-mail address"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Country"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:Dropdown placeholder="Select a Country"/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Interests"/>\n'+
+        '    <sp:FormField>\n'+
+        '    <sp:FieldGroup>\n'+
+        '      <sp:Radio text="Kittens"/>\n'+
+        '      <sp:Radio text="Dogs"/>\n'+
+        '    </sp:FieldGroup>\n'+
+        '    <sp:FieldGroup>\n'+
+        '      <sp:CheckBox text="Something"/>\n'+
+        '      <sp:CheckBox text="Something Else"/>\n'+
+        '    </sp:FieldGroup>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '  <sp:FormItem>\n'+
+        '    <sp:FormLabel text="Age"/>\n'+
+        '    <sp:FormField>\n'+
+        '      <sp:Stepper/>\n'+
+        '    </sp:FormField>\n'+
+        '  </sp:FormItem>\n'+
+        '</sp:Form>';
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Form (labels left)">
+    <sp:Form labelPosition="left">
+      <sp:FormItem>
+        <sp:FormLabel text="Company Title"/>
+        <sp:FormField>
+          <sp:TextArea placeholder="Enter your life story"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Email Address"/>
+        <sp:FormField>
+          <sp:TextField placeholder="Enter your e-mail address"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Country"/>
+        <sp:FormField>
+          <sp:Dropdown placeholder="Select a Country"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Interests"/>
+        <sp:FormField>
+        <sp:FieldGroup>
+          <sp:Radio text="Kittens"/>
+          <sp:Radio text="Dogs"/>
+        </sp:FieldGroup>
+        <sp:FieldGroup>
+          <sp:CheckBox text="Something"/>
+          <sp:CheckBox text="Something Else"/>
+        </sp:FieldGroup>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Age"/>
+        <sp:FormField>
+          <sp:Stepper/>
+        </sp:FormField>
+      </sp:FormItem>
+    </sp:Form>
+
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{form1}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Form (labels right)">
+    <sp:Form labelPosition="right">
+      <sp:FormItem>
+        <sp:FormLabel text="Company Title"/>
+        <sp:FormField>
+          <sp:TextArea placeholder="Enter your life story"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Email Address"/>
+        <sp:FormField>
+          <sp:TextField placeholder="Enter your e-mail address"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Country"/>
+        <sp:FormField>
+          <sp:Dropdown placeholder="Select a Country"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Interests"/>
+        <sp:FormField>
+        <sp:FieldGroup>
+          <sp:Radio text="Kittens"/>
+          <sp:Radio text="Dogs"/>
+        </sp:FieldGroup>
+        <sp:FieldGroup>
+          <sp:CheckBox text="Something"/>
+          <sp:CheckBox text="Something Else"/>
+        </sp:FieldGroup>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Age"/>
+        <sp:FormField>
+          <sp:Stepper/>
+        </sp:FormField>
+      </sp:FormItem>
+    </sp:Form>
+
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{form2}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Form (labels above)">
+    <sp:Form labelPosition="top">
+      <sp:FormItem>
+        <sp:FormLabel text="Company Title"/>
+        <sp:FormField>
+          <sp:TextArea placeholder="Enter your life story"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Email Address"/>
+        <sp:FormField>
+          <sp:TextField placeholder="Enter your e-mail address"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Country"/>
+        <sp:FormField>
+          <sp:Dropdown placeholder="Select a Country"/>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Interests"/>
+        <sp:FormField>
+        <sp:FieldGroup>
+          <sp:Radio text="Kittens"/>
+          <sp:Radio text="Dogs"/>
+        </sp:FieldGroup>
+        <sp:FieldGroup>
+          <sp:CheckBox text="Something"/>
+          <sp:CheckBox text="Something Else"/>
+        </sp:FieldGroup>
+        </sp:FormField>
+      </sp:FormItem>
+      <sp:FormItem>
+        <sp:FormLabel text="Age"/>
+        <sp:FormField>
+          <sp:Stepper/>
+        </sp:FormField>
+      </sp:FormItem>
+    </sp:Form>
+
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{form3}'/>
+  </comp:Markup>
+
+
+</view:DemoPane>

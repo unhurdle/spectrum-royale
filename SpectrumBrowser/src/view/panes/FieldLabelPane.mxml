@@ -1,0 +1,93 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Field Label">
+  <fx:Script>
+    <![CDATA[
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <sp:FlexContainer vertical="true" style="display:block">
+      <sp:FieldLabel for="lifestory" text="Life Story"/>
+      <sp:TextField id="lifestory" placeholder="Enter your life story"/>
+    </sp:FlexContainer>
+    <sp:FlexContainer vertical="true">
+      <sp:FieldLabel for="lifestory2" text="Life Story" disabled="true"/>
+      <sp:TextField id="lifestory2" placeholder="Enter your life story" disabled="true"/>
+    </sp:FlexContainer>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:FieldLabel for="lifestory" text="Life Story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextField id="lifestory" placeholder="Enter your life story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:FieldLabel for="lifestory2" text="Life Story" disabled="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextField id="lifestory2" placeholder="Enter your life story" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Left" notes="A left aligned field label.">
+    <sp:FlexContainer vertical="true" style="display:block">
+      <sp:FieldLabel position="left" width="72" for="lifestory3" text="Life Story"/>
+      <sp:TextArea id="lifestory3" placeholder="Enter your life story"/>
+    </sp:FlexContainer>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:FieldLabel position="left" width="72" for="lifestory3" text="Life Story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextArea id="lifestory3" placeholder="Enter your life story"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Right" notes="A right aligned field label.">
+    <sp:FlexContainer vertical="true" style="display:block">
+      <sp:FieldLabel position="right" width="72" for="lifestory4" text="Life Story"/>
+      <sp:TextArea id="lifestory4" placeholder="Enter your life story"/>
+    </sp:FlexContainer>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:FieldLabel position="right" width="72" for="lifestory3" text="Life Story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextArea id="lifestory3" placeholder="Enter your life story"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Required" notes="Field label for a required field.">
+    <sp:FlexContainer vertical="true" style="display:block">
+      <sp:FieldLabel for="lifestory5" text="Life Story" required="true"/>
+      <sp:TextField id="lifestory5" placeholder="Enter your life story"/>
+      <sp:FieldLabel for="lifestory6" text="Life Story (required)"/>
+      <sp:TextField id="lifestory6" placeholder="Enter your life story"/>
+      <Br/>
+      <Br/>
+      <sp:FieldLabel for="lifestory7" position="left" text="Life Story" required="true"/>
+      <sp:TextArea id="lifestory7" placeholder="Enter your life story"/>
+      <sp:FieldLabel for="lifestory8" text="Life Story" required="true" disabled="true"/>
+      <sp:TextField id="lifestory8" placeholder="Enter your life story" disabled="true"/>
+    </sp:FlexContainer>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:FieldLabel for="lifestory5" text="Life Story" required="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextField id="lifestory5" placeholder="Enter your life story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:FieldLabel for="lifestory6" text="Life Story (required)"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextField id="lifestory6" placeholder="Enter your life story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextField id="lifestory6" placeholder="Enter your life story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:FieldLabel for="lifestory7" position="left" text="Life Story" required="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextArea id="lifestory7" placeholder="Enter your life story"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:FieldLabel for="lifestory8" text="Life Story" required="true" disabled="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:TextField id="lifestory8" placeholder="Enter your life story" disabled="true"/&gt;'/>
+    <Br/>
+  </comp:Markup>
+
+</view:DemoPane>

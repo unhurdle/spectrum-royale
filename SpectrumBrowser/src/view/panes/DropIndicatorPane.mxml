@@ -1,0 +1,22 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Drop Indicator">
+  <fx:Script>
+    <![CDATA[
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+  <sp:FlexContainer alignItems="center">
+    <sp:DropIndicator direction="vertical" style="height: 300px; margin-right: 100px;"/>
+    <sp:DropIndicator style="width: 300px;"/>
+  </sp:FlexContainer>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:DropIndicator direction="vertical" style="height: 300px; margin-right: 100px;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:DropIndicator style="width: 300px;"/&gt;'/>
+  </comp:Markup>
+
+</view:DemoPane>
