@@ -3,12 +3,12 @@ package com.unhurdle.spectrum
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.events.ValueEvent;
     import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.UIBase;
-    import org.apache.royale.core.CSSClassList;
-    import org.apache.royale.text.engine.TabAlignment;
   }
+  import org.apache.royale.events.ValueEvent;
+  import org.apache.royale.core.UIBase;
+  import org.apache.royale.core.CSSClassList;
+  import org.apache.royale.text.engine.TabAlignment;
     
   
   [DefaultProperty("tabs")]
@@ -133,6 +133,7 @@ package com.unhurdle.spectrum
     public function removeAllTabs():void
     {
       for(var i:Number= 0;i<tabs.length;i++){
+        //TODO better way?
         COMPILE::JS
         {
           element.removeChild(tabs[i].element);
@@ -150,9 +151,7 @@ package com.unhurdle.spectrum
       addElement(tabOverflow);
       removeIndicator();
       hasDropdown = true;
-      COMPILE::JS{
-        tabOverflow.dispatchEvent(new ValueEvent("tabs", tabs));
-      }
+      tabOverflow.dispatchEvent(new ValueEvent("tabs", tabs));
     }
    
     public function get tabs():Array
@@ -175,10 +174,7 @@ package com.unhurdle.spectrum
       else{
         styleStr = "height: 46px; top: 0px;";
       }
-      COMPILE::JS
-      {
-      indicator.element.setAttribute("style",styleStr);
-      }
+      indicator.setAttribute("style",styleStr);
       addElement(indicator);
     }
 
@@ -207,13 +203,11 @@ package com.unhurdle.spectrum
     }
     else{
       if(tab.selected){
-      indicator = new TabIndicator();
-      var styleStr:String = "width: 27px; left: 0px;";
-      COMPILE::JS
-      {
-        indicator.element.setAttribute("style",styleStr);
-        tab.addElement(indicator); 
-      }
+        //TODO so many places?
+        indicator = new TabIndicator();
+        var styleStr:String = "width: 27px; left: 0px;";
+        indicator.setAttribute("style",styleStr);
+        tab.addElement(indicator);
          
       }
     }
@@ -237,14 +231,12 @@ package com.unhurdle.spectrum
 
     private function addIndicator():void
     { 
-      COMPILE::JS
-      {
       var indicator:TabIndicator = new TabIndicator();
+      //TODO why is this hard coded?
       var styleStr:String = "width: 27px; left: 0px;";
-      indicator.element.setAttribute("style",styleStr);
+      indicator.setAttribute("style",styleStr);
       addElement(indicator);
     
-      }
     }
 
   }

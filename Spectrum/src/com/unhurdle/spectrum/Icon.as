@@ -104,18 +104,6 @@ package com.unhurdle.spectrum
       super.y = value;
       setAttribute("y",value);
     }
-    public function setAttribute(name:String, value:Object):void{
-      COMPILE::JS
-      {
-        element.setAttribute(name,value);
-      }
-    }
-    public function removeAttribute(name:String):void{
-      COMPILE::JS
-      {
-        element.removeAttribute(name);
-      }
-    }
 
     // public function setStyle(attribute:String,value:Object):void{
     //   (element as HTMLElement).style[attribute] = value;

@@ -131,7 +131,7 @@ package com.unhurdle.spectrum
           else{
             styleStr = "width: 27px; left: 0px;";
           }
-        newIndicator.element.setAttribute("style",styleStr);
+        newIndicator.setAttribute("style",styleStr);
         addElement(newIndicator);
       }
     }

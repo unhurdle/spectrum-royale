@@ -9,33 +9,46 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
   import org.apache.royale.svg.elements.Path;
   import com.unhurdle.spectrum.includes.InputGroupInclude;
+  import org.apache.royale.geom.Rectangle;
+  import org.apache.royale.utils.DisplayUtils;
+  import org.apache.royale.html.elements.Div;
 
   public class DatePicker extends SpectrumBase
   {
     public function DatePicker()
     {
       super();
+      typeNames = getSelector() + " " + InputGroupInclude.getSelector();
     }
     override protected function getSelector():String{
-      return InputGroupInclude.getSelector();
+      return "spectrum-Datepicker";
+    }
+    private function appendDatePicker(value:String):String{
+      return getSelector() + value;
+    }
+
+    private function appendInputGroup(value:String):String{
+      return InputGroupInclude.getSelector() + value;
     }
 
     private var input:TextField;
+    private var input2:TextField;
     private var button:FieldButton;
     private var datePicker:HTMLInputElement;
     
+    public var dateFormat:String = "mm/dd/yyyy";
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       //TODO how much of this can be done in Icons and other classes?
       addElementToWrapper(this,'div');
       //TODO is this right?
-      className = "spectrum-Datepicker";
+      className = InputGroupInclude.getSelector();
       input = new TextField();
-      input.className = appendSelector("-field");
+      input.toggle(appendInputGroup("-field"),true);
       // input.readOnly = true;
       button = new FieldButton()
-      button.className = appendSelector("-button");
+      button.className = appendInputGroup("-button");
       // button.onclick = openDatePicker;
       button.addEventListener("click",toggleButton);
 
@@ -61,10 +74,9 @@ package com.unhurdle.spectrum
 
       popover = new Popover();
       popover.floating = true;
-      popover.className = appendSelector("-popover");
+      // popover.className = appendSelector("-popover");
       popover.position = "bottom";
       // popover.percentWidth = 100;
-      popover.style = {"margin-top": "30px","z-index":"1"};
       calendar = new Calendar();
       popover.addElement(calendar);
       // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
@@ -85,13 +97,58 @@ package com.unhurdle.spectrum
         toggle(valueToSelector("quiet"),value);
         input.quiet = value;
         button.quiet = value;
+        if(input2){
+          input2.quiet = value;
+        }
       }
       _quiet = value;
+    }
+    private var _invalid:Boolean;
+
+    public function get invalid():Boolean
+    {
+    	return _invalid;
+    }
+
+    public function set invalid(value:Boolean):void
+    {
+      if(value != !!_invalid){
+        toggle("is-invalid",value);
+        if(input2){
+          input2.invalid = value;
+        } else {
+          input.invalid = value;
+        }
+        button.invalid = value;
+      }
+    	_invalid = value;
+    }
+    private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+      if(value != !!_disabled){
+        toggle("is-disabled",value);
+        input.disabled = value;
+        button.disabled = value;
+        if(input2){
+          input2.disabled = value;
+        }
+      }
+    	_disabled = value;
     }
     private function toggleButton():void{
       popover.open = !popover.open;
       button.selected = popover.open;
       if(popover.open){
+        var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
+        popover.y = componentBounds.bottom;
+        popover.x = componentBounds.left;
         calendar.startDate = startDate;
         calendar.endDate = endDate;
         calendar.selectRange(startDate,endDate);
@@ -139,6 +196,30 @@ package com.unhurdle.spectrum
       super.addedToParent();
       model = calendar.model;
       (model as DatePickerModel).addEventListener("selectedDateChanged",handleSelectedDay);
+      if(range){
+        input.toggle(appendDatePicker("-startField"),true);
+        input.placeholder = dateFormat;
+        // add dash
+        var div:Div = new Div();
+        div.className = valueToSelector("rangeDash");
+        addElementAt(div,1);
+        // add second field
+        input2 = new TextField();
+        input2.toggle(appendInputGroup("-field"),true);
+        input2.toggle(appendDatePicker("-endField"),true);
+        input2.placeholder = dateFormat;
+        if(invalid){
+          input2.invalid = true;
+          input.invalid = false;
+        }
+        input2.quiet = quiet;
+        input2.disabled = disabled;
+        addElementAt(input2,2);
+        var focusRing:Div = new Div();
+        focusRing.className = appendDatePicker("-focusRing");
+        focusRing.setAttribute("role","presentation");
+        addElement(focusRing);
+      }
 			// loadBeadFromValuesManager(IFormatter, "IFormatter", this);
 
 			// var formatter:IFormatter = getBeadByType(IFormatter) as IFormatter;
@@ -186,48 +267,19 @@ package com.unhurdle.spectrum
       calendar.endDate = value;
     	_endDate = value;
     }
-}
- // public function set popUpVisible(value:Boolean):void
-		// {
-		// 	if(value){
-		// 		var origin:Point = new Point(0, host.height - 6);
-		// 		var relocated:Point = PointUtils.localToGlobal(origin,host);
-		// 		_popup.x = relocated.x
-		// 		_popup.y = relocated.y;
-		// 		_popup.width = host.width;
-		// 		// list.selectedIndex = -1;
+    private var _range:Boolean;
 
-		// 		var popupHost:IPopUpHost = UIUtils.findPopUpHost(host);
-		// 		popupHost.popUpParent.addElement(_popup);
-		// 		callLater(openPopup)
-		// 		_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-		// 		host.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-		// 		callLater(function():void {
-		// 			_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-		// 		});
-		// 	} else {
-		// 		closePopup();
-		// 	}
-    //   // _popup.open = value;
-		// }
-    // private function openPopup():void{
-		// 	_popup.open = true;
-		// }
-    // protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
-		// {
-    //   closePopup();
-		// }
-    // protected function handleControlMouseDown(event:MouseEvent):void
-		// {			
-		// 	event.stopImmediatePropagation();
-		// }
-    // private function closePopup():void{
-    //   if(_popup && _popup.open){
-  	// 		_popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-	  // 		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-		//   	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-    //     _popup.open = false;
-    //     //  UIUtils.removePopUp(_popup);
-    //   }
-		// }
+    public function get range():Boolean
+    {
+    	return _range;
+    }
+
+    public function set range(value:Boolean):void
+    {
+      if(value != _range){
+        toggle(valueToSelector("range"),value);
+      }
+    	_range = value;
+    }
   }
+}

@@ -118,14 +118,11 @@ package com.unhurdle.spectrum
             }
             var percentStr:String = percent + "%";
             valueNode.text = value + _valueSuffix;
-            COMPILE::JS
-            {
-                fill.style.width = percentStr;
-                element.setAttribute("value",percent);
-                element.setAttribute("aria-valuenow",percent);
-                element.setAttribute("aria-valuemin",min);
-                element.setAttribute("aria-valuemax",max);
-            }
+            fill.style.width = percentStr;
+            setAttribute("value",percent);
+            setAttribute("aria-valuenow",percent);
+            setAttribute("aria-valuemin",min);
+            setAttribute("aria-valuemax",max);
         }
 
         private var fill:HTMLElement;

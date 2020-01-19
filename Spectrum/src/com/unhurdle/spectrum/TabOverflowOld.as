@@ -249,7 +249,7 @@ package com.unhurdle.spectrum
       {
       var indicator:TabIndicator = new TabIndicator();
       var styleStr:String = "width: 50px; left: 8px;";
-      indicator.element.setAttribute("style",styleStr);
+      indicator.setAttribute("style",styleStr);
       addElement(indicator);
       }
     }

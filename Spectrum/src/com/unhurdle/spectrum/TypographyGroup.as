@@ -26,9 +26,9 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         if(value){
-          element.setAttribute("lang",value);
+          setAttribute("lang",value);
         } else {
-          element.removeAttribute("lang");
+          removeAttribute("lang");
         }
       }
     }

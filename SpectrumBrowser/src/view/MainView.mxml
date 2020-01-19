@@ -44,6 +44,7 @@
         import view.panes.SwitchPane;
         import view.panes.TreeViewPane;
         import view.panes.TreeViewPane;
+        import view.panes.DatePickerPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -69,8 +70,7 @@
         new NavProvider("Coach Mark",CoachMarkPane),
         new NavProvider("Combobox",ComboboxPane),
         new NavProvider("Cycle Button",CycleButtonPane),
-        new NavProvider("Date Picker",ComingSoonPane),
-        new NavProvider("Text Field - Decorated",TextFieldDecoratedPane),
+        new NavProvider("Date Picker",DatePickerPane),
         new NavProvider("Dial",DialPane),
         new NavProvider("Dialog",DialogPane),
         new NavProvider("Dropdown",ComingSoonPane),
@@ -110,6 +110,7 @@
         new NavProvider("Tags",ComingSoonPane),
         new NavProvider("Text area",ComingSoonPane),
         new NavProvider("Text Field",ComingSoonPane),
+        new NavProvider("Text Field - Decorated",TextFieldDecoratedPane),
         new NavProvider("Toast",ComingSoonPane),
         new NavProvider("Tool",ToolPane),
         new NavProvider("Tooltip",TooltipPane),

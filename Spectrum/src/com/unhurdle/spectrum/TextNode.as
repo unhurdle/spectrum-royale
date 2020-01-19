@@ -56,5 +56,13 @@ package com.unhurdle.spectrum
     	_className = value;
       _element.className = value;
     }
+    public function setAttribute(name:String,value:*):void
+    {
+      COMPILE::JS
+      {
+        element.setAttribute(name,value);
+      }            
+    }
+
   }
 }

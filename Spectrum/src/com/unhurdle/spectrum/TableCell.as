@@ -32,10 +32,7 @@ package com.unhurdle.spectrum
 			{
         _colSpan = value;
 
-				COMPILE::JS
-				{
-					element.setAttribute('colspan', _colSpan);
-				}
+				setAttribute('colspan', _colSpan);
 			}
 		}
 		
@@ -51,10 +48,7 @@ package com.unhurdle.spectrum
 			{
         _rowSpan = value;
 
-				COMPILE::JS
-				{
-					element.setAttribute('rowspan', _rowSpan);
-				}
+				setAttribute('rowspan', _rowSpan);
 			}
 		}
 
