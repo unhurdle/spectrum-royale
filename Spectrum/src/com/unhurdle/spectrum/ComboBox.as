@@ -2,6 +2,9 @@ package com.unhurdle.spectrum
 {
   import org.apache.royale.html.ComboBox;
   import com.unhurdle.spectrum.includes.InputGroupInclude;
+  import org.apache.royale.collections.IArrayList;
+  import com.unhurdle.spectrum.data.MenuItem;
+  import com.unhurdle.spectrum.data.IMenuItem;
 
   public class ComboBox extends SpectrumBase
   {
@@ -125,6 +128,24 @@ package com.unhurdle.spectrum
 		{
 			getModel().quiet = value;
 		}
+		public var filterFunction:Function = function(input:String,dataProvider:Object):Array{
+			var inArray:Array;
+			if(dataProvider is IArrayList){
+				inArray = (dataProvider as IArrayList).source;
+			} else {
+				inArray = dataProvider as Array;
+			}
+			input = input.toLowerCase();
+			// work on a copy
+			inArray = inArray.slice();
+			return inArray.filter(function(item:Object):Boolean{
+				var label:String = (item as IMenuItem).label;
+				if(!label){
+					return false;
+				}
+				return label.toLowerCase().indexOf(input) != -1;
+			});			
+		};
 		// private var _open:Boolean;
 
 		// public function get open():Boolean

@@ -87,6 +87,5 @@ package com.unhurdle.spectrum
       _invalid = value;
       dispatchEvent(new Event("invalidChange"));
     }
-
   }
 }

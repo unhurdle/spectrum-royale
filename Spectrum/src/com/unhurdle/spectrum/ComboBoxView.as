@@ -16,6 +16,9 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.events.MouseEvent;
 	import com.unhurdle.spectrum.const.IconType;
 	import com.unhurdle.spectrum.includes.InputGroupInclude;
+	import org.apache.royale.events.KeyboardEvent;
+	import com.unhurdle.spectrum.data.MenuItem;
+	import org.apache.royale.events.utils.WhitespaceKeys;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -107,6 +110,8 @@ package com.unhurdle.spectrum{
 					comboHost.toggle("is-focused",false);
 				});
 			}
+			input.addEventListener(KeyboardEvent.KEY_UP,handleInput);
+			input.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
 			button = new FieldButton();
       button.className = appendSelector("-button");
 			var type:String = IconType.CHEVRON_DOWN_MEDIUM;
@@ -132,7 +137,6 @@ package com.unhurdle.spectrum{
 			_popup.position = "bottom";
       list = _popup.list;
       // list.dataProvider = model.dataProvider;
-			list.model = model;
 			// _popup.style = {
 			// 	"position": "absolute",
     	// 	"top": "100%",
@@ -143,6 +147,8 @@ package com.unhurdle.spectrum{
 			comboHost.addElement(input as IChild);
 			comboHost.addElement(button as IChild);
       // host.addElement(_popup);
+			list.model.addEventListener("selectedIndexChanged", handleItemChange);
+			list.model.addEventListener("selectedItemChanged", handleItemChange);
 
 			model.addEventListener("selectedIndexChanged", handleItemChange);
 			model.addEventListener("selectedItemChanged", handleItemChange);
@@ -166,7 +172,63 @@ package com.unhurdle.spectrum{
 			itemChangeAction();
 			// sizeChangeAction();
 		}
-		
+		// track which provider is being modified to apply the correct one and prevent endless loop
+		private var modifyingList:Boolean;
+		private function handleKeyDown(event:KeyboardEvent):void
+		{
+			if(event.key == WhitespaceKeys.ENTER){
+				popUpVisible = !popUpVisible;
+				return;
+			}
+			var currIndex:int = list.model.selectedIndex;
+			//assuming the provider is always an array
+			var provider:Array = list.dataProvider as Array;
+			var item:MenuItem;
+			var advance:int = 0;
+			modifyingList = true;
+			if(event.key == "Down" || event.key == "ArrowDown"){
+				advance = 1;
+			} else if(event.key == "Up" || event.key == "ArrowUp"){
+				advance = -1;
+			}
+			while(advance != 0){
+				if(currIndex + advance < 0){//went up too far
+					advance = 0;
+					break;
+				}
+				item = provider[currIndex + advance];
+				if(!item){// went down too far
+					advance = 0;
+				} else {
+					if(item.disabled || item.isDivider || item.isHeading){
+						if(advance < 0){// moving up
+							advance--;
+						} else {//moving down
+							advance++;
+						}
+						continue;
+					} else {
+						break;
+					}
+				}
+			}
+			if(advance){
+				list.model.selectedIndex = currIndex + advance;
+			}
+			modifyingList = false;
+
+		}
+		private function handleInput(ev:KeyboardEvent):void{
+			if (ev.key.length > 1) {// not a simple key (does this work for advanced input?)
+					return;// do nothing
+			}
+			if(input.text){
+				list.dataProvider = comboHost.filterFunction(input.text,model.dataProvider);
+			} else {
+				list.dataProvider = model.dataProvider;
+			}
+			list.selectedItem = model.selectedItem;
+		}
 		/**
 		 *  Returns whether or not the pop-up is visible.
 		 * 
@@ -208,6 +270,7 @@ package com.unhurdle.spectrum{
       // _popup.open = value;
 		}
 		private function openPopup():void{
+			list.dataProvider = model.dataProvider;
 			_popup.open = true;
 		}
 		protected function handleControlMouseDown(event:MouseEvent):void
@@ -274,7 +337,15 @@ package com.unhurdle.spectrum{
 		 */
 		protected function itemChangeAction():void
 		{
-			var text:String = getLabelFromData(list,model.selectedItem);
+			if(model.selectedItem != list.selectedItem){
+				if(modifyingList){
+					model.selectedItem = list.selectedItem;
+				} else {
+					list.selectedItem = model.selectedItem;
+				}
+			}
+			var item:Object = model.selectedItem;
+			var text:String = getLabelFromData(list,item);
 			if(text){
 				input.text = text;
 			}
