@@ -37,6 +37,7 @@
         import view.panes.FieldGroupPane;
         import view.panes.FieldLabelPane;
         import view.panes.FormPane;
+        import view.panes.TypographyInternationalizedPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -107,7 +108,7 @@
         new NavProvider("Tool",ComingSoonPane),
         new NavProvider("Tooltip",ComingSoonPane),
         new NavProvider("Tree View",ComingSoonPane),
-        new NavProvider("Typography (Internationalized)",ComingSoonPane),
+        new NavProvider("Typography (Internationalized)",TypographyInternationalizedPane),
         new NavProvider("Typography",TypographyPane),
         new NavProvider("Well",WellPane)
       ];
