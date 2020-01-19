@@ -54,7 +54,7 @@
         new NavProvider("Coach Mark",CoachMarkPane),
         new NavProvider("Combobox",ComingSoonPane),
         new NavProvider("Cycle Button",ComingSoonPane),
-        new NavProvider("Date ",ComingSoonPane),
+        new NavProvider("Date Picker",ComingSoonPane),
         new NavProvider("Text Field - Decorated",TextFieldDecoratedPane),
         new NavProvider("Dial",ComingSoonPane),
         new NavProvider("Dialog",ComingSoonPane),
