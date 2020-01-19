@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
 		import org.apache.royale.core.WrappedHTMLElement;
 	}
 	import org.apache.royale.events.Event;
+	import com.unhurdle.spectrum.includes.SliderInclude;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	public class Dial extends SpectrumBase
@@ -16,7 +17,7 @@ package com.unhurdle.spectrum
 		}
 
 		override protected function getSelector():String{
-				return "spectrum-Dial";
+				return SliderInclude.getDialSelector();
 		}
 
 		private var input:HTMLInputElement;
@@ -37,10 +38,8 @@ package com.unhurdle.spectrum
 			input.className = appendSelector("-input");
 			input.type = "range";
 			value = 0;
-			min = -40;
-			// min = 0;
-			max = 220;
-			// max = 100;
+			min = 0;
+			max = 100;
 			handle.appendChild(input);
 			controlsContainer.appendChild(handle);
 			elem.appendChild(controlsContainer);
@@ -125,7 +124,7 @@ package com.unhurdle.spectrum
 		private function setLabel():void{
 			COMPILE::JS
 			{
-				if(!labelContainer){
+				if(_label && !labelContainer){
 					labelContainer = newElement("div",appendSelector("-labelContainer"));
 					element.insertBefore(labelContainer,controlsContainer);
 				}
@@ -166,6 +165,8 @@ package com.unhurdle.spectrum
 			var percent:Number = this.value / (max - min) * 100;
 			handle.tabIndex = Number(percent + "%");
 			setLabel();
+			var deg:Number = percent * 0.01 * (260) - 40;
+			handle.style.transform = 'rotate('+ deg + 'deg'+')';
 		}
 		
 		override public function addedToParent():void{
@@ -184,14 +185,12 @@ package com.unhurdle.spectrum
 		public function set value(val:Number):void
 		{
 			//TODO why is this a string?
-			if(_disabled){
-				input.value = "-40";
-				return;
-			} 
+			// if(_disabled){
+			// 	input.value = "-40";
+			// 	return;
+			// } 
 			input.value = "" + val;
-			if(parent){
-				positionElements();
-			}
+			positionElements();
 				
 		}
 
@@ -211,8 +210,6 @@ package com.unhurdle.spectrum
 			var dialOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
 			var x:Number = Math.max(Math.min(e.x - dialOffsetLeft, dialOffsetWidth), 0);
 			var percent:Number = (x / dialOffsetWidth) * 100;
-			var deg:Number = percent * 0.01 * (max - min) + min;
-			handle.style.transform = 'rotate('+ deg + 'deg'+')';
 			var val:Number = (max-min) / (100/percent);
 			value = val;
 			dispatchEvent(new Event("change"));

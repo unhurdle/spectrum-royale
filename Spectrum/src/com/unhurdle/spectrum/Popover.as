@@ -2,6 +2,7 @@ package com.unhurdle.spectrum
 {
   import org.apache.royale.core.IPopUp;
   import org.apache.royale.events.Event;
+  import org.apache.royale.core.IParent;
 
   public class Popover extends Group implements IPopUp
   {
@@ -16,13 +17,24 @@ package com.unhurdle.spectrum
       super();
       COMPILE::JS
       {
-        element.style.zIndex = 500;// very high number to makie sure it's above everything else
+        element.style.zIndex = 500;// very high number to make sure it's above everything else
         element.style.position = "absolute";
       }
 
     }
     override protected function getSelector():String{
       return "spectrum-Popover";
+    }
+    private var _floating:Boolean;
+
+    public function get floating():Boolean
+    {
+    	return _floating;
+    }
+
+    public function set floating(value:Boolean):void
+    {
+    	_floating = value;
     }
     private var _open:Boolean;
 
@@ -36,6 +48,14 @@ package com.unhurdle.spectrum
       if(!!_open != value){
         _open = value;
         toggle("is-open",value);
+        if(floating){
+          var view:IParent = Application.current.initialView as IParent;
+          if(value){
+            view.addElement(this);
+          } else {
+            view.removeElement(this);
+          }
+        }
         dispatchEvent(new Event("openChanged"));
       }
     }

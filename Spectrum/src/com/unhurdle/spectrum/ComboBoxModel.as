@@ -79,5 +79,14 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("quietChange"));
     }
 
+		private var _invalid:Boolean = false;
+    public function get invalid():Boolean{
+      return _invalid;
+    }
+		public function set invalid(value:Boolean):void{
+      _invalid = value;
+      dispatchEvent(new Event("invalidChange"));
+    }
+
   }
 }

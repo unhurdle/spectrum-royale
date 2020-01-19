@@ -1,0 +1,64 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:view="view.*"
+    xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns="library://ns.apache.org/royale/html"
+    xmlns:comp="view.components.*" title="Miller Columns" notes="" initComplete="onComplete()">
+    <fx:Script>
+        <![CDATA[ 
+        import com.unhurdle.spectrum.data.AssetListItem;
+
+             [Bindable]public var branchesMarkup:String = "";
+             [Bindable]public var filesMarkup:String = "";
+             [Bindable]public var provider:Array;
+
+        private function onComplete():void{
+        var arr:Array = [];
+        var item:AssetListItem = new AssetListItem("File 1");
+        item.selectable = true;
+        item.isBranch = true;
+        // item.imageIcon = ;
+        arr.push(item);
+
+
+        item = new AssetListItem("File 2");
+        // item.icon = ;
+        item.selectable = true;
+        arr.push(item);
+        
+
+        item = new AssetListItem("File 3");
+        // item.icon = ;
+        item.selectable = true;
+        item.isBranch = true;
+        arr.push(item);
+        provider = arr;
+      }
+        ]]>
+
+    </fx:Script>
+    <comp:Variant header="Miller Columns (Branches Selectable)">
+        <sp:FieldGroup>
+        <sp:MillerColumns>
+        
+        <sp:MillerColumnsItem>
+        <sp:AssetList dataProvider="{provider}"/>
+        <!-- <sp:AssetListItem isBranch="true" selectable="true" text="File 1"/> -->
+        <!-- <sp:AssetListItem isBranch="true" selectable="true" text="File 2"/> -->
+        <!-- <sp:AssetListItem isBranch="true" selectable="true" text="File 3"/> -->
+        <!-- <sp:AssetListItem/> -->
+        <!-- <sp:AssetListItem/> -->
+        <!-- <sp:AssetListItem/> -->
+        <!-- <sp:AssetListItem/> -->
+       <!-- </sp:dataProvider> -->
+        
+        </sp:MillerColumnsItem>
+        
+    </sp:MillerColumns>
+    </sp:FieldGroup>
+    </comp:Variant>    
+    <comp:Markup>
+    <comp:StyledCode text='{branchesMarkup}'/>
+    </comp:Markup>
+    <comp:Variant header="Miller Columns (Files Selectable)"></comp:Variant>
+    <comp:Markup>
+    <comp:StyledCode text='{filesMarkup}'/>
+    </comp:Markup>
+    </view:DemoPane>

@@ -1,0 +1,247 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Dialog">
+  <fx:Script>
+    <![CDATA[
+      import com.unhurdle.spectrum.Toast;
+
+      [Bindable]public var loremIpsum:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Auctor augue mauris augue neque gravida. Libero volutpat sed ornare arcu. Quisque egestas diam in arcu cursus euismod quis viverra. Posuere ac ut consequat semper viverra nam libero justo laoreet. Enim ut tellus elementum sagittis vitae et leo duis ut. Neque laoreet suspendisse interdum consectetur libero id faucibus nisl. Diam volutpat commodo sed egestas egestas. Dolor magna eget est lorem ipsum dolor. Vitae suscipit tellus mauris a diam maecenas sed. Turpis in eu mi bibendum neque egestas congue. Rhoncus est pellentesque elit ullamcorper dignissim cras lobortis.";
+      [Bindable]public var longLoremIpsum:String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n"+
+    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n"+
+    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n"+
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n"+
+    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n"+
+    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n"+
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n"+
+    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\n"+
+    "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\n";
+      [Bindable] public var standardMarkup:String = 
+        '<sp:Dialog id="smallDialog" size="{Dialog.SMALL}" easyDismiss="true">\n'+
+        '  <sp:DialogHeader title="Disclaimer"/>\n'+
+        '  <sp:DialogContent text="{loremIpsum}"/>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="mediumDialog" size="{Dialog.MEDIUM}" easyDismiss="true">\n'+
+        '  <sp:DialogHeader title="Disclaimer"/>\n'+
+        '  <sp:DialogContent text="{loremIpsum}"/>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="largeDialog" size="{Dialog.LARGE}" easyDismiss="true">\n'+
+        '  <sp:DialogHeader title="Disclaimer"/>\n'+
+        '  <sp:DialogContent text="{loremIpsum}"/>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="dismissableDialog" size="{Dialog.MEDIUM}" dismissible="true">\n'+
+        '  <sp:DialogHeader title="Disclaimer"/>\n'+
+        '  <sp:DialogContent text="{loremIpsum}"/>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="noDivider" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true">\n'+
+        '  <sp:DialogHeader title="Disclaimer"/>\n'+
+        '  <sp:DialogContent text="{loremIpsum}"/>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="heroDialog" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true"\n'+
+        '  hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">\n'+
+        '  <sp:DialogHeader title="Disclaimer"/>\n'+
+        '  <sp:DialogContent text="{loremIpsum}"/>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="alertConfirm" size="{Dialog.ALERT}">\n'+
+        '  <sp:DialogHeader title="Enable Smart Filters?"/>\n'+
+        '  <sp:DialogContent text="Smart filters are nondestructive and will preserve your original images."/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '  <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="new Toast(\'Too Bad\',1000).show();alertConfirm.hide()"/>\n'+
+        '  <sp:Button text="Enable" flavor="cta" click="new Toast(\'Great!\',1000).show();alertConfirm.hide()"/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="alertInform" size="{Dialog.ALERT}">\n'+
+        '  <sp:DialogHeader title="Connect to WiFi"/>\n'+
+        '  <sp:DialogContent text="Please connect to WiFi to sync your projects or go to Settings to change your preferences."/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '  <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="new Toast(\'Too Bad\',1000).show();alertInform.hide()"/>\n'+
+        '  <sp:Button text="Continue" flavor="{Button.SECONDARY}" click="new Toast(\'Continuing...\',1000).show();alertInform.hide()"/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="alertDelete" size="{Dialog.ALERT}">\n'+
+        '  <sp:DialogHeader title="Delete 3 Documents"/>\n'+
+        '  <sp:DialogContent text="Are you sure you want to delete the 3 selected documents?"/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '    <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="new Toast(\'Not Deleting...\',1000).show();alertDelete.hide()"/>\n'+
+        '    <sp:Button text="Delete" flavor="{Button.WARNING}" click="new Toast(\'Deleting...\',1000).show();alertDelete.hide()"/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="alertError" size="{Dialog.ALERT}" error="true">\n'+
+        '  <sp:DialogHeader title="Unable to Share"/>\n'+
+        '  <sp:DialogContent text="An error occurred while sharing your project. Please verify the email address and try again."/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '    <sp:Button text="Cancel" click="alertError.hide()"/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="alert3Button" size="{Dialog.ALERT}">\n'+
+        '  <sp:DialogHeader title="Rate This App"/>\n'+
+        '  <sp:DialogContent text="If you enjoy our app, would you mind taking a moment to rate it?"/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '    <sp:Button text="No, Thanks" flavor="{Button.SECONDARY}" click="alert3Button.hide()"/>\n'+
+        '    <sp:Button text="Remind Me Later" flavor="{Button.SECONDARY}" click="alert3Button.hide()"/>\n'+
+        '    <sp:Button text="Rate Now" click="alert3Button.hide()"/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="longDialog">\n'+
+        '  <sp:DialogHeader title="EULA"/>\n'+
+        '  <sp:DialogContent text="{longLoremIpsum}"/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '    <sp:Button text="Decline" flavor="{Button.SECONDARY}" click="longDialog.hide()"/>\n'+
+        '    <sp:Button text="Accept" click="longDialog.hide()"/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="fullScreen" size="{Dialog.FULLSCREEN}">\n'+
+        '  <sp:DialogHeader title="Default Dialog - Fullscreen">\n'+
+        '    <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="fullScreen.hide()"/>\n'+
+        '    <sp:Button text="Save" click="fullScreen.hide()"/>\n'+
+        '  </sp:DialogHeader>\n'+
+        '  <sp:DialogContent text="{longLoremIpsum}"/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '    <TextNode text="Anything in the footer is sticky and aligned right."/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="fullScreenTakeover" size="{Dialog.FULLSCREEN_TAKEOVER}">\n'+
+        '  <sp:DialogHeader title="Fullscreen Takeover">\n'+
+        '    <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="fullScreenTakeover.hide()"/>\n'+
+        '    <sp:Button text="Save" click="fullScreenTakeover.hide()"/>\n'+
+        '  </sp:DialogHeader>\n'+
+        '  <sp:DialogContent text="{longLoremIpsum}"/>\n'+
+        '  <sp:DialogFooter>\n'+
+        '    <TextNode text="Anything in the footer is sticky and aligned right."/>\n'+
+        '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>';
+      [Bindable] public var labelMarkup:String = 
+        '<sp:FieldGroup vertical="true">\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial label="Label"/>\n'+
+        '    <sp:Dial label="Label" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial label="Label" displayValue="true" value="50"/>\n'+
+        '    <sp:Dial label="Label" displayValue="true" value="50" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '</sp:FieldGroup>';
+
+    ]]>
+  </fx:Script>
+  <fx:Declarations>
+    <sp:Dialog id="smallDialog" size="{Dialog.SMALL}" easyDismiss="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="mediumDialog" size="{Dialog.MEDIUM}" easyDismiss="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="largeDialog" size="{Dialog.LARGE}" easyDismiss="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="dismissableDialog" size="{Dialog.MEDIUM}" dismissible="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="noDivider" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="heroDialog" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true"
+      hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">
+      <sp:DialogHeader title="Disclaimer"/>
+      <sp:DialogContent text="{loremIpsum}"/>
+    </sp:Dialog>
+    <sp:Dialog id="alertConfirm" size="{Dialog.ALERT}">
+      <sp:DialogHeader title="Enable Smart Filters?"/>
+      <sp:DialogContent text="Smart filters are nondestructive and will preserve your original images."/>
+      <sp:DialogFooter>
+      <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="new Toast('Too Bad',1000).show();alertConfirm.hide()"/>
+      <sp:Button text="Enable" flavor="cta" click="new Toast('Great!',1000).show();alertConfirm.hide()"/>
+      </sp:DialogFooter>
+    </sp:Dialog>
+    <sp:Dialog id="alertInform" size="{Dialog.ALERT}">
+      <sp:DialogHeader title="Connect to WiFi"/>
+      <sp:DialogContent text="Please connect to WiFi to sync your projects or go to Settings to change your preferences."/>
+      <sp:DialogFooter>
+      <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="new Toast('Too Bad',1000).show();alertInform.hide()"/>
+      <sp:Button text="Continue" flavor="{Button.SECONDARY}" click="new Toast('Continuing...',1000).show();alertInform.hide()"/>
+      </sp:DialogFooter>
+    </sp:Dialog>
+    <sp:Dialog id="alertDelete" size="{Dialog.ALERT}">
+      <sp:DialogHeader title="Delete 3 Documents"/>
+      <sp:DialogContent text="Are you sure you want to delete the 3 selected documents?"/>
+      <sp:DialogFooter>
+        <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="new Toast('Not Deleting...',1000).show();alertDelete.hide()"/>
+        <sp:Button text="Delete" flavor="{Button.WARNING}" click="new Toast('Deleting...',1000).show();alertDelete.hide()"/>
+      </sp:DialogFooter>
+    </sp:Dialog>
+    <sp:Dialog id="alertError" size="{Dialog.ALERT}" error="true">
+      <sp:DialogHeader title="Unable to Share"/>
+      <sp:DialogContent text="An error occurred while sharing your project. Please verify the email address and try again."/>
+      <sp:DialogFooter>
+        <sp:Button text="Cancel" click="alertError.hide()"/>
+      </sp:DialogFooter>
+    </sp:Dialog>
+    <sp:Dialog id="alert3Button" size="{Dialog.ALERT}">
+      <sp:DialogHeader title="Rate This App"/>
+      <sp:DialogContent text="If you enjoy our app, would you mind taking a moment to rate it?"/>
+      <sp:DialogFooter>
+        <sp:Button text="No, Thanks" flavor="{Button.SECONDARY}" click="alert3Button.hide()"/>
+        <sp:Button text="Remind Me Later" flavor="{Button.SECONDARY}" click="alert3Button.hide()"/>
+        <sp:Button text="Rate Now" click="alert3Button.hide()"/>
+      </sp:DialogFooter>
+    </sp:Dialog>
+    <sp:Dialog id="longDialog">
+      <sp:DialogHeader title="EULA"/>
+      <sp:DialogContent text="{longLoremIpsum}"/>
+      <sp:DialogFooter>
+        <sp:Button text="Decline" flavor="{Button.SECONDARY}" click="longDialog.hide()"/>
+        <sp:Button text="Accept" click="longDialog.hide()"/>
+      </sp:DialogFooter>
+    </sp:Dialog>
+    <sp:Dialog id="fullScreen" size="{Dialog.FULLSCREEN}">
+      <sp:DialogHeader title="Default Dialog - Fullscreen">
+        <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="fullScreen.hide()"/>
+        <sp:Button text="Save" click="fullScreen.hide()"/>
+      </sp:DialogHeader>
+      <sp:DialogContent text="{longLoremIpsum}"/>
+      <sp:DialogFooter>
+        <TextNode text="Anything in the footer is sticky and aligned right."/>      
+      </sp:DialogFooter>
+    </sp:Dialog>
+    <sp:Dialog id="fullScreenTakeover" size="{Dialog.FULLSCREEN_TAKEOVER}">
+      <sp:DialogHeader title="Fullscreen Takeover">
+        <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="fullScreenTakeover.hide()"/>
+        <sp:Button text="Save" click="fullScreenTakeover.hide()"/>
+      </sp:DialogHeader>
+      <sp:DialogContent text="{longLoremIpsum}"/>
+      <sp:DialogFooter>
+        <TextNode text="Anything in the footer is sticky and aligned right."/>      
+      </sp:DialogFooter>
+    </sp:Dialog>
+  </fx:Declarations>
+  <comp:Variant>
+    <sp:ButtonGroup vertical="true">
+      <sp:Button text="Open Small" click="{smallDialog.show()}"/>
+      <sp:Button text="Open Medium" click="{mediumDialog.show()}"/>
+      <sp:Button text="Open Large" click="{largeDialog.show()}"/>
+      <sp:Button text="Open Dismissable" click="{dismissableDialog.show()}"/>
+      <sp:Button text="Open No Divider" click="{noDivider.show()}"/>
+      <sp:Button text="Open Hero Dialog" click="{heroDialog.show()}"/>
+
+      <sp:Button text="Open Alert Confirm" click="{alertConfirm.show()}"/>
+      <sp:Button text="Open Alert Inform" click="{alertInform.show()}"/>
+      <sp:Button text="Open Alert Delete" click="{alertDelete.show()}"/>
+      <sp:Button text="Open Alert Error" click="{alertError.show()}"/>
+      <sp:Button text="Open Alert 3 Button" click="{alert3Button.show()}"/>
+      <sp:Button text="Open Long Dialog" click="{longDialog.show()}"/>
+      <sp:Button text="Open Full Screen" click="{fullScreen.show()}"/>
+      <sp:Button text="Open Full Screen Takeover" click="{fullScreenTakeover.show()}"/>
+
+    </sp:ButtonGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{standardMarkup}'/>
+  </comp:Markup>
+
+
+</view:DemoPane>

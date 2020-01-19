@@ -189,10 +189,5 @@ package com.unhurdle.spectrum.card
     	return menu.popover;
     }
 
-    public function set popover(value:Popover):void
-    {
-    	menu.popover = value;
-    }
-
   }
 }

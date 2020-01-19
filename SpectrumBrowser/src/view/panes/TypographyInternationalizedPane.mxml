@@ -1,0 +1,613 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Typography (Internationalized)">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString1:String = 
+      '<sp:SpacedTypography>\n'+
+      '  <Div style="max-width: 600px;">\n'+
+      '    <sp:Heading size="1" text="Aliquet Mauris Eu"/>\n'+
+      '    <sp:Body size="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="1" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '\n'+
+      '    <sp:Heading size="2" text="Aliquet Mauris Eu"/>\n'+
+      '    <sp:Body size="2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="2" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '\n'+
+      '    <sp:Heading size="2" text="Lorem Ipsum Dolor"/>\n'+
+      '    <sp:Body size="2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="2" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '\n'+ 
+      '    <sp:Heading size="3" text="Lorem Ipsum Dolor"/>\n'+
+      '    <sp:Body size="3" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="3" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '\n'+
+      '    <sp:Heading size="4" text="Lorem Ipsum Dolor"/>\n'+
+      '    <sp:Body size="4" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="4" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '\n'+
+      '    <sp:Heading size="5" text="Lorem Ipsum Dolor"/>\n'+
+      '    <sp:Body size="5" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="5" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '\n'+
+      '    <sp:Heading size="6" text="Lorem Ipsum Dolor"/>\n'+
+      '    <sp:Body size="5" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="5" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '\n'+
+      '    <sp:Subheading text="Lorem Ipsum Dolor"/>\n'+
+      '    <sp:Body size="4" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+      '    <sp:Body size="4" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+      '  </Div>\n'+
+      '</sp:SpacedTypography>\n';
+      [Bindable]public var codeString2:String = 
+      '<sp:TypographyGroup language="en">\n'+
+      '  <sp:Heading size="1" text="Heading1 "><Em text="Heading1 Emphasis "/><Strong text="Heading1 Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" text="Heading2 "><Em text="Heading2 Emphasis "/><Strong text="Heading2 Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="3" text="Heading3 "><Em text="Heading3 Emphasis "/><Strong text="Heading3 Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="4" text="Heading4 "><Em text="Heading4 Emphasis "/><Strong text="Heading4 Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="5" text="Heading5 "><Em text="Heading5 Emphasis "/><Strong text="Heading5 Strong."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:Article>\n'+
+      '  <sp:Heading size="1" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="3" text="Article Heading3 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="4" text="Article Heading4 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="5" text="Article Heading5 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:Article>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Heading size="1" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="3" text="見出し3 "><Em text="見出し3 重点 "/><Strong text="見出し3 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="4" text="見出し4 "><Em text="見出し4 重点 "/><Strong text="見出し4 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="5" text="見出し5 "><Em text="見出し5 重点 "/><Strong text="見出し5 強い強調."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ar">\n'+
+      '  <sp:Heading size="1" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="3" text="القسم 3 "><Em text="القسم 3  تشديد "/><Strong text="القسم 3 تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="4" text="القسم 4 "><Em text="القسم 4  تشديد "/><Strong text="القسم 4 تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="5" text="القسم 5 "><Em text="القسم 5  تشديد "/><Strong text="القسم 5 تأكيد قو."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="he">\n'+
+      '  <sp:Heading size="1" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="3" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="4" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="5" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString3:String = 
+      '<sp:TypographyGroup language="en">\n'+
+      '  <sp:Heading size="1" strong="true" text="Heading1 "><Em text="Heading1 Emphasis "/><Strong text="Heading1 Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" strong="true" text="Heading2 "><Em text="Heading2 Emphasis "/><Strong text="Heading2 Strong."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:Article>\n'+
+      '  <sp:Heading size="1" strong="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" strong="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:Article>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Heading size="1" strong="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" strong="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ar">\n'+
+      '  <sp:Heading size="1" strong="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" strong="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="he">\n'+
+      '  <sp:Heading size="1" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString4:String = 
+      '<sp:TypographyGroup language="en">\n'+
+      '  <sp:Heading size="1" quiet="true" text="Heading1 "><Em text="Heading1 Emphasis "/><Strong text="Heading1 Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" quiet="true" text="Heading2 "><Em text="Heading2 Emphasis "/><Strong text="Heading2 Strong."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:Article>\n'+
+      '  <sp:Heading size="1" quiet="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" quiet="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:Article>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Heading size="1" quiet="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" quiet="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ar">\n'+
+      '  <sp:Heading size="1" quiet="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" quiet="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="he">\n'+
+      '  <sp:Heading size="1" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString5:String = 
+      '<sp:TypographyGroup language="en">\n'+
+      '  <sp:Heading size="1" display="true" text="Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" text="Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:Article>\n'+
+      '  <sp:Heading size="1" display="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:Article>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Heading size="1" display="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ar">\n'+
+      '  <sp:Heading size="1" display="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="he">\n'+
+      '  <sp:Heading size="1" display="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString6:String = 
+      '<sp:TypographyGroup language="en">\n'+
+      '  <sp:Heading size="1" display="true" strong="true" text="Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" strong="true" text="Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:Article>\n'+
+      '  <sp:Heading size="1" display="true" strong="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" strong="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:Article>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Heading size="1" display="true" strong="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" strong="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ar">\n'+
+      '  <sp:Heading size="1" display="true" strong="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" strong="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="he">\n'+
+      '  <sp:Heading size="1" display="true" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString7:String = 
+      '<sp:TypographyGroup language="en">\n'+
+      '  <sp:Heading size="1" display="true" quiet="true" text="Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" quiet="true" text="Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:Article>\n'+
+      '  <sp:Heading size="1" display="true" quiet="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" quiet="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>\n'+
+      '</sp:Article>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Heading size="1" display="true" quiet="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" quiet="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ar">\n'+
+      '  <sp:Heading size="1" display="true" quiet="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" quiet="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="he">\n'+
+      '  <sp:Heading size="1" display="true" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '  <sp:Heading size="2" display="true" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString8:String = 
+      '<sp:TypographyGroup language="en">\n'+
+      '  <sp:Body size="1" text="Body1 Text "><Em text="Body1 Emphasis "/><Strong text="Body1 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="2" text="Body2 Text "><Em text="Body2 Emphasis "/><Strong text="Body2 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="3" text="Body3 Text "><Em text="Body3 Emphasis "/><Strong text="Body3 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="4" text="Body4 Text "><Em text="Body4 Emphasis "/><Strong text="Body4 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="5" text="Body5 Text "><Em text="Body5 Emphasis "/><Strong text="Body5 Strong."/></sp:Body>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:Article>\n'+
+      '  <sp:Body size="1" text="Article Body1 Text "><Em text="Article Body1 Emphasis "/><Strong text="Article Body1 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="2" text="Article Body2 Text "><Em text="Article Body2 Emphasis "/><Strong text="Article Body2 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="3" text="Article Body3 Text "><Em text="Article Body3 Emphasis "/><Strong text="Article Body3 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="4" text="Article Body4 Text "><Em text="Article Body4 Emphasis "/><Strong text="Article Body4 Strong."/></sp:Body>\n'+
+      '  <sp:Body size="5" text="Article Body5 Text "><Em text="Article Body5 Emphasis "/><Strong text="Article Body5 Strong."/></sp:Body>\n'+
+      '</sp:Article>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Body size="1" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Body>\n'+
+      '  <sp:Body size="2" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Body>\n'+
+      '  <sp:Body size="3" text="見出し3 "><Em text="見出し3 重点 "/><Strong text="見出し3 強い強調."/></sp:Body>\n'+
+      '  <sp:Body size="4" text="見出し4 "><Em text="見出し4 重点 "/><Strong text="見出し4 強い強調."/></sp:Body>\n'+
+      '  <sp:Body size="5" text="見出し5 "><Em text="見出し5 重点 "/><Strong text="見出し5 強い強調."/></sp:Body>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="ar">\n'+
+      '  <sp:Body size="1" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Body>\n'+
+      '  <sp:Body size="2" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Body>\n'+
+      '  <sp:Body size="3" text="القسم 3 "><Em text="القسم 3  تشديد "/><Strong text="القسم 3 تأكيد قو."/></sp:Body>\n'+
+      '  <sp:Body size="4" text="القسم 4 "><Em text="القسم 4  تشديد "/><Strong text="القسم 4 تأكيد قو."/></sp:Body>\n'+
+      '  <sp:Body size="5" text="القسم 5 "><Em text="القسم 5  تشديد "/><Strong text="القسم 5 تأكيد قو."/></sp:Body>\n'+
+      '</sp:TypographyGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TypographyGroup language="he">\n'+
+      '  <sp:Body size="1" text="טקסט גופן1 מודגש "><Em text="גופן1 מאמר"/><Strong text="גופן1 חזק."/></sp:Body>\n'+
+      '  <sp:Body size="2" text="טקסט גופן2 מודגש "><Em text="גופן2 מאמר"/><Strong text="גופן2 חזק."/></sp:Body>\n'+
+      '  <sp:Body size="3" text="טקסט גופן3 מודגש "><Em text="גופן3 מאמר"/><Strong text="גופן3 חזק."/></sp:Body>\n'+
+      '  <sp:Body size="4" text="טקסט גופן4 מודגש "><Em text="גופן4 מאמר"/><Strong text="גופן4 חזק."/></sp:Body>\n'+
+      '  <sp:Body size="5" text="טקסט גופן5 מודגש "><Em text="גופן5 מאמר"/><Strong text="גופן5 חזק."/></sp:Body>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString9:String = 
+      '<sp:TypographyGroup language="ja">\n'+
+      '  <sp:Heading size="1" text="見出し1 "></sp:Heading>\n'+
+      '  <sp:Body size="1" text="見出しとよく対になる本文。"></sp:Body>\n'+
+      '  <sp:Heading size="2" text="見出し2 "></sp:Heading>\n'+
+      '  <sp:Body size="2" text="見出しとよく対になる本文。"></sp:Body>\n'+
+      '  <sp:Heading size="3" text="見出し3 "></sp:Heading>\n'+
+      '  <sp:Body size="3" text="見出しとよく対になる本文。"></sp:Body>\n'+
+      '  <sp:Heading size="4" text="見出し4 "></sp:Heading>\n'+
+      '  <sp:Body size="4" text="見出しとよく対になる本文。"></sp:Body>\n'+
+      '  <sp:Heading size="5" text="見出し5 "></sp:Heading>\n'+
+      '  <sp:Body size="5" text="見出しとよく対になる本文。"></sp:Body>\n'+
+      '</sp:TypographyGroup>\n';
+      [Bindable]public var codeString10:String = 
+      '<sp:Article>\n'+
+      '  <sp:Heading size="1" text="Heading 1"></sp:Heading>\n'+
+      '  <sp:Body size="1" text="Body copy that pairs with heading 1"></sp:Body>\n'+
+      '  <sp:Heading size="2" text="Heading 2"></sp:Heading>\n'+
+      '  <sp:Body size="2" text="Body copy that pairs with heading 2"></sp:Body>\n'+
+      '  <sp:Heading size="3" text="Heading 3"></sp:Heading>\n'+
+      '  <sp:Body size="3" text="Body copy that pairs with heading 3"></sp:Body>\n'+
+      '  <sp:Heading size="4" text="Heading 4"></sp:Heading>\n'+
+      '  <sp:Body size="4" text="Body copy that pairs with heading 4"></sp:Body>\n'+
+      '  <sp:Heading size="5" text="Heading 5"></sp:Heading>\n'+
+      '  <sp:Body size="5" text="Body copy that pairs with heading 5"></sp:Body>\n'+
+      '</sp:Article>\n';
+      [Bindable]public var codeString11:String = 
+      '<sp:Article>\n'+
+      '  <sp:Code size="1" text="Code1 Text "><Strong text="Strong "/></sp:Code>\n'+
+      '  <sp:Code size="2" text="Code2 Text "><Strong text="Strong "/></sp:Code>\n'+
+      '  <sp:Code size="3" text="Code3 Text "><Strong text="Strong "/></sp:Code>\n'+
+      '  <sp:Code size="4" text="Code4 Text "><Strong text="Strong "/></sp:Code>\n'+
+      '  <sp:Code size="5" text="Code5 Text "><Strong text="Strong "/></sp:Code>\n'+
+      '  <Pre>\n'+
+      '    <sp:Code size="3" text="Code3 Text Wrapped in:\n pre tags for\n multiline\n goodness"></sp:Code>\n'+
+      '  </Pre>\n'+
+      '</sp:Article>\n';
+    ]]>
+  </fx:Script>
+  <comp:Variant notes="Typography elements paired to display clear content hierarchies.">
+    <sp:SpacedTypography>
+      <Div style="max-width: 600px;">
+        <sp:Heading size="1" text="Aliquet Mauris Eu"/>
+        <sp:Body size="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="1" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+        
+        <sp:Heading size="2" text="Aliquet Mauris Eu"/>
+        <sp:Body size="2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="2" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+        
+        <sp:Heading size="2" text="Lorem Ipsum Dolor"/>
+        <sp:Body size="2" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="2" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+        
+        <sp:Heading size="3" text="Lorem Ipsum Dolor"/>
+        <sp:Body size="3" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="3" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      
+        <sp:Heading size="4" text="Lorem Ipsum Dolor"/>
+        <sp:Body size="4" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="4" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+    
+        <sp:Heading size="5" text="Lorem Ipsum Dolor"/>
+        <sp:Body size="5" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="5" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+    
+        <sp:Heading size="6" text="Lorem Ipsum Dolor"/>
+        <sp:Body size="5" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="5" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+
+        <sp:Subheading text="Lorem Ipsum Dolor"/>
+        <sp:Body size="4" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+        <sp:Body size="4" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      </Div>
+    </sp:SpacedTypography>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString1}"/>
+  </comp:Markup>
+  <comp:Variant header="Heading" notes="Headings for typography.">
+    <sp:TypographyGroup language="en">
+      <sp:Heading size="1" text="Heading1 "><Em text="Heading1 Emphasis "/><Strong text="Heading1 Strong."/></sp:Heading>
+      <sp:Heading size="2" text="Heading2 "><Em text="Heading2 Emphasis "/><Strong text="Heading2 Strong."/></sp:Heading>
+      <sp:Heading size="3" text="Heading3 "><Em text="Heading3 Emphasis "/><Strong text="Heading3 Strong."/></sp:Heading>
+      <sp:Heading size="4" text="Heading4 "><Em text="Heading4 Emphasis "/><Strong text="Heading4 Strong."/></sp:Heading>
+      <sp:Heading size="5" text="Heading5 "><Em text="Heading5 Emphasis "/><Strong text="Heading5 Strong."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:Article>
+      <sp:Heading size="1" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="3" text="Article Heading3 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="4" text="Article Heading4 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="5" text="Article Heading5 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:Article>
+    <Br/>
+    <sp:TypographyGroup language="ja">
+      <sp:Heading size="1" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>
+      <sp:Heading size="2" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>
+      <sp:Heading size="3" text="見出し3 "><Em text="見出し3 重点 "/><Strong text="見出し3 強い強調."/></sp:Heading>
+      <sp:Heading size="4" text="見出し4 "><Em text="見出し4 重点 "/><Strong text="見出し4 強い強調."/></sp:Heading>
+      <sp:Heading size="5" text="見出し5 "><Em text="見出し5 重点 "/><Strong text="見出し5 強い強調."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="ar">
+      <sp:Heading size="1" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>
+      <sp:Heading size="2" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>
+      <sp:Heading size="3" text="القسم 3 "><Em text="القسم 3  تشديد "/><Strong text="القسم 3 تأكيد قو."/></sp:Heading>
+      <sp:Heading size="4" text="القسم 4 "><Em text="القسم 4  تشديد "/><Strong text="القسم 4 تأكيد قو."/></sp:Heading>
+      <sp:Heading size="5" text="القسم 5 "><Em text="القسم 5  تشديد "/><Strong text="القسم 5 تأكيد قو."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="he">
+      <sp:Heading size="1" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="2" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="3" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="4" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="5" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString2}"/>
+  </comp:Markup>
+  <comp:Variant header="Heading (Strong)" notes="Strong headings for typography.">
+    <sp:TypographyGroup language="en">
+      <sp:Heading size="1" strong="true" text="Heading1 "><Em text="Heading1 Emphasis "/><Strong text="Heading1 Strong."/></sp:Heading>
+      <sp:Heading size="2" strong="true" text="Heading2 "><Em text="Heading2 Emphasis "/><Strong text="Heading2 Strong."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:Article>
+      <sp:Heading size="1" strong="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" strong="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:Article>
+    <Br/>
+    <sp:TypographyGroup language="ja">
+      <sp:Heading size="1" strong="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>
+      <sp:Heading size="2" strong="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="ar">
+      <sp:Heading size="1" strong="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>
+      <sp:Heading size="2" strong="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="he">
+      <sp:Heading size="1" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="2" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString3}"/>
+  </comp:Markup>
+  <comp:Variant header="Heading (Quiet)" notes="Quiet headings for typography.">
+    <sp:TypographyGroup language="en">
+      <sp:Heading size="1" quiet="true" text="Heading1 "><Em text="Heading1 Emphasis "/><Strong text="Heading1 Strong."/></sp:Heading>
+      <sp:Heading size="2" quiet="true" text="Heading2 "><Em text="Heading2 Emphasis "/><Strong text="Heading2 Strong."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:Article>
+      <sp:Heading size="1" quiet="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" quiet="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:Article>
+    <Br/>
+    <sp:TypographyGroup language="ja">
+      <sp:Heading size="1" quiet="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>
+      <sp:Heading size="2" quiet="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="ar">
+      <sp:Heading size="1" quiet="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>
+      <sp:Heading size="2" quiet="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="he">
+      <sp:Heading size="1" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="2" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString4}"/>
+  </comp:Markup>
+  <comp:Variant header="Display" notes="Display headings for typography.">
+    <sp:TypographyGroup language="en">
+      <sp:Heading size="1" display="true" text="Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" display="true" text="Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:Article>
+      <sp:Heading size="1" display="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" display="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:Article>
+    <Br/>
+    <sp:TypographyGroup language="ja">
+      <sp:Heading size="1" display="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>
+      <sp:Heading size="2" display="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="ar">
+      <sp:Heading size="1" display="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>
+      <sp:Heading size="2" display="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="he">
+      <sp:Heading size="1" display="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="2" display="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString5}"/>
+  </comp:Markup>
+  <comp:Variant header="Display (Strong)" notes="Strong display headings for typography.">
+    <sp:TypographyGroup language="en">
+      <sp:Heading size="1" display="true" strong="true" text="Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" display="true" strong="true" text="Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:Article>
+      <sp:Heading size="1" display="true" strong="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" display="true" strong="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:Article>
+    <Br/>
+    <sp:TypographyGroup language="ja">
+      <sp:Heading size="1" display="true" strong="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>
+      <sp:Heading size="2" display="true" strong="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="ar">
+      <sp:Heading size="1" display="true" strong="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>
+      <sp:Heading size="2" display="true" strong="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="he">
+      <sp:Heading size="1" display="true" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="2" display="true" strong="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString6}"/>
+  </comp:Markup>
+  <comp:Variant header="Display (Quiet)" notes="Quiet display headings for typography.">
+    <sp:TypographyGroup language="en">
+      <sp:Heading size="1" display="true" quiet="true" text="Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" display="true" quiet="true" text="Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:Article>
+      <sp:Heading size="1" display="true" quiet="true" text="Article Heading1 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+      <sp:Heading size="2" display="true" quiet="true" text="Article Heading2 "><Em text="Emphasis "/><Strong text="Strong."/></sp:Heading>
+    </sp:Article>
+    <Br/>
+    <sp:TypographyGroup language="ja">
+      <sp:Heading size="1" display="true" quiet="true" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Heading>
+      <sp:Heading size="2" display="true" quiet="true" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="ar">
+      <sp:Heading size="1" display="true" quiet="true" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Heading>
+      <sp:Heading size="2" display="true" quiet="true" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Heading>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="he">
+      <sp:Heading size="1" display="true" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+      <sp:Heading size="2" display="true" quiet="true" text="דגש כותרת "><Em text="מאמר "/><Strong text="חזק."/></sp:Heading>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString7}"/>
+  </comp:Markup>
+  <comp:Variant header="Body" notes="Default body text sizes.">
+    <sp:TypographyGroup language="en">
+      <sp:Body size="1" text="Body1 Text "><Em text="Body1 Emphasis "/><Strong text="Body1 Strong."/></sp:Body>
+      <sp:Body size="2" text="Body2 Text "><Em text="Body2 Emphasis "/><Strong text="Body2 Strong."/></sp:Body>
+      <sp:Body size="3" text="Body3 Text "><Em text="Body3 Emphasis "/><Strong text="Body3 Strong."/></sp:Body>
+      <sp:Body size="4" text="Body4 Text "><Em text="Body4 Emphasis "/><Strong text="Body4 Strong."/></sp:Body>
+      <sp:Body size="5" text="Body5 Text "><Em text="Body5 Emphasis "/><Strong text="Body5 Strong."/></sp:Body>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:Article>
+      <sp:Body size="1" text="Article Body1 Text "><Em text="Article Body1 Emphasis "/><Strong text="Article Body1 Strong."/></sp:Body>
+      <sp:Body size="2" text="Article Body2 Text "><Em text="Article Body2 Emphasis "/><Strong text="Article Body2 Strong."/></sp:Body>
+      <sp:Body size="3" text="Article Body3 Text "><Em text="Article Body3 Emphasis "/><Strong text="Article Body3 Strong."/></sp:Body>
+      <sp:Body size="4" text="Article Body4 Text "><Em text="Article Body4 Emphasis "/><Strong text="Article Body4 Strong."/></sp:Body>
+      <sp:Body size="5" text="Article Body5 Text "><Em text="Article Body5 Emphasis "/><Strong text="Article Body5 Strong."/></sp:Body>
+    </sp:Article>
+    <Br/>
+    <sp:TypographyGroup language="ja">
+      <sp:Body size="1" text="見出し1 "><Em text="見出し1 重点 "/><Strong text="見出し1 強い強調."/></sp:Body>
+      <sp:Body size="2" text="見出し2 "><Em text="見出し2 重点 "/><Strong text="見出し2 強い強調."/></sp:Body>
+      <sp:Body size="3" text="見出し3 "><Em text="見出し3 重点 "/><Strong text="見出し3 強い強調."/></sp:Body>
+      <sp:Body size="4" text="見出し4 "><Em text="見出し4 重点 "/><Strong text="見出し4 強い強調."/></sp:Body>
+      <sp:Body size="5" text="見出し5 "><Em text="見出し5 重点 "/><Strong text="見出し5 強い強調."/></sp:Body>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="ar">
+      <sp:Body size="1" text="القسم "><Em text="القسم  تشديد "/><Strong text="القسم  تأكيد قو."/></sp:Body>
+      <sp:Body size="2" text="القسم "><Em text="القسم 1  تشديد "/><Strong text="القسم 2 تأكيد قو."/></sp:Body>
+      <sp:Body size="3" text="القسم 3 "><Em text="القسم 3  تشديد "/><Strong text="القسم 3 تأكيد قو."/></sp:Body>
+      <sp:Body size="4" text="القسم 4 "><Em text="القسم 4  تشديد "/><Strong text="القسم 4 تأكيد قو."/></sp:Body>
+      <sp:Body size="5" text="القسم 5 "><Em text="القسم 5  تشديد "/><Strong text="القسم 5 تأكيد قو."/></sp:Body>
+    </sp:TypographyGroup>
+    <Br/>
+    <sp:TypographyGroup language="he">
+      <sp:Body size="1" text="טקסט גופן1 מודגש "><Em text="גופן1 מאמר"/><Strong text="גופן1 חזק."/></sp:Body>
+      <sp:Body size="2" text="טקסט גופן2 מודגש "><Em text="גופן2 מאמר"/><Strong text="גופן2 חזק."/></sp:Body>
+      <sp:Body size="3" text="טקסט גופן3 מודגש "><Em text="גופן3 מאמר"/><Strong text="גופן3 חזק."/></sp:Body>
+      <sp:Body size="4" text="טקסט גופן4 מודגש "><Em text="גופן4 מאמר"/><Strong text="גופן4 חזק."/></sp:Body>
+      <sp:Body size="5" text="טקסט גופן5 מודגש "><Em text="גופן5 מאמר"/><Strong text="גופן5 חזק."/></sp:Body>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString8}"/>
+  </comp:Markup>
+  <comp:Variant header="Han" notes="Typographic pairings for Adobe Clean Han.">
+    <sp:TypographyGroup language="ja">
+      <sp:Heading size="1" text="見出し1 "></sp:Heading>
+      <sp:Body size="1" text="見出しとよく対になる本文。"></sp:Body>
+      <sp:Heading size="2" text="見出し2 "></sp:Heading>
+      <sp:Body size="2" text="見出しとよく対になる本文。"></sp:Body>
+      <sp:Heading size="3" text="見出し3 "></sp:Heading>
+      <sp:Body size="3" text="見出しとよく対になる本文。"></sp:Body>
+      <sp:Heading size="4" text="見出し4 "></sp:Heading>
+      <sp:Body size="4" text="見出しとよく対になる本文。"></sp:Body>
+      <sp:Heading size="5" text="見出し5 "></sp:Heading>
+      <sp:Body size="5" text="見出しとよく対になる本文。"></sp:Body>
+    </sp:TypographyGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString9}"/>
+  </comp:Markup>
+  <comp:Variant header="Article" notes="Typography elements paired to display clear content hierarchies in long form articles.">
+    <sp:Article>
+      <sp:Heading size="1" text="Heading 1"></sp:Heading>
+      <sp:Body size="1" text="Body copy that pairs with heading 1"></sp:Body>
+      <sp:Heading size="2" text="Heading 2"></sp:Heading>
+      <sp:Body size="2" text="Body copy that pairs with heading 2"></sp:Body>
+      <sp:Heading size="3" text="Heading 3"></sp:Heading>
+      <sp:Body size="3" text="Body copy that pairs with heading 3"></sp:Body>
+      <sp:Heading size="4" text="Heading 4"></sp:Heading>
+      <sp:Body size="4" text="Body copy that pairs with heading 4"></sp:Body>
+      <sp:Heading size="5" text="Heading 5"></sp:Heading>
+      <sp:Body size="5" text="Body copy that pairs with heading 5"></sp:Body>
+    </sp:Article>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString10}"/>
+  </comp:Markup>
+  <comp:Variant header="Typography - Code" notes="Typographic styles for computer code.">
+    <sp:Article>
+      <sp:Code size="1" text="Code1 Text "><Strong text="Strong "/></sp:Code>
+      <sp:Code size="2" text="Code2 Text "><Strong text="Strong "/></sp:Code>
+      <sp:Code size="3" text="Code3 Text "><Strong text="Strong "/></sp:Code>
+      <sp:Code size="4" text="Code4 Text "><Strong text="Strong "/></sp:Code>
+      <sp:Code size="5" text="Code5 Text "><Strong text="Strong "/></sp:Code>
+      <Pre>
+        <sp:Code size="3" text="Code3 Text Wrapped in:
+pre tags for
+multiline
+goodness"></sp:Code>
+      </Pre>
+    </sp:Article>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString11}"/>
+  </comp:Markup>
+</view:DemoPane>

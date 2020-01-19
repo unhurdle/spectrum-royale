@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
     public function ComboBoxList()
     {
       _list = new Menu();
+      floating = true;
     }
     private var _list:Menu;
 

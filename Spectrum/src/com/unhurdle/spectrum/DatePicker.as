@@ -8,21 +8,16 @@ package com.unhurdle.spectrum
 
   import org.apache.royale.events.Event;
   import org.apache.royale.svg.elements.Path;
+  import com.unhurdle.spectrum.includes.InputGroupInclude;
 
   public class DatePicker extends SpectrumBase
   {
-    /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/inputgroup/dist.css">
-     * </inject_html>
-     * 
-     */
     public function DatePicker()
     {
       super();
     }
     override protected function getSelector():String{
-      return "spectrum-InputGroup";
+      return InputGroupInclude.getSelector();
     }
 
     private var input:TextField;
@@ -64,13 +59,13 @@ package com.unhurdle.spectrum
       element.appendChild(datePicker); 
 
       popover = new Popover();
+      popover.floating = true;
       popover.className = appendSelector("-popover");
       popover.position = "bottom";
       // popover.percentWidth = 100;
       popover.style = {"margin-top": "30px","z-index":"1"};
       calendar = new Calendar();
       popover.addElement(calendar);
-      addElement(popover);
       // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 
       return element;
@@ -119,7 +114,7 @@ package com.unhurdle.spectrum
     {
     	input.text = value;
     }
-    private var popover:Popover
+    public var popover:Popover
     // COMPILE::JS
     // private function openDatePicker():void{
     //   popover.open = true;

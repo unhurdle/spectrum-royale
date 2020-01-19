@@ -15,6 +15,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.utils.callLater;
 	import org.apache.royale.events.MouseEvent;
 	import com.unhurdle.spectrum.const.IconType;
+	import com.unhurdle.spectrum.includes.InputGroupInclude;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -27,7 +28,7 @@ package com.unhurdle.spectrum{
 			super();
 		}
 		private function appendSelector(value:String):String{
-			return "spectrum-InputGroup" + value;
+			return InputGroupInclude.getSelector() + value;
 		}
 		private var input:TextField;
 		
@@ -81,6 +82,7 @@ package com.unhurdle.spectrum{
 			return list;
 		}
 		
+		private var comboHost:ComboBox;
     private var model:IComboBoxModel;
 		/**
 		 * @private
@@ -91,11 +93,20 @@ package com.unhurdle.spectrum{
 		{
 			super.strand = value;
 			
-			var host:ComboBox = value as ComboBox;
+			comboHost = value as ComboBox;
 			
 			input = new TextField();
       input.className = appendSelector("-field");
-			
+			COMPILE::JS
+			{
+				input.element.addEventListener('focus',function():void{
+					comboHost.toggle("is-focused",true);
+				});
+
+				input.element.addEventListener('blur', function():void{
+					comboHost.toggle("is-focused",false);
+				});
+			}
 			button = new FieldButton();
       button.className = appendSelector("-button");
 			var type:String = IconType.CHEVRON_DOWN_MEDIUM;
@@ -129,8 +140,8 @@ package com.unhurdle.spectrum{
     	// 	"width": "100%"
 			// };
 
-			host.addElement(input as IChild);
-			host.addElement(button as IChild);
+			comboHost.addElement(input as IChild);
+			comboHost.addElement(button as IChild);
       // host.addElement(_popup);
 
 			model.addEventListener("selectedIndexChanged", handleItemChange);
@@ -141,6 +152,7 @@ package com.unhurdle.spectrum{
       model.addEventListener("requiredChange",handleRequiredChange);
       model.addEventListener("disabledChange",handleDisabledChange);
       model.addEventListener("quietChange",handleQuietChange);
+      model.addEventListener("invalidChange",handleInvalidChange);
 			(_strand as IEventDispatcher).addEventListener("sizeChanged",handleSizeChange);
 			
 			// set initial value and positions using default sizes
@@ -149,6 +161,7 @@ package com.unhurdle.spectrum{
       handleRequiredChange(null);
       handleDisabledChange(null);
       handleQuietChange(null);
+			handleInvalidChange(null);
 
 			itemChangeAction();
 			// sizeChangeAction();
@@ -175,18 +188,17 @@ package com.unhurdle.spectrum{
 		public function set popUpVisible(value:Boolean):void
 		{
 			if(value){
-				var origin:Point = new Point(0, host.height - 6);
-				var relocated:Point = PointUtils.localToGlobal(origin,host);
+				var origin:Point = new Point(0, comboHost.height - 6);
+				var relocated:Point = PointUtils.localToGlobal(origin,comboHost);
 				_popup.x = relocated.x
 				_popup.y = relocated.y;
-				_popup.width = host.width;
+				_popup.width = comboHost.width;
 				list.selectedIndex = -1;
 
-				var popupHost:IPopUpHost = UIUtils.findPopUpHost(host);
-				popupHost.popUpParent.addElement(_popup);
+				var popupHost:IPopUpHost = UIUtils.findPopUpHost(comboHost);
 				callLater(openPopup)
 				_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				host.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				comboHost.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				callLater(function():void {
 					_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				});
@@ -214,7 +226,6 @@ package com.unhurdle.spectrum{
 	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         _popup.open = false;
-        //  UIUtils.removePopUp(_popup);
       }
 		}
 		/**
@@ -246,10 +257,17 @@ package com.unhurdle.spectrum{
     }
     protected function handleDisabledChange(event:Event):void{
       button.disabled = input.disabled = model.disabled;
+
     }
     protected function handleQuietChange(event:Event):void{
       button.quiet = input.quiet = model.quiet;
+			comboHost.toggle(InputGroupInclude.getSelector()+ "--quiet",model.quiet);
     }
+		protected function handleInvalidChange(event:Event):void{
+      button.invalid = input.invalid = model.invalid;
+			comboHost.toggle("is-invalid",model.quiet);
+
+		}
 		/**
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.core.IComboBoxModel

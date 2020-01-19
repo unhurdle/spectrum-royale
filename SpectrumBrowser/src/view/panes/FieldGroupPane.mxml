@@ -1,0 +1,68 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Field Group">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var standard:String = 
+        '<sp:FieldGroup>\n'+
+        '  <sp:Radio radioName="pets" text="Kittens"/>\n'+
+        '  <sp:Radio radioName="pets" text="Dogs"/>\n'+
+        '</sp:FieldGroup>\n'+
+        '<sp:FieldGroup>\n'+
+        '  <sp:CheckBox text="Kibble"/>\n'+
+        '  <sp:CheckBox text="Bits"/>\n'+
+        '</sp:FieldGroup>\n'+
+        '<sp:FieldGroup>\n'+
+        '  <sp:Radio radioName="number" labelBelow="true" text="1"/>\n'+
+        '  <sp:Radio radioName="number" labelBelow="true" text="2"/>\n'+
+        '  <sp:Radio radioName="number" labelBelow="true" text="3"/>\n'+
+        '</sp:FieldGroup>';
+      [Bindable]public var vertical:String = 
+        '<sp:FieldGroup vertical="true">\n'+
+        '  <sp:Radio radioName="pets2" text="Kittens"/>\n'+
+        '  <sp:Radio radioName="pets2" text="Dogs"/>\n'+
+        '</sp:FieldGroup>\n'+
+        '<sp:FieldGroup vertical="true">\n'+
+        '  <sp:CheckBox text="Kibble"/>\n'+
+        '  <sp:CheckBox text="Bits"/>\n'+
+        '</sp:FieldGroup>';
+
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+  <sp:FieldGroup>
+    <sp:Radio radioName="pets" text="Kittens"/>
+    <sp:Radio radioName="pets" text="Dogs"/>
+  </sp:FieldGroup>
+  <sp:FieldGroup>
+    <sp:CheckBox text="Kibble"/>
+    <sp:CheckBox text="Bits"/>
+  </sp:FieldGroup>
+  <sp:FieldGroup>
+    <sp:Radio radioName="number" labelBelow="true" text="1"/>
+    <sp:Radio radioName="number" labelBelow="true" text="2"/>
+    <sp:Radio radioName="number" labelBelow="true" text="3"/>
+  </sp:FieldGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{standard}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical">
+    <sp:FlexContainer>
+      <sp:FieldGroup vertical="true">
+        <sp:Radio radioName="pets2" text="Kittens"/>
+        <sp:Radio radioName="pets2" text="Dogs"/>
+      </sp:FieldGroup>
+      <sp:FieldGroup vertical="true">
+        <sp:CheckBox text="Kibble"/>
+        <sp:CheckBox text="Bits"/>
+      </sp:FieldGroup>
+    </sp:FlexContainer>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{vertical}'/>
+  </comp:Markup>
+</view:DemoPane>

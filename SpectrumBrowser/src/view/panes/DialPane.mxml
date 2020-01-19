@@ -1,0 +1,65 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Dial">
+  <fx:Script>
+    <![CDATA[
+      [Bindable] public var standardMarkup:String = 
+        '<sp:FieldGroup vertical="true">\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial/>\n'+
+        '    <sp:Dial disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial size="small"/>\n'+
+        '    <sp:Dial size="small" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '</sp:FieldGroup>';
+
+      [Bindable] public var labelMarkup:String = 
+        '<sp:FieldGroup vertical="true">\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial label="Label"/>\n'+
+        '    <sp:Dial label="Label" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '  <sp:ButtonGroup>\n'+
+        '    <sp:Dial label="Label" displayValue="true" value="50"/>\n'+
+        '    <sp:Dial label="Label" displayValue="true" value="50" disabled="true"/>\n'+
+        '  </sp:ButtonGroup>\n'+
+        '</sp:FieldGroup>';
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+  <sp:FieldGroup vertical="true">
+    <sp:ButtonGroup>
+      <sp:Dial/>
+      <sp:Dial disabled="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup>
+      <sp:Dial size="small"/>
+      <sp:Dial size="small" disabled="true"/>
+    </sp:ButtonGroup>
+  </sp:FieldGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{standardMarkup}'/>
+  </comp:Markup>
+
+  <comp:Variant header="With label">
+  <sp:FieldGroup vertical="true">
+    <sp:ButtonGroup>
+      <sp:Dial label="Label"/>
+      <sp:Dial label="Label" disabled="true"/>
+    </sp:ButtonGroup>
+    <sp:ButtonGroup>
+      <sp:Dial label="Label" displayValue="true" value="50"/>
+      <sp:Dial label="Label" displayValue="true" value="50" disabled="true"/>
+    </sp:ButtonGroup>
+  </sp:FieldGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{labelMarkup}'/>
+  </comp:Markup>
+
+</view:DemoPane>

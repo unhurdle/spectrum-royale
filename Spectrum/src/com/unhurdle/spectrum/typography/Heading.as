@@ -7,13 +7,16 @@ package com.unhurdle.spectrum.typography
     {
       super();
     }
-    override protected function getSuffix():String{
-      var suffix:String = "";
+    override protected function getSuffix():Array{
+      var suffix:Array = [];
       if(size == 1 || size == 2){
         if(quiet){
-          suffix = "--quiet";
+          suffix.push("--quiet");
         } else if(strong){
-          suffix = "--strong";
+          suffix.push("--strong");
+        }
+        if(display){
+          suffix.push("--display");
         }
       }
       return suffix;
@@ -52,6 +55,23 @@ package com.unhurdle.spectrum.typography
       if(value != !!_strong){
       	_strong = value;
         _quiet = false;
+        setTypeNames();
+      }
+    }
+    private var _display:Boolean;
+
+    /**
+     * The display varient of Heading1 or Heading2
+     */
+    public function get display():Boolean
+    {
+    	return _display;
+    }
+
+    public function set display(value:Boolean):void
+    {
+      if(value != !!_display){
+        _display = value;
         setTypeNames();
       }
     }

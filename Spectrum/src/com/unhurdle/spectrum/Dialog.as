@@ -7,6 +7,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.elements.Div;
   }
+    import com.unhurdle.spectrum.const.IconType;
+    import org.apache.royale.core.IChild;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -23,8 +25,8 @@ package com.unhurdle.spectrum
     public function Dialog()
     {
       super();
-      var overlay:SpectrumOverlay = new SpectrumOverlay();
-      // overlay.hideOnClick = false;
+      overlay = new SpectrumOverlay();
+      overlay.hideOnClick = false;
       addBead(overlay);
       addEventListener("modalShown",handleModalShow);
       addEventListener("modalHidden",handleModalHidden);
@@ -37,14 +39,69 @@ package com.unhurdle.spectrum
     public static const SMALL:int = 5;
     public static const MEDIUM:int = 6;
     public static const LARGE:int = 7;
-    
+    private var overlay:SpectrumOverlay;
     override protected function getSelector():String{
       return "spectrum-Dialog";
     }
+
+    COMPILE::JS
+    private var outerElement:HTMLElement;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,"div");
+      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
+      outerElement = newElement("div",appendSelector("-wrapper"));
+      outerElement.appendChild(elem);
+      return elem
     }
+    /**
+     * The HTMLElement used to position the component.
+     * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement
+     */
+    COMPILE::JS
+    override public function get positioner():WrappedHTMLElement
+    {
+        return outerElement as WrappedHTMLElement;
+    }
+
+    override public function addedToParent():void{
+      super.addedToParent();
+      if(dismissible){
+        var head:DialogHeader = getHeaderElement();
+        head.addElementAt(getCloseButton(),head.numElements);
+      }
+    }
+    private var headerElem:DialogHeader;
+    private function getHeaderElement():DialogHeader{
+      if(!headerElem){
+        for(var i:int=0;i<numElements;i++){
+          var elem:IChild = getElementAt(i);
+          if(elem is DialogHeader){
+            headerElem = elem as DialogHeader;
+            break;
+          }
+        }
+        if(!headerElem){
+          headerElem = new DialogHeader();
+          var position:int = hero ? 1 : 0;
+          addElementAt(headerElem,position);
+        }
+      }
+      return headerElem
+    }
+    private var _closeButton:ActionButton;
+    private function getCloseButton():ActionButton{
+      if(!_closeButton){
+        _closeButton = new ActionButton();
+        _closeButton.quiet = true;
+        _closeButton.className = appendSelector("-closeButton");
+        var type:String = IconType.CROSS_LARGE;
+        _closeButton.icon = Icon.getCSSTypeSelector(type);
+        _closeButton.iconType = type;
+        _closeButton.addEventListener("click",hide);
+      }
+      return _closeButton;
+    }
+
     private var _size:int;
 
     public function get size():int
@@ -88,7 +145,7 @@ package com.unhurdle.spectrum
       if(value != !!_hero){
         // toggle(valueToSelector("hero"),value);
         COMPILE::JS{
-          if(value){
+          if(value){this.parent
             if(!heroDiv){
               heroDiv = new Div();
               heroDiv.className = appendSelector("-hero");
@@ -109,19 +166,21 @@ package com.unhurdle.spectrum
     {
     	return _dismissible;
     }
-    
     public function set dismissible(value:Boolean):void
     {
       if(value != !!_dismissible){
         toggle(valueToSelector("dismissible"),value);
         COMPILE::JS{
-          if(value){
-            var closeButton:ActionButton = new ActionButton();
-            closeButton.quiet = true;
-            closeButton.element.classList.add(appendSelector("-closeButton"));
-            addElement(closeButton);
-          }else{
-            removeElement(closeButton);
+          // already added, so we need to update elements
+          if(parent){
+            if(value){
+              var head:DialogHeader = getHeaderElement();
+              head.addElementAt(getCloseButton(),head.numElements);
+            } else {
+              if(_closeButton && _closeButton.parent){
+                _closeButton.parent.removeElement(_closeButton);
+              }
+            }
           }
         }          
       }
@@ -140,6 +199,16 @@ package com.unhurdle.spectrum
         toggle(valueToSelector("noDivider"),value);
       }
     	_noDivider = value;
+    }
+
+    public function get easyDismiss():Boolean
+    {
+    	return overlay.hideOnClick;
+    }
+
+    public function set easyDismiss(value:Boolean):void
+    {
+    	overlay.hideOnClick = value;
     }
     private var _error:Boolean;
 

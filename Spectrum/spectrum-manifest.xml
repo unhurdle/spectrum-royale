@@ -48,6 +48,7 @@
     <component id="Container" class="com.unhurdle.spectrum.Container"/>
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="DatePicker" class="com.unhurdle.spectrum.DatePicker"/>
+    <component id="DecoratedTextField" class="com.unhurdle.spectrum.DecoratedTextField"/>
     <component id="Detail" class="com.unhurdle.spectrum.typography.Detail"/>
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="Dialog" class="com.unhurdle.spectrum.Dialog"/>
@@ -69,6 +70,9 @@
     <component id="FlexContainer" class="com.unhurdle.spectrum.FlexContainer"/>
     <component id="FolderAsset" class="com.unhurdle.spectrum.FolderAsset"/>
     <component id="Form" class="com.unhurdle.spectrum.Form"/>
+    <component id="FormField" class="com.unhurdle.spectrum.FormField"/>
+    <component id="FormItem" class="com.unhurdle.spectrum.FormItem"/>
+    <component id="FormLabel" class="com.unhurdle.spectrum.FormLabel"/>
     <component id="Heading" class="com.unhurdle.spectrum.typography.Heading"/>
     <component id="Icon" class="com.unhurdle.spectrum.Icon"/>
     <component id="IllustratedMessage" class="com.unhurdle.spectrum.IllustratedMessage"/>

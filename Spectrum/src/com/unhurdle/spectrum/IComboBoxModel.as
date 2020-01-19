@@ -66,5 +66,8 @@ package com.unhurdle.spectrum
 		function get quiet():Boolean;
 		function set quiet(value:Boolean):void;
 
+		function get invalid():Boolean;
+		function set invalid(value:Boolean):void;
+
 	}  
 }

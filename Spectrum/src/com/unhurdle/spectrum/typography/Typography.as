@@ -23,10 +23,18 @@ package com.unhurdle.spectrum.typography
     }
     override protected function getSelector():String{
       var sizeStr:String = "" + size;
-      return getTypographySelector() + sizeStr + getSuffix();
+      var retVal:String = '';
+      var suffix:Array = getSuffix();
+      if(!suffix.length){
+        return getTypographySelector() + sizeStr;
+      }
+      for(var i:int =0;i<suffix.length;i++){
+        retVal += getTypographySelector() + sizeStr + suffix[i] + ' ';
+      }
+      return retVal;
     }
-    protected function getSuffix():String{
-      return "";
+    protected function getSuffix():Array{
+      return [];
     }
     protected function getDefaultSize():Number{
       return 1;
