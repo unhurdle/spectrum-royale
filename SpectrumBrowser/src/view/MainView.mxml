@@ -41,6 +41,7 @@
         import view.panes.TooltipPane;
         import view.panes.ComingSoonPane;
         import view.panes.ToolPane;
+        import view.panes.SwitchPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -107,7 +108,7 @@
         new NavProvider("Text area",ComingSoonPane),
         new NavProvider("Text Field",ComingSoonPane),
         new NavProvider("Toast",ComingSoonPane),
-        new NavProvider("Switch",ComingSoonPane),
+        new NavProvider("Switch",SwitchPane),
         new NavProvider("Tool",ToolPane),
         new NavProvider("Tooltip",TooltipPane),
         new NavProvider("Tree View",ComingSoonPane),

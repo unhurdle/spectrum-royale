@@ -21,6 +21,7 @@ package com.unhurdle.spectrum
       return "spectrum-ToggleSwitch";
     }
     private var label:TextNode;
+    private var labelA:TextNode;
     private var input:HTMLInputElement;
 
     COMPILE::JS
@@ -48,6 +49,17 @@ package com.unhurdle.spectrum
     {
       _text = value
       label.text = value;
+    }
+    private var _textA:String;
+    public function get textA():String
+    {
+      return _textA;
+    }
+
+    public function set textA(value:String):void
+    {
+      _textA = value
+      labelA.text = value;
     }
     public function get checked():Boolean
     {
@@ -85,6 +97,18 @@ package com.unhurdle.spectrum
     {
       if(!!value != _onOff){
         toggle(valueToSelector("ab"),!value);
+        COMPILE::JS{          
+          if(!value){          
+            labelA = new TextNode("label");
+            labelA.className = appendSelector("-label");
+            element.insertBefore(labelA.element,input);
+            labelA.text = textA;
+          }else if(labelA){
+            element.removeChild(labelA.element);
+            textA = "";
+            labelA = null;
+          }
+        }
       	_onOff = value;
       }
     }

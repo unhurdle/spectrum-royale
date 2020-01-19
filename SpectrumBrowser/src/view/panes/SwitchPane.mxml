@@ -1,0 +1,66 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Switch">
+  <fx:Script>
+    <![CDATA[
+    ]]>
+  </fx:Script>
+  <comp:Variant notes="The on/off variant of the Switch.">
+    <Div>
+      <sp:Switch text="Toggle Off"/>
+      <sp:Switch text="Toggle On" checked="true"/>
+      <Br/>
+      <sp:Switch text="Toggle Off" disabled="true"/>
+      <sp:Switch text="Toggle On" checked="true" disabled="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off" disabled="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true" disabled="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Quiet" notes="The quiet variant of the Switch.">
+    <Div>
+      <sp:Switch text="Toggle Off" quiet="true"/>
+      <sp:Switch text="Toggle On" checked="true" quiet="true"/>
+      <Br/>
+      <sp:Switch text="Toggle Off" disabled="true" quiet="true"/>
+      <sp:Switch text="Toggle On" checked="true" disabled="true" quiet="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off" quiet="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true" quiet="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off" disabled="true" quiet="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true" disabled="true" quiet="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="A/B toggle" notes="The a/b toggle variant of the switch.\n Do not use this variant of the switch">
+    <Div>
+      <sp:Switch onOff="false" textA="A" text="B"/>
+      <Br/>
+      <sp:Switch onOff="false" textA="A" text="B" disabled="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Switch onOff="false" textA="A" text="B"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Switch onOff="false" textA="A" text="B" disabled="true"/&gt;'/>
+  </comp:Markup>
+</view:DemoPane>
