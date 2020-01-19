@@ -1,0 +1,45 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Tool" notes="The tool button.">
+  <fx:Script>
+    <![CDATA[
+      import com.unhurdle.spectrum.const.IconPrefix;
+
+      private var iconType:String = IconPrefix._18 + 'Brush';
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <Div>
+      <sp:Tool icon="#spectrum-icon-18-Brush"/>
+      <sp:Tool icon="#spectrum-icon-18-Brush" selected="true"/>
+      <sp:Tool icon="#spectrum-icon-18-Brush" disabled="true"/>
+      <sp:Tool icon="#spectrum-icon-18-Brush" selected="true" disabled="true"/>
+      <Br/>
+      <sp:Tool icon="#spectrum-icon-18-Brush" cornerTriangle="true"/>
+      <sp:Tool icon="#spectrum-icon-18-Brush" selected="true" cornerTriangle="true"/>
+      <sp:Tool icon="#spectrum-icon-18-Brush" disabled="true" cornerTriangle="true"/>
+      <sp:Tool icon="#spectrum-icon-18-Brush" selected="true" disabled="true" cornerTriangle="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush" selected="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush" disabled="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush" selected="true" disabled="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush" cornerTriangle="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush" selected="true" cornerTriangle="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush" disabled="true" cornerTriangle="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tool icon="#spectrum-icon-18-Brush" selected="true" disabled="true" cornerTriangle="true"/&gt;'/>
+  </comp:Markup>
+</view:DemoPane>

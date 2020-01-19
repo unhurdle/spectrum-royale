@@ -1,0 +1,155 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Tooltip">
+  <fx:Script>
+    <![CDATA[
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Netural">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Label" direction="top"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Informative">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="info"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="info"/>
+      <sp:Tooltip isOpen="true" text="Info" direction="top" flavor="info" icon="info"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="info" icon="info"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="info"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="info"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Info" direction="top" flavor="info" icon="info"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="info" icon="info"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Positive">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="positive"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="positive"/>
+      <sp:Tooltip isOpen="true" text="Success" direction="top" flavor="positive" icon="success"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="positive" icon="success"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="positive"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="positive"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Success" direction="top" flavor="positive" icon="success"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="positive" icon="success"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Negative">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="negative"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="negative"/>
+      <sp:Tooltip isOpen="true" text="Warning" direction="top" flavor="negative" icon="alert"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="negative" icon="alert"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="negative"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="negative"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Warning" direction="top" flavor="negative" icon="alert"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="negative" icon="alert"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Directions" notes="Tooltips can be top, bottom, left, or right.">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Label" direction="top"/>
+      <Br/>
+      <Br/>
+      <sp:Tooltip isOpen="true" text="Label" direction="left"/>
+      <Br/>
+      <Br/>
+      <sp:Tooltip isOpen="true" text="Label" direction="right"/>
+      <Br/>
+      <Br/>
+      <sp:Tooltip isOpen="true" text="Label" direction="bottom"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="left"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="right"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="bottom"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Success" notes="Use positive instead.">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="success"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="success"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Error" notes="Use negative instead.">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="error"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="error"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Help" notes="An informative tooltip with a help icon.\n Use info">
+    <Div>
+      <sp:Tooltip isOpen="true" text="Help" direction="top" flavor="info" icon="help"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="info" icon="help"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Show on over" notes="A tooltip that shows on hover using CSS only. Note that this approach does not support text wrapping.">
+    <Div>
+      <sp:ShowOnOverTooltip direction="left" text="Tooltip Left" visibleText="Left"/>
+      <sp:ShowOnOverTooltip direction="bottom" text="Tooltip Bottom" visibleText="Bottom"/>
+      <sp:ShowOnOverTooltip direction="top" text="Tooltip Top" visibleText="Top"/>
+      <sp:ShowOnOverTooltip direction="right" text="Tooltip Right" visibleText="Right"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:ShowOnOverTooltip direction="left" text="Tooltip Left" visibleText="Left"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:ShowOnOverTooltip direction="bottom" text="Tooltip Bottom" visibleText="Bottom"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:ShowOnOverTooltip direction="top" text="Tooltip Top" visibleText="Top"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:ShowOnOverTooltip direction="right" text="Tooltip Right" visibleText="Right"/&gt;'/>
+  </comp:Markup>
+
+</view:DemoPane>
+          

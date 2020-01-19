@@ -21,6 +21,7 @@ package com.unhurdle.spectrum
       addElementToWrapper(this,"span") as HTMLSpanElement;
       textNode = new TextNode("");
       toolTip = new Tooltip();
+      style="margin: 15px 50px; cursor: default;";
       addElement(toolTip);
       textNode.element = element;
       return element;
