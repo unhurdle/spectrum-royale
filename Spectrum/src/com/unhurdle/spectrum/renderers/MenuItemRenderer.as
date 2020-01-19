@@ -40,9 +40,9 @@ package com.unhurdle.spectrum.renderers
       toggle(appendSelector("-sectionHeading"),menuItem.isHeading);
       var isItem:Boolean = !menuItem.isHeading && !menuItem.isDivider;
       toggle(appendSelector("-item"),isItem);
-      if(menuItem.isHeading){
+      // if(menuItem.isHeading){
         // element.style.pointerEvents = "none";
-      }
+      // }
       toggle(appendSelector("-divider"),menuItem.isDivider);
       if(menuItem.isDivider){
         // element.style.pointerEvents = "none";

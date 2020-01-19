@@ -140,9 +140,8 @@ package com.unhurdle.spectrum
         case Alert.WARNING:
           type = "Alert";
           break;
-      }
-      if(!type){
-        type == "Alert";
+        default:
+          type = "Alert";
       }
       var sizedType:String = type + "Medium";
       var iconClass:String = appendSelector("-icon");
