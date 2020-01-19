@@ -29,6 +29,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       //TODO how much of this can be done in Icons and other classes?
       addElementToWrapper(this,'div');
+      //TODO is this right?
       className = "spectrum-Datepicker";
       input = new TextField();
       input.className = appendSelector("-field");

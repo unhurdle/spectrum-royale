@@ -1,0 +1,68 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*" xmlns:js="library://ns.apache.org/royale/basic"
+  title="Tree View" initComplete="initComplete()">
+  <fx:Script>
+    <![CDATA[
+      import org.apache.royale.collections.TreeData;
+      import org.apache.royale.collections.HierarchicalData;
+      import com.unhurdle.spectrum.const.IconPrefix;
+
+      private var treeData1:TreeData;
+      private var treeData2:TreeData;
+      private var treeData3:TreeData;
+
+      private function initComplete():void
+      {
+        var arr1:Array = [];
+        arr1.push({label:'Layer 1'});
+        arr1.push({label:'Group 1',children:[{label:'Layer 2'},{label:'Layer 3'}]});
+        arr1.push({label:'Layer 4'});
+        arr1.push({label:'Layer 5'});
+        arr1.push({label:'Group 2',children:[{label:'Group 3',children:[{label:'Group 4',children:[{label:'Layer 6'},{label:'Group 5',children:[]}]}]}]});
+        var hierarchicalData1:HierarchicalData = new HierarchicalData({'children':arr1});
+        treeData1 = new TreeData(hierarchicalData1);
+        tree1.dataProvider = treeData1;
+
+        var arr2:Array = [];
+        arr2.push({icon:IconPrefix._18 + "Layers",label:'Layer 1'});
+        arr2.push({label:'Group 1',icon:IconPrefix._18 + "Folder",children:[{label:'Layer 2',icon:IconPrefix._18 + "Layers"},{label:'Layer 3',icon:IconPrefix._18 + "Layers"}]});
+        arr2.push({label:'Layer 4',icon:IconPrefix._18 + "Layers"});
+        arr2.push({label:'Layer 5',icon:IconPrefix._18 + "Layers"});
+        arr2.push({label:'Group 2',icon:IconPrefix._18 + "Folder",children:[{label:'Group 3',icon:IconPrefix._18 + "Folder",children:[{label:'Group 4',icon:IconPrefix._18 + "Folder",children:[{label:'Layer 6',icon:IconPrefix._18 + "Layers"},{label:'Group 5',icon:IconPrefix._18 + "Folder",children:[]}]}]}]});
+        var hierarchicalData2:HierarchicalData = new HierarchicalData({'children':arr2});
+        treeData2 = new TreeData(hierarchicalData2);
+        tree2.dataProvider = treeData2;
+        
+        var arr3:Array = [];
+        arr3.push({label:'Layer 1',disabled:true});
+        arr3.push({label:'Group 1',disabled:true,children:[{label:'Layer 2'},{label:'Layer 3'}]});
+        arr3.push({label:'Layer 4',disabled:false});
+        arr3.push({label:'Layer 5'});
+        arr3.push({label:'Group 2',children:[{label:'Group 3',children:[{label:'Group 4',children:[{label:'Layer 6'},{label:'Group 5',children:[]}]}]}]});
+        var hierarchicalData3:HierarchicalData = new HierarchicalData({'children':arr3});
+        treeData3 = new TreeData(hierarchicalData3);
+        tree3.dataProvider = treeData3;
+      }
+    ]]>
+  </fx:Script>
+  <comp:Variant >
+    <sp:Tree id="tree1"/>
+  </comp:Variant>
+  <comp:Markup>
+  <!--need Markup-->
+  </comp:Markup>
+  <comp:Variant header="Icons" notes="A Spectrum tree view with icons.">
+    <sp:Tree id="tree2"/>
+  </comp:Variant>
+  <comp:Markup>
+  <!--need Markup-->
+  </comp:Markup>
+  <comp:Variant header="Disabled">
+    <sp:Tree id="tree3"/>
+  </comp:Variant>
+  <comp:Markup>
+  <!--need Markup-->
+  </comp:Markup>
+</view:DemoPane>
