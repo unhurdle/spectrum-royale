@@ -68,14 +68,6 @@ package com.unhurdle.spectrum.renderers
       //   textNode.text = getLabelFromData(this,value);
       // }
       elem.addEventListener("click",sideNavClick);
-      disabled = sideNavItem.disabled;
-      if(sideNavItem.disabled){
-        elem.classList.add("is-disabled");
-        elem.style.pointerEvents = "none";
-      }
-      if(sideNavItem.selected){
-        elem.classList.add("is-selected");
-      }
       if(sideNavItem.icon && !elementParentIsSideNavItem(elem)){
         if(!icon){
           icon = new Icon(sideNavItem.icon);

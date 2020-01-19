@@ -110,7 +110,7 @@ package com.unhurdle.spectrum{
 					comboHost.toggle("is-focused",false);
 				});
 			}
-			input.addEventListener(KeyboardEvent.KEY_UP,handleInput);
+			input.addEventListener(KeyboardEvent.KEY_UP,inputHandler);
 			input.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
 			button = new FieldButton();
       button.className = appendSelector("-button");
@@ -218,8 +218,9 @@ package com.unhurdle.spectrum{
 			modifyingList = false;
 
 		}
-		private function handleInput(ev:KeyboardEvent):void{
-			if (ev.key.length > 1) {// not a simple key (does this work for advanced input?)
+		private var handleInput:Boolean = true;
+		private function inputHandler(ev:KeyboardEvent):void{
+			if (ev.key.length > 1 && ev.key != "Backspace" && ev.key != "Delete") {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
 			if(input.text){
@@ -227,7 +228,9 @@ package com.unhurdle.spectrum{
 			} else {
 				list.dataProvider = model.dataProvider;
 			}
+			handleInput = false;
 			list.selectedItem = model.selectedItem;
+			handleInput = true;
 		}
 		/**
 		 *  Returns whether or not the pop-up is visible.
@@ -346,7 +349,7 @@ package com.unhurdle.spectrum{
 			}
 			var item:Object = model.selectedItem;
 			var text:String = getLabelFromData(list,item);
-			if(text){
+			if(handleInput && text){
 				input.text = text;
 			}
 		}

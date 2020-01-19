@@ -9,58 +9,58 @@
   </fx:Script>
   <comp:Variant notes="The on/off variant of the Switch.">
     <Div>
-      <sp:Switch text="Toggle Off"/>
-      <sp:Switch text="Toggle On" checked="true"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true"/>
       <Br/>
-      <sp:Switch text="Toggle Off" disabled="true"/>
-      <sp:Switch text="Toggle On" checked="true" disabled="true"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On" disabled="true"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true" disabled="true"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Br/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off" disabled="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On" disabled="true"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true" disabled="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true" disabled="true"/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Quiet" notes="The quiet variant of the Switch.">
     <Div>
-      <sp:Switch text="Toggle Off" quiet="true"/>
-      <sp:Switch text="Toggle On" checked="true" quiet="true"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On" quiet="true"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true" quiet="true"/>
       <Br/>
-      <sp:Switch text="Toggle Off" disabled="true" quiet="true"/>
-      <sp:Switch text="Toggle On" checked="true" disabled="true" quiet="true"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On" disabled="true" quiet="true"/>
+      <sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true" disabled="true" quiet="true"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off" quiet="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On" quiet="true"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true" quiet="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true" quiet="true"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Br/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle Off" disabled="true" quiet="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On" disabled="true" quiet="true"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Switch text="Toggle On" checked="true" disabled="true" quiet="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch offLabel="Toggle Off" onLabel="Toggle On" checked="true" disabled="true" quiet="true"/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="A/B toggle" notes="The a/b toggle variant of the switch.\n Do not use this variant of the switch">
     <Div>
-      <sp:Switch onOff="false" textA="A" text="B"/>
+      <sp:Switch leftLabel="A" rightLabel="B"/>
       <Br/>
-      <sp:Switch onOff="false" textA="A" text="B" disabled="true"/>
+      <sp:Switch leftLabel="A" rightLabel="B" disabled="true"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Switch onOff="false" textA="A" text="B"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch leftLabel="A" rightLabel="B"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Br/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Switch onOff="false" textA="A" text="B" disabled="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Switch leftLabel="A" rightLabel="B" disabled="true"/&gt;'/>
   </comp:Markup>
 </view:DemoPane>

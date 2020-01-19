@@ -3,6 +3,7 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
+    import org.apache.royale.events.Event;
   }
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Switch extends SpectrumBase
@@ -20,8 +21,8 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-ToggleSwitch";
     }
-    private var label:TextNode;
-    private var labelA:TextNode;
+    private var _rightLabelElem:TextNode;
+    private var _leftLabelElem:TextNode;
     private var input:HTMLInputElement;
 
     COMPILE::JS
@@ -30,36 +31,77 @@ package com.unhurdle.spectrum
       input = newElement("input") as HTMLInputElement;
       input.className = appendSelector("-input");
       input.type = "checkbox";
+      input.addEventListener("change",handleInputChange);
       elem.appendChild(input);
       var span:HTMLElement = newElement("span");
       span.className = appendSelector("-switch");
       elem.appendChild(span);
-      label = new TextNode("label");
-      label.className = appendSelector("-label");
-      elem.appendChild(label.element);
       return elem;
     }
-    private var _text:String;
-    public function get text():String
+    override public function addedToParent():void{
+      super.addedToParent();
+      COMPILE::JS
+      {
+        if(_leftLabel && !_leftLabelElem){
+          _leftLabelElem = new TextNode("label");
+          _leftLabelElem.className = appendSelector("-label");
+          _leftLabelElem.text = _leftLabel;
+          element.insertBefore(_leftLabelElem.element,input);
+        }
+        if(_rightLabel || !_leftLabelElem){
+          _rightLabelElem = new TextNode("label");
+          _rightLabelElem.className = appendSelector("-label");
+          _rightLabelElem.text = _rightLabel;
+          element.appendChild(_rightLabelElem.element);
+        }
+        handleInputChange(null);
+      }
+    }
+    private function handleInputChange(ev:Event):void{
+      var label:String = input.checked ? onLabel : offLabel;
+      if(label){
+        if(_rightLabelElem){
+          _rightLabelElem.text = label;
+        }
+        if(_leftLabelElem){
+          _leftLabelElem.text = label
+        }
+      } else {
+        if(_rightLabelElem){
+          _rightLabelElem.text = _rightLabel;
+        }
+        if(_leftLabelElem){
+          _leftLabelElem.text = _leftLabel;
+        }
+      }
+    }
+    public var onLabel:String;
+    public var offLabel:String;
+    private var _rightLabel:String = "";
+    public function get rightLabel():String
     {
-      return _text;
+      return _rightLabel;
     }
 
-    public function set text(value:String):void
+    public function set rightLabel(value:String):void
     {
-      _text = value
-      label.text = value;
+      _rightLabel = value
+      if(_rightLabelElem){
+        _rightLabelElem.text = value;
+      }
     }
-    private var _textA:String;
-    public function get textA():String
+    private var _leftLabel:String = "";
+    public function get leftLabel():String
     {
-      return _textA;
+      return _leftLabel;
     }
 
-    public function set textA(value:String):void
+    public function set leftLabel(value:String):void
     {
-      _textA = value
-      labelA.text = value;
+      _leftLabel = value
+      if(_leftLabelElem){
+        _leftLabelElem.text = value;
+      }
     }
     public function get checked():Boolean
     {
@@ -86,32 +128,7 @@ package com.unhurdle.spectrum
       }
     	_disabled = value;
     }
-    private var _onOff:Boolean = true;
 
-    public function get onOff():Boolean
-    {
-    	return _onOff;
-    }
-
-    public function set onOff(value:Boolean):void
-    {
-      if(!!value != _onOff){
-        toggle(valueToSelector("ab"),!value);
-        COMPILE::JS{          
-          if(!value){          
-            labelA = new TextNode("label");
-            labelA.className = appendSelector("-label");
-            element.insertBefore(labelA.element,input);
-            labelA.text = textA;
-          }else if(labelA){
-            element.removeChild(labelA.element);
-            textA = "";
-            labelA = null;
-          }
-        }
-      	_onOff = value;
-      }
-    }
     private var _quiet:Boolean;
 
     public function get quiet():Boolean
