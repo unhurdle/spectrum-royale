@@ -39,9 +39,9 @@
         <Span>Well said Ben!</Span>
       </sp:Well>
     </sp:Well>
-    <comp:Markup>
-      <comp:StyledCode text="{codeString}"/>
-    </comp:Markup>
   </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString}"/>
+  </comp:Markup>
 </view:DemoPane>
           

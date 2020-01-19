@@ -23,33 +23,33 @@ package com.unhurdle.spectrum
     public function TabBar()
     { 
       super();
+      typeNames = "";
     }
 
     private var _quiet:Boolean;
     private var _compact:Boolean;
-    private var _vertical:Boolean;
+    private var _vertical:Boolean = false;
     private var tabOverflow:TabOverflow; 
     private var tabWidth:Number;
     private var hasDropdown:Boolean;
-    private var direction:String;
     private var _tabs:Array;
     private var indicator:TabIndicator;
     private var count:int = 0;
 
     override protected function getSelector():String
     {
-      return getTabsSelector() + direction; 
+      return getTabsSelector(); 
     }
 
     override protected function appendSelector(value:String):String{
       return getSelector() + value;
     }
 
-    COMPILE::JS
-    override protected function computeFinalClassNames():String
-    {
-      return element.className as String;
-    }
+    // COMPILE::JS
+    // override protected function computeFinalClassNames():String
+    // {
+    //   return element.className as String;
+    // }
     
     public function get quiet():Boolean
     {
@@ -59,11 +59,7 @@ package com.unhurdle.spectrum
     public function set quiet(value:Boolean):void
     {
       if(value != !!_quiet){
-        COMPILE::JS
-        {
-          element.classList.add("spectrum-Tabs--quiet");
-        }
-        
+        toggle(valueToSelector("quiet"),value);
       }
       _quiet = value;
     }
@@ -76,19 +72,8 @@ package com.unhurdle.spectrum
     public function set compact(value:Boolean):void 
     {
       
-      if(value != !!_compact && !quiet){ 
-        COMPILE::JS
-        {
-          element.classList.add("spectrum-Tabs--compact");
-          element.classList.add("spectrum-Tabs--quiet");
-        }
-      }
-
-      if(value != !!_compact && quiet){
-        COMPILE::JS
-        {
-          element.classList.add("spectrum-Tabs--compact");
-        }
+      if(value != !!_compact){
+        toggle(valueToSelector("compact"),value);
       }
       _compact = value;
     }
@@ -99,13 +84,9 @@ package com.unhurdle.spectrum
 
     public function set vertical(value:Boolean):void 
     {
-      if(value == true){
-        COMPILE::JS
-        {
-        direction = " spectrum-Tabs--vertical";
-        element.classList.remove("spectrum-Tabs--horizontal");
-        element.className = appendSelector("");
-        }
+      if(value != _vertical){
+        toggle(valueToSelector("horizontal"),!value);
+        toggle(valueToSelector("vertical"),value);
       }
       _vertical = value;
     }
@@ -114,8 +95,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement
     { 
       addElementToWrapper(this,'div');
-      direction = " spectrum-Tabs--horizontal";
-      element.className = appendSelector("");
+      toggle(valueToSelector("horizontal"),true);
       window.addEventListener("resize",resized,false);
       return element;
     }  
@@ -247,6 +227,7 @@ package com.unhurdle.spectrum
       {
         var elementsChildren:Object = element.children;
         for (var i:int = 0;i<elementsChildren.length;i++){
+          //TODO better way to do this?
           if(elementsChildren[i].classList.contains("spectrum-Tabs-selectionIndicator")){
             elementsChildren[i].remove();
           }

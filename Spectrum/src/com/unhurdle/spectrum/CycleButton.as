@@ -35,7 +35,8 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'button');
       // var type:String =
       playIcon = new Icon(IconPrefix._18 + "PlayCircle");
-      playIcon.className = appendSelector("-item is-selected");
+      playIcon.className = appendSelector("-item");
+      playIcon.toggle("is-selected",true);
       _paused = false;
       addElement(playIcon);
       pauseIcon = new Icon(IconPrefix._18 + "PauseCircle");
@@ -63,13 +64,15 @@ package com.unhurdle.spectrum
       }
     }
     public function setPaused(value:Boolean,dispatch:Boolean=false):void{
-      if(value){
-        pauseIcon.className = appendSelector("-item is-selected");
-        playIcon.className = appendSelector("-item");
-      } else {
-        pauseIcon.className = appendSelector("-item");
-        playIcon.className = appendSelector("-item is-selected");
-      }
+      pauseIcon.toggle("is-selected",value);
+      playIcon.toggle("is-selected",!value);
+      // if(value){
+      //   pauseIcon.className = appendSelector("-item is-selected");
+      //   playIcon.className = appendSelector("-item");
+      // } else {
+      //   pauseIcon.className = appendSelector("-item");
+      //   playIcon.className = appendSelector("-item is-selected");
+      // }
       _paused = value;
       if(dispatch){
         dispatchEvent(new Event("change"));

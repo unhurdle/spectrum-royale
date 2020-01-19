@@ -132,6 +132,7 @@ package com.unhurdle.spectrum
         if(val != _pagesNum){
         	_pagesNum = val;
             for(var i:int=0;i<val;i++){
+              //TODO use ActionButton?
                 var link:HTMLElement = newElement("a","spectrum-ActionButton spectrum-ActionButton--quiet");
                 link.setAttribute("href","#");
                 var node:TextNode = new TextNode("span");

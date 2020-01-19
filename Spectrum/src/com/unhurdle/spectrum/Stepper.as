@@ -58,7 +58,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       input = new NumberField();
-      input.className = "spectrum-Stepper-input";
+      input.className =  appendSelector("-input");
       // default to any valid integer
       input.min = Number.MIN_SAFE_INTEGER;
       input.max = Number.MAX_SAFE_INTEGER;

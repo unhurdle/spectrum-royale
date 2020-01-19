@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum.data
 {
-  public class ListItem implements IListItem
+  public class ListItem extends DataItem implements IListItem
   {
     public function ListItem(text:String="")
     {

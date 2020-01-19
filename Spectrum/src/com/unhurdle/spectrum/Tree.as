@@ -18,6 +18,7 @@ package com.unhurdle.spectrum
     public function Tree()
     {
       super();
+      classList = new CSSClassList();
       typeNames = getSelector();
     }
 

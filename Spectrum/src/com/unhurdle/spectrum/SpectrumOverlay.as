@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IParent;
   import org.apache.royale.core.UIBase;
   import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.html.elements.Div;
 
 
   public class SpectrumOverlay extends EventDispatcher implements IBead
@@ -57,7 +58,7 @@ package com.unhurdle.spectrum
     {
       hostParent = host.parent;
       var index:int = hostParent.getElementIndex(host);
-      overlay = new UIBase();
+      overlay = new Div();
       overlay.className = "spectrum-Underlay is-open";
       hostParent.addElementAt(overlay,index);
       overlay.addEventListener(MouseEvent.CLICK,handleClick);

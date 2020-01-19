@@ -69,16 +69,16 @@ package com.unhurdle.spectrum
     {
       addElementToWrapper(this,'div');
       element.appendChild(generateSVG(predefinedSVGElement()));
-
+      //TODO deprecated using Heading2 quiet instead
       header = new PageTitle(); 
-      header.element.classList.add("spectrum-IllustratedMessage-heading");
+      header.element.classList.add(appendSelector("-heading"));
       header.element.classList.add("spectrum-heading");
       header.element.classList.add(header.typeNames);
       
       element.appendChild(header.element);
-
+      //TODO change this to Body with a size of 4
       paragraph = new TextNode("p");
-      paragraph.className = "spectrum-Body--secondary spectrum-IllustratedMessage-description";
+      paragraph.className = "spectrum-Body--secondary " + appendSelector("-description");
       element.appendChild(paragraph.element);
 
       return element;
@@ -88,6 +88,7 @@ package com.unhurdle.spectrum
     {
       header.text = "Drag and Drop Your File";
       paragraph.text = "" ; //problem 
+      //TODO use Link
       hyperlink = new TextNode("a");
       (hyperlink as HTMLLinkElement).href ="#"; 
       hyperlink.className = "spectrum-Link";

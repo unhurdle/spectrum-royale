@@ -120,6 +120,7 @@ package com.unhurdle.spectrum
           //// span.className = appendSelector("-icon");
           // elem.children[i].className = appendSelector("-icon");
           //// elem.children[i].className = "spectrum-Rating-icon";
+          //TODO figure out if there's a better way to do this
           if(i <= val){
             elem.children[i].classList.add("is-selected");
             if(i == val){

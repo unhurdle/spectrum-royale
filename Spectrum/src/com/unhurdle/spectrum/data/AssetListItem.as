@@ -39,17 +39,17 @@ package com.unhurdle.spectrum.data
     {
     	_selectable = value;
     }
-    private var _selected:Boolean;
+    // private var _selected:Boolean;
 
-    public function get selected():Boolean
-    {
-    	return _selected;
-    }
+    // public function get selected():Boolean
+    // {
+    // 	return _selected;
+    // }
 
-    public function set selected(value:Boolean):void
-    {
-    	_selected = value;
-    }
+    // public function set selected(value:Boolean):void
+    // {
+    // 	_selected = value;
+    // }
 
   }
 }

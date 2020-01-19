@@ -37,6 +37,7 @@ package com.unhurdle.spectrum.renderers
       element.className = appendSelector("-item");
       if(breadCrumbsItem){
         if(breadCrumbsItem.isTitle){
+          //TODO Use Typography classes
           var h1:HTMLElement = newElement("h1");
           h1.className = "spectrum-Heading--pageTitle";
           // element.removeChild(textNode.element);

@@ -31,7 +31,7 @@ package com.unhurdle.spectrum.typography
       for(var i:int =0;i<suffix.length;i++){
         retVal += getTypographySelector() + sizeStr + suffix[i] + ' ';
       }
-      return retVal;
+      return retVal.trim();
     }
     protected function getSuffix():Array{
       return [];

@@ -131,7 +131,8 @@ package com.unhurdle.spectrum.renderers
           indicator.selector = Icon.getCSSTypeSelector(type);
         } else {
           indicator = new Icon(Icon.getCSSTypeSelector(type));
-          indicator.className = appendSelector("-chevron") + " " + appendSelector("-itemIcon");
+          indicator.toggle(appendSelector("-chevron"),true);
+          indicator.toggle(appendSelector("-itemIcon"),true);
           addElement(indicator);
         }
         indicator.type = type;
@@ -143,7 +144,7 @@ package com.unhurdle.spectrum.renderers
         }
         type = (data as MenuItem).isOpen? IconType.CHEVRON_DOWN_MEDIUM:IconType.CHEVRON_RIGHT_MEDIUM;
         indicator = new Icon(Icon.getCSSTypeSelector(type));
-        indicator.className = appendSelector("-itemIndicator");
+        indicator.toggle(appendSelector("-itemIndicator"),true);
         indicator.type = type;
         // addElement(indicator);
         element.insertBefore(indicator.element,element.firstElementChild());

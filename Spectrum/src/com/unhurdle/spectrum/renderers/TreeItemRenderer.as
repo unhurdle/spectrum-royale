@@ -8,7 +8,7 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.events.ValueEvent;
   }
 
-  public class TreeItemRenderer extends DataItemRenderer
+  public class TreeItemRenderer extends ListItemRenderer
   {
     public function TreeItemRenderer()
     {
@@ -22,7 +22,7 @@ package com.unhurdle.spectrum.renderers
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
-      element.className = appendSelector("-item");
+      toggle(appendSelector("-item"),true);
       if(listData is TreeListData){
         var treeListData:TreeListData = listData as TreeListData;
         var indentVal:String = "";
@@ -33,22 +33,16 @@ package com.unhurdle.spectrum.renderers
         element.style.marginLeft = indentVal;
       }
     }
-    COMPILE::JS
-    override public function set selected(value:Boolean):void
-    {
-      super.selected = value;
-      //TODO can we avoid writing these style directly?
-      var background:String = "";
-      if(value){
-        background = 'rgb(55, 142, 240)';
-      }
-      element.style.background = background;
-    }
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
-      return elem;
-    }
+    // COMPILE::JS
+    // override public function set selected(value:Boolean):void
+    // {
+    //   super.selected = value;
+    //   //TODO can we avoid writing these style directly?
+    //   var background:String = "";
+    //   if(value){
+    //     background = 'rgb(55, 142, 240)';
+    //   }
+    //   element.style.background = background;
+    // }
   }
 }

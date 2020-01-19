@@ -109,6 +109,7 @@ package com.unhurdle.spectrum
         var barElements:Object = tabBar.element.children; 
         for(var i:int = 0;i<barElements.length;i++){
           var elem:Object = barElements[i]; 
+          //TODO better way to do this?
             if(elem.classList.contains(getTabsSelector() +"-selectionIndicator")){
               elem.remove();
             }
@@ -161,7 +162,6 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement
     { 
       addElementToWrapper(this,'div');
-      element.className = getSelector();
       label = new TextNode("label");
       label.className = getTabsSelector() + "-itemLabel"; 
       element.appendChild(label.element); //addElem
