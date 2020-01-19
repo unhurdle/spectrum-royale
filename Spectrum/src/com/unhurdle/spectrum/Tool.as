@@ -79,7 +79,7 @@ package com.unhurdle.spectrum
         if(!cornerIcon ){
           var type:String = IconType.CORNER_TRIANGLE;
           cornerIcon = new Icon(Icon.getCSSTypeSelector(type));
-          iconElement.type = type;
+          cornerIcon.type = type;
           cornerIcon.className = appendSelector("-hold");
           var cornerElem:HTMLElement = cornerIcon.element as HTMLElement;
           button.appendChild(cornerElem);
