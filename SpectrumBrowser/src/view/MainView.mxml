@@ -38,6 +38,8 @@
         import view.panes.FieldLabelPane;
         import view.panes.FormPane;
         import view.panes.TypographyInternationalizedPane;
+        import view.panes.TooltipPane;
+        import view.panes.ComingSoonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane),
@@ -106,7 +108,7 @@
         new NavProvider("Toast",ComingSoonPane),
         new NavProvider("Switch",ComingSoonPane),
         new NavProvider("Tool",ComingSoonPane),
-        new NavProvider("Tooltip",ComingSoonPane),
+        new NavProvider("Tooltip",TooltipPane),
         new NavProvider("Tree View",ComingSoonPane),
         new NavProvider("Typography (Internationalized)",TypographyInternationalizedPane),
         new NavProvider("Typography",TypographyPane),
