@@ -1,0 +1,82 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Status Light">
+  <fx:Script>
+    <![CDATA[      
+    [Bindable] public var colors:String = 
+      '<sp:StatusLight status="celery" text="Celery Status"/>\n'+
+      '<sp:StatusLight status="yellow" text="Yellow Status"/>\n'+
+      '<sp:StatusLight status="fuchsia" text="Fuchsia Status"/>\n'+
+      '<sp:StatusLight status="indigo" text="Indigo Status"/>\n'+
+      '<sp:StatusLight status="seafoam" text="Seafoam Status"/>\n'+
+      '<sp:StatusLight status="chartreuse" text="Chartreuse Status"/>\n'+
+      '<sp:StatusLight status="magenta" text="Magenta Status"/>\n'+
+      '<sp:StatusLight status="purple" text="Purple Status"/>';
+
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Colors">
+    <sp:StatusLight status="celery" text="Celery Status"/>
+    <sp:StatusLight status="yellow" text="Yellow Status"/>
+    <sp:StatusLight status="fuchsia" text="Fuchsia Status"/>
+    <sp:StatusLight status="indigo" text="Indigo Status"/>
+    <sp:StatusLight status="seafoam" text="Seafoam Status"/>
+    <sp:StatusLight status="chartreuse" text="Chartreuse Status"/>
+    <sp:StatusLight status="magenta" text="Magenta Status"/>
+    <sp:StatusLight status="purple" text="Purple Status"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{colors}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Neutral">
+    <sp:StatusLight status="neutral" text="Paused"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:StatusLight status="neutral" text="Paused"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Info">
+    <sp:StatusLight status="info" text="Active"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:StatusLight status="info" text="Active"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Positive">
+    <sp:StatusLight status="positive" text="Approved"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:StatusLight status="positive" text="Approved"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Notice">
+    <sp:StatusLight status="notice" text="Needs Approval"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:StatusLight status="notice" text="Needs Approval"/&gt;'/>
+  </comp:Markup>  
+
+  <comp:Variant header="Negative">
+    <sp:StatusLight status="negative" text="Rejected"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:StatusLight status="negative" text="Rejected"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Disabled" notes="The disabled state of Status Light.">
+    <sp:StatusLight disabled="true" text="Disabled"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:StatusLightt disabled="true" text="Disabled"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Active" notes="The active variant of Status Light\n Use the info variant instead">
+    <sp:StatusLight status="active" text="Active"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:StatusLight status="active" text="Active"/&gt;'/>
+  </comp:Markup>
+  
+</view:DemoPane>

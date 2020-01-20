@@ -46,6 +46,7 @@
         import view.panes.LabelPane;
         import view.panes.ComingSoonPane;
         import view.panes.LinkPane;
+        import view.panes.StatusLightPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -102,7 +103,7 @@
         new NavProvider("Slider",ComingSoonPane,"slider"),
         new NavProvider("Split Button",ComingSoonPane,"split_button"),
         new NavProvider("SplitView",ComingSoonPane,"split_view"),
-        new NavProvider("Status Light",ComingSoonPane,"status_light"),
+        new NavProvider("Status Light",StatusLightPane,"status_light"),
         new NavProvider("Steplist",ComingSoonPane,"steplist"),
         new NavProvider("Stepper",ComingSoonPane,"stepper"),
         new NavProvider("Switch",SwitchPane,"switch"),
