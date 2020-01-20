@@ -1,0 +1,110 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Label">
+  <fx:Script>
+    <![CDATA[
+      
+[Bindable] public var standard:String =
+    '<Div>\n'+
+    '   <sp:Label text="Grey Label" color="grey"/>\n'+
+    '   <sp:Label text="Red Label" color="red"/>\n'+
+    '   <sp:Label text="Orange Label" color="orange"/>\n'+
+    '   <sp:Label text="Yellow Label" color="yellow"/>\n'+
+    '   <sp:Label text="Seafoam Label" color="seafoam"/>\n'+
+    '   <sp:Label text="Green Label" color="green"/>\n'+
+    '   <sp:Label text="Blue Label" color="blue"/>\n'+
+    '   <sp:Label text="Fuchsia Label" color="fuchsia"/>\n'+
+    '</Div>';
+
+[Bindable] public var small:String = 
+    '<Div>\n'+
+    '   <sp:Label size="small" text="Grey Label" color="grey"/>\n'+
+    '   <sp:Label size="small" text="Red Label" color="red"/>\n'+
+    '   <sp:Label size="small" text="Orange Label" color="orange"/>\n'+
+    '   <sp:Label size="small" text="Yellow Label" color="yellow"/>\n'+
+    '   <sp:Label size="small" text="Seafoam Label" color="seafoam"/>\n'+
+    '   <sp:Label size="small" text="Green Label" color="green"/>\n'+
+    '   <sp:Label size="small" text="Blue Label" color="blue"/>\n'+
+    '   <sp:Label size="small" text="Fuchsia Label" color="fuchsia"/>\n'+
+    '</Div>';
+
+[Bindable] public var large:String = 
+    '<Div>\n'+
+    '   <sp:Label size="large" text="Grey Label" color="grey"/>\n'+
+    '   <sp:Label size="large" text="Red Label" color="red"/>\n'+
+    '   <sp:Label size="large" text="Orange Label" color="orange"/>\n'+
+    '   <sp:Label size="large" text="Yellow Label" color="yellow"/>\n'+
+    '   <sp:Label size="large" text="Seafoam Label" color="seafoam"/>\n'+
+    '   <sp:Label size="large" text="Green Label" color="green"/>\n'+
+    '   <sp:Label size="large" text="Blue Label" color="blue"/>\n'+
+    '   <sp:Label size="large" text="Fuchsia Label" color="fuchsia"/>\n'+
+    '</Div>';
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <Div>
+      <sp:Label text="Grey Label" color="grey"/>
+      <sp:Label text="Red Label" color="red"/>
+      <sp:Label text="Orange Label" color="orange"/>
+      <sp:Label text="Yellow Label" color="yellow"/>
+      <sp:Label text="Seafoam Label" color="seafoam"/>
+      <sp:Label text="Green Label" color="green"/>
+      <sp:Label text="Blue Label" color="blue"/>
+      <sp:Label text="Fuchsia Label" color="fuchsia"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{standard}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Activity labels">
+    <Div>    
+      <sp:Label text="Active" color="active"/>
+      <sp:Label text="Inactive" color="inactive"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;Div&gt;'/>
+    <Br/>
+    <comp:StyledCode text='   &lt;sp:Label text="Active" color="active"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='   &lt;sp:Label text="Inactive" color="inactive"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/Div&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Small" notes="A small label">
+    <Div>
+      <sp:Label size="small" text="Grey Label" color="grey"/>
+      <sp:Label size="small" text="Red Label" color="red"/>
+      <sp:Label size="small" text="Orange Label" color="orange"/>
+      <sp:Label size="small" text="Yellow Label" color="yellow"/>
+      <sp:Label size="small" text="Seafoam Label" color="seafoam"/>
+      <sp:Label size="small" text="Green Label" color="green"/>
+      <sp:Label size="small" text="Blue Label" color="blue"/>
+      <sp:Label size="small" text="Fuchsia Label" color="fuchsia"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{small}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Large" notes="A large label">
+    <Div>
+      <sp:Label size="large" text="Grey Label" color="grey"/>
+      <sp:Label size="large" text="Red Label" color="red"/>
+      <sp:Label size="large" text="Orange Label" color="orange"/>
+      <sp:Label size="large" text="Yellow Label" color="yellow"/>
+      <sp:Label size="large" text="Seafoam Label" color="seafoam"/>
+      <sp:Label size="large" text="Green Label" color="green"/>
+      <sp:Label size="large" text="Blue Label" color="blue"/>
+      <sp:Label size="large" text="Fuchsia Label" color="fuchsia"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{large}'/>
+  </comp:Markup>
+
+</view:DemoPane>
