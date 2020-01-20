@@ -45,6 +45,7 @@
         import view.panes.WellPane;
         import view.panes.LabelPane;
         import view.panes.ComingSoonPane;
+        import view.panes.LinkPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -81,7 +82,7 @@
         new NavProvider("Form",FormPane,"form"),
         new NavProvider("Illustrated Message",ComingSoonPane,"illustrated_message"),
         new NavProvider("Label",LabelPane,"label"),
-        new NavProvider("Link",ComingSoonPane,"link"),
+        new NavProvider("Link",LinkPane,"link"),
         new NavProvider("Logic Button",ComingSoonPane,"logic_button"),
         new NavProvider("Menu",ComingSoonPane,"menu"),
         new NavProvider("Meter",ComingSoonPane,"meter"),
