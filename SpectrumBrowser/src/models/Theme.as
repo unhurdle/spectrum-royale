@@ -1,5 +1,7 @@
 package models
 {
+  import org.apache.royale.routing.Router;
+
   public class Theme
   {
     /**
@@ -12,12 +14,24 @@ package models
     }
     public static function setTheme(value:String):void{
       app.colorstop = value;
+      if(!router.routeState.parameters){
+        router.routeState.parameters = {};
+      }
+      router.routeState.parameters["colorstop"] = value;
+      router.setState();
     }
     public static function getSize():String{
       return app.appScale;
     }
     public static function setSize(value:String):void{
       app.appScale = value;
+      if(!router.routeState.parameters){
+        router.routeState.parameters = {};
+      }
+      router.routeState.parameters["appScale"] = value;
+      router.setState();
+      
     }
+    public static var router:Router;
   }
 }

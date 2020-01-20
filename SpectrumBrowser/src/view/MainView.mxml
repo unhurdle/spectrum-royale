@@ -3,7 +3,10 @@
   xmlns:js="library://ns.apache.org/royale/basic" initComplete="setNavSelection()">
   <fx:Script>
     <![CDATA[
+        import com.unhurdle.spectrum.Application;
+
         import models.NavProvider;
+        import models.Theme;
 
         import org.apache.royale.routing.RouteState;
 
@@ -44,13 +47,13 @@
         import view.panes.StatusLightPane;
         import view.panes.SwitchPane;
         import view.panes.TextFieldDecoratedPane;
+        import view.panes.ToastPane;
         import view.panes.ToolPane;
         import view.panes.TooltipPane;
         import view.panes.TreeViewPane;
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
-        import view.panes.ToastPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -126,12 +129,28 @@
         new NavProvider("Well",WellPane,"well")
       ];
       private function setNavSelection():void{
+        Theme.router = router;
         var routeState:RouteState = router.routeState;
         if(routeState.state){
           setNavFromHash(routeState.state);
         } else {
           sideNav.selectedIndex = 0;
           setNav()
+        }
+        if(routeState.parameters){
+          if(routeState.parameters["appScale"]){
+            Application.current.appScale = routeState.parameters["appScale"];
+          } else {
+            Application.current.appScale = "medium";
+          }
+          if(routeState.parameters["colorstop"]){
+            Application.current.colorstop = routeState.parameters["colorstop"];
+          } else {
+            Application.current.colorstop = "light";
+          }
+        } else {
+          Application.current.appScale = "medium";
+          Application.current.colorstop = "light";
         }
       }
       private function setNav():void{
