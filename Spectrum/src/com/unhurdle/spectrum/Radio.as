@@ -87,7 +87,7 @@ package com.unhurdle.spectrum
         }
         public function set invalid(value:Boolean):void
         {
-            if(value == !!_invalid){
+            if(value != !!_invalid){
                 toggle("is-invalid",value);
             }
             _invalid = value;
@@ -112,7 +112,10 @@ package com.unhurdle.spectrum
 
         public function set quiet(value:String):void
         {
-        	_quiet = value
+        	if(_quiet != value){
+                toggle(valueToSelector("quiet"),value);
+            }
+            _quiet = value
         }
          public function get radioName():String
         {
