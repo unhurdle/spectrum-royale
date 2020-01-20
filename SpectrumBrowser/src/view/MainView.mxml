@@ -1,8 +1,11 @@
 <sp:View xmlns:fx="http://ns.adobe.com/mxml/2009"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:panes="view.panes.*" xmlns:js="library://ns.apache.org/royale/basic" initComplete="setNavSelection()">
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:panes="view.panes.*"
+  xmlns:js="library://ns.apache.org/royale/basic" initComplete="setNavSelection()">
   <fx:Script>
     <![CDATA[
         import models.NavProvider;
+
+        import org.apache.royale.routing.RouteState;
 
         import view.DemoPane;
         import view.panes.AccordionPane;
@@ -35,6 +38,10 @@
         import view.panes.FieldGroupPane;
         import view.panes.FieldLabelPane;
         import view.panes.FormPane;
+        import view.panes.LabelPane;
+        import view.panes.LinkPane;
+        import view.panes.RadioPane;
+        import view.panes.StatusLightPane;
         import view.panes.SwitchPane;
         import view.panes.TextFieldDecoratedPane;
         import view.panes.ToolPane;
@@ -43,11 +50,6 @@
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
-        import view.panes.LabelPane;
-        import view.panes.ComingSoonPane;
-        import view.panes.LinkPane;
-        import view.panes.StatusLightPane;
-        import view.panes.RadioPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -123,8 +125,9 @@
         new NavProvider("Well",WellPane,"well")
       ];
       private function setNavSelection():void{
-        if(router.hash){
-          setNavFromHash(router.hash);
+        var routeState:RouteState = router.routeState;
+        if(routeState.state){
+          setNavFromHash(routeState.state);
         } else {
           sideNav.selectedIndex = 0;
           setNav()
@@ -141,14 +144,15 @@
       private function onNavChange():void{
         setNav();
         var provider:NavProvider = sideNav.selectedItem as NavProvider;
-        window.history.pushState(null, provider.text, '#!'+ provider.hashLink);
+        router.routeState.title = provider.text;
+        router.routeState.state = provider.hashLink;
+        router.setState();
       }
       private var currentPane:DemoPane;
       private function hashChanged():void{
         setNavSelection();
       }
       private function setNavFromHash(hash:String):void{
-        hash = hash.replace(/[#!]/g,"");
         for each(var nav:NavProvider in navProvider){
           if(nav.hashLink == hash){
             sideNav.selectedItem = nav;
@@ -186,7 +190,7 @@
     }
   </fx:Style>
   <sp:beads>
-    <js:HashChangeNotifierBeadWithTitle id="router" hashChange="hashChanged()" />                
+    <js:Router id="router" stateChange="hashChanged()" />                
   </sp:beads>
   <sp:FlexContainer id="mainGroup" wrap="false">
     <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;flex-shrink: 0; background-color:rgba(0.5,0.5,0.5,0.05)"/>
