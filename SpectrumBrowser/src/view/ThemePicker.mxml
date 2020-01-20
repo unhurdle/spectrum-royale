@@ -5,8 +5,12 @@
     <![CDATA[
       import models.Theme;
       import com.unhurdle.spectrum.data.MenuItem;
+      import org.apache.royale.utils.callLater;
       
       private function onComplete():void{
+        callLater(setValues);
+      }
+      private function setValues():void{
         themeDropdown.selectedIndex = menuToValues(themeDropdown.dataProvider as Array).indexOf(Theme.getTheme());
         sizeDropdown.selectedIndex = menuToValues(sizeDropdown.dataProvider as Array).indexOf(Theme.getSize());
       }
