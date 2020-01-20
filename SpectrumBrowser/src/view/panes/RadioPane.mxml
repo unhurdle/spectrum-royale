@@ -1,0 +1,77 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Radio">
+  <fx:Script>
+    <![CDATA[
+    [Bindable] public var standartMarkup:String = 
+      '<sp:Form>\n'+
+      '  <sp:Radio radioName="pets" text="Kittens"/>\n'+
+      '  <sp:Radio radioName="pets" text="Puppies" checked="true"/>\n'+
+      '</sp:Form>\n'+
+      '<sp:Form>\n'+
+      '  <sp:Radio radioName="pets" text="Kittens" disabled="true"/>\n'+
+      '  <sp:Radio radioName="pets" text="Puppies" checked="true" disabled="true"/>\n'+
+      '</sp:Form>\n'+
+      '<sp:Form>\n'+
+      '  <sp:Radio radioName="pets" text="Kittens" invalid="true"/>\n'+
+      '  <sp:Radio radioName="pets" text="Puppies" checked="true" invalid="true"/>\n'+
+      '</sp:Form>\n'+
+      '<sp:Radio radioName="longname" text="Radio with an extraordinarily long label please don`t do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>';
+
+    [Bindable] public var quietMarkup:String = 
+      '<sp:Form>\n'+
+      '  <sp:Radio radioName="pets" quiet="true" text="Kittens"/>\n'+
+      '  <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true"/>\n'+
+      '</sp:Form>\n'+
+      '<sp:Form>\n'+
+      '  <sp:Radio radioName="pets" quiet="true" text="Kittens" disabled="true"/>\n'+
+      '  <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true" disabled="true"/>\n'+
+      '</sp:Form>\n'+
+      '<sp:Form>\n'+
+      '  <sp:Radio radioName="pets" quiet="true" text="Kittens" invalid="true"/>\n'+
+      '  <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true" invalid="true"/>\n'+
+      '</sp:Form>\n'+
+      '<sp:Radio radioName="longname" quiet="true" text="Radio with an extraordinarily long label please don`t do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>';
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <sp:Form>
+      <sp:Radio radioName="pets" text="Kittens"/>
+      <sp:Radio radioName="pets" text="Puppies" checked="true"/>
+    </sp:Form>
+    <sp:Form>
+      <sp:Radio radioName="pets" text="Kittens" disabled="true"/>
+      <sp:Radio radioName="pets" text="Puppies" checked="true" disabled="true"/>
+    </sp:Form>
+    <sp:Form>
+      <sp:Radio radioName="pets" text="Kittens" invalid="true"/>
+      <sp:Radio radioName="pets" text="Puppies" checked="true" invalid="true"/>
+    </sp:Form>
+    <sp:Radio radioName="longname" text="Radio with an extraordinarily long label please don't do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{standartMarkup}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Quiet">
+    <sp:Form>
+      <sp:Radio radioName="pets" quiet="true" text="Kittens"/>
+      <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true"/>
+    </sp:Form>
+    <sp:Form>
+      <sp:Radio radioName="pets" quiet="true" text="Kittens" disabled="true"/>
+      <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true" disabled="true"/>
+    </sp:Form>
+    <sp:Form>
+      <sp:Radio radioName="pets" quiet="true" text="Kittens" invalid="true"/>
+      <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true" invalid="true"/>
+    </sp:Form>
+    <sp:Radio radioName="longname" quiet="true" text="Radio with an extraordinarily long label please don't do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{quietMarkup}'/>
+  </comp:Markup>
+
+</view:DemoPane>

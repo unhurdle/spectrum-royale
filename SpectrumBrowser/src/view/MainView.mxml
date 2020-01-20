@@ -47,6 +47,7 @@
         import view.panes.ComingSoonPane;
         import view.panes.LinkPane;
         import view.panes.StatusLightPane;
+        import view.panes.RadioPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -94,7 +95,7 @@
         new NavProvider("Pagination - Page",ComingSoonPane,"pagination_page"),
         new NavProvider("Popover",ComingSoonPane,"popover"),
         new NavProvider("Quick Actions",ComingSoonPane,"quick_actions"),
-        new NavProvider("Radio",ComingSoonPane,"radio"),
+        new NavProvider("Radio",RadioPane,"radio"),
         new NavProvider("Rating",ComingSoonPane,"rating"),
         new NavProvider("Rule",ComingSoonPane,"rule"),
         new NavProvider("Search",ComingSoonPane,"search"),
