@@ -22,7 +22,7 @@ package com.unhurdle.spectrum.typography
       return "";
     }
     override protected function getSelector():String{
-      var sizeStr:String = "" + size;
+      var sizeStr:String = size? "" + size: "";
       var retVal:String = '';
       var suffix:Array = getSuffix();
       if(!suffix.length){
