@@ -50,7 +50,7 @@
   </comp:Markup>
 
   <comp:Variant header="End Range">
-    <sp:Calendar startDate="{lastDate}"/>
+    <sp:Calendar endDate="{lastDate}"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{endText}'/>

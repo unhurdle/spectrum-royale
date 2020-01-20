@@ -167,19 +167,10 @@ package com.unhurdle.spectrum
             // no range
             element.classList.remove(isRangeClass);
           } else {
-            if(atStart){
-              // element.classList.add(selectionStart);
-              toggle(selectionStart,true);
-              // className = selectionStart;
-            } else if(atEnd){
-              // element.classList.add(selectionEnd);
-              toggle(selectionEnd,true);
-              // className = selectionEnd;
-            }
-            // have a range
-            // element.classList.add(isRangeClass);
+            toggle(selectionStart,atStart);
+            toggle(selectionEnd,atEnd);
+            
             toggle(isRangeClass,true);
-            // className = isRangeClass;
           }
         } else {
           toggleWeekStart(false);
