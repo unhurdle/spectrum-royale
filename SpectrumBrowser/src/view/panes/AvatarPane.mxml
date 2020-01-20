@@ -13,9 +13,9 @@
     <sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" disabled="true"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" disabled="true"/&gt;\n'/>
-    <Br/>
     <comp:StyledCode text='&lt;sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" /&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Avatar src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" disabled="true"/&gt;\n'/>
   </comp:Markup>
 
 </view:DemoPane>
