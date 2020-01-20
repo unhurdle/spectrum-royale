@@ -11,7 +11,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.Event;
 
-	[Event(name="submit", type="org.apache.royale.events.Event")]
+	[Event(name="search", type="org.apache.royale.events.Event")]
   public class Search extends SpectrumBase
   {
     /**
@@ -35,7 +35,7 @@ package com.unhurdle.spectrum
     	return input.text;
     }
 
-    public function set value(value:String):void
+    public function set text(value:String):void
     {
     	input.text = value;
     }
@@ -93,7 +93,7 @@ package com.unhurdle.spectrum
     }
     private function handleSubmit(ev:Event):Boolean{
       ev.preventDefault();
-      dispatchEvent(new Event("submit"));
+      dispatchEvent(new Event("search"));
       return false;
     }
     COMPILE::JS
