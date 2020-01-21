@@ -2,7 +2,7 @@
     xmlns:fx="http://ns.adobe.com/mxml/2009"
     xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
     xmlns:comp="view.components.*"
-    title="SearchWithin" notes="Override the width of the component where necessary.">
+    title="Search Within" notes="Override the width of the component where necessary.">
     <fx:Script>
         <![CDATA[
             [Bindable]public var provider:Array = ["All","Item 1","Item 2","Item 3"];

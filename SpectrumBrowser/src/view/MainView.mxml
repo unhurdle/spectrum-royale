@@ -59,6 +59,7 @@
         import view.panes.TagsPane;
         import view.panes.SearchPane;
         import view.panes.SearchWithinPane;
+        import view.panes.LogicButtonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -96,7 +97,7 @@
         new NavProvider("Illustrated Message",ComingSoonPane,"illustrated_message"),
         new NavProvider("Label",LabelPane,"label"),
         new NavProvider("Link",LinkPane,"link"),
-        new NavProvider("Logic Button",ComingSoonPane,"logic_button"),
+        new NavProvider("Logic Button",LogicButtonPane,"logic_button"),
         new NavProvider("Menu",ComingSoonPane,"menu"),
         new NavProvider("Meter",ComingSoonPane,"meter"),
         new NavProvider("Miller Columns",ComingSoonPane,"miller_columns"),

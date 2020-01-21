@@ -15,15 +15,23 @@ package com.unhurdle.spectrum
       return "spectrum-LogicButton";
     }
     
-    private var button:HTMLButtonElement;
+		private var textNode:TextNode;
 		
 		COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-			button = newElement("button") as HTMLButtonElement;
-			elem.appendChild(button);
-			return elem;
+			addElementToWrapper(this,'button');
+			textNode = new TextNode("");
+      textNode.element = element;
+			addEventListener('click',clickHandler)
+			return element;
     }
+
+		private function clickHandler():void
+		{
+			if(!_disabled){
+				type = type == 'and' ? 'or' : 'and';
+			}
+		}
 			private var _type:String;
 
 			public function get type():String
@@ -37,7 +45,10 @@ package com.unhurdle.spectrum
 					switch (value){
 						// check that values are valid
 						case "and":
+							textNode.text = 'And';
+							break;
 						case "or":
+							textNode.text = 'Or';
 							break;
 						default:
 							throw new Error("Invalid type: " + value);
@@ -49,7 +60,6 @@ package com.unhurdle.spectrum
 							toggle(valueToSelector(value), true);
 						}
 						_type = value;
-						button.value = value;
 				}
 			}
         private var _disabled:Boolean;
@@ -62,7 +72,7 @@ package com.unhurdle.spectrum
         public function set disabled(value:Boolean):void
         {
             if(!!value != !!_disabled){
-                button.disabled = value;
+              toggle("is-disabled",value);
             }
         	_disabled = value;
         }
