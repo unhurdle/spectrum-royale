@@ -1,0 +1,90 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:comp="view.components.*"
+  title="Tags" notes="A list of tags.">
+  <fx:Script>
+    <![CDATA[
+        [Bindable]public var codeString1:String =
+        '<sp:TagGroup>\n'+
+        '    <sp:Tag text="Tag 1"/>\n'+
+        '    <sp:Tag text="Tag 2" invalid="true"/>\n'+
+        '    <sp:Tag text="Tag 3" isDisabled="true"/>\n'+
+        '</sp:TagGroup>\n'+
+        '<Br/><Br/>\n'+
+        '<sp:TagGroup>\n'+
+        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>\n'+
+        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>\n'+
+        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>\n'+
+        '</sp:TagGroup>\n'+
+        '<Br/><Br/>\n'+
+        '<sp:TagGroup>\n'+
+        '    <sp:Tag text="Shantanu" src=""/>\n'+
+        '    <sp:Tag text="Shantanu" src="" invalid="true"/>\n'+
+        '    <sp:Tag text="Shantanu" src="" isDisabled="true"/>\n'+
+        '</sp:TagGroup>';
+        [Bindable]public var codeString2:String =
+        '<sp:TagGroup>\n'+
+        '    <sp:Tag text="Tag 1" deletable="true"/>\n'+
+        '    <sp:Tag text="Tag 2" deletable="true" invalid="true"/>\n'+
+        '    <sp:Tag text="Tag 3" deletable="true" isDisabled="true"/>\n'+
+        '</sp:TagGroup>\n'+
+        '<Br/><Br/>\n'+
+        '<sp:TagGroup>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>\n'+
+        '</sp:TagGroup>\n'+
+        '<Br/><Br/>\n'+
+        '<sp:TagGroup>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src=""/>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="" invalid="true"/>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="" isDisabled="true"/>\n'+
+        '</sp:TagGroup>';
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <sp:TagGroup>
+        <sp:Tag text="Tag 1"/>
+        <sp:Tag text="Tag 2" invalid="true"/>
+        <sp:Tag text="Tag 3" isDisabled="true"/>
+    </sp:TagGroup>
+    <Br/><Br/>
+    <sp:TagGroup>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>
+    </sp:TagGroup>
+    <Br/><Br/>
+    <sp:TagGroup>
+        <sp:Tag text="Shantanu" src=""/>
+        <sp:Tag text="Shantanu" src="" invalid="true"/>
+        <sp:Tag text="Shantanu" src="" isDisabled="true"/>
+    </sp:TagGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString1}'/>
+  </comp:Markup>
+  <comp:Variant header="Deletable" notes="An editable taglist.">
+    <sp:TagGroup>
+        <sp:Tag text="Tag 1" deletable="true"/>
+        <sp:Tag text="Tag 2" deletable="true" invalid="true"/>
+        <sp:Tag text="Tag 3" deletable="true" isDisabled="true"/>
+    </sp:TagGroup>
+    <Br/><Br/>
+    <sp:TagGroup>
+        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>
+        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>
+        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>
+    </sp:TagGroup>
+    <Br/><Br/>
+    <sp:TagGroup>
+        <sp:Tag text="Shantanu" deletable="true" src=""/>
+        <sp:Tag text="Shantanu" deletable="true" src="" invalid="true"/>
+        <sp:Tag text="Shantanu" deletable="true" src="" isDisabled="true"/>
+    </sp:TagGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString2}'/>
+  </comp:Markup>
+</view:DemoPane>

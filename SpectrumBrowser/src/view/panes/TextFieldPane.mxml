@@ -1,0 +1,50 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Text Field" notes="A Spectrum text field">
+  <fx:Script>
+    <![CDATA[
+        [Bindable]public var codeString1:String =
+        '<sp:TextField placeholder="Enter your name"/>\n'+
+        '<sp:TextField placeholder="Enter your name" disabled="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" text="Not a valid input" pattern="[\w\s]+" required="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" text="Not a valid input" invalid="true" disabled="true"/>';
+        [Bindable]public var codeString2:String =
+        '<sp:TextField placeholder="Enter your name" quiet="true"\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" disabled="true"\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true"\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true"\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" text="Not a valid input" pattern="[\w\s]+" required="true"\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" text="Not a valid input" invalid="true" disabled="true"';
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <Div>
+        <sp:TextField placeholder="Enter your name" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" disabled="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" text="Not a valid input" pattern="[\w\s]+" required="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" text="Not a valid input" invalid="true" disabled="true" style="margin-right: 5px;"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString1}'/>
+  </comp:Markup>
+  <comp:Variant header="Text Field - Quiet" notes="A Spectrum text field - quiet">
+    <Div>
+        <sp:TextField placeholder="Enter your name" quiet="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" disabled="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" text="Not a valid input" pattern="[\w\s]+" required="true" style="margin-right: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" text="Not a valid input" invalid="true" disabled="true" style="margin-right: 5px;"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString1}'/>
+  </comp:Markup>
+</view:DemoPane>
