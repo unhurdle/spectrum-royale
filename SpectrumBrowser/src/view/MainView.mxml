@@ -54,6 +54,7 @@
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
+        import view.panes.TextareaPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -117,7 +118,7 @@
         new NavProvider("Table",ComingSoonPane,"table"),
         new NavProvider("Tabs",ComingSoonPane,"tabs"),
         new NavProvider("Tags",ComingSoonPane,"tags"),
-        new NavProvider("Text area",ComingSoonPane,"text_area"),
+        new NavProvider("Text area",TextareaPane,"text_area"),
         new NavProvider("Text Field",ComingSoonPane,"text_field"),
         new NavProvider("Text Field - Decorated",TextFieldDecoratedPane,"text_field_decorated"),
         new NavProvider("Toast",ToastPane,"toast"),
