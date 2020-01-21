@@ -69,6 +69,7 @@
         import view.panes.TagsPane;
         import view.panes.LogicButtonPane;
         import view.panes.SliderPane;
+        import view.panes.IllustratedMessagePane;
         import view.panes.PopoverPane;
 
       [Bindable]public var navProvider:Array = [
@@ -104,7 +105,7 @@
         new NavProvider("Field Group",FieldGroupPane,"field_group"),
         new NavProvider("Field Label",FieldLabelPane,"field_label"),
         new NavProvider("Form",FormPane,"form"),
-        new NavProvider("Illustrated Message",ComingSoonPane,"illustrated_message"),
+        new NavProvider("Illustrated Message",IllustratedMessagePane,"illustrated_message"),
         new NavProvider("Label",LabelPane,"label"),
         new NavProvider("Link",LinkPane,"link"),
         new NavProvider("Logic Button",LogicButtonPane,"logic_button"),
