@@ -1,0 +1,139 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:view="view.*"
+    xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns="library://ns.apache.org/royale/html"
+    xmlns:comp="view.components.*" title="Menu" notes="">
+    <fx:Script>
+        <![CDATA[
+            [Bindable]public var standardMarkup:String = 
+            '<sp:Menu> \n'+
+            '     <sp:dataProvider> \n'+
+            '        <sp:MenuItem text="Deselect"/> \n'+
+            '        <sp:MenuItem text="Select Inverse"/> \n'+
+            '        <sp:MenuItem text="Feather..."/> \n'+
+            '        <sp:MenuItem text="Select and Mask"/> \n'+
+            '        <sp:MenuItem text="Save Selection"/> \n'+
+            '        <sp:MenuItem disabled="true" text="Make Work Path"/> \n'+
+            '     </sp:dataProvider> \n'+
+            '</sp:Menu> \n'+
+            '<sp:Menu> \n'+
+            '     <sp:dataProvider> \n'+
+            '        <sp:MenuItem isHeading="true" text="Section Heading"/> \n'+
+            '        <sp:MenuItem text="Action 1"/> \n'+
+            '        <sp:MenuItem text="Action 2"/> \n'+
+            '        <sp:MenuItem text="Action 3"/> \n'+
+            '        <sp:MenuItem isHeading = "true" text="Section Heading"/> \n'+
+            '        <sp:MenuItem icon="#spectrum-icon-18-SaveFloppy"> \n'+
+            '        <sp:text>Save</sp:text> \n'+
+            '        </sp:MenuItem> \n'+
+            '     <sp:MenuItem disabled="true" icon="#spectrum-icon-18-DataDownload"> \n'+
+            '            <sp:text>Download</sp:text> \n'+
+            '        </sp:MenuItem> \n'+
+            '    </sp:dataProvider> \n'+
+            '</sp:Menu> \n'+
+            '<sp:Menu> \n'+
+            '    <sp:dataProvider> \n'+
+            '        <sp:MenuItem isHeading="true" text="San Francisco"/> \n'+
+            '        <sp:MenuItem text="Financial District"/> \n'+
+            '        <sp:MenuItem text="South of Market"/> \n'+
+            '        <sp:MenuItem text="North Beach"/> \n'+
+            '    </sp:dataProvider> \n'+
+            '</sp:Menu> \n'+
+            '<sp:Menu> \n'+
+            '    <sp:dataProvider> \n'+
+            '        <sp:MenuItem isHeading="true" text="Oakland"/> \n'+
+            '            <sp:MenuItem text="City Center"/> \n'+
+            '            <sp:MenuItem disabled="true" text="Jack London Square"/> \n'+
+            '            <sp:MenuItem text = "My best friend mom house in the burbs just off Silverado street"/> \n'+
+            '        </sp:dataProvider> \n'+
+            '</sp:Menu>';
+                
+           
+            [Bindable]public var nestedMarkup:String = 
+            '          <sp:Menu>\n'+
+            '            <sp:dataProvider>\n'+
+            '                <sp:MenuItem text="Deselect"/>\n'+
+            '                <sp:MenuItem text="Select Inverse"/>\n'+
+            '                <sp:MenuItem text= "Feather...">\n'+
+            '                    <sp:subMenu>\n'+
+            '                        <sp:MenuItem text="Deselect"/>\n'+
+            '                        <sp:MenuItem text="Select and Mask"/>\n'+
+            '                    </sp:subMenu>\n'+
+            '                </sp:MenuItem>\n'+
+            '                <sp:MenuItem text="Select and Mask..."/>\n'+
+            '                <sp:MenuItem text="Save Selection"/>\n'+
+            '            </sp:dataProvider>\n'+
+            '          </sp:Menu>';
+        ]]>
+
+    </fx:Script>
+    <comp:Variant header="Standard">
+        <sp:FieldGroup>
+            <sp:Menu>
+                <sp:dataProvider>
+                    <sp:MenuItem text="Deselect"/>
+                    <sp:MenuItem text="Select Inverse"/>
+                    <sp:MenuItem text="Feather..."/>
+                    <sp:MenuItem text="Select and Mask"/>
+                    <sp:MenuItem text="Save Selection"/>
+                    <sp:MenuItem disabled="true" text="Make Work Path"/>
+                </sp:dataProvider>
+            </sp:Menu>
+            <sp:Menu>
+                <sp:dataProvider>
+                    <sp:MenuItem isHeading="true" text="Section Heading"/>
+                    <sp:MenuItem text="Action 1"/>  
+                    <sp:MenuItem text="Action 2"/>  
+                    <sp:MenuItem text="Action 3"/>  
+                    <sp:MenuItem isHeading = "true" text="Section Heading"/>
+                    <sp:MenuItem icon="#spectrum-icon-18-SaveFloppy"> 
+                       <sp:text>Save</sp:text>
+                    </sp:MenuItem> 
+                <sp:MenuItem disabled="true" icon="#spectrum-icon-18-DataDownload"> 
+                        <sp:text>Download</sp:text>
+                    </sp:MenuItem>     
+                </sp:dataProvider>
+            </sp:Menu>
+            <sp:Menu>
+                <sp:dataProvider>
+                    <sp:MenuItem isHeading="true" text="San Francisco"/>
+                    <sp:MenuItem text="Financial District"/>
+                    <sp:MenuItem text="South of Market"/>
+                    <sp:MenuItem text="North Beach"/>
+                </sp:dataProvider>
+            </sp:Menu>
+            <sp:Menu>
+                <sp:dataProvider>
+                    <sp:MenuItem isHeading="true" text="Oakland"/>
+                        <sp:MenuItem text="City Center"/>
+                        <sp:MenuItem disabled="true" text="Jack London Square"/>
+                        <sp:MenuItem text = "My best friend's mom's house in the burbs just off Silverado street"/> 
+                    </sp:dataProvider>    
+            </sp:Menu>
+        </sp:FieldGroup>
+    </comp:Variant>
+
+    <comp:Markup>
+    <comp:StyledCode text='{standardMarkup}'/>
+     </comp:Markup>
+
+    <comp:Variant header="Nested">
+        <sp:FieldGroup>
+            <sp:Menu>
+            <sp:dataProvider>
+                <sp:MenuItem text="Deselect"/>
+                <sp:MenuItem text="Select Inverse"/>
+                <sp:MenuItem text= "Feather...">
+                    <sp:subMenu>
+                        <sp:MenuItem text="Deselect"/>
+                        <sp:MenuItem text="Select and Mask"/>
+                    </sp:subMenu>
+                </sp:MenuItem>
+                <sp:MenuItem text="Select and Mask..."/>
+                <sp:MenuItem text="Save Selection"/>
+            </sp:dataProvider>
+            </sp:Menu>
+        </sp:FieldGroup>
+    </comp:Variant>
+    <comp:Markup>
+    <comp:StyledCode text='{nestedMarkup}'/>
+    </comp:Markup>
+</view:DemoPane>

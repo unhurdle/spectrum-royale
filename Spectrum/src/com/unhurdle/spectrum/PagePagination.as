@@ -22,20 +22,20 @@ package com.unhurdle.spectrum
 				return "spectrum-Pagination";
 		}
 
-    private var prew:HTMLLinkElement;
+    private var prev:HTMLLinkElement;
     private var next:HTMLLinkElement;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,"nav");
       var buttonBase:String = "spectrum-Button spectrum-Button--primary spectrum-Button--quiet ";
-      prew = newElement("a",buttonBase+appendSelector("-prevButton")) as HTMLLinkElement
-      var prewSpan:TextNode = new TextNode("");
-      prewSpan.element = newElement("span","spectrum-Button-label") as HTMLSpanElement;
-      prewSpan.text = "prew";
-      prew.appendChild(prewSpan.element);
-      prew.addEventListener("click",prewPage);
-      elem.appendChild(prew);
+      prev = newElement("a",buttonBase+appendSelector("-prevButton")) as HTMLLinkElement
+      var prevSpan:TextNode = new TextNode("");
+      prevSpan.element = newElement("span","spectrum-Button-label") as HTMLSpanElement;
+      prevSpan.text = "prev";
+      prev.appendChild(prevSpan.element);
+      prev.addEventListener("click",prevPage);
+      elem.appendChild(prev);
       next = newElement("a",buttonBase + appendSelector("-nextButton")) as HTMLLinkElement
       var nextSpan:TextNode = new TextNode("");
       nextSpan.element = newElement("span","spectrum-Button-label") as HTMLSpanElement;
@@ -94,14 +94,14 @@ package com.unhurdle.spectrum
           }
         }
     }
-    private function prewPage():void{
+    private function prevPage():void{
       pageIsSelected > 1? pageIsSelected--: pageIsSelected = 1;
     }
     private function nextPage():void{
       pageIsSelected < pagesNum? pageIsSelected++: pageIsSelected = pagesNum;
     }
     private function enableOrDisable():void{
-      pageIsSelected == 1? prew.classList.add("is-disabled"): prew.classList.remove("is-disabled");
+      pageIsSelected == 1? prev.classList.add("is-disabled"): prev.classList.remove("is-disabled");
       pageIsSelected == pagesNum? next.classList.add("is-disabled"): next.classList.remove("is-disabled");
     }
     

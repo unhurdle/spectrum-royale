@@ -1,0 +1,14 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Pagination - Explicit">
+    <fx:Script>
+      <![CDATA[]]>
+    </fx:Script>
+    <comp:Variant header= "Standard">
+        <sp:ExplicitPagination pagesNum="10"/>
+    </comp:Variant>
+    <comp:Markup>
+      <comp:StyledCode text='&lt;sp:ExplicitPagination pagesNum="10"/&gt;'/>
+    </comp:Markup>
+</view:DemoPane>

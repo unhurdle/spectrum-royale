@@ -30,6 +30,8 @@
         import view.panes.CheckboxPane;
         import view.panes.CircleLoaderPane;
         import view.panes.ClearButtonPane;
+        import view.panes.CardPane;
+        import view.panes.MenuPane;
         import view.panes.CoachMarkPane;
         import view.panes.ComboboxPane;
         import view.panes.ComingSoonPane;
@@ -55,6 +57,12 @@
         import view.panes.TypographyPane;
         import view.panes.WellPane;
         import view.panes.TextareaPane;
+        import view.panes.StepperPane;
+        import view.panes.PaginationPagePane;
+        import view.panes.PaginationExplicitPane;
+        import view.panes.PaginationButtonStylePane;
+        import view.panes.MillerColumnsPane;
+        import view.panes.ComingSoonPane;
         import view.panes.TextFieldPane;
         import view.panes.TagsPane;
         import view.panes.SearchPane;
@@ -102,9 +110,9 @@
         new NavProvider("Meter",ComingSoonPane,"meter"),
         new NavProvider("Miller Columns",ComingSoonPane,"miller_columns"),
         new NavProvider("Page",ComingSoonPane,"page"),
-        new NavProvider("Pagination - Button Style",ComingSoonPane,"pagination_button_style"),
-        new NavProvider("Pagination - Explicit",ComingSoonPane,"pagination_explicit"),
-        new NavProvider("Pagination - Page",ComingSoonPane,"pagination_page"),
+        new NavProvider("Pagination - Button Style",PaginationButtonStylePane,"pagination_button_style"),
+        new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
+        new NavProvider("Pagination - Page",PaginationPagePane,"pagination_page"),
         new NavProvider("Popover",ComingSoonPane,"popover"),
         new NavProvider("Quick Actions",ComingSoonPane,"quick_actions"),
         new NavProvider("Radio",RadioPane,"radio"),
@@ -118,7 +126,7 @@
         new NavProvider("SplitView",ComingSoonPane,"split_view"),
         new NavProvider("Status Light",StatusLightPane,"status_light"),
         new NavProvider("Steplist",ComingSoonPane,"steplist"),
-        new NavProvider("Stepper",ComingSoonPane,"stepper"),
+        new NavProvider("Stepper",StepperPane,"stepper"),
         new NavProvider("Switch",SwitchPane,"switch"),
         new NavProvider("Table",ComingSoonPane,"table"),
         new NavProvider("Tabs",ComingSoonPane,"tabs"),
