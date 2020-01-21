@@ -38,11 +38,7 @@ package com.unhurdle.spectrum
     public function set isTitle(value:Boolean):void
     {
       if(value != !!_isTitle){
-        if(value){
-          className = valueToSelector("title");
-        } else {
-          className = "";
-        }
+          toggle(valueToSelector("title"),value);
       }
       _isTitle = value;
     }
@@ -56,11 +52,7 @@ package com.unhurdle.spectrum
     public function set multiline(value:Boolean):void
     {
       if(value != !!_multiline){
-        if(value){
-          className = getSelector() + "--multiline";
-        } else {
-          className = "";
-        }
+        toggle(appendSelector("multiline"),value);
       }
       _multiline = value;
     }
@@ -74,11 +66,7 @@ package com.unhurdle.spectrum
     public function set compact(value:Boolean):void
     {
       if(value != !!_compact){
-        if(value){
-          className = getSelector() + "--compact";
-        } else {
-          className = "";
-        }
+        toggle(appendSelector("compact"),value);
       }
       _compact = value;
     }

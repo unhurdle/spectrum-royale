@@ -20,6 +20,7 @@ package com.unhurdle.spectrum
 	// import com.unhurdle.spectrum.data.IMenuItem;
 	import com.unhurdle.spectrum.const.IconPrefix;
 	import com.unhurdle.spectrum.const.IconSize;
+	import com.unhurdle.spectrum.data.IMenuItem;
   /**
    * TODO maybe add flexible with styling of min-width: 0;width:auto;
    */
@@ -218,8 +219,7 @@ package com.unhurdle.spectrum
       newVal = new Array(value.length);
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
-        // if(value[i] is IMenuItem){
-        if(value[i] is MenuItem){
+        if(value[i] is IMenuItem){
           continue;
         }
         var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));

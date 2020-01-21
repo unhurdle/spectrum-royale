@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.html.List;
   import com.unhurdle.spectrum.includes.SideNavInclude;
+  import org.apache.royale.core.CSSClassList;
 
   public class List extends org.apache.royale.html.List
   {
@@ -22,6 +23,7 @@ package com.unhurdle.spectrum
     public function List()
     {
       super();
+      classList = new CSSClassList();
       typeNames = getSelector();
     }
 
@@ -33,6 +35,16 @@ package com.unhurdle.spectrum
     }
     protected function valueToSelector(value:String):String{
       return getSelector() + "--" + value;
+    }
+    protected var classList:CSSClassList;
+
+    public function toggle(classNameVal:String,add:Boolean):void
+    {
+      COMPILE::JS
+      {
+        add ? classList.add(classNameVal) : classList.remove(classNameVal);
+        setClassName(computeFinalClassNames());
+      }
     }
 
     COMPILE::JS

@@ -145,7 +145,7 @@ package com.unhurdle.spectrum
       if(value != !!_hero){
         // toggle(valueToSelector("hero"),value);
         COMPILE::JS{
-          if(value){this.parent
+          if(value){
             if(!heroDiv){
               heroDiv = new Div();
               heroDiv.className = appendSelector("-hero");

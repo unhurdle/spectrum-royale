@@ -26,9 +26,16 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         if(value){
-          element.setAttribute("lang",value);
+          if(value == 'he' || value == 'ar'){
+            setAttribute("dir","rtl")
+          }
+          else{
+            removeAttribute("dir");
+          }
+          setAttribute("lang",value);
         } else {
-          element.removeAttribute("lang");
+          removeAttribute("lang");
+          removeAttribute("dir");
         }
       }
     }

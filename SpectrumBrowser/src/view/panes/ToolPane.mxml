@@ -1,0 +1,45 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Tool" notes="The tool button.">
+  <fx:Script>
+    <![CDATA[
+import com.unhurdle.spectrum.const.IconPrefix;
+
+      [Bindable]public var iconSelector:String = IconPrefix._18 + "Brush";
+      [Bindable]public var flyoutList:Array = ["One","Two","Three"];
+      
+    [Bindable] public var codeString:String = 
+    '[Bindable]public var iconSelector:String = IconPrefix._18 + "Brush"\n'+
+    '[Bindable]public var flyoutList:Array = ["One","Two","Three"]\n\n'+
+    '<Div>\n'+
+    '   <sp:Tool icon="{iconSelector}"/>\n'+
+    '   <sp:Tool icon="{iconSelector}" selected="true"/>\n'+
+    '   <sp:Tool icon="{iconSelector}" disabled="true"/>\n'+
+    '   <sp:Tool icon="{iconSelector}" selected="true" disabled="true"/>\n'+
+    '   <Br/>\n'+
+    '   <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
+    '   <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
+    '   <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
+    '   <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" disabled="true"/>\n'+
+    '</Div>';
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <Div>
+      <sp:Tool icon="{iconSelector}"/>
+      <sp:Tool icon="{iconSelector}" selected="true"/>
+      <sp:Tool icon="{iconSelector}" disabled="true"/>
+      <sp:Tool icon="{iconSelector}" selected="true" disabled="true"/>
+      <Br/>
+      <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}"/>
+      <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>
+      <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>
+      <sp:Tool dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" disabled="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString}'/>
+  </comp:Markup>
+</view:DemoPane>

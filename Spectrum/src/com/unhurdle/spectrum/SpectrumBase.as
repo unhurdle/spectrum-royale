@@ -70,5 +70,30 @@ package com.unhurdle.spectrum
       }
     }
 
+    public function setAttribute(name:String,value:*):void
+    {
+      COMPILE::JS
+      {
+        element.setAttribute(name,value);
+      }            
+    }
+    public function getAttribute(name:String):*
+    {
+      COMPILE::JS
+      {
+        return element.getAttribute(name);
+      }
+      COMPILE::SWF
+      {
+        return "";
+      }
+    }
+    public function removeAttribute(name:String):void{
+      COMPILE::JS
+      {
+        element.removeAttribute(name);
+      }
+    }
+
   }
 }

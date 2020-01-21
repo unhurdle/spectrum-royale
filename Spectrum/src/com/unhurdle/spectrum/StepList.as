@@ -5,10 +5,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import org.apache.royale.html.List;
   import org.apache.royale.collections.IArrayList;
 
-  public class StepList extends org.apache.royale.html.List{
+  public class StepList extends List{
     /**
      * <inject_html>
      * <link rel="stylesheet" href="assets/css/components/steplist/dist.css">
@@ -19,9 +18,8 @@ package com.unhurdle.spectrum
     {
       super();
       height = 50;
-      typeNames = getSelector();
     }
-    private function getSelector():String{
+    override protected function getSelector():String{
         return "spectrum-Steplist";
     }
     COMPILE::JS
@@ -80,12 +78,7 @@ package com.unhurdle.spectrum
     public function set isSmall(value:Boolean):void
     {
       if(value != !!_isSmall){
-        if(value){
-          className = getSelector() + "--small";
-        }
-        else{
-          className = "";
-        }
+        toggle(valueToSelector("small"),value);
       }
     	_isSmall = value;
     }
@@ -97,12 +90,7 @@ package com.unhurdle.spectrum
     public function set interactive(value:Boolean):void
     {
       if(value != !!_interactive){
-        if(value){
-          className = getSelector() + "--interactive";
-        }
-        else{
-          className = "";
-        }
+        toggle(valueToSelector("interactive"),value);
       }
     	_interactive = value;
     }

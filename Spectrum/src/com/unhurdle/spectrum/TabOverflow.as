@@ -33,8 +33,10 @@ package com.unhurdle.spectrum
       addElementToWrapper(this,'div');
       direction = " spectrum-Tabs--horizontal";
       element.className = appendSelector("");
-      var elemStyle:String = "width: 409px";
-      element.setAttribute("style",elemStyle);
+      //TODO why is this hard coded?
+      width = 409;
+      // var elemStyle:String = "width: 409px";
+      // element.setAttribute("style",elemStyle);
       dropDown = new Dropdown();
       addElement(dropDown);
       element.appendChild(dummySpacing());
@@ -48,7 +50,7 @@ package com.unhurdle.spectrum
       {
       var indicator:TabIndicator = new TabIndicator();
       var styleStr:String = "width: 50px; left: 8px;";
-      indicator.element.setAttribute("style",styleStr);
+      indicator.setAttribute("style",styleStr);
       addElement(indicator);
       }
     }

@@ -40,9 +40,9 @@ package com.unhurdle.spectrum.renderers
       toggle(appendSelector("-sectionHeading"),menuItem.isHeading);
       var isItem:Boolean = !menuItem.isHeading && !menuItem.isDivider;
       toggle(appendSelector("-item"),isItem);
-      if(menuItem.isHeading){
+      // if(menuItem.isHeading){
         // element.style.pointerEvents = "none";
-      }
+      // }
       toggle(appendSelector("-divider"),menuItem.isDivider);
       if(menuItem.isDivider){
         // element.style.pointerEvents = "none";
@@ -131,7 +131,8 @@ package com.unhurdle.spectrum.renderers
           indicator.selector = Icon.getCSSTypeSelector(type);
         } else {
           indicator = new Icon(Icon.getCSSTypeSelector(type));
-          indicator.className = appendSelector("-chevron") + " " + appendSelector("-itemIcon");
+          indicator.toggle(appendSelector("-chevron"),true);
+          indicator.toggle(appendSelector("-itemIcon"),true);
           addElement(indicator);
         }
         indicator.type = type;
@@ -142,7 +143,7 @@ package com.unhurdle.spectrum.renderers
           removeElement(indicator);
         }
         indicator = new Icon(Icon.getCSSTypeSelector(type));
-        indicator.className = appendSelector("-itemIndicator");
+        indicator.toggle(appendSelector("-itemIndicator"),true);
         indicator.type = type;
         // addElement(indicator);
         element.insertBefore(indicator.element,element.firstElementChild);

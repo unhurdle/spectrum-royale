@@ -2,6 +2,7 @@ package com.unhurdle.spectrum.renderers
 {
   import org.apache.royale.html.supportClasses.DataItemRenderer;
   import org.apache.royale.core.CSSClassList;
+  import com.unhurdle.spectrum.data.IDataItem;
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
@@ -58,6 +59,23 @@ package com.unhurdle.spectrum.renderers
     // override the super behavior and do nothing.
 		override public function updateRenderer():void{
     }
+    override public function set data(value:Object):void{
+      super.data = value;
+      selected = getItemSelected();
+      disabled = getItemDisabled();
+    }
+    private function getItemSelected():Boolean{
+      if(data is IDataItem){
+        return (data as IDataItem).selected;
+      }
+      return data["selected"];
+    }
+    private function getItemDisabled():Boolean{
+      if(data is IDataItem){
+        return (data as IDataItem).disabled;
+      }
+      return data["disabled"];
+    }
     override public function set selected(value:Boolean):void{
       super.selected = value;
       toggle("is-selected",value);
@@ -72,6 +90,9 @@ package com.unhurdle.spectrum.renderers
     public function set disabled(value:Boolean):void{
     	_disabled = value;
       toggle("is-disabled",value);
+      if(value){
+        setStyle("pointerEvents","none");
+      }
     }
     
 

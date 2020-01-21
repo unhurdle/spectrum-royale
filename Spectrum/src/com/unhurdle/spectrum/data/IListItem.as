@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum.data
 {
-  public interface IListItem
+  public interface IListItem extends IDataItem
   {
     function get text():String;
     function set text(value:String):void;

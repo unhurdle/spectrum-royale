@@ -47,18 +47,6 @@ package com.unhurdle.spectrum
       toggle(valueToSelector("size" + value),true);
     }
 
-    public function setAttribute(name:String, value:Object):void{
-      COMPILE::JS
-      {
-        element.setAttribute(name,value);
-      }
-    }
-    public function removeAttribute(name:String):void{
-      COMPILE::JS
-      {
-        element.removeAttribute(name);
-      }
-    }
     
     private var _src:String;
 

@@ -31,15 +31,13 @@ package com.unhurdle.spectrum
 
     public function set for(value:String):void
     {
-      COMPILE::JS{
-        if(value != _for){
-          if(value){
-            element.setAttribute("for",value);
-          } else {
-            element.removeAttribute("for");
-          }
-          _for = value;
+      if(value != _for){
+        if(value){
+          setAttribute("for",value);
+        } else {
+          removeAttribute("for");
         }
+        _for = value;
       }
     }
     private var requiredIcon:Icon;

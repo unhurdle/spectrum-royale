@@ -251,7 +251,7 @@ package com.unhurdle.spectrum
 
             table = new org.apache.royale.html.elements.Table();
             table.className = appendSelector("-table");
-            table.element.setAttribute("role","presentation");
+            table.setAttribute("role","presentation");
 
             var daysOfTheWeekHeader:HTMLElement = newElement('thead');
             daysOfTheWeekHeader.setAttribute("role","presentation");
@@ -286,14 +286,14 @@ package com.unhurdle.spectrum
         override protected function createElement():WrappedHTMLElement{
             addElementToWrapper(this,'div');
             var styleStr:String = "width:280px;z-index:1;";
-            element.setAttribute("style",styleStr);
+            setAttribute("style",styleStr);
 
             var header:Div = new Div();
             header.className = appendSelector("-header");
             
             title = new TextNode('div');   
             title.className = appendSelector("-title");
-            title.element.setAttribute("role","heading");
+            title.setAttribute("role","heading");
             header.element.appendChild(title.element);
     
             prev = new ActionButton();
@@ -330,16 +330,17 @@ package com.unhurdle.spectrum
                 table.removeElement(calenderBody);
             }
             calenderBody = new org.apache.royale.html.elements.Tbody();
-            calenderBody.element.setAttribute("role","presentation");
+            calenderBody.setAttribute("role","presentation");
             var l:int = 0;
             for (var k:int = 0; k<6;k++,l--){
                 var calenderRow:Tr = new Tr();
-                calenderRow.element.setAttribute("role","row");
+                calenderRow.setAttribute("role","row");
+                var addRow:Boolean = true;
                for(var j:int = 0; j<7; j++,l++){
                     var cell:Td = new Td();  
-                    cell.element.setAttribute("role", "gridcell");
+                    cell.setAttribute("role", "gridcell");
                     cell.className = appendSelector("-tableCell");
-                    cell.element.tabIndex = -1;
+                    cell.tabIndex = -1;
                     var span:CalendarDay = new CalendarDay();
                     if(j == 0){
                         span.firstInWeek = true;
@@ -347,11 +348,16 @@ package com.unhurdle.spectrum
                         span.lastInWeek = true;
                     }
                     span.disabled = disabled;
+                    if(span.firstInWeek && k+l > 7 && !days[k+l]){
+                        // only need 5 rows.
+                        addRow = false;
+                        break;
+                    }
                     displayedDates.push(span);
                     if(days[k+l]){
                         span.isToday = days[k+l].toDateString() == today.toDateString();
                         var styleStr:String = "width:40px;height:40px;";
-                        cell.element.setAttribute("style",styleStr);
+                        cell.setAttribute("style",styleStr);
                         cell.element.title = days[k+l].getDate();
                         span.date = days[k+l] as Date;
                         
@@ -362,7 +368,9 @@ package com.unhurdle.spectrum
                     cell.addElement(span);
                     calenderRow.addElement(cell); 
                 }
-                calenderBody.addElement(calenderRow); 
+                if(addRow){
+                    calenderBody.addElement(calenderRow);
+                }
             }
             table.addElement(calenderBody);
             var start:Date = selectedDate;

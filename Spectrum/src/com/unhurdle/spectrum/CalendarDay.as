@@ -4,9 +4,10 @@ package com.unhurdle.spectrum
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
   }
 
-  public class CalendarDay extends Span
+  public class CalendarDay extends SpectrumBase
   {
     public function CalendarDay()
     {
@@ -22,12 +23,8 @@ package com.unhurdle.spectrum
 
     public function set date(value:Date):void
     {
-      text = "" + value.getDate();
+      span.text = "" + value.getDate();
     	_date = value;
-    }
-    private function toggleClassName(value:String):void{
-      className = className? className:"";
-      className += " " + value;
     }
     private var _isToday:Boolean;
 
@@ -39,12 +36,12 @@ package com.unhurdle.spectrum
     public function set isToday(value:Boolean):void
     {
       // if(value != !!_isToday){
-        if(value){
-          toggleClassName(" is-today");
+        // if(value){
+          toggle("is-today",value);
         //   (element as HTMLElement).classList.add("is-today");
         // } else {
         //   (element as HTMLElement).classList.remove("is-today");
-        }
+        // }
       // }
     	_isToday = value;
     }
@@ -58,12 +55,12 @@ package com.unhurdle.spectrum
     public function set isFocused(value:Boolean):void
     {
       // if(value != !!_isFocused){
-        if(value){
-          className = " is-focused";
+        // if(value){
+          toggle("is-focused",value);
         //   (element as HTMLElement).classList.add("is-focused");
         // } else {
         //   (element as HTMLElement).classList.remove("is-focused");
-        }
+        // }
       // }
     	_isFocused = value;
     }
@@ -77,15 +74,15 @@ package com.unhurdle.spectrum
     public function set disabled(value:Boolean):void
     {
       // if(value != !!_disabled){
-        if(value){
-          className = " is-disabled";
+        // if(value){
+          toggle("is-disabled",value);
           // (element as HTMLElement).classList.add("is-disabled");
         // } else {
           // if(className.includes(" is-disabled")){
           //   className = className.substr(className.indexOf(" is-disabled"),12);
           // }
           // (element as HTMLElement).classList.remove("is-disabled");
-        }
+        // }
       // }
     	_disabled = value;
     }
@@ -100,12 +97,12 @@ package com.unhurdle.spectrum
     public function set isOutsideMonth(value:Boolean):void
     {
       // if(value != !!_isOutsideMonth){
-        if(value){
-          className = " is-outsideMonth";
+        // if(value){
+          toggle("is-outsideMonth",value);
         //   (element as HTMLElement).classList.add("is-outsideMonth");
         // } else {
         //   (element as HTMLElement).classList.remove("is-outsideMonth");
-        }
+        // }
       // }
     	_isOutsideMonth = value;
     }
@@ -119,11 +116,12 @@ package com.unhurdle.spectrum
 
     public function set selected(value:Boolean):void
     {
-      if(value){
-        (element as HTMLElement).classList.add("is-selected");
-      } else {
-        (element as HTMLElement).classList.remove("is-selected");
-      }
+      toggle("is-selected",value);
+      // if(value){
+      //   (element as HTMLElement).classList.add("is-selected");
+      // } else {
+      //   (element as HTMLElement).classList.remove("is-selected");
+      // }
     	_selected = value;
     }
 
@@ -160,7 +158,7 @@ package com.unhurdle.spectrum
         var isRangeClass:String = "is-range-selection";
         if(atStart || atEnd || between){          
           // element.classList.add(isSelectedClass);
-          toggleClassName(isSelectedClass);
+          toggle(isSelectedClass,true);
           // className = isSelectedClass;
           toggleWeekStart(true);
           toggleWeekEnd(true);
@@ -169,19 +167,10 @@ package com.unhurdle.spectrum
             // no range
             element.classList.remove(isRangeClass);
           } else {
-            if(atStart){
-              // element.classList.add(selectionStart);
-              toggleClassName(selectionStart);
-              // className = selectionStart;
-            } else if(atEnd){
-              // element.classList.add(selectionEnd);
-              toggleClassName(selectionEnd);
-              // className = selectionEnd;
-            }
-            // have a range
-            // element.classList.add(isRangeClass);
-            toggleClassName(isRangeClass);
-            // className = isRangeClass;
+            toggle(selectionStart,atStart);
+            toggle(selectionEnd,atEnd);
+            
+            toggle(isRangeClass,true);
           }
         } else {
           toggleWeekStart(false);
@@ -210,14 +199,15 @@ package com.unhurdle.spectrum
         _curWeekEnd = (element as HTMLElement).classList.toggle("is-range-end");
       }
     }
+    private var span:TextNode;
 
     COMPILE::JS
     override protected function createElement():org.apache.royale.core.WrappedHTMLElement{
-      var elem:WrappedHTMLElement = super.createElement();
-      elem.setAttribute("role","presentation");
-      // elem.className = "spectrum-Calendar-date";
-      
-      return elem;
+      addElementToWrapper(this,'span') as HTMLSpanElement;
+      element.setAttribute("role","presentation");
+      span = new TextNode("");
+      span.element = element;
+      return element;
     }
   }
 }

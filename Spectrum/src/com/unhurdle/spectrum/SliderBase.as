@@ -129,7 +129,7 @@ package com.unhurdle.spectrum
                     }
                     if(_label && !labelNode){
                         labelNode = new TextNode("label");
-            labelNode.className = appendSelector("-label");
+                        labelNode.className = appendSelector("-label");
                         labelContainer.insertBefore(labelNode.element,labelContainer.childNodes[0] || null);
                     }
                     if(_displayValue && !valueNode){

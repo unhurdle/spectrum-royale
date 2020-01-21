@@ -38,7 +38,7 @@ package com.unhurdle.spectrum.renderers
       super.data = value;
       var elem:HTMLElement = element as HTMLElement;
       var stepsListItem:StepsListItem = value as StepsListItem;
-      elem.className = appendSelector("-item");
+      toggle(appendSelector("-item"),true);
       // elem.style.pointerEvents = null
       if(stepsListItem.interactive){
         var link:HTMLElement = newElement("a",appendSelector("-link"))

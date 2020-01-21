@@ -22,7 +22,7 @@ package com.unhurdle.spectrum.renderers
 
     override public function set data(value:Object):void{
       super.data = value;
-      (element as HTMLElement).className = appendSelector("-item");
+      toggle(appendSelector("-item"),true);
       var millerColumnsItem:MillerColumnsItem = value as MillerColumnsItem;
      
       // if(millerColumnsItem.assetList){

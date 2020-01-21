@@ -148,6 +148,7 @@ package com.unhurdle.spectrum
       if(!_shown){
         return;
       }
+      _shown = false;
       toggle("show", false);
       toggle("hide",true);
       setTimeout(removeMe,500);
@@ -189,6 +190,7 @@ package com.unhurdle.spectrum
           case "positive":
           case "success":
           case "negative":
+          case "error":
           case "warning":
           case "":
             break;
@@ -207,7 +209,7 @@ package com.unhurdle.spectrum
     }
 
     private var icon:Icon;
-
+    
     private function createIcon(flavor:String):void{
       var type:String;
 
@@ -216,6 +218,7 @@ package com.unhurdle.spectrum
         case "positive":type = "Success";break;
         case "success":type = "Success";break;
         case "info":type = "Info";break;
+        case "error":type = "Alert";break;
         case "warning":type = "Alert";break;
         default: return; // no default icon
       }
@@ -224,13 +227,15 @@ package com.unhurdle.spectrum
       var useSelector:String = Icon.getCSSTypeSelector(sizedType);
       if(icon){
         icon.type = sizedType;
-        icon.className = iconClass;
+        icon.toggle(iconClass,true);
         icon.selector = useSelector;
       } else {
         icon = new Icon(useSelector);
         icon.type = sizedType;
-        icon.className = iconClass;
-        addElementAt(icon,0);
+        icon.toggle(iconClass,true);
+        COMPILE::JS{
+          toast.insertBefore(icon.element ,body || null);
+        }
       }
 
     }

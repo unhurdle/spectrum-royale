@@ -30,18 +30,11 @@ package com.unhurdle.spectrum.renderers
       // var elem:HTMLElement = element as HTMLElement;
       var dropdownItem:DropdownItem = value as DropdownItem;
       element.className = "";
+      toggle(appendSelector("-divider"),dropdownItem.isDivider);
       if(dropdownItem.isDivider){
-        element.className = appendSelector("-divider");
         element.style.pointerEvents = "none";
       } else {
         textNode.className = getLabelFromData(this,value);
-      }
-      if(dropdownItem.disabled){
-        element.classList.add("is-disabled");
-        element.style.pointerEvents = "none";
-      }
-      if(dropdownItem.selected){
-        element.classList.add("is-selected");
       }
       if(dropdownItem.icon){
         if(!icon){

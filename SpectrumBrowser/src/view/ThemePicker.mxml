@@ -1,12 +1,16 @@
 <sp:FlexContainer xmlns:fx="http://ns.adobe.com/mxml/2009"
-  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:html="library://ns.apache.org/royale/html"
+  xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns="library://ns.apache.org/royale/html"
   initComplete="onComplete()" justifyContent="flex-end" wrap="true">
   <fx:Script>
     <![CDATA[
       import models.Theme;
       import com.unhurdle.spectrum.data.MenuItem;
+      import org.apache.royale.utils.callLater;
       
       private function onComplete():void{
+        callLater(setValues);
+      }
+      private function setValues():void{
         themeDropdown.selectedIndex = menuToValues(themeDropdown.dataProvider as Array).indexOf(Theme.getTheme());
         sizeDropdown.selectedIndex = menuToValues(sizeDropdown.dataProvider as Array).indexOf(Theme.getSize());
       }
@@ -34,7 +38,7 @@
         </fx:Array>
       </sp:dataProvider>
     </sp:Dropdown>
-    <html:Div width="32"/>
+    <Div width="32"/>
     <sp:FieldLabel text="Theme" position="left"/>
     <sp:Dropdown id="sizeDropdown" quiet="true" change="notifySizeChange()">
       <sp:dataProvider>

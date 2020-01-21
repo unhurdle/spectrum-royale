@@ -271,6 +271,7 @@ package com.unhurdle.spectrum.renderers
 		{
 			COMPILE::JS
 			{
+				//TODO better way to do this.
 			for (var i:int = 0;i<headerRow.element.children.length;i++){
 				if(headerRow.element.children[i].classList.contains('is-sortable')) {
 					if(!isSorted){ //ascending A-Z
@@ -411,21 +412,20 @@ package com.unhurdle.spectrum.renderers
 					if(test.sortable == true){
 						tableHeader.sortable = true;
 						tableHeader.addEventListener('click',checkToSort);
-						COMPILE::JS
-				{
-					if(isSorted){
-					
-						tableHeader.element.classList.add("is-sorted-asc");
-						tableHeader.element.setAttribute('aria-sort','ascending');
+						if(isSorted){
+							tableHeader.toggle("is-sorted-asc",true);
+							tableHeader.toggle("is-sorted-desc",false);
+							tableHeader.setAttribute('aria-sort','ascending');
+						}
+						else {
+							tableHeader.toggle("is-sorted-asc",false);
+							tableHeader.toggle("is-sorted-desc",true);
+							
+							tableHeader.element.classList.add("is-sorted-desc");
+							tableHeader.element.setAttribute('aria-sort','descending');
+						}
 					}
-					else if(isSorted == false){
-						
-						tableHeader.element.classList.add("is-sorted-desc");
-						tableHeader.element.setAttribute('aria-sort','descending');
-					}
-				}
 			}
-		}
 			COMPILE::JS
 			{
 				var textNode:TextNode = new TextNode('');
