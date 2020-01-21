@@ -1,0 +1,26 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Pagination - Button Style">
+    <fx:Script>
+    <![CDATA[]]>
+    </fx:Script>
+    <comp:Variant header="CTA">
+        <sp:SplitButtonPagination type="cta" pagesNum="7" pageIsSelected="2"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="cta" pagesNum="7" pageIsSelected="2"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Primary">
+        <sp:SplitButtonPagination type="primary" pagesNum="15" pageIsSelected="2"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="primary" pagesNum="15" pageIsSelected="2"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Secondary">
+        <sp:SplitButtonPagination type="secondary" pagesNum="13" pageIsSelected="2"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="secondary" pagesNum="13" pageIsSelected="2"/&gt;'/>
+    </comp:Markup>
+</view:DemoPane>
