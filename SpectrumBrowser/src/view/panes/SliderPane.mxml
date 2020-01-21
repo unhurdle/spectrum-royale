@@ -1,0 +1,115 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Slider">
+  <fx:Script>
+    <![CDATA[
+     ]]>
+  </fx:Script>
+  <comp:Variant>
+    <sp:Slider value="14" max="20" min="10" step="2"/>
+    <sp:Slider value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Slider value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Slider value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="With Label">
+    <sp:Slider label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Slider label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Slider label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Filled" notes="With fill">
+    <sp:Slider filled="true" label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider filled="true" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Slider filled="true" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Slider filled="true" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Filled-Offset" notes="With fill and offset">
+    <sp:Slider filledOffset="30" label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Slider filledOffset="30" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Range" notes="A range slider with two handles.">
+    <sp:RangeSlider label="Slider Label"/>
+    <sp:RangeSlider label="Slider Label - Disabled" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label - Disabled" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Tick" notes="Spectrum tick slider">
+    <sp:Slider ticks="6" label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider ticks="6" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Slider ticks="6" label="Slider Label" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Slider ticks="6" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Tick With Labels" notes="Spectrum tick slider with labels">
+    <sp:Slider showTickValues="true" ticks="6" label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider showTickValues="true" ticks="6" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Slider showTickValues="true" ticks="6" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Slider showTickValues="true" ticks="6" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Video Player" notes="Displays a buffer for video players.">
+    <sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2"/>
+    <sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Ramp">
+    <sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Color" notes="Spectrum Color slider\n A new color slider is forthcoming.">
+    <sp:ColorSlider value="14" max="20" min="10" step="2" label="Color"/>
+    <sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true"/>
+    <sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true" disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:ColorSlider value="14" max="20" min="10" step="2" label="Color"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true" disabled="true"/&gt;'/>
+  </comp:Markup>
+
+</view:DemoPane>

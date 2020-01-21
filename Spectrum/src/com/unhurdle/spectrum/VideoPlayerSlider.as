@@ -83,10 +83,6 @@ package com.unhurdle.spectrum
     }
       COMPILE::JS
       override protected function onMouseMove(e:MouseEvent):void {
-        var handle:Object = e.target;
-        if (!handle) {
-          return;
-        }
         var sliderOffsetWidth:Number = element.offsetWidth;
         var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
         var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
@@ -113,6 +109,7 @@ package com.unhurdle.spectrum
           rightBuffer.style.right = (100 - bufferedAmount) + '%';
         }
         value = val;
+        handle.style.left = leftBuffer.style.width + '';
       }
   }
 }

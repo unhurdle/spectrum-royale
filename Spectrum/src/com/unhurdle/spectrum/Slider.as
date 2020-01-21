@@ -22,6 +22,22 @@ package com.unhurdle.spectrum
 			positionElements();
     }
 
+    override public function set min(value:Number):void
+    {
+        super.min = value;
+        if(showTickValues){
+            calculateTickValues();
+        }
+    }
+
+    override public function set max(value:Number):void
+    {
+        super.max = value;
+        if(showTickValues){
+            calculateTickValues();
+        }
+    }
+
     override protected function positionElements():void{ 
         displayValue = true;
         var percent:Number = (this.value - min) / (max - min) * 100;
@@ -29,6 +45,24 @@ package com.unhurdle.spectrum
         // Set initial track position
         leftTrack.style.width = percent + '%';
         rightTrack.style.width = (100 - percent) + '%';
+        if(filledOffset){
+            if(filledOffsetRight){
+            var left:int = (((percent - filledOffset)/100) - (15/100)) * 100;
+            fillTrack.style.left = left + "%";
+            if(left < -25){
+                fillTrack.style.visibility = "hidden";
+            }else{
+                fillTrack.style.visibility = "visible";
+            }
+            }else{                
+                fillTrack.style.left = handle.style.left;                
+                if(fillTrack.style.left == "100%"){
+                    fillTrack.style.visibility = "hidden";
+                }else{
+                    fillTrack.style.visibility = "visible";
+                }
+            }
+        }
     }
 		override protected function enableDisableInput(value:Boolean):void{
 			input.disabled = value;
@@ -47,7 +81,7 @@ package com.unhurdle.spectrum
 			if(parent){
 				positionElements();
 			}
-			if(valueNode){
+			if(label && valueNode){
 				valueNode.text = "" + value;
 			}
     }
@@ -82,7 +116,7 @@ package com.unhurdle.spectrum
     {
     	_filledOffsetRight = value;
         if(filledOffset){
-            value? fillTrack.classList.add(appendSelector("-right")):fillTrack.classList.remove(appendSelector("-right"));
+            value? fillTrack.classList.add(appendSelector("--right")):fillTrack.classList.remove(appendSelector("--right"));
         }
     }
     private var _filledOffset:Number;
@@ -121,6 +155,11 @@ package com.unhurdle.spectrum
     {
         if(value != _ticks){
             toggle(valueToSelector("tick"),!!value);
+            if(!!value){
+                leftTrack.style.visibility = rightTrack.style.visibility = "hidden"
+            }else{
+                leftTrack.style.visibility = rightTrack.style.visibility = "visible"                
+            }
             var base:String = getSelector();
         	_ticks = value;
             if(!tickContainer){
@@ -192,6 +231,7 @@ package com.unhurdle.spectrum
 	COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+        width = 400;
         controlsContainer = newElement("div",appendSelector("-controls"));
         //first track
 		leftTrack = newElement("div",appendSelector("-track"));
@@ -215,6 +255,9 @@ package com.unhurdle.spectrum
     }
 		// Element interaction
 		override protected function onMouseMove(e:MouseEvent):void {
+            if(disabled){
+                return;
+            }
             var elem:HTMLElement = element as HTMLElement;
 			var sliderOffsetWidth:Number = elem.offsetWidth;
 			var sliderOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
