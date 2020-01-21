@@ -146,6 +146,7 @@
 	<component id="AdaptiveTooltipBead" class="com.unhurdle.spectrum.AdaptiveTooltipBead"/>
 	<component id="Tree" class="com.unhurdle.spectrum.Tree"/>
     <component id="TypographyGroup" class="com.unhurdle.spectrum.TypographyGroup"/>
+    <component id="Underlay" class="com.unhurdle.spectrum.Underlay"/>
 	<component id="VideoPlayerSlider" class="com.unhurdle.spectrum.VideoPlayerSlider"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
