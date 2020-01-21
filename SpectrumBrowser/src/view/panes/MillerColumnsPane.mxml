@@ -2,60 +2,69 @@
   xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
   xmlns:assets="view.assets.*" xmlns:comp="view.components.*" xmlns:js="library://ns.apache.org/royale/basic"
-  title="Miller Columns">
+  title="Miller Columns" notes= "This Spectrum component still needs work" initComplete="initComplete()">
   <fx:Script>
     <![CDATA[
+        import com.unhurdle.spectrum.data.AssetListItem;
+        import org.apache.royale.collections.HierarchicalData;
+        import com.unhurdle.spectrum.MillerColumns;
 
+        [Bindable] private var provider1:HierarchicalData;
+        [Bindable] private var provider2:HierarchicalData;
+        [Bindable]public var codeString1:String = '<sp:MillerColumns dataProvider="{provider}"/>';
+        [Bindable]public var codeString2:String = '<sp:MillerColumns dataProvider="{provider}"/>';
+        
+        private function initComplete():void{
+            provider1 = new HierarchicalData({'children':setAssetList(true)});
+            provider2 = new HierarchicalData({'children':setAssetList()});
+        }
+        
+        private function setAssetList(branch:Boolean = false):Array{
+            var arr:Array = [];
+            
+            var assetListItem:AssetListItem = new AssetListItem("File 1"); 
+            assetListItem.isBranch = true;
+            if(branch){
+                assetListItem.selectable = true;
+            }
+            arr.push(assetListItem);
 
+            assetListItem = new AssetListItem("File 2"); 
+            assetListItem.isBranch = true;
+            if(branch){
+                assetListItem.selectable = true;
+            }
+            arr.push(assetListItem);
+
+            assetListItem = new AssetListItem("File 3"); 
+            if(branch){
+                assetListItem.selectable = true;
+            }
+            assetListItem.imageIcon = "https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg";
+            arr.push(assetListItem);
+
+            var childArray:Array = [{"children":arr}]
+            return childArray;
+        }
+
+        
+
+        
     ]]>
   </fx:Script>
     <comp:Variant header="Miller Columns (Branches Selectable)" notes="Miller columns that allow both files and folders to be selected.">
-        <!-- <sp:MillerColumns>
-           <sp:dataProvider> 
-                <sp:MillerColumnsItem isBranch="true" text="File 1" isSelectable ="true"/>
-                <sp:MillerColumnsItem isBranch=true text="File 2" isSelectable ="true"/>
-                    <sp:MillerColumns>
-                         <sp:dataProvider> 
-                            <sp:MillerColumnsItem text="File 1" isSelectable =true/>
-                            <sp:MillerColumnsItem  text="File 2" isSelectable =true/>
-                            <sp:MillerColumnsItem text="File 3" isSelectable=true>
-                                <sp:ImageIcon src= "/spectrum-css/static/images/example-ava.jpg"/>
-                            </sp:MillerColumnsItem>
-                    </sp:dataProvider> 
-                    </sp:MillerColumns>
-                <sp:MillerColumnsItem isBranch=true text="File 3" isSelectable=true>
-                    <sp:ImageIcon src= "/spectrum-css/static/images/example-ava.jpg"/>
-                </sp:MillerColumnsItem>    
-            </sp:dataProvider>
-        </sp:MillerColumns> -->
+        <sp:MillerColumns dataProvider="{provider1}"/>
     </comp:Variant>
 
     <comp:Markup>
-       
+        <comp:StyledCode text= "{codeString1}" />
     </comp:Markup>
 
-
     <comp:Variant header="Miller Columns (Files Selectable)" notes="Miller Columns that only allow files to be selected.">
-        <!-- <sp:MillerColumns>
-            <sp:dataProvider>
-                <sp:MillerColumnsItem isBranch=true text="File 1"/>
-                <sp:MillerColumnsItem isBranch=true isSelectable=true text="File 2"/>
-                <sp:MillerColumnsItem isBranch=true text="File 3">
-                    <sp:ImageIcon src= "/spectrum-css/static/images/example-ava.jpg"/>
-                    <sp:MillerColumns>
-                        <sp:dataProvider>
-                            <sp:MillerColumnsItem text="File 1" isSelectable =true/>
-                            <sp:MillerColumnsItem  text="File 2" isSelectable =true/>
-                            <sp:MillerColumnsItem text="File 3" isSelectable=true>
-                                <sp:ImageIcon src= "/spectrum-css/static/images/example-ava.jpg"/>
-                            </sp:MillerColumnsItem>
-                        </sp:dataProvider>
-                    </sp:MillerColumns>
-                </sp:MillerColumnsItem>  
-             </sp:dataProvider>
-        </sp:MillerColumns> -->
+        <sp:MillerColumns dataProvider="{provider2}"/>
     </comp:Variant>
+
     <comp:Markup>
-     
+        <comp:StyledCode text= "{codeString2}" />
     </comp:Markup>
 </view:DemoPane>

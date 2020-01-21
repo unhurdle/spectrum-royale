@@ -65,6 +65,7 @@
         import view.panes.ComingSoonPane;
         import view.panes.TextFieldPane;
         import view.panes.TagsPane;
+        import view.panes.MillerColumnsPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -105,7 +106,7 @@
         new NavProvider("Logic Button",ComingSoonPane,"logic_button"),
         new NavProvider("Menu",ComingSoonPane,"menu"),
         new NavProvider("Meter",ComingSoonPane,"meter"),
-        new NavProvider("Miller Columns",ComingSoonPane,"miller_columns"),
+        new NavProvider("Miller Columns",MillerColumnsPane,"miller_columns"),
         new NavProvider("Page",ComingSoonPane,"page"),
         new NavProvider("Pagination - Button Style",PaginationButtonStylePane,"pagination_button_style"),
         new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
