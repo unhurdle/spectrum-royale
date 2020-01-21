@@ -56,6 +56,7 @@
         import view.panes.WellPane;
         import view.panes.TextareaPane;
         import view.panes.TextFieldPane;
+        import view.panes.TagsPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -118,7 +119,7 @@
         new NavProvider("Switch",SwitchPane,"switch"),
         new NavProvider("Table",ComingSoonPane,"table"),
         new NavProvider("Tabs",ComingSoonPane,"tabs"),
-        new NavProvider("Tags",ComingSoonPane,"tags"),
+        new NavProvider("Tags",TagsPane,"tags"),
         new NavProvider("Text area",TextareaPane,"text_area"),
         new NavProvider("Text Field",TextFieldPane,"text_field"),
         new NavProvider("Text Field - Decorated",TextFieldDecoratedPane,"text_field_decorated"),
