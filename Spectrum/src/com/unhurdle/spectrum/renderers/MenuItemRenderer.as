@@ -93,7 +93,8 @@ package com.unhurdle.spectrum.renderers
     }
     
     private function elementHasSubMenu(e:Element):Boolean{
-      return e.children.length >2;
+      //TODO for now we're not supporting submenus
+      return false;
     }
     COMPILE::JS
     private function openSubMenu(event:Event):void{
@@ -136,6 +137,7 @@ package com.unhurdle.spectrum.renderers
           addElement(indicator);
         }
         indicator.type = type;
+        indicator.type()
 
       }
       if(elementHasSubMenu(element)){
@@ -147,7 +149,7 @@ package com.unhurdle.spectrum.renderers
         indicator.toggle(appendSelector("-itemIndicator"),true);
         indicator.type = type;
         // addElement(indicator);
-        element.insertBefore(indicator.element,element.firstElementChild());
+        element.insertBefore(indicator.element,element.firstElementChild);
       }
     }
     //TODO deal with sub-menus
