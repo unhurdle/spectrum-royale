@@ -57,6 +57,8 @@
         import view.panes.TextareaPane;
         import view.panes.TextFieldPane;
         import view.panes.TagsPane;
+        import view.panes.SearchPane;
+        import view.panes.SearchWithinPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -107,8 +109,8 @@
         new NavProvider("Radio",RadioPane,"radio"),
         new NavProvider("Rating",ComingSoonPane,"rating"),
         new NavProvider("Rule",ComingSoonPane,"rule"),
-        new NavProvider("Search",ComingSoonPane,"search"),
-        new NavProvider("Search Within",ComingSoonPane,"search_within"),
+        new NavProvider("Search",SearchPane,"search"),
+        new NavProvider("Search Within",SearchWithinPane,"search_within"),
         new NavProvider("Side Navigation",ComingSoonPane,"side_navigation"),
         new NavProvider("Slider",ComingSoonPane,"slider"),
         new NavProvider("Split Button",ComingSoonPane,"split_button"),

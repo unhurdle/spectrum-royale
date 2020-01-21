@@ -1,0 +1,33 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+    xmlns:comp="view.components.*"
+    title="Search" notes="The searchy, cleary field.">
+    <fx:Script>
+        <![CDATA[
+
+        ]]>
+    </fx:Script>
+    <comp:Variant>
+        <Div>
+            <sp:Search style="margin-right: 5px;"/>
+            <sp:Search disabled="true" style="margin-right: 5px;"/>
+        </Div>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Search/&gt;'/>
+        <Br/>
+        <comp:StyledCode text='&lt;sp:Search disabled="true"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Quiet">
+        <Div>
+            <sp:Search quiet="true" style="margin-right: 5px;"/>
+            <sp:Search disabled="true" quiet="true" style="margin-right: 5px;"/>
+        </Div>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Search quiet="true"/&gt;'/>
+        <Br/>
+        <comp:StyledCode text='&lt;sp:Search disabled="true" quiet="true"/&gt;'/>
+    </comp:Markup>
+</view:DemoPane>
