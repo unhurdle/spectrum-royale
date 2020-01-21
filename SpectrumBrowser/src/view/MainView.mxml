@@ -45,6 +45,7 @@
         import view.panes.FormPane;
         import view.panes.LabelPane;
         import view.panes.LinkPane;
+        import view.panes.MillerColumnsPane;
         import view.panes.RadioPane;
         import view.panes.StatusLightPane;
         import view.panes.SwitchPane;
@@ -61,12 +62,11 @@
         import view.panes.PaginationPagePane;
         import view.panes.PaginationExplicitPane;
         import view.panes.PaginationButtonStylePane;
-        import view.panes.MillerColumnsPane;
         import view.panes.ComingSoonPane;
-        import view.panes.TextFieldPane;
-        import view.panes.TagsPane;
         import view.panes.SearchPane;
         import view.panes.SearchWithinPane;
+        import view.panes.TextFieldPane;
+        import view.panes.TagsPane;
         import view.panes.LogicButtonPane;
         import view.panes.SliderPane;
 
@@ -109,7 +109,7 @@
         new NavProvider("Logic Button",LogicButtonPane,"logic_button"),
         new NavProvider("Menu",ComingSoonPane,"menu"),
         new NavProvider("Meter",ComingSoonPane,"meter"),
-        new NavProvider("Miller Columns",ComingSoonPane,"miller_columns"),
+        new NavProvider("Miller Columns",MillerColumnsPane,"miller_columns"),
         new NavProvider("Page",ComingSoonPane,"page"),
         new NavProvider("Pagination - Button Style",PaginationButtonStylePane,"pagination_button_style"),
         new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
