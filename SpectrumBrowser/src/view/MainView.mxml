@@ -30,8 +30,6 @@
         import view.panes.CheckboxPane;
         import view.panes.CircleLoaderPane;
         import view.panes.ClearButtonPane;
-        import view.panes.CardPane;
-        import view.panes.MenuPane;
         import view.panes.CoachMarkPane;
         import view.panes.ComboboxPane;
         import view.panes.ComingSoonPane;
@@ -43,13 +41,26 @@
         import view.panes.FieldGroupPane;
         import view.panes.FieldLabelPane;
         import view.panes.FormPane;
+        import view.panes.IllustratedMessagePane;
         import view.panes.LabelPane;
         import view.panes.LinkPane;
+        import view.panes.LogicButtonPane;
         import view.panes.MillerColumnsPane;
+        import view.panes.PaginationButtonStylePane;
+        import view.panes.PaginationExplicitPane;
+        import view.panes.PaginationPagePane;
+        import view.panes.PopoverPane;
         import view.panes.RadioPane;
+        import view.panes.SearchPane;
+        import view.panes.SearchWithinPane;
+        import view.panes.SliderPane;
         import view.panes.StatusLightPane;
+        import view.panes.StepperPane;
         import view.panes.SwitchPane;
+        import view.panes.TagsPane;
         import view.panes.TextFieldDecoratedPane;
+        import view.panes.TextFieldPane;
+        import view.panes.TextareaPane;
         import view.panes.ToastPane;
         import view.panes.ToolPane;
         import view.panes.TooltipPane;
@@ -57,20 +68,6 @@
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
-        import view.panes.TextareaPane;
-        import view.panes.StepperPane;
-        import view.panes.PaginationPagePane;
-        import view.panes.PaginationExplicitPane;
-        import view.panes.PaginationButtonStylePane;
-        import view.panes.ComingSoonPane;
-        import view.panes.SearchPane;
-        import view.panes.SearchWithinPane;
-        import view.panes.TextFieldPane;
-        import view.panes.TagsPane;
-        import view.panes.LogicButtonPane;
-        import view.panes.SliderPane;
-        import view.panes.IllustratedMessagePane;
-        import view.panes.PopoverPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
