@@ -42,24 +42,18 @@ package com.unhurdle.spectrum
         return elem;
     }
     override protected function onMouseMove(e:MouseEvent):void {
-            var elem:HTMLElement = element as HTMLElement;
+      var elem:HTMLElement = element as HTMLElement;
 			var sliderOffsetWidth:Number = elem.offsetWidth;
 			var sliderOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
 
 			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;
-			var val:Number = (max-min) / (100/percent);
-			var stepVal:Number = step;
-			var rem:Number = val % stepVal;
-			val = val - rem;
-			if (rem > (stepVal/2)){
-		    val += stepVal;
-			}
-			value = val;
+			value = getValue();
+      handle.style.left = percent + "%";
     }
-    public function get value():Number
+    public function get value():String
     {
-    	return Number(input.value);
+    	return String(input.value);
     }
      override public function addedToParent():void{
 			super.addedToParent();
@@ -67,22 +61,23 @@ package com.unhurdle.spectrum
     }
 
     override protected function positionElements():void{
+      super.positionElements();
       displayValue = true;
-        var percent:Number = this.value / (max - min) * 100;
-        handle.style.left = percent + "%";
     }
-    public function set value(value:Number):void
+    public function set value(value:String):void
     {
 			//TODO why is this a string?
-			input.value = "" + value;
+			input.value = value;
 			if(parent){
 				positionElements();
 			}
 			if(valueNode){
-				valueNode.text = "" + value;
+				valueNode.text = value;
 			}
-
     }
+     override protected function getValue():String{
+			return input.getAttribute("aria-valuetext");
+		}
     private function changeBackgroundColor():void{
       if(!!color){
         if(!!showingAlpha){
@@ -102,7 +97,7 @@ package com.unhurdle.spectrum
       }
       positionElements();
     }
-    private var _color:Boolean;
+    private var _color:Boolean = true;
     public function get color():Boolean
     {
         return _color;
