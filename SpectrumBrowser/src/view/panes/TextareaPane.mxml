@@ -1,0 +1,42 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Text area" notes="A multi-line text field.">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString1:String =
+      '<sp:TextArea placeholder="Enter your life story"/>\n'+
+      '<sp:TextArea placeholder="Enter your life story" disabled="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your life story" valid="true" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your life story" invalid="true" required="true"/>';
+      [Bindable]public var codeString2:String =
+      '<sp:TextArea placeholder="Enter your life story" quiet="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your life story" quiet="true" disabled="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your life story" quiet="true" valid="true" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your life story" quiet="true" invalid="true" required="true"/>';
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <Div>
+      <sp:TextArea placeholder="Enter your life story"/>
+      <sp:TextArea placeholder="Enter your life story" disabled="true"/>
+      <sp:TextArea placeholder="Enter your life story" valid="true" required="true"/>
+      <sp:TextArea placeholder="Enter your life story" invalid="true" required="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString1}'/>
+  </comp:Markup>
+  <comp:Variant header="Quiet">
+    <Div>
+      <sp:TextArea placeholder="Enter your life story" quiet="true"/>
+      <sp:TextArea placeholder="Enter your life story" quiet="true" disabled="true"/>
+      <sp:TextArea placeholder="Enter your life story" quiet="true" valid="true" required="true"/>
+      <sp:TextArea placeholder="Enter your life story" quiet="true" invalid="true" required="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString1}'/>
+  </comp:Markup>
+</view:DemoPane>
