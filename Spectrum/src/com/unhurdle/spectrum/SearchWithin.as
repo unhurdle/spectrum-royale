@@ -39,6 +39,7 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'form');
 
       _dropdown = new Dropdown();
+      _dropdown.visible = false;
       input = new TextField();
       input.placeholder = "Search";
       button = new ClearButton();
@@ -76,6 +77,15 @@ package com.unhurdle.spectrum
     public function set dataProvider(value:Object):void
     {
       _dropdown.dataProvider = value;
+      if(_dropdown.dataProvider && _dropdown.dataProvider.length){
+        _dropdown.visible = true;
+        if(!selectedItem ){
+          selectedItem = _dropdown.dataProvider[0];
+        }
+      }
+      else{
+        _dropdown.visible = false;
+      }
     }
 
     public function get selectedItem():Object

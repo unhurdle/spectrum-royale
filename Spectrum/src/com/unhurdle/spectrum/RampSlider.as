@@ -45,9 +45,8 @@ package com.unhurdle.spectrum
     }
     
     override protected function positionElements():void{
+      super.positionElements();
       displayValue = true;
-      var percent:Number = this.value / (max - min) * 100;
-      handle.style.left = percent + "%";
 		}
 
     public function get value():Number
@@ -65,8 +64,14 @@ package com.unhurdle.spectrum
 				valueNode.text = "" + value;
 			}
     }
+		override protected function enableDisableInput(value:Boolean):void{
+			input.disabled = value;
+		}
     COMPILE::JS
     override protected function onMouseMove(e:MouseEvent):void {
+      if(disabled){
+        return;
+      }
 			var sliderOffsetWidth:Number = element.offsetWidth;
 			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
 			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
@@ -79,6 +84,7 @@ package com.unhurdle.spectrum
 		    val += stepVal;
 			}
 			value = val;
+      handle.style.left = percent + "%";
     }
   }
 }

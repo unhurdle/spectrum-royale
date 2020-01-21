@@ -45,6 +45,7 @@
         import view.panes.FormPane;
         import view.panes.LabelPane;
         import view.panes.LinkPane;
+        import view.panes.MillerColumnsPane;
         import view.panes.RadioPane;
         import view.panes.StatusLightPane;
         import view.panes.SwitchPane;
@@ -61,11 +62,13 @@
         import view.panes.PaginationPagePane;
         import view.panes.PaginationExplicitPane;
         import view.panes.PaginationButtonStylePane;
-        import view.panes.MillerColumnsPane;
         import view.panes.ComingSoonPane;
+        import view.panes.SearchPane;
+        import view.panes.SearchWithinPane;
         import view.panes.TextFieldPane;
         import view.panes.TagsPane;
-        import view.panes.MillerColumnsPane;
+        import view.panes.LogicButtonPane;
+        import view.panes.SliderPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -103,7 +106,7 @@
         new NavProvider("Illustrated Message",ComingSoonPane,"illustrated_message"),
         new NavProvider("Label",LabelPane,"label"),
         new NavProvider("Link",LinkPane,"link"),
-        new NavProvider("Logic Button",ComingSoonPane,"logic_button"),
+        new NavProvider("Logic Button",LogicButtonPane,"logic_button"),
         new NavProvider("Menu",ComingSoonPane,"menu"),
         new NavProvider("Meter",ComingSoonPane,"meter"),
         new NavProvider("Miller Columns",MillerColumnsPane,"miller_columns"),
@@ -116,10 +119,10 @@
         new NavProvider("Radio",RadioPane,"radio"),
         new NavProvider("Rating",ComingSoonPane,"rating"),
         new NavProvider("Rule",ComingSoonPane,"rule"),
-        new NavProvider("Search",ComingSoonPane,"search"),
-        new NavProvider("Search Within",ComingSoonPane,"search_within"),
+        new NavProvider("Search",SearchPane,"search"),
+        new NavProvider("Search Within",SearchWithinPane,"search_within"),
         new NavProvider("Side Navigation",ComingSoonPane,"side_navigation"),
-        new NavProvider("Slider",ComingSoonPane,"slider"),
+        new NavProvider("Slider",SliderPane,"slider"),
         new NavProvider("Split Button",ComingSoonPane,"split_button"),
         new NavProvider("SplitView",ComingSoonPane,"split_view"),
         new NavProvider("Status Light",StatusLightPane,"status_light"),

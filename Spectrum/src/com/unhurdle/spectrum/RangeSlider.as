@@ -9,7 +9,7 @@ package com.unhurdle.spectrum
     public function RangeSlider()
     {
       super();
-      typeNames =valueToSelector("range");
+      typeNames = getSelector() + " "+ valueToSelector("range");
     }
     override protected function getSelector():String{
       return "spectrum-Slider";
@@ -51,7 +51,13 @@ package com.unhurdle.spectrum
     {
         //TODO why is this a string?
         secondInput.max = "" + value;
-    }    
+    }
+    
+		override protected function enableDisableInput(value:Boolean):void{
+			input.disabled = value;
+      secondInput.disabled = value;
+		}
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
@@ -103,7 +109,9 @@ package com.unhurdle.spectrum
     }
      override protected function getValue():String{
 			// override in subclass
-			return label;
+      var startPercent:Number = parseFloat(leftHandle.style.left);
+      var endPercent:Number = parseFloat(rightHandle.style.left);
+			return "" + startPercent + " - " + endPercent;
 		}    
     override protected function positionElements():void{
       displayValue = true;
@@ -118,11 +126,13 @@ package com.unhurdle.spectrum
       middleTrack.style.left = startPercent + '%';
       middleTrack.style.right = (100 - endPercent) + '%';
       rightTrack.style.width = (100 - endPercent) + '%';
-      label = startPercent + " - " + endPercent;
 		}
 
     COMPILE::JS
     override protected function onMouseMove(e:MouseEvent):void{
+      if(disabled){
+          return;
+      }
       var handle:Object = e.target;
       var sliderOffsetWidth:Number = element.offsetWidth;
 			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
@@ -149,7 +159,7 @@ package com.unhurdle.spectrum
           positionElements();
         }
         if(valueNode){
-          valueNode.text = handle.style.left;
+          valueNode.text = getValue();
         }
     }
   }

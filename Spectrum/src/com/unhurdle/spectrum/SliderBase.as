@@ -139,10 +139,10 @@ package com.unhurdle.spectrum
                     }
             }
             if(labelNode){
-                labelNode.text = _label;
-            }
-            if(valueNode){
-                valueNode.text = getValue();
+              labelNode.text = _label;
+              if(valueNode){
+                  valueNode.text = getValue();
+              }
             }
         }
 		protected function getValue():String{

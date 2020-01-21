@@ -142,6 +142,8 @@
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
 	<component id="Tooltip" class="com.unhurdle.spectrum.Tooltip"/>
+	<component id="TooltipBead" class="com.unhurdle.spectrum.TooltipBead"/>
+	<component id="AdaptiveTooltipBead" class="com.unhurdle.spectrum.AdaptiveTooltipBead"/>
 	<component id="Tree" class="com.unhurdle.spectrum.Tree"/>
     <component id="TypographyGroup" class="com.unhurdle.spectrum.TypographyGroup"/>
 	<component id="VideoPlayerSlider" class="com.unhurdle.spectrum.VideoPlayerSlider"/>
