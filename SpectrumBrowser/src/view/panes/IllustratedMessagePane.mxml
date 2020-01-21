@@ -1,0 +1,26 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Illustrated Message" >
+  <fx:Script>
+    <![CDATA[
+
+    ]]>
+  </fx:Script>
+    <comp:Variant header="Standard" notes="Used for status and errors.">
+        <sp:IllustratedMessage type="default"/>
+    </comp:Variant>
+
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:IllustratedMessage type="default"/&gt;'/>
+    </comp:Markup>
+
+    <comp:Variant header="CTA" notes="Used for instruction/call to action.">
+        <sp:IllustratedMessage type="cta"/>
+    </comp:Variant>
+
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:IllustratedMessage type="cta"/&gt;'/>
+    </comp:Markup>
+
+  </view:DemoPane>
