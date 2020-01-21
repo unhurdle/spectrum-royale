@@ -52,21 +52,21 @@ package com.unhurdle.spectrum
     	_isOpen = value;
     }
 
-    private var _overlay:Boolean;
+    private var _underlay:Boolean;
 
     /**
-     * Show overlay behind the QuickActions
+     * Show underlay behind the QuickActions
      */
-    public function get overlay():Boolean
+    public function get underlay():Boolean
     {
-    	return _overlay;
+    	return _underlay;
     }
 
-    public function set overlay(value:Boolean):void
+    public function set underlay(value:Boolean):void
     {
       COMPILE::JS
       {
-      if(value != !!_overlay){
+      if(value != !!_underlay){
         if(value){
           if(outerElement == element){
             outerElement = newElement("div") as WrappedHTMLElement;
@@ -77,14 +77,14 @@ package com.unhurdle.spectrum
             }
             outerElement.appendChild(element);
           }
-          outerElement.className = appendSelector("-overlay");
+          outerElement.className = appendSelector("-underlay");
         } else {
           outerElement.className = null;
         }
       }
 
       }
-    	_overlay = value;
+    	_underlay = value;
     }
 
     private var outerElement:HTMLElement;

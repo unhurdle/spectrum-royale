@@ -69,6 +69,7 @@
         import view.panes.TagsPane;
         import view.panes.LogicButtonPane;
         import view.panes.SliderPane;
+        import view.panes.PopoverPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -114,7 +115,7 @@
         new NavProvider("Pagination - Button Style",PaginationButtonStylePane,"pagination_button_style"),
         new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
         new NavProvider("Pagination - Page",PaginationPagePane,"pagination_page"),
-        new NavProvider("Popover",ComingSoonPane,"popover"),
+        new NavProvider("Popover",PopoverPane,"popover"),
         new NavProvider("Quick Actions",ComingSoonPane,"quick_actions"),
         new NavProvider("Radio",RadioPane,"radio"),
         new NavProvider("Rating",ComingSoonPane,"rating"),

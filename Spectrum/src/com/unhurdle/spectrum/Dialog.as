@@ -25,9 +25,9 @@ package com.unhurdle.spectrum
     public function Dialog()
     {
       super();
-      overlay = new SpectrumOverlay();
-      overlay.hideOnClick = false;
-      addBead(overlay);
+      underlay = new Underlay();
+      underlay.hideOnClick = false;
+      addBead(underlay);
       addEventListener("modalShown",handleModalShow);
       addEventListener("modalHidden",handleModalHidden);
     }
@@ -39,7 +39,7 @@ package com.unhurdle.spectrum
     public static const SMALL:int = 5;
     public static const MEDIUM:int = 6;
     public static const LARGE:int = 7;
-    private var overlay:SpectrumOverlay;
+    private var underlay:Underlay;
     override protected function getSelector():String{
       return "spectrum-Dialog";
     }
@@ -203,12 +203,12 @@ package com.unhurdle.spectrum
 
     public function get easyDismiss():Boolean
     {
-    	return overlay.hideOnClick;
+    	return underlay.hideOnClick;
     }
 
     public function set easyDismiss(value:Boolean):void
     {
-    	overlay.hideOnClick = value;
+    	underlay.hideOnClick = value;
     }
     private var _error:Boolean;
 

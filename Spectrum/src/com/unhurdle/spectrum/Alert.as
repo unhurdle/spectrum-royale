@@ -64,15 +64,15 @@ package com.unhurdle.spectrum
 
     private var modal:ModalDisplay;
     
-    private function getOverlayBead():SpectrumOverlay{
+    private function getOverlayBead():Underlay{
       if(!_overlayBead){
-        _overlayBead = new SpectrumOverlay();
+        _overlayBead = new Underlay();
         addBead(_overlayBead);
       }
       _overlayBead.hideOnClick = !_noDismiss;
       return _overlayBead
     }
-    private var _overlayBead:SpectrumOverlay;
+    private var _overlayBead:Underlay;
 
     private var _closeText:String;
 
