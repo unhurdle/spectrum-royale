@@ -34,7 +34,7 @@
   <comp:Markup>
     <comp:StyledCode text='{codeString1}'/>
   </comp:Markup>
-  <comp:Variant header="Quiet">
+  <comp:Variant header="Text Field - Quiet" notes="A Spectrum text field - quiet">
     <Div>
         <sp:TextField placeholder="Enter your name" quiet="true" style="margin-right: 5px;"/>
         <sp:TextField placeholder="Enter your name" quiet="true" disabled="true" style="margin-right: 5px;"/>
