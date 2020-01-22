@@ -72,6 +72,7 @@
         import view.panes.IllustratedMessagePane;
         import view.panes.MenuPane;
         import view.panes.BreadcrumbsPane;
+        import view.panes.DropzonePane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -102,7 +103,7 @@
         new NavProvider("Dialog",DialogPane,"dialog"),
         new NavProvider("Dropdown",ComingSoonPane,"dropdown"),
         new NavProvider("Drop Indicator",DropIndicatorPane,"drop_indicator"),
-        new NavProvider("Dropzone",ComingSoonPane,"dropzone"),
+        new NavProvider("Dropzone",DropzonePane,"dropzone"),
         new NavProvider("Field Group",FieldGroupPane,"field_group"),
         new NavProvider("Field Label",FieldLabelPane,"field_label"),
         new NavProvider("Form",FormPane,"form"),

@@ -1,0 +1,29 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" initComplete="initComplete()" xmlns:comp="view.components.*"
+  title="Dropzone" notes="A Drop Zone is an area on the screen into a which an object can be dragged and dropped to accomplish a task. For example, a Drop Zone might be used in an upload workflow to enable the user to simply drop a file from their operating system into the Drop Zone, which is a more efficient and intuitive action, rather than utilize the standard 'Choose File' dialog.">
+  <fx:Script>
+    <![CDATA[
+        private function initComplete():void
+        {
+         draggedDropzone.className = "is-dragged";
+        }
+    ]]>
+  </fx:Script>
+    <comp:Variant header="Dropzone (Default)">
+        <sp:DropZone id="dropzone"/>
+    </comp:Variant>
+
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:DropZone&gt;'/>
+    </comp:Markup>
+
+    <comp:Variant header="Dropzone (Dragged)" >
+       <sp:DropZone id="draggedDropzone"/>
+    </comp:Variant>
+
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:DropZone id="draggedDropzone"&gt;'/>
+    </comp:Markup>
+
+  </view:DemoPane>
