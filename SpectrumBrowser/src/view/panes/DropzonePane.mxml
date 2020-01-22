@@ -15,7 +15,7 @@
     </comp:Variant>
 
     <comp:Markup>
-        <comp:StyledCode text='&lt;sp:DropZone&gt;'/>
+      <comp:StyledCode text='&lt;sp:Dropzone id="dropzone" /&gt;'/>
     </comp:Markup>
 
     <comp:Variant header="Dropzone (Dragged)" >
@@ -23,7 +23,7 @@
     </comp:Variant>
 
     <comp:Markup>
-        <comp:StyledCode text='&lt;sp:DropZone id="draggedDropzone"&gt;'/>
+        <comp:StyledCode text='&lt;sp:Dropzone id="draggedDropzone" /&gt;'/>
     </comp:Markup>
 
   </view:DemoPane>
