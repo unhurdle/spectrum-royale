@@ -1,17 +1,34 @@
 <view:DemoPane xmlns="library://ns.apache.org/royale/html"
   xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
-  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*" xmlns:js="library://ns.apache.org/royale/basic"
   title="Tabs">
   <fx:Script>
     <![CDATA[
     ]]>
   </fx:Script>
+  <comp:Variant header="Basic tabs">
   <sp:TabBar>
     <sp:Tab text="Tab1"/>
     <sp:Tab text="Tab2"/>
     <sp:Tab text="Tab3"/>
     <sp:Tab text="Tab4"/>
   </sp:TabBar>
-  
+  </comp:Variant>
+
+<comp:Markup>
+	<comp:StyledCode text='&lt;sp:TabBar&gt;'/> 
+	<Br/>
+	<comp:StyledCode text='    &lt;sp:Tab text="Tab1"/&gt;'/>
+	<Br/>
+	<comp:StyledCode text='    &lt;sp:Tab text="Tab2"/&gt;'/>
+	<Br/>
+	<comp:StyledCode text='    &lt;sp:Tab text="Tab3"/&gt;'/>
+	<Br/>
+	<comp:StyledCode text='    &lt;sp:Tab text="Tab4"/&gt;'/>
+	<Br/>
+	<comp:StyledCode text='&lt;/sp:TabBar&gt;'/> 
+</comp:Markup>
+
+
 </view:DemoPane>

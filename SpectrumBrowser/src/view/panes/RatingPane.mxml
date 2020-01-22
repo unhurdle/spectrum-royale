@@ -1,0 +1,52 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+    xmlns:comp="view.components.*"
+    title="Rating">
+    <fx:Script>
+        <![CDATA[
+        ]]>
+    </fx:Script>
+    <comp:Variant>
+        <sp:Rating max="5"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Rating max="5"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Selected">
+        <sp:Rating max="5" value="3"/>
+         </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Rating max="5" value="3"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Read-only" notes="A non-interactive rating.">
+        <sp:Rating max="5" value="3" readOnly="true"/>
+         </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Rating/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Quiet">
+        <sp:Rating max="5" quiet="true"/>
+         </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Rating max="5" quiet="true"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Quiet (selected)">
+        <sp:Rating max="5" value="3" quiet="true"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Rating max="5" value="3" quiet="true"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Quiet (read-only)">
+        <sp:Rating max="5" value="3" quiet="true" readOnly="true"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Rating max="5" value="3" quiet="true" readOnly="true"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Disabled">
+        <sp:Rating max="5" value="3" disabled="true"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:Rating max="5" value="3" disabled="true"/&gt;'/>
+    </comp:Markup>
+</view:DemoPane>

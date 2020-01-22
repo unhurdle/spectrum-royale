@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.html.elements.Span;
   import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.core.UIBase;
 
   public class Rating extends SpectrumBase
   {
@@ -33,8 +34,14 @@ package com.unhurdle.spectrum
       input.className = appendSelector("-input");
       input.type = "range";
       element.appendChild(input);
+      max = 5;
+      value = 0;
       // element.addEventListener("click",handleClick);
       return element;
+    }
+    override public function addedToParent():void{
+      super.addedToParent();
+      value = value;
     }
     private function handleClick(ev:*):void
     {
@@ -42,10 +49,14 @@ package com.unhurdle.spectrum
         return;
       }
       if(ev.target){
-        var index:Number = Number(ev.target.id);
+        var index:Number = this.getElementIndex(ev.target);// Number(ev.target.id);
         // var index:Number = Number((ev.target as HTMLElement).getAttribute("data-index"));
         if(!isNaN(index)){
-          value = index;
+          if(value == index){
+            value = 0;
+          }else{
+            value = index;
+          }
         }
       }
       // console.log(ev.target);
@@ -58,31 +69,20 @@ package com.unhurdle.spectrum
 
     public function set max(val:Number):void
     {
-      if(input.max && val != Number(input.max)){
-        if(val < Number(input.max)){
-          removeFromArray(Number(input.max)-val);
-        }
-        else if(val > Number(input.max)){
-          addToArray(val-Number(input.max));
-        }
-      }
       input.max = "" + val;
+      if(!parent){//wait until addedToParent
+        return;
+      }
+      validateIconElements();
     }
-    private function removeFromArray(amount:Number):void
-    {
-      var elem:HTMLElement = element as HTMLElement;
-        for(var index:int = 0; index < amount; index++)
-        {
-          iconArray.pop();
-          elem.removeChild(elem.lastChild);
-        }
-    }
-    private function addToArray(amount:Number):void
-    {
-      var len:int = iconArray.length + amount;
-      for(var index:int = iconArray.length; index < len; index++)
-      {
-        span = new Span();
+    private function validateIconElements():void{
+      while(numElements > max + 1){
+        var elem:UIBase = getElementAt(numElements-1) as UIBase;
+        elem.removeEventListener("click",handleClick);
+        removeElement(elem);
+      }
+      while(numElements < max + 1){
+        var span:Span = new Span();
         span.className = appendSelector("-icon");
         var type:String = IconType.STAR;
         icon1 = new Icon(Icon.getCSSTypeSelector(type));
@@ -96,13 +96,11 @@ package com.unhurdle.spectrum
         icon2.className = appendSelector("-starInactive");
         span.addElement(icon2);
         addElement(span);
-        span.id = (index + 1).toString();
         span.addEventListener("click",handleClick);
-        // span.addEventListener("click",changeValue)
-        iconArray.push(span);
+
       }
     }
-    private var iconArray:Array;
+
     public function get value():Number
     {
     	return Number(input.value);
@@ -110,47 +108,30 @@ package com.unhurdle.spectrum
     private var icon1:Icon;
     private var icon2:Icon;
     private var span:Span;
+    COMPILE::SWF
+    public function set value(val:Number):void{}
+
+    COMPILE::JS
     public function set value(val:Number):void
     {
-      var elem:HTMLElement = element as HTMLElement;
-      if(!iconArray){
-        iconArray = [];
-        addToArray(max);
-        for(var i:int = 1;i<=iconArray.length;i++){
-          //// span.className = appendSelector("-icon");
-          // elem.children[i].className = appendSelector("-icon");
-          //// elem.children[i].className = "spectrum-Rating-icon";
-          //TODO figure out if there's a better way to do this
-          if(i <= val){
-            elem.children[i].classList.add("is-selected");
-            if(i == val){
-              elem.children[i].classList.add("is-currentValue");              
-            }
-            // span.className += " is-selected";
-          }
-          // span.elem.setAttribute("data-index",i);
-        }
-      }
-      else{
-        var inputVal: Number = Number(input.value);
-        elem.children[inputVal].classList.remove("is-currentValue");
-        elem.children[val].classList.add("is-currentValue");
-        if(val < inputVal){
-          for(i = inputVal; i > val ; i--){
-            if(elem.children[i]){
-              elem.children[i].classList.remove("is-selected");
-            }
-          }
-        }
-        else if(val > inputVal){
-          for(i = inputVal; i <= val; i++){
-            if(elem.children[i]){
-              elem.children[i].classList.add("is-selected");
-            }
-          }
-        }
-      }
       input.value = "" + val;
+      if(!parent){
+        return;
+      }
+      validateIconElements();
+      var len:int = numElements;
+      for(var i:int=1;i<len;i++){
+        if(i > val){
+          (element.children[i] as Element).classList.remove("is-selected");
+          (element.children[i] as Element).classList.remove("is-currentValue");
+        } else {
+          (element.children[i] as Element).classList.add("is-selected");
+
+        }
+        if(i==val){
+          (element.children[i] as Element).classList.add("is-currentValue");
+        }
+      }
       
     }
     private var _disabled:Boolean;
@@ -196,9 +177,6 @@ package com.unhurdle.spectrum
         input.readOnly = value;
       }
     	_readOnly = value;
-    }
-    private function changeValue(ev:MouseEvent):void{
-      value = ev.target.id + 1;
     }
   }
 }

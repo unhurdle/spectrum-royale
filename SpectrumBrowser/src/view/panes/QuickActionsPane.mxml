@@ -1,0 +1,39 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+    xmlns:comp="view.components.*"
+    title="Quick Actions" notes="Note that the .spectrum-QuickActions--textOnly class should be applied when the buttons have text only.">
+    <fx:Script>
+        <![CDATA[
+            import com.unhurdle.spectrum.const.IconPrefix;
+            [Bindable]public var codeString:String = 
+            '<sp:QuickActions isOpen="true">\n'+
+            '    <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Edit\'}"/>\n'+
+            '    <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Copy\'}"/>\n'+
+            '    <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Delete\'}"/>\n'+
+            '</sp:QuickActions>\n'+
+            '\n'+
+            '<sp:QuickActions isOpen="true" textOnly="true">\n'+
+            '    <sp:ActionButton quiet="true" text="Edit"/>\n'+
+            '    <sp:ActionButton quiet="true" text="Copy"/>\n'+
+            '    <sp:ActionButton quiet="true" text="Delete"/>\n'+
+            '</sp:QuickActions>';
+        ]]>
+    </fx:Script>
+    <comp:Variant>
+        <sp:QuickActions isOpen="true">
+            <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Edit'}"/>
+            <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Copy'}"/>
+            <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}"/>
+        </sp:QuickActions>
+        <Br/>
+        <sp:QuickActions isOpen="true" textOnly="true">
+            <sp:ActionButton quiet="true" text="Edit"/>
+            <sp:ActionButton quiet="true" text="Copy"/>
+            <sp:ActionButton quiet="true" text="Delete"/>
+        </sp:QuickActions>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text="{codeString}"/>
+    </comp:Markup>
+</view:DemoPane>
