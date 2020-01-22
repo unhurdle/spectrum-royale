@@ -52,7 +52,7 @@ package com.unhurdle.spectrum
     public function set multiline(value:Boolean):void
     {
       if(value != !!_multiline){
-        toggle(appendSelector("multiline"),value);
+        toggle(valueToSelector("multiline"),value);
       }
       _multiline = value;
     }
@@ -66,7 +66,7 @@ package com.unhurdle.spectrum
     public function set compact(value:Boolean):void
     {
       if(value != !!_compact){
-        toggle(appendSelector("compact"),value);
+        toggle(valueToSelector("compact"),value);
       }
       _compact = value;
     }

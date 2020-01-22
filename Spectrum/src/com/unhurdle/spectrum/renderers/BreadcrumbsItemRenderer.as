@@ -17,6 +17,7 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.MouseEvent;
   import com.unhurdle.spectrum.ActionButton;
+  import com.unhurdle.spectrum.const.IconPrefix;
   
   public class BreadcrumbsItemRenderer extends DataItemRenderer
   {
@@ -57,12 +58,11 @@ package com.unhurdle.spectrum.renderers
           button.quiet = true;
           button.element.style.height = '100%';
           var type:String = IconType.FOLDER_BREADCRUMB;
-          var folderIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
-          folderIcon.style = {"width": "18px","height": "18px","margin-right": "5px"};
-          folderIcon.type = type;
-          folderIcon.className = appendSelector("-folder");
-          button.addElement(folderIcon);
-          element.appendChild(button.element);
+          button.icon = "#spectrum-css-icon-FolderBreadcrumb";
+          button.iconClass = appendSelector("-folder");
+          button.iconElement = createFolderIcon();
+          button.iconType = IconType.FOLDER_BREADCRUMB;
+          element.insertBefore(button.element,icon.element);
           element.style.marginTop = '6px';
         }
       }
@@ -71,6 +71,14 @@ package com.unhurdle.spectrum.renderers
       }
       addEventListener(MouseEvent.CLICK,handleClicked);
     }
+
+    protected function createFolderIcon():Icon{
+      var type:String = IconPrefix._18 + "Folder"
+      var folder:Icon = new Icon(type);
+      folder.type = type;
+      return folder;
+    }
+    
     private function handleClicked(ev:MouseEvent):void{
       COMPILE::JS
       {
@@ -78,7 +86,7 @@ package com.unhurdle.spectrum.renderers
       }
     }
     override public function set selected(value:Boolean):void{
-      super.selected = value;
+      //do nothing
     }
     private var icon:Icon;
     private var textNode:TextNode;
