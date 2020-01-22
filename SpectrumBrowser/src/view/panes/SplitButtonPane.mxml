@@ -1,0 +1,59 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Split Button">
+  <fx:Script>
+    <![CDATA[
+    ]]>
+  </fx:Script>
+  <comp:Variant header="CTA" notes="A CTA split button.">
+    <Div>
+      <sp:SplitButton text="Split Button" type="cta"/>
+      <sp:SplitButton text="Split Button" type="cta" left="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>    
+    <comp:StyledCode text='&lt;Div&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="cta"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="cta" left="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/Div&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Primary" notes="A primary split button.">
+    <Div>
+      <sp:SplitButton text="Split Button" type="primary"/>
+      <sp:SplitButton text="Split Button" type="primary" left="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;Div&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="primary"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="primary" left="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/Div&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Secondary " notes="A secondary  split button.">
+    <Div>
+      <sp:SplitButton text="Split Button" type="secondary"/>
+      <sp:SplitButton text="Split Button" type="secondary" left="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;Div&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="secondary"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="secondary" left="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/Div&gt;'/>
+  </comp:Markup>
+  
+</view:DemoPane>
+          

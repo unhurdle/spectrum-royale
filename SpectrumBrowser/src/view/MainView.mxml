@@ -58,6 +58,7 @@
         import view.panes.SearchPane;
         import view.panes.SearchWithinPane;
         import view.panes.SliderPane;
+        import view.panes.SplitButtonPane;
         import view.panes.SplitViewPane;
         import view.panes.StatusLightPane;
         import view.panes.StepperPane;
@@ -128,7 +129,7 @@
         new NavProvider("Search Within",SearchWithinPane,"search_within"),
         new NavProvider("Side Navigation",ComingSoonPane,"side_navigation"),
         new NavProvider("Slider",SliderPane,"slider"),
-        new NavProvider("Split Button",ComingSoonPane,"split_button"),
+        new NavProvider("Split Button",SplitButtonPane,"split_button"),
         new NavProvider("SplitView",SplitViewPane,"split_view"),
         new NavProvider("Status Light",StatusLightPane,"status_light"),
         new NavProvider("Steplist",ComingSoonPane,"steplist"),
