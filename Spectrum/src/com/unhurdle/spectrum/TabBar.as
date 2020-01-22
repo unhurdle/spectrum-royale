@@ -95,7 +95,6 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement
     { 
       addElementToWrapper(this,'div');
-      toggle(valueToSelector("horizontal"),true);
       window.addEventListener("resize",resized,false);
       return element;
     }  
@@ -129,6 +128,13 @@ package com.unhurdle.spectrum
       }
     }
   }                                                                                                                                                 
+
+  override public function addedToParent():void
+  {
+      super.addedToParent();
+      toggle(valueToSelector("horizontal"),!_vertical);
+      toggle(valueToSelector("vertical"),_vertical);
+  }
 
     public function removeAllTabs():void
     {
