@@ -51,6 +51,7 @@
         import view.panes.PaginationExplicitPane;
         import view.panes.PaginationPagePane;
         import view.panes.PopoverPane;
+        import view.panes.QuickActionsPane;
         import view.panes.RadioPane;
         import view.panes.RatingPane;
         import view.panes.SearchPane;
@@ -59,6 +60,7 @@
         import view.panes.StatusLightPane;
         import view.panes.StepperPane;
         import view.panes.SwitchPane;
+        import view.panes.TabsPane;
         import view.panes.TagsPane;
         import view.panes.TextFieldDecoratedPane;
         import view.panes.TextFieldPane;
@@ -70,7 +72,6 @@
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
-        import view.panes.TabsPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -117,7 +118,7 @@
         new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
         new NavProvider("Pagination - Page",PaginationPagePane,"pagination_page"),
         new NavProvider("Popover",PopoverPane,"popover"),
-        new NavProvider("Quick Actions",ComingSoonPane,"quick_actions"),
+        new NavProvider("Quick Actions",QuickActionsPane,"quick_actions"),
         new NavProvider("Radio",RadioPane,"radio"),
         new NavProvider("Rating",RatingPane,"rating"),
         new NavProvider("Rule",ComingSoonPane,"rule"),
