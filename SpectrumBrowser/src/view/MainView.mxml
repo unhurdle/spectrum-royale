@@ -69,6 +69,8 @@
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
+        import view.panes.SplitViewPane;
+        import view.panes.ComingSoonPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -124,7 +126,7 @@
         new NavProvider("Side Navigation",ComingSoonPane,"side_navigation"),
         new NavProvider("Slider",SliderPane,"slider"),
         new NavProvider("Split Button",ComingSoonPane,"split_button"),
-        new NavProvider("SplitView",ComingSoonPane,"split_view"),
+        new NavProvider("SplitView",SplitViewPane,"split_view"),
         new NavProvider("Status Light",StatusLightPane,"status_light"),
         new NavProvider("Steplist",ComingSoonPane,"steplist"),
         new NavProvider("Stepper",StepperPane,"stepper"),

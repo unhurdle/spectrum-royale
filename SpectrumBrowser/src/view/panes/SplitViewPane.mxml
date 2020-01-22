@@ -1,0 +1,72 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Split View">
+  <fx:Script>
+    <![CDATA[
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Horizontal">
+    <Div style="background:red,height:50,width:250">
+      <sp:SplitView direction="horizontal"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Horizontally resizable">
+    <Div style="background:red,height:50,width:250">
+      <sp:SplitView direction="horizontal" isDraggable="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal" isDraggable="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Horizontal collapsed left">
+    <Div style="background:red,height:50,width:250">
+      <sp:SplitView direction="horizontal" isCollapsed="left" isDraggable="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal" isCollapsed="left" isDraggable="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Horizontal collapsed right">
+    <Div style="background:red,height:50,width:250">
+      <sp:SplitView direction="horizontal" isCollapsed="right" isDraggable="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal" isCollapsed="right" isDraggable="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Vertically resizable">
+    <Div style="background:red,height:50,width:250">
+      <sp:SplitView direction="vertical" isDraggable="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:SplitView direction="vertical" isDraggable="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Vertical collapsed top">
+    <Div style="background:red,height:50,width:250">
+      <sp:SplitView direction="vertical" isCollapsed="top" isDraggable="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:SplitView direction="vertical" isCollapsed="top" isDraggable="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Vertical collapsed bottom">
+    <Div style="background:red,height:50,width:250">
+      <sp:SplitView direction="vertical" isCollapsed="bottom" isDraggable="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:SplitView direction="vertical" isCollapsed="bottom" isDraggable="true"/&gt;'/>
+  </comp:Markup>
+  
+</view:DemoPane>
