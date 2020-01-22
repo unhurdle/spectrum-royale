@@ -71,6 +71,7 @@
         import view.panes.SliderPane;
         import view.panes.IllustratedMessagePane;
         import view.panes.MenuPane;
+        import view.panes.BreadcrumbsPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -83,7 +84,7 @@
         new NavProvider("Avatar",AvatarPane,"avatar"),
         new NavProvider("Banner",BannerPane,"banner"),
         new NavProvider("Bar Loader",BarLoaderPane,"bar_loader"),
-        new NavProvider("Breadcrumbs",ComingSoonPane,"breadcrumbs"),
+        new NavProvider("Breadcrumbs",BreadcrumbsPane,"breadcrumbs"),
         new NavProvider("Button",ButtonPane,"button"),
         new NavProvider("Button Group",ButtonGroupPane,"button_group"),
         new NavProvider("Calendar",CalendarPane,"calendar"),
