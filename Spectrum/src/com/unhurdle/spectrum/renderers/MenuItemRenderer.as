@@ -137,7 +137,6 @@ package com.unhurdle.spectrum.renderers
           addElement(indicator);
         }
         indicator.type = type;
-        indicator.type()
 
       }
       if(elementHasSubMenu(element)){
