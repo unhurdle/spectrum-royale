@@ -52,6 +52,7 @@
         import view.panes.PaginationPagePane;
         import view.panes.PopoverPane;
         import view.panes.RadioPane;
+        import view.panes.RatingPane;
         import view.panes.SearchPane;
         import view.panes.SearchWithinPane;
         import view.panes.SliderPane;
@@ -118,7 +119,7 @@
         new NavProvider("Popover",PopoverPane,"popover"),
         new NavProvider("Quick Actions",ComingSoonPane,"quick_actions"),
         new NavProvider("Radio",RadioPane,"radio"),
-        new NavProvider("Rating",ComingSoonPane,"rating"),
+        new NavProvider("Rating",RatingPane,"rating"),
         new NavProvider("Rule",ComingSoonPane,"rule"),
         new NavProvider("Search",SearchPane,"search"),
         new NavProvider("Search Within",SearchWithinPane,"search_within"),
