@@ -37,6 +37,7 @@
         import view.panes.DatePickerPane;
         import view.panes.DialPane;
         import view.panes.DialogPane;
+        import view.panes.DropdownPane;
         import view.panes.DropIndicatorPane;
         import view.panes.FieldGroupPane;
         import view.panes.FieldLabelPane;
@@ -57,6 +58,8 @@
         import view.panes.SearchPane;
         import view.panes.SearchWithinPane;
         import view.panes.SliderPane;
+        import view.panes.SplitButtonPane;
+        import view.panes.SplitViewPane;
         import view.panes.StatusLightPane;
         import view.panes.StepperPane;
         import view.panes.SwitchPane;
@@ -100,7 +103,7 @@
         new NavProvider("Date Picker",DatePickerPane,"date_picker"),
         new NavProvider("Dial",DialPane,"dial"),
         new NavProvider("Dialog",DialogPane,"dialog"),
-        new NavProvider("Dropdown",ComingSoonPane,"dropdown"),
+        new NavProvider("Dropdown",DropdownPane,"dropdown"),
         new NavProvider("Drop Indicator",DropIndicatorPane,"drop_indicator"),
         new NavProvider("Dropzone",ComingSoonPane,"dropzone"),
         new NavProvider("Field Group",FieldGroupPane,"field_group"),
@@ -126,8 +129,8 @@
         new NavProvider("Search Within",SearchWithinPane,"search_within"),
         new NavProvider("Side Navigation",ComingSoonPane,"side_navigation"),
         new NavProvider("Slider",SliderPane,"slider"),
-        new NavProvider("Split Button",ComingSoonPane,"split_button"),
-        new NavProvider("SplitView",ComingSoonPane,"split_view"),
+        new NavProvider("Split Button",SplitButtonPane,"split_button"),
+        new NavProvider("SplitView",SplitViewPane,"split_view"),
         new NavProvider("Status Light",StatusLightPane,"status_light"),
         new NavProvider("Steplist",ComingSoonPane,"steplist"),
         new NavProvider("Stepper",StepperPane,"stepper"),

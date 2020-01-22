@@ -191,15 +191,37 @@ package com.unhurdle.spectrum
       setButtonText();
     }
 
+    private function setButtonAsset(index:int,icon:Boolean):void{
+      var asset:ImageAsset = new ImageAsset();
+      asset.style = "width:18px;margin-right:8px;";      
+      if(button.getElementAt(0) is ImageAsset){
+        button.removeElement(button.getElementAt(0));
+      }
+      asset.src = icon? dataProvider[index].icon: dataProvider[index].imageIcon;
+      button.addElementAt(asset,0);
+    }
     private function setButtonText():void{
-      if(selectedIndex < 0){
+      if(selectedIndex){
+        if(selectedIndex < 0 || dataProvider[selectedIndex].isDivider){
+          button.text = "";
+        }else{
+          button.text = dataProvider[selectedIndex].text;
+          if(dataProvider[selectedIndex].imageIcon){
+            setButtonAsset(selectedIndex,false);
+          }else if(dataProvider[selectedIndex].icon){
+            setButtonAsset(selectedIndex,true);
+          }
+        }
+      }else if(!selectedItem ||selectedItem.isDivider){
         button.text = "";
-      }
-      else if(!selectedItem || selectedItem.isDivider){
-        button.text = "";
-      }
-      else{
+      }else{
         button.text = selectedItem.text;
+        var i:int = dataProvider.indexOf(selectedItem)
+        if(dataProvider[i].imageIcon){
+          setButtonAsset(i,false);
+        }else if(dataProvider[i].icon){
+          setButtonAsset(i,true);
+        }
       }
 
     }
@@ -223,9 +245,6 @@ package com.unhurdle.spectrum
           continue;
         }
         var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
-        if(value[i].selected){
-          item.selected = value[i]["selected"];
-        }
         if(value[i].isDivider){
           item.isDivider = value[i]["isDivider"];
         }
@@ -234,6 +253,17 @@ package com.unhurdle.spectrum
         }
         if(value[i].icon){
           item.icon = value[i]["icon"];
+        }
+        if(value[i].imageIcon){
+          item.imageIcon = value[i]["imageIcon"];
+        }
+        if(value[i].selected || i == selectedIndex || value[i] == selectedItem){
+          item.selected = value[i]["selected"];
+          if(item.icon){
+            setButtonAsset(i,true);
+          }else if(item.imageIcon){
+            setButtonAsset(i,false);
+          }
         }
         value[i] = item;
       }
@@ -271,7 +301,7 @@ package com.unhurdle.spectrum
         button.invalid = value;
         if(value){
           var invalidIcon:Icon = new Icon(IconPrefix._18 + "Alert");
-          button.addElement(invalidIcon);
+          button.addElementAt(invalidIcon, button.numElements - 1);
         }else{
           button.removeElement(invalidIcon);
         }
