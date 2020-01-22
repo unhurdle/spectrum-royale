@@ -1,0 +1,25 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+    xmlns:comp="view.components.*"
+    title="Meter" notes="Meter is implemented using the BarLoader component."  initComplete="onComplete()">
+    <fx:Script>
+        <![CDATA[
+            import org.apache.royale.utils.Timer;
+
+            private function onComplete():void{
+                var timer:Timer = new Timer(100,100);
+                timer.addEventListener(Timer.TIMER,function():void{
+                    loader.value += 1;
+                });
+                timer.start();
+            }
+        ]]>
+    </fx:Script>
+    <comp:Variant>
+        <sp:BarLoader localId="loader" meter="true" label="Storage Space"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:BarLoader localId="loader" meter="true" label="Storage Space"/&gt;'/>
+    </comp:Markup>
+</view:DemoPane>

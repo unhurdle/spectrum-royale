@@ -45,9 +45,6 @@ package com.unhurdle.spectrum
         
     public function set type(value:String):void //change to type :type
     {
-        if(!value){
-        type("default");
-      }
       if(value != _type){
         switch(value){
           case "cta":

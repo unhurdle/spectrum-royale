@@ -60,7 +60,7 @@ package com.unhurdle.spectrum
 						splitter.appendChild(newElement("div",appendSelector("-gripper")));
 						element.addEventListener("mousedown",onMouseDown);
 					}
-					direction == "horizontal"? positionElements(parseFloat(splitter.style.left)): positionElements(parseFloat(splitter.style.top));
+					direction == "horizontal"? positionElements(parseFloat(left.style.width)): positionElements(parseFloat(right.style.height));
 				}
 				if(!_isDraggable){
 					if(!!splitter.children.length){
@@ -105,12 +105,12 @@ package com.unhurdle.spectrum
 						break;
 					case "right":
 						direction != "horizontal"? direction = "horizontal":direction = direction;
-						splitter.style.left = "100%";
+						positionElements(100);
 						directionCollapsed = "end";
 						break;
 					case "bottom":
 						direction != "vertical"? direction = "vertical":direction = direction;
-						splitter.style.top = "100%";
+						positionElements(100);
 						directionCollapsed = "end";
 						break;
 					case "Resizable":
@@ -124,11 +124,11 @@ package com.unhurdle.spectrum
 		}
 		
 		private var _directionCollapsed:String;
-		public function get directionCollapsed():String
+		private function get directionCollapsed():String
 		{
 			return _directionCollapsed;
 		}
-		public function set directionCollapsed(value:String):void
+		private function set directionCollapsed(value:String):void
 		{
 			if(value != _directionCollapsed){
 				switch (value){
@@ -140,7 +140,7 @@ package com.unhurdle.spectrum
 						break;
 					case "end":
 						right.style.flex = null;
-							!isDraggable? left.style.flex = "1": left.style.flex = null;
+						!isDraggable? left.style.flex = "1": left.style.flex = null;
 						break;
 					default:
 						throw new Error("Invalid directioncollapsed: " + value);

@@ -1,0 +1,102 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+    xmlns:comp="view.components.*" xmlns:js="library://ns.apache.org/royale/basic"
+    title="Popover">
+    <fx:Script>
+        <![CDATA[
+            [Bindable]public var codeString1:String =
+            '<sp:Popover id="defaultPopover" open="true" style="position:relative;max-width:320px">\n'+
+            '    <sp:Menu selectedItem="{ballard}">\n'+
+            '        <sp:dataProvider>\n'+
+            '            <sp:MenuItem id="ballard" text="Ballard"/>\n'+
+            '            <sp:MenuItem text="Fremont"/>\n'+
+            '            <sp:MenuItem text="Greenwood"/>\n'+
+            '            <sp:MenuItem isDivider="true"/>\n'+
+            '            <sp:MenuItem text="United States of America" disabled="true"/>\n'+
+            '        </sp:dataProvider>\n'+
+            '    </sp:Menu>\n'+
+            '</sp:Popover>';
+            [Bindable]public var codeString2:String =
+            '<sp:Popover id="bottomPopover" open="true" dialog="true" position="bottom" style="position:relative;max-width:320px">\n'+
+            '    <sp:DialogHeader title="Popover Title"/>\n'+
+            '    <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>\n'+
+            '</sp:Popover>\n'+
+            '\n'+
+            '<sp:Popover id="rightPopover" open="true" dialog="true" position="right" style="position:relative;max-width:320px">\n'+
+            '    <sp:DialogHeader title="Very Very Very Very Long Popover Title"/>\n'+
+            '    <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>\n'+
+            '</sp:Popover>\n'+
+            '\n'+
+            '<sp:Popover id="topPopover" open="true" dialogSuccess="true" dialog="true" position="top" style="position:relative;max-width:320px">\n'+
+            '    <sp:DialogHeader title="Success Title"/>\n'+
+            '    <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>\n'+
+            '    <sp:DialogFooter>\n'+
+            '        <sp:Button text="Cancel" quiet="true" flavor="secondary"/>\n'+
+            '        <sp:Button text="Save" quiet="true" flavor="primary"/>\n'+
+            '    </sp:DialogFooter>\n'+
+            '</sp:Popover>\n'+
+            '\n'+
+            '<sp:Popover id="errorPopover" open="true" dialogError="true" dialog="true" position="right" style="position:relative;max-width:320px">\n'+
+            '    <sp:DialogHeader title="Very Long Error Message With Much Text"/>\n'+
+            '    <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>\n'+
+            '    <sp:DialogFooter>\n'+
+            '        <sp:Button text="Cancel" quiet="true" flavor="secondary"/>\n'+
+            '        <sp:Button text="Save" quiet="true" flavor="primary"/>\n'+
+            '    </sp:DialogFooter>\n'+
+            '</sp:Popover>';
+
+        ]]>
+    </fx:Script>
+    <fx:Declarations>
+
+    </fx:Declarations>
+    <comp:Variant>
+        <sp:Popover id="defaultPopover" open="true" style="position:relative;max-width:320px">
+            <sp:Menu selectedItem="{ballard}">
+                <sp:dataProvider>
+                    <sp:MenuItem id="ballard" text="Ballard"/>
+                    <sp:MenuItem text="Fremont"/>
+                    <sp:MenuItem text="Greenwood"/>
+                    <sp:MenuItem isDivider="true"/>
+                    <sp:MenuItem text="United States of America" disabled="true"/>
+                </sp:dataProvider>
+            </sp:Menu>
+        </sp:Popover>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text="{codeString1}"/>
+    </comp:Markup>
+    <comp:Variant header="Popover - Dialog style" notes="Spectrum Popovers are implemented using the Dialog's inner elements.">
+        <sp:Popover id="bottomPopover" open="true" dialog="true" position="bottom" style="position:relative;max-width:320px">
+            <sp:DialogHeader title="Popover Title"/>
+            <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>
+        </sp:Popover>
+        <P/>
+        <sp:Popover id="rightPopover" open="true" dialog="true" position="right" style="position:relative;max-width:320px">
+            <sp:DialogHeader title="Very Very Very Very Long Popover Title"/>
+            <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>
+        </sp:Popover>
+        <P/>
+        <sp:Popover id="topPopover" open="true" dialogSuccess="true" dialog="true" position="top" style="position:relative;max-width:320px">
+            <sp:DialogHeader title="Success Title"/>
+            <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>
+            <sp:DialogFooter>
+                <sp:Button text="Cancel" quiet="true" flavor="secondary"/>
+                <sp:Button text="Save" quiet="true" flavor="primary"/>
+            </sp:DialogFooter>
+        </sp:Popover>
+        <P/>
+        <sp:Popover id="errorPopover" open="true" dialogError="true" dialog="true" position="right" style="position:relative;max-width:320px">
+            <sp:DialogHeader title="Very Long Error Message With Much Text"/>
+            <sp:DialogContent text="Cupcake ipsum dolor sit amet jelly beans. Chocolate jelly caramels. Icing soufflé chupa chups donut cheesecake. Jelly-o chocolate cake sweet roll cake danish candy biscuit halvah"/>
+            <sp:DialogFooter>
+                <sp:Button text="Cancel" quiet="true" flavor="secondary"/>
+                <sp:Button text="Save" quiet="true" flavor="primary"/>
+            </sp:DialogFooter>
+        </sp:Popover>
+  </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text="{codeString2}"/>
+    </comp:Markup>
+</view:DemoPane>

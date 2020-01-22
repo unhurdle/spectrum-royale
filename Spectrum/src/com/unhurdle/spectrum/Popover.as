@@ -109,7 +109,7 @@ package com.unhurdle.spectrum
         COMPILE::JS
         {
           if(value){          
-            var tip:HTMLDivElement = newElement("div",valueToSelector("tip")) as HTMLDivElement;
+            var tip:HTMLDivElement = newElement("div",appendSelector("-tip")) as HTMLDivElement;
             element.appendChild(tip);
           }else{
             if(element.contains(tip)){
@@ -145,6 +145,36 @@ package com.unhurdle.spectrum
     //     }
     //   }
     // }
+    private var _error:Boolean;
+
+    public function get dialogError():Boolean
+    {
+    	return _error;
+    }
+
+    public function set dialogError(value:Boolean):void
+    {
+      if(value != !!_error){
+      	_error = value;
+        toggle("spectrum-Dialog--error",value);
+      }
+    }
+
+    private var _success:Boolean;
+
+    public function get dialogSuccess():Boolean
+    {
+    	return _success;
+    }
+
+    public function set dialogSuccess(value:Boolean):void
+    {
+      if(value != !!_success){
+      	_success = value;
+        toggle("spectrum-Dialog--success",value);
+      }
+    }
+
     private var _top:Boolean;
 
     public function get top():Boolean

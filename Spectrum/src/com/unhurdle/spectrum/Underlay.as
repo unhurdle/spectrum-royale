@@ -13,7 +13,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.elements.Div;
 
 
-  public class SpectrumOverlay extends EventDispatcher implements IBead
+  public class Underlay extends EventDispatcher implements IBead
   {
     /**
      * <inject_html>
@@ -21,7 +21,7 @@ package com.unhurdle.spectrum
      * </inject_html>
      * 
      */
-    public function SpectrumOverlay()
+    public function Underlay()
     {
       super();
     }
@@ -50,7 +50,7 @@ package com.unhurdle.spectrum
     // Application and View are both possible parents,
     // but there's no single interface for both that will work.
     private var hostParent:IParent;
-    private var overlay:UIBase;
+    private var underlay:UIBase;
     /**
      *  @royaleignorecoercion Object
      */
@@ -58,10 +58,10 @@ package com.unhurdle.spectrum
     {
       hostParent = host.parent;
       var index:int = hostParent.getElementIndex(host);
-      overlay = new Div();
-      overlay.className = "spectrum-Underlay is-open";
-      hostParent.addElementAt(overlay,index);
-      overlay.addEventListener(MouseEvent.CLICK,handleClick);
+      underlay = new Div();
+      underlay.className = "spectrum-Underlay is-open";
+      hostParent.addElementAt(underlay,index);
+      underlay.addEventListener(MouseEvent.CLICK,handleClick);
     }
 
     private function handleClick(ev:MouseEvent):void
@@ -77,14 +77,14 @@ package com.unhurdle.spectrum
 
     private function handleHidden(ev:Event):void
     {
-      hostParent.removeElement(overlay);
+      hostParent.removeElement(underlay);
     }
 
     private var _hideOnClick:Boolean = true;
 
     /**
      * If <code>hideOnClick</code> is true, the host will be closed when clicking
-     *  on the overlay. default is true
+     *  on the underlay. default is true
      * 
      *  @langversion 3.0
      *  @playerversion Flash 10.2
