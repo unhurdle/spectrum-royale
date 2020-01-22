@@ -1,0 +1,386 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*" xmlns:local="*"
+  title="Breadcrumbs">
+  <fx:Script>
+    <![CDATA[
+import com.unhurdle.spectrum.data.BreadcrumbsItem;
+import com.unhurdle.spectrum.Toast;
+import com.unhurdle.spectrum.data.BreadcrumbsItem;
+
+[Bindable]public var standard:String = 
+'   <sp:Breadcrumbs id="breadcrumbs1" itemClicked="new Toast((breadcrumbs1.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'       <sp:dataProvider>\n'+
+'           <sp:BreadcrumbsItem text="Nav Root"/>\n'+
+'           <sp:BreadcrumbsItem text="Trend"/>\n'+
+'           <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'       </sp:dataProvider>\n'+
+'   </sp:Breadcrumbs>\n';
+
+
+
+[Bindable]public var dragged:String = 
+'<sp:Breadcrumbs id="breadcrumbs2" itemClicked="new Toast((breadcrumbs2.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root"/>\n'+
+'       <sp:BreadcrumbsItem text="Trend" isDragged="true"/>\n'+
+'       <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var nested:String = 
+'<sp:Breadcrumbs id="breadcrumbs3" itemClicked="new Toast((breadcrumbs3.selectedItem as BreadcrumbsItem).label,1000).show()"\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+ 
+'           <sp:Breadcrumbs\n>'+
+'               <sp:dataProvider\n'+
+'                   <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
+'                </sp:dataProvider\n'+
+'            </sp:Breadcrumbs\n'+
+'        </sp:BreadcrumbsItem\n'+
+'        <sp:BreadcrumbsItem text="Trend"/>\n'+
+'        <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var nestedRootVisible:String = 
+'<sp:Breadcrumbs id="breadcrumbs4" itemClicked="new Toast((breadcrumbs4.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+
+'           <sp:Breadcrumbs>\n'+
+'               <sp:dataProvider>\n'+
+'                   <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
+'               </sp:dataProvider>\n'+
+'           </sp:Breadcrumbs>\n'+
+'          </sp:BreadcrumbsItem>\n'+
+'       <sp:BreadcrumbsItem text="Trend"/>\n'+
+'       <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var multiline:String = 
+'<sp:Breadcrumbs multiline="true" id="breadcrumbs5" itemClicked="new Toast((breadcrumbs5.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root"/>\n'+
+'       <sp:BreadcrumbsItem text="Trend"/>\n'+
+'       <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var multilineNested:String = 
+'<comp:Variant header="Multiline (dragged)" notes="">\n'+
+'<sp:Breadcrumbs multiline="true" id="breadcrumbs6" itemClicked="new Toast((breadcrumbs6.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root"/>\n'+
+'       <sp:BreadcrumbsItem text="Trend" isDragged="true"/>\n'+
+'       <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var multilineDragged:String = 
+'<sp:Breadcrumbs multiline="true" id="breadcrumbs7" itemClicked="new Toast((breadcrumbs7.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+
+'           <sp:Breadcrumbs>\n'+
+'               <sp:dataProvider>\n'+
+'                   <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
+'               </sp:dataProvider>\n'+
+'           </sp:Breadcrumbs>\n'+
+'        </sp:BreadcrumbsItem>\n'+
+'        <sp:BreadcrumbsItem text="Trend"/>\n'+
+'        <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'      </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var multilineNestedRootVisible:String = 
+'<sp:Breadcrumbs multiline="true" id="breadcrumbs8" itemClicked="new Toast((breadcrumbs8.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+
+'           <sp:Breadcrumbs>\n'+
+'               <sp:dataProvider>\n'+
+'                   <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
+'               </sp:dataProvider>\n'+
+'           </sp:Breadcrumbs>\n'+
+'       </sp:BreadcrumbsItem>\n'+
+'       <sp:BreadcrumbsItem text="Trend"/>\n'+
+'       <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var compact:String = 
+'<sp:Breadcrumbs compact="true" id="breadcrumbs9" itemClicked="new Toast((breadcrumbs9.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root"/>\n'+
+'       <sp:BreadcrumbsItem text="Trend"/>\n'+
+'       <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var compactNested:String = 
+'<sp:Breadcrumbs compact="true" id="breadcrumbs10" itemClicked="new Toast((breadcrumbs10.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root"/>\n'+
+'       <sp:BreadcrumbsItem text="Trend"/>\n'+
+'       <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var compactNestedRootVisible:String =
+'<sp:Breadcrumbs compact="true" id="breadcrumbs11" itemClicked="new Toast((breadcrumbs11.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+
+'           <sp:Breadcrumbs>\n'+
+'               <sp:dataProvider>\n'+
+'                   <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
+'                   <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
+'               </sp:dataProvider>\n'+
+'           </sp:Breadcrumbs>\n'+
+'       </sp:BreadcrumbsItem>\n'+
+'          <sp:BreadcrumbsItem text="Trend"/>\n'+
+'           <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'      </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+[Bindable]public var titleString:String =
+'<sp:Breadcrumbs isTitle="true" id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'   <sp:dataProvider>\n'+
+'       <sp:BreadcrumbsItem text="Home"/>\n'+
+'          <sp:BreadcrumbsItem text="Playground"/>\n'+
+'           <sp:BreadcrumbsItem text="Sliders"/>\n'+
+'   </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n';
+
+
+    
+        
+    ]]>
+  </fx:Script>
+    <comp:Variant header="Standard" notes="">
+        <sp:Breadcrumbs id="breadcrumbs1" itemClicked="new Toast((breadcrumbs1.selectedItem as BreadcrumbsItem).label,1000).show()">
+            <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root"/>
+                <sp:BreadcrumbsItem text="Trend"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets"/>
+            </sp:dataProvider>
+        </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+        <comp:StyledCode text='{standard}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Dragged" notes="">
+      <sp:Breadcrumbs id="breadcrumbs2" itemClicked="new Toast((breadcrumbs2.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root"/>
+          <sp:BreadcrumbsItem text="Trend" isDragged="true"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{dragged}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Nested" notes="This variant still needs work">
+      <sp:Breadcrumbs id="breadcrumbs3" itemClicked="new Toast((breadcrumbs3.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root" isFolder="true"> <!-- icon -->
+            <sp:Breadcrumbs>
+              <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root Nested"/>
+                <sp:BreadcrumbsItem text="Trend Nested"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>
+              </sp:dataProvider>
+            </sp:Breadcrumbs>
+          </sp:BreadcrumbsItem>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{nested}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Nested (root visible)" notes="This variant still needs work">
+      <sp:Breadcrumbs id="breadcrumbs4" itemClicked="new Toast((breadcrumbs4.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root" isFolder="true">
+            <sp:Breadcrumbs>
+              <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root Nested"/>
+                <sp:BreadcrumbsItem text="Trend Nested"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>
+              </sp:dataProvider>
+            </sp:Breadcrumbs>
+          </sp:BreadcrumbsItem>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{nestedRootVisible}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Multiline" notes="">
+      <sp:Breadcrumbs multiline="true" id="breadcrumbs5" itemClicked="new Toast((breadcrumbs5.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root"/>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{multiline}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Multiline (dragged)" notes="">
+      <sp:Breadcrumbs multiline="true" id="breadcrumbs6" itemClicked="new Toast((breadcrumbs6.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root"/>
+          <sp:BreadcrumbsItem text="Trend" isDragged="true"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{multilineDragged}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Multiline Nested" notes="This variant still needs work">
+      <sp:Breadcrumbs multiline="true" id="breadcrumbs7" itemClicked="new Toast((breadcrumbs7.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root" isFolder="true">
+            <sp:Breadcrumbs>
+              <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root Nested"/>
+                <sp:BreadcrumbsItem text="Trend Nested"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>
+              </sp:dataProvider>
+            </sp:Breadcrumbs>
+          </sp:BreadcrumbsItem>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{multilineNested}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Multiline Nested (root visible)" notes="This variant still needs work">
+      <sp:Breadcrumbs multiline="true" id="breadcrumbs8" itemClicked="new Toast((breadcrumbs8.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root" isFolder="true">
+            <sp:Breadcrumbs>
+              <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root Nested"/>
+                <sp:BreadcrumbsItem text="Trend Nested"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>
+              </sp:dataProvider>
+            </sp:Breadcrumbs>
+          </sp:BreadcrumbsItem>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{multilineNestedRootVisible}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Compact" notes="">
+      <sp:Breadcrumbs compact="true" id="breadcrumbs9" itemClicked="new Toast((breadcrumbs9.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root"/>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{compact}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Compact Nested" notes="This variant still needs work">
+      <sp:Breadcrumbs compact="true" id="breadcrumbs10" itemClicked="new Toast((breadcrumbs10.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root"/>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{compactNested}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Compact Nested (root visible)" notes="This variant still needs work">
+      <sp:Breadcrumbs compact="true" id="breadcrumbs11" itemClicked="new Toast((breadcrumbs11.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root" isFolder="true">
+            <sp:Breadcrumbs>
+              <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root Nested"/>
+                <sp:BreadcrumbsItem text="Trend Nested"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>
+              </sp:dataProvider>
+            </sp:Breadcrumbs>
+          </sp:BreadcrumbsItem>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{compactNestedRootVisible}'/>
+    </comp:Markup>
+
+    <comp:Variant header="Title" notes= "Use the multiline variant instead">
+      <sp:Breadcrumbs isTitle="true" id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Home"/>
+          <sp:BreadcrumbsItem text="Playground"/>
+          <sp:BreadcrumbsItem text="Sliders"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{titleString}'/>
+    </comp:Markup>
+
+
+</view:DemoPane>

@@ -46,7 +46,11 @@ package com.unhurdle.spectrum
         setClassName(computeFinalClassNames());
       }
     }
-
+    COMPILE::JS
+    override protected function computeFinalClassNames():String
+    { 
+      return (classList.compute() + super.computeFinalClassNames()).trim();
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {

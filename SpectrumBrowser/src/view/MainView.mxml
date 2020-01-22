@@ -21,6 +21,7 @@
         import view.panes.AvatarPane;
         import view.panes.BannerPane;
         import view.panes.BarLoaderPane;
+        import view.panes.BreadcrumbsPane;
         import view.panes.ButtonGroupPane;
         import view.panes.ButtonPane;
         import view.panes.CalendarPane;
@@ -87,7 +88,7 @@
         new NavProvider("Avatar",AvatarPane,"avatar"),
         new NavProvider("Banner",BannerPane,"banner"),
         new NavProvider("Bar Loader",BarLoaderPane,"bar_loader"),
-        new NavProvider("Breadcrumbs",ComingSoonPane,"breadcrumbs"),
+        new NavProvider("Breadcrumbs",BreadcrumbsPane,"breadcrumbs"),
         new NavProvider("Button",ButtonPane,"button"),
         new NavProvider("Button Group",ButtonGroupPane,"button_group"),
         new NavProvider("Calendar",CalendarPane,"calendar"),
