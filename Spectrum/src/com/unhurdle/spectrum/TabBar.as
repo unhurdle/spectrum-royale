@@ -23,7 +23,6 @@ package com.unhurdle.spectrum
     public function TabBar()
     { 
       super();
-      typeNames = "";
     }
 
     private var _quiet:Boolean;
