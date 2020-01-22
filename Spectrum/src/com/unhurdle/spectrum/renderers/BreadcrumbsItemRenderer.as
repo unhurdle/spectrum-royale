@@ -58,10 +58,10 @@ package com.unhurdle.spectrum.renderers
           button.quiet = true;
           button.element.style.height = '100%';
           var type:String = IconType.FOLDER_BREADCRUMB;
-          button.icon = "#spectrum-css-icon-FolderBreadcrumb";
+          button.icon = Icon.getCSSTypeSelector(type);
           button.iconClass = appendSelector("-folder");
           button.iconElement = createFolderIcon();
-          button.iconType = IconType.FOLDER_BREADCRUMB;
+          button.iconType = type;
           element.insertBefore(button.element,icon.element);
           element.style.marginTop = '6px';
         }
