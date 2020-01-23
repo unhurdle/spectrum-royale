@@ -6,8 +6,12 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import org.apache.royale.collections.IArrayList;
+  import org.apache.royale.html.elements.Div;
+  import org.apache.royale.html.elements.Span;
+  import org.apache.royale.core.UIBase;
+  import org.apache.royale.html.elements.A;
 
-  public class StepList extends List{
+  public class StepList extends SpectrumBase{
     /**
      * <inject_html>
      * <link rel="stylesheet" href="assets/css/components/steplist/dist.css">
@@ -17,108 +21,155 @@ package com.unhurdle.spectrum
     public function StepList()
     {
       super();
-      height = 50;
     }
     override protected function getSelector():String{
         return "spectrum-Steplist";
     }
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
-			return addElementToWrapper(this,'div');
+      addElementToWrapper(this,'div');
+      max = 4;
+      value = 0;
+			return element;
 		}
-    override public function set dataProvider(value:Object):void{
-      if(value is Array){
-        convertArray(value);
-      } else if(value is IArrayList){
-        convertArray(value.source);
-      }
-      super.dataProvider = value;
-    }
-    private function convertArray(value:Object):void{
-      var newVal:Array
-      newVal = new Array(value.length);
-      var len:int = value.length;
-      for(var i:int = 0;i<len;i++){
-        if(value[i] is StepsListItem){
-          if(!!isLabel || !!isToolTip){
-            (value[i] as StepsListItem).text = "Step " + (i+1);
-          }
-          (value[i] as StepsListItem).toolTip = isToolTip;
-          (value[i] as StepsListItem).interactive = interactive;
-          continue;
-        } else {
-          var item:StepsListItem;
-          if(!!isLabel || !!isToolTip){
-           item = new StepsListItem("Step " + (i+1));
-          }
-          else{
-            item = new StepsListItem("");
-          }
-          // var item:StepsListItem = new StepsListItem();
-          if(value[i].hasOwnProperty("selected")){
-            item.selected = value[i]["selected"];
-          }
-          if(value[i].hasOwnProperty("completed")){
-            item.completed = value[i]["completed"];
-          }
-          item.toolTip = isToolTip;
-          item.interactive = interactive;
-          // if(isLabel()){
-          //   item.text = "Step" + i;
-          // }
-          value[i] = item;
-        }
-      }
+    override public function addedToParent():void{
+      super.addedToParent();
+      value = value;
     }
     private var _isSmall:Boolean;
     public function get isSmall():Boolean
     {
     	return _isSmall;
     }
-    public function set isSmall(value:Boolean):void
+    public function set isSmall(val:Boolean):void
     {
-      if(value != !!_isSmall){
-        toggle(valueToSelector("small"),value);
+      if(val != !!_isSmall){
+        toggle(valueToSelector("small"),val);
       }
-    	_isSmall = value;
+    	_isSmall = val;
     }
     private var _interactive:Boolean;
     public function get interactive():Boolean
     {
     	return _interactive;
     }
-    public function set interactive(value:Boolean):void
+    public function set interactive(val:Boolean):void
     {
-      if(value != !!_interactive){
-        toggle(valueToSelector("interactive"),value);
+      if(val != !!_interactive){
+        toggle(valueToSelector("interactive"),val);
       }
-    	_interactive = value;
+    	_interactive = val;
     }
-    private var _isLabel:Boolean;
-    public function get isLabel():Boolean
+    private var _withLabel:Boolean;
+    public function get withLabel():Boolean
     {
-    	return _isLabel;
+    	return _withLabel;
     }
-    public function set isLabel(value:Boolean):void
+    public function set withLabel(val:Boolean):void
     {
-      // if(value != !!_isLabel){
-      //   if(value){
-      //     className = getSelector() + "--small";
-      //   }
-      //   else{
-      //     className = "";
-      //   }
-      // }
-    	_isLabel = value;
+    	_withLabel = val;
     }
-    private var _isToolTip:Boolean;
-    public function get isToolTip():Boolean
+    private var _withToolTip:Boolean;
+    public function get withToolTip():Boolean
     {
-    	return _isToolTip;
+    	return _withToolTip;
     }
-    public function set isToolTip(value:Boolean):void
+    public function set withToolTip(val:Boolean):void
     {
-    	_isToolTip = value;
+    	_withToolTip = val;
+    }
+    private var _value:Number;
+
+    public function get value():Number
+    {
+    	return _value;
+    }
+
+    COMPILE::SWF
+    public function set value(val:Number):void{}
+
+    COMPILE::JS
+    public function set value(val:Number):void
+    {
+    	_value = val;
+      if(!parent){
+        return;
+      }
+      validateSteplistItems();
+      var len:int = numElements;
+      for(var i:int=0;i<len;i++){
+        if(i + 1 > val){
+          (element.children[i] as Element).classList.remove("is-selected");
+          (element.children[i] as Element).classList.remove("is-complete");
+        } else  if(i + 1 < val){
+          (element.children[i] as Element).classList.add("is-complete");
+        }
+        else {
+          (element.children[i] as Element).classList.add("is-selected");
+        }
+      }
+    }
+    private var _max:Number;
+
+    public function get max():Number
+    {
+    	return _max;
+    }
+
+    public function set max(val:Number):void
+    {
+    	_max = val;
+      if(!parent){//wait until addedToParent
+        return;
+      }
+      validateSteplistItems();
+    }
+    private var markerContainer:Span;
+    private var marker:Span;
+    private var segment:Span
+    private function validateSteplistItems():void{
+      while(numElements > max){
+        var elem:UIBase = getElementAt(numElements-1) as UIBase;
+        removeElement(elem);
+      }
+      while(numElements < max){
+        var div:Div = new Div();
+        div.className = appendSelector("-item");
+        markerContainer = new Span();
+        markerContainer.className = appendSelector("-markerContainer");
+        marker = new Span();
+        marker.className = appendSelector("-marker");
+        markerContainer.addElement(marker);
+        if(interactive){
+          var a:A = new A();
+          a.className = appendSelector("-link");
+          a.setAttribute('tabindex','-1');
+          (a.element as HTMLElement).removeAttribute('href');
+          a.addElement(markerContainer);
+          div.addElement(a);
+        }else{
+          div.addElement(markerContainer);
+        }
+        segment = new Span();
+        segment.className = appendSelector("-segment");
+        div.addElement(segment);
+        addElement(div);
+        if(withLabel || withToolTip){
+          if(withToolTip){
+            //TODO change the += to toggle?
+            div.className += " u-tooltip-showOnHover";
+            var toolTip:Tooltip = new Tooltip();
+            toolTip.text = "Step " + numElements;
+            markerContainer.addElementAt(toolTip,getElementIndex(marker) );
+          }
+          else{
+            var label:Span = new Span();
+            label.className = "spectrum-Steplist-label"
+            label.text = "Step " + numElements;
+            div.addElementAt(label,div.getElementIndex(markerContainer));      
+          }
+        }
+      }
     }
   }
 }

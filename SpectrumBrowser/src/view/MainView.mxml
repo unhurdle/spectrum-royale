@@ -63,6 +63,7 @@
         import view.panes.SplitButtonPane;
         import view.panes.SplitViewPane;
         import view.panes.StatusLightPane;
+        import view.panes.SteplistPane;
         import view.panes.StepperPane;
         import view.panes.SwitchPane;
         import view.panes.TabsPane;
@@ -134,7 +135,7 @@
         new NavProvider("Split Button",SplitButtonPane,"split_button"),
         new NavProvider("SplitView",SplitViewPane,"split_view"),
         new NavProvider("Status Light",StatusLightPane,"status_light"),
-        new NavProvider("Steplist",ComingSoonPane,"steplist"),
+        new NavProvider("Steplist",SteplistPane,"steplist"),
         new NavProvider("Stepper",StepperPane,"stepper"),
         new NavProvider("Switch",SwitchPane,"switch"),
         new NavProvider("Table",ComingSoonPane,"table"),
