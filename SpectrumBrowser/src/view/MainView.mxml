@@ -56,6 +56,7 @@
         import view.panes.QuickActionsPane;
         import view.panes.RadioPane;
         import view.panes.RatingPane;
+        import view.panes.RulePane;
         import view.panes.SearchPane;
         import view.panes.SearchWithinPane;
         import view.panes.SliderPane;
@@ -125,7 +126,7 @@
         new NavProvider("Quick Actions",QuickActionsPane,"quick_actions"),
         new NavProvider("Radio",RadioPane,"radio"),
         new NavProvider("Rating",RatingPane,"rating"),
-        new NavProvider("Rule",ComingSoonPane,"rule"),
+        new NavProvider("Rule",RulePane,"rule"),
         new NavProvider("Search",SearchPane,"search"),
         new NavProvider("Search Within",SearchWithinPane,"search_within"),
         new NavProvider("Side Navigation",ComingSoonPane,"side_navigation"),
