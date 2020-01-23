@@ -63,7 +63,7 @@ package com.unhurdle.spectrum.renderers
           button.iconElement = createFolderIcon();
           button.iconType = IconType.FOLDER_BREADCRUMB;
           element.insertBefore(button.element,icon.element);
-          element.style.marginTop = '6px';
+          element.style.marginTop = 'inherit';
         }
       }
       else{

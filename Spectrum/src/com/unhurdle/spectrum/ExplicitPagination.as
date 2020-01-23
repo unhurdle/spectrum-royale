@@ -43,6 +43,7 @@ package com.unhurdle.spectrum
       elem.appendChild(input);
       span = new TextNode("");
       span.element = newElement("span","spectrum-Body--secondary" + appendSelector("-counter"));
+      span.element.style.marginLeft = '6px';
       elem.appendChild(span.element);
       next = newElement("a",buttonBase + appendSelector("-nextButton")) as HTMLLinkElement
       var nextType:String = IconType.CHEVRON_RIGHT_MEDIUM;
