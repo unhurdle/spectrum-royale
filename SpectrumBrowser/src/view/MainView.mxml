@@ -73,6 +73,7 @@
         import view.panes.MenuPane;
         import view.panes.BreadcrumbsPane;
         import view.panes.DropzonePane;
+        import view.panes.PagesPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -114,7 +115,7 @@
         new NavProvider("Menu",MenuPane,"menu"),
         new NavProvider("Meter",ComingSoonPane,"meter"),
         new NavProvider("Miller Columns",MillerColumnsPane,"miller_columns"),
-        new NavProvider("Page",ComingSoonPane,"page"),
+        new NavProvider("Page",PagesPane,"page"),
         new NavProvider("Pagination - Button Style",PaginationButtonStylePane,"pagination_button_style"),
         new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
         new NavProvider("Pagination - Page",PaginationPagePane,"pagination_page"),
