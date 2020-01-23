@@ -79,6 +79,7 @@
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
+        import view.panes.MenuPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -117,7 +118,7 @@
         new NavProvider("Label",LabelPane,"label"),
         new NavProvider("Link",LinkPane,"link"),
         new NavProvider("Logic Button",LogicButtonPane,"logic_button"),
-        new NavProvider("Menu",ComingSoonPane,"menu"),
+        new NavProvider("Menu",MenuPane,"menu"),
         new NavProvider("Meter",MeterPane,"meter"),
         new NavProvider("Miller Columns",MillerColumnsPane,"miller_columns"),
         new NavProvider("Page",PagesPane,"page"),
