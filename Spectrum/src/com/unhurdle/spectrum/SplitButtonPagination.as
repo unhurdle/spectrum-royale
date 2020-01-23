@@ -34,7 +34,7 @@ package com.unhurdle.spectrum
       var triggerCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(triggerType));
       triggerCheckIcon.type = triggerType;
       trigger.appendChild(triggerCheckIcon.element);
-      trigger.addEventListener("click",prewPage);
+      trigger.addEventListener("click",prevPage);
       elem.appendChild(trigger);
       action = newElement("a",buttonBase + " " + appendSelector("-action")) as HTMLLinkElement
       label = new TextNode("span");
@@ -86,7 +86,7 @@ package com.unhurdle.spectrum
         }
         enableOrDisable();
     }
-    private function prewPage():void{
+    private function prevPage():void{
       pageIsSelected > 1? pageIsSelected--: pageIsSelected = 1;
     }
     private function nextPage():void{

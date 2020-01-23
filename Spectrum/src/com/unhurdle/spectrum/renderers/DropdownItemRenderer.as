@@ -6,7 +6,6 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.Icon;
   import org.apache.royale.html.util.getLabelFromData;
-  import com.unhurdle.spectrum.const.IconSize;
   // import org.apache.royale.events.Event;
 
   COMPILE::JS

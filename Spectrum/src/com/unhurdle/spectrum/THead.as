@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.core.IChrome;
 
     COMPILE::JS
     {

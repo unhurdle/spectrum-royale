@@ -9,17 +9,13 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.collections.IArrayList;
   import com.unhurdle.spectrum.data.MenuItem;
-  import org.apache.royale.html.SimpleAlert;
   import org.apache.royale.events.MouseEvent;
   import org.apache.royale.events.Event;
   import org.apache.royale.geom.Rectangle;
   import org.apache.royale.utils.DisplayUtils;
-  import org.apache.royale.core.IPopUpHost;
-  import org.apache.royale.utils.UIUtils;
-	import org.apache.royale.utils.callLater;
+  import org.apache.royale.utils.callLater;
 	// import com.unhurdle.spectrum.data.IMenuItem;
 	import com.unhurdle.spectrum.const.IconPrefix;
-	import com.unhurdle.spectrum.const.IconSize;
 	import com.unhurdle.spectrum.data.IMenuItem;
   /**
    * TODO maybe add flexible with styling of min-width: 0;width:auto;

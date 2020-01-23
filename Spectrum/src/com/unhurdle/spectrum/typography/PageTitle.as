@@ -1,8 +1,6 @@
 package com.unhurdle.spectrum.typography
 {
 
-  import com.unhurdle.spectrum.TextNode;
-
   public class PageTitle extends TypographyBase
   {
     /**

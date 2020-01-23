@@ -21,20 +21,20 @@ package com.unhurdle.spectrum
 
     private var input:HTMLInputElement;
     private var span:TextNode;
-    private var prew:HTMLLinkElement;
+    private var prev:HTMLLinkElement;
     private var next:HTMLLinkElement;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,"nav");
       var buttonBase:String = "spectrum-ActionButton spectrum-ActionButton--quiet ";
-      prew = newElement("a",buttonBase + appendSelector("-prevButton")) as HTMLLinkElement
-      var prewType:String = IconType.CHEVRON_LEFT_MEDIUM;
-      var prewCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(prewType));
-      prewCheckIcon.type = prewType;
-      prew.appendChild(prewCheckIcon.element);
-      prew.addEventListener("click",prewPage);
-      elem.appendChild(prew);
+      prev = newElement("a",buttonBase + appendSelector("-prevButton")) as HTMLLinkElement
+      var prevType:String = IconType.CHEVRON_LEFT_MEDIUM;
+      var prevCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(prevType));
+      prevCheckIcon.type = prevType;
+      prev.appendChild(prevCheckIcon.element);
+      prev.addEventListener("click",prevPage);
+      elem.appendChild(prev);
       input = newElement("input","spectrum-Textfield " + appendSelector("-input")) as HTMLInputElement;
       input.type = "text";
       input.name = "field";
@@ -70,19 +70,19 @@ package com.unhurdle.spectrum
         }
         COMPILE::JS
         {
-          prew.href = _href;
+          prev.href = _href;
           next.href = _href;
         }
     }
 
-    private function prewPage():void{
+    private function prevPage():void{
       pageIsSelected > 1? pageIsSelected--: pageIsSelected = 1;
     }
     private function nextPage():void{
       pageIsSelected < pagesNum? pageIsSelected++: pageIsSelected = pagesNum;
     }
     private function enableOrDisable():void{
-        pageIsSelected == 1? prew.classList.add("is-disabled"): prew.classList.remove("is-disabled");
+        pageIsSelected == 1? prev.classList.add("is-disabled"): prev.classList.remove("is-disabled");
         pageIsSelected == pagesNum? next.classList.add("is-disabled"): next.classList.remove("is-disabled");
     }
     

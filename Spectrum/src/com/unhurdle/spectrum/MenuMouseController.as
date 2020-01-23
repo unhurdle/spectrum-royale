@@ -10,7 +10,6 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.ItemAddedEvent;
 	import org.apache.royale.events.ItemRemovedEvent;
-	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.html.beads.IListView;
 	
 	import org.apache.royale.events.ItemClickedEvent;

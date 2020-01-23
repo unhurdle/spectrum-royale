@@ -1,10 +1,7 @@
 package com.unhurdle.spectrum
 {
   COMPILE::JS
-  {
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-  }
+  {}
 
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>

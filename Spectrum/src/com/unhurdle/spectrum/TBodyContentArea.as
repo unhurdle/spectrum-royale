@@ -8,8 +8,6 @@ package com.unhurdle.spectrum
 	import org.apache.royale.html.supportClasses.ContainerContentArea;
 	import org.apache.royale.html.supportClasses.DataItemRenderer;
 	import com.unhurdle.spectrum.renderers.TableItemRenderer;
-	import org.apache.royale.core.IChild;
-	import com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView;
 
 	COMPILE::JS
 	{
@@ -17,8 +15,6 @@ package com.unhurdle.spectrum
 		import org.apache.royale.html.util.addElementToWrapper;
 		import org.apache.royale.core.WrappedHTMLElement;
 		import org.apache.royale.core.WrappedHTMLElement;
-		import org.apache.royale.events.ValueEvent;
-		import org.apache.royale.events.ValueEvent;
 		import org.apache.royale.core.CSSClassList;
 	}
 

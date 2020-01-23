@@ -5,8 +5,6 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import com.unhurdle.spectrum.AssetList;
-  import com.unhurdle.spectrum.data.AssetListItem;
   import com.unhurdle.spectrum.data.MillerColumnsItem;
 
   public class MillerColumnsItemRenderer extends DataItemRenderer

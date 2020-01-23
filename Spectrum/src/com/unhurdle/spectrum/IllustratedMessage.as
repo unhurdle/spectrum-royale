@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
   }
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.typography.PageTitle;
-  import com.unhurdle.spectrum.typography.TypographyBase;
+  
 
 
   public class IllustratedMessage extends SpectrumBase

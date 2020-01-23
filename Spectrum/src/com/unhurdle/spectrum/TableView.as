@@ -7,7 +7,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.IEventDispatcher;
 	import com.unhurdle.spectrum.model.TableModel;
 	import com.unhurdle.spectrum.THead;
-	import com.unhurdle.spectrum.TFoot;
+	
 
 	public class TableView extends ListViewForTable
 	{
