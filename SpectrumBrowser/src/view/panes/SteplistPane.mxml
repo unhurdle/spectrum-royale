@@ -1,0 +1,46 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+    xmlns:fx="http://ns.adobe.com/mxml/2009"
+    xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+    xmlns:comp="view.components.*"
+    title="Steplist">
+    <fx:Script>
+        <![CDATA[
+        ]]>
+    </fx:Script>
+    <comp:Variant header="Standard (static)" notes="A basic steplist.">
+        <sp:StepList max="4" value="3" style="display:table"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:StepList max="4" value="3"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="Standard (interactive)" notes="A basic interactive steplist.">
+        <sp:StepList max="4" value="3" interactive="true" style="display:table"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:StepList max="4" value="3" interactive="true"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="With label (static)" notes="A static steplist with labels.">
+        <sp:StepList max="4" value="3" withLabel="true" style="display:table"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:StepList max="4" value="3" withLabel="true"/&gt;'/>
+    </comp:Markup>
+     <comp:Variant header="With label (interactive)" notes="An interactive steplist with labels.">
+        <sp:StepList max="4" value="3" withLabel="true" interactive="true" style="display:table"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:StepList max="4" value="3" withLabel="true" interactive="true"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="With tooltip (static)" notes="A static steplist with tooltips.">
+        <sp:StepList max="4" value="3" withToolTip="true" style="display:table"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:StepList max="4" value="3" withToolTip="true"/&gt;'/>
+    </comp:Markup>
+    <comp:Variant header="With tooltip (interactive)" notes="An interactive steplist with tooltips.">
+        <sp:StepList max="4" value="3" withToolTip="true" interactive="true" style="display:table"/>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:StepList max="4" value="3" withToolTip="true" interactive="true"/&gt;'/>
+    </comp:Markup>
+</view:DemoPane>
