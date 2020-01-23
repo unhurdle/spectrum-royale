@@ -7,17 +7,11 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.model.TableModel;
 	import org.apache.royale.utils.ClassSelectorList;
 	import org.apache.royale.utils.IClassSelectorListSupport;
-	import org.apache.royale.events.CollectionEvent;
-	import org.apache.royale.collections.ArrayList;
 
 	COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
-		import org.apache.royale.html.util.addElementToWrapper;
-		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
-		import org.apache.royale.textLayout.property.BooleanPropertyHandler;
-		import org.apache.royale.events.ValueEvent;
-	}
+		import org.apache.royale.html.util.addElementToWrapper;}
 	
 	[DefaultProperty("columns")]
 

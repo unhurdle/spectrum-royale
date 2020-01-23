@@ -6,7 +6,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import org.apache.royale.events.Event;
-  import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.MouseEvent;
   import org.apache.royale.html.elements.Span;

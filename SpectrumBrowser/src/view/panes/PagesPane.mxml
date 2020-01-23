@@ -1,0 +1,44 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*" xmlns:elements="org.apache.royale.textLayout.elements.*"
+  title="Page" notes="The outer page container. A parent tag should only have the .spectrum class if using a standalone CSS file. If using multistops, a parent tag should have both the .spectrum class and the corresponding colorstop variant class, i.e. .spectrum--light. Finally, if scaling to large with the diff strategy, a parent tag should have the .spectrum--large class.">
+  <fx:Script>
+    <![CDATA[
+      [Bindable] private var pageStr:String = 
+      '<Div>\n'+
+      '   <text>Text Here!</text>\n'+
+      '</Div>\n'+
+      '<Br/>\n'+
+      '<Br/>\n'+
+      '<Div className="spectrum--large spectrum">\n'+
+      '   <text>Text Here!</text>\n'+
+      '</Div>\n'+
+      '<Br/>\n'+
+      '<Br/>\n'+
+      '<sp:Button flavor="cta" text="Button"/>\n'+
+      '<Br/>\n'+
+      '<sp:Button flavor="cta" text="Button" className = "spectrum--large spectrum"/>\n'   
+    ]]>
+  </fx:Script>
+    <comp:Variant header="Standard">
+      <Div>
+        <text>Text Here!</text>
+      </Div>
+      <Br/>
+      <Br/>
+      <Div className="spectrum--large spectrum">
+        <text>Text Here!</text>
+      </Div>
+      <Br/> 
+      <Br/>
+      <sp:Button flavor="cta" text="Button"/> 
+      <Br/>
+      <sp:Button flavor="cta" text="Button" className = "spectrum--large spectrum"/>   
+    </comp:Variant>
+
+    <comp:Markup>
+        <comp:StyledCode text="{pageStr}"/>
+    </comp:Markup>
+
+
+  </view:DemoPane>

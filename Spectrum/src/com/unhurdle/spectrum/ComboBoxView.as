@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum{
 	import org.apache.royale.core.BeadViewBase;
-	import org.apache.royale.core.IUIBase;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.core.ValuesManager;
 	import org.apache.royale.events.IEventDispatcher;

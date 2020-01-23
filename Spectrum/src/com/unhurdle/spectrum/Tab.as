@@ -5,10 +5,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-    import org.apache.royale.events.IEventDispatcher;
-    import org.apache.royale.events.ValueEvent;
     import com.unhurdle.spectrum.const.IconPrefix;
-    import com.unhurdle.spectrum.const.IconSize;
     import org.apache.royale.events.Event;
   
 

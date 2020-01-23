@@ -8,20 +8,16 @@ package com.unhurdle.spectrum.renderers
 	import org.apache.royale.core.ISelectionModel;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.core.IStrandWithModelView;
-	import org.apache.royale.core.SimpleCSSStyles;
-	import org.apache.royale.core.UIBase;
 	import org.apache.royale.events.CollectionEvent;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.IEventDispatcher;
 	import com.unhurdle.spectrum.model.TableModel;
 	import com.unhurdle.spectrum.renderers.TableItemRenderer;
-	import com.unhurdle.spectrum.TableCell;
 	import com.unhurdle.spectrum.TableColumn;
-	import com.unhurdle.spectrum.TableRow;
 	import com.unhurdle.spectrum.Table;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import org.apache.royale.html.beads.IListView;
-	import org.apache.royale.events.ValueEvent;
+	
 	
 
 

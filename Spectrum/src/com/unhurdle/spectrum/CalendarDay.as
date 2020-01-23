@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.html.elements.Span;
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;

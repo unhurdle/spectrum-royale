@@ -3,7 +3,9 @@
   xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
   title="Pagination - Button Style">
     <fx:Script>
-    <![CDATA[]]>
+    <![CDATA[
+        
+    ]]>
     </fx:Script>
     <comp:Variant header="CTA">
         <sp:SplitButtonPagination type="cta" pagesNum="7" pageIsSelected="2"/>

@@ -3,18 +3,13 @@ package com.unhurdle.spectrum.renderers
   
     import org.apache.royale.collections.ICollectionView;
     import org.apache.royale.core.IBead;
-    import org.apache.royale.core.IBeadModel;
     import org.apache.royale.core.IChild;
     import org.apache.royale.core.IDataProviderItemRendererMapper;
-    import org.apache.royale.core.IDataProviderModel;
     import org.apache.royale.core.IItemRendererClassFactory;
     import org.apache.royale.core.IListPresentationModel;
     import org.apache.royale.core.IParent;
     import org.apache.royale.core.ISelectableItemRenderer;
     import org.apache.royale.core.IStrand;
-    import org.apache.royale.core.SimpleCSSStyles;
-    import org.apache.royale.core.UIBase;
-    import org.apache.royale.events.CollectionEvent;
     import org.apache.royale.events.Event;
     import org.apache.royale.events.EventDispatcher;
     import org.apache.royale.events.IEventDispatcher;
@@ -23,19 +18,15 @@ package com.unhurdle.spectrum.renderers
    	import org.apache.royale.utils.loadBeadFromValuesManager;
     import com.unhurdle.spectrum.TableView;
     import com.unhurdle.spectrum.TBodyContentArea;
-    import com.unhurdle.spectrum.newElement;
     import com.unhurdle.spectrum.model.TableModel;
     import com.unhurdle.spectrum.Table;
     import com.unhurdle.spectrum.TableColumn;
-		import com.unhurdle.spectrum.Label;
-    import com.unhurdle.spectrum.TableHeaderCell;
+		import com.unhurdle.spectrum.TableHeaderCell;
     import com.unhurdle.spectrum.THead;
     import com.unhurdle.spectrum.TableRow;
 		import org.apache.royale.collections.ArrayList;
     import org.apache.royale.html.beads.EasyDataProviderChangeNotifier;
     import com.unhurdle.spectrum.TextNode;
-    import com.unhurdle.spectrum.Icon;
-    import org.apache.royale.events.ValueEvent;
     import org.apache.royale.core.IItemRenderer;
     import com.unhurdle.spectrum.CheckBox;
   

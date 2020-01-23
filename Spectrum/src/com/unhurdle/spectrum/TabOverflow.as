@@ -8,8 +8,6 @@ package com.unhurdle.spectrum
   }
   import com.unhurdle.spectrum.data.DropdownItem;
   import org.apache.royale.events.ValueEvent;
-  import com.unhurdle.spectrum.renderers.DropdownItemRenderer;
-  import jQuery.event;
   import com.unhurdle.spectrum.renderers.MenuItemRenderer;
   
 

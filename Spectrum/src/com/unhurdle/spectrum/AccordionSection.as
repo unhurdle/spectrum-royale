@@ -9,7 +9,6 @@ package com.unhurdle.spectrum
 
   }
     import org.apache.royale.html.elements.H3;
-    import org.apache.royale.html.elements.Button;
     import org.apache.royale.core.IChild;
 
   public class AccordionSection extends Group

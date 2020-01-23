@@ -8,14 +8,11 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.CheckBox;
   import com.unhurdle.spectrum.Icon;
   import com.unhurdle.spectrum.TextNode;
-  import com.unhurdle.spectrum.const.IconPrefix;
-  import com.unhurdle.spectrum.const.IconSize;
   import com.unhurdle.spectrum.data.AssetListItem;
-  import com.unhurdle.spectrum.newElement;
+ 
 
   import org.apache.royale.events.Event;
-  import org.apache.royale.html.util.getLabelFromData;
-
+  
   public class AssetListItemRenderer extends ListItemRenderer
   {
     public function AssetListItemRenderer()

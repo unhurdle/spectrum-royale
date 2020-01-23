@@ -1,9 +1,6 @@
 package com.unhurdle.spectrum
 {
-	COMPILE::JS{
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
-  }
+	COMPILE::JS{}
   import com.unhurdle.spectrum.includes.SliderInclude;
   
 	[Event(name="change", type="org.apache.royale.events.Event")]

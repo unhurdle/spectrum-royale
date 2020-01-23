@@ -2,7 +2,7 @@ package com.unhurdle.spectrum
 {
 
   import org.apache.royale.html.beads.plugin.ModalDisplay;
-  import org.apache.royale.utils.CSSUtils;
+  
 
   COMPILE::JS {
     import org.apache.royale.html.util.addElementToWrapper;

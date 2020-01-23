@@ -7,12 +7,8 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import org.apache.royale.html.util.getLabelFromData;
-  import com.unhurdle.spectrum.SideNav;
-  import com.unhurdle.spectrum.Toast;
   import goog.events.Event;
   import com.unhurdle.spectrum.Icon;
-  import com.unhurdle.spectrum.const.IconSize;
   import com.unhurdle.spectrum.ImageIcon;
   import com.unhurdle.spectrum.data.MenuItem;
   import org.apache.royale.html.supportClasses.TreeListData;

@@ -4,7 +4,6 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.util.addElementToWrapper;
   import org.apache.royale.core.WrappedHTMLElement;
   }
-  import com.unhurdle.spectrum.Icon;
   import com.unhurdle.spectrum.IllustratedMessage;
   
   import org.apache.royale.file.beads.FileModel;
@@ -12,10 +11,9 @@ package com.unhurdle.spectrum
   import org.apache.royale.file.beads.FileBrowser;
   import org.apache.royale.events.ValueEvent;
 
-  import org.apache.royale.html.SimpleAlert;
   import org.apache.royale.file.FileProxy;
   import org.apache.royale.events.Event;
-  import org.apache.royale.textLayout.edit.ElementRange;
+  
   
   
 	[Event(name="filesAvailable", type="org.apache.royale.events.ValueEvent")]
