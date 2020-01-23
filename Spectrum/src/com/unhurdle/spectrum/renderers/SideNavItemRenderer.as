@@ -50,6 +50,7 @@ package com.unhurdle.spectrum.renderers
       }
 
       var sideNavItem:SideNavItem = value as SideNavItem;
+      textNode.text = sideNavItem.text;
       // elem.style.pointerEvents = null
       // textNode.element.setAttribute("href",sideNavItem.href || "#");
       //TODO nested lists?
@@ -102,13 +103,13 @@ package com.unhurdle.spectrum.renderers
       super.selected = value;
       COMPILE::JS
       {
-        if(value){
-          var elemWithListToRemove:Element = element;
-          while(!elementParentIsMultiLevel(elemWithListToRemove)){
-            elemWithListToRemove = elemWithListToRemove.parentElement.parentElement;
-          }
-          removeSelectedFromOtherLevel(elemWithListToRemove.parentElement.children);
-        } 
+        // if(value){
+        //   var elemWithListToRemove:Element = element;
+        //   while(!elementParentIsMultiLevel(elemWithListToRemove)){
+        //     elemWithListToRemove = elemWithListToRemove.parentElement.parentElement;
+        //   }
+        //   removeSelectedFromOtherLevel(elemWithListToRemove.parentElement.children);
+        // } 
       }
     }
     private function removeSelectedFromOtherLevel(list:*):void{

@@ -37,16 +37,16 @@
   </comp:Markup>
 
   <comp:Variant header="Filled-Offset" notes="With fill and offset">
-    <sp:Slider filledOffset="30" label="Slider Label" value="14" max="20" min="10" step="2"/>
-    <sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label" value="14" max="20" min="10" step="2"/>
-    <sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/>
+    <sp:Slider filledOffset="60" label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider filledOffset="20" label="Slider Label" value="14" max="20" min="10" step="2"/>
+    <sp:Slider filledOffset="20" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Slider filledOffset="30" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Slider filledOffset="60" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Slider filledOffset="20" label="Slider Label" value="14" max="20" min="10" step="2"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:Slider filledOffset="20" filledOffsetRight="true" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Slider filledOffset="20" label="Slider Label - Disabled" value="14" max="20" min="10" step="2" disabled="true"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Range" notes="A range slider with two handles.">

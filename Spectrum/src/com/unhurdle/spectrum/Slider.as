@@ -46,22 +46,7 @@ package com.unhurdle.spectrum
         leftTrack.style.width = percent + '%';
         rightTrack.style.width = (100 - percent) + '%';
         if(filledOffset){
-            if(filledOffsetRight){
-            var left:int = (((percent - filledOffset)/100) - (15/100)) * 100;
-            fillTrack.style.left = left + "%";
-            if(left < -25){
-                fillTrack.style.visibility = "hidden";
-            }else{
-                fillTrack.style.visibility = "visible";
-            }
-            }else{                
-                fillTrack.style.left = handle.style.left;                
-                if(fillTrack.style.left == "100%"){
-                    fillTrack.style.visibility = "hidden";
-                }else{
-                    fillTrack.style.visibility = "visible";
-                }
-            }
+            setFillTrack();
         }
     }
 		override protected function enableDisableInput(value:Boolean):void{
@@ -105,20 +90,7 @@ package com.unhurdle.spectrum
     	_filled = value;
         toggle(valueToSelector("filled"),value);
     }
-    private var _filledOffsetRight:Boolean;
 
-    public function get filledOffsetRight():Boolean
-    {
-    	return _filledOffsetRight;
-    }
-
-    public function set filledOffsetRight(value:Boolean):void
-    {
-    	_filledOffsetRight = value;
-        if(filledOffset){
-            value? fillTrack.classList.add(appendSelector("--right")):fillTrack.classList.remove(appendSelector("--right"));
-        }
-    }
     private var _filledOffset:Number;
 
     public function get filledOffset():Number
@@ -133,8 +105,7 @@ package com.unhurdle.spectrum
             if(!fillTrack){
                 fillTrack = newElement("div",appendSelector("-fill"));
             }
-            fillTrack.style.left = handle.style.left + "%";
-            fillTrack.style.width = value + "%";
+            setFillTrack();
             controlsContainer.appendChild(fillTrack);
         }else{
             if(controlsContainer.contains(fillTrack)){
@@ -143,7 +114,24 @@ package com.unhurdle.spectrum
             }
         }
     }
-
+    private function setFillTrack():void{
+        var len:String = handle.style.left.slice(0,handle.style.left.indexOf("%"));
+        var l:Number = int(len) - filledOffset;
+        if(l>0){
+            if(fillTrack.classList.contains(appendSelector("-right"))){
+                fillTrack.classList.remove(appendSelector("-right"));                
+            }
+            fillTrack.style.left = filledOffset + "%";
+            l -= 3;
+        }else{
+            if(!fillTrack.classList.contains(appendSelector("-right"))){
+                fillTrack.classList.add(appendSelector("-right"));                
+            }
+            fillTrack.style.left = (filledOffset+l) + "%";
+            l *= (-1);
+        }
+        fillTrack.style.width = l + "%";
+    }
     private var _ticks:int;
 
     public function get ticks():int
@@ -272,6 +260,7 @@ package com.unhurdle.spectrum
 		    val += stepVal;
 			}
 			value = val;
+            positionElements();
             dispatchEvent(new Event("change"));
 			// value = Math.round(val * 10000)/10000;
     }
