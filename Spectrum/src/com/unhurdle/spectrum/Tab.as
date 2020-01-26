@@ -73,6 +73,12 @@ package com.unhurdle.spectrum
       {
         if(value){
           element.classList.add("is-selected");
+          if (parent is TabBar)
+          {
+            var tabBar:TabBar = parent as TabBar;
+            removeIndicator(tabBar);
+            setIndicatorSpot(tabBar);
+          }
         }
         else{
           element.classList.remove("is-selected");
@@ -96,6 +102,16 @@ package com.unhurdle.spectrum
           setIndicatorSpot(tabBar);
           }
         }
+      }
+    }
+
+    override public function addedToParent():void
+    {
+      super.addedToParent();
+      if (selected)
+      {
+        removeIndicator(parent as TabBar);
+        setIndicatorSpot(parent as TabBar);
       }
     }
 

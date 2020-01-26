@@ -167,17 +167,6 @@ package com.unhurdle.spectrum
       for(var i:int=0;i<value.length;i++){
         addElement(value[i] as Tab);
       }
-      indicator=new TabIndicator();
-      
-      var styleStr:String;
-      if(!vertical == true){
-        styleStr = "width: 27px; left: 0px;";
-      }
-      else{
-        styleStr = "height: 46px; top: 0px;";
-      }
-      indicator.setAttribute("style",styleStr);
-      addElement(indicator);
     }
 
     
@@ -187,13 +176,8 @@ package com.unhurdle.spectrum
       if(hasDropdown){
         removeElement(tabOverflow);
         hasDropdown = false;
-        count = 0;
       for(var i:int=0;i<tabs.length;i++){
         addElement(tabs[i]);
-        checkForIndicator(tabs[i]);
-        if(count == tabs.length){
-          addIndicator();
-        }
       }
     }
   }
