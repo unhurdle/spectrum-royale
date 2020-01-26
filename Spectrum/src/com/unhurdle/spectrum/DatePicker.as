@@ -86,7 +86,6 @@ package com.unhurdle.spectrum
     
     protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
 		{
-      trace(event);
       if(event.target.className != "spectrum-Calendar-date"){
         closePopup();
       }
