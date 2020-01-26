@@ -40,6 +40,7 @@
         import view.panes.DialogPane;
         import view.panes.DropIndicatorPane;
         import view.panes.DropdownPane;
+        import view.panes.DropzonePane;
         import view.panes.FieldGroupPane;
         import view.panes.FieldLabelPane;
         import view.panes.FormPane;
@@ -49,6 +50,7 @@
         import view.panes.LogicButtonPane;
         import view.panes.MeterPane;
         import view.panes.MillerColumnsPane;
+        import view.panes.PagesPane;
         import view.panes.PaginationButtonStylePane;
         import view.panes.PaginationExplicitPane;
         import view.panes.PaginationPagePane;
@@ -79,6 +81,7 @@
         import view.panes.TypographyInternationalizedPane;
         import view.panes.TypographyPane;
         import view.panes.WellPane;
+        import view.panes.MenuPane;
 
       [Bindable]public var navProvider:Array = [
         new NavProvider("Accordion",AccordionPane,"accordion"),
@@ -109,7 +112,7 @@
         new NavProvider("Dialog",DialogPane,"dialog"),
         new NavProvider("Dropdown",DropdownPane,"dropdown"),
         new NavProvider("Drop Indicator",DropIndicatorPane,"drop_indicator"),
-        new NavProvider("Dropzone",ComingSoonPane,"dropzone"),
+        new NavProvider("Dropzone",DropzonePane,"dropzone"),
         new NavProvider("Field Group",FieldGroupPane,"field_group"),
         new NavProvider("Field Label",FieldLabelPane,"field_label"),
         new NavProvider("Form",FormPane,"form"),
@@ -117,10 +120,10 @@
         new NavProvider("Label",LabelPane,"label"),
         new NavProvider("Link",LinkPane,"link"),
         new NavProvider("Logic Button",LogicButtonPane,"logic_button"),
-        new NavProvider("Menu",ComingSoonPane,"menu"),
+        new NavProvider("Menu",MenuPane,"menu"),
         new NavProvider("Meter",MeterPane,"meter"),
         new NavProvider("Miller Columns",MillerColumnsPane,"miller_columns"),
-        new NavProvider("Page",ComingSoonPane,"page"),
+        new NavProvider("Page",PagesPane,"page"),
         new NavProvider("Pagination - Button Style",PaginationButtonStylePane,"pagination_button_style"),
         new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
         new NavProvider("Pagination - Page",PaginationPagePane,"pagination_page"),

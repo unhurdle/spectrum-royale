@@ -2,10 +2,8 @@ package com.unhurdle.spectrum.renderers
 {
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.supportClasses.TreeListData;
-    import org.apache.royale.events.ValueEvent;
+    
   }
 
   public class TreeItemRenderer extends ListItemRenderer

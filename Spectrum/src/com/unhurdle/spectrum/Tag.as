@@ -4,8 +4,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
   }
-  import org.apache.royale.html.elements.P;
-  import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconSize;
 

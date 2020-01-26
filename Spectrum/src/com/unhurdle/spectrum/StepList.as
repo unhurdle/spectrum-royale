@@ -5,7 +5,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import org.apache.royale.collections.IArrayList;
   import org.apache.royale.html.elements.Div;
   import org.apache.royale.html.elements.Span;
   import org.apache.royale.core.UIBase;

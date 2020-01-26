@@ -5,7 +5,6 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
     }
       import com.unhurdle.spectrum.const.IconPrefix;
-      import com.unhurdle.spectrum.const.IconSize;
       import org.apache.royale.events.Event;
 
   public class CycleButton extends SpectrumBase

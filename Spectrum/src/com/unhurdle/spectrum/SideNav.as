@@ -1,14 +1,7 @@
 package com.unhurdle.spectrum
 {
   COMPILE::JS
-  {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
-  }
-  import org.apache.royale.html.List;
-  import org.apache.royale.collections.IArrayList;
-  import com.unhurdle.spectrum.data.SideNavItem;
-  import org.apache.royale.html.util.getLabelFromData;
+  {}
   import com.unhurdle.spectrum.includes.SideNavInclude;
 
   public class SideNav extends Tree

@@ -7,7 +7,6 @@ package com.unhurdle.spectrum
   }
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.html.elements.Span;
-  import org.apache.royale.events.MouseEvent;
   import org.apache.royale.core.UIBase;
 
   public class Rating extends SpectrumBase

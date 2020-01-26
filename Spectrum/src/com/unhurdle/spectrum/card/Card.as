@@ -1,11 +1,8 @@
 package com.unhurdle.spectrum.card
 {
   import com.unhurdle.spectrum.SpectrumBase;
-  import com.unhurdle.spectrum.Asset;
   import com.unhurdle.spectrum.QuickActions;
   import org.apache.royale.html.elements.Div;
-  import org.apache.royale.core.IPopUpHost;
-  import org.apache.royale.core.IPopUpHostParent;
   import com.unhurdle.spectrum.IAsset;
 
   public class Card extends SpectrumBase 

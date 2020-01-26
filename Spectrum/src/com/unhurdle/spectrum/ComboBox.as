@@ -1,9 +1,7 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.html.ComboBox;
   import com.unhurdle.spectrum.includes.InputGroupInclude;
   import org.apache.royale.collections.IArrayList;
-  import com.unhurdle.spectrum.data.MenuItem;
   import com.unhurdle.spectrum.data.IMenuItem;
 
   public class ComboBox extends SpectrumBase

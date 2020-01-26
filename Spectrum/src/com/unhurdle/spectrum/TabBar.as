@@ -6,9 +6,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import org.apache.royale.events.ValueEvent;
-  import org.apache.royale.core.UIBase;
-  import org.apache.royale.core.CSSClassList;
-  import org.apache.royale.text.engine.TabAlignment;
     
   
   [DefaultProperty("tabs")]

@@ -9,9 +9,6 @@ package com.unhurdle.spectrum.renderers
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import com.unhurdle.spectrum.Application;
-  import com.unhurdle.spectrum.const.IconType;
-  import com.unhurdle.spectrum.const.IconSize;
   import com.unhurdle.spectrum.ImageIcon;
   import com.unhurdle.spectrum.data.IListItem;
 
