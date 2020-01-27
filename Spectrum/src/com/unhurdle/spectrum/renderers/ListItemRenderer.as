@@ -40,7 +40,7 @@ package com.unhurdle.spectrum.renderers
     protected var firstElementPosition:Number = 0;
     override public function set data(value:Object):void{
       super.data = value;
-      textNode.text = getLabelFromData(this,value);
+     setText(getLabelFromData(this,value));
       COMPILE::JS
       {
         var iconSelector:String = getIconSelector();
@@ -69,6 +69,9 @@ package com.unhurdle.spectrum.renderers
           imageIcon.setStyle("display","none");
         }
       }
+    }
+    protected function setText(value:String):void{
+       textNode.text = value;
     }
     private function getIconSelector():String{
       if(data is IListItem){
