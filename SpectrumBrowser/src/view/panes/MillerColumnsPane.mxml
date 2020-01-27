@@ -9,10 +9,10 @@
         import org.apache.royale.collections.HierarchicalData;
         import com.unhurdle.spectrum.MillerColumns;
 
-        [Bindable] private var provider1:HierarchicalData;
-        [Bindable] private var provider2:HierarchicalData;
-        [Bindable]public var codeString1:String = '<sp:MillerColumns dataProvider="{provider}"/>';
-        [Bindable]public var codeString2:String = '<sp:MillerColumns dataProvider="{provider}"/>';
+        [Bindable] public var provider1:HierarchicalData;
+        [Bindable] public var provider2:HierarchicalData;
+        private const codeString1:String = '<sp:MillerColumns dataProvider="{provider}"/>';
+        private const codeString2:String = '<sp:MillerColumns dataProvider="{provider}"/>';
         
         private function initComplete():void{
             provider1 = new HierarchicalData({'children':setAssetList(true)});

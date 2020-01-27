@@ -10,8 +10,8 @@
             import com.unhurdle.spectrum.data.SideNavItem;
             import com.unhurdle.spectrum.SideNav;
 
-            [Bindable]private var provider1:TreeData;
-            [Bindable]private var provider2:TreeData;
+            [Bindable]public var provider1:TreeData;
+            [Bindable]public var provider2:TreeData;
             private function initComplete():void
             {
                 var arr1:Array = [];
