@@ -2,59 +2,118 @@
     xmlns:fx="http://ns.adobe.com/mxml/2009"
     xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
     xmlns:comp="view.components.*"
-    title="Side Navigation"  initComplete="initComplete()">
+    title="Side Navigation">
     <fx:Script>
         <![CDATA[
-            import org.apache.royale.collections.TreeData;
-            import org.apache.royale.collections.HierarchicalData;
-            import com.unhurdle.spectrum.data.SideNavItem;
+            import com.unhurdle.spectrum.SideNavItem;
             import com.unhurdle.spectrum.SideNav;
+            import com.unhurdle.spectrum.const.IconType;
+            [Bindable]private var iconType:String = IconType.STAR;
+            [Bindable]private var standardMarkup:String = 
+            '<sp:SideNav>\n'+
+            '    <sp:SideNavItem text="Section Title 1" selected="true"/>\n'+
+            '    <sp:SideNavItem text="Section Title 2" disabled="true"/>\n'+
+            '    <sp:SideNavItem text="Section Title 3"/>\n'+
+            '    <sp:SideNavItem text="Section Title 4"/>\n'+
+            '</sp:SideNav>';
+            
+            [Bindable]private var multiLevelMarkup:String = 
+            '<sp:SideNav multiLevel="true">\n'+
+            '    <sp:SideNavItem text="Section Title 1"/>\n'+
+            '    <sp:SideNavItem text="Section Title 2"/>\n'+
+            '    <sp:SideNav>\n'+
+            '        <sp:SideNavItem text="Section Title 1"/>\n'+
+            '        <sp:SideNavItem text="Section Title 2"/>\n'+
+            '        <sp:SideNav>\n'+
+            '            <sp:SideNavItem text="Section Title 1"/>\n'+
+            '            <sp:SideNavItem text="Section Title 2"/>\n'+
+            '        </sp:SideNav>\n'+
+            '        <sp:SideNavItem text="Section Title 3"/>\n'+
+            '    </sp:SideNav>\n'+
+            '    <sp:SideNavItem text="Section Title 4"/>\n'+
+            '    <sp:SideNavItem text="Section Title 5"/>\n'+
+            '    <sp:SideNavItem text="Section Title 6"/>\n'+
+            '</sp:SideNav>';
 
-            [Bindable]public var provider1:TreeData;
-            [Bindable]public var provider2:TreeData;
-            private function initComplete():void
-            {
-                var arr1:Array = [];
-                var item1:SideNavItem = new SideNavItem("Section Title 1");
-                item1.selected = true;
-                arr1.push(item1);
-                var item2:SideNavItem = new SideNavItem("Section Title 2");
-                item2.disabled = true;
-                arr1.push(item2);
-                var item3:SideNavItem = new SideNavItem("Section Title 3");
-                arr1.push(item3);
-                var item4:SideNavItem = new SideNavItem("Section Title 4");
-                arr1.push(item4);
-                var hierarchicalData1:HierarchicalData = new HierarchicalData({'children':arr1});
-                provider1 = new TreeData(hierarchicalData1);
+            [Bindable]private var iconMarkup:String = 
+            '[Bindable]private var iconType:String = IconType.STAR;\n\n'+
+            '<sp:SideNav>\n'+
+            '    <sp:SideNavItem icon="{iconType}" text="Section Title 1" selected="true"/>\n'+
+            '    <sp:SideNavItem icon="{iconType}" text="Section Title 2"/>\n'+
+            '    <sp:SideNavItem icon="{iconType}" text="Section Title 3"/>\n'+
+            '</sp:SideNav>';
 
-                var arr2:Array = [];
-                var sideNavItem1:SideNavItem = new SideNavItem("Section Title 1");
-                arr2.push(sideNavItem1);
-                var sideNavItem2:SideNavItem = new SideNavItem("Section Title 2");
-                var i:SideNavItem = new SideNavItem("Section Title 2");
-                i.subMenu = [new SideNavItem("Section Title 1"),new SideNavItem("Section Title 2")]
-                sideNavItem2.subMenu = [new SideNavItem("Section Title 1"),i,new SideNavItem("Section Title 3")]
-                arr2.push(sideNavItem2);
-                var sideNavItem3:SideNavItem = new SideNavItem("Section Title 3");
-                arr2.push(sideNavItem3);
-                var sideNavItem4:SideNavItem = new SideNavItem("Section Title 4");
-                arr2.push(sideNavItem4);
-                var sideNavItem5:SideNavItem = new SideNavItem("Section Title 5");
-                arr2.push(sideNavItem5);
-                var hierarchicalData2:HierarchicalData = new HierarchicalData({'children':arr2});
-                provider2 = new TreeData(hierarchicalData2);
-            }
+            [Bindable]private var headingMarkup:String = 
+            '<sp:SideNav>\n'+
+            '    <sp:SideNavItem text="Section Title 1" selected="true"/>\n'+
+            '    <sp:SideNavItem text="Section Title 2"/>\n'+
+            '    <sp:SideNavHeading text="CATEGORY 1"/>\n'+
+            '    <sp:SideNavItem text="Section Title 3"/>\n'+
+            '    <sp:SideNavItem text="Section Title 4"/>\n'+
+            '    <sp:SideNavHeading text="CATEGORY 2"/>\n'+
+            '    <sp:SideNavItem text="Section Title 5"/>\n'+
+            '    <sp:SideNavItem text="Section Title 6"/>\n'+
+            '    <sp:SideNavItem text="Section Title 7"/>\n'+
+            '</sp:SideNav>';
+
         ]]>
     </fx:Script>
     <comp:Variant>
-        <sp:SideNav dataProvider="{provider1}"/>
+        <sp:SideNav>
+            <sp:SideNavItem text="Section Title 1" selected="true"/>
+            <sp:SideNavItem text="Section Title 2" disabled="true"/>
+            <sp:SideNavItem text="Section Title 3"/>
+            <sp:SideNavItem text="Section Title 4"/>
+        </sp:SideNav>
     </comp:Variant>
     <comp:Markup>
+        <comp:StyledCode text='{standardMarkup}'/>
     </comp:Markup>
     <comp:Variant header="Multilevel">
-        <sp:SideNav dataProvider="{provider2}" multiLevel="true"/>
+        <sp:SideNav multiLevel="true">
+            <sp:SideNavItem text="Section Title 1"/>
+            <sp:SideNavItem text="Section Title 2"/>
+            <sp:SideNav>
+                <sp:SideNavItem text="Section Title 1"/>
+                <sp:SideNavItem text="Section Title 2"/>
+                <sp:SideNav>
+                    <sp:SideNavItem text="Section Title 1"/>
+                    <sp:SideNavItem text="Section Title 2"/>
+                </sp:SideNav>
+                <sp:SideNavItem text="Section Title 3"/>
+            </sp:SideNav>
+            <sp:SideNavItem text="Section Title 4"/>
+            <sp:SideNavItem text="Section Title 5"/>
+            <sp:SideNavItem text="Section Title 6"/>
+        </sp:SideNav>
     </comp:Variant>
     <comp:Markup>
+        <comp:StyledCode text='{multiLevelMarkup}'/>
+    </comp:Markup>
+    <comp:Variant header="Icon">
+        <sp:SideNav>
+            <sp:SideNavItem icon="{iconType}" text="Section Title 1" selected="true"/>
+            <sp:SideNavItem icon="{iconType}" text="Section Title 2"/>
+            <sp:SideNavItem icon="{iconType}" text="Section Title 3"/>
+        </sp:SideNav>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='{iconMarkup}'/>
+    </comp:Markup>
+    <comp:Variant header="Heading">
+        <sp:SideNav>
+            <sp:SideNavItem text="Section Title 1" selected="true"/>
+            <sp:SideNavItem text="Section Title 2"/>
+            <sp:SideNavHeading text="CATEGORY 1"/>
+            <sp:SideNavItem text="Section Title 3"/>
+            <sp:SideNavItem text="Section Title 4"/>
+            <sp:SideNavHeading text="CATEGORY 2"/>
+            <sp:SideNavItem text="Section Title 5"/>
+            <sp:SideNavItem text="Section Title 6"/>
+            <sp:SideNavItem text="Section Title 7"/>
+        </sp:SideNav>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='{headingMarkup}'/>
     </comp:Markup>
 </view:DemoPane>
