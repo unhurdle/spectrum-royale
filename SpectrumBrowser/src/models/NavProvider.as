@@ -1,8 +1,8 @@
 package models
 {
-  import com.unhurdle.spectrum.data.SideNavItem;
+  import com.unhurdle.spectrum.data.MenuItem;
 
-  public class NavProvider extends SideNavItem
+  public class NavProvider extends MenuItem
   {
     public function NavProvider(name:String,reference:Class,hashLink:String)
     {
