@@ -50,13 +50,13 @@
   </comp:Markup>
 
   <comp:Variant header="Range" notes="A range slider with two handles.">
-    <sp:RangeSlider label="Slider Label"/>
-    <sp:RangeSlider label="Slider Label - Disabled" disabled="true"/>
+    <sp:RangeSlider label="Slider Label" width="400"/>
+    <sp:RangeSlider label="Slider Label - Disabled" disabled="true" width="400"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label" width="400"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label - Disabled" disabled="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label - Disabled" disabled="true" width="400"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Tick" notes="Spectrum tick slider">

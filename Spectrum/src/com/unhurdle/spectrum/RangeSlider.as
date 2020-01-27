@@ -61,7 +61,6 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        width = 400;
         elem.setAttribute("role","group");  // need this?
         controlsContainer = newElement("div",appendSelector("-controls"));
         controlsContainer.setAttribute("role","presentation");
