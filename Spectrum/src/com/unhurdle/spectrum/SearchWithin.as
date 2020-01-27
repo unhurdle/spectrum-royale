@@ -40,6 +40,7 @@ package com.unhurdle.spectrum
 
       _dropdown = new Dropdown();
       _dropdown.visible = false;
+      _dropdown.style = {"max-width":"50%"};
       input = new TextField();
       input.placeholder = "Search";
       button = new ClearButton();
