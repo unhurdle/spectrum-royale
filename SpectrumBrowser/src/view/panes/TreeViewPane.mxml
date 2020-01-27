@@ -9,9 +9,9 @@
       import org.apache.royale.collections.HierarchicalData;
       import com.unhurdle.spectrum.const.IconPrefix;
 
-      [Bindable]private var provider1:TreeData;
-      [Bindable]private var provider2:TreeData;
-      [Bindable]private var provider3:TreeData;
+      [Bindable]public var provider1:TreeData;
+      [Bindable]public var provider2:TreeData;
+      [Bindable]public var provider3:TreeData;
 
       private function initComplete():void
       {

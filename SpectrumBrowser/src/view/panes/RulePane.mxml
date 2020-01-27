@@ -7,8 +7,8 @@
     <![CDATA[
       import com.unhurdle.spectrum.const.IconPrefix;
 
-      [Bindable] private var properties:String = IconPrefix._18 + "Properties";
-      [Bindable] private var select:String = IconPrefix._18 + "Select";
+      private const properties:String = IconPrefix._18 + "Properties";
+      private const select:String = IconPrefix._18 + "Select";
       
       [Bindable]public var verticalSmall:String =
       '[Bindable] private var properties:String = IconPrefix._18 + "Properties";\n'+
