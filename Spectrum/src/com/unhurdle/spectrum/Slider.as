@@ -219,7 +219,6 @@ package com.unhurdle.spectrum
 	COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        width = 400;
         controlsContainer = newElement("div",appendSelector("-controls"));
         //first track
 		leftTrack = newElement("div",appendSelector("-track"));

@@ -18,30 +18,29 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
         controlsContainer = newElement("div",appendSelector("-controls"));
-        width = 400;
-            var ramp:HTMLDivElement = newElement("div") as HTMLDivElement;
-            ramp.className = appendSelector("-ramp");
-            var svgElement:SVGElement = newSVGElement("svg","");
-            var pathElement:SVGPathElement = newSVGElement("path","") as SVGPathElement;
-            pathElement.setAttribute("d","M240,4v8c0,2.3-1.9,4.1-4.2,4L1,9C0.4,9,0,8.5,0,8c0-0.5,0.4-1,1-1l234.8-7C238.1-0.1,240,1.7,240,4z");
-            svgElement.setAttribute("focusable",false);
-            svgElement.setAttribute("viewBox","0 0 240 16");
-            svgElement.setAttribute("preserveAspectRatio","none");
-            svgElement.setAttribute("aria-hidden",true);
-            svgElement.appendChild(pathElement);
-            ramp.appendChild(svgElement);
-            controlsContainer.appendChild(ramp);
-            handle = newElement("div",appendSelector("-handle"));
-            handle.style.left = "40%"
-            input = newElement("input",appendSelector("-input")) as HTMLInputElement;
-            input.type = "range";
-            input.step = "1";
-            max = 50;
-            handle.appendChild(input);
-            controlsContainer.appendChild(handle);
-            elem.appendChild(controlsContainer);
-            element.addEventListener('mousedown', onMouseDown);
-            return elem;
+        var ramp:HTMLDivElement = newElement("div") as HTMLDivElement;
+        ramp.className = appendSelector("-ramp");
+        var svgElement:SVGElement = newSVGElement("svg","");
+        var pathElement:SVGPathElement = newSVGElement("path","") as SVGPathElement;
+        pathElement.setAttribute("d","M240,4v8c0,2.3-1.9,4.1-4.2,4L1,9C0.4,9,0,8.5,0,8c0-0.5,0.4-1,1-1l234.8-7C238.1-0.1,240,1.7,240,4z");
+        svgElement.setAttribute("focusable",false);
+        svgElement.setAttribute("viewBox","0 0 240 16");
+        svgElement.setAttribute("preserveAspectRatio","none");
+        svgElement.setAttribute("aria-hidden",true);
+        svgElement.appendChild(pathElement);
+        ramp.appendChild(svgElement);
+        controlsContainer.appendChild(ramp);
+        handle = newElement("div",appendSelector("-handle"));
+        handle.style.left = "40%"
+        input = newElement("input",appendSelector("-input")) as HTMLInputElement;
+        input.type = "range";
+        input.step = "1";
+        max = 50;
+        handle.appendChild(input);
+        controlsContainer.appendChild(handle);
+        elem.appendChild(controlsContainer);
+        element.addEventListener('mousedown', onMouseDown);
+        return elem;
     }
     
     override protected function positionElements():void{
