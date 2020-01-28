@@ -53,7 +53,7 @@ package com.unhurdle.spectrum
       }
       super.dataProvider = value;
       if(!popover){
-        showMenu();
+        createPopover();
       }
     }
 

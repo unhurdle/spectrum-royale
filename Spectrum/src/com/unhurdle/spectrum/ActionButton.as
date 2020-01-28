@@ -183,13 +183,16 @@ package com.unhurdle.spectrum
       timer.reset();
       showMenu();
     }
+    public function createPopover():void{
+      popover = new ComboBoxList();
+      menu = popover.list;
+      menu.dataProvider = dataProvider;
+      menu.addEventListener("change",handleMenuChange);
+    }
     public function showMenu():void{
       // construct if necessary and show the menu.
       if(!popover){
-        popover = new ComboBoxList();
-        menu = popover.list;
-        menu.dataProvider = dataProvider;
-        menu.addEventListener("change",handleMenuChange);
+        createPopover();
       }
       dispatchEvent(new Event("beforeShow"));
 			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
