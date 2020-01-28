@@ -4,7 +4,7 @@ package com.unhurdle.spectrum
   {}
   import com.unhurdle.spectrum.includes.SideNavInclude;
 
-  public class SideNav extends Tree
+  public class SideNav extends Group
   {
     public function SideNav()
     {

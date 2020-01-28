@@ -52,6 +52,9 @@ package com.unhurdle.spectrum
         convertArray(value.source);
       }
       super.dataProvider = value;
+      if(!popover){
+        showMenu();
+      }
     }
 
     private function convertArray(value:Object):void{

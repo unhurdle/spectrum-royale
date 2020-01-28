@@ -103,7 +103,8 @@
     <component id="SearchWithin" class="com.unhurdle.spectrum.SearchWithin"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="SideNav" class="com.unhurdle.spectrum.SideNav"/>
-    <component id="SideNavItem" class="com.unhurdle.spectrum.data.SideNavItem"/>
+    <component id="SideNavItem" class="com.unhurdle.spectrum.SideNavItem"/>
+    <component id="SideNavHeading" class="com.unhurdle.spectrum.SideNavHeading"/>
 	<component id="ShowOnOverTooltip" class="com.unhurdle.spectrum.ShowOnOverTooltip"/>
     <component id="Slider" class="com.unhurdle.spectrum.Slider"/>
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
