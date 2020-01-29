@@ -58,7 +58,7 @@
     <comp:StyledCode text='&lt;sp:CheckBox text="Checkbox" disabled="true" indeterminate="true" change="handleChange(event)"/&gt;'/>
   </comp:Markup>
 
-  <comp:Variant>
+  <comp:Variant header="Error">
     <sp:FieldGroup>
       <sp:CheckBox text="Checkbox" invalid="true" change="handleChange(event)"/>
       <sp:CheckBox text="Checkbox" invalid="true" checked="true" change="handleChange(event)"/>

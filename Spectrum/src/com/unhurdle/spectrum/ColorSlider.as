@@ -41,6 +41,9 @@ package com.unhurdle.spectrum
         return elem;
     }
     override protected function onMouseMove(e:MouseEvent):void {
+      if(disabled){
+        return;
+      }
       var elem:HTMLElement = element as HTMLElement;
 			var sliderOffsetWidth:Number = elem.offsetWidth;
 			var sliderOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;

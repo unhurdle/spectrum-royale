@@ -90,8 +90,8 @@ package com.unhurdle.spectrum
 
         public function set invalid(value:Boolean):void
         {
-            if(value == !!_invalid){
-                toggle("is-invalid",!value);
+            if(value != !!_invalid){
+                toggle("is-invalid",value);
             }
         	_invalid = value;
         }

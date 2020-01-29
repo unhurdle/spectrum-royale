@@ -28,8 +28,8 @@
         '    <sp:FormLabel text="Interests"/>\n'+
         '    <sp:FormField>\n'+
         '    <sp:FieldGroup>\n'+
-        '      <sp:Radio text="Kittens"/>\n'+
-        '      <sp:Radio text="Dogs"/>\n'+
+        '      <sp:Radio text="Kittens" radioName="pets"/>\n'+
+        '      <sp:Radio text="Dogs" radioName="pets"/>\n'+
         '    </sp:FieldGroup>\n'+
         '    <sp:FieldGroup>\n'+
         '      <sp:CheckBox text="Something"/>\n'+
@@ -40,7 +40,7 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Age"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Stepper/>\n'+
+        '      <sp:Stepper min="0" max="120"/>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '</sp:Form>';
@@ -69,8 +69,8 @@
         '    <sp:FormLabel text="Interests"/>\n'+
         '    <sp:FormField>\n'+
         '    <sp:FieldGroup>\n'+
-        '      <sp:Radio text="Kittens"/>\n'+
-        '      <sp:Radio text="Dogs"/>\n'+
+        '      <sp:Radio text="Kittens" radioName="pets"/>\n'+
+        '      <sp:Radio text="Dogs" radioName="pets"/>\n'+
         '    </sp:FieldGroup>\n'+
         '    <sp:FieldGroup>\n'+
         '      <sp:CheckBox text="Something"/>\n'+
@@ -81,7 +81,7 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Age"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Stepper/>\n'+
+        '      <sp:Stepper min="0" max="120"/>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '</sp:Form>';
@@ -110,8 +110,8 @@
         '    <sp:FormLabel text="Interests"/>\n'+
         '    <sp:FormField>\n'+
         '    <sp:FieldGroup>\n'+
-        '      <sp:Radio text="Kittens"/>\n'+
-        '      <sp:Radio text="Dogs"/>\n'+
+        '      <sp:Radio text="Kittens" radioName="pets"/>\n'+
+        '      <sp:Radio text="Dogs" radioName="pets"/>\n'+
         '    </sp:FieldGroup>\n'+
         '    <sp:FieldGroup>\n'+
         '      <sp:CheckBox text="Something"/>\n'+
@@ -122,7 +122,7 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Age"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Stepper/>\n'+
+        '      <sp:Stepper min="0" max="120"/>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '</sp:Form>';
@@ -152,8 +152,8 @@
         <sp:FormLabel text="Interests"/>
         <sp:FormField>
         <sp:FieldGroup>
-          <sp:Radio text="Kittens"/>
-          <sp:Radio text="Dogs"/>
+          <sp:Radio text="Kittens" radioName="pets"/>
+          <sp:Radio text="Dogs" radioName="pets"/>
         </sp:FieldGroup>
         <sp:FieldGroup>
           <sp:CheckBox text="Something"/>
@@ -164,7 +164,7 @@
       <sp:FormItem>
         <sp:FormLabel text="Age"/>
         <sp:FormField>
-          <sp:Stepper/>
+          <sp:Stepper min="0" max="120"/>
         </sp:FormField>
       </sp:FormItem>
     </sp:Form>
@@ -198,8 +198,8 @@
         <sp:FormLabel text="Interests"/>
         <sp:FormField>
         <sp:FieldGroup>
-          <sp:Radio text="Kittens"/>
-          <sp:Radio text="Dogs"/>
+          <sp:Radio text="Kittens" radioName="pets"/>
+          <sp:Radio text="Dogs" radioName="pets"/>
         </sp:FieldGroup>
         <sp:FieldGroup>
           <sp:CheckBox text="Something"/>
@@ -210,7 +210,7 @@
       <sp:FormItem>
         <sp:FormLabel text="Age"/>
         <sp:FormField>
-          <sp:Stepper/>
+          <sp:Stepper min="0" max="120"/>
         </sp:FormField>
       </sp:FormItem>
     </sp:Form>
@@ -244,8 +244,8 @@
         <sp:FormLabel text="Interests"/>
         <sp:FormField>
         <sp:FieldGroup>
-          <sp:Radio text="Kittens"/>
-          <sp:Radio text="Dogs"/>
+          <sp:Radio text="Kittens" radioName="pets"/>
+          <sp:Radio text="Dogs" radioName="pets"/>
         </sp:FieldGroup>
         <sp:FieldGroup>
           <sp:CheckBox text="Something"/>
@@ -256,7 +256,7 @@
       <sp:FormItem>
         <sp:FormLabel text="Age"/>
         <sp:FormField>
-          <sp:Stepper/>
+          <sp:Stepper min="0" max="120"/>
         </sp:FormField>
       </sp:FormItem>
     </sp:Form>
