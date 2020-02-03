@@ -4,6 +4,9 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
+    import org.apache.royale.events.MouseEvent;
+    import org.apache.royale.utils.PointUtils;
+    import org.apache.royale.geom.Point;
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
   public class ColorSlider extends SliderBase
@@ -46,9 +49,9 @@ package com.unhurdle.spectrum
       }
       var elem:HTMLElement = element as HTMLElement;
 			var sliderOffsetWidth:Number = elem.offsetWidth;
-			var sliderOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
+      var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
+			var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
 
-			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;
 			value = getValue();
       handle.style.left = percent + "%";

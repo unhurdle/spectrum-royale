@@ -5,6 +5,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
     import org.apache.royale.events.Event;
+    import org.apache.royale.utils.PointUtils;
+    import org.apache.royale.events.MouseEvent;
+    import org.apache.royale.geom.Point;
     
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
@@ -240,25 +243,17 @@ package com.unhurdle.spectrum
         element.addEventListener('mousedown', onMouseDown);
         return elem;
     }
-        private var mouseX:Number;
 		// Element interaction
 		override protected function onMouseMove(e:MouseEvent):void {
             if(disabled){
                 return;
             }
-            if (isNaN(mouseX))
-            {
-                mouseX = e.screenX;
-                return;
-            }
             var elem:HTMLElement = element as HTMLElement;
 			var sliderOffsetWidth:Number = elem.offsetWidth;
-            var offsetX:Number = e.screenX - mouseX;
-            var unitsToPixels:Number = (max - min) / sliderOffsetWidth;
-            var val:Number = value + offsetX * unitsToPixels;
-            val = Math.max(min, val);
-            val = Math.min(max, val);
-            
+            var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
+			var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
+			var percent:Number = (x / sliderOffsetWidth) * 100;
+			var val:Number = (max-min) / (100/percent) + min;
 			var stepVal:Number = step;
 			var rem:Number = val % stepVal;
             val = val - rem;
@@ -267,15 +262,8 @@ package com.unhurdle.spectrum
 			}
 			value = val;
             positionElements();
-            mouseX += offsetX;
             dispatchEvent(new Event("change"));
 			// value = Math.round(val * 10000)/10000;
-    }
-
-    override protected function onMouseUp():void
-    {
-        super.onMouseUp();
-        mouseX = NaN;
     }
   }
 }

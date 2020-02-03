@@ -3,6 +3,9 @@ package com.unhurdle.spectrum
      COMPILE::JS{
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
+        import org.apache.royale.events.MouseEvent;
+        import org.apache.royale.utils.PointUtils;
+        import org.apache.royale.geom.Point;
     }
   public class RangeSlider extends SliderBase
   {
@@ -134,9 +137,10 @@ package com.unhurdle.spectrum
       }
       var handle:Object = e.target;
       var sliderOffsetWidth:Number = element.offsetWidth;
-			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
+      
+      var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
+			var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
 
-			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;
 		  if (handle === leftHandle) {
           if (percent < parseFloat(rightHandle.style.left)) {

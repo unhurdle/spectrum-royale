@@ -4,6 +4,9 @@ package com.unhurdle.spectrum
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
     }
+    import org.apache.royale.utils.PointUtils;
+    import org.apache.royale.geom.Point;
+    import org.apache.royale.events.MouseEvent;
   public class RampSlider extends SliderBase
   {
     public function RampSlider()
@@ -72,8 +75,8 @@ package com.unhurdle.spectrum
         return;
       }
 			var sliderOffsetWidth:Number = element.offsetWidth;
-			var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
-			var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+      var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
+			var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
 			var percent:Number = (x / sliderOffsetWidth) * 100;
 			var val:Number = (max-min) / (100/percent);
 			var stepVal:Number = step;

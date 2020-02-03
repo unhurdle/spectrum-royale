@@ -2,6 +2,7 @@ package com.unhurdle.spectrum
 {
 	COMPILE::JS{}
   import com.unhurdle.spectrum.includes.SliderInclude;
+  import org.apache.royale.events.MouseEvent;
   
 	[Event(name="change", type="org.apache.royale.events.Event")]
 

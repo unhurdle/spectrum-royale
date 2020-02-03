@@ -200,8 +200,7 @@ package com.unhurdle.spectrum
 		private function onMouseMove(e: MouseEvent):void{
 			COMPILE::JS{
 				var sliderOffsetWidth:Number = element.offsetWidth;
-				var sliderOffsetLeft:Number = element.offsetLeft + (element.offsetParent as HTMLElement).offsetLeft;
-				var x:Number = Math.max(Math.min(e.x-sliderOffsetLeft, sliderOffsetWidth), 0);
+				var x:Number = Math.max(Math.min(e.x, sliderOffsetWidth), 0);
 				var percent:Number = (x / sliderOffsetWidth) * 100;
 				positionElements(percent);
 			}
