@@ -32,6 +32,7 @@
         import view.panes.CircleLoaderPane;
         import view.panes.ClearButtonPane;
         import view.panes.CoachMarkPane;
+        import view.panes.ColorAreaPane;
         import view.panes.ComboboxPane;
         import view.panes.ComingSoonPane;
         import view.panes.CycleButtonPane;
@@ -105,6 +106,7 @@
         new NavProvider("Circle Loader",CircleLoaderPane,"circle_loader"),
         new NavProvider("Clear Button",ClearButtonPane,"clear_button"),
         new NavProvider("Coach Mark",CoachMarkPane,"coach_mark"),
+        new NavProvider("Color Area",ColorAreaPane,"color_area"),
         new NavProvider("Combobox",ComboboxPane,"combobox"),
         new NavProvider("Cycle Button",CycleButtonPane,"cycle_button"),
         new NavProvider("Date Picker",DatePickerPane,"date_picker"),

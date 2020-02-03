@@ -1,0 +1,51 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Color Area">
+  <fx:Script>
+    <![CDATA[
+    ]]>
+  </fx:Script>
+  <fx:Style>
+		@namespace js "library://ns.apache.org/royale/basic";
+		@namespace comp "view.components.*";
+		js|HueSelector {
+        	IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
+        	IBeadView: ClassReference("view.components.MySliderView");
+    }
+
+    comp|ColorArea {
+      	IPopUp: ClassReference("view.components.MyColorPickerPopUp");
+    }
+
+    .SliderThumb {
+        background-color: transparent;
+        border-color: white;
+        border-radius: 42px;
+        border-width: 3px;;
+    }
+    
+    .SliderThumb:hover {
+        background-color: transparent;
+        border-color: white;
+        border-radius: 42px;
+        border-width: 3px;;
+    }    
+
+    .SliderThumb:active {
+        background-color: transparent;
+        border-color: white;
+        border-radius: 42px;
+        border-width: 3px;;
+    }    
+	</fx:Style>
+  <comp:ColorArea/>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:CoachMark&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:CoachMark flavor="dark"&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:CoachMark flavor="light"&gt;'/>
+  </comp:Markup>
+
+</view:DemoPane>
