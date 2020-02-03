@@ -42,7 +42,7 @@ package com.unhurdle.spectrum
     }
 
     override protected function positionElements():void{ 
-        displayValue = true;
+        // displayValue = true;
         var percent:Number = (this.value - min) / (max - min) * 100;
         handle.style.left = percent + "%";
         // Set initial track position
@@ -69,7 +69,7 @@ package com.unhurdle.spectrum
 			if(parent){
 				positionElements();
 			}
-			if(label && valueNode){
+			if(valueNode){
 				valueNode.text = "" + value;
 			}
     }
