@@ -12,7 +12,6 @@ package view.components
 	import org.apache.royale.core.IBead;
 	import org.apache.royale.html.supportClasses.IColorPickerPopUp;
 	import org.apache.royale.html.supportClasses.ColorSpectrum;
-	import org.apache.royale.core.IUIBase;
 	import org.apache.royale.html.beads.ISliderView;
 
 	public class MyColorPickerPopUp extends UIBase implements IColorPickerPopUp, IBead
@@ -20,6 +19,7 @@ package view.components
 		protected var colorSpectrum:ColorSpectrum;
 		protected var hueSelector:HueSelector;
 		protected var host:IStrand;
+		protected var textField:MyColorTextField;
 
 		public function MyColorPickerPopUp()
 		{
@@ -33,12 +33,17 @@ package view.components
 			hueSelector.x = 310;
             hueSelector.y = 0;
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
+			textField = new MyColorTextField();
+			textField.x = 10;
+			textField.y = 310;
 			COMPILE::JS 
 			{
 				hueSelector.element.style.position = "absolute";
+				textField.element.style.position = "absolute";
 			}
 			addElement(colorSpectrum);
 			addElement(hueSelector);
+			addElement(textField);
 			// var viewBead:ISliderView = host.view as ISliderView;
 		}
 		
@@ -52,6 +57,8 @@ package view.components
 			super.model = value;
 			var colorSpectrumModel:IColorSpectrumModel = loadBeadFromValuesManager(IColorSpectrumModel, "iColorSpectrumModel", colorSpectrum) as IColorSpectrumModel;
 			colorSpectrumModel.baseColor = (value as IColorModel).color;
+			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", textField) as IColorModel;
+			textFieldModel.color = (value as IColorModel).color;
 			(colorSpectrum as IEventDispatcher).addEventListener("change", colorSpectrumChangeHandler);
             (colorSpectrum as IEventDispatcher).addEventListener("thumbDown", colorSpectrumThumbDownHandler);
             (colorSpectrum as IEventDispatcher).addEventListener("thumbUp", colorSpectrumThumbUpHandler);

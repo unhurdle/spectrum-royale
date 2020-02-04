@@ -10,16 +10,21 @@
 		@namespace js "library://ns.apache.org/royale/basic";
 		@namespace comp "view.components.*";
 		js|HueSelector {
-        	IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
-        	IBeadView: ClassReference("view.components.MySliderView");
+      IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
+      IBeadView: ClassReference("view.components.MySliderView");
     }
 
     js|ColorSpectrum {
-          IBeadView:  ClassReference("view.components.MyColorSpectrumView");
+      IBeadView:  ClassReference("view.components.MyColorSpectrumView");
     }
 
     comp|ColorArea {
-      	IPopUp: ClassReference("view.components.MyColorPickerPopUp");
+      IPopUp: ClassReference("view.components.MyColorPickerPopUp");
+    }
+
+    comp|MyColorTextField {
+      IBeadModel: ClassReference("org.apache.royale.html.beads.models.ColorModel");
+      IBeadController: ClassReference("view.components.ColorTextFieldController");
     }
 
     .SliderThumb {
