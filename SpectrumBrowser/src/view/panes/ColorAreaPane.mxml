@@ -14,6 +14,10 @@
         	IBeadView: ClassReference("view.components.MySliderView");
     }
 
+    js|ColorSpectrum {
+          IBeadView:  ClassReference("view.components.MyColorSpectrumView");
+    }
+
     comp|ColorArea {
       	IPopUp: ClassReference("view.components.MyColorPickerPopUp");
     }
