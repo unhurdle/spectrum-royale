@@ -1,11 +1,10 @@
 package view.components
 {
 
-  import org.apache.royale.html.ColorPicker;
   import org.apache.royale.html.beads.layouts.VerticalSliderLayout;
-  import org.apache.royale.jewel.beads.controls.slider.ISliderView;
   import org.apache.royale.core.IUIBase;
   import org.apache.royale.core.IRangeModel;
+  import org.apache.royale.html.beads.ISliderView;
 
   public class MyVerticalSliderLayout extends VerticalSliderLayout
   {
