@@ -6,7 +6,6 @@ package view.components
 	import org.apache.royale.core.IColorModel;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.Event;
-	import org.apache.royale.utils.ColorUtil;
 	import org.apache.royale.utils.CSSUtils;
 
 	public class ColorTextFieldController implements IBeadController
