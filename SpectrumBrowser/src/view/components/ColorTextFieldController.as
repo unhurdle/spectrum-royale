@@ -7,6 +7,7 @@ package view.components
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.utils.CSSUtils;
+	import org.apache.royale.html.beads.DispatchInputFinishedBead;
 
 	public class ColorTextFieldController implements IBeadController
 	{
@@ -22,6 +23,7 @@ package view.components
         {
             _strand = value;
             (value.getBeadByType(IColorModel) as IEventDispatcher).addEventListener("change", changeHandler);
+            (value as IEventDispatcher).addEventListener(DispatchInputFinishedBead.INPUT_FINISHED, inputFinishedChanged);
             _model = value.getBeadByType(IColorModel) as IColorModel;
             syncViewWithModel();
         }
@@ -34,6 +36,12 @@ package view.components
         private function syncViewWithModel():void
         {
             (_strand as TextField).text = CSSUtils.attributeFromColor(_model.color);
+        }
+
+        private function inputFinishedChanged(event:Event):void
+        {
+            _model.color = CSSUtils.toColor((_strand as TextField).text);
+            (_strand as IEventDispatcher).dispatchEvent(new Event("colorChange"));
         }
     }
 }

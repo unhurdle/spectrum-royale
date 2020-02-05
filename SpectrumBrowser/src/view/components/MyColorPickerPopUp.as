@@ -13,6 +13,7 @@ package view.components
 	import org.apache.royale.html.supportClasses.IColorPickerPopUp;
 	import org.apache.royale.html.supportClasses.ColorSpectrum;
 	import org.apache.royale.html.beads.ISliderView;
+	import org.apache.royale.html.beads.DispatchInputFinishedBead;
 
 	public class MyColorPickerPopUp extends UIBase implements IColorPickerPopUp, IBead
 	{
@@ -36,6 +37,8 @@ package view.components
 			textField = new MyColorTextField();
 			textField.x = 10;
 			textField.y = 310;
+			textField.addEventListener("colorChange", textFieldChangeHandler);
+
 			COMPILE::JS 
 			{
 				hueSelector.element.style.position = "absolute";
@@ -69,6 +72,8 @@ package view.components
 		protected function colorSpectrumChangeHandler(event:Event):void
 		{
 			(model as IColorModel).color = colorSpectrum.hsvModifiedColor;
+			var textFieldModel:IColorModel = textField.model as IColorModel;
+			textFieldModel.color = colorSpectrum.hsvModifiedColor;
             if (!draggingThumb)
                 dispatchEvent(new Event("change"));
 		}
@@ -97,5 +102,11 @@ package view.components
             hueSelectorView.track.alpha = 0;
         }
 		
+
+		private function textFieldChangeHandler(event:Event):void
+		{
+            (model as IColorModel).color = (textField.model as IColorModel).color;
+            dispatchEvent(new Event("change"));
+		}
 	}
 }

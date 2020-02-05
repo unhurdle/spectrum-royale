@@ -10,6 +10,7 @@ package view.components
 		public function MyColorTextField()
 		{
             super();
+			quiet = true;
             var restrictBead:RestrictTextInputBead = new RestrictTextInputBead();
             restrictBead.restrict = "#0123456790ABCDEFabcdef";
             var inputFinishedBead:DispatchInputFinishedBead = new DispatchInputFinishedBead();
