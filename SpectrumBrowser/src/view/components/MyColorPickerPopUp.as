@@ -106,7 +106,6 @@ package view.components
 		private function textFieldChangeHandler(event:Event):void
 		{
             (model as IColorModel).color = (textField.model as IColorModel).color;
-            dispatchEvent(new Event("change"));
 		}
 	}
 }
