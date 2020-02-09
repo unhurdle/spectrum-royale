@@ -43,7 +43,7 @@ package view.components
         if (value < model.minimum) value = model.minimum;
         if (value > model.maximum) value = model.maximum;
         var p:Number = (value-model.minimum)/(model.maximum-model.minimum);
-        var yloc:Number = p * (useHeight - square);
+        var yloc:Number = p * useHeight;
         thumb.y = yloc;
         thumb.x = trackWidth / 2 + thumb.width / 2;
         
