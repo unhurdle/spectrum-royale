@@ -45,7 +45,7 @@ package view.components
         var p:Number = (value-model.minimum)/(model.maximum-model.minimum);
         var yloc:Number = p * useHeight;
         thumb.y = yloc;
-        thumb.x = trackWidth / 2 + thumb.width / 2;
+        thumb.x = trackWidth / 2;
         
         return true;
     }
