@@ -15,9 +15,10 @@ package view.components
     import org.apache.royale.utils.HSV;
     import org.apache.royale.utils.rgbToHsv;
     import org.apache.royale.html.beads.ISliderView;
+    import org.apache.royale.html.elements.Div;
 	public class MyColorSpectrumView extends BeadViewBase implements ISliderView
 	{
-		private var _thumb:Button;
+		private var _thumb:Div;
 		public function MyColorSpectrumView()
 		{
 			super();
@@ -26,8 +27,8 @@ package view.components
 		override public function set strand(value:IStrand):void
 		{
 			super.strand = value;
-			_thumb = new Button();
-			_thumb.className = "SliderThumb";
+			_thumb = new Div();
+			_thumb.className = "spectrum-Slider-handle";
 			_thumb.style = {"position" : "absolute", "padding" : 0};
 			(value as IParent).addElement(_thumb);
 			(colorModel as IEventDispatcher).addEventListener("baseColorChange", changeHandler);
@@ -62,8 +63,8 @@ package view.components
 			var g:uint = (hsvModifiedColor >> 8 ) & 255;
 			var b:uint = hsvModifiedColor & 255;
 			var hsv:HSV = rgbToHsv(r,g,b);
-			_thumb.x = (hsv.s / 100) * host.width - _thumb.width / 2;
-			_thumb.y = host.height - hsv.v * host.height / 100 - _thumb.height / 2;
+			_thumb.x = (hsv.s / 100) * host.width;
+			_thumb.y = host.height - hsv.v * host.height / 100;
 		}
 		
 		private function get colorModel():IColorSpectrumModel
