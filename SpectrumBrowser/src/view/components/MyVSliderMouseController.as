@@ -41,9 +41,9 @@ package view.components
 			var sliderOffsetHeight:Number = elem.offsetHeight;
             var localY:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),_strand).y;
 			var y:Number = Math.max(Math.min(localY, sliderOffsetHeight), 0);
-			var percent:Number = (y / sliderOffsetHeight) * 100;
+			var ratio:Number = y / sliderOffsetHeight;
             var rangeModel:IRangeModel = (_strand as IStrandWithModel).model as IRangeModel;
-			var val:Number = (rangeModel.maximum - rangeModel.minimum) / (100/percent) +  rangeModel.minimum;
+			var val:Number = (rangeModel.maximum - rangeModel.minimum) * ratio +  rangeModel.minimum;
 			var stepVal:Number = rangeModel.stepSize;
 			var rem:Number = val % stepVal;
             val = val - rem;
