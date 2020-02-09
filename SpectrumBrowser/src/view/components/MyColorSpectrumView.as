@@ -29,8 +29,6 @@ package view.components
 			_thumb = new Button();
 			_thumb.className = "SliderThumb";
 			_thumb.style = {"position" : "absolute", "padding" : 0};
-            _thumb.width = 40;
-            _thumb.height = 40;
 			(value as IParent).addElement(_thumb);
 			(colorModel as IEventDispatcher).addEventListener("baseColorChange", changeHandler);
 			(colorModel as IEventDispatcher).addEventListener("hsvModifiedColorChange", changeHandler);

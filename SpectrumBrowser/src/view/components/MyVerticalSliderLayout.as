@@ -21,7 +21,7 @@ package view.components
         
         var useWidth:Number = host.width;
         if (isNaN(useWidth)) {
-            useWidth = 25;
+            useWidth = 20;
         }
         var useHeight:Number = host.height;
         if (isNaN(useHeight)) {
@@ -31,9 +31,6 @@ package view.components
         var trackWidth:Number = useWidth;
         
         var thumb:IUIBase = viewBead.thumb as IUIBase;
-        thumb.width = square;
-        thumb.height = square;
-        
         var track:IUIBase = viewBead.track as IUIBase;
         track.y = 0;
         track.x = 0; 
@@ -48,7 +45,7 @@ package view.components
         var p:Number = (value-model.minimum)/(model.maximum-model.minimum);
         var yloc:Number = p * (useHeight - square);
         thumb.y = yloc;
-        thumb.x = 0;
+        thumb.x = trackWidth / 2 + thumb.width / 2;
         
         return true;
     }

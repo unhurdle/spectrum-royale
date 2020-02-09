@@ -21,6 +21,8 @@ package view.components
     import org.apache.royale.html.Button;
     import org.apache.royale.html.TextButton;
     import org.apache.royale.html.beads.ISliderView;
+    import org.apache.royale.html.elements.Div;
+    import org.apache.royale.core.IStyleableObject;
 	
 	public class MySliderView extends BeadViewBase implements ISliderView, IBeadView
 	{
@@ -45,8 +47,8 @@ package view.components
             _track.style = {"position": "absolute", "padding" : 0, "opacity" : 0};
             (host as IParent).addElement(_track);
             
-            _thumb = new Button();
-            _thumb.className = "SliderThumb";
+            _thumb = new Div();
+            _thumb.className = "spectrum-Slider-handle";
             _thumb.style = {"position" : "absolute", "padding" : 0};
             (host as IParent).addElement(_thumb);
 			
@@ -65,7 +67,7 @@ package view.components
 		}
 		
 		private var _track:Button;
-		private var _thumb:Button;
+		private var _thumb:Div;
 		
 		public function get track():IUIBase
 		{

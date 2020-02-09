@@ -12,6 +12,7 @@
 		js|HueSelector {
       IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
       IBeadView: ClassReference("view.components.MySliderView");
+      IBeadController: ClassReference("view.components.MyVSliderMouseController");
     }
 
     js|ColorSpectrum {
