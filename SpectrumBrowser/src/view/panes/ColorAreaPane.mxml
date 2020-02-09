@@ -13,6 +13,7 @@
       IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
       IBeadView: ClassReference("view.components.MySliderView");
       IBeadController: ClassReference("view.components.MyVSliderMouseController");
+      border-radius: 4px;
     }
 
     js|ColorSpectrum {
@@ -26,6 +27,10 @@
     comp|MyColorTextField {
       IBeadModel: ClassReference("org.apache.royale.html.beads.models.ColorModel");
       IBeadController: ClassReference("view.components.ColorTextFieldController");
+    }
+
+    .ColorSpectrum {
+      border-radius: 4px;
     }
 
     .SliderThumb {

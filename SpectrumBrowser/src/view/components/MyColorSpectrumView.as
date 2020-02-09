@@ -9,13 +9,12 @@ package view.components
     import org.apache.royale.core.IUIBase;
     import org.apache.royale.events.Event;
     import org.apache.royale.events.IEventDispatcher;
-    import org.apache.royale.html.Button;
-    import org.apache.royale.html.TextButton;
     import org.apache.royale.utils.CSSUtils;
     import org.apache.royale.utils.HSV;
     import org.apache.royale.utils.rgbToHsv;
     import org.apache.royale.html.beads.ISliderView;
     import org.apache.royale.html.elements.Div;
+    import org.apache.royale.core.IStyleableObject;
 	public class MyColorSpectrumView extends BeadViewBase implements ISliderView
 	{
 		private var _thumb:Div;
@@ -27,6 +26,7 @@ package view.components
 		override public function set strand(value:IStrand):void
 		{
 			super.strand = value;
+			(value as IStyleableObject).className = "ColorSpectrum";
 			_thumb = new Div();
 			_thumb.className = "spectrum-Slider-handle";
 			_thumb.style = {"position" : "absolute", "padding" : 0};
