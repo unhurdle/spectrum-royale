@@ -42,6 +42,7 @@ package view.components
 			textField = new MyColorTextField();
 			textField.x = padding;
 			textField.y = colorSpectrum.y + colorSpectrum.height + padding;
+			textField.width = 132;
 			width = hueSelector.x + hueSelector.width + padding;
 			height = textField.y + 32 + padding;
 			textField.addEventListener("colorChange", textFieldChangeHandler);
