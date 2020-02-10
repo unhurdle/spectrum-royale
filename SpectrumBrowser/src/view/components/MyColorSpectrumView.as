@@ -29,7 +29,7 @@ package view.components
 			(value as IStyleableObject).className = "ColorSpectrum";
 			_thumb = new Div();
 			_thumb.className = "spectrum-Slider-handle";
-			_thumb.style = {"position" : "absolute", "padding" : 0};
+			_thumb.style = {"position" : "absolute", "padding" : 0, "backgroundColor" : "transparent"};
 			(value as IParent).addElement(_thumb);
 			(colorModel as IEventDispatcher).addEventListener("baseColorChange", changeHandler);
 			(colorModel as IEventDispatcher).addEventListener("hsvModifiedColorChange", changeHandler);

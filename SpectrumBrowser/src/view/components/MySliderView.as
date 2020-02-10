@@ -49,7 +49,7 @@ package view.components
             
             _thumb = new Div();
             _thumb.className = "spectrum-Slider-handle";
-            _thumb.style = {"position" : "absolute", "padding" : 0};
+            _thumb.style = {"position" : "absolute", "padding" : 0, "backgroundColor" : "transparent"};
             (host as IParent).addElement(_thumb);
 			
 			rangeModel = _strand.getBeadByType(IBeadModel) as IRangeModel;
