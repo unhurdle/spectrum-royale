@@ -33,26 +33,6 @@
       border-radius: 4px;
     }
 
-    .SliderThumb {
-        background-color: transparent;
-        border-color: white;
-        border-radius: 42px;
-        border-width: 3px;;
-    }
-    
-    .SliderThumb:hover {
-        background-color: transparent;
-        border-color: white;
-        border-radius: 42px;
-        border-width: 3px;;
-    }    
-
-    .SliderThumb:active {
-        background-color: transparent;
-        border-color: white;
-        border-radius: 42px;
-        border-width: 3px;;
-    }    
 	</fx:Style>
   <comp:ColorArea/>
   <comp:Markup>

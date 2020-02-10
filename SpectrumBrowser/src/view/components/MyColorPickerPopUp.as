@@ -25,24 +25,30 @@ package view.components
 		public function MyColorPickerPopUp()
 		{
 			super();
+			var padding:Number = 10;
 			colorSpectrum = new ColorSpectrum();
 			colorSpectrum.height =  300;
 			colorSpectrum.width =  300;
+			colorSpectrum.y = padding;
+			colorSpectrum.x = padding;
 			hueSelector = new HueSelector();
 			hueSelector.width = 40;
 			hueSelector.height = 300;
-			hueSelector.x = 310;
-            hueSelector.y = 0;
+			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
+            hueSelector.y = padding;
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
 			textField = new MyColorTextField();
-			textField.x = 10;
+			textField.x = padding;
 			textField.y = 310;
+			width = hueSelector.x + hueSelector.width + padding;
+			height = textField.y + textField.height + padding;
 			textField.addEventListener("colorChange", textFieldChangeHandler);
 
 			COMPILE::JS 
 			{
 				hueSelector.element.style.position = "absolute";
 				textField.element.style.position = "absolute";
+				colorSpectrum.element.style.position = "absolute";
 			}
 			addElement(colorSpectrum);
 			addElement(hueSelector);
