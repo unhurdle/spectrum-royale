@@ -41,7 +41,7 @@ package view.components
 			textField.x = padding;
 			textField.y = 310;
 			width = hueSelector.x + hueSelector.width + padding;
-			height = textField.y + textField.height + padding;
+			height = textField.y + 32 + padding;
 			textField.addEventListener("colorChange", textFieldChangeHandler);
 
 			COMPILE::JS 
