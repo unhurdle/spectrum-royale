@@ -11,6 +11,7 @@ package view.components
     import org.apache.royale.core.IRangeModel;
     import org.apache.royale.core.IStrandWithModel;
     import org.apache.royale.events.ValueChangeEvent;
+    import org.apache.royale.utils.sendStrandEvent;
 	
 	public class MyVSliderMouseController implements IBead, IBeadController
 	{
@@ -52,6 +53,7 @@ package view.components
 			}
 			var vce:ValueChangeEvent = ValueChangeEvent.createUpdateEvent(_strand, "value", rangeModel.value, val);
 			rangeModel.value = val;
+			sendStrandEvent(_strand, vce);
         }
 	}
 }
