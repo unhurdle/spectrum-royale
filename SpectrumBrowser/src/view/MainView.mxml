@@ -1,215 +1,36 @@
 <sp:View xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:panes="view.panes.*"
-  xmlns:js="library://ns.apache.org/royale/basic" initComplete="setNavSelection()">
+  xmlns:js="library://ns.apache.org/royale/basic" xmlns:view="view.*" initComplete="setNavSelection()">
   <fx:Script>
     <![CDATA[
         import com.unhurdle.spectrum.Application;
 
-        import models.NavProvider;
         import models.Theme;
 
         import org.apache.royale.routing.RouteState;
+        import models.DataModel;
 
-        import view.DemoPane;
-        import view.panes.AccordionPane;
-        import view.panes.ActionBarPane;
-        import view.panes.ActionButtonPane;
-        import view.panes.ActionMenuPane;
-        import view.panes.AlertPane;
-        import view.panes.AssetListPane;
-        import view.panes.AssetPane;
-        import view.panes.AvatarPane;
-        import view.panes.BannerPane;
-        import view.panes.BarLoaderPane;
-        import view.panes.BreadcrumbsPane;
-        import view.panes.ButtonGroupPane;
-        import view.panes.ButtonPane;
-        import view.panes.CalendarPane;
-        import view.panes.CardGalleryPane;
-        import view.panes.CardPane;
-        import view.panes.CardPreviewPane;
-        import view.panes.CheckboxPane;
-        import view.panes.CircleLoaderPane;
-        import view.panes.ClearButtonPane;
-        import view.panes.CoachMarkPane;
-        import view.panes.ColorAreaPane;
-        import view.panes.ComboboxPane;
-        import view.panes.ComingSoonPane;
-        import view.panes.CycleButtonPane;
-        import view.panes.DatePickerPane;
-        import view.panes.DialPane;
-        import view.panes.DialogPane;
-        import view.panes.DropIndicatorPane;
-        import view.panes.DropdownPane;
-        import view.panes.DropzonePane;
-        import view.panes.FieldGroupPane;
-        import view.panes.FieldLabelPane;
-        import view.panes.FormPane;
-        import view.panes.IllustratedMessagePane;
-        import view.panes.LabelPane;
-        import view.panes.LinkPane;
-        import view.panes.LogicButtonPane;
-        import view.panes.MeterPane;
-        import view.panes.MillerColumnsPane;
-        import view.panes.PagesPane;
-        import view.panes.PaginationButtonStylePane;
-        import view.panes.PaginationExplicitPane;
-        import view.panes.PaginationPagePane;
-        import view.panes.PopoverPane;
-        import view.panes.QuickActionsPane;
-        import view.panes.RadioPane;
-        import view.panes.RatingPane;
-        import view.panes.RulePane;
-        import view.panes.SearchPane;
-        import view.panes.SearchWithinPane;
-        import view.panes.SideNavPane;
-        import view.panes.SliderPane;
-        import view.panes.SplitButtonPane;
-        import view.panes.SplitViewPane;
-        import view.panes.StatusLightPane;
-        import view.panes.SteplistPane;
-        import view.panes.StepperPane;
-        import view.panes.SwitchPane;
-        import view.panes.TabsPane;
-        import view.panes.TagsPane;
-        import view.panes.TextFieldDecoratedPane;
-        import view.panes.TextFieldPane;
-        import view.panes.TextareaPane;
-        import view.panes.ToastPane;
-        import view.panes.ToolPane;
-        import view.panes.TooltipPane;
-        import view.panes.TreeViewPane;
-        import view.panes.TypographyInternationalizedPane;
-        import view.panes.TypographyPane;
-        import view.panes.WellPane;
-        import view.panes.MenuPane;
 
-      [Bindable]public var navProvider:Array = [
-        new NavProvider("Accordion",AccordionPane,"accordion"),
-        new NavProvider("Action Bar",ActionBarPane,"action_bar"),
-        new NavProvider("Action Button",ActionButtonPane,"action_button"),
-        new NavProvider("Action Menu",ActionMenuPane,"action_menu"),
-        new NavProvider("Alert",AlertPane,"alert"),
-        new NavProvider("Asset",AssetPane,"asset"),
-        new NavProvider("AssetList",AssetListPane,"asset_list"),
-        new NavProvider("Avatar",AvatarPane,"avatar"),
-        new NavProvider("Banner",BannerPane,"banner"),
-        new NavProvider("Bar Loader",BarLoaderPane,"bar_loader"),
-        new NavProvider("Breadcrumbs",BreadcrumbsPane,"breadcrumbs"),
-        new NavProvider("Button",ButtonPane,"button"),
-        new NavProvider("Button Group",ButtonGroupPane,"button_group"),
-        new NavProvider("Calendar",CalendarPane,"calendar"),
-        new NavProvider("Card",CardPane,"card"),
-        new NavProvider("Card - Asset preview",CardPreviewPane,"card_asset_preview"),
-        new NavProvider("Card - Gallery",CardGalleryPane,"card_gallery"),
-        new NavProvider("Checkbox",CheckboxPane,"checkbox"),
-        new NavProvider("Circle Loader",CircleLoaderPane,"circle_loader"),
-        new NavProvider("Clear Button",ClearButtonPane,"clear_button"),
-        new NavProvider("Coach Mark",CoachMarkPane,"coach_mark"),
-        new NavProvider("Color Area",ColorAreaPane,"color_area"),
-        new NavProvider("Combobox",ComboboxPane,"combobox"),
-        new NavProvider("Cycle Button",CycleButtonPane,"cycle_button"),
-        new NavProvider("Date Picker",DatePickerPane,"date_picker"),
-        new NavProvider("Dial",DialPane,"dial"),
-        new NavProvider("Dialog",DialogPane,"dialog"),
-        new NavProvider("Dropdown",DropdownPane,"dropdown"),
-        new NavProvider("Drop Indicator",DropIndicatorPane,"drop_indicator"),
-        new NavProvider("Dropzone",DropzonePane,"dropzone"),
-        new NavProvider("Field Group",FieldGroupPane,"field_group"),
-        new NavProvider("Field Label",FieldLabelPane,"field_label"),
-        new NavProvider("Form",FormPane,"form"),
-        new NavProvider("Illustrated Message",IllustratedMessagePane,"illustrated_message"),
-        new NavProvider("Label",LabelPane,"label"),
-        new NavProvider("Link",LinkPane,"link"),
-        new NavProvider("Logic Button",LogicButtonPane,"logic_button"),
-        new NavProvider("Menu",MenuPane,"menu"),
-        new NavProvider("Meter",MeterPane,"meter"),
-        new NavProvider("Miller Columns",MillerColumnsPane,"miller_columns"),
-        new NavProvider("Page",PagesPane,"page"),
-        new NavProvider("Pagination - Button Style",PaginationButtonStylePane,"pagination_button_style"),
-        new NavProvider("Pagination - Explicit",PaginationExplicitPane,"pagination_explicit"),
-        new NavProvider("Pagination - Page",PaginationPagePane,"pagination_page"),
-        new NavProvider("Popover",PopoverPane,"popover"),
-        new NavProvider("Quick Actions",QuickActionsPane,"quick_actions"),
-        new NavProvider("Radio",RadioPane,"radio"),
-        new NavProvider("Rating",RatingPane,"rating"),
-        new NavProvider("Rule",RulePane,"rule"),
-        new NavProvider("Search",SearchPane,"search"),
-        new NavProvider("Search Within",SearchWithinPane,"search_within"),
-        new NavProvider("Side Navigation",SideNavPane,"side_navigation"),
-        new NavProvider("Slider",SliderPane,"slider"),
-        new NavProvider("Split Button",SplitButtonPane,"split_button"),
-        new NavProvider("SplitView",SplitViewPane,"split_view"),
-        new NavProvider("Status Light",StatusLightPane,"status_light"),
-        new NavProvider("Steplist",SteplistPane,"steplist"),
-        new NavProvider("Stepper",StepperPane,"stepper"),
-        new NavProvider("Switch",SwitchPane,"switch"),
-        new NavProvider("Table",ComingSoonPane,"table"),
-        new NavProvider("Tabs",TabsPane,"tabs"),
-        new NavProvider("Tags",TagsPane,"tags"),
-        new NavProvider("Text area",TextareaPane,"text_area"),
-        new NavProvider("Text Field",TextFieldPane,"text_field"),
-        new NavProvider("Text Field - Decorated",TextFieldDecoratedPane,"text_field_decorated"),
-        new NavProvider("Toast",ToastPane,"toast"),
-        new NavProvider("Tool",ToolPane,"tool"),
-        new NavProvider("Tooltip",TooltipPane,"tooltip"),
-        new NavProvider("Tree View",TreeViewPane,"tree_view"),
-        new NavProvider("Typography (Internationalized)",TypographyInternationalizedPane,"typography_internationalized"),
-        new NavProvider("Typography",TypographyPane,"typography"),
-        new NavProvider("Well",WellPane,"well")
-      ];
-      private function setNavSelection():void{
+
+      [Bindable]public var navProvider:Array = DataModel.navProvider;
+      private function init():void{
         Theme.router = router;
-        var routeState:RouteState = router.routeState;
-        if(routeState.state){
-          setNavFromHash(routeState.state);
-        } else {
-          sideNav.selectedIndex = 0;
-          setNav()
-        }
-        if(routeState.parameters){
-          if(routeState.parameters["appScale"]){
-            Application.current.appScale = routeState.parameters["appScale"];
-          } else {
-            Application.current.appScale = "medium";
-          }
-          if(routeState.parameters["colorstop"]){
-            Application.current.colorstop = routeState.parameters["colorstop"];
-          } else {
-            Application.current.colorstop = "light";
-          }
-        } else {
-          Application.current.appScale = "medium";
-          Application.current.colorstop = "light";
-        }
-      }
-      private function setNav():void{
-        if(currentPane){
-          mainGroup.removeElement(currentPane);
-        }
-        var provider:NavProvider = sideNav.selectedItem as NavProvider;
-        currentPane = new provider.reference();
-        mainGroup.addElement(currentPane);
-      }
-      private function onNavChange():void{
-        setNav();
-        var provider:NavProvider = sideNav.selectedItem as NavProvider;
-        router.routeState.title = provider.text;
-        router.routeState.state = provider.hashLink;
-        router.setState();
-      }
-      private var currentPane:DemoPane;
-      private function hashChanged():void{
         setNavSelection();
       }
-      private function setNavFromHash(hash:String):void{
-        for each(var nav:NavProvider in navProvider){
-          if(nav.hashLink == hash){
-            sideNav.selectedItem = nav;
-            setNav();
-            return;
-          }
-        }
+      private function setNavSelection():void{
+        var routeState:RouteState = router.routeState;
+        var navIndex:int = navProvider.indexOf(routeState.title);
+        sideNav.selectedIndex = navIndex;
+
+      }
+      private function onNavChange():void{
+        var title:String = sideNav.selectedItem as String;
+        var hash:String = title.split(/[^a-zA-Z0-9]+/).join("_").toLowerCase();
+        router.routeState.path = hash;
+        router.setState();
+      }
+      private function hashChanged():void{
+        setNavSelection();
       }
     ]]>
   </fx:Script>
@@ -240,7 +61,7 @@
     }
   </fx:Style>
   <sp:beads>
-    <js:Router id="router" stateChange="hashChanged()" />                
+    <view:BrowserRouter localId="router" stateChange="hashChanged()"/>
   </sp:beads>
   <sp:FlexContainer id="mainGroup" wrap="false">
     <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;flex-shrink: 0; background-color:rgba(0.5,0.5,0.5,0.05)"/>
