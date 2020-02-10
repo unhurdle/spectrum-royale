@@ -25,21 +25,23 @@ package view.components
 		public function MyColorPickerPopUp()
 		{
 			super();
-			var padding:Number = 10;
+			var padding:Number = 18;
+			var squareDim:Number = 225;
+			var sliderWidth:Number = 30;
 			colorSpectrum = new ColorSpectrum();
-			colorSpectrum.height =  300;
-			colorSpectrum.width =  300;
+			colorSpectrum.height =  squareDim;
+			colorSpectrum.width =  squareDim;
 			colorSpectrum.y = padding;
 			colorSpectrum.x = padding;
 			hueSelector = new HueSelector();
-			hueSelector.width = 40;
-			hueSelector.height = 300;
+			hueSelector.width = sliderWidth;
+			hueSelector.height = squareDim;
 			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
             hueSelector.y = padding;
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
 			textField = new MyColorTextField();
 			textField.x = padding;
-			textField.y = 310;
+			textField.y = colorSpectrum.y + colorSpectrum.height + padding;
 			width = hueSelector.x + hueSelector.width + padding;
 			height = textField.y + 32 + padding;
 			textField.addEventListener("colorChange", textFieldChangeHandler);
