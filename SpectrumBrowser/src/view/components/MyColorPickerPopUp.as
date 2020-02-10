@@ -13,9 +13,9 @@ package view.components
 	import org.apache.royale.html.supportClasses.IColorPickerPopUp;
 	import org.apache.royale.html.supportClasses.ColorSpectrum;
 	import org.apache.royale.html.beads.ISliderView;
-	import org.apache.royale.html.beads.DispatchInputFinishedBead;
+	import com.unhurdle.spectrum.Popover;
 
-	public class MyColorPickerPopUp extends UIBase implements IColorPickerPopUp, IBead
+	public class MyColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
 		protected var colorSpectrum:ColorSpectrum;
 		protected var hueSelector:HueSelector;
@@ -48,6 +48,12 @@ package view.components
 			addElement(hueSelector);
 			addElement(textField);
 			// var viewBead:ISliderView = host.view as ISliderView;
+		}
+
+		override public function set visible(value:Boolean):void
+		{
+			open = value;
+			super.visible = value;
 		}
 		
 		private function hueChangeHandler(event:Event):void
