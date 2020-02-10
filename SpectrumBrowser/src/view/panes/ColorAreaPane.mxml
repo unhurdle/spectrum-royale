@@ -22,6 +22,7 @@
 
     comp|ColorArea {
       IPopUp: ClassReference("view.components.MyColorPickerPopUp");
+      IBeadView: ClassReference("view.components.MyColorPickerView");
     }
 
     comp|MyColorTextField {
