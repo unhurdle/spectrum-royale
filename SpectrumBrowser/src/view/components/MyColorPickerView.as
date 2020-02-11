@@ -106,21 +106,23 @@ package view.components
 				var myX:Number;
 				var myY:Number;
 				var gap:Number = 0;
+				var strandWidth:Number = (_strand as IUIBase).width;
+				var strandHeight:Number = (_strand as IUIBase).height;
 				switch (position) {
 					case "top":
-						myX = -list.width / 2;
+						myX = -list.width / 2 + strandWidth / 2;
 						myY = -list.height - gap;
 						break;
 					case "right":
 						myX = list.width + gap;
-						myY = -list.height / 2;
+						myY = -list.height / 2 + strandHeight / 2;
 						break;
 					case "left":
 						myX = -list.width - gap;
-						myY = -list.height / 2;
+						myY = -list.height / 2 + strandHeight / 2;
 						break;
 					default:
-						myX = -list.width / 2;
+						myX = -list.width / 2 + strandWidth / 2;
 						myY = button.height + gap;
 				}
 
