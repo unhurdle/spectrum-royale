@@ -19,6 +19,7 @@ package view.components
 	{
 		protected var colorSpectrum:ColorSpectrum;
 		protected var hueSelector:HueSelector;
+		protected var alphaSelector:MyAlphaSelector;
 		protected var host:IStrand;
 		protected var textField:MyColorTextField;
 
@@ -40,11 +41,17 @@ package view.components
 			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
             hueSelector.y = padding;
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
+			alphaSelector = new MyAlphaSelector();
+			alphaSelector.width = sliderWidth;
+			alphaSelector.height = squareDim;
+			alphaSelector.x = hueSelector.x + sliderWidth + padding;
+            alphaSelector.y = padding;
+			// alphaSelector.addEventListener("valueChange", alphaChangeHandler);
 			textField = new MyColorTextField();
 			textField.x = padding;
 			textField.y = colorSpectrum.y + colorSpectrum.height + padding;
 			textField.width = 132;
-			width = hueSelector.x + hueSelector.width + padding;
+			width = alphaSelector.x + alphaSelector.width + padding;
 			height = textField.y + 32 + padding;
 			textField.addEventListener("colorChange", textFieldChangeHandler);
 
@@ -53,9 +60,11 @@ package view.components
 				hueSelector.element.style.position = "absolute";
 				textField.element.style.position = "absolute";
 				colorSpectrum.element.style.position = "absolute";
+				alphaSelector.element.style.position = "absolute";
 			}
 			addElement(colorSpectrum);
 			addElement(hueSelector);
+			addElement(alphaSelector);
 			addElement(textField);
 			// var viewBead:ISliderView = host.view as ISliderView;
 		}
@@ -78,6 +87,7 @@ package view.components
 			colorSpectrumModel.baseColor = (value as IColorModel).color;
 			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", textField) as IColorModel;
 			textFieldModel.color = (value as IColorModel).color;
+			alphaSelector.color = (value as IColorModel).color;
 			(colorSpectrum as IEventDispatcher).addEventListener("change", colorSpectrumChangeHandler);
             (colorSpectrum as IEventDispatcher).addEventListener("thumbDown", colorSpectrumThumbDownHandler);
             (colorSpectrum as IEventDispatcher).addEventListener("thumbUp", colorSpectrumThumbUpHandler);

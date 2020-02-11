@@ -1,10 +1,5 @@
 package view.components
 {
-	COMPILE::SWF {
-		import flash.display.DisplayObject;
-		import flash.display.Sprite;
-	}
-	
     import org.apache.royale.core.BeadViewBase;
     import org.apache.royale.core.IBead;
     import org.apache.royale.core.IBeadLayout;
@@ -14,15 +9,12 @@ package view.components
     import org.apache.royale.core.IParent;
     import org.apache.royale.core.IStrand;
     import org.apache.royale.core.IUIBase;
-    import org.apache.royale.core.UIBase;
     import org.apache.royale.core.ValuesManager;
     import org.apache.royale.events.Event;
     import org.apache.royale.events.IEventDispatcher;
     import org.apache.royale.html.Button;
-    import org.apache.royale.html.TextButton;
     import org.apache.royale.html.beads.ISliderView;
     import org.apache.royale.html.elements.Div;
-    import org.apache.royale.core.IStyleableObject;
 	
 	public class MySliderView extends BeadViewBase implements ISliderView, IBeadView
 	{

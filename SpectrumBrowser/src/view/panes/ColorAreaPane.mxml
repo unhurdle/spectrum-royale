@@ -20,6 +20,13 @@
       IBeadView:  ClassReference("view.components.MyColorSpectrumView");
     }
 
+		comp|MyAlphaSelector {
+      IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
+      IBeadView: ClassReference("view.components.MySliderView");
+      IBeadController: ClassReference("view.components.MyVSliderMouseController");
+      border-radius: 4px;
+    }
+
     comp|ColorArea {
       IPopUp: ClassReference("view.components.MyColorPickerPopUp");
       IBeadView: ClassReference("view.components.MyColorPickerView");
