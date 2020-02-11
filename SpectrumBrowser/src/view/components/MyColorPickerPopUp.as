@@ -25,6 +25,7 @@ package view.components
 		public function MyColorPickerPopUp()
 		{
 			super();
+			dialog=true;
 			var padding:Number = 18;
 			var squareDim:Number = 225;
 			var sliderWidth:Number = 30;
