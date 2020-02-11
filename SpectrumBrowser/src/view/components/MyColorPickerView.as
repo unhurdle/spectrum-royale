@@ -3,7 +3,6 @@ package view.components
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.core.IStyleableObject;
 	import org.apache.royale.html.elements.Div;
-	import org.apache.royale.html.TextButton;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import org.apache.royale.html.beads.IComboBoxView;
 	import org.apache.royale.core.BeadViewBase;
@@ -23,7 +22,6 @@ package view.components
 
 	public class MyColorPickerView extends BeadViewBase implements IComboBoxView
 	{
-        private var button:TextButton;
 		public function MyColorPickerView()
 		{
 			super();
@@ -44,7 +42,7 @@ package view.components
 
 		public function get popupButton():Object
 		{
-			return button;
+			return selectedColorDisplay;
 		}
 
 		override public function set strand(value:IStrand):void
@@ -54,13 +52,6 @@ package view.components
 			
 			selectedColorDisplay = new Div();
 			(selectedColorDisplay as IStyleableObject).className = "ColorPickerDisplayedColor";			
-			
-			button = new TextButton();
-			button.style = {
-				"padding": 0,
-				"margin": 0
-			};
-			button.text = '\u25BC';
 			
 			if (isNaN(host.width)) selectedColorDisplay.width = 25;
 			
@@ -73,7 +64,6 @@ package view.components
 				}
 			}
 			host.addElement(selectedColorDisplay);
-			host.addElement(button);
 			
             loadBeadFromValuesManager(IPopUp, "iPopUp", _strand);
 			list = _strand.getBeadByType(IColorPickerPopUp) as IUIBase;
@@ -123,7 +113,7 @@ package view.components
 						break;
 					default:
 						myX = -list.width / 2 + strandWidth / 2;
-						myY = button.height + gap;
+						myY = selectedColorDisplay.height + gap;
 				}
 
 				
@@ -177,21 +167,15 @@ package view.components
 				selectedColorDisplay.width = host.width - 20;
 			}
 
-			button.x = selectedColorDisplay.width;
-			button.y = 0;
-			button.width = 20;
-			button.height = selectedColorDisplay.height;
-			
 			COMPILE::JS {
 				selectedColorDisplay.element.style.position = "absolute";
-				button.element.style.position = "absolute";
 			}
 				
 			if (host.isHeightSizedToContent()) {
 				host.height = selectedColorDisplay.height;
 			}
 			if (host.isWidthSizedToContent()) {
-				host.width = selectedColorDisplay.width + button.width;
+				host.width = selectedColorDisplay.width;
 			}
         }
     }
