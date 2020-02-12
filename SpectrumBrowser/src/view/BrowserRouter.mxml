@@ -97,8 +97,8 @@
     <js:ComponentRoute title="Well" component="view.panes.WellPane" baseName="well"/>
   </js:RouteToComponent>
   <js:RouteToParameters>
-    <js:ParameterRoute callback="setAppScale" key="appScale"/>
-    <js:ParameterRoute callback="setColorStop" key="colorstop"/>
+    <js:ParameterRoute callback="setAppScale" key="appScale" defaultValue="medium"/>
+    <js:ParameterRoute callback="setColorStop" key="colorstop" defaultValue="light"/>
   </js:RouteToParameters>
 </js:Router>
 

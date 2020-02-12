@@ -20,8 +20,12 @@
       private function setNavSelection():void{
         var routeState:RouteState = router.routeState;
         var navIndex:int = navProvider.indexOf(routeState.title);
-        sideNav.selectedIndex = navIndex;
-
+        if(navIndex != -1){
+          sideNav.selectedIndex = navIndex;
+        }
+        else {
+          sideNav.selectedIndex = 0;
+        }
       }
       private function onNavChange():void{
         var title:String = sideNav.selectedItem as String;
