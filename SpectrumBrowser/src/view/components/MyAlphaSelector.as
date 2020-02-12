@@ -46,11 +46,10 @@ package view.components
 
         private function adjustBackGround():void
         {
-			var r:uint = (_color >> 16 ) & 255;
-			var g:uint = (_color >> 8 ) & 255;
-			var b:uint = _color & 255;
-            var from:String = "rgba(" + r + ", " + g + ", " + b + ", 1)";
-            var to:String = "rgba(" + r + ", " + g + ", " + b + ", 0)";
+			var from:String = CSSUtils.attributeFromColor(_color);
+			var toStr:String = "0x" + _color.toString(16) + "00"; // add alpha
+			var toColor:uint = parseInt(toStr);
+			var to:String = CSSUtils.attributeFromColor(toColor);
             var str:String = "linear-gradient(to bottom, " + from + ", " + to + ")";
             element.style.background = str;
         }
