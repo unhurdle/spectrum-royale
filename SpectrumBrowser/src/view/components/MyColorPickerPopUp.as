@@ -15,6 +15,7 @@ package view.components
 	import org.apache.royale.html.beads.ISliderView;
 	import com.unhurdle.spectrum.Popover;
 	import org.apache.royale.core.IRangeModel;
+	import org.apache.royale.utils.StringPadder;
 
 	public class MyColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
@@ -94,8 +95,11 @@ package view.components
 			var invertedValue:Number = 1 - valueAsRatio;
 			var uintAlpha:uint = uint(invertedValue * 0xFF);
 			var colorStr:String  = baseColor.toString(16);
+			colorStr = StringPadder.pad(colorStr, "0", 6);
 			var noAlpha:String = colorStr.substr(0, 6);
-			var withAlpha:String = noAlpha + uintAlpha.toString(16);
+			var alphaStr:String = uintAlpha.toString(16);
+			alphaStr = StringPadder.pad(alphaStr, "0", 2);
+			var withAlpha:String = noAlpha + alphaStr;
 			var result:uint = parseInt("0x" + withAlpha);
 			return result;
 		}

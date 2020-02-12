@@ -8,6 +8,7 @@ package view.components
 	import org.apache.royale.events.Event;
 	import org.apache.royale.utils.CSSUtils;
 	import org.apache.royale.html.beads.DispatchInputFinishedBead;
+	import org.apache.royale.utils.StringPadder;
 
 	public class ColorTextFieldController implements IBeadController
 	{
@@ -35,7 +36,7 @@ package view.components
 
         private function syncViewWithModel():void
         {
-            (_strand as TextField).text = "#" + _model.color.toString(16);
+            (_strand as TextField).text = "#" + StringPadder.pad(_model.color.toString(16).substr(0, 6), "0", 6);
         }
 
         private function inputFinishedChanged(event:Event):void
