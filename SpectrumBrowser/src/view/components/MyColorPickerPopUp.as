@@ -132,8 +132,6 @@ package view.components
         protected function colorSpectrumThumbUpHandler(event:Event):void
         {
             draggingThumb = false;
-            (model as IColorModel).color = colorSpectrum.hsvModifiedColor;
-            dispatchEvent(new Event("change"));
         }
 		
 		public function set strand(value:IStrand):void
