@@ -1,6 +1,6 @@
 <sp:View xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:sp="library://ns.unhurdle.com/spectrum" xmlns:panes="view.panes.*"
-  xmlns:js="library://ns.apache.org/royale/basic" xmlns:view="view.*" initComplete="setNavSelection()">
+  xmlns:js="library://ns.apache.org/royale/basic" xmlns:view="view.*" xmlns:html="library://ns.apache.org/royale/html" initComplete="init()">
   <fx:Script>
     <![CDATA[
         import com.unhurdle.spectrum.Application;
@@ -27,7 +27,7 @@
         var title:String = sideNav.selectedItem as String;
         var hash:String = title.split(/[^a-zA-Z0-9]+/).join("_").toLowerCase();
         router.routeState.path = hash;
-        router.setState();
+        router.renderState();
       }
       private function hashChanged():void{
         setNavSelection();
@@ -65,6 +65,7 @@
   </sp:beads>
   <sp:FlexContainer id="mainGroup" wrap="false">
     <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;flex-shrink: 0; background-color:rgba(0.5,0.5,0.5,0.05)"/>
+    <html:Div id="paneHolder"/>
   </sp:FlexContainer>
 
 </sp:View>
