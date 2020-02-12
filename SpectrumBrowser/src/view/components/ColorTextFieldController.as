@@ -35,7 +35,7 @@ package view.components
 
         private function syncViewWithModel():void
         {
-            (_strand as TextField).text = CSSUtils.attributeFromColor(_model.color);
+            (_strand as TextField).text = "#" + _model.color.toString(16);
         }
 
         private function inputFinishedChanged(event:Event):void
