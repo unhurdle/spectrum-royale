@@ -1,0 +1,105 @@
+<js:Router xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:js="library://ns.apache.org/royale/basic" initBindings="initBindings()">
+  <fx:Script>
+    <![CDATA[
+      import com.unhurdle.spectrum.Application;
+      import org.apache.royale.html.elements.Div;
+      import view.MainView;
+      import org.apache.royale.core.IParent;
+      import org.apache.royale.routing.ComponentRoute;
+
+      private function setAppScale(value:String):void{
+        Application.current.appScale = value;
+      }
+      private function setColorStop(value:String):void{
+        Application.current.colorstop = value;
+      }
+      private function initBindings():void{
+        var routes:Array = componentRouter.routes;
+        for(var i:int=0;i<routes.length;i++){
+          (routes[i] as ComponentRoute).parent = (this.host as MainView).paneHolder;
+        }
+      }
+    ]]>
+  </fx:Script>
+  <js:RouteToComponent id="componentRouter">
+    <js:ComponentRoute title="Accordion" component="view.panes.AccordionPane" baseName="accordion" defaultRoute="true"/>
+    <js:ComponentRoute title="Action Bar" component="view.panes.ActionBarPane" baseName="action_bar"/>
+    <js:ComponentRoute title="Action Button" component="view.panes.ActionButtonPane" baseName="action_button"/>
+    <js:ComponentRoute title="Action Menu" component="view.panes.ActionMenuPane" baseName="action_menu"/>
+    <js:ComponentRoute title="Alert" component="view.panes.AlertPane" baseName="alert"/>
+    <js:ComponentRoute title="Asset" component="view.panes.AssetPane" baseName="asset"/>
+    <js:ComponentRoute title="AssetList" component="view.panes.AssetListPane" baseName="asset_list"/>
+    <js:ComponentRoute title="Avatar" component="view.panes.AvatarPane" baseName="avatar"/>
+    <js:ComponentRoute title="Banner" component="view.panes.BannerPane" baseName="banner"/>
+    <js:ComponentRoute title="Bar Loader" component="view.panes.BarLoaderPane" baseName="bar_loader"/>
+    <js:ComponentRoute title="Breadcrumbs" component="view.panes.BreadcrumbsPane" baseName="breadcrumbs"/>
+    <js:ComponentRoute title="Button" component="view.panes.ButtonPane" baseName="button"/>
+    <js:ComponentRoute title="Button Group" component="view.panes.ButtonGroupPane" baseName="button_group"/>
+    <js:ComponentRoute title="Calendar" component="view.panes.CalendarPane" baseName="calendar"/>
+    <js:ComponentRoute title="Card" component="view.panes.CardPane" baseName="card"/>
+    <js:ComponentRoute title="Card - Asset preview" component="view.panes.CardPreviewPane" baseName="card_asset_preview"/>
+    <js:ComponentRoute title="Card - Gallery" component="view.panes.CardGalleryPane" baseName="card_gallery"/>
+    <js:ComponentRoute title="Checkbox" component="view.panes.CheckboxPane" baseName="checkbox"/>
+    <js:ComponentRoute title="Circle Loader" component="view.panes.CircleLoaderPane" baseName="circle_loader"/>
+    <js:ComponentRoute title="Clear Button" component="view.panes.ClearButtonPane" baseName="clear_button"/>
+    <js:ComponentRoute title="Coach Mark" component="view.panes.CoachMarkPane" baseName="coach_mark"/>
+    <js:ComponentRoute title="Color Area" component="view.panes.ColorAreaPane" baseName="color_area"/>
+    <js:ComponentRoute title="Combobox" component="view.panes.ComboboxPane" baseName="combobox"/>
+    <js:ComponentRoute title="Cycle Button" component="view.panes.CycleButtonPane" baseName="cycle_button"/>
+    <js:ComponentRoute title="Date Picker" component="view.panes.DatePickerPane" baseName="date_picker"/>
+    <js:ComponentRoute title="Dial" component="view.panes.DialPane" baseName="dial"/>
+    <js:ComponentRoute title="Dialog" component="view.panes.DialogPane" baseName="dialog"/>
+    <js:ComponentRoute title="Dropdown" component="view.panes.DropdownPane" baseName="dropdown"/>
+    <js:ComponentRoute title="Drop Indicator" component="view.panes.DropIndicatorPane" baseName="drop_indicator"/>
+    <js:ComponentRoute title="Dropzone" component="view.panes.DropzonePane" baseName="dropzone"/>
+    <js:ComponentRoute title="Field Group" component="view.panes.FieldGroupPane" baseName="field_group"/>
+    <js:ComponentRoute title="Field Label" component="view.panes.FieldLabelPane" baseName="field_label"/>
+    <js:ComponentRoute title="Form" component="view.panes.FormPane" baseName="form"/>
+    <js:ComponentRoute title="Illustrated Message" component="view.panes.IllustratedMessagePane" baseName="illustrated_message"/>
+    <js:ComponentRoute title="Label" component="view.panes.LabelPane" baseName="label"/>
+    <js:ComponentRoute title="Link" component="view.panes.LinkPane" baseName="link"/>
+    <js:ComponentRoute title="Logic Button" component="view.panes.LogicButtonPane" baseName="logic_button"/>
+    <js:ComponentRoute title="Menu" component="view.panes.MenuPane" baseName="menu"/>
+    <js:ComponentRoute title="Meter" component="view.panes.MeterPane" baseName="meter"/>
+    <js:ComponentRoute title="Miller Columns" component="view.panes.MillerColumnsPane" baseName="miller_columns"/>
+    <js:ComponentRoute title="Page" component="view.panes.PagesPane" baseName="page"/>
+    <js:ComponentRoute title="Pagination - Button Style" component="view.panes.PaginationButtonStylePane" baseName="pagination_button_style"/>
+    <js:ComponentRoute title="Pagination - Explicit" component="view.panes.PaginationExplicitPane" baseName="pagination_explicit"/>
+    <js:ComponentRoute title="Pagination - Page" component="view.panes.PaginationPagePane" baseName="pagination_page"/>
+    <js:ComponentRoute title="Popover" component="view.panes.PopoverPane" baseName="popover"/>
+    <js:ComponentRoute title="Quick Actions" component="view.panes.QuickActionsPane" baseName="quick_actions"/>
+    <js:ComponentRoute title="Radio" component="view.panes.RadioPane" baseName="radio"/>
+    <js:ComponentRoute title="Rating" component="view.panes.RatingPane" baseName="rating"/>
+    <js:ComponentRoute title="Rule" component="view.panes.RulePane" baseName="rule"/>
+    <js:ComponentRoute title="Search" component="view.panes.SearchPane" baseName="search"/>
+    <js:ComponentRoute title="Search Within" component="view.panes.SearchWithinPane" baseName="search_within"/>
+    <js:ComponentRoute title="Side Navigation" component="view.panes.SideNavPane" baseName="side_navigation"/>
+    <js:ComponentRoute title="Slider" component="view.panes.SliderPane" baseName="slider"/>
+    <js:ComponentRoute title="Split Button" component="view.panes.SplitButtonPane" baseName="split_button"/>
+    <js:ComponentRoute title="SplitView" component="view.panes.SplitViewPane" baseName="split_view"/>
+    <js:ComponentRoute title="Status Light" component="view.panes.StatusLightPane" baseName="status_light"/>
+    <js:ComponentRoute title="Steplist" component="view.panes.SteplistPane" baseName="steplist"/>
+    <js:ComponentRoute title="Stepper" component="view.panes.StepperPane" baseName="stepper"/>
+    <js:ComponentRoute title="Switch" component="view.panes.SwitchPane" baseName="switch"/>
+    <js:ComponentRoute title="Table" component="view.panes.ComingSoonPane" baseName="table"/>
+    <js:ComponentRoute title="Tabs" component="view.panes.TabsPane" baseName="tabs"/>
+    <js:ComponentRoute title="Tags" component="view.panes.TagsPane" baseName="tags"/>
+    <js:ComponentRoute title="Text area" component="view.panes.TextareaPane" baseName="text_area"/>
+    <js:ComponentRoute title="Text Field" component="view.panes.TextFieldPane" baseName="text_field"/>
+    <js:ComponentRoute title="Text Field - Decorated" component="view.panes.TextFieldDecoratedPane" baseName="text_field_decorated"/>
+    <js:ComponentRoute title="Toast" component="view.panes.ToastPane" baseName="toast"/>
+    <js:ComponentRoute title="Tool" component="view.panes.ToolPane" baseName="tool"/>
+    <js:ComponentRoute title="Tooltip" component="view.panes.TooltipPane" baseName="tooltip"/>
+    <js:ComponentRoute title="Tree View" component="view.panes.TreeViewPane" baseName="tree_view"/>
+    <js:ComponentRoute title="Typography (Internationalized)" component="view.panes.TypographyInternationalizedPane" baseName="typography_internationalized"/>
+    <js:ComponentRoute title="Typography" component="view.panes.TypographyPane" baseName="typography"/>
+    <js:ComponentRoute title="Well" component="view.panes.WellPane" baseName="well"/>
+  </js:RouteToComponent>
+  <js:RouteToParameters>
+    <js:ParameterRoute callback="setAppScale" key="appScale" defaultValue="medium"/>
+    <js:ParameterRoute callback="setColorStop" key="colorstop" defaultValue="light"/>
+  </js:RouteToParameters>
+</js:Router>
+
+
