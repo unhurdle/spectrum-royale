@@ -78,6 +78,8 @@ package view.components
 		{
 			colorSpectrum.baseColor = hsvToHex(hueSelector.value, 100, 100);
 			alphaSelector.color = colorSpectrum.baseColor;
+			(model as IColorModel).color = colorSpectrum.baseColor;
+			(textField.model as IColorModel).color = alphaSelector.color;
 		}
 
 		private function alphaSelectorChangeHandler(event:Event):void
