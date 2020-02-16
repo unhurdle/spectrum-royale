@@ -126,7 +126,7 @@ package com.unhurdle.spectrum
 			var screenHeight:Number = (UIUtils.findPopUpHost(this).popUpParent as IParentIUIBase).height;
       var h:Number = popover.height;
 			if(ptY + h > screenHeight){
-			  ptY -= (h + 25);
+			  ptY -= (h + this.height-7);
         popover.position = "top";
 			}
       else{
