@@ -147,10 +147,14 @@ package view.components
 		
 		protected function colorChangeAction():void
 		{
-			var model:IColorModel = _strand.getBeadByType(IColorModel) as IColorModel;
+			var model:ColorWithAlphaModel = _strand.getBeadByType(ColorWithAlphaModel) as ColorWithAlphaModel;
 			COMPILE::JS 
 			{
-				selectedColorDisplay.element.style.backgroundColor = CSSUtils.attributeFromColor(model.color);
+				var r:uint = (model.color >> 16 ) & 255;
+				var g:uint = (model.color >> 8 ) & 255;
+				var b:uint = model.color & 255;
+				var colorStr:String = "rgba(" + r + ", " + g + ", " + b + ", " + model.alpha + ")";
+				selectedColorDisplay.element.style.backgroundColor = colorStr;
 			}
 		}
 		

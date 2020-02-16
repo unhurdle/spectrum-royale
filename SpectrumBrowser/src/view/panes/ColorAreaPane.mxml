@@ -30,6 +30,7 @@
     comp|ColorArea {
       IPopUp: ClassReference("view.components.MyColorPickerPopUp");
       IBeadView: ClassReference("view.components.MyColorPickerView");
+      IBeadModel: ClassReference("view.components.ColorWithAlphaModel");
     }
 
     comp|MyColorTextField {

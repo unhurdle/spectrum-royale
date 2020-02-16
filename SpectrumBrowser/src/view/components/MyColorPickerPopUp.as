@@ -3,7 +3,6 @@ package view.components
 	import org.apache.royale.core.IColorModel;
 	import org.apache.royale.core.IColorSpectrumModel;
 	import org.apache.royale.core.IStrand;
-	import org.apache.royale.core.UIBase;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.html.HueSelector;
@@ -14,8 +13,6 @@ package view.components
 	import org.apache.royale.html.supportClasses.ColorSpectrum;
 	import org.apache.royale.html.beads.ISliderView;
 	import com.unhurdle.spectrum.Popover;
-	import org.apache.royale.core.IRangeModel;
-	import org.apache.royale.utils.StringPadder;
 
 	public class MyColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
@@ -85,23 +82,7 @@ package view.components
 
 		private function alphaSelectorChangeHandler(event:Event):void
 		{
-			colorSpectrum.baseColor = addAlphaToColor(colorSpectrum.baseColor);
-		}
-
-		private function addAlphaToColor(baseColor:uint):uint
-		{
-			var value:Number = (alphaSelector.model as IRangeModel).value;
-			var valueAsRatio:Number = (value / 100);
-			var invertedValue:Number = 1 - valueAsRatio;
-			var uintAlpha:uint = uint(invertedValue * 0xFF);
-			var colorStr:String  = baseColor.toString(16);
-			colorStr = StringPadder.pad(colorStr, "0", 6);
-			var noAlpha:String = colorStr.substr(0, 6);
-			var alphaStr:String = uintAlpha.toString(16);
-			alphaStr = StringPadder.pad(alphaStr, "0", 2);
-			var withAlpha:String = noAlpha + alphaStr;
-			var result:uint = parseInt("0x" + withAlpha);
-			return result;
+			(model as ColorWithAlphaModel).alpha = (100 - alphaSelector.value) / 100;
 		}
 
 		override public function set model(value:Object):void
@@ -121,7 +102,7 @@ package view.components
         
 		protected function colorSpectrumChangeHandler(event:Event):void
 		{
-			(model as IColorModel).color = addAlphaToColor(colorSpectrum.hsvModifiedColor);
+			(model as IColorModel).color = colorSpectrum.hsvModifiedColor;
 			var textFieldModel:IColorModel = textField.model as IColorModel;
 			textFieldModel.color = colorSpectrum.hsvModifiedColor;
             if (!draggingThumb)
