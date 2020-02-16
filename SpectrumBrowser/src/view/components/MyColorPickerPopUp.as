@@ -76,10 +76,7 @@ package view.components
 		
 		private function hueChangeHandler(event:Event):void
 		{
-			colorSpectrum.baseColor = hsvToHex(hueSelector.value, 100, 100);
-			alphaSelector.color = colorSpectrum.baseColor;
-			(model as IColorModel).color = colorSpectrum.baseColor;
-			(textField.model as IColorModel).color = alphaSelector.color;
+			(model as IColorModel).color = hsvToHex(hueSelector.value, 100, 100);
 		}
 
 		private function alphaSelectorChangeHandler(event:Event):void
@@ -90,6 +87,7 @@ package view.components
 		override public function set model(value:Object):void
 		{
 			super.model = value;
+			(model as IEventDispatcher).addEventListener("change", colorModelChangeHandler)
 			var colorSpectrumModel:IColorSpectrumModel = loadBeadFromValuesManager(IColorSpectrumModel, "iColorSpectrumModel", colorSpectrum) as IColorSpectrumModel;
 			colorSpectrumModel.baseColor = (value as IColorModel).color;
 			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", textField) as IColorModel;
@@ -105,12 +103,17 @@ package view.components
 		protected function colorSpectrumChangeHandler(event:Event):void
 		{
 			(model as IColorModel).color = colorSpectrum.hsvModifiedColor;
-			var textFieldModel:IColorModel = textField.model as IColorModel;
-			textFieldModel.color = colorSpectrum.hsvModifiedColor;
-            if (!draggingThumb)
-                dispatchEvent(new Event("change"));
 		}
         
+		private function colorModelChangeHandler(event:Event):void
+		{
+			var colorValue:uint = (event.target as IColorModel).color;
+			(textField.model as IColorModel).color = colorValue;
+			colorSpectrum.baseColor = colorValue;
+			alphaSelector.value = int((1- (event.target as ColorWithAlphaModel).alpha) * 100)
+			alphaSelector.color = colorValue;
+		}
+
         protected function colorSpectrumThumbDownHandler(event:Event):void
         {
             draggingThumb = true;
