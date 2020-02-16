@@ -191,7 +191,7 @@ package com.unhurdle.spectrum
     
     public function show():void{
       visible = true;
-      modal.show(Application.current);
+      modal.show(Application.current.popUpHost);
 		}
 
     public function hide():void{
