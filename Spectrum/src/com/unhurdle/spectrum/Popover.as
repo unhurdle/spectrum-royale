@@ -3,6 +3,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IPopUp;
   import org.apache.royale.events.Event;
   import org.apache.royale.core.IParent;
+  import org.apache.royale.core.IPopUpHostParent;
 
   public class Popover extends Group implements IPopUp
   {
@@ -49,11 +50,11 @@ package com.unhurdle.spectrum
         _open = value;
         toggle("is-open",value);
         if(floating){
-          var view:IParent = Application.current.initialView as IParent;
+          var host:IPopUpHostParent = Application.current.popUpParent;
           if(value){
-            view.addElement(this);
+            host.addElement(this);
           } else {
-            view.removeElement(this);
+            host.removeElement(this);
           }
         }
         dispatchEvent(new Event("openChanged"));

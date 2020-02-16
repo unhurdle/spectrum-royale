@@ -126,7 +126,7 @@ package com.unhurdle.spectrum
         return;
       }
       _shown = true;
-      Application.current.addElement(this);
+      Application.current.popUpParent.addElement(this);
       toggle("show",true);
       COMPILE::JS
       {
@@ -156,7 +156,7 @@ package com.unhurdle.spectrum
     }
 
     private function removeMe():void{
-        Application.current.removeElement(this);
+        Application.current.popUpParent.removeElement(this);
         toggle("hide", false);
     }
 
