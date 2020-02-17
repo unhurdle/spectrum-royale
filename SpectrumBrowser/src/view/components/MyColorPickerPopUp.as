@@ -112,9 +112,11 @@ package view.components
 		}
 		
         private var draggingThumb:Boolean;
+        private var fromSpectrum:Boolean;
         
 		protected function colorSpectrumChangeHandler(event:Event):void
 		{
+			fromSpectrum = true;
 			(model as IColorModel).color = colorSpectrum.hsvModifiedColor;
 		}
         
@@ -123,7 +125,13 @@ package view.components
 			var colorValue:uint = (event.target as IColorModel).color;
 			(colorTextField.model as IColorModel).color = colorValue;
 			(alphaTextField.model as IRangeModel).value = int((1 - (event.target as ColorWithAlphaModel).alpha) * 100);
-			colorSpectrum.baseColor = colorValue;
+			if (fromSpectrum)
+			{
+				fromSpectrum = false;
+			} else
+			{
+				colorSpectrum.baseColor = colorValue;
+			}
 			alphaSelector.value = int((1- (event.target as ColorWithAlphaModel).alpha) * 100);
 			(alphaSelector.model as IColorModel).color = colorValue;
 		}
