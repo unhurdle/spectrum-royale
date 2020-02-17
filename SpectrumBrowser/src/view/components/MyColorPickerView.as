@@ -53,7 +53,7 @@ package view.components
 			selectedColorDisplay = new Div();
 			(selectedColorDisplay as IStyleableObject).className = "ColorPickerDisplayedColor";			
 			
-			if (isNaN(host.width)) selectedColorDisplay.width = 25;
+			if (isNaN(host.width)) selectedColorDisplay.width = 44;
 			
 			COMPILE::JS 
 			{
@@ -164,9 +164,9 @@ package view.components
 			
 			selectedColorDisplay.x = 0;
 			selectedColorDisplay.y = 0;
-			selectedColorDisplay.height = 20;
+			selectedColorDisplay.height = 28;
 			if (host.isWidthSizedToContent()) {
-				selectedColorDisplay.width = 25;
+				selectedColorDisplay.width = 44;
 			} else {
 				selectedColorDisplay.width = host.width - 20;
 			}
