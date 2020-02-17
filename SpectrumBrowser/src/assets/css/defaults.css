@@ -9,4 +9,5 @@
         height: 100%;
         opacity: 0.5;
         border-radius: 4px;
+        z-index: -1;
     }
