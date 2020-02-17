@@ -124,8 +124,8 @@ package view.components
 			(colorTextField.model as IColorModel).color = colorValue;
 			(alphaTextField.model as IRangeModel).value = int((1 - (event.target as ColorWithAlphaModel).alpha) * 100);
 			colorSpectrum.baseColor = colorValue;
-			alphaSelector.value = int((1- (event.target as ColorWithAlphaModel).alpha) * 100)
-			alphaSelector.color = colorValue;
+			alphaSelector.value = int((1- (event.target as ColorWithAlphaModel).alpha) * 100);
+			(alphaSelector.model as IColorModel).color = colorValue;
 		}
 
         protected function colorSpectrumThumbDownHandler(event:Event):void
