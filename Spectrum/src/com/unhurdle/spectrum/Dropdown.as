@@ -49,6 +49,7 @@ package com.unhurdle.spectrum
       button.icon = Icon.getCSSTypeSelector(type);
       button.iconType = type;
       button.iconClass = appendSelector("-icon");
+      button.textNode.element.style.maxWidth = '85%';
       addElement(button);
       popover = new ComboBoxList();
       popover.className = appendSelector("-popover");

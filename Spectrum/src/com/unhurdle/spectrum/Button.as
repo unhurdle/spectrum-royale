@@ -233,7 +233,7 @@ package com.unhurdle.spectrum
       }
     	_selected = value;
     }
-    protected var textNode:TextNode;
+    public var textNode:TextNode;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
