@@ -27,7 +27,7 @@ package view.components
 			super();
 		}
 		
-		protected var selectedColorDisplay:IUIBase;
+		protected var selectedColorDisplay:Div;
 		public function get textInputField():Object
 		{
 			return selectedColorDisplay;
@@ -51,6 +51,9 @@ package view.components
 			var host:UIBase = value as UIBase;
 			
 			selectedColorDisplay = new Div();
+			selectedColorDisplay.percentWidth = 100;
+			selectedColorDisplay.percentHeight = 100;
+			(host as IStyleableObject).className = "CheckeredBackground";
 			(selectedColorDisplay as IStyleableObject).className = "ColorPickerDisplayedColor";			
 			
 			if (isNaN(host.width)) selectedColorDisplay.width = 44;
