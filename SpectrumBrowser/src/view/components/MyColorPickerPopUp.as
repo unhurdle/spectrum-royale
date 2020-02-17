@@ -13,6 +13,7 @@ package view.components
 	import org.apache.royale.html.supportClasses.ColorSpectrum;
 	import org.apache.royale.html.beads.ISliderView;
 	import com.unhurdle.spectrum.Popover;
+	import org.apache.royale.core.IRangeModel;
 
 	public class MyColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
@@ -20,7 +21,8 @@ package view.components
 		protected var hueSelector:HueSelector;
 		protected var alphaSelector:MyAlphaSelector;
 		protected var host:IStrand;
-		protected var textField:MyColorTextField;
+		protected var colorTextField:MyColorTextField;
+		protected var alphaTextField:MyAlphaTextField;
 
 		public function MyColorPickerPopUp()
 		{
@@ -46,25 +48,32 @@ package view.components
 			alphaSelector.x = hueSelector.x + sliderWidth + padding;
             alphaSelector.y = padding;
 			alphaSelector.addEventListener("valueChange", alphaSelectorChangeHandler);
-			textField = new MyColorTextField();
-			textField.x = padding;
-			textField.y = colorSpectrum.y + colorSpectrum.height + padding;
-			textField.width = 132;
+			colorTextField = new MyColorTextField();
+			colorTextField.x = padding;
+			colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
+			colorTextField.width = 132;
+			alphaTextField = new MyAlphaTextField();
+			alphaTextField.x = colorTextField.width + colorTextField.x + padding;
+			alphaTextField.y = colorTextField.y;
+			alphaTextField.width = 66;
 			width = alphaSelector.x + alphaSelector.width + padding;
-			height = textField.y + 32 + padding;
-			textField.addEventListener("colorChange", textFieldChangeHandler);
+			height = colorTextField.y + 32 + padding;
+			colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
+			alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
 
 			COMPILE::JS 
 			{
 				hueSelector.element.style.position = "absolute";
-				textField.element.style.position = "absolute";
+				colorTextField.element.style.position = "absolute";
+				alphaTextField.element.style.position = "absolute";
 				colorSpectrum.element.style.position = "absolute";
 				alphaSelector.element.style.position = "absolute";
 			}
 			addElement(colorSpectrum);
 			addElement(hueSelector);
 			addElement(alphaSelector);
-			addElement(textField);
+			addElement(colorTextField);
+			addElement(alphaTextField);
 			// var viewBead:ISliderView = host.view as ISliderView;
 		}
 
@@ -90,9 +99,13 @@ package view.components
 			(model as IEventDispatcher).addEventListener("change", colorModelChangeHandler)
 			var colorSpectrumModel:IColorSpectrumModel = loadBeadFromValuesManager(IColorSpectrumModel, "iColorSpectrumModel", colorSpectrum) as IColorSpectrumModel;
 			colorSpectrumModel.baseColor = (value as IColorModel).color;
-			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", textField) as IColorModel;
+			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", colorTextField) as IColorModel;
 			textFieldModel.color = (value as IColorModel).color;
-			alphaSelector.color = (value as IColorModel).color;
+			var alphaTextFieldModel:IRangeModel = loadBeadFromValuesManager(IRangeModel, "iRangeModel", alphaTextField) as IRangeModel;
+			alphaSelector.value = (value as IColorModel).color;
+			alphaTextFieldModel.maximum = alphaSelector.maximum;
+			alphaTextFieldModel.minimum = alphaSelector.minimum;
+			alphaTextFieldModel.value = alphaSelector.value;
 			(colorSpectrum as IEventDispatcher).addEventListener("change", colorSpectrumChangeHandler);
             (colorSpectrum as IEventDispatcher).addEventListener("thumbDown", colorSpectrumThumbDownHandler);
             (colorSpectrum as IEventDispatcher).addEventListener("thumbUp", colorSpectrumThumbUpHandler);
@@ -108,7 +121,8 @@ package view.components
 		private function colorModelChangeHandler(event:Event):void
 		{
 			var colorValue:uint = (event.target as IColorModel).color;
-			(textField.model as IColorModel).color = colorValue;
+			(colorTextField.model as IColorModel).color = colorValue;
+			(alphaTextField.model as IRangeModel).value = int((1 - (event.target as ColorWithAlphaModel).alpha) * 100);
 			colorSpectrum.baseColor = colorValue;
 			alphaSelector.value = int((1- (event.target as ColorWithAlphaModel).alpha) * 100)
 			alphaSelector.color = colorValue;
@@ -136,10 +150,14 @@ package view.components
             hueSelectorView.track.alpha = 0;
         }
 		
-
-		private function textFieldChangeHandler(event:Event):void
+		private function colorTextFieldChangeHandler(event:Event):void
 		{
-            (model as IColorModel).color = (textField.model as IColorModel).color;
+            (model as IColorModel).color = (colorTextField.model as IColorModel).color;
+		}
+
+		private function alphaTextFieldChangeHandler(event:Event):void
+		{
+            (model as ColorWithAlphaModel).alpha = (100 - (alphaTextField.model as IRangeModel).value) / 100;
 		}
 	}
 }

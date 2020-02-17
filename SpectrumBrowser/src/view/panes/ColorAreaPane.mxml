@@ -33,6 +33,11 @@
       IBeadModel: ClassReference("view.components.ColorWithAlphaModel");
     }
 
+    comp|MyAlphaTextField {
+      IBeadModel: ClassReference("org.apache.royale.html.beads.models.RangeModel");
+      IBeadController: ClassReference("view.components.AlphaTextFieldController");
+    }
+
     comp|MyColorTextField {
       IBeadModel: ClassReference("org.apache.royale.html.beads.models.ColorModel");
       IBeadController: ClassReference("view.components.ColorTextFieldController");
