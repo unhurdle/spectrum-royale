@@ -22,7 +22,7 @@
 
 		comp|MyAlphaSelector {
       IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
-      IBeadView: ClassReference("view.components.MySliderView");
+      IBeadView: ClassReference("view.components.MyAlphaSelectorView");
       IBeadController: ClassReference("view.components.MyVSliderMouseController");
       border-radius: 4px;
     }
