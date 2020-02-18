@@ -60,6 +60,8 @@ package view.components
 			height = colorTextField.y + 32 + padding;
 			colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
 			alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
+			colorTextField.addEventListener("change", stopChangePropagation);
+			alphaTextField.addEventListener("change", stopChangePropagation);
 
 			COMPILE::JS 
 			{
@@ -75,6 +77,11 @@ package view.components
 			addElement(colorTextField);
 			addElement(alphaTextField);
 			// var viewBead:ISliderView = host.view as ISliderView;
+		}
+
+		private function stopChangePropagation(e:Event):void
+		{
+			e.stopImmediatePropagation();
 		}
 
 		override public function set visible(value:Boolean):void
