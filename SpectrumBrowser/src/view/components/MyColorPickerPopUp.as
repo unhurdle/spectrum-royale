@@ -115,7 +115,7 @@ package view.components
 			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", colorTextField) as IColorModel;
 			textFieldModel.color = (value as IColorModel).color;
 			var alphaTextFieldModel:IRangeModel = loadBeadFromValuesManager(IRangeModel, "iRangeModel", alphaTextField) as IRangeModel;
-			alphaSelector.value = (value as IColorModel).color;
+			alphaSelector.value = (1- (value as ArrayColorSelectionWithAlphaModel).alpha) * 100;
 			alphaTextFieldModel.maximum = alphaSelector.maximum;
 			alphaTextFieldModel.minimum = alphaSelector.minimum;
 			alphaTextFieldModel.value = alphaSelector.value;
