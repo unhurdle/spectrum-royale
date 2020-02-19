@@ -68,6 +68,7 @@
 					dp.push(color);
 				}
         (myColorArea.model as ArrayColorSelectionWithAlphaModel).dataProvider = dp;
+        (myColorArea.model as ArrayColorSelectionWithAlphaModel).selectedIndex = 0;
       }
     ]]>
   </fx:Script>
