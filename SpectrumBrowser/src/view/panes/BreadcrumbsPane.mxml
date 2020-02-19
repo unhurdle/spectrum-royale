@@ -30,20 +30,20 @@ import com.unhurdle.spectrum.data.BreadcrumbsItem;
 
 
 [Bindable]public var nested:String = 
-'<sp:Breadcrumbs id="breadcrumbs3" itemClicked="new Toast((breadcrumbs3.selectedItem as BreadcrumbsItem).label,1000).show()"\n'+
+'<sp:Breadcrumbs id="breadcrumbs3" itemClicked="new Toast((breadcrumbs3.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
 '   <sp:dataProvider>\n'+
 '       <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+ 
-'           <sp:Breadcrumbs\n>'+
-'               <sp:dataProvider\n'+
+'           <sp:Breadcrumbs>\n'+
+'               <sp:dataProvider>\n'+
 '                   <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
 '                   <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
 '                   <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
-'                </sp:dataProvider\n'+
-'            </sp:Breadcrumbs\n'+
-'        </sp:BreadcrumbsItem\n'+
+'                </sp:dataProvider>\n'+
+'            </sp:Breadcrumbs>\n'+
+'        </sp:BreadcrumbsItem>\n'+
 '        <sp:BreadcrumbsItem text="Trend"/>\n'+
 '        <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
-'   </sp:dataProvider\n'+
+'   </sp:dataProvider>\n'+
 '</sp:Breadcrumbs>\n';
 
 
