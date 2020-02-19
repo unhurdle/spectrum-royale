@@ -150,7 +150,7 @@ package view.components
 		
 		protected function colorChangeAction():void
 		{
-			var model:ColorWithAlphaModel = _strand.getBeadByType(ColorWithAlphaModel) as ColorWithAlphaModel;
+			var model:ArrayColorSelectionWithAlphaModel = _strand.getBeadByType(ArrayColorSelectionWithAlphaModel) as ArrayColorSelectionWithAlphaModel;
 			COMPILE::JS 
 			{
 				var r:uint = (model.color >> 16 ) & 255;

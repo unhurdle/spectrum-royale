@@ -1,6 +1,7 @@
 <view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
   xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  initComplete="initCompleteHandler(event)"
   title="Color Area">
   <fx:Script>
     <![CDATA[
@@ -29,9 +30,9 @@
     }
 
     comp|ColorArea {
-      IPopUp: ClassReference("view.components.MyColorPickerPopUp");
+      IPopUp: ClassReference("view.components.MyColorPickerPopUpWithPalette");
       IBeadView: ClassReference("view.components.MyColorPickerView");
-      IBeadModel: ClassReference("view.components.ColorWithAlphaModel");
+      IBeadModel: ClassReference("view.components.ArrayColorSelectionWithAlphaModel");
     }
 
     comp|MyAlphaTextField {
@@ -48,8 +49,25 @@
       border-radius: 4px;
     }
 
-	</fx:Style>
-  <comp:ColorArea/>
+  </fx:Style>
+  <fx:Script>
+    <![CDATA[
+      import org.apache.royale.events.Event;
+      import view.components.ArrayColorSelectionWithAlphaModel;
+
+      private function initCompleteHandler(e:Event):void
+      {
+        var dp:Array = [];
+				for (var i:int = 0; i < 30; i++)
+				{
+					var color:uint = uint(Math.random() * 0xFFFFFF);
+					dp.push(color);
+				}
+        (myColorArea.model as ArrayColorSelectionWithAlphaModel).dataProvider = dp;
+      }
+    ]]>
+  </fx:Script>
+  <comp:ColorArea id="myColorArea"/>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:CoachMark&gt;'/>
     <Br/>

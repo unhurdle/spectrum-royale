@@ -14,6 +14,7 @@ package view.components
 	import org.apache.royale.html.beads.ISliderView;
 	import com.unhurdle.spectrum.Popover;
 	import org.apache.royale.core.IRangeModel;
+	import org.apache.royale.html.elements.Div;
 
 	public class MyColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
@@ -23,12 +24,14 @@ package view.components
 		protected var host:IStrand;
 		protected var colorTextField:MyColorTextField;
 		protected var alphaTextField:MyAlphaTextField;
+		protected var fixedSizeContainer:Div;
+		protected var padding:Number = 18;
 
 		public function MyColorPickerPopUp()
 		{
 			super();
 			dialog=true;
-			var padding:Number = 18;
+			fixedSizeContainer = new Div();
 			var squareDim:Number = 225;
 			var sliderWidth:Number = 30;
 			colorSpectrum = new ColorSpectrum();
@@ -56,8 +59,8 @@ package view.components
 			alphaTextField.x = colorTextField.width + colorTextField.x + padding;
 			alphaTextField.y = colorTextField.y;
 			alphaTextField.width = 66;
-			width = alphaSelector.x + alphaSelector.width + padding;
-			height = colorTextField.y + 32 + padding;
+			fixedSizeContainer.width = alphaSelector.x + alphaSelector.width + padding;
+			fixedSizeContainer.height = colorTextField.y + 32 + padding;
 			colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
 			alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
 			colorTextField.addEventListener("change", stopChangePropagation);
@@ -70,13 +73,16 @@ package view.components
 				alphaTextField.element.style.position = "absolute";
 				colorSpectrum.element.style.position = "absolute";
 				alphaSelector.element.style.position = "absolute";
+				fixedSizeContainer.element.style.position = "absolute";
 			}
-			addElement(colorSpectrum);
-			addElement(hueSelector);
-			addElement(alphaSelector);
-			addElement(colorTextField);
-			addElement(alphaTextField);
-			// var viewBead:ISliderView = host.view as ISliderView;
+			fixedSizeContainer.addElement(colorSpectrum);
+			fixedSizeContainer.addElement(hueSelector);
+			fixedSizeContainer.addElement(alphaSelector);
+			fixedSizeContainer.addElement(colorTextField);
+			fixedSizeContainer.addElement(alphaTextField);
+			addElement(fixedSizeContainer);
+			width = fixedSizeContainer.width;
+			height = fixedSizeContainer.height;
 		}
 
 		private function stopChangePropagation(e:Event):void
@@ -97,7 +103,7 @@ package view.components
 
 		private function alphaSelectorChangeHandler(event:Event):void
 		{
-			(model as ColorWithAlphaModel).alpha = (100 - alphaSelector.value) / 100;
+			(model as ArrayColorSelectionWithAlphaModel).alpha = (100 - alphaSelector.value) / 100;
 		}
 
 		override public function set model(value:Object):void
@@ -131,7 +137,7 @@ package view.components
 		{
 			var colorValue:uint = (event.target as IColorModel).color;
 			(colorTextField.model as IColorModel).color = colorValue;
-			(alphaTextField.model as IRangeModel).value = int((1 - (event.target as ColorWithAlphaModel).alpha) * 100);
+			(alphaTextField.model as IRangeModel).value = int((1 - (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
 			if (fromSpectrum)
 			{
 				fromSpectrum = false;
@@ -139,7 +145,7 @@ package view.components
 			{
 				colorSpectrum.baseColor = colorValue;
 			}
-			alphaSelector.value = int((1- (event.target as ColorWithAlphaModel).alpha) * 100);
+			alphaSelector.value = int((1- (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
 			(alphaSelector.model as IColorModel).color = colorValue;
 		}
 
@@ -172,7 +178,7 @@ package view.components
 
 		private function alphaTextFieldChangeHandler(event:Event):void
 		{
-            (model as ColorWithAlphaModel).alpha = (100 - (alphaTextField.model as IRangeModel).value) / 100;
+            (model as ArrayColorSelectionWithAlphaModel).alpha = (100 - (alphaTextField.model as IRangeModel).value) / 100;
 		}
 	}
 }
