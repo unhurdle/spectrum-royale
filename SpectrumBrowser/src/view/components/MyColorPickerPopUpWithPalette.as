@@ -12,6 +12,7 @@ package view.components
 		{
 			super();
 			palette = new ColorPalette();
+			palette.element.style.border = "none";
 			var colorPaletteLayout:TileLayout = loadBeadFromValuesManager(TileLayout, "iBeadLayout", palette) as TileLayout;
 			colorPaletteLayout.rowHeight = colorPaletteLayout.columnWidth = 20;
 			COMPILE::JS 
