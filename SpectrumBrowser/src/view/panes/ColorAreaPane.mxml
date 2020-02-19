@@ -58,6 +58,7 @@
     <![CDATA[
       import org.apache.royale.events.Event;
       import view.components.ArrayColorSelectionWithAlphaModel;
+      import view.components.ColorWithAlphaModel;
 
       private function initCompleteHandler(e:Event):void
       {
@@ -65,7 +66,11 @@
 				for (var i:int = 0; i < 30; i++)
 				{
 					var color:uint = uint(Math.random() * 0xFFFFFF);
-					dp.push(color);
+          var alpha:Number = Math.random();
+          var colorModel:ColorWithAlphaModel = new ColorWithAlphaModel();
+          colorModel.color = color;
+          colorModel.alpha = alpha;
+					dp.push(colorModel);
 				}
         (myColorArea.model as ArrayColorSelectionWithAlphaModel).dataProvider = dp;
         (myColorArea.model as ArrayColorSelectionWithAlphaModel).selectedIndex = 0;

@@ -21,17 +21,20 @@ package view.components
 		override public function updateRenderer():void
 		{
             var color:uint;
-            if (!isNaN(data))
+            if (data is ColorWithAlphaModel)
             {
-                color = uint(data);
-            } else if (dataField)
-            {
-                color = uint(data[dataField]);
+                color = (data as ColorWithAlphaModel).color;
+                alpha = (data as ColorWithAlphaModel).alpha;
             } else
             {
                 color = 0x000000;
+                alpha = 1;
             }
-            innerElement.element.style.backgroundColor = CSSUtils.attributeFromColor(color);
+			var r:uint = (color >> 16 ) & 255;
+			var g:uint = (color >> 8 ) & 255;
+			var b:uint = color & 255;
+            var str:String = "rgba(" + r + ", " + g + ", " + b + ", " + alpha + ")";
+            innerElement.element.style.backgroundColor = str;
 		}
 
         private var innerElement:Div;
@@ -41,11 +44,14 @@ package view.components
             super.addedToParent();
             if (!innerElement)
             {
+                var innerBg:Div = new Div();
+                innerBg.className = "CheckeredBackground";
                 innerElement = new Div();
-                innerElement.width = width - 2 * padding;
-                innerElement.height = height - 2 * padding;
+                innerBg.width = innerElement.width = width - 2 * padding;
+                innerBg.height = innerElement.height = height - 2 * padding;
                 element.style.padding = padding + "px";
-                addElement(innerElement);
+                innerBg.addElement(innerElement);
+                addElement(innerBg);
             }
         }
 
