@@ -20,6 +20,10 @@
     js|ColorSpectrum {
       IBeadView:  ClassReference("view.components.MyColorSpectrumView");
     }
+    
+    js|ColorPalette {
+      IItemRenderer: ClassReference("view.components.MyColorItemRenderer");
+    }
 
 		comp|MyAlphaSelector {
       IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");

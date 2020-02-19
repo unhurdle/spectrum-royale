@@ -13,7 +13,7 @@ package view.components
 			super();
 			palette = new ColorPalette();
 			var colorPaletteLayout:TileLayout = loadBeadFromValuesManager(TileLayout, "iBeadLayout", palette) as TileLayout;
-			colorPaletteLayout.rowHeight = colorPaletteLayout.columnWidth = 16;
+			colorPaletteLayout.rowHeight = colorPaletteLayout.columnWidth = 20;
 			COMPILE::JS 
 			{
 				palette.element.style.position = "absolute";
