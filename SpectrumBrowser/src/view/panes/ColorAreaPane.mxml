@@ -7,53 +7,6 @@
     <![CDATA[
     ]]>
   </fx:Script>
-  <fx:Style>
-		@namespace js "library://ns.apache.org/royale/basic";
-		@namespace comp "view.components.*";
-		js|HueSelector {
-      IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
-      IBeadView: ClassReference("view.components.MySliderView");
-      IBeadController: ClassReference("view.components.MyVSliderMouseController");
-      border-radius: 4px;
-    }
-
-    js|ColorSpectrum {
-      IBeadView:  ClassReference("view.components.MyColorSpectrumView");
-    }
-    
-    js|ColorPalette {
-      IItemRenderer: ClassReference("view.components.MyColorItemRenderer");
-    }
-
-		comp|MyAlphaSelector {
-      IBeadLayout: ClassReference("view.components.MyVerticalSliderLayout");
-      IBeadModel: ClassReference("view.components.MyAlphaSelectorModel");
-      IBeadView: ClassReference("view.components.MyAlphaSelectorView");
-      IBeadController: ClassReference("view.components.MyVSliderMouseController");
-      border-radius: 4px;
-    }
-
-    comp|ColorArea {
-      IPopUp: ClassReference("view.components.MyColorPickerPopUpWithPalette");
-      IBeadView: ClassReference("view.components.MyColorPickerView");
-      IBeadModel: ClassReference("view.components.ArrayColorSelectionWithAlphaModel");
-    }
-
-    comp|MyAlphaTextField {
-      IBeadModel: ClassReference("org.apache.royale.html.beads.models.RangeModel");
-      IBeadController: ClassReference("view.components.AlphaTextFieldController");
-    }
-
-    comp|MyColorTextField {
-      IBeadModel: ClassReference("org.apache.royale.html.beads.models.ColorModel");
-      IBeadController: ClassReference("view.components.ColorTextFieldController");
-    }
-
-    .ColorSpectrum {
-      border-radius: 4px;
-    }
-
-  </fx:Style>
   <fx:Script>
     <![CDATA[
       import org.apache.royale.events.Event;
@@ -77,7 +30,7 @@
       }
     ]]>
   </fx:Script>
-  <comp:ColorArea id="myColorArea"/>
+  <sp:ColorArea id="myColorArea"/>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:CoachMark&gt;'/>
     <Br/>

@@ -1,4 +1,6 @@
 @namespace "library://ns.unhurdle.com/spectrum";
+@namespace js "library://ns.apache.org/royale/basic";
+@namespace colorarea "com.unhurdle.spectrum.colorarea.*";
 
 Menu
 {
@@ -118,3 +120,45 @@ TableItemRenderer{
   IBeadController: ClassReference("com.unhurdle.spectrum.controllers.ItemRendererMouseController");
 }
 
+js|HueSelector {
+	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorarea.MyVerticalSliderLayout");
+	IBeadView: ClassReference("com.unhurdle.spectrum.colorarea.MySliderView");
+	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.MyVSliderMouseController");
+	border-radius: 4px;
+}
+
+js|ColorSpectrum {
+	IBeadView:  ClassReference("com.unhurdle.spectrum.colorarea.MyColorSpectrumView");
+}
+
+js|ColorPalette {
+	IItemRenderer: ClassReference("com.unhurdle.spectrum.colorarea.MyColorItemRenderer");
+}
+
+colorarea|MyAlphaSelector {
+	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorarea.MyVerticalSliderLayout");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.colorarea.MyAlphaSelectorModel");
+	IBeadView: ClassReference("com.unhurdle.spectrum.colorarea.MyAlphaSelectorView");
+	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.MyVSliderMouseController");
+	border-radius: 4px;
+}
+
+colorarea|ColorArea {
+	IPopUp: ClassReference("com.unhurdle.spectrum.colorarea.MyColorPickerPopUpWithPalette");
+	IBeadView: ClassReference("com.unhurdle.spectrum.colorarea.MyColorPickerView");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.colorarea.ArrayColorSelectionWithAlphaModel");
+}
+
+colorarea|MyAlphaTextField {
+	IBeadModel: ClassReference("org.apache.royale.html.beads.models.RangeModel");
+	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.AlphaTextFieldController");
+}
+
+colorarea|MyColorTextField {
+	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ColorModel");
+	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.ColorTextFieldController");
+}
+
+.ColorSpectrum {
+	border-radius: 4px;
+}
