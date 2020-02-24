@@ -1,12 +1,16 @@
 package com.unhurdle.spectrum.colorarea
 {
-    import org.apache.royale.core.IStrand;
-    import org.apache.royale.core.IStrandWithModel;
-    import org.apache.royale.core.IColorModel;
-    import org.apache.royale.events.Event;
-    import org.apache.royale.html.elements.Div;
-    import org.apache.royale.core.IParent;
-    import org.apache.royale.core.HTMLElementWrapper; 
+	import org.apache.royale.core.IStrand;
+	import org.apache.royale.core.IStrandWithModel;
+	import org.apache.royale.core.IColorModel;
+	import org.apache.royale.events.Event;
+	import org.apache.royale.html.elements.Div;
+	import org.apache.royale.core.IParent;
+	
+	COMPILE::JS
+	{
+		import org.apache.royale.utils.html.getStyle;
+	}
 	
 	public class MyAlphaSelectorView extends MySliderView
 	{
@@ -20,7 +24,10 @@ package com.unhurdle.spectrum.colorarea
 		{
 			super.strand = value;
 			_drawingLayer = new Div();
-			(_drawingLayer.element as HTMLElementWrapper).style.position = "absolute";
+			COMPILE::JS
+			{
+				getStyle(_drawingLayer).position = "absolute";
+			}
 			_drawingLayer.percentWidth = 100;
 			_drawingLayer.percentHeight = 100;
 			(value as IParent).addElement(_drawingLayer);
@@ -29,17 +36,17 @@ package com.unhurdle.spectrum.colorarea
 			adjustBackGround();
 		}
 
-        private function adjustBackGround(e:Event=null):void
-        {
+		private function adjustBackGround(e:Event=null):void
+		{
 			var color:uint = _model.color;
 			var r:uint = (color >> 16 ) & 255;
 			var g:uint = (color >> 8 ) & 255;
 			var b:uint = color & 255;
-            var from:String = "rgba(" + r + ", " + g + ", " + b + ", 1)";
-            var to:String = "rgba(" + r + ", " + g + ", " + b + ", 0)";
-            var str:String = "linear-gradient(to bottom, " + from + ", " + to + ")";
-            (_drawingLayer.element as HTMLElementWrapper).style.background = str;
-        }
+			var from:String = "rgba(" + r + ", " + g + ", " + b + ", 1)";
+			var to:String = "rgba(" + r + ", " + g + ", " + b + ", 0)";
+			var str:String = "linear-gradient(to bottom, " + from + ", " + to + ")";
+			getStyle(_drawingLayer).background = str;
+		}
 
 	}
 }

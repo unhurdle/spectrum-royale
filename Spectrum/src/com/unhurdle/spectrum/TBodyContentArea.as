@@ -1,7 +1,7 @@
 package com.unhurdle.spectrum
 {
 	import org.apache.royale.core.IItemRenderer;
-  import org.apache.royale.core.IItemRendererParent;
+  import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.ItemAddedEvent;
 	import org.apache.royale.events.ItemRemovedEvent;
@@ -20,7 +20,7 @@ package com.unhurdle.spectrum
 
 	[Event(name="filesAvailable", type="org.apache.royale.events.ValueEvent")]
 	 
-	public class TBodyContentArea extends ContainerContentArea implements IItemRendererParent
+	public class TBodyContentArea extends ContainerContentArea implements IItemRendererOwnerView
 	{
 	
 		public function TBodyContentArea()
@@ -71,7 +71,7 @@ package com.unhurdle.spectrum
 		public function addItemRendererAt(renderer:IItemRenderer, index:int):void
 		{
 			var r:DataItemRenderer = renderer as DataItemRenderer;
-			r.itemRendererParent = host; // easy access from renderer to table
+			// r.itemRendererOwnerView = host; // easy access from renderer to table
 			COMPILE::JS{
 				element.className = "spectrum-Table-body";
 			}
@@ -88,7 +88,7 @@ package com.unhurdle.spectrum
 
 			row.addElementAt(r, r.columnIndex, true);
 			
-			var t:Table = r.itemRendererParent as Table;
+			var t:Table = host as Table;
 
 			for (var i:Number = 0;i<t.columns.length;i++){
 				if(t.columns[i].columnDividers == true){
@@ -182,7 +182,7 @@ package com.unhurdle.spectrum
 		private function checkBoxCell():DataItemRenderer
 		{
 			var ir:TableItemRenderer = new TableItemRenderer();
-			ir.itemRendererParent = host;
+			// ir.itemRendererParent = host;
 			ir.element.classList.add("spectrum-Table-checkboxCell");
 			var label:HTMLElement = newElement('label');
 			label.className = "spectrum-Checkbox";

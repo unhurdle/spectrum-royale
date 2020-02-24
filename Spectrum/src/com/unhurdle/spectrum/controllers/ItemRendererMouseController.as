@@ -18,6 +18,9 @@ COMPILE::JS {
 }
 	import org.apache.royale.events.ItemClickedEvent;
 	import org.apache.royale.core.IRuntimeSelectableItemRenderer;
+	import org.apache.royale.core.IItemRenderer;
+	import org.apache.royale.utils.getSelectionRenderBead;
+	import org.apache.royale.core.IIndexedItemRenderer;
 
 	
 	public class ItemRendererMouseController implements IBeadController
@@ -58,12 +61,12 @@ COMPILE::JS {
 		
 	
 		/**
-		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 * @royaleemitcoercion org.apache.royale.core.IItemRenderer
 		 */
 		COMPILE::JS
 		protected function handleMouseOver(event:BrowserEvent):void
 		{
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
+			var target:IItemRenderer = event.currentTarget as IItemRenderer;
 			if (target) {
 				target.dispatchEvent(new Event("itemRollOver",true));
 			}
@@ -71,12 +74,12 @@ COMPILE::JS {
 		
 
 		/**
-		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 * @royaleemitcoercion org.apache.royale.core.IItemRenderer
 		 */
 		COMPILE::JS
 		protected function handleMouseOut(event:BrowserEvent):void
 		{
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
+			var target:IItemRenderer = event.currentTarget as IItemRenderer;
 			if (target)
 			{
 				target.dispatchEvent(new Event("itemRollOut",true));
@@ -85,22 +88,26 @@ COMPILE::JS {
 
 	
 		/**
-		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 * @royaleemitcoercion org.apache.royale.core.IItemRenderer
 		 */
 		COMPILE::JS
 		protected function handleMouseDown(event:BrowserEvent):void
 		{
-			var target:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
+			var target:IItemRenderer = event.currentTarget as IItemRenderer;
 			if (target)
 			{
-				target.down = true;
-				target.hovered = false;
+				var selectionBead:ISelectableItemRenderer = getSelectionRenderBead(target);
+				if(selectionBead){
+					selectionBead.down = true;
+					selectionBead.hovered = false;
+				}
 			}
 		}
 		
 
 		/**
 		 * @royaleemitcoercion org.apache.royale.core.IRuntimeSelectableItemRenderer
+		 * @royaleignorecoercion org.apache.royale.core.IIndexedItemRenderer
 		 */
 		COMPILE::JS
 		protected function handleMouseUp(event:BrowserEvent):void
@@ -110,10 +117,11 @@ COMPILE::JS {
 			if (target && target.selectable)
 			{
 				var newEvent:ItemClickedEvent = new ItemClickedEvent("itemClicked");
-				newEvent.data = target.data;
-				newEvent.index = target.index;
+				var indexRenderer:IIndexedItemRenderer = target as IIndexedItemRenderer;
+				newEvent.data = indexRenderer.data;
+				newEvent.index = indexRenderer.index;
 
-				target.dispatchEvent(newEvent);
+				indexRenderer.dispatchEvent(newEvent);
 			}
 		}
 	

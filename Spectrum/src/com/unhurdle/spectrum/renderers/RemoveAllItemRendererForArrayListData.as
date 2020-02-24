@@ -3,7 +3,7 @@ package com.unhurdle.spectrum.renderers
 
 	import org.apache.royale.core.IBead;
 	import org.apache.royale.core.IDataProviderModel;
-	import org.apache.royale.core.IItemRendererParent;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.core.ISelectionModel;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.core.IStrandWithModelView;
@@ -76,9 +76,9 @@ package com.unhurdle.spectrum.renderers
 			return _dataProviderModel;
 		}
 
-		private var _itemRendererParent: IItemRendererParent;
+		private var _itemRendererParent: IItemRendererOwnerView;
 
-		public function get itemRendererParent():IItemRendererParent
+		public function get itemRendererParent():IItemRendererOwnerView
 		{
 			if (_itemRendererParent == null) {
 				var view:IListView = (_strand as IStrandWithModelView).view as IListView;

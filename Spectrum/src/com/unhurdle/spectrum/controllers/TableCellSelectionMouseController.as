@@ -2,7 +2,7 @@ package com.unhurdle.spectrum.controllers
 {
   
 	import org.apache.royale.core.IBeadController;
-	import org.apache.royale.core.IItemRendererParent;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.core.IRollOverModel;
 	import org.apache.royale.core.ISelectableItemRenderer;
 	import org.apache.royale.core.ISelectionModel;
@@ -29,7 +29,7 @@ package com.unhurdle.spectrum.controllers
 
         protected var view:TableView;
 
-        protected var dataGroup:IItemRendererParent;
+        protected var dataGroup:IItemRendererOwnerView;
 
 		private var _strand:IStrand;
 		

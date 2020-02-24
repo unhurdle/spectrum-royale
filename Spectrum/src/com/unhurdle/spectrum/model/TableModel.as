@@ -13,7 +13,7 @@ package com.unhurdle.spectrum.model
 	import com.unhurdle.spectrum.Icon;
 	import org.apache.royale.html.supportClasses.DataItemRenderer;
 	import org.apache.royale.core.IItemRendererClassFactory;
-	import org.apache.royale.core.IItemRendererParent;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.html.beads.IListView;
 	import org.apache.royale.core.IStrandWithModelView;
 	import org.apache.royale.utils.loadBeadFromValuesManager;

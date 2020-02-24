@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.core.IItemRendererParent;
+  import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.core.ILayoutView;
 	import org.apache.royale.core.IRollOverModel;
 	import org.apache.royale.core.ISelectableItemRenderer;
@@ -23,15 +23,15 @@ package com.unhurdle.spectrum
 			super.strand = value;
 
 		}
-		private var _dataGroup:IItemRendererParent;
+		private var _dataGroup:IItemRendererOwnerView;
 		
-		override public function get dataGroup():IItemRendererParent
+		override public function get dataGroup():IItemRendererOwnerView
 		{
 			if(!_dataGroup)
 			{
 				var c:ILayoutView = contentView;
-				if(c && c is IItemRendererParent)
-					_dataGroup = c as IItemRendererParent;
+				if(c && c is IItemRendererOwnerView)
+					_dataGroup = c as IItemRendererOwnerView;
 				else
 					_dataGroup = super.dataGroup;
 			}
@@ -101,14 +101,14 @@ package com.unhurdle.spectrum
 			_strand = value;
 			super.strand = value;
 		}
-		private var _dataGroup:IItemRendererParent;
-		override public function get dataGroup():IItemRendererParent
+		private var _dataGroup:IItemRendererOwnerView;
+		override public function get dataGroup():IItemRendererOwnerView
 		{
 			if(!_dataGroup)
 			{
 				var c:ILayoutView = contentView;
-				if(c && c is IItemRendererParent)
-					_dataGroup = c as IItemRendererParent;
+				if(c && c is IItemRendererOwnerView)
+					_dataGroup = c as IItemRendererOwnerView;
 				else
 					_dataGroup = super.dataGroup;
 			}

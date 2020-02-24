@@ -2,7 +2,7 @@ package com.unhurdle.spectrum.renderers
 {//dont use
   import org.apache.royale.core.IBead;
 	import org.apache.royale.core.UIBase;
-	import org.apache.royale.core.IItemRendererParent;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.core.ISelectionModel;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.events.CollectionEvent;
@@ -84,9 +84,9 @@ package com.unhurdle.spectrum.renderers
 			(_strand as IEventDispatcher).dispatchEvent(new Event("layoutNeeded"));
 		}
 
-		private var _itemRendererParent: IItemRendererParent;
+		private var _itemRendererParent: IItemRendererOwnerView;
 
-		public function get itemRendererParent():IItemRendererParent
+		public function get itemRendererParent():IItemRendererOwnerView
 		{
 			if (_itemRendererParent == null) {
 				var listView:IListView = _strand.getBeadByType(IListView) as IListView;

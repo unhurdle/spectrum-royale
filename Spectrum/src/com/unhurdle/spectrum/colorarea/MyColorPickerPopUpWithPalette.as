@@ -3,7 +3,12 @@ package com.unhurdle.spectrum.colorarea
 	import org.apache.royale.html.supportClasses.ColorPalette;
 	import org.apache.royale.html.beads.layouts.TileLayout;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
-	    import org.apache.royale.core.HTMLElementWrapper; 
+	import org.apache.royale.core.HTMLElementWrapper;
+	
+	COMPILE::JS
+	{
+		import org.apache.royale.utils.html.getStyle;
+	}
 
 	public class MyColorPickerPopUpWithPalette extends MyColorPickerPopUp
 	{
@@ -13,7 +18,10 @@ package com.unhurdle.spectrum.colorarea
 		{
 			super();
 			palette = new ColorPalette();
-			(palette.element as HTMLElementWrapper).style.border = "none";
+			COMPILE::JS
+			{
+				getStyle(palette).border = "none";
+			}
 			var colorPaletteLayout:TileLayout = loadBeadFromValuesManager(TileLayout, "iBeadLayout", palette) as TileLayout;
 			colorPaletteLayout.rowHeight = colorPaletteLayout.columnWidth = 20;
 			COMPILE::JS 

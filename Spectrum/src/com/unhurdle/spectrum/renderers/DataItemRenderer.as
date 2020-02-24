@@ -7,6 +7,8 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
+    import org.apache.royale.utils.getSelectionRenderBead;
+    import org.apache.royale.core.ISelectableItemRenderer;
   }
 
   public class DataItemRenderer extends org.apache.royale.html.supportClasses.DataItemRenderer
@@ -56,9 +58,6 @@ package com.unhurdle.spectrum.renderers
         element.style[property] = value;
       }
     }
-    // override the super behavior and do nothing.
-		override public function updateRenderer():void{
-    }
     override public function set data(value:Object):void{
       super.data = value;
       selected = getItemSelected();
@@ -76,9 +75,17 @@ package com.unhurdle.spectrum.renderers
       }
       return data["disabled"];
     }
-    override public function set selected(value:Boolean):void{
-      super.selected = value;
-      toggle("is-selected",value);
+    public function set selected(value:Boolean):void{
+      var selectionBead:ISelectableItemRenderer = getSelectionRenderBead(this);
+      if(selectionBead)
+        selectionBead.selected = value;
+    }
+    public function get selected():Boolean{
+      var selectionBead:ISelectableItemRenderer = getSelectionRenderBead(this);
+      if(selectionBead)
+        return selectionBead.selected;
+      
+      return false;
     }
     private var _disabled:Boolean;
 

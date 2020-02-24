@@ -3,7 +3,7 @@ package com.unhurdle.spectrum.renderers
 
 	import org.apache.royale.core.IBead;
 	import org.apache.royale.core.IItemRendererClassFactory;
-	import org.apache.royale.core.IItemRendererParent;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.core.IListPresentationModel;
 	import org.apache.royale.core.ISelectionModel;
 	import org.apache.royale.core.IStrand;
@@ -116,9 +116,9 @@ package com.unhurdle.spectrum.renderers
 			(_strand as IEventDispatcher).dispatchEvent(new Event("layoutNeeded"));
 		}
 
-		private var _itemRendererParent: IItemRendererParent;
+		private var _itemRendererParent: IItemRendererOwnerView;
 
-		public function get itemRendererParent():IItemRendererParent
+		public function get itemRendererParent():IItemRendererOwnerView
 		{
 			if (_itemRendererParent == null) {
 				var view:IListView = (_strand as IStrandWithModelView).view as IListView;

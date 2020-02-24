@@ -17,7 +17,7 @@ package com.unhurdle.spectrum.colorarea
             if (_alpha != value)
             {
                 _alpha = value;
-                dispatchEvent(new Event("change");
+                dispatchEvent(new Event("change"));
             }
         }
 	}

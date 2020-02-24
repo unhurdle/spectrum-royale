@@ -11,8 +11,9 @@ package com.unhurdle.spectrum.renderers
   }
   import com.unhurdle.spectrum.ImageIcon;
   import com.unhurdle.spectrum.data.IListItem;
+  import org.apache.royale.core.IListDataItemRenderer;
 
-  public class ListItemRenderer extends DataItemRenderer
+  public class ListItemRenderer extends DataItemRenderer implements IListDataItemRenderer
   {
     public function ListItemRenderer()
     {
@@ -21,6 +22,27 @@ package com.unhurdle.spectrum.renderers
     }
     override protected function getSelector():String{
       return "spectrum-SideNav";
+    }
+
+    private var _listData:Object;
+    
+    [Bindable("__NoChangeEvent__")]
+    /**
+     *  Additional data about the list structure the itemRenderer may
+     *  find useful.
+     *
+     *  @langversion 3.0
+     *  @playerversion Flash 10.2
+     *  @playerversion AIR 2.6
+     *  @productversion Royale 0.0
+     */
+    public function get listData():Object
+    {
+      return _listData;
+    }
+    public function set listData(value:Object):void
+    {
+      _listData = value;
     }
 
 		// override public function updateRenderer():void{

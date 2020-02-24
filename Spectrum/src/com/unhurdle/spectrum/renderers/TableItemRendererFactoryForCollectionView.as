@@ -29,6 +29,8 @@ package com.unhurdle.spectrum.renderers
     import com.unhurdle.spectrum.TextNode;
     import org.apache.royale.core.IItemRenderer;
     import com.unhurdle.spectrum.CheckBox;
+    import org.apache.royale.core.IIndexedItemRenderer;
+    import org.apache.royale.core.ILabelFieldItemRenderer;
   
   public class TableItemRendererFactoryForCollectionView extends EventDispatcher implements IBead, IDataProviderItemRendererMapper
 	{
@@ -234,7 +236,7 @@ package com.unhurdle.spectrum.renderers
 
 		protected function fillRenderer(index:int,
 		item:Object,
-		itemRenderer:ISelectableItemRenderer,
+		itemRenderer:ILabelFieldItemRenderer,
 		presentationModel:IListPresentationModel):void
 		{
 			tbody.addItemRendererAt(itemRenderer, index);
@@ -245,7 +247,7 @@ package com.unhurdle.spectrum.renderers
 		}
 
 		private var rendArray:Array = [];
-		protected function setData(itemRenderer:ISelectableItemRenderer, data:Object, index:int):void
+		protected function setData(itemRenderer:IIndexedItemRenderer, data:Object, index:int):void
 		{
 			COMPILE::JS
 			{

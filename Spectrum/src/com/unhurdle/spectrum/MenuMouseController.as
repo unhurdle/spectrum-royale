@@ -1,9 +1,9 @@
 package com.unhurdle.spectrum
 {
 	import org.apache.royale.core.IBeadController;
-	import org.apache.royale.core.IItemRendererParent;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	import org.apache.royale.core.IRollOverModel;
-	import org.apache.royale.core.ISelectableItemRenderer;
+	import org.apache.royale.core.IIndexedItemRenderer;
 	import org.apache.royale.core.ISelectionModel;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.events.Event;
@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.html.beads.IListView;
 	
 	import org.apache.royale.events.ItemClickedEvent;
+	import org.apache.royale.core.ISelectableItemRenderer;
 
   public class MenuMouseController implements IBeadController
   {
@@ -34,7 +35,7 @@ package com.unhurdle.spectrum
       /**
        *  The parent of the item renderers.
        */
-      protected var dataGroup:IItemRendererParent;
+      protected var dataGroup:IItemRendererOwnerView;
 
     private var _strand:IStrand;
 		
@@ -78,28 +79,36 @@ package com.unhurdle.spectrum
     }
 		
 		/**
-		 * @royaleemitcoercion org.apache.royale.core.ISelectableItemRenderer
+		 * @royaleemitcoercion org.apache.royale.core.IIndexedItemRenderer
      * @royaleignorecoercion org.apache.royale.core.IRollOverModel
 		 */
 		protected function rolloverHandler(event:Event):void
 		{
-			var renderer:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
+			var renderer:IIndexedItemRenderer = event.currentTarget as IIndexedItemRenderer;
 			if (renderer) {
 				IRollOverModel(listModel).rollOverIndex = renderer.index;
 			}
 		}
 		
 		/**
-		  * @royaleemitcoercion org.apache.royale.core.ISelectableItemRenderer
+		  * @royaleemitcoercion org.apache.royale.core.IIndexedItemRenderer
       * @royaleignorecoercion org.apache.royale.core.IRollOverModel
+      * @royaleignorecoercion org.apache.royale.core.ISelectableItemRenderer
 		 */
 		protected function rolloutHandler(event:Event):void
 		{
-			var renderer:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
+			var renderer:IIndexedItemRenderer = event.currentTarget as IIndexedItemRenderer;
 			if (renderer) {
-				renderer.hovered = false;
-				renderer.down = false;
-				IRollOverModel(listModel).rollOverIndex = -1;
+				if (renderer is IStrand)
+				{
+					var selectionBead:ISelectableItemRenderer = (renderer as IStrand).getBeadByType(ISelectableItemRenderer) as ISelectableItemRenderer;
+					if (selectionBead)
+					{
+						selectionBead.hovered = false;
+						selectionBead.down = false;                        
+					}
+				}
+				(listModel as IRollOverModel).rollOverIndex = -1;
 			}
 		}
 	
