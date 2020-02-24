@@ -90,7 +90,7 @@ package com.unhurdle.spectrum.renderers
 					ir = column.itemRenderer.newInstance() as TableItemRenderer;
 				} else
 				{
-					ir = itemRendererFactory.createItemRenderer(itemRendererParent) as TableItemRenderer;
+					ir = itemRendererFactory.createItemRenderer() as TableItemRenderer;
 				}
 	
 				labelField =  column.dataField;

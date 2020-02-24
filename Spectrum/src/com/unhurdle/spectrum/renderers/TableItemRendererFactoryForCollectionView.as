@@ -125,7 +125,7 @@ package com.unhurdle.spectrum.renderers
     		}
 				else
     		{
-    		ir = itemRendererFactory.createItemRenderer(tbody) as ITextItemRenderer;
+    		ir = itemRendererFactory.createItemRenderer() as ITextItemRenderer;
     		}
 				
 				labelField =  column.dataField;
@@ -135,7 +135,7 @@ package com.unhurdle.spectrum.renderers
 				(ir as DataItemRenderer).columnIndex = j;
 		
 			
-				fillRenderer(index++, item, (ir as ISelectableItemRenderer), presentationModel);
+				fillRenderer(index++, item, (ir as ILabelFieldItemRenderer), presentationModel);
 				}
 			}
 		(_strand as IEventDispatcher).dispatchEvent(new Event("itemsCreated"));
@@ -154,7 +154,7 @@ package com.unhurdle.spectrum.renderers
     		}
 				else
     		{
-    		ir = itemRendererFactory.createItemRenderer(tbody) as TableItemRenderer;
+    		ir = itemRendererFactory.createItemRenderer() as TableItemRenderer;
     		}
 				var item:Object = model.dataProvider.getItemAt(i);
 		
@@ -166,7 +166,7 @@ package com.unhurdle.spectrum.renderers
 				ir.element.appendChild(checkBoxLabel());
 				ir.element.addEventListener('click',indeterminate);
 				}
-				fillRenderer(index++, item, (ir as ISelectableItemRenderer), presentationModel);
+				fillRenderer(index++, item, (ir as ILabelFieldItemRenderer), presentationModel);
 
 			
 		(_strand as IEventDispatcher).dispatchEvent(new Event("itemsCreated"));

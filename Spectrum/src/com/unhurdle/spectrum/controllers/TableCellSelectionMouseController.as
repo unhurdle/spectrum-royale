@@ -16,6 +16,7 @@ package com.unhurdle.spectrum.controllers
 	import org.apache.royale.html.supportClasses.DataItemRenderer;
   import com.unhurdle.spectrum.TableView;
   import com.unhurdle.spectrum.model.TableModel;
+  import org.apache.royale.core.IIndexedItemRenderer;
 
 
   
@@ -72,7 +73,7 @@ package com.unhurdle.spectrum.controllers
 		
 		protected function rolloverHandler(event:Event):void
 		{
-			var renderer:ISelectableItemRenderer = event.currentTarget as ISelectableItemRenderer;
+			var renderer:IIndexedItemRenderer = event.currentTarget as IIndexedItemRenderer;
 			if (renderer) {
 				(model as IRollOverModel).rollOverIndex = renderer.index;
 			}

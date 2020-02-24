@@ -89,33 +89,33 @@ package com.unhurdle.spectrum.renderers
 
 		private var _selectable:Boolean = true;
 	
-		override public function get selectable():Boolean
+		public function get selectable():Boolean
 		{
 			return _selectable;
 		}
-		override public function set selectable(value:Boolean):void
+		public function set selectable(value:Boolean):void
 		{
 			_selectable = value;
 			toggleClass("selectable", _selectable);	
 		}
 
-		override public function updateRenderer():void
-		{
-			// if (down)
-			// 	useColor = downColor;
-			// else if (hovered)
-			// 	useColor = highlightColor;
-			// else 
-            //if (selected)
-            // 	useColor = selectedColor;
-			//else
-			// 	useColor = backgroundColor;
+		// override public function updateRenderer():void
+		// {
+		// 	// if (down)
+		// 	// 	useColor = downColor;
+		// 	// else if (hovered)
+		// 	// 	useColor = highlightColor;
+		// 	// else 
+    //         //if (selected)
+    //         // 	useColor = selectedColor;
+		// 	//else
+		// 	// 	useColor = backgroundColor;
 
-			if(hoverable)
-            	toggleClass("hovered", hovered);
-			if(selectable)
-            	toggleClass("selected", selected);
-		}
+		// 	if(hoverable)
+    //         	toggleClass("hovered", hovered);
+		// 	if(selectable)
+    //         	toggleClass("selected", selected);
+		// }
   }
 }
 
