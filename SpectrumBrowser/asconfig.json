@@ -8,6 +8,7 @@
           "../Spectrum/target",
           "libs"
       ],
+      "theme": "",
       "source-path": ["src"],
       "js-external-library-path": ["typedefs"],
       "remove-circulars": true,

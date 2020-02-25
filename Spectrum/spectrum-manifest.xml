@@ -173,7 +173,9 @@
     <component id="MyColorPickerView" class="com.unhurdle.spectrum.colorarea.MyColorPickerView"/>
     <component id="MyColorSpectrumView" class="com.unhurdle.spectrum.colorarea.MyColorSpectrumView"/>
     <component id="MyColorTextField" class="com.unhurdle.spectrum.colorarea.MyColorTextField"/>
-    <component id="MySliderView" class="com.unhurdle.spectrum.colorarea.MySliderView"/>
-    <component id="MyVerticalSliderLayout" class="com.unhurdle.spectrum.colorarea.MyVerticalSliderLayout"/>
-    <component id="MyVSliderMouseController" class="com.unhurdle.spectrum.colorarea.MyVSliderMouseController"/>
+    <component id="ColorAreaSliderView" class="com.unhurdle.spectrum.colorarea.ColorAreaSliderView"/>
+    <component id="VerticalSliderLayout" class="com.unhurdle.spectrum.colorarea.VerticalSliderLayout"/>
+    <component id="VSliderMouseController" class="com.unhurdle.spectrum.colorarea.VSliderMouseController"/>
+    <component id="SelectableItemRenderer" class="com.unhurdle.spectrum.renderers.SelectableItemRenderer"/>
+    
 </componentPackage>

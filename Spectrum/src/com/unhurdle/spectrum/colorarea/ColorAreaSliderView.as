@@ -16,9 +16,9 @@ package com.unhurdle.spectrum.colorarea
     import org.apache.royale.html.beads.ISliderView;
     import org.apache.royale.html.elements.Div;
 	
-	public class MySliderView extends BeadViewBase implements ISliderView, IBeadView
+	public class ColorAreaSliderView extends BeadViewBase implements ISliderView, IBeadView
 	{
-		public function MySliderView()
+		public function ColorAreaSliderView()
 		{
 		}
 		

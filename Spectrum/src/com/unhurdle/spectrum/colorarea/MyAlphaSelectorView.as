@@ -12,7 +12,7 @@ package com.unhurdle.spectrum.colorarea
 		import org.apache.royale.utils.html.getStyle;
 	}
 	
-	public class MyAlphaSelectorView extends MySliderView
+	public class MyAlphaSelectorView extends ColorAreaSliderView
 	{
 		private var _model:IColorModel;
 		private var _drawingLayer:Div;
@@ -45,7 +45,10 @@ package com.unhurdle.spectrum.colorarea
 			var from:String = "rgba(" + r + ", " + g + ", " + b + ", 1)";
 			var to:String = "rgba(" + r + ", " + g + ", " + b + ", 0)";
 			var str:String = "linear-gradient(to bottom, " + from + ", " + to + ")";
-			getStyle(_drawingLayer).background = str;
+			COMPILE::JS
+			{
+				getStyle(_drawingLayer).background = str;
+			}
 		}
 
 	}

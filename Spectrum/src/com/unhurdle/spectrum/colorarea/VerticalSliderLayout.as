@@ -6,9 +6,9 @@ package com.unhurdle.spectrum.colorarea
   import org.apache.royale.core.IRangeModel;
   import org.apache.royale.html.beads.ISliderView;
 
-  public class MyVerticalSliderLayout extends VerticalSliderLayout
+  public class VerticalSliderLayout extends org.apache.royale.html.beads.layouts.VerticalSliderLayout
   {
-    public function MyVerticalSliderLayout()
+    public function VerticalSliderLayout()
     {
     }
 

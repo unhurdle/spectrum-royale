@@ -7,9 +7,9 @@ package com.unhurdle.spectrum.renderers
   {
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.utils.getSelectionRenderBead;
-    import org.apache.royale.core.ISelectableItemRenderer;
   }
+  import org.apache.royale.utils.getSelectionRenderBead;
+  import org.apache.royale.core.ISelectableItemRenderer;
 
   public class DataItemRenderer extends org.apache.royale.html.supportClasses.DataItemRenderer
   {

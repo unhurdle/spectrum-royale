@@ -13,7 +13,7 @@ package models
         "Action Menu",
         "Alert",
         "Asset",
-        "AssetList",
+        "Asset List",
         "Avatar",
         "Banner",
         "Bar Loader",

@@ -29,7 +29,7 @@
     <js:ComponentRoute title="Action Menu" component="view.panes.ActionMenuPane" baseName="action_menu"/>
     <js:ComponentRoute title="Alert" component="view.panes.AlertPane" baseName="alert"/>
     <js:ComponentRoute title="Asset" component="view.panes.AssetPane" baseName="asset"/>
-    <js:ComponentRoute title="AssetList" component="view.panes.AssetListPane" baseName="asset_list"/>
+    <js:ComponentRoute title="Asset List" component="view.panes.AssetListPane" baseName="asset_list"/>
     <js:ComponentRoute title="Avatar" component="view.panes.AvatarPane" baseName="avatar"/>
     <js:ComponentRoute title="Banner" component="view.panes.BannerPane" baseName="banner"/>
     <js:ComponentRoute title="Bar Loader" component="view.panes.BarLoaderPane" baseName="bar_loader"/>

@@ -10,7 +10,7 @@ Menu
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
-	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.ListItemRendererInitializer");
+	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.MenuItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
@@ -25,7 +25,7 @@ List
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
-	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.ListItemRendererInitializer");
+	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.ListItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
@@ -55,7 +55,7 @@ Breadcrumbs
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
-	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.ListItemRendererInitializer");
+	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.BreadcrumbsItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
@@ -69,7 +69,7 @@ AssetList
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
-	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.ListItemRendererInitializer");
+	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.AssetListItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
@@ -132,9 +132,9 @@ TableItemRenderer{
 }
 
 js|HueSelector {
-	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorarea.MyVerticalSliderLayout");
-	IBeadView: ClassReference("com.unhurdle.spectrum.colorarea.MySliderView");
-	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.MyVSliderMouseController");
+	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorarea.VerticalSliderLayout");
+	IBeadView: ClassReference("com.unhurdle.spectrum.colorarea.ColorAreaSliderView");
+	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.VSliderMouseController");
 	border-radius: 4px;
 }
 
@@ -147,10 +147,10 @@ js|ColorPalette {
 }
 
 colorarea|MyAlphaSelector {
-	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorarea.MyVerticalSliderLayout");
+	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorarea.VerticalSliderLayout");
 	IBeadModel: ClassReference("com.unhurdle.spectrum.colorarea.MyAlphaSelectorModel");
 	IBeadView: ClassReference("com.unhurdle.spectrum.colorarea.MyAlphaSelectorView");
-	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.MyVSliderMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.colorarea.VSliderMouseController");
 	border-radius: 4px;
 }
 
