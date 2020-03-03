@@ -10,8 +10,8 @@
   <fx:Script>
     <![CDATA[
       import org.apache.royale.events.Event;
-      import view.components.ArrayColorSelectionWithAlphaModel;
       import com.unhurdle.spectrum.colorarea.ColorWithAlphaModel;
+      import com.unhurdle.spectrum.colorarea.ArrayColorSelectionWithAlphaModel;
 
       private function initCompleteHandler(e:Event):void
       {
