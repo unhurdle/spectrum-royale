@@ -11,12 +11,12 @@ package com.unhurdle.spectrum.colorarea
 	}
 	import org.apache.royale.core.IColorWithAlphaModel;
 
-	public class MyColorItemRenderer extends DataItemRenderer
+	public class ColorItemRenderer extends DataItemRenderer
 	{
-		public function MyColorItemRenderer()
+		public function ColorItemRenderer()
 		{
 			super();
-			typeNames = 'MyColorItemRenderer';
+			typeNames = 'ColorItemRenderer';
 		}
 
 		override public function set data(value:Object):void

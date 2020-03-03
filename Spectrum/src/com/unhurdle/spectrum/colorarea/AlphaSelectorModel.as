@@ -4,11 +4,11 @@ package com.unhurdle.spectrum.colorarea
     import org.apache.royale.html.beads.models.RangeModel;
 	import org.apache.royale.events.Event;
 	
-	public class MyAlphaSelectorModel extends RangeModel implements IColorModel
+	public class AlphaSelectorModel extends RangeModel implements IColorModel
 	{
         private var _color:Number;
 
-		public function MyAlphaSelectorModel()
+		public function AlphaSelectorModel()
 		{
 		}
 

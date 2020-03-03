@@ -15,10 +15,10 @@ package com.unhurdle.spectrum.colorarea
     import org.apache.royale.html.beads.ISliderView;
     import org.apache.royale.html.elements.Div;
     import org.apache.royale.core.IStyleableObject;
-	public class MyColorSpectrumView extends BeadViewBase implements ISliderView
+	public class ColorSpectrumView extends BeadViewBase implements ISliderView
 	{
 		private var _thumb:Div;
-		public function MyColorSpectrumView()
+		public function ColorSpectrumView()
 		{
 			super();
 		}

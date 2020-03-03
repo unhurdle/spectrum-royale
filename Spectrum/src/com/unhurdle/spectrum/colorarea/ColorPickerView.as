@@ -20,9 +20,9 @@ package com.unhurdle.spectrum.colorarea
 	import org.apache.royale.utils.CSSUtils;
 	import org.apache.royale.core.UIBase;
 
-	public class MyColorPickerView extends BeadViewBase implements IComboBoxView
+	public class ColorPickerView extends BeadViewBase implements IComboBoxView
 	{
-		public function MyColorPickerView()
+		public function ColorPickerView()
 		{
 			super();
 		}
@@ -130,7 +130,7 @@ package com.unhurdle.spectrum.colorarea
 					
 				var popupHost:IPopUpHost = UIUtils.findPopUpHost(_strand as IUIBase);
 				popupHost.popUpParent.addElement(list);
-				(list as MyColorPickerPopUp).position = position;
+				(list as ColorPickerPopUp).position = position;
 			}
 			else if (list.visible) {
 				UIUtils.removePopUp(list);

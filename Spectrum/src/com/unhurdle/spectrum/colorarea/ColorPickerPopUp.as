@@ -16,18 +16,18 @@ package com.unhurdle.spectrum.colorarea
 	import org.apache.royale.core.IRangeModel;
 	import org.apache.royale.html.elements.Div;
 
-	public class MyColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
+	public class ColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
 		protected var colorSpectrum:ColorSpectrum;
 		protected var hueSelector:HueSelector;
-		protected var alphaSelector:MyAlphaSelector;
+		protected var alphaSelector:AlphaSelector;
 		protected var host:IStrand;
-		protected var colorTextField:MyColorTextField;
-		protected var alphaTextField:MyAlphaTextField;
+		protected var colorTextField:ColorTextField;
+		protected var alphaTextField:AlphaTextField;
 		protected var fixedSizeContainer:Div;
 		protected var padding:Number = 18;
 
-		public function MyColorPickerPopUp()
+		public function ColorPickerPopUp()
 		{
 			super();
 			dialog=true;
@@ -45,17 +45,17 @@ package com.unhurdle.spectrum.colorarea
 			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
             hueSelector.y = padding;
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
-			alphaSelector = new MyAlphaSelector();
+			alphaSelector = new AlphaSelector();
 			alphaSelector.width = sliderWidth;
 			alphaSelector.height = squareDim;
 			alphaSelector.x = hueSelector.x + sliderWidth + padding;
             alphaSelector.y = padding;
 			alphaSelector.addEventListener("valueChange", alphaSelectorChangeHandler);
-			colorTextField = new MyColorTextField();
+			colorTextField = new ColorTextField();
 			colorTextField.x = padding;
 			colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
 			colorTextField.width = 132;
-			alphaTextField = new MyAlphaTextField();
+			alphaTextField = new AlphaTextField();
 			alphaTextField.x = colorTextField.width + colorTextField.x + padding;
 			alphaTextField.y = colorTextField.y;
 			alphaTextField.width = 66;

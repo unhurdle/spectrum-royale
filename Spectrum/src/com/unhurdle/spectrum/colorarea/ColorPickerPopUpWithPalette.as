@@ -10,11 +10,11 @@ package com.unhurdle.spectrum.colorarea
 		import org.apache.royale.utils.html.getStyle;
 	}
 
-	public class MyColorPickerPopUpWithPalette extends MyColorPickerPopUp
+	public class ColorPickerPopUpWithPalette extends ColorPickerPopUp
 	{
 		protected var palette:ColorPalette;
 
-		public function MyColorPickerPopUpWithPalette()
+		public function ColorPickerPopUpWithPalette()
 		{
 			super();
 			palette = new ColorPalette();

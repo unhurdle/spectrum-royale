@@ -4,15 +4,15 @@ package com.unhurdle.spectrum.colorarea
 	import org.apache.royale.html.accessories.RestrictTextInputBead;
 	import org.apache.royale.html.beads.DispatchInputFinishedBead;
 
-	public class MyAlphaTextField extends TextField
+	public class ColorTextField extends TextField
 	{
 
-		public function MyAlphaTextField()
+		public function ColorTextField()
 		{
             super();
 			quiet = true;
             var restrictBead:RestrictTextInputBead = new RestrictTextInputBead();
-            restrictBead.restrict = "0123456789%";
+            restrictBead.restrict = "#0123456790ABCDEFabcdef";
             var inputFinishedBead:DispatchInputFinishedBead = new DispatchInputFinishedBead();
             addBead(restrictBead);
             addBead(inputFinishedBead);

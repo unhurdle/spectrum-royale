@@ -2,9 +2,9 @@ package com.unhurdle.spectrum.colorarea
 {
 	import org.apache.royale.html.Slider;
 
-	public class MyAlphaSelector extends Slider
+	public class AlphaSelector extends Slider
 	{
-		public function MyAlphaSelector()
+		public function AlphaSelector()
 		{
 			super();
 			typeNames = "AlphaSelector CheckeredBackground";

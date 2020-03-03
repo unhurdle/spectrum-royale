@@ -12,11 +12,11 @@ package com.unhurdle.spectrum.colorarea
 		import org.apache.royale.utils.html.getStyle;
 	}
 	
-	public class MyAlphaSelectorView extends ColorAreaSliderView
+	public class AlphaSelectorView extends ColorAreaSliderView
 	{
 		private var _model:IColorModel;
 		private var _drawingLayer:Div;
-		public function MyAlphaSelectorView()
+		public function AlphaSelectorView()
 		{
 		}
 		
