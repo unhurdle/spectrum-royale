@@ -11,7 +11,7 @@
     <![CDATA[
       import org.apache.royale.events.Event;
       import view.components.ArrayColorSelectionWithAlphaModel;
-      import view.components.ColorWithAlphaModel;
+      import com.unhurdle.spectrum.colorarea.ColorWithAlphaModel;
 
       private function initCompleteHandler(e:Event):void
       {

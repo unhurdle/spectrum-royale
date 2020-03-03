@@ -1,8 +1,8 @@
 package view.components
 {
 	import org.apache.royale.html.beads.models.ArrayColorSelectionModel;
-	import org.apache.royale.core.IColorModel;
 	import org.apache.royale.events.Event;
+	import org.apache.royale.core.IColorWithAlphaModel;
 
 	public class ArrayColorSelectionWithAlphaModel extends ArrayColorSelectionModel
 	{
@@ -25,8 +25,8 @@ package view.components
 
         override protected function dispatchChangeEvent(event:Event):void
         {
-            _color = (selectedItem as IColorModel).color;
-            _alpha = (selectedItem as ColorWithAlphaModel).alpha;
+            _color = (selectedItem as IColorWithAlphaModel).color;
+            _alpha = (selectedItem as IColorWithAlphaModel).alpha;
             super.dispatchChangeEvent(event);
         }
 
@@ -49,7 +49,7 @@ package view.components
                 var length:int = (dataProvider as Array).length;
                 for (var i:int = 0; i < length; i++) 
                 {
-                    var colorModel:IColorModel = dataProvider[i] as IColorModel;
+                    var colorModel:IColorWithAlphaModel = dataProvider[i] as IColorWithAlphaModel;
                     if (colorModel.color == value)
                     {
                         // also dispatches change

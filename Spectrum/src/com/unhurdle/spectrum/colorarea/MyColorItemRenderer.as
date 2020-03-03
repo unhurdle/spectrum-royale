@@ -9,6 +9,7 @@ package com.unhurdle.spectrum.colorarea
 	{
 		import org.apache.royale.utils.html.getStyle;
 	}
+	import org.apache.royale.core.IColorWithAlphaModel;
 
 	public class MyColorItemRenderer extends DataItemRenderer
 	{
@@ -27,10 +28,10 @@ package com.unhurdle.spectrum.colorarea
 		public function updateRenderer():void
 		{
 			var color:uint;
-			if (data is ColorWithAlphaModel)
+			if (data is IColorWithAlphaModel)
 			{
-				color = (data as ColorWithAlphaModel).color;
-				alpha = (data as ColorWithAlphaModel).alpha;
+				color = (data as IColorWithAlphaModel).color;
+				alpha = (data as IColorWithAlphaModel).alpha;
 			} else
 			{
 				color = 0x000000;
