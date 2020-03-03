@@ -58,6 +58,7 @@ package com.unhurdle.spectrum
       // menu = new Menu();
       // popover.addElement(menu);
       menu.addEventListener("change", handleListChange);
+      menu.percentWidth = 100;
       popover.style = {"z-index": "2"};
       return elem;
     }
