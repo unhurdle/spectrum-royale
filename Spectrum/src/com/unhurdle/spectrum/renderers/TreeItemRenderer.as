@@ -28,7 +28,7 @@ package com.unhurdle.spectrum.renderers
           
           indentVal = (treeListData.depth - 1) * indent + "px";
         }
-        element.style.marginLeft = indentVal;
+        element.style.paddingLeft = indentVal;
       }
     }
     // COMPILE::JS
