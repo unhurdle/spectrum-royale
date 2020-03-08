@@ -9,7 +9,7 @@ Menu
 	IBeadController: ClassReference("com.unhurdle.spectrum.MenuMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
-	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
 	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.MenuItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
@@ -24,7 +24,7 @@ List
 	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
-	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
 	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.ListItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
@@ -38,7 +38,7 @@ Tree
 	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.TreeSingleSelectionMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForHierarchicalData");
-	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
 	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.TreeItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.TreeItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
@@ -54,7 +54,7 @@ Breadcrumbs
 	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
-	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
 	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.BreadcrumbsItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
@@ -68,7 +68,7 @@ AssetList
 	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
-	IItemRendererClassFactory: ClassReference("org.apache.royale.core.SelectableItemRendererClassFactory");
+	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
 	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.IndexedItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.AssetListItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
