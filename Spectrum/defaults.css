@@ -39,7 +39,7 @@ Tree
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForHierarchicalData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
-	IItemRendererInitializer: ClassReference("org.apache.royale.html.beads.TreeItemRendererInitializer");
+	IItemRendererInitializer: ClassReference("com.unhurdle.spectrum.controllers.TreeItemRendererInitializer");
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.TreeItemRenderer");
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
