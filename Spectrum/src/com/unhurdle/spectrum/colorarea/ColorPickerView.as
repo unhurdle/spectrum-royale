@@ -92,6 +92,8 @@ package com.unhurdle.spectrum.colorarea
 		public function set popUpVisible(value:Boolean):void
 		{
 			if (value && !list.visible) {
+				var popupHost:IPopUpHost = UIUtils.findPopUpHost(_strand as IUIBase);
+				popupHost.popUpParent.addElement(list);
 				var model:IColorModel = _strand.getBeadByType(IColorModel) as IColorModel;
 				(list as IColorPickerPopUp).model = model;
 				list.visible = true;
@@ -128,8 +130,6 @@ package com.unhurdle.spectrum.colorarea
 					(list as IRenderedObject).element.style.position = "absolute";
 				}
 					
-				var popupHost:IPopUpHost = UIUtils.findPopUpHost(_strand as IUIBase);
-				popupHost.popUpParent.addElement(list);
 				(list as ColorPickerPopUp).position = position;
 			}
 			else if (list.visible) {
