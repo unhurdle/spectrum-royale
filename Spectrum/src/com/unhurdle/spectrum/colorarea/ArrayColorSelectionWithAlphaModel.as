@@ -25,8 +25,11 @@ package com.unhurdle.spectrum.colorarea
 
         override protected function dispatchChangeEvent(event:Event):void
         {
-            _color = (selectedItem as IColorModel).color;
-            _alpha = (selectedItem as ColorWithAlphaModel).alpha;
+            if (selectedItem)
+            {
+                _color = (selectedItem as IColorModel).color;
+                _alpha = (selectedItem as ColorWithAlphaModel).alpha;
+            }
             super.dispatchChangeEvent(event);
         }
 
@@ -61,6 +64,7 @@ package com.unhurdle.spectrum.colorarea
             } 
             if (!eventDispatched)
             {
+                selectedItem = null;
                 dispatchEvent(new Event("change"))
             }
 		}
