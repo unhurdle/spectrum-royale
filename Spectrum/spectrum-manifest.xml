@@ -179,5 +179,6 @@
     <component id="VerticalSliderLayout" class="com.unhurdle.spectrum.colorarea.VerticalSliderLayout"/>
     <component id="VSliderMouseController" class="com.unhurdle.spectrum.colorarea.VSliderMouseController"/>
     <component id="SelectableItemRenderer" class="com.unhurdle.spectrum.renderers.SelectableItemRenderer"/>
+    <component id="TreeItemRendererInitializer" class="com.unhurdle.spectrum.controllers.TreeItemRendererInitializer"/>
     
 </componentPackage>
