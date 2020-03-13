@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import org.apache.royale.events.Event;
+  import com.unhurdle.spectrum.utils.getDataProviderItem;
 
   [Event(name="search", type="org.apache.royale.events.Event")]
   [Event(name="menuChange", type="org.apache.royale.events.Event")]
@@ -76,13 +77,17 @@ package com.unhurdle.spectrum
     	return _dropdown.dataProvider;
     }
 
-    public function set dataProvider(value:Object):void
-    {
+    public function set dataProvider(value:Object):void{
+        if(_selectedIndex > value.length){
+          _selectedIndex = -1;
+        }
       _dropdown.dataProvider = value;
-      if(_dropdown.dataProvider && _dropdown.dataProvider.length){
+      if(value && value.length){
         _dropdown.visible = true;
-        if(!selectedItem ){
-          selectedItem = _dropdown.dataProvider[0];
+        if(_selectedIndex > -1){
+          selectedItem = getDataProviderItem(value,_selectedIndex);
+        } else {
+          selectedItem = null;
         }
       }
       else{
@@ -90,25 +95,40 @@ package com.unhurdle.spectrum
       }
     }
 
-    public function get selectedItem():Object
-    {
+    private var _selectedIndex:int;
+
+    public function get selectedIndex():int{
+    	return _selectedIndex;
+    }
+
+    public function set selectedIndex(value:int):void{
+      if(value == -1)
+        selectedItem = null;
+    	_selectedIndex = value;
+      if(_selectedIndex > -1 && dataProvider)
+      {
+        selectedItem = getDataProviderItem(_dropdown.dataProvider,0);
+      }
+    }
+
+    public function get selectedItem():Object{
     	return _dropdown.selectedItem;
     }
 
-    public function set selectedItem(value:Object):void
-    {
-    	_dropdown.selectedItem = value;
-      dropdown.handleListChange();
+    public function set selectedItem(value:Object):void{
+      if(_dropdown.selectedItem != value){        
+        _dropdown.selectedItem = value;
+        dropdown.handleListChange();
+      }
     }
+    
     private var _disabled:Boolean;
 
-    public function get disabled():Boolean
-    {
+    public function get disabled():Boolean{
     	return _disabled;
     }
 
-    public function set disabled(value:Boolean):void
-    {
+    public function set disabled(value:Boolean):void{
       if(value != !!_disabled){
         _dropdown.disabled = value;
         input.disabled = value;
