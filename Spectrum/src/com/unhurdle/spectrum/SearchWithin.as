@@ -78,7 +78,7 @@ package com.unhurdle.spectrum
     }
 
     public function set dataProvider(value:Object):void{
-        if(_selectedIndex > value.length){
+        if(!value || _selectedIndex > value.length){
           _selectedIndex = -1;
         }
       _dropdown.dataProvider = value;
