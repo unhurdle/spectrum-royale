@@ -118,6 +118,7 @@ package com.unhurdle.spectrum.renderers
       textNode.className = appendSelector("-itemLink");
       textNode.element.style.userSelect = "none";
       textNode.element.style.display = "inline-flex";
+      textNode.element.style.width = "auto";
       elem.appendChild(textNode.element);
       // setStyle("cursor","default");
       return elem;
