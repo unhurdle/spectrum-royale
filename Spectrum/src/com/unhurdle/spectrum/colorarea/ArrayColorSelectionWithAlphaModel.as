@@ -7,7 +7,7 @@ package com.unhurdle.spectrum.colorarea
 	public class ArrayColorSelectionWithAlphaModel extends ArrayColorSelectionModel
 	{
         private var _alpha:Number = 1;
-        private var _color:uint;
+        private var _color:Number;
 
         public function get alpha():Number
         {
@@ -41,7 +41,7 @@ package com.unhurdle.spectrum.colorarea
         // Usage of this method implies color uniqueness. If that's not the case set selectedItem instead.
 		override public function set color(value:Number):void
 		{
-            if (value == _color)
+            if (value == _color || isNaN(value) && isNaN(_color));
             {
                 return;
             }
