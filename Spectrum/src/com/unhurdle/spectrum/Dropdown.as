@@ -141,7 +141,7 @@ package com.unhurdle.spectrum
       pxStr = componentBounds.bottom + "px";
       popover.setStyle("top",pxStr);
       pxStr = maxHeight + "px";
-      // popover.setStyle("max-height",pxStr);
+      popover.setStyle("max-height",pxStr);
       if(popover.position == "top"){
         popover.position = "bottom";
       }
@@ -153,7 +153,7 @@ package com.unhurdle.spectrum
       popover.setStyle("top","");
       popover.setStyle("bottom",pxStr);
       pxStr = maxHeight + "px";
-      // popover.setStyle("max-height",pxStr);
+      popover.setStyle("max-height",pxStr);
       if(popover.position == "bottom"){
         popover.position = "top";
       }
