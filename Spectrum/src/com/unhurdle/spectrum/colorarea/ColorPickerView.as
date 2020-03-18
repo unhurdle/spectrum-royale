@@ -150,13 +150,20 @@ package com.unhurdle.spectrum.colorarea
 		
 		protected function colorChangeAction():void
 		{
+			var colorStr:String;
 			var model:ArrayColorSelectionWithAlphaModel = _strand.getBeadByType(ArrayColorSelectionWithAlphaModel) as ArrayColorSelectionWithAlphaModel;
-			COMPILE::JS 
+			if (isNaN(model.color))
+			{
+				colorStr = "rgba(0,0,0,0)";
+			} else
 			{
 				var r:uint = (model.color >> 16 ) & 255;
 				var g:uint = (model.color >> 8 ) & 255;
 				var b:uint = model.color & 255;
-				var colorStr:String = "rgba(" + r + ", " + g + ", " + b + ", " + model.alpha + ")";
+				colorStr = "rgba(" + r + ", " + g + ", " + b + ", " + model.alpha + ")";
+			}
+			COMPILE::JS 
+			{
 				selectedColorDisplay.element.style.backgroundColor = colorStr;
 			}
 		}

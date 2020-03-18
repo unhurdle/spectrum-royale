@@ -41,7 +41,7 @@ package com.unhurdle.spectrum.colorarea
         // Usage of this method implies color uniqueness. If that's not the case set selectedItem instead.
 		override public function set color(value:Number):void
 		{
-            if (value == _color || isNaN(value) && isNaN(_color));
+            if (value == _color || isNaN(value) && isNaN(_color))
             {
                 return;
             }
