@@ -48,17 +48,18 @@ package com.unhurdle.spectrum.colorarea
 		}
 
 		private var innerElement:Div;
+		private var innerBg:Div;
 		private var padding:Number = 2;
 		override public function addedToParent():void
 		{
 			super.addedToParent();
 			if (!innerElement)
 			{
-				var innerBg:Div = new Div();
+				innerBg = new Div();
 				innerBg.className = "CheckeredBackground";
 				innerElement = new Div();
-				innerBg.width = innerElement.width = width - 2 * padding;
-				innerBg.height = innerElement.height = height - 2 * padding;
+				innerBg.width = innerElement.width = Math.max(0, width - 2 * padding);
+				innerBg.height = innerElement.height = Math.max(0, height - 2 * padding);
 				COMPILE::JS
 				{
 					getStyle(this).padding = padding + "px";
@@ -71,18 +72,18 @@ package com.unhurdle.spectrum.colorarea
 		override public function set height(value:Number):void
 		{
 			super.height = value;
-			if (innerElement)
+			if (innerElement && innerBg)
 			{
-				innerElement.height = value - 2 * padding;
+				innerBg.height = innerElement.height = Math.max(0, value - 2 * padding);
 			}
 		}
 
 		override public function set width(value:Number):void
 		{
 			super.width = value;
-			if (innerElement)
+			if (innerElement && innerBg)
 			{
-				innerElement.width = value - 2 * padding;
+				innerBg.width = innerElement.width = Math.max(0, value - 2 * padding);
 			}
 		}
 
