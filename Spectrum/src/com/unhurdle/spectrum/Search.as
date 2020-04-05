@@ -29,7 +29,6 @@ package com.unhurdle.spectrum
     private var input:TextField;
     private var inputIcon:Icon;
     private var button:ClearButton;
-    private var _placeHolder:String = "Search";
 
     public function get text():String
     {
@@ -78,7 +77,7 @@ package com.unhurdle.spectrum
     input = new TextField();
     input.percentWidth = 100;
     (input.element as HTMLInputElement).type = "search";
-    input.placeholder = _placeHolder;
+    input.placeholder = "Search"
     input.className = appendSelector("-input");
     //TODO forward events
     addElement(input);
@@ -107,18 +106,14 @@ package com.unhurdle.spectrum
       }
     }
 
-    public function get placeHolder():String
+    public function get placeholder():String
     {
-      return input.placeHolder;
+      return input.placeholder;
     }
 
-    public function set placeHolder(value:String):void
+    public function set placeholder(value:String):void
     {
-      _placeHolder = value;
-      if (input)
-      {
-        input.placeHolder = value;
-      }
+      input.placeholder = value;
     }
 
   }
