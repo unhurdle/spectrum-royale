@@ -3,8 +3,9 @@ package com.unhurdle.spectrum.colorarea
 	import org.apache.royale.html.beads.models.ArrayColorSelectionModel;
 	import org.apache.royale.core.IColorModel;
 	import org.apache.royale.events.Event;
+	import org.apache.royale.core.IColorWithAlphaModel;
 
-	public class ArrayColorSelectionWithAlphaModel extends ArrayColorSelectionModel
+	public class ArrayColorSelectionWithAlphaModel extends ArrayColorSelectionModel implements IColorWithAlphaModel
 	{
         private var _alpha:Number = 1;
         private var _color:Number;
