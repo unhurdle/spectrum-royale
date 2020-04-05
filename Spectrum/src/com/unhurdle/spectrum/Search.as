@@ -75,6 +75,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
     addElementToWrapper(this,"form");
     input = new TextField();
+    input.percentWidth = 100;
     (input.element as HTMLInputElement).type = "search";
     input.placeholder = "Search"; //getters and setters?
     input.className = appendSelector("-input");
