@@ -70,6 +70,9 @@ package com.unhurdle.spectrum
     }
 
     private function toggleMenu(event:Event):void{
+      if(!dataProvider || !dataProvider.length){
+        return;
+      }
       if(_openMenu && _openMenu != this){
         _openMenu.closePopup();
       }

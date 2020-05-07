@@ -164,6 +164,9 @@ package com.unhurdle.spectrum
     }
 
     private function handleMouseDown(ev:*):void{
+      if(!dataProvider || !dataProvider.length){
+        return;
+      }
   		window.addEventListener('mouseup', handleMouseUp);
       if(timer){
         timer.start();
@@ -190,6 +193,9 @@ package com.unhurdle.spectrum
       menu.addEventListener("change",handleMenuChange);
     }
     public function showMenu():void{
+      if(!dataProvider || !dataProvider.length){
+        return;
+      }
       // construct if necessary and show the menu.
       if(!popover){
         createPopover();
