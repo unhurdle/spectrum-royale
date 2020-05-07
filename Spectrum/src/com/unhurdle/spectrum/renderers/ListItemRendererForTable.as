@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum.renderers
 {
-  import org.apache.royale.core.StyledMXMLItemRenderer;
 	import org.apache.royale.events.Event;
 
 	import org.apache.royale.html.util.getLabelFromData;
@@ -15,7 +14,7 @@ package com.unhurdle.spectrum.renderers
     }
 	
 
-	public class ListItemRendererForTable extends StyledMXMLItemRenderer 
+	public class ListItemRendererForTable extends DataItemRenderer 
 	{
 		// implements ITextItemRenderer
 		public function ListItemRendererForTable()
@@ -23,8 +22,7 @@ package com.unhurdle.spectrum.renderers
 			super();
 
 			typeNames = "spectrum-Table-cell";
-			addClass("selectable");
-
+			selectable = true;
 			// textAlign = new TextAlign();
 			// addBead(textAlign);
 		}
@@ -96,7 +94,7 @@ package com.unhurdle.spectrum.renderers
 		public function set selectable(value:Boolean):void
 		{
 			_selectable = value;
-			toggleClass("selectable", _selectable);	
+			toggle("selectable", _selectable);	
 		}
 
 		// override public function updateRenderer():void

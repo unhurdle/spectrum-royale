@@ -6,15 +6,13 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.ItemAddedEvent;
 	import org.apache.royale.events.ItemRemovedEvent;
 	import org.apache.royale.html.supportClasses.ContainerContentArea;
-	import org.apache.royale.html.supportClasses.DataItemRenderer;
 	import com.unhurdle.spectrum.renderers.TableItemRenderer;
+		import com.unhurdle.spectrum.renderers.DataItemRenderer;
 
 	COMPILE::JS
 	{
 		import org.apache.royale.core.WrappedHTMLElement;
 		import org.apache.royale.html.util.addElementToWrapper;
-		import org.apache.royale.core.WrappedHTMLElement;
-		import org.apache.royale.core.WrappedHTMLElement;
 		import org.apache.royale.core.CSSClassList;
 	}
 
