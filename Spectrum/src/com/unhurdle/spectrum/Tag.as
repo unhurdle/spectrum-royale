@@ -123,6 +123,20 @@ package com.unhurdle.spectrum
       }
     	_deletable = value;
     }
+    private var _interactive:Boolean = true;
+
+    public function get interactive():Boolean
+    {
+    	return _interactive;
+    }
+
+    public function set interactive(value:Boolean):void
+    {
+    	_interactive = value;
+      COMPILE::JS{
+        element.style.pointerEvents = value ? null : "none";
+      }
+    }
 
     private function removeTag():void{
       parent.removeElement(this);
