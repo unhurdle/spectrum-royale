@@ -14,7 +14,7 @@ A sample web application for viewing and interacting with the built components.
 # Building the Spectrum Library
 ## Prerequisites
 1. Run `npm install`. This will add a dependencies. Notably it will add a `playerglobal.swc` file to to Spectrum folder.
-1. You need a full Royale SDK (including SWF support) on your system. The latest release version can be installed using `npm install @apache-royale/royale-js -g`.
+1. You need a full Royale SDK (including SWF support) on your system. The latest release version can be installed using `npm install @apache-royale/royale-js-swf -g`.
 
 ## Build Using `ant`
 1. You need a `ROYALE_HOME` environment variable which points to this SDK.
