@@ -190,13 +190,20 @@ package com.unhurdle.spectrum
     }
 
     private function setButtonAsset(index:int,icon:Boolean):void{
-      var asset:ImageAsset = new ImageAsset();
-      asset.style = "width:18px;margin-right:8px;";      
-      if(button.getElementAt(0) is ImageAsset){
+      if(button.getElementAt(0) is IAsset){
         button.removeElement(button.getElementAt(0));
       }
-      asset.src = icon? dataProvider[index].icon: dataProvider[index].imageIcon;
-      button.addElementAt(asset,0);
+      if (icon)
+      {
+        var iconClone:Icon = new Icon(dataProvider[index].icon);
+        button.addElementAt(iconClone, 0);
+      } else
+      {
+        var asset:ImageAsset = new ImageAsset();
+        asset.style = "width:18px;margin-right:8px;";      
+        asset.src = icon? dataProvider[index].icon: dataProvider[index].imageIcon;
+        button.addElementAt(asset,0);
+      }
     }
     private function setButtonText():void{
       if(selectedIndex){
