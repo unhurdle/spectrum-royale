@@ -87,10 +87,15 @@ package com.unhurdle.spectrum
     inputIcon.className = appendSelector("-icon");
     addElement(inputIcon);
     button = new ClearButton();
-
+    button.addEventListener("clear" , clear);
     addElement(button);
     element.addEventListener("submit", handleSubmit);
     return element; 
+    }
+    private function clear(ev:Event):void
+    {
+      input.text = "";
+      dispatchEvent(new Event("search"));
     }
     private function handleSubmit(ev:Event):Boolean{
       ev.preventDefault();

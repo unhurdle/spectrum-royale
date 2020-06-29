@@ -198,7 +198,9 @@ package com.unhurdle.spectrum
 				}
 		}
 
-	
-    }
+		public function replaceClass(oldClass:String, newClass:String = null):void
+		{
+		}
+  }
 }
 
