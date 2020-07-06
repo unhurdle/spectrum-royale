@@ -10,6 +10,8 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.Event;
+  import org.apache.royale.core.WrappedHTMLElement;
+  import org.apache.royale.core.IRenderedObject;
 
 	[Event(name="search", type="org.apache.royale.events.Event")]
   public class Search extends SpectrumBase
@@ -73,10 +75,15 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-    addElementToWrapper(this,"form");
+    var formElement:WrappedHTMLElement = addElementToWrapper(this,"form");
+    formElement.style.position = "relative";
     input = new TextField();
+    input.element.style.position = "absolute";
+    input.element.style.left = "20";
+    input.element.style.paddingLeft = "27px";
+    input.element.style.paddingRight = "25px";
     input.percentWidth = 100;
-    (input.element as HTMLInputElement).type = "search";
+    // (input.element as HTMLInputElement).type = "search";
     input.placeholder = "Search"
     input.className = appendSelector("-input");
     //TODO forward events
@@ -85,8 +92,10 @@ package com.unhurdle.spectrum
     inputIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
     inputIcon.type = type;
     inputIcon.className = appendSelector("-icon");
+    inputIcon.style = "position: absolute; left: 10px; top: 7px";
     addElement(inputIcon);
     button = new ClearButton();
+    button.style = "position: absolute; right: 0";
     button.addEventListener("clear" , clear);
     addElement(button);
     element.addEventListener("submit", handleSubmit);
@@ -119,6 +128,18 @@ package com.unhurdle.spectrum
     public function set placeholder(value:String):void
     {
       input.placeholder = value;
+    }
+
+    override public function addedToParent():void
+    {
+      super.addedToParent();
+      COMPILE::JS
+      {
+        if (!(parent as IRenderedObject).element.style.position)
+        {
+          (parent as IRenderedObject).element.style.position = "absolute";
+        }
+      }
     }
 
   }
