@@ -147,7 +147,10 @@ package com.unhurdle.spectrum.colorarea
 			}
 			alphaSelector.value = int((1- (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
 			(alphaSelector.model as IColorModel).color = colorValue;
-			(host as IEventDispatcher).dispatchEvent(new Event(Event.CHANGE));
+			if (open)
+			{
+				(host as IEventDispatcher).dispatchEvent(new Event(Event.CHANGE));
+			}
 		}
 
         protected function colorSpectrumThumbDownHandler(event:Event):void
