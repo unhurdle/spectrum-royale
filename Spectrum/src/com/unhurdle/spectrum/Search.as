@@ -10,7 +10,6 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.Event;
-  import org.apache.royale.core.WrappedHTMLElement;
   import org.apache.royale.core.IRenderedObject;
 
 	[Event(name="search", type="org.apache.royale.events.Event")]
