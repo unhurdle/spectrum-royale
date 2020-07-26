@@ -77,7 +77,7 @@
     <js:ComponentRoute title="Side Navigation" component="view.panes.SideNavPane" baseName="side_navigation"/>
     <js:ComponentRoute title="Slider" component="view.panes.SliderPane" baseName="slider"/>
     <js:ComponentRoute title="Split Button" component="view.panes.SplitButtonPane" baseName="split_button"/>
-    <js:ComponentRoute title="SplitView" component="view.panes.SplitViewPane" baseName="split_view"/>
+    <js:ComponentRoute title="SplitView" component="view.panes.SplitViewPane" baseName="splitview"/>
     <js:ComponentRoute title="Status Light" component="view.panes.StatusLightPane" baseName="status_light"/>
     <js:ComponentRoute title="Steplist" component="view.panes.SteplistPane" baseName="steplist"/>
     <js:ComponentRoute title="Stepper" component="view.panes.StepperPane" baseName="stepper"/>

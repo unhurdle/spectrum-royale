@@ -199,9 +199,44 @@ package com.unhurdle.spectrum
 		}
 		private function onMouseMove(e: MouseEvent):void{
 			COMPILE::JS{
-				var sliderOffsetWidth:Number = element.offsetWidth;
-				var x:Number = Math.max(Math.min(e.x, sliderOffsetWidth), 0);
-				var percent:Number = (x / sliderOffsetWidth) * 100;
+				var percent:Number;
+				if(direction == "horizontal"){
+					var sliderOffsetWidth:Number = element.offsetWidth;
+					var sliderOffsetLeft:Number = element.offsetLeft;
+					var x:Number = Math.max(Math.min(e.x - sliderOffsetLeft, sliderOffsetWidth), 0);
+					percent = (x / sliderOffsetWidth) * 100;
+				} else{
+					// var sliderOffsetHeight:Number = element.offsetHeight;
+					// var sliderOffsetTop:Number = element.offsetTop;
+					// trace('sliderOffsetTop');trace(sliderOffsetTop);
+					// trace('element.offsetTop');trace(element.offsetTop);
+					// trace('e.offsetY');trace(e.offsetY);
+					// trace('e.y');trace(e.y);
+					// trace('Math.min(e.y - sliderOffsetTop, sliderOffsetHeight)');trace(Math.min(e.y - sliderOffsetTop, sliderOffsetHeight));
+					// var y:Number = Math.max(Math.min(e.y - sliderOffsetTop, sliderOffsetHeight), 0);
+					// trace('y');trace(y);
+					// percent = (y / sliderOffsetHeight) * 100;
+					// trace('percent');trace(percent);
+
+
+					var sliderOffsetHeight:Number = element.offsetHeight;
+					var sliderOffsetTop:Number = element.offsetTop;
+					if(e.offsetY < 0 || e.offsetY < e.y - sliderOffsetTop){
+						return;
+					}
+					percent = (e.offsetY / sliderOffsetHeight) * 100;
+
+					// trace('e.pageY');trace(e.pageY);
+					// trace('e.offsetY');trace(e.offsetY);
+					// trace('element.scrollTop');trace(element.scrollTop);
+					// trace('window.scrollY');trace(window.scrollY);
+					// trace('window.scrollX');trace(window.scrollX);
+					// trace('element.offsetTop');trace(element.offsetTop);
+					// trace('element.parentElement');trace(element.parentElement);
+
+					// var y:Number = e.pageY - element.offsetTop;
+					// percent = (y / sliderOffsetHeight) * 100;
+				}
 				positionElements(percent);
 			}
 		}
