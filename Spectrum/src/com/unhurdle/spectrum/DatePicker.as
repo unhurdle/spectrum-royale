@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
   }
   import com.unhurdle.spectrum.model.DatePickerModel;
 
+  import org.apache.royale.events.MouseEvent;
   import org.apache.royale.events.Event;
   import org.apache.royale.svg.elements.Path;
   import com.unhurdle.spectrum.includes.InputGroupInclude;
@@ -79,10 +80,30 @@ package com.unhurdle.spectrum
       // popover.percentWidth = 100;
       calendar = new Calendar();
       popover.addElement(calendar);
-      // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-
+      window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
       return element;
     }
+    
+    protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
+		{
+      if(event.target.className != "spectrum-Calendar-date"){
+        closePopup();
+      }
+      
+		}
+    protected function closePopup():void{
+      if(popover && popover.open){
+  			popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+		  	popover.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+        popover.open = false;
+      }
+    }
+
+    	protected function handleControlMouseDown(event:MouseEvent):void
+		{			
+			event.stopImmediatePropagation();
+		}
     private var calendar:Calendar;
     private var _quiet:Boolean;
 

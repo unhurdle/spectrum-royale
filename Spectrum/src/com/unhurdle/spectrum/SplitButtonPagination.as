@@ -5,6 +5,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.events.ItemClickedEvent;
   public class SplitButtonPagination extends SpectrumBase
   {
     //TODO this does not import the CSS
@@ -63,7 +64,7 @@ package com.unhurdle.spectrum
       if(value){
       	_href = value;
       } else {
-        _href = "#";
+        dispatchEvent("itemClicked" as ItemClickedEvent);
         }
         COMPILE::JS
         {
