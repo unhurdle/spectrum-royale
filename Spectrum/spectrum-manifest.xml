@@ -76,6 +76,7 @@
     <component id="FormItem" class="com.unhurdle.spectrum.FormItem"/>
     <component id="FormLabel" class="com.unhurdle.spectrum.FormLabel"/>
     <component id="Heading" class="com.unhurdle.spectrum.typography.Heading"/>
+    <component id="HSplitView" class="com.unhurdle.spectrum.HSplitView"/>
     <component id="Icon" class="com.unhurdle.spectrum.Icon"/>
     <component id="IllustratedMessage" class="com.unhurdle.spectrum.IllustratedMessage"/>
     <component id="ImageAsset" class="com.unhurdle.spectrum.ImageAsset"/>
@@ -112,7 +113,6 @@
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
     <component id="SplitButtonPagination" class="com.unhurdle.spectrum.SplitButtonPagination"/>
-    <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
     <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
     <component id="StepList" class="com.unhurdle.spectrum.StepList"/>
     <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
@@ -151,6 +151,7 @@
     <component id="Underlay" class="com.unhurdle.spectrum.Underlay"/>
 	<component id="VideoPlayerSlider" class="com.unhurdle.spectrum.VideoPlayerSlider"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
+    <component id="VSplitView" class="com.unhurdle.spectrum.VSplitView"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
 
     <component id="AddTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.AddTableRowForArrayListData" />
