@@ -26,6 +26,7 @@ package com.unhurdle.spectrum.colorarea
 		protected var alphaTextField:AlphaTextField;
 		protected var fixedSizeContainer:Div;
 		protected var padding:Number = 18;
+		protected var sliderWidth:Number = 30;
 
 		public function ColorPickerPopUp()
 		{
@@ -33,7 +34,6 @@ package com.unhurdle.spectrum.colorarea
 			dialog=true;
 			fixedSizeContainer = new Div();
 			var squareDim:Number = 225;
-			var sliderWidth:Number = 30;
 			colorSpectrum = new ColorSpectrum();
 			colorSpectrum.height =  squareDim;
 			colorSpectrum.width =  squareDim;
