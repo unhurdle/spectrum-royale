@@ -1,6 +1,6 @@
 package models
 {
-  import org.apache.royale.routing.Router;
+  import org.apache.royale.routing.HashRouter;
 
   public class Theme
   {
@@ -32,6 +32,6 @@ package models
       router.setState();
       
     }
-    public static var router:Router;
+    public static var router:HashRouter;
   }
 }
