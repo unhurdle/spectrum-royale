@@ -57,23 +57,19 @@ package com.unhurdle.spectrum
 				}
 		}
 		protected function positionElements(val:Number):void{
+			positionCollapsed = val;
 			var percent:Number = val;
 			COMPILE::JS{
 				if(element.children && element.children[2]){
 					if(direction === "horizontal"){
 						element.children[0].style.width = percent + "%";
 						splitter.style.left = "0";
-						element.children[2].style.left = percent + "%" + splitter.style.width;
 						element.children[2].style.width = (100 - percent) + "%";
 					}else{
 						element.children[0].style.height = percent + "%";
 						splitter.style.top = "0";
-						element.children[2].style.top = percent + "%" + splitter.style.height;
 						element.children[2].style.height = (100 - percent) + "%";
 					}
-				}
-				if(position == 0){
-					splitter.classList.add("is-collapsed-");
 				}
 			}
 		}
@@ -145,55 +141,30 @@ package com.unhurdle.spectrum
 		}
 		private function onMouseDown(e: MouseEvent):void{
 			COMPILE::JS{
-    		element.addEventListener('mouseup', onMouseUp);
+    		window.addEventListener('mouseup', onMouseUp);
     		element.addEventListener('mousemove', onMouseMove);	
 			}
 		}
 		private function onMouseUp(e: MouseEvent):void{
 			COMPILE::JS{
-				element.removeEventListener('mouseup', onMouseUp);
+				window.removeEventListener('mouseup', onMouseUp);
 				element.removeEventListener('mousemove', onMouseMove);		
 			}
 		}
 		private function onMouseMove(e: MouseEvent):void{
 			COMPILE::JS{
 				var percent:Number;
+				var clientRect:ClientRect = element.getBoundingClientRect();
 				if(direction == "horizontal"){
-					var sliderOffsetWidth:Number = element.offsetWidth;
-					var sliderOffsetLeft:Number = element.offsetLeft;
-					var x:Number = Math.max(Math.min(e.x - sliderOffsetLeft, sliderOffsetWidth), 0);
-					percent = (x / sliderOffsetWidth) * 100;
+					var sliderLeft:Number = clientRect.left;
+					var sliderWidth:Number = clientRect.width;
+					var x:Number = Math.max(Math.min(e.clientX - sliderLeft, sliderWidth), 0);
+					percent = (x / sliderWidth) * 100;
 				} else{
-					// var sliderOffsetHeight:Number = element.offsetHeight;
-					// var sliderOffsetTop:Number = element.offsetTop;
-					// trace('sliderOffsetTop');trace(sliderOffsetTop);
-					// trace('element.offsetTop');trace(element.offsetTop);
-					// trace('e.offsetY');trace(e.offsetY);
-					// trace('e.y');trace(e.y);
-					// trace('Math.min(e.y - sliderOffsetTop, sliderOffsetHeight)');trace(Math.min(e.y - sliderOffsetTop, sliderOffsetHeight));
-					// var y:Number = Math.max(Math.min(e.y - sliderOffsetTop, sliderOffsetHeight), 0);
-					// trace('y');trace(y);
-					// percent = (y / sliderOffsetHeight) * 100;
-					// trace('percent');trace(percent);
-
-
-					var sliderOffsetHeight:Number = element.offsetHeight;
-					var sliderOffsetTop:Number = element.offsetTop;
-					if(e.offsetY < 0 || e.offsetY < e.y - sliderOffsetTop){
-						return;
-					}
-					percent = (e.offsetY / sliderOffsetHeight) * 100;
-
-					// trace('e.pageY');trace(e.pageY);
-					// trace('e.offsetY');trace(e.offsetY);
-					// trace('element.scrollTop');trace(element.scrollTop);
-					// trace('window.scrollY');trace(window.scrollY);
-					// trace('window.scrollX');trace(window.scrollX);
-					// trace('element.offsetTop');trace(element.offsetTop);
-					// trace('element.parentElement');trace(element.parentElement);
-
-					// var y:Number = e.pageY - element.offsetTop;
-					// percent = (y / sliderOffsetHeight) * 100;
+					var sliderTop:Number = clientRect.top;
+					var sliderHeight:Number = clientRect.height;
+					var y:Number = Math.max(Math.min(e.clientY - sliderTop, sliderHeight), 0);
+					percent = (y / sliderHeight) * 100;
 				}
 				positionElements(percent);
 			}

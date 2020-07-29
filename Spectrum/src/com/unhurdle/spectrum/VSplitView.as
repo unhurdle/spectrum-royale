@@ -32,6 +32,7 @@ package com.unhurdle.spectrum
         } else{
           splitter.style.visibility = "hidden";
           if(element.children && element.children[2]){
+            position = 100;
             element.children[2].style.visibility = "hidden";
           }
         }
