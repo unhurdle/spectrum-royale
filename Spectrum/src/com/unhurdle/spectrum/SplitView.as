@@ -102,16 +102,16 @@ package com.unhurdle.spectrum
 		{
 			if(value != _positionCollapsed){
 				var oldpositionCollapsed:String;
-				if(_positionCollapsed == 0){
+				if(_positionCollapsed < 1){
 					oldpositionCollapsed = "is-collapsed-start";
 					splitter.classList.remove(oldpositionCollapsed);
-				} else if(_positionCollapsed == 100){
+				} else if(_positionCollapsed > 99){
 					oldpositionCollapsed = "is-collapsed-end";
 					splitter.classList.remove(oldpositionCollapsed);
 				}
-				if(value == 0 || value == 100){
+				if(value < 1 || value > 99){
 					var newpositionCollapsed:String;
-					if(value == 0){
+					if(value < 1){
 						newpositionCollapsed = "is-collapsed-start";
 					} else{
 						newpositionCollapsed = "is-collapsed-end";
