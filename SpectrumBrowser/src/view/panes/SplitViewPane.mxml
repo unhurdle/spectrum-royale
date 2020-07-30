@@ -8,65 +8,200 @@
   </fx:Script>
   <comp:Variant header="Horizontal">
     <Div style="background:red,height:50,width:250">
-      <sp:SplitView direction="horizontal"/>
+      <sp:HSplitView height="200" width="500">
+        <sp:FlexContainer height="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer height="100%" style="background-color: lightcyan;"/>
+      </sp:HSplitView>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:HSplitView height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:HSplitView&gt;'/>
   </comp:Markup>
   
-  <comp:Variant header="Horizontally resizable">
+  <comp:Variant header="Horizontal position 50">
     <Div style="background:red,height:50,width:250">
-      <sp:SplitView direction="horizontal" isDraggable="true"/>
+      <sp:HSplitView isDraggable="true" height="200" width="500">
+        <sp:FlexContainer height="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer height="100%" style="background-color: lightcyan;"/>
+      </sp:HSplitView>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal" isDraggable="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:HSplitView isDraggable="true" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:HSplitView&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Horizontal collapsed left">
     <Div style="background:red,height:50,width:250">
-      <sp:SplitView direction="horizontal" isCollapsed="left" isDraggable="true"/>
+      <sp:HSplitView isDraggable="true" position="0" height="200" width="500">
+        <sp:FlexContainer height="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer height="100%" style="background-color: lightcyan;"/>
+      </sp:HSplitView>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal" isCollapsed="left" isDraggable="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:HSplitView isDraggable="true" position="0" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:HSplitView&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Horizontal collapsed right">
     <Div style="background:red,height:50,width:250">
-      <sp:SplitView direction="horizontal" isCollapsed="right" isDraggable="true"/>
+      <sp:HSplitView isDraggable="true" position="100" height="200" width="500">
+        <sp:FlexContainer height="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer height="100%" style="background-color: lightcyan;"/>
+      </sp:HSplitView>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:SplitView direction="horizontal" isCollapsed="right" isDraggable="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:HSplitView isDraggable="true" position="100" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:HSplitView&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Horizontal left not visible">
+    <Div style="background:red,height:50,width:250">
+      <sp:HSplitView isDraggable="true" position="100" leftVisible="false" height="200" width="500">
+        <sp:FlexContainer height="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer height="100%" style="background-color: lightcyan;"/>
+      </sp:HSplitView>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:HSplitView isDraggable="true" position="100" leftVisible="false" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:HSplitView&gt;'/> 
   </comp:Markup>
   
-  <comp:Variant header="Vertically resizable">
+  <comp:Variant header="Horizontal right not visible">
     <Div style="background:red,height:50,width:250">
-      <sp:SplitView direction="vertical" isDraggable="true"/>
+      <sp:HSplitView isDraggable="true" position="100" rightVisible="false" height="200" width="500">
+        <sp:FlexContainer height="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer height="100%" style="background-color: lightcyan;"/>
+      </sp:HSplitView>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:SplitView direction="vertical" isDraggable="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:HSplitView isDraggable="true" position="100" rightVisible="false" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer height="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:HSplitView&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical position 50">
+    <Div style="background:red,height:50,width:250">
+      <sp:VSplitView isDraggable="true" height="200" width="500">
+        <sp:FlexContainer width="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer width="100%" style="background-color: lightcyan;"/>
+      </sp:VSplitView>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:VSplitView isDraggable="true" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:VSplitView&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Vertical collapsed top">
     <Div style="background:red,height:50,width:250">
-      <sp:SplitView direction="vertical" isCollapsed="top" isDraggable="true"/>
+      <sp:VSplitView isDraggable="true" position="0" height="200" width="500">
+        <sp:FlexContainer width="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer width="100%" style="background-color: lightcyan;"/>
+      </sp:VSplitView>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:SplitView direction="vertical" isCollapsed="top" isDraggable="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:VSplitView isDraggable="true" position="0" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:VSplitView&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Vertical collapsed bottom">
     <Div style="background:red,height:50,width:250">
-      <sp:SplitView direction="vertical" isCollapsed="bottom" isDraggable="true"/>
+      <sp:VSplitView isDraggable="true" position="100" height="200" width="500">
+        <sp:FlexContainer width="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer width="100%" style="background-color: lightcyan;"/>
+      </sp:VSplitView>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:SplitView direction="vertical" isCollapsed="bottom" isDraggable="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:VSplitView isDraggable="true" position="100" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:VSplitView&gt;'/>
   </comp:Markup>
   
+  <comp:Variant header="Vertical top not visible">
+    <Div style="background:red,height:50,width:250">
+      <sp:VSplitView isDraggable="true" position="100" topVisible="false" height="200" width="500">
+        <sp:FlexContainer width="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer width="100%" style="background-color: lightcyan;"/>
+      </sp:VSplitView>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:VSplitView isDraggable="true" position="100" topVisible="false" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:VSplitView&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Vertical bottom not visible">
+    <Div style="background:red,height:50,width:250">
+      <sp:VSplitView isDraggable="true" position="100" bottomVisible="false" height="200" width="500">
+        <sp:FlexContainer width="100%" style="background-color: lightyellow;"/>
+        <sp:FlexContainer width="100%" style="background-color: lightcyan;"/>
+      </sp:VSplitView>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:VSplitView isDraggable="true" position="100" bottomVisible="false" height="200" width="500"&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightyellow;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:FlexContainer width="100%" style="background-color: lightcyan;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/sp:VSplitView&gt;'/>
+  </comp:Markup>
+
 </view:DemoPane>
