@@ -32,35 +32,13 @@ package com.unhurdle.spectrum.colorarea
 			super();
 			dialog=true;
 			fixedSizeContainer = new Div();
-			var squareDim:Number = 225;
-			var sliderWidth:Number = 30;
 			colorSpectrum = new ColorSpectrum();
-			colorSpectrum.height =  squareDim;
-			colorSpectrum.width =  squareDim;
-			colorSpectrum.y = padding;
-			colorSpectrum.x = padding;
 			hueSelector = new HueSelector();
-			hueSelector.width = sliderWidth;
-			hueSelector.height = squareDim;
-			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
-            hueSelector.y = padding;
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
 			alphaSelector = new AlphaSelector();
-			alphaSelector.width = sliderWidth;
-			alphaSelector.height = squareDim;
-			alphaSelector.x = hueSelector.x + sliderWidth + padding;
-            alphaSelector.y = padding;
 			alphaSelector.addEventListener("valueChange", alphaSelectorChangeHandler);
 			colorTextField = new ColorTextField();
-			colorTextField.x = padding;
-			colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
-			colorTextField.width = 132;
 			alphaTextField = new AlphaTextField();
-			alphaTextField.x = colorTextField.width + colorTextField.x + padding;
-			alphaTextField.y = colorTextField.y;
-			alphaTextField.width = 66;
-			fixedSizeContainer.width = alphaSelector.x + alphaSelector.width + padding;
-			fixedSizeContainer.height = colorTextField.y + 32 + padding;
 			colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
 			alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
 			colorTextField.addEventListener("change", stopChangePropagation);
@@ -81,6 +59,32 @@ package com.unhurdle.spectrum.colorarea
 			fixedSizeContainer.addElement(colorTextField);
 			fixedSizeContainer.addElement(alphaTextField);
 			addElement(fixedSizeContainer);
+		}
+
+		protected function layout():void
+		{
+			var squareDim:Number = 225;
+			var sliderWidth:Number = 30;
+			colorSpectrum.height =  squareDim;
+			colorSpectrum.width =  squareDim;
+			colorSpectrum.y = padding;
+			colorSpectrum.x = padding;
+			hueSelector.width = sliderWidth;
+			hueSelector.height = squareDim;
+			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
+            hueSelector.y = padding;
+			alphaSelector.width = sliderWidth;
+			alphaSelector.height = squareDim;
+			alphaSelector.x = hueSelector.x + sliderWidth + padding;
+            alphaSelector.y = padding;
+			colorTextField.x = padding;
+			colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
+			colorTextField.width = 132;
+			alphaTextField.x = colorTextField.width + colorTextField.x + padding;
+			alphaTextField.y = colorTextField.y;
+			alphaTextField.width = 66;
+			fixedSizeContainer.width = alphaSelector.x + alphaSelector.width + padding;
+			fixedSizeContainer.height = colorTextField.y + 32 + padding;
 			width = fixedSizeContainer.width;
 			height = fixedSizeContainer.height;
 		}
@@ -94,6 +98,10 @@ package com.unhurdle.spectrum.colorarea
 		{
 			open = value;
 			super.visible = value;
+			if (value)
+			{
+				layout();
+			}
 		}
 		
 		private function hueChangeHandler(event:Event):void

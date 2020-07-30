@@ -40,34 +40,36 @@ package com.unhurdle.spectrum.colorarea
 			}
 		}
 
-		override public function addedToParent():void
+		override protected function layout():void
 		{
+			var squareDim:Number = 225;
+			var sliderWidth:Number = 30;
+			colorSpectrum.height =  squareDim;
+			colorSpectrum.width =  squareDim;
+			colorSpectrum.y = padding;
+			colorSpectrum.x = padding;
+			hueSelector.width = sliderWidth;
+			hueSelector.height = squareDim;
+			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
+            hueSelector.y = padding;
+			alphaSelector.width = sliderWidth;
+			alphaSelector.height = squareDim;
+			alphaSelector.x = hueSelector.x + sliderWidth + padding;
+            alphaSelector.y = padding;
+			colorTextField.x = padding;
+			colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
+			colorTextField.width = 132;
+			alphaTextField.x = colorTextField.width + colorTextField.x + padding;
+			alphaTextField.y = colorTextField.y;
+			alphaTextField.width = 66;
 			palette.width = colorSpectrum.width + hueSelector.width + alphaSelector.width + 2 * padding;
 			palette.x = padding;
+			fixedSizeContainer.width = alphaSelector.x + alphaSelector.width + padding;
+			fixedSizeContainer.height = colorTextField.y + 32 + padding;
 			fixedSizeContainer.x = 0;
-			height = fixedSizeContainer.y + fixedSizeContainer.height + padding;
+			fixedSizeContainer.y = palette.height + padding;
 			width = palette.width + padding * 2;
-			super.addedToParent();
-		}
-
-		override public function set visible(value:Boolean):void
-		{
-			super.visible = value;
-			if (value)
-			{
-				var squareDim:Number = 225 - palette.height;
-				fixedSizeContainer.y = palette.height + padding;
-				colorSpectrum.height =  squareDim;
-				colorSpectrum.width =  squareDim;
-				colorSpectrum.y = padding;
-				hueSelector.height = squareDim;
-				alphaSelector.height = squareDim;
-				hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
-				alphaSelector.x = hueSelector.x + sliderWidth + padding;
-				colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
-				fixedSizeContainer.height = colorTextField.y + 32 + padding;
-				alphaTextField.y = colorTextField.y;
-			}
+			height = fixedSizeContainer.y + fixedSizeContainer.height + padding;
 		}
 
 	}
