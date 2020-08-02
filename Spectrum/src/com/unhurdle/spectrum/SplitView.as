@@ -45,14 +45,14 @@ package com.unhurdle.spectrum
 					if(!!_isDraggable){
 						if(!splitter.children.length){
 							splitter.appendChild(newElement("div",appendSelector("-gripper")));
-							element.addEventListener("mousedown",onMouseDown);
+							splitter.addEventListener("mousedown",onMouseDown);
 						}
 					}
 					if(!_isDraggable){
 						if(!!splitter.children.length){
 							splitter.removeChild(splitter.children[0]);
 						}
-							element.removeEventListener("mousedown",onMouseDown);
+							splitter.removeEventListener("mousedown",onMouseDown);
 					}
 				}
 		}
@@ -141,6 +141,8 @@ package com.unhurdle.spectrum
 		}
 		private function onMouseDown(e: MouseEvent):void{
 			COMPILE::JS{
+				e.preventDefault();
+				e.stopImmediatePropagation();
     		window.addEventListener('mouseup', onMouseUp);
     		element.addEventListener('mousemove', onMouseMove);	
 			}
