@@ -168,6 +168,7 @@ package com.unhurdle.spectrum
 					var y:Number = Math.max(Math.min(e.clientY - sliderTop, sliderHeight), 0);
 					percent = (y / sliderHeight) * 100;
 				}
+				_position = percent;
 				positionElements(percent);
 			}
 		}
