@@ -9,6 +9,10 @@ package com.unhurdle.spectrum
   [Event(name="resizeFinish", type="org.apache.royale.events.Event")]
   public class SplitView extends Group
   {
+
+		public static const RESIZE_START:String = "resizeStart";
+		public static const RESIZE_FINISH:String = "resizeFinish";
+
     /**
      * <inject_html>
      * <link rel="stylesheet" href="assets/css/components/splitview/dist.css">
