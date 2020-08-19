@@ -5,6 +5,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+	[Event(name="resizeStart", type="org.apache.royale.events.Event")]
+  [Event(name="resizeFinish", type="org.apache.royale.events.Event")]
   public class SplitView extends Group
   {
     /**
@@ -141,6 +143,7 @@ package com.unhurdle.spectrum
 		}
 		private function onMouseDown(e: MouseEvent):void{
 			COMPILE::JS{
+				dispatchEvent(new Event("resizeStart"));
 				e.preventDefault();
 				e.stopImmediatePropagation();
     		window.addEventListener('mouseup', onMouseUp);
@@ -149,6 +152,7 @@ package com.unhurdle.spectrum
 		}
 		private function onMouseUp(e: MouseEvent):void{
 			COMPILE::JS{
+				dispatchEvent(new Event("resizeFinish"));
 				window.removeEventListener('mouseup', onMouseUp);
 				element.removeEventListener('mousemove', onMouseMove);		
 			}
