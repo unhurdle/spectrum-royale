@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconPrefix;
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.Event;
+  import org.apache.royale.html.elements.Div;
 
 	[Event(name="search", type="org.apache.royale.events.Event")]
   public class Search extends SpectrumBase
@@ -73,24 +74,27 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-    addElementToWrapper(this,"form");
-    input = new TextField();
-    input.percentWidth = 100;
-    (input.element as HTMLInputElement).type = "search";
-    input.placeholder = "Search"
-    input.className = appendSelector("-input");
-    //TODO forward events
-    addElement(input);
-    var type:String = IconType.MAGNIFIER;
-    inputIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
-    inputIcon.type = type;
-    inputIcon.className = appendSelector("-icon");
-    addElement(inputIcon);
-    button = new ClearButton();
-    button.addEventListener("clear" , clear);
-    addElement(button);
-    element.addEventListener("submit", handleSubmit);
-    return element; 
+      addElementToWrapper(this,"form");
+      var div:Div = new Div();
+      div.className = "spectrum-Textfield";
+      var type:String = IconType.MAGNIFIER;
+      inputIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
+      inputIcon.type = type;
+      inputIcon.className = appendSelector("-icon");
+      div.addElement(inputIcon);
+      input = new TextField();
+      input.percentWidth = 100;
+      (input.element as HTMLInputElement).type = "search";
+      input.placeholder = "Search"
+      input.className = appendSelector("-input");
+      div.addElement(input);
+      //TODO forward events
+      button = new ClearButton();
+      button.addEventListener("clear" , clear);
+      addElement(div);
+      addElement(button);
+      element.addEventListener("submit", handleSubmit);
+      return element; 
     }
     private function clear(ev:Event):void
     {
