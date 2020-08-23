@@ -6,6 +6,8 @@ package com.unhurdle.spectrum
 
   public class Application extends org.apache.royale.core.Application
   {
+    private static var _current:com.unhurdle.spectrum.Application;
+
     /**
      * <inject_script>
      * var link = document.createElement("link");/
@@ -33,7 +35,6 @@ package com.unhurdle.spectrum
       }
       _current = this;
     }
-    private static var _current:com.unhurdle.spectrum.Application;
     /**
      * Global getter to get a reference to the top-level application
      */
