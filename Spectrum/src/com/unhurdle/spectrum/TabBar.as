@@ -12,10 +12,13 @@ package com.unhurdle.spectrum
   public class TabBar extends Group
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/tabs/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/tabs/dist.css");
+     * document.head.appendSelector(link);
+     * </inject_script>
      */
     public function TabBar()
     { 

@@ -14,10 +14,13 @@ package com.unhurdle.spectrum
   {
     
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/searchwithin/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/searchwithin/dist.css");
+     * document.head.appendChild(link);
+     * </inject_script>
      */
     public function SearchWithin()
     {

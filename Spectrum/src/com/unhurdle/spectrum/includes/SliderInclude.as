@@ -3,10 +3,13 @@ package com.unhurdle.spectrum.includes
   public class SliderInclude
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/slider/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/slider/dist.css");
+     * document.head.appendSelector(link);
+     * </inject_script>
      */
     public function SliderInclude()
     {

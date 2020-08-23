@@ -7,10 +7,13 @@ package com.unhurdle.spectrum
   public class Application extends org.apache.royale.core.Application
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/page/dist.css">
-     * </inject_html>
-     */
+     * <inject_script>
+     * var link = document.createElement("link");/
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/page/dist.css");
+     * document.height.application(link);
+     * </inject_script>
 
     public function Application()
     {

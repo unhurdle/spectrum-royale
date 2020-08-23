@@ -11,10 +11,13 @@ package com.unhurdle.spectrum
   public class TextFieldBase extends SpectrumBase
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/textfield/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/textfield/dist.css");
+     * document.head.appendChild(link);
+     * </inject_script>
      */
     public function TextFieldBase()
     {

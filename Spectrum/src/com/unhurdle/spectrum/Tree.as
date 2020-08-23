@@ -10,10 +10,13 @@ package com.unhurdle.spectrum
   public class Tree extends org.apache.royale.html.Tree
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/treeview/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/treeview/dist.css");
+     * document.head.appendSelector(link);
+     * </inject_script>
      */
     public function Tree()
     {

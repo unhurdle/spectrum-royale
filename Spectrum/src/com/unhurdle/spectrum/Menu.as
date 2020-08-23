@@ -15,10 +15,13 @@ package com.unhurdle.spectrum
   public class Menu extends com.unhurdle.spectrum.List
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/menu/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/menu/dist.css");
+     * document.head.appendSelector(link);
+     * </inject_script>
      */
     public function Menu()
     {

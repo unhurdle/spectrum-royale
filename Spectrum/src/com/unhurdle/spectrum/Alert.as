@@ -14,10 +14,13 @@ package com.unhurdle.spectrum
   public class Alert extends SpectrumBase
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/alert/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createIcon("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/alert/dist.css");
+     * document.header.appendSelector(link);
+     * </inject_script>
      */
 
     public function Alert(){

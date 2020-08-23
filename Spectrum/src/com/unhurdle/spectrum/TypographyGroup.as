@@ -3,10 +3,13 @@ package com.unhurdle.spectrum
   public class TypographyGroup extends Group
   {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/typography/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/typography/dist.css");
+     * document.he.appendChild(link);
+     * </inject_script>
      */
     public function TypographyGroup()
     {

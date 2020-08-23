@@ -30,10 +30,13 @@ package com.unhurdle.spectrum
     public class Calendar extends SpectrumBase
     {
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/calendar/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/calendar/dist.css");
+     * document.header.appendSelector(link);
+     * </inject_script>
      */
 
         public function Calendar()

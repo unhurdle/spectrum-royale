@@ -22,10 +22,13 @@ package com.unhurdle.spectrum
 	public class Table extends DataContainer implements IClassSelectorListSupport
 	{
     /**
-     * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/table/dist.css">
-     * </inject_html>
-     * 
+     * <inject_script>
+     * var link = document.createElement("link"); 
+     * link.setAttribute("rel", "stylesheet");
+     * link.setAttribute("type", "text/css");
+     * link.setAttribute("href", "assets/css/components/table/dist.css");
+     * document.head.appendChild(link);
+     * </inject_script>
      */
 		public function Table()
 		{
