@@ -8,7 +8,7 @@ package com.unhurdle.spectrum.includes
      * link.setAttribute("rel", "stylesheet");
      * link.setAttribute("type", "text/css");
      * link.setAttribute("href", "assets/css/components/fieldlabel/dist.css");
-     * document.head.appendSelector(link);
+     * document.head.appendChild(link);
      * </inject_script>
      */
     public function FieldLabelInclude()

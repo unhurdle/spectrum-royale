@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
      * link.setAttribute("rel", "stylesheet");
      * link.setAttribute("type", "text/css");
      * link.setAttribute("href", "assets/css/components/typography/dist.css");
-     * document.he.appendChild(link);
+     * document.head.appendChild(link);
      * </inject_script>
      */
     public function TypographyGroup()

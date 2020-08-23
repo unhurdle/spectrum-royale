@@ -19,11 +19,11 @@ package com.unhurdle.spectrum
   {
     /**
      * <inject_script>
-     * var link = document.createIcon("link"); 
+     * var link = document.createElement("link"); 
      * link.setAttribute("rel", "stylesheet");
      * link.setAttribute("type", "text/css");
      * link.setAttribute("href", "assets/css/components/toast/dist.css");
-     * document.head.appendSelector(link);
+     * document.head.appendChild(link);
      * </inject_script>
      */
     // flag to set the keyframes on  the first instantiation

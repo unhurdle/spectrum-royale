@@ -15,11 +15,11 @@ package com.unhurdle.spectrum
   {
     /**
      * <inject_script>
-     * var link = document.createIcon("link"); 
+     * var link = document.createElement("link"); 
      * link.setAttribute("rel", "stylesheet");
      * link.setAttribute("type", "text/css");
      * link.setAttribute("href", "assets/css/components/alert/dist.css");
-     * document.header.appendSelector(link);
+     * doucment.head.appendChild(link);
      * </inject_script>
      */
 

@@ -19,7 +19,7 @@ package com.unhurdle.spectrum
      * link.setAttribute("rel", "stylesheet");
      * link.setAttribute("type", "text/css");
      * link.setAttribute("href", "assets/css/components/illustratedmessage/dist.css");
-     * document.header.appendChild(link);
+     * doucment.head.appendChild(link);
      * </inject_script>
      */
     public function IllustratedMessage() 

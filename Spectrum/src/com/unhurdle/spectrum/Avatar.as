@@ -14,7 +14,7 @@ package com.unhurdle.spectrum
      * link.setAttribute("rel", "stylesheet");
      * link.setAttribute("type", "text/css");
      * link.setAttribute("href", "assets/css/components/avatar/dist.css");
-     * document.height.appendSelector(link);
+     * document.head.appendChild(link);
      * </inject_script>
      */
 

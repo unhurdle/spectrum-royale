@@ -35,7 +35,7 @@ package com.unhurdle.spectrum
      * link.setAttribute("rel", "stylesheet");
      * link.setAttribute("type", "text/css");
      * link.setAttribute("href", "assets/css/components/calendar/dist.css");
-     * document.header.appendSelector(link);
+     * document.head.appendChild(link);
      * </inject_script>
      */
 
