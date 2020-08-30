@@ -1,3 +1,11 @@
+[dir="ltr"] .spectrum-Radio {
+
+  margin-right: 16px;
+}
+[dir="rtl"] .spectrum-Radio {
+
+  margin-left: 16px;
+}
 .spectrum-Radio {
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -9,9 +17,13 @@
   min-height: 32px;
   max-width: 100%;
 
-  margin-right: 16px;
-
   vertical-align: top;
+}
+[dir="ltr"] .spectrum-Radio-input {
+  left: -8px;
+}
+[dir="rtl"] .spectrum-Radio-input {
+  right: -8px;
 }
 .spectrum-Radio-input {
   font-family: inherit;
@@ -23,7 +35,6 @@
   padding: 0;
   position: absolute;
   top: 0;
-  left: -8px;
   width: calc(100% + 16px);
   height: 100%;
 
@@ -35,12 +46,26 @@
 .spectrum-Radio-input:disabled {
     cursor: default;
   }
-.spectrum-Radio-input:checked + .spectrum-Radio-button {
-    border-width: 5px;
-  }
-.spectrum-Radio-label {
+.spectrum-Radio-input:checked + .spectrum-Radio-button:before {
+      border-width: 5px;
+    }
+.spectrum-Radio-input.focus-ring + .spectrum-Radio-button:after {
+        margin: -2px;
+      }
+[dir="ltr"] .spectrum-Radio-label {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-Radio-label {
+  text-align: right;
+}
+[dir="ltr"] .spectrum-Radio-label {
   margin-left: 10px;
-  margin-top: 7px;
+}
+[dir="rtl"] .spectrum-Radio-label {
+  margin-right: 10px;
+}
+.spectrum-Radio-label {
+  margin-top: 5px;
   font-size: 14px;
   line-height: 1.49;
   transition: color 130ms ease-in-out;
@@ -57,13 +82,38 @@
       flex-grow: 0;
   -ms-flex-negative: 0;
       flex-shrink: 0;
-
-  border-radius: 7px;
-  border-width: 2px;
-  border-style: solid;
-
-  transition: border 130ms ease-in-out, box-shadow 130ms ease-in-out;
 }
+.spectrum-Radio-button:before {
+    display: block;
+    z-index: 0;
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 7px;
+    border-width: 2px;
+    border-style: solid;
+
+    transition: border 130ms ease-in-out,
+                box-shadow 130ms ease-in-out;
+  }
+.spectrum-Radio-button:after {
+    border-radius: 100%;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: 2px;
+
+    transition: box-shadow 130ms ease-out,
+                margin 130ms ease-out;
+  }
 .spectrum-Radio--labelBelow {
   display: -ms-inline-flexbox;
   display: inline-flex;

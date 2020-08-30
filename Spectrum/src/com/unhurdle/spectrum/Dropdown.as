@@ -26,7 +26,7 @@ package com.unhurdle.spectrum
   {
     /**
      * <inject_html>
-     * <link rel="stylesheet" href="assets/css/components/dropdown/dist.css">
+     * <link rel="stylesheet" href="assets/css/components/picker/dist.css">
      * </inject_html>
      * 
      */
@@ -35,7 +35,7 @@ package com.unhurdle.spectrum
       super();
     }
     override protected function getSelector():String{
-      return "spectrum-Dropdown";
+      return "spectrum-Picker";
     }
     private var button:FieldButton;
     COMPILE::JS

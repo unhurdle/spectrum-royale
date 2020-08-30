@@ -52,12 +52,18 @@
 .spectrum--light tbody.spectrum-Table-body .spectrum-Table-cell {
     border-top: 1px solid rgb(225, 225, 225);
   }
-.spectrum--light tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+.spectrum--light [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
     border-left: 1px solid rgb(225, 225, 225);
-  }
-.spectrum--light tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+}
+.spectrum--light [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
     border-right: 1px solid rgb(225, 225, 225);
-  }
+}
+.spectrum--light [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-right: 1px solid rgb(225, 225, 225);
+}
+.spectrum--light [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-left: 1px solid rgb(225, 225, 225);
+}
 .spectrum--light tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell {
     border-bottom: 1px solid rgb(225, 225, 225);
   }
@@ -93,9 +99,17 @@
   color: rgb(75, 75, 75);
   background-color: transparent;
 }
-.spectrum--light .spectrum-Table-cell--divider {
+.spectrum--light [dir="ltr"] .spectrum-Table-cell--divider {
   border-right-style: solid;
+}
+.spectrum--light [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-style: solid;
+}
+.spectrum--light [dir="ltr"] .spectrum-Table-cell--divider {
   border-right-color: rgb(225, 225, 225);
+}
+.spectrum--light [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-color: rgb(225, 225, 225);
 }
 .spectrum--light .spectrum-Table--quiet .spectrum-Table-body {
     border-width: 1px 0;
@@ -131,8 +145,23 @@
 .spectrum--light .spectrum-Table--quiet .spectrum-Table-row.is-selected.is-focused {
         background-color: rgba(20,115,230,0.2);
       }
-.spectrum--light .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
-.spectrum--light .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+.spectrum--light [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
       border-left: none;
+}
+.spectrum--light [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
       border-right: none;
-    }
+}
+.spectrum--light [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--light [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}

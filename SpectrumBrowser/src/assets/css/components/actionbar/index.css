@@ -20,9 +20,19 @@
     height: 80px;
     opacity: 1;
   }
-.spectrum-ActionBar--sticky {
+[dir="ltr"] .spectrum-ActionBar--sticky {
   left: 0;
+}
+[dir="rtl"] .spectrum-ActionBar--sticky {
   right: 0;
+}
+[dir="ltr"] .spectrum-ActionBar--sticky {
+  right: 0;
+}
+[dir="rtl"] .spectrum-ActionBar--sticky {
+  left: 0;
+}
+.spectrum-ActionBar--sticky {
   position: -webkit-sticky;
   position: sticky;
 }

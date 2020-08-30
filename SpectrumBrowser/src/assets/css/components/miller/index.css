@@ -7,6 +7,12 @@
           user-select: none;
   padding: 8px 0;
 }
+[dir="ltr"] .spectrum-MillerColumns-item {
+  margin-right: 8px;
+}
+[dir="rtl"] .spectrum-MillerColumns-item {
+  margin-left: 8px;
+}
 .spectrum-MillerColumns-item {
   display: inline-block;
   width: 272px;
@@ -14,10 +20,12 @@
   outline: none;
   margin: 0;
   padding: 0;
-  margin-right: 8px;
   overflow: auto;
   height: 100%;
 }
-.spectrum-MillerColumns-item:first-child {
+[dir="ltr"] .spectrum-MillerColumns-item:first-child {
     margin-left: 8px;
-  }
+}
+[dir="rtl"] .spectrum-MillerColumns-item:first-child {
+    margin-right: 8px;
+}

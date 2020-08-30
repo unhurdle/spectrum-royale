@@ -1,10 +1,17 @@
+.spectrum--large [dir="ltr"] .spectrum-AssetList-item {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-item {
+  padding-right: 16px;
+  padding-left: 16px;
+}
 .spectrum--large .spectrum-AssetList-item {
 
   width: 272px;
   height: 40px;
-
-  padding: 0 16px 0 16px;
-  margin: 0 0 4px 0;
+  margin-top: 0;
+  margin-bottom: 4px;
 
   border-radius: 4px;
 
@@ -19,18 +26,29 @@
 
     border-radius: 4px;
   }
+.spectrum--large [dir="ltr"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-left: 8px;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-right: 8px;
+}
 .spectrum--large .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
 
     width: 24px;
     height: 24px;
-    margin-left: 8px;
   }
-.spectrum--large .spectrum-AssetList-itemSelector {
-  margin: 0;
+.spectrum--large [dir="ltr"] .spectrum-AssetList-itemSelector {
+  margin-right: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-itemSelector {
+  margin-left: 0;
 }
 .spectrum--large .spectrum-AssetList-itemChildIndicator {
   transition: transform ease 130ms;
 }
-.spectrum--large .spectrum-AssetList-itemLabel {
+.spectrum--large [dir="ltr"] .spectrum-AssetList-itemLabel {
   padding-left: 8px;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-itemLabel {
+  padding-right: 8px;
 }

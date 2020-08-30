@@ -6,25 +6,33 @@
 }
 .spectrum--large .spectrum-Breadcrumbs-item {
   height: 40px;
-
   font-size: 19px;
   font-weight: 400;
   line-height: 1.5;
 }
 .spectrum--large .spectrum-Breadcrumbs-item:last-of-type {
-    font-weight: 700
+    font-weight: 700;
   }
-.spectrum--large .spectrum-Breadcrumbs-item > .spectrum-ActionButton {
+.spectrum--large [dir="ltr"] .spectrum-Breadcrumbs-item > .spectrum-ActionButton {
     margin-right: 1px;
-  }
-.spectrum--large .spectrum-Breadcrumbs-itemLink {
-
-  padding: 0 10px;
-  height: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Breadcrumbs-item > .spectrum-ActionButton {
+    margin-left: 1px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Breadcrumbs-itemLink {
 
   margin-right: 1px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Breadcrumbs-itemLink {
 
-  border-radius: 5px
+  margin-left: 1px;
+}
+.spectrum--large .spectrum-Breadcrumbs-itemLink {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+
+  border-radius: 5px;
 }
 .spectrum--large .spectrum-Breadcrumbs-item.is-dragged .spectrum-Breadcrumbs-itemLink:before,
 .spectrum--large .spectrum-Breadcrumbs-itemLink.focus-ring:before {
@@ -39,7 +47,6 @@
     font-size: 15px;
     font-weight: 400;
     line-height: 1.5;
-
   }
 .spectrum--large .spectrum-Breadcrumbs--multiline .spectrum-Breadcrumbs-item:last-of-type {
 
@@ -47,36 +54,33 @@
 
       font-size: 22px;
       font-weight: 700;
-      line-height: 1.3
+      line-height: 1.3;
     }
-.spectrum--large .spectrum-Breadcrumbs--title .spectrum-Breadcrumbs-item:last-of-type {
-
-    margin: 0.3em 0;
-
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 32px;
-  }
 .spectrum-Breadcrumbs {
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-pack: start;
       justify-content: start;
   list-style-type: none;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-preferred-size: 0%;
+      flex-basis: 0%;
 
   margin: 0;
   padding: 0;
 }
+[dir="rtl"] .spectrum-Breadcrumbs-itemSeparator { transform: matrix(-1, 0, 0, 1, 0, 0) scale(1); }
 .spectrum-Breadcrumbs-itemSeparator {
   position: relative;
   top: 1px;
 
   width: 6px;
   height: 8px;
-
-  transform: scale(1);
 
   opacity: 1;
 }
@@ -93,6 +97,7 @@
 
   position: relative;
 
+  white-space: nowrap;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -103,9 +108,20 @@
 .spectrum-Breadcrumbs-item:last-of-type .spectrum-Breadcrumbs-itemSeparator {
       display: none;
     }
-.spectrum-Breadcrumbs-item > .spectrum-ActionButton {
+[dir="ltr"] .spectrum-Breadcrumbs-item > .spectrum-ActionButton {
     margin-right: 1px;
-  }
+}
+[dir="rtl"] .spectrum-Breadcrumbs-item > .spectrum-ActionButton {
+    margin-left: 1px;
+}
+[dir="ltr"] .spectrum-Breadcrumbs-itemLink {
+
+  margin-right: 1px;
+}
+[dir="rtl"] .spectrum-Breadcrumbs-itemLink {
+
+  margin-left: 1px;
+}
 .spectrum-Breadcrumbs-itemLink {
   cursor: default;
   position: relative;
@@ -118,10 +134,12 @@
   -ms-flex-pack: start;
       justify-content: start;
 
-  padding: 0 8px;
-  height: 32px;
+  padding-top: 0;
 
-  margin-right: 1px;
+  padding-bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 32px;
 
   border-radius: 4px;
 
@@ -129,19 +147,28 @@
 
   text-decoration: none;
 }
-.spectrum-Breadcrumbs-itemLink:hover,
-  .spectrum-Breadcrumbs-itemLink.focus-ring {
-    text-decoration: underline;
-  }
 .spectrum-Breadcrumbs-itemLink[href],
   .spectrum-Breadcrumbs-itemLink[tabindex="0"] {
     cursor: pointer;
   }
+.spectrum-Breadcrumbs-itemLink[href]:hover,
+    .spectrum-Breadcrumbs-itemLink[href].focus-ring,
+    .spectrum-Breadcrumbs-itemLink[tabindex="0"]:hover,
+    .spectrum-Breadcrumbs-itemLink[tabindex="0"].focus-ring {
+      text-decoration: underline;
+    }
+[dir="ltr"] .spectrum-Breadcrumbs-item.is-dragged .spectrum-Breadcrumbs-itemLink:before,[dir="ltr"] 
+.spectrum-Breadcrumbs-itemLink.focus-ring:before {
+  left: 0;
+}
+[dir="rtl"] .spectrum-Breadcrumbs-item.is-dragged .spectrum-Breadcrumbs-itemLink:before,[dir="rtl"] 
+.spectrum-Breadcrumbs-itemLink.focus-ring:before {
+  right: 0;
+}
 .spectrum-Breadcrumbs-item.is-dragged .spectrum-Breadcrumbs-itemLink:before,
 .spectrum-Breadcrumbs-itemLink.focus-ring:before {
   position: absolute;
   top: 0;
-  left: 0;
 
   box-sizing: border-box;
   display: block;
@@ -158,11 +185,14 @@
 .spectrum-Breadcrumbs--compact .spectrum-Breadcrumbs-item {
     font-size: 14px;
   }
+.spectrum-Breadcrumbs--multiline {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
 .spectrum-Breadcrumbs--multiline .spectrum-Breadcrumbs-item {
     font-size: 12px;
     font-weight: 400;
     line-height: 1.5;
-
   }
 .spectrum-Breadcrumbs--multiline .spectrum-Breadcrumbs-item:last-of-type {
       height: auto;
@@ -180,21 +210,6 @@
 
         text-decoration: none;
       }
-.spectrum-Breadcrumbs--title .spectrum-Breadcrumbs-item:last-of-type {
-    width: 100%;
-
-    margin: 0.3em 0;
-
-    font-size: 28px;
-    font-weight: 300;
-    line-height: 32px;
-  }
-.spectrum-Breadcrumbs--title .spectrum-Breadcrumbs-item .spectrum-Heading--pageTitle {
-    margin: 0;
-
-    font-size: inherit;
-    font-weight: inherit;
-  }
 .spectrum--dark .spectrum-Breadcrumbs-item {
   color: rgb(185, 185, 185);
 }
@@ -223,6 +238,9 @@
 .spectrum--dark .spectrum-Breadcrumbs-item .spectrum-Breadcrumbs-itemLink:active {
       color: rgb(255, 255, 255);
       border-bottom: 0;
+    }
+.spectrum--dark .spectrum-Breadcrumbs-item .spectrum-Breadcrumbs-itemLink.is-disabled {
+      color: rgb(110, 110, 110);
     }
 .spectrum--dark .spectrum-Breadcrumbs-item.is-selected,
 .spectrum--dark .spectrum-Breadcrumbs-item:last-of-type {
@@ -264,6 +282,9 @@
       color: rgb(239, 239, 239);
       border-bottom: 0;
     }
+.spectrum--darkest .spectrum-Breadcrumbs-item .spectrum-Breadcrumbs-itemLink.is-disabled {
+      color: rgb(92, 92, 92);
+    }
 .spectrum--darkest .spectrum-Breadcrumbs-item.is-selected,
 .spectrum--darkest .spectrum-Breadcrumbs-item:last-of-type {
     color: rgb(239, 239, 239);
@@ -304,6 +325,9 @@
       color: rgb(44, 44, 44);
       border-bottom: 0;
     }
+.spectrum--light .spectrum-Breadcrumbs-item .spectrum-Breadcrumbs-itemLink.is-disabled {
+      color: rgb(179, 179, 179);
+    }
 .spectrum--light .spectrum-Breadcrumbs-item.is-selected,
 .spectrum--light .spectrum-Breadcrumbs-item:last-of-type {
     color: rgb(44, 44, 44);
@@ -343,6 +367,9 @@
 .spectrum--lightest .spectrum-Breadcrumbs-item .spectrum-Breadcrumbs-itemLink:active {
       color: rgb(50, 50, 50);
       border-bottom: 0;
+    }
+.spectrum--lightest .spectrum-Breadcrumbs-item .spectrum-Breadcrumbs-itemLink.is-disabled {
+      color: rgb(188, 188, 188);
     }
 .spectrum--lightest .spectrum-Breadcrumbs-item.is-selected,
 .spectrum--lightest .spectrum-Breadcrumbs-item:last-of-type {

@@ -1,13 +1,4 @@
-.spectrum--darkest .spectrum-Dialog {
-  background: rgb(30, 30, 30);
-}
-.spectrum--darkest .spectrum-Dialog-header {
-  background: rgb(30, 30, 30);
-}
-.spectrum--darkest .spectrum-Dialog-header:after {
-    background: rgb(57, 57, 57);
-  }
-.spectrum--darkest .spectrum-Dialog-title {
+.spectrum--darkest .spectrum-Dialog-heading {
   color: rgb(239, 239, 239);
 }
 .spectrum--darkest .spectrum-Dialog-content {
@@ -16,12 +7,9 @@
 .spectrum--darkest .spectrum-Dialog-typeIcon {
   color: rgb(239, 239, 239);
 }
-.spectrum--darkest .spectrum-Dialog-footer {
-  background: rgb(30, 30, 30);
-}
-.spectrum--darkest .spectrum-Dialog--error .spectrum-Dialog-title {
-    color: rgb(236, 91, 98);
-  }
 .spectrum--darkest .spectrum-Dialog--error .spectrum-Dialog-typeIcon {
     color: rgb(236, 91, 98);
+  }
+.spectrum--darkest .spectrum-Dialog--warning .spectrum-Dialog-typeIcon {
+    color: rgb(242, 148, 35);
   }

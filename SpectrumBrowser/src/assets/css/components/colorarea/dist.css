@@ -1,0 +1,126 @@
+.spectrum--large .spectrum-ColorArea.is-focused .spectrum-ColorArea-handle {
+  width: 40px;
+  height: 40px;
+
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.spectrum--large .spectrum-ColorArea {
+  width: 240px;
+  height: 240px;
+
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-ColorArea:before {
+    border-radius: 5px;
+  }
+.spectrum--large .spectrum-ColorArea-gradient {
+  border-radius: 5px;
+}
+.spectrum-ColorArea-slider {
+  opacity: 0.0001;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  margin: 0;
+  pointer-events: none;
+}
+.spectrum-ColorArea.is-focused .spectrum-ColorArea-handle {
+  width: 32px;
+  height: 32px;
+
+  margin-left: -16px;
+  margin-top: -16px;
+}
+.spectrum-ColorArea {
+  position: relative;
+  display: inline-block;
+  width: 192px;
+  height: 192px;
+
+  border-radius: 4px;
+
+  cursor: default;
+
+  -webkit-user-select: none;
+
+     -moz-user-select: none;
+
+      -ms-user-select: none;
+
+          user-select: none;
+}
+.spectrum-ColorArea.is-focused {
+    z-index: 2;
+  }
+.spectrum-ColorArea.is-disabled {
+    pointer-events: none;
+  }
+.spectrum-ColorArea:before {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 4px;
+  }
+.spectrum-ColorArea-handle {
+  left: 0;
+  top: 0;
+}
+.spectrum-ColorArea-gradient {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.spectrum--dark .spectrum-ColorArea:before {
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+  }
+.spectrum--dark .spectrum-ColorArea.is-disabled {
+    background: rgb(74, 74, 74);
+  }
+.spectrum--dark .spectrum-ColorArea.is-disabled:before {
+      box-shadow: inset 0 0 0 1px rgb(74, 74, 74);
+    }
+.spectrum--dark .spectrum-ColorArea.is-disabled .spectrum-ColorArea-gradient {
+      display: none;
+    }
+.spectrum--darkest .spectrum-ColorArea:before {
+    box-shadow: inset 0 0 0 1px rgba(239,239,239,0.1);
+  }
+.spectrum--darkest .spectrum-ColorArea.is-disabled {
+    background: rgb(57, 57, 57);
+  }
+.spectrum--darkest .spectrum-ColorArea.is-disabled:before {
+      box-shadow: inset 0 0 0 1px rgb(57, 57, 57);
+    }
+.spectrum--darkest .spectrum-ColorArea.is-disabled .spectrum-ColorArea-gradient {
+      display: none;
+    }
+.spectrum--light .spectrum-ColorArea:before {
+    box-shadow: inset 0 0 0 1px rgba(44,44,44,0.1);
+  }
+.spectrum--light .spectrum-ColorArea.is-disabled {
+    background: rgb(225, 225, 225);
+  }
+.spectrum--light .spectrum-ColorArea.is-disabled:before {
+      box-shadow: inset 0 0 0 1px rgb(225, 225, 225);
+    }
+.spectrum--light .spectrum-ColorArea.is-disabled .spectrum-ColorArea-gradient {
+      display: none;
+    }
+.spectrum--lightest .spectrum-ColorArea:before {
+    box-shadow: inset 0 0 0 1px rgba(50,50,50,0.1);
+  }
+.spectrum--lightest .spectrum-ColorArea.is-disabled {
+    background: rgb(234, 234, 234);
+  }
+.spectrum--lightest .spectrum-ColorArea.is-disabled:before {
+      box-shadow: inset 0 0 0 1px rgb(234, 234, 234);
+    }
+.spectrum--lightest .spectrum-ColorArea.is-disabled .spectrum-ColorArea-gradient {
+      display: none;
+    }

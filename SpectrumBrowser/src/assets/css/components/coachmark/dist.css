@@ -44,7 +44,8 @@
 .spectrum--large .spectrum-CoachMarkPopover-header,
 .spectrum--large .spectrum-CoachMarkPopover-content,
 .spectrum--large .spectrum-CoachMarkPopover-footer {
-  padding: 0 30px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .spectrum--large .spectrum-CoachMarkPopover-header {
   padding-top: 30px;
@@ -86,9 +87,14 @@
   min-width: 60px;
   min-height: 60px;
 }
+.spectrum--large [dir="ltr"] .spectrum-CoachMarkIndicator-ring {
+  left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CoachMarkIndicator-ring {
+  right: 15px;
+}
 .spectrum--large .spectrum-CoachMarkIndicator-ring {
   top: 15px;
-  left: 15px;
 
   width: 20px;
   height: 20px;
@@ -101,9 +107,14 @@
   min-width: 27.5px;
   min-height: 27.5px;
 }
+.spectrum--large [dir="ltr"] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring {
+    left: 7.5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring {
+    right: 7.5px;
+}
 .spectrum--large .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring {
     top: 7.5px;
-    left: 7.5px;
 
     width: 10px;
     height: 10px;
@@ -159,7 +170,10 @@
 .spectrum-CoachMarkPopover-header,
 .spectrum-CoachMarkPopover-content,
 .spectrum-CoachMarkPopover-footer {
-  padding: 0 24px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 .spectrum-CoachMarkPopover-header {
   padding-top: 24px;
@@ -195,9 +209,14 @@
 .spectrum-CoachMarkPopover-content {
   margin-bottom: 16px;
 }
+[dir="ltr"] .spectrum-CoachMarkPopover-footer {
+  text-align: right;
+}
+[dir="rtl"] .spectrum-CoachMarkPopover-footer {
+  text-align: left;
+}
 .spectrum-CoachMarkPopover-footer {
   margin-top: 0;
-  text-align: right;
 }
 .spectrum-CoachMarkIndicator {
   position: relative;
@@ -222,9 +241,14 @@
   min-width: 48px;
   min-height: 48px;
 }
+[dir="ltr"] .spectrum-CoachMarkIndicator-ring {
+  left: 12px;
+}
+[dir="rtl"] .spectrum-CoachMarkIndicator-ring {
+  right: 12px;
+}
 .spectrum-CoachMarkIndicator-ring {
   top: 12px;
-  left: 12px;
 
   width: 16px;
   height: 16px;
@@ -237,9 +261,14 @@
   min-width: 22px;
   min-height: 22px;
 }
+[dir="ltr"] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring {
+    left: 6px;
+}
+[dir="rtl"] .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring {
+    right: 6px;
+}
 .spectrum-CoachMarkIndicator--quiet .spectrum-CoachMarkIndicator-ring {
     top: 6px;
-    left: 6px;
 
     width: 8px;
     height: 8px;

@@ -1,0 +1,39 @@
+.spectrum--large .spectrum-ColorHandle.is-focused,
+.spectrum--large .spectrum-ColorHandle.focus-ring {
+  width: 40px;
+  height: 40px;
+
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.spectrum--large .spectrum-ColorHandle {
+  width: 20px;
+  height: 20px;
+
+  margin-left: -10px;
+  margin-top: -10px;
+
+  border-width: 2px;
+
+  background-size:
+    16px
+    16px;
+  background-position:
+    -2px -2px,
+    -2px 6px,
+    6px -10px,
+    -10px -2px;
+
+  transition:
+    width 130ms ease-in-out,
+    height 130ms ease-in-out,
+    border-width 130ms ease-in-out,
+    margin-left 130ms ease-in-out,
+    margin-top 130ms ease-in-out;
+}
+.spectrum--large .spectrum-ColorHandle:after {
+    left: calc(50% - 15px);
+    top: calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+  }

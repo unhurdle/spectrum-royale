@@ -4,16 +4,19 @@
 }
 .spectrum--large .spectrum-Site-sideBarHeader {
 
-  padding: 40px;
+  padding: 35px 30px;
 }
 .spectrum--large .spectrum-Site-search {
-  padding: 0 40px 40px 40px;
+  padding: 0 30px 30px 30px;
 }
 .spectrum--large .spectrum-Site-noSearchResults {
   padding: 40px 40px 40px;
 }
-.spectrum--large .spectrum-Site-logo {
-  margin-right: 18px;
+.spectrum--large [dir="ltr"] .spectrum-Site-logo {
+  margin-right: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Site-logo {
+  margin-left: 20px;
 }
 .spectrum--large .spectrum-Site-nav {
 
@@ -22,7 +25,18 @@
 .spectrum--large .spectrum-Site-bottomNav {
   margin-top: 80px;
 }
+.spectrum--large .spectrum-Site-heroImage {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-Site-footerContainer {
+  max-width: 1080px;
+  margin: 50px auto;
+  padding: 0 70px;
+}
 @media screen and (max-width: 960px) {
+
   .spectrum--large .spectrum-Site-overlay {
     transition: opacity 160ms ease-out 0ms,
                 visibility 0ms linear 160ms;
@@ -36,9 +50,20 @@
     transition: transform 160ms ease-in-out;
   }
 
-  .spectrum--large .spectrum-Site-page {
+  .spectrum--large [dir="ltr"] .spectrum-Site-page {
     padding-left: 30px;
+  }
+
+  .spectrum--large [dir="rtl"] .spectrum-Site-page {
     padding-right: 30px;
+  }
+
+  .spectrum--large [dir="ltr"] .spectrum-Site-page {
+    padding-right: 30px;
+  }
+
+  .spectrum--large [dir="rtl"] .spectrum-Site-page {
+    padding-left: 30px;
   }
 
   .spectrum--large .spectrum-Site-heroHeading h1.spectrum-Heading1--display {
@@ -56,35 +81,51 @@
 .spectrum--large .spectrum-CSSComponent-statusContainer {
   margin: 0 20px;
 }
+.spectrum--large [dir="ltr"] .spectrum-CSSComponent-detailsTable th {
+  padding-right: 30px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSSComponent-detailsTable th {
+  padding-left: 30px;
+}
 .spectrum--large .spectrum-CSSComponent-detailsTable th {
   height: 35px;
   font-weight: 400;
-  padding-right: 30px;
 }
 .spectrum--large .spectrum-CSSComponent-detailsTable {
   margin-top: 50px;
   margin-bottom: 45px;
 }
 .spectrum--large .spectrum-CSSComponent-sectionHeading {
-  margin-top: 70px;
-  margin-bottom: 50px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }
-.spectrum--large .spectrum-CSSExample-status {
+.spectrum--large [dir="ltr"] .spectrum-CSSExample-status {
   margin-left: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSSExample-status {
+  margin-right: 20px;
 }
 .spectrum--large .spectrum-CSSComponent-description {
   margin-top: 30px;
-  margin-bottom: 112px;
+  margin-bottom: 60px;
 }
 .spectrum--large .spectrum-CSSComponent-resources {
   margin-bottom: 70px;
 }
-.spectrum--large .spectrum-CSSComponent-resources .spectrum-Card {
+.spectrum--large [dir="ltr"] .spectrum-CSSComponent-resources .spectrum-Card {
   margin-right: 30px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSSComponent-resources .spectrum-Card {
+  margin-left: 30px;
+}
+.spectrum--large .spectrum-CSSComponent-resources .spectrum-Card {
   margin-bottom: 30px;
 }
-.spectrum--large .spectrum-CSS-switcherContainer {
+.spectrum--large [dir="ltr"] .spectrum-CSS-switcherContainer {
   margin-left: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSS-switcherContainer {
+  margin-right: 40px;
 }
 .spectrum--large .spectrum-CSSExample {
   margin-bottom: 80px;
@@ -98,7 +139,7 @@
 }
 .spectrum--large .spectrum-CSSExample-example {
 
-  min-height: --spectrum-global-dimension-size-2400;
+  min-height: 0;
 
   padding: 40px 50px;
 
@@ -110,8 +151,6 @@
   padding: 13px 22px;
 
   border-radius: 0 0 5px 5px;
-
-  font-size: 12px;
 }
 .spectrum--large .spectrum-CSSExample-markup.is-open {
 
@@ -119,6 +158,9 @@
 }
 .spectrum--large .spectrum-CSSExample-markupToggle + pre {
   padding-bottom: 10px;
+}
+.spectrum--large .spectrum-CSSExample-example--overlay {
+  min-height: 80px;
 }
 .spectrum--large .spectrum-CSSExample-markupToggle {
   padding: 30px 30px;
@@ -149,6 +191,25 @@
   .spectrum--large .spectrum-CSSComponent-title {
     font-size: 34px;
   }
+}
+.spectrum--large .spectrum-CodeBlock {
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 18px 20px;
+
+  margin: 25px 0;
+}
+.spectrum--large .spectrum-HomeCards {
+  margin: 70px 0;
+}
+.spectrum--large .spectrum-HomeCard {
+
+  margin-bottom: 35px;
+  padding: 0 25px;
+}
+.spectrum--large .spectrum-HomeCard-image {
+  width: 125px;
+  margin-right: 25px;
 }
 .spectrum-Site {
   height: 100%;
@@ -200,7 +261,7 @@
   -ms-flex-align: center;
       align-items: center;
 
-  padding: 32px;
+  padding: 28px 24px;
 
   text-decoration: none;
 }
@@ -211,11 +272,16 @@
   text-decoration: underline;
 }
 .spectrum-Site-search {
-  padding: 0 32px 32px 32px;
+  padding: 0 24px 24px 24px;
+}
+[dir="ltr"] .spectrum-Site-searchResults {
+  left: -100%;
+}
+[dir="rtl"] .spectrum-Site-searchResults {
+  right: -100%;
 }
 .spectrum-Site-searchResults {
   top: -100%;
-  left: -100%;
   max-height: calc(90vh - 120px);
   z-index: 101;
   position: absolute;
@@ -225,15 +291,20 @@
 .spectrum-Site-noSearchResults {
   padding: 32px 32px 32px;
 }
+[dir="ltr"] .spectrum-Site-logo {
+  margin-right: 16px;
+}
+[dir="rtl"] .spectrum-Site-logo {
+  margin-left: 16px;
+}
 .spectrum-Site-logo {
-  margin-right: 14px;
-  color: rgb(225, 37, 27);
+  color: #FA0F00;
 }
 .spectrum--medium .spectrum-Site-logo {
-    height: 31px;
+    height: 32px;
   }
 .spectrum--large .spectrum-Site-logo {
-    height: 39px;
+    height: 40px;
   }
 .spectrum-Site-nav {
   -ms-flex-positive: 1;
@@ -244,37 +315,64 @@
 .spectrum-Site-bottomNav {
   margin-top: 80px;
 }
-.spectrum-Site-mainContainer {
-  -ms-flex-positive: 1;
-      flex-grow: 1;
-  border: none;
-
-  overflow-y: auto;
-}
 .spectrum-Site-page {
   padding: 40px 52px 24px 52px;
   max-width: 1080px;
   margin: auto;
+  box-sizing: border-box;
 }
 .spectrum-Site-hero {
-  max-width: 75%;
+  max-width: 1080px;
   margin: auto;
 }
 .spectrum-Site-heroHeading {
   margin-bottom: 16px;
 }
-.spectrum-Site-heroImage {
-  margin-top: 40px;
-  margin-bottom: 80px;
-  max-width: 100%;
+.spectrum-Site-heroHeading .spectrum-Heading {
+  margin-top: 0 !important;
 }
-.spectrum-Site-footer {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+[dir="ltr"] .spectrum-Site-heroImage {
+  margin-left: auto;
+}
+[dir="rtl"] .spectrum-Site-heroImage {
+  margin-right: auto;
+}
+[dir="ltr"] .spectrum-Site-heroImage {
+  margin-right: auto;
+}
+[dir="rtl"] .spectrum-Site-heroImage {
+  margin-left: auto;
+}
+.spectrum-Site-heroImage {
+  display: block;
+  max-width: 100%;
+  margin-top: 56px;
+  margin-bottom: 56px;
+  border-radius: 4px;
+}
+.spectrum-Site-mainContent {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  border-top: none;
+  border-bottom: none;
+  overflow-y: auto;
+}
+.spectrum-Site-footerContainer {
+  max-width: 1080px;
+  margin: 40px auto;
+  padding: 0 56px;
+}
+[dir="ltr"] .spectrum-Site-overlay {
+  right: 0;
+}
+[dir="rtl"] .spectrum-Site-overlay {
+  left: 0;
+}
+[dir="ltr"] .spectrum-Site-overlay {
+  left: 0;
+}
+[dir="rtl"] .spectrum-Site-overlay {
+  right: 0;
 }
 .spectrum-Site-overlay {
   display: none;
@@ -285,14 +383,16 @@
   pointer-events: none;
   position: fixed;
   top: 0;
-  right: 0;
   bottom: 0;
-  left: 0;
   z-index: 99;
 
   overflow: hidden;
 }
 @media screen and (max-width: 960px) {
+  .spectrum-Site-content {
+    max-height: calc(100% - 48px);
+  }
+
   .spectrum-Site-overlay {
     display: block;
     transition: opacity 160ms ease-out 0ms,
@@ -312,11 +412,18 @@
     visibility: visible;
   }
 
+  [dir="ltr"] .spectrum-Site-sideBar {
+    right: 100%;
+  }
+
+  [dir="rtl"] .spectrum-Site-sideBar {
+    left: 100%;
+  }
+
   .spectrum-Site-sideBar {
     position: fixed;
     top: 0;
     bottom: 0;
-    right: 100%;
     z-index: 100;
 
     transform: translateX(0);
@@ -331,9 +438,20 @@
     display: block;
   }
 
-  .spectrum-Site-page {
+  [dir="ltr"] .spectrum-Site-page {
     padding-left: 24px;
+  }
+
+  [dir="rtl"] .spectrum-Site-page {
     padding-right: 24px;
+  }
+
+  [dir="ltr"] .spectrum-Site-page {
+    padding-right: 24px;
+  }
+
+  [dir="rtl"] .spectrum-Site-page {
+    padding-left: 24px;
   }
 
   .spectrum-Site-hero {
@@ -384,11 +502,16 @@
   vertical-align: bottom;
   margin: 0 16px;
 }
+[dir="ltr"] .spectrum-CSSComponent-detailsTable th {
+  padding-right: 24px;
+}
+[dir="rtl"] .spectrum-CSSComponent-detailsTable th {
+  padding-left: 24px;
+}
 .spectrum-CSSComponent-detailsTable th {
   text-align: left;
   height: 28px;
   font-weight: 400;
-  padding-right: 24px;
 }
 .spectrum-CSSComponent-detailsTable {
   border-spacing: 0;
@@ -396,19 +519,25 @@
   margin-bottom: 36px;
 }
 .spectrum-CSSComponent-sectionHeading {
-  margin-top: 56px;
-  margin-bottom: 40px;
+  margin-top: 48px;
+  margin-bottom: 32px;
 }
 .spectrum-CSSExample-status,
 .spectrum-CSSComponent-status {
   padding: 0 !important;
   min-height: 0 !important;
 }
-.spectrum-CSSComponent-status::before {
+[dir="ltr"] .spectrum-CSSComponent-status::before {
   margin-left: 0 !important;
 }
-.spectrum-CSSExample-status {
+[dir="rtl"] .spectrum-CSSComponent-status::before {
+  margin-right: 0 !important;
+}
+[dir="ltr"] .spectrum-CSSExample-status {
   margin-left: 16px;
+}
+[dir="rtl"] .spectrum-CSSExample-status {
+  margin-right: 16px;
 }
 .spectrum-CSSComponent-version {
   -ms-flex-positive: 1;
@@ -417,7 +546,7 @@
 }
 .spectrum-CSSComponent-description {
   margin-top: 24px;
-  margin-bottom: 72px;
+  margin-bottom: 48px;
 }
 .spectrum-CSSComponent-resources {
   display: -ms-flexbox;
@@ -428,17 +557,14 @@
       flex-direction: row;
   margin-bottom: 56px;
 }
-.spectrum-CSSComponent-resources .spectrum-Card {
+[dir="ltr"] .spectrum-CSSComponent-resources .spectrum-Card {
   margin-right: 24px;
+}
+[dir="rtl"] .spectrum-CSSComponent-resources .spectrum-Card {
+  margin-left: 24px;
+}
+.spectrum-CSSComponent-resources .spectrum-Card {
   margin-bottom: 24px;
-}
-.spectrum-CSSComponent-resource--adobe {
-  color: rgb(255, 2, 1) !important;
-  background-color: rgba(255, 2, 1, 0.1) !important;
-}
-.spectrum-CSSComponent-resource--github {
-  background-color: rgba(0, 0, 0, 0.1) !important;
-  color: black;
 }
 .spectrum--dark .spectrum-CSSComponent-resource--github, .spectrum--darkest .spectrum-CSSComponent-resource--github {
     background-color: rgba(245, 245, 245, 0.1) !important;
@@ -460,8 +586,13 @@
   -ms-flex-pack: end;
       justify-content: flex-end;
 }
-.spectrum-CSS-switcherContainer {
+[dir="ltr"] .spectrum-CSS-switcherContainer {
   margin-left: 32px;
+}
+[dir="rtl"] .spectrum-CSS-switcherContainer {
+  margin-right: 32px;
+}
+.spectrum-CSS-switcherContainer {
   white-space: nowrap;
 }
 .spectrum-CSSExample {
@@ -495,7 +626,7 @@
   -ms-flex: 1 0 auto;
       flex: 1 0 auto;
 
-  min-height: --spectrum-global-dimension-size-2400;
+  min-height: 0;
 
   padding: 32px 40px;
 
@@ -510,8 +641,6 @@
 
   border-radius: 0 0 4px 4px;
 
-  font-size: 10px;
-
   overflow: hidden;
 }
 .spectrum-CSSExample-markup.is-open {
@@ -525,34 +654,71 @@
 .spectrum-CSSExample-markupToggle + pre {
   padding-bottom: 8px;
 }
+.spectrum-CSSExample-example--spacious {
+  position: relative;
+  height: 150px;
+}
 .spectrum-CSSExample-example--overlay {
   position: relative;
+  min-height: 64px;
 }
-.spectrum-Dialog.spectrum-CSSExample-dialog {
+[dir="ltr"] .spectrum-CSSExample-dialog {
+  margin-left: auto;
+}
+[dir="rtl"] .spectrum-CSSExample-dialog {
+  margin-right: auto;
+}
+[dir="ltr"] .spectrum-CSSExample-dialog {
+  margin-right: auto;
+}
+[dir="rtl"] .spectrum-CSSExample-dialog {
+  margin-left: auto;
+}
+[dir="ltr"] .spectrum-CSSExample-dialog {
+  left: 0;
+}
+[dir="rtl"] .spectrum-CSSExample-dialog {
+  right: 0;
+}
+.spectrum-CSSExample-dialog {
   position: relative !important;
   transform: none !important;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
+  width: auto !important;
+  height: auto !important;
   top: 0;
-  z-index: 1;
+  z-index: 1 !important;
   transition: none;
 }
-.spectrum-CSSExample-overlayShowButton {
-  position: absolute;
+[dir="ltr"] .spectrum-Button.spectrum-CSSExample-overlayShowButton {
   left: 50%;
+}
+[dir="rtl"] .spectrum-Button.spectrum-CSSExample-overlayShowButton {
+  right: 50%;
+}
+.spectrum-Button.spectrum-CSSExample-overlayShowButton {
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 .spectrum-CSSExample-markup pre code {
   white-space: pre-wrap;
 }
+[dir="ltr"] .spectrum-CSSExample-markupToggle {
+  left: 0;
+}
+[dir="rtl"] .spectrum-CSSExample-markupToggle {
+  right: 0;
+}
+[dir="ltr"] .spectrum-CSSExample-markupToggle {
+  right: 0;
+}
+[dir="rtl"] .spectrum-CSSExample-markupToggle {
+  left: 0;
+}
 .spectrum-CSSExample-markupToggle {
   position: absolute;
   z-index: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
 
   box-sizing: border-box;
   padding: 24px 24px;
@@ -590,6 +756,49 @@
     font-size: 28px;
   }
 }
+.spectrum-CenteredImage {
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  display: block;
+}
+.spectrum-CodeBlock {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 14px 16px;
+
+  margin: 20px 0;
+}
+.spectrum-HomeCards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(380px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-gap: 1rem;
+  margin: 56px 0;
+}
+.spectrum-HomeCard {
+  display: -ms-flexbox;
+  display: flex;
+
+  -ms-flex-align: start;
+
+      align-items: flex-start;
+
+  margin-bottom: 28px;
+  padding: 0 20px;
+}
+.spectrum-HomeCard-image {
+  width: 100px;
+  margin-right: 20px;
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+}
+.spectrum-HomeCard-content {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+}
 .u-scrollable {
   overflow-x: hidden;
   overflow-y: auto;
@@ -604,7 +813,8 @@
   border-radius: 8px;
   width: 8px;
   height: 8px;
-  border: 2px solid rgba(0, 0, 0, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
 }
 .spectrum--dark .spectrum-Site {
@@ -622,6 +832,14 @@
 }
 .spectrum--dark .spectrum-Site-overlay {
   background: rgba(0, 0, 0, 0.2);
+}
+.spectrum--dark .spectrum-CSSComponent-resource--github {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: black;
+}
+.spectrum--dark .spectrum-CSSComponent-resource--adobe {
+  color: #FA0F00 !important;
+  background-color: rgb(50, 50, 50) !important;
 }
 .spectrum--dark .u-scrollable::-webkit-scrollbar-track,
 .spectrum--dark .u-scrollable::-webkit-scrollbar-track-piece {
@@ -654,6 +872,13 @@
   background: rgba(0,0,0,0.4);
   color: rgba(0,0,0,0.4);
 }
+.spectrum--dark .spectrum-CSSExample-oldAPI {
+  color: rgb(247, 109, 116);
+}
+.spectrum--dark .spectrum-CodeBlock {
+  border-color: rgb(90, 90, 90);
+  background-color: rgb(47, 47, 47);
+}
 .spectrum--darkest .spectrum-Site {
   background-color: rgb(8, 8, 8);
 }
@@ -669,6 +894,14 @@
 }
 .spectrum--darkest .spectrum-Site-overlay {
   background: rgba(0, 0, 0, 0.2);
+}
+.spectrum--darkest .spectrum-CSSComponent-resource--github {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: black;
+}
+.spectrum--darkest .spectrum-CSSComponent-resource--adobe {
+  color: #FA0F00 !important;
+  background-color: rgb(30, 30, 30) !important;
 }
 .spectrum--darkest .u-scrollable::-webkit-scrollbar-track,
 .spectrum--darkest .u-scrollable::-webkit-scrollbar-track-piece {
@@ -701,6 +934,13 @@
   background: rgba(0,0,0,0.4);
   color: rgba(0,0,0,0.4);
 }
+.spectrum--darkest .spectrum-CSSExample-oldAPI {
+  color: rgb(236, 91, 98);
+}
+.spectrum--darkest .spectrum-CodeBlock {
+  border-color: rgb(73, 73, 73);
+  background-color: rgb(26, 26, 26);
+}
 .spectrum--light .spectrum-Site {
   background-color: rgb(255, 255, 255);
 }
@@ -716,6 +956,14 @@
 }
 .spectrum--light .spectrum-Site-overlay {
   background: rgba(0, 0, 0, 0.2);
+}
+.spectrum--light .spectrum-CSSComponent-resource--github {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: black;
+}
+.spectrum--light .spectrum-CSSComponent-resource--adobe {
+  color: #FA0F00 !important;
+  background-color: rgb(245, 245, 245) !important;
 }
 .spectrum--light .u-scrollable::-webkit-scrollbar-track,
 .spectrum--light .u-scrollable::-webkit-scrollbar-track-piece {
@@ -748,6 +996,13 @@
   background: rgba(0,0,0,0.4);
   color: rgba(0,0,0,0.4);
 }
+.spectrum--light .spectrum-CSSExample-oldAPI {
+  color: rgb(201, 37, 45);
+}
+.spectrum--light .spectrum-CodeBlock {
+  border-color: rgb(202, 202, 202);
+  background-color: rgb(250, 250, 250);
+}
 .spectrum--lightest .spectrum-Site {
   background-color: rgb(255, 255, 255);
 }
@@ -763,6 +1018,14 @@
 }
 .spectrum--lightest .spectrum-Site-overlay {
   background: rgba(0, 0, 0, 0.2);
+}
+.spectrum--lightest .spectrum-CSSComponent-resource--github {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: black;
+}
+.spectrum--lightest .spectrum-CSSComponent-resource--adobe {
+  color: #FA0F00 !important;
+  background-color: rgb(255, 255, 255) !important;
 }
 .spectrum--lightest .u-scrollable::-webkit-scrollbar-track,
 .spectrum--lightest .u-scrollable::-webkit-scrollbar-track-piece {
@@ -794,4 +1057,11 @@
 .spectrum--lightest .spectrum-CSSExample-example--overlay {
   background: rgba(0,0,0,0.4);
   color: rgba(0,0,0,0.4);
+}
+.spectrum--lightest .spectrum-CSSExample-oldAPI {
+  color: rgb(215, 55, 63);
+}
+.spectrum--lightest .spectrum-CodeBlock {
+  border-color: rgb(211, 211, 211);
+  background-color: rgb(255, 255, 255);
 }

@@ -52,12 +52,18 @@
 .spectrum--lightest tbody.spectrum-Table-body .spectrum-Table-cell {
     border-top: 1px solid rgb(234, 234, 234);
   }
-.spectrum--lightest tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+.spectrum--lightest [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
     border-left: 1px solid rgb(234, 234, 234);
-  }
-.spectrum--lightest tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+}
+.spectrum--lightest [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
     border-right: 1px solid rgb(234, 234, 234);
-  }
+}
+.spectrum--lightest [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-right: 1px solid rgb(234, 234, 234);
+}
+.spectrum--lightest [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-left: 1px solid rgb(234, 234, 234);
+}
 .spectrum--lightest tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell {
     border-bottom: 1px solid rgb(234, 234, 234);
   }
@@ -93,9 +99,17 @@
   color: rgb(80, 80, 80);
   background-color: transparent;
 }
-.spectrum--lightest .spectrum-Table-cell--divider {
+.spectrum--lightest [dir="ltr"] .spectrum-Table-cell--divider {
   border-right-style: solid;
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-style: solid;
+}
+.spectrum--lightest [dir="ltr"] .spectrum-Table-cell--divider {
   border-right-color: rgb(234, 234, 234);
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-color: rgb(234, 234, 234);
 }
 .spectrum--lightest .spectrum-Table--quiet .spectrum-Table-body {
     border-width: 1px 0;
@@ -131,8 +145,23 @@
 .spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row.is-selected.is-focused {
         background-color: rgba(38,128,235,0.2);
       }
-.spectrum--lightest .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
-.spectrum--lightest .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+.spectrum--lightest [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
       border-left: none;
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
       border-right: none;
-    }
+}
+.spectrum--lightest [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}

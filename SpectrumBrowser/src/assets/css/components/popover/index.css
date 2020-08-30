@@ -47,23 +47,18 @@
   border-radius: 4px;
 
   outline: none;
+  box-sizing: border-box;
 }
 .spectrum-Popover-tip {
   position: absolute;
-  overflow: hidden;
-  width: 21px;
-  height: 11px;
+  --spectrum-popover-tip-size: 20px;
+  --spectrum-popover-tip-borderWidth: 1px;
+  -webkit-transform: translate(0, 0);
 }
-.spectrum-Popover-tip::after {
-    content: '';
-    width: 20px;
-    height: 20px;
-    border-width: 1px;
-    border-style: solid;
-    position: absolute;
-    transform: rotate(45deg);
-    top: -18px;
-    left: -1px;
+.spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-width: 1px;
   }
 .spectrum-Popover--dialog {
   min-width: 270px;
@@ -73,32 +68,31 @@
     margin-right: 13px;
   }
 .spectrum-Popover--left .spectrum-Popover-tip {
-    right: -16px;
-    transform: rotate(-90deg);
+    left: 100%;
   }
 .spectrum-Popover--right.spectrum-Popover--withTip {
     margin-left: 13px;
   }
 .spectrum-Popover--right .spectrum-Popover-tip {
-    left: -16px;
-    transform: rotate(90deg);
+    right: 100%;
+    transform: scaleX(-1);
   }
 .spectrum-Popover--left .spectrum-Popover-tip, .spectrum-Popover--right .spectrum-Popover-tip {
     top: 50%;
-    margin-top: -6px;
+    margin-top: -12px;
   }
 .spectrum-Popover--bottom.spectrum-Popover--withTip {
     margin-top: 13px;
   }
 .spectrum-Popover--bottom .spectrum-Popover-tip {
-    top: -11px;
-    transform: rotate(180deg);
+    bottom: 100%;
+    transform: scaleY(-1);
   }
 .spectrum-Popover--top.spectrum-Popover--withTip {
     margin-bottom: 13px;
   }
 .spectrum-Popover--top .spectrum-Popover-tip {
-    bottom: -11px;
+    top: 100%;
   }
 .spectrum-Popover--bottom .spectrum-Popover-tip, .spectrum-Popover--top .spectrum-Popover-tip {
     left: 50%;

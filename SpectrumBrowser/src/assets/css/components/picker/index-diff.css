@@ -1,0 +1,77 @@
+.spectrum--large .spectrum-Picker {
+  width: 240px;
+  min-width: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Picker select + .spectrum-Picker-icon {
+      right: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker select + .spectrum-Picker-icon {
+      left: 15px;
+}
+.spectrum--large .spectrum-Picker select + .spectrum-Picker-icon {
+      margin-top: -4px;
+    }
+.spectrum--large .spectrum-Picker-label {
+
+  height: 38px;
+  line-height: 38px;
+
+  font-size: 17px;
+}
+.spectrum--large .spectrum-Picker-label.is-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-left: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-right: 10px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-right: 15px;
+}
+.spectrum--large .spectrum-Picker-icon {
+  transition: color 130ms ease-out;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.spectrum--large .spectrum-Picker-trigger .spectrum-Icon:not(.spectrum-Picker-icon) {
+  margin-top: 8px;
+    margin-bottom: 8px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-left: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-right: 10px;
+}
+.spectrum--large .spectrum-Picker--quiet {
+  width: auto;
+  min-width: 20px;
+}
+.spectrum--large .spectrum-Picker-popover {
+  max-width: 300px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Picker-popover--quiet {
+  margin-left: -16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-popover--quiet {
+  margin-right: -16px;
+}

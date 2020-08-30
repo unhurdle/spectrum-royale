@@ -27,6 +27,9 @@
       color: rgb(50, 50, 50);
       border-bottom: 0;
     }
+.spectrum--lightest .spectrum-Breadcrumbs-item .spectrum-Breadcrumbs-itemLink.is-disabled {
+      color: rgb(188, 188, 188);
+    }
 .spectrum--lightest .spectrum-Breadcrumbs-item.is-selected,
 .spectrum--lightest .spectrum-Breadcrumbs-item:last-of-type {
     color: rgb(50, 50, 50);

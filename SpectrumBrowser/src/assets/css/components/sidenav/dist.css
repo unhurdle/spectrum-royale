@@ -1,11 +1,17 @@
 .spectrum--large .spectrum-SideNav-item {
 
-  margin: 5px 0;
+  margin-top: 5px;
+
+  margin-bottom: 5px;
 }
 .spectrum--large .spectrum-SideNav-itemLink {
   min-height: 40px;
 
-  padding: 6px 15px;
+  padding-left: 15px;
+
+  padding-right: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
 
   border-radius: 5px;
 
@@ -17,18 +23,25 @@
 }
 .spectrum--large .spectrum-SideNav-itemLink.focus-ring::before {
 
-    border: 2px solid transparent;
+    border-top: 2px solid transparent;
+
+    border-bottom: 2px solid transparent;
     border-radius: 5px;
   }
-.spectrum--large .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+.spectrum--large [dir="ltr"] .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
     margin-right: 10px;
-  }
+}
+.spectrum--large [dir="rtl"] .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+    margin-left: 10px;
+}
 .spectrum--large .spectrum-SideNav-heading {
   height: 40px;
   line-height: 40px;
 
-  margin: 20px 0 5px 0;
-  padding: 0 15px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
 
   border-radius: 5px;
 
@@ -39,14 +52,23 @@
 .spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav-itemLink {
     font-weight: 700;
   }
-.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
-      font-weight: 400;
+.spectrum--large [dir="ltr"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
 
       padding-left: 30px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+
+      padding-right: 30px;
+}
+.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+      font-weight: 400;
     }
-.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+.spectrum--large [dir="ltr"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
         padding-left: 45px;
-      }
+}
+.spectrum--large [dir="rtl"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+        padding-right: 45px;
+}
 .spectrum-SideNav {
   list-style-type: none;
   margin: 0;
@@ -55,7 +77,11 @@
 .spectrum-SideNav-item {
   list-style-type: none;
 
-  margin: 4px 0;
+  margin-top: 4px;
+
+  margin-bottom: 4px;
+  margin-left: 0;
+  margin-right: 0;
 }
 .spectrum-SideNav-itemLink {
   position: relative;
@@ -70,7 +96,11 @@
   width: 100%;
   min-height: 32px;
 
-  padding: 5px 12px;
+  padding-left: 12px;
+
+  padding-right: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
   border-radius: 4px;
 
@@ -92,26 +122,57 @@
 .spectrum-SideNav-itemLink:focus {
     outline: none;
   }
+[dir="ltr"] .spectrum-SideNav-itemLink.focus-ring::before {
+    left: 0;
+}
+[dir="rtl"] .spectrum-SideNav-itemLink.focus-ring::before {
+    right: 0;
+}
+[dir="ltr"] .spectrum-SideNav-itemLink.focus-ring::before {
+    right: 0;
+}
+[dir="rtl"] .spectrum-SideNav-itemLink.focus-ring::before {
+    left: 0;
+}
 .spectrum-SideNav-itemLink.focus-ring::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
     bottom: 0;
 
-    border: 2px solid transparent;
+    border-top: 2px solid transparent;
+
+    border-bottom: 2px solid transparent;
     border-radius: 4px;
   }
-.spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+[dir="ltr"] .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
     margin-right: 8px;
-  }
+}
+[dir="rtl"] .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+    margin-left: 8px;
+}
+[dir="ltr"] .spectrum-SideNav-heading {
+  margin-right: 0;
+}
+[dir="rtl"] .spectrum-SideNav-heading {
+  margin-left: 0;
+}
+[dir="ltr"] .spectrum-SideNav-heading {
+  margin-left: 0;
+}
+[dir="rtl"] .spectrum-SideNav-heading {
+  margin-right: 0;
+}
 .spectrum-SideNav-heading {
   height: 32px;
   line-height: 32px;
 
-  margin: 16px 0 4px 0;
-  padding: 0 12px;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 12px;
+  padding-right: 12px;
 
   border-radius: 4px;
 
@@ -129,14 +190,23 @@
     margin: 0;
     padding: 0;
   }
-.spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
-      font-weight: 400;
+[dir="ltr"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
 
       padding-left: 24px;
+}
+[dir="rtl"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+
+      padding-right: 24px;
+}
+.spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+      font-weight: 400;
     }
-.spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+[dir="ltr"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
         padding-left: 36px;
-      }
+}
+[dir="rtl"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+        padding-right: 36px;
+}
 .spectrum--dark .spectrum-SideNav-item.is-selected > .spectrum-SideNav-itemLink {
       color: rgb(255, 255, 255);
       background-color: rgba(255,255,255,0.07);

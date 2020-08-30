@@ -48,7 +48,7 @@
   -ms-flex-align: center;
       align-items: center;
 
-  padding: 32px;
+  padding: 28px 24px;
 
   text-decoration: none;
 }
@@ -59,11 +59,16 @@
   text-decoration: underline;
 }
 .spectrum-Site-search {
-  padding: 0 32px 32px 32px;
+  padding: 0 24px 24px 24px;
+}
+[dir="ltr"] .spectrum-Site-searchResults {
+  left: -100%;
+}
+[dir="rtl"] .spectrum-Site-searchResults {
+  right: -100%;
 }
 .spectrum-Site-searchResults {
   top: -100%;
-  left: -100%;
   max-height: calc(90vh - 120px);
   z-index: 101;
   position: absolute;
@@ -73,15 +78,20 @@
 .spectrum-Site-noSearchResults {
   padding: 32px 32px 32px;
 }
+[dir="ltr"] .spectrum-Site-logo {
+  margin-right: 16px;
+}
+[dir="rtl"] .spectrum-Site-logo {
+  margin-left: 16px;
+}
 .spectrum-Site-logo {
-  margin-right: 14px;
-  color: rgb(225, 37, 27);
+  color: #FA0F00;
 }
 .spectrum--medium .spectrum-Site-logo {
-    height: 31px;
+    height: 32px;
   }
 .spectrum--large .spectrum-Site-logo {
-    height: 39px;
+    height: 40px;
   }
 .spectrum-Site-nav {
   -ms-flex-positive: 1;
@@ -92,37 +102,64 @@
 .spectrum-Site-bottomNav {
   margin-top: 80px;
 }
-.spectrum-Site-mainContainer {
-  -ms-flex-positive: 1;
-      flex-grow: 1;
-  border: none;
-
-  overflow-y: auto;
-}
 .spectrum-Site-page {
   padding: 40px 52px 24px 52px;
   max-width: 1080px;
   margin: auto;
+  box-sizing: border-box;
 }
 .spectrum-Site-hero {
-  max-width: 75%;
+  max-width: 1080px;
   margin: auto;
 }
 .spectrum-Site-heroHeading {
   margin-bottom: 16px;
 }
-.spectrum-Site-heroImage {
-  margin-top: 40px;
-  margin-bottom: 80px;
-  max-width: 100%;
+.spectrum-Site-heroHeading .spectrum-Heading {
+  margin-top: 0 !important;
 }
-.spectrum-Site-footer {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+[dir="ltr"] .spectrum-Site-heroImage {
+  margin-left: auto;
+}
+[dir="rtl"] .spectrum-Site-heroImage {
+  margin-right: auto;
+}
+[dir="ltr"] .spectrum-Site-heroImage {
+  margin-right: auto;
+}
+[dir="rtl"] .spectrum-Site-heroImage {
+  margin-left: auto;
+}
+.spectrum-Site-heroImage {
+  display: block;
+  max-width: 100%;
+  margin-top: 56px;
+  margin-bottom: 56px;
+  border-radius: 4px;
+}
+.spectrum-Site-mainContent {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  border-top: none;
+  border-bottom: none;
+  overflow-y: auto;
+}
+.spectrum-Site-footerContainer {
+  max-width: 1080px;
+  margin: 40px auto;
+  padding: 0 56px;
+}
+[dir="ltr"] .spectrum-Site-overlay {
+  right: 0;
+}
+[dir="rtl"] .spectrum-Site-overlay {
+  left: 0;
+}
+[dir="ltr"] .spectrum-Site-overlay {
+  left: 0;
+}
+[dir="rtl"] .spectrum-Site-overlay {
+  right: 0;
 }
 .spectrum-Site-overlay {
   display: none;
@@ -133,14 +170,16 @@
   pointer-events: none;
   position: fixed;
   top: 0;
-  right: 0;
   bottom: 0;
-  left: 0;
   z-index: 99;
 
   overflow: hidden;
 }
 @media screen and (max-width: 960px) {
+  .spectrum-Site-content {
+    max-height: calc(100% - 48px);
+  }
+
   .spectrum-Site-overlay {
     display: block;
     transition: opacity 160ms ease-out 0ms,
@@ -160,11 +199,18 @@
     visibility: visible;
   }
 
+  [dir="ltr"] .spectrum-Site-sideBar {
+    right: 100%;
+  }
+
+  [dir="rtl"] .spectrum-Site-sideBar {
+    left: 100%;
+  }
+
   .spectrum-Site-sideBar {
     position: fixed;
     top: 0;
     bottom: 0;
-    right: 100%;
     z-index: 100;
 
     transform: translateX(0);
@@ -179,9 +225,20 @@
     display: block;
   }
 
-  .spectrum-Site-page {
+  [dir="ltr"] .spectrum-Site-page {
     padding-left: 24px;
+  }
+
+  [dir="rtl"] .spectrum-Site-page {
     padding-right: 24px;
+  }
+
+  [dir="ltr"] .spectrum-Site-page {
+    padding-right: 24px;
+  }
+
+  [dir="rtl"] .spectrum-Site-page {
+    padding-left: 24px;
   }
 
   .spectrum-Site-hero {
@@ -232,11 +289,16 @@
   vertical-align: bottom;
   margin: 0 16px;
 }
+[dir="ltr"] .spectrum-CSSComponent-detailsTable th {
+  padding-right: 24px;
+}
+[dir="rtl"] .spectrum-CSSComponent-detailsTable th {
+  padding-left: 24px;
+}
 .spectrum-CSSComponent-detailsTable th {
   text-align: left;
   height: 28px;
   font-weight: 400;
-  padding-right: 24px;
 }
 .spectrum-CSSComponent-detailsTable {
   border-spacing: 0;
@@ -244,19 +306,25 @@
   margin-bottom: 36px;
 }
 .spectrum-CSSComponent-sectionHeading {
-  margin-top: 56px;
-  margin-bottom: 40px;
+  margin-top: 48px;
+  margin-bottom: 32px;
 }
 .spectrum-CSSExample-status,
 .spectrum-CSSComponent-status {
   padding: 0 !important;
   min-height: 0 !important;
 }
-.spectrum-CSSComponent-status::before {
+[dir="ltr"] .spectrum-CSSComponent-status::before {
   margin-left: 0 !important;
 }
-.spectrum-CSSExample-status {
+[dir="rtl"] .spectrum-CSSComponent-status::before {
+  margin-right: 0 !important;
+}
+[dir="ltr"] .spectrum-CSSExample-status {
   margin-left: 16px;
+}
+[dir="rtl"] .spectrum-CSSExample-status {
+  margin-right: 16px;
 }
 .spectrum-CSSComponent-version {
   -ms-flex-positive: 1;
@@ -265,7 +333,7 @@
 }
 .spectrum-CSSComponent-description {
   margin-top: 24px;
-  margin-bottom: 72px;
+  margin-bottom: 48px;
 }
 .spectrum-CSSComponent-resources {
   display: -ms-flexbox;
@@ -276,17 +344,14 @@
       flex-direction: row;
   margin-bottom: 56px;
 }
-.spectrum-CSSComponent-resources .spectrum-Card {
+[dir="ltr"] .spectrum-CSSComponent-resources .spectrum-Card {
   margin-right: 24px;
+}
+[dir="rtl"] .spectrum-CSSComponent-resources .spectrum-Card {
+  margin-left: 24px;
+}
+.spectrum-CSSComponent-resources .spectrum-Card {
   margin-bottom: 24px;
-}
-.spectrum-CSSComponent-resource--adobe {
-  color: rgb(255, 2, 1) !important;
-  background-color: rgba(255, 2, 1, 0.1) !important;
-}
-.spectrum-CSSComponent-resource--github {
-  background-color: rgba(0, 0, 0, 0.1) !important;
-  color: black;
 }
 .spectrum--dark .spectrum-CSSComponent-resource--github, .spectrum--darkest .spectrum-CSSComponent-resource--github {
     background-color: rgba(245, 245, 245, 0.1) !important;
@@ -308,8 +373,13 @@
   -ms-flex-pack: end;
       justify-content: flex-end;
 }
-.spectrum-CSS-switcherContainer {
+[dir="ltr"] .spectrum-CSS-switcherContainer {
   margin-left: 32px;
+}
+[dir="rtl"] .spectrum-CSS-switcherContainer {
+  margin-right: 32px;
+}
+.spectrum-CSS-switcherContainer {
   white-space: nowrap;
 }
 .spectrum-CSSExample {
@@ -343,7 +413,7 @@
   -ms-flex: 1 0 auto;
       flex: 1 0 auto;
 
-  min-height: --spectrum-global-dimension-size-2400;
+  min-height: 0;
 
   padding: 32px 40px;
 
@@ -358,8 +428,6 @@
 
   border-radius: 0 0 4px 4px;
 
-  font-size: 10px;
-
   overflow: hidden;
 }
 .spectrum-CSSExample-markup.is-open {
@@ -373,34 +441,71 @@
 .spectrum-CSSExample-markupToggle + pre {
   padding-bottom: 8px;
 }
+.spectrum-CSSExample-example--spacious {
+  position: relative;
+  height: 150px;
+}
 .spectrum-CSSExample-example--overlay {
   position: relative;
+  min-height: 64px;
 }
-.spectrum-Dialog.spectrum-CSSExample-dialog {
+[dir="ltr"] .spectrum-CSSExample-dialog {
+  margin-left: auto;
+}
+[dir="rtl"] .spectrum-CSSExample-dialog {
+  margin-right: auto;
+}
+[dir="ltr"] .spectrum-CSSExample-dialog {
+  margin-right: auto;
+}
+[dir="rtl"] .spectrum-CSSExample-dialog {
+  margin-left: auto;
+}
+[dir="ltr"] .spectrum-CSSExample-dialog {
+  left: 0;
+}
+[dir="rtl"] .spectrum-CSSExample-dialog {
+  right: 0;
+}
+.spectrum-CSSExample-dialog {
   position: relative !important;
   transform: none !important;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
+  width: auto !important;
+  height: auto !important;
   top: 0;
-  z-index: 1;
+  z-index: 1 !important;
   transition: none;
 }
-.spectrum-CSSExample-overlayShowButton {
-  position: absolute;
+[dir="ltr"] .spectrum-Button.spectrum-CSSExample-overlayShowButton {
   left: 50%;
+}
+[dir="rtl"] .spectrum-Button.spectrum-CSSExample-overlayShowButton {
+  right: 50%;
+}
+.spectrum-Button.spectrum-CSSExample-overlayShowButton {
+  position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 .spectrum-CSSExample-markup pre code {
   white-space: pre-wrap;
 }
+[dir="ltr"] .spectrum-CSSExample-markupToggle {
+  left: 0;
+}
+[dir="rtl"] .spectrum-CSSExample-markupToggle {
+  right: 0;
+}
+[dir="ltr"] .spectrum-CSSExample-markupToggle {
+  right: 0;
+}
+[dir="rtl"] .spectrum-CSSExample-markupToggle {
+  left: 0;
+}
 .spectrum-CSSExample-markupToggle {
   position: absolute;
   z-index: 0;
   bottom: 0;
-  left: 0;
-  right: 0;
 
   box-sizing: border-box;
   padding: 24px 24px;
@@ -438,6 +543,49 @@
     font-size: 28px;
   }
 }
+.spectrum-CenteredImage {
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  display: block;
+}
+.spectrum-CodeBlock {
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 14px 16px;
+
+  margin: 20px 0;
+}
+.spectrum-HomeCards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(380px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  grid-gap: 1rem;
+  margin: 56px 0;
+}
+.spectrum-HomeCard {
+  display: -ms-flexbox;
+  display: flex;
+
+  -ms-flex-align: start;
+
+      align-items: flex-start;
+
+  margin-bottom: 28px;
+  padding: 0 20px;
+}
+.spectrum-HomeCard-image {
+  width: 100px;
+  margin-right: 20px;
+  -ms-flex: 0 0 auto;
+      flex: 0 0 auto;
+}
+.spectrum-HomeCard-content {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+}
 .u-scrollable {
   overflow-x: hidden;
   overflow-y: auto;
@@ -452,6 +600,7 @@
   border-radius: 8px;
   width: 8px;
   height: 8px;
-  border: 2px solid rgba(0, 0, 0, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
   background-clip: padding-box;
 }

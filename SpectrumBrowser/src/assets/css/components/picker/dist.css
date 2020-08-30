@@ -1,0 +1,351 @@
+.spectrum--large .spectrum-Picker {
+  width: 240px;
+  min-width: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Picker select + .spectrum-Picker-icon {
+      right: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker select + .spectrum-Picker-icon {
+      left: 15px;
+}
+.spectrum--large .spectrum-Picker select + .spectrum-Picker-icon {
+      margin-top: -4px;
+    }
+.spectrum--large .spectrum-Picker-label {
+
+  height: 38px;
+  line-height: 38px;
+
+  font-size: 17px;
+}
+.spectrum--large .spectrum-Picker-label.is-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-left: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-right: 10px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-right: 15px;
+}
+.spectrum--large .spectrum-Picker-icon {
+  transition: color 130ms ease-out;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.spectrum--large .spectrum-Picker-trigger .spectrum-Icon:not(.spectrum-Picker-icon) {
+  margin-top: 8px;
+    margin-bottom: 8px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-left: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-right: 10px;
+}
+.spectrum--large .spectrum-Picker--quiet {
+  width: auto;
+  min-width: 20px;
+}
+.spectrum--large .spectrum-Picker-popover {
+  max-width: 300px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Picker-popover--quiet {
+  margin-left: -16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Picker-popover--quiet {
+  margin-right: -16px;
+}
+.spectrum-Picker {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  width: 192px;
+  min-width: 32px;
+}
+.spectrum-Picker select {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    -ms-appearance: none;
+  }
+.spectrum-Picker select::-ms-expand {
+      display: none;
+    }
+.spectrum-Picker select::-ms-value {
+      background-color: transparent;
+    }
+[dir="ltr"] .spectrum-Picker select + .spectrum-Picker-icon {
+      right: 12px;
+}
+[dir="rtl"] .spectrum-Picker select + .spectrum-Picker-icon {
+      left: 12px;
+}
+.spectrum-Picker select + .spectrum-Picker-icon {
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+    }
+.spectrum-Picker-trigger {
+  position: relative;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+}
+[dir="ltr"] .spectrum-Picker-label {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-Picker-label {
+  text-align: right;
+}
+.spectrum-Picker-label {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  height: 30px;
+  line-height: 30px;
+
+  font-size: 14px;
+
+  text-overflow: ellipsis;
+}
+.spectrum-Picker-label.is-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+  }
+[dir="ltr"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-left: 12px;
+}
+[dir="rtl"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-right: 12px;
+}
+[dir="ltr"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-left: 8px;
+}
+[dir="rtl"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-right: 8px;
+}
+[dir="ltr"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-left: 12px;
+}
+[dir="rtl"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-right: 12px;
+}
+.spectrum-Picker-icon {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  transition: color 130ms ease-out;
+  margin-top: 12px;
+  margin-bottom: 12px;
+
+  opacity: 1;
+}
+.spectrum-Picker-trigger .spectrum-Icon:not(.spectrum-Picker-icon) {
+  margin-top: 6px;
+    margin-bottom: 6px;
+  }
+[dir="ltr"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-left: 12px;
+}
+[dir="rtl"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-right: 12px;
+}
+[dir="ltr"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-left: 8px;
+}
+[dir="rtl"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-right: 8px;
+}
+.spectrum-Picker--quiet {
+  width: auto;
+  min-width: 18px;
+}
+.spectrum-Picker-popover {
+  max-width: 240px;
+}
+[dir="ltr"] .spectrum-Picker-popover--quiet {
+  margin-left: -13px;
+}
+[dir="rtl"] .spectrum-Picker-popover--quiet {
+  margin-right: -13px;
+}
+.spectrum--dark .spectrum-Picker .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Picker .spectrum-Picker-trigger.is-selected .is-placeholder {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--dark .spectrum-Picker.is-invalid .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+      color: rgb(247, 109, 116);
+    }
+.spectrum--dark .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon,
+.spectrum--dark .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+        color: rgb(90, 90, 90);
+      }
+.spectrum--dark .spectrum-Picker.is-disabled .spectrum-Picker-icon,
+.spectrum--dark .spectrum-Picker.is-disabled .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+        color: rgb(90, 90, 90);
+      }
+.spectrum--dark .spectrum-Picker.is-disabled .spectrum-Picker-label.is-placeholder {
+        color: rgb(110, 110, 110);
+      }
+.spectrum--dark .spectrum-Picker-icon {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Picker-label.is-placeholder {
+    color: rgb(144, 144, 144);
+  }
+.spectrum--dark .spectrum-Picker-label.is-placeholder:hover {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Picker-label.is-placeholder:active {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Picker-trigger.focus-ring .spectrum-Picker-label.is-placeholder {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Picker-trigger.focus-ring .spectrum-Picker-icon {
+    color: rgb(255, 255, 255)
+  }
+.spectrum--darkest .spectrum-Picker .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+      color: rgb(239, 239, 239);
+    }
+.spectrum--darkest .spectrum-Picker .spectrum-Picker-trigger.is-selected .is-placeholder {
+        color: rgb(239, 239, 239);
+      }
+.spectrum--darkest .spectrum-Picker.is-invalid .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+      color: rgb(236, 91, 98);
+    }
+.spectrum--darkest .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon,
+.spectrum--darkest .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+        color: rgb(73, 73, 73);
+      }
+.spectrum--darkest .spectrum-Picker.is-disabled .spectrum-Picker-icon,
+.spectrum--darkest .spectrum-Picker.is-disabled .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+        color: rgb(73, 73, 73);
+      }
+.spectrum--darkest .spectrum-Picker.is-disabled .spectrum-Picker-label.is-placeholder {
+        color: rgb(92, 92, 92);
+      }
+.spectrum--darkest .spectrum-Picker-icon {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-Picker-label.is-placeholder {
+    color: rgb(124, 124, 124);
+  }
+.spectrum--darkest .spectrum-Picker-label.is-placeholder:hover {
+      color: rgb(239, 239, 239);
+    }
+.spectrum--darkest .spectrum-Picker-label.is-placeholder:active {
+      color: rgb(239, 239, 239);
+    }
+.spectrum--darkest .spectrum-Picker-trigger.focus-ring .spectrum-Picker-label.is-placeholder {
+    color: rgb(239, 239, 239);
+  }
+.spectrum--darkest .spectrum-Picker-trigger.focus-ring .spectrum-Picker-icon {
+    color: rgb(239, 239, 239)
+  }
+.spectrum--light .spectrum-Picker .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+      color: rgb(44, 44, 44);
+    }
+.spectrum--light .spectrum-Picker .spectrum-Picker-trigger.is-selected .is-placeholder {
+        color: rgb(44, 44, 44);
+      }
+.spectrum--light .spectrum-Picker.is-invalid .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+      color: rgb(201, 37, 45);
+    }
+.spectrum--light .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon,
+.spectrum--light .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+        color: rgb(202, 202, 202);
+      }
+.spectrum--light .spectrum-Picker.is-disabled .spectrum-Picker-icon,
+.spectrum--light .spectrum-Picker.is-disabled .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+        color: rgb(202, 202, 202);
+      }
+.spectrum--light .spectrum-Picker.is-disabled .spectrum-Picker-label.is-placeholder {
+        color: rgb(179, 179, 179);
+      }
+.spectrum--light .spectrum-Picker-icon {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Picker-label.is-placeholder {
+    color: rgb(142, 142, 142);
+  }
+.spectrum--light .spectrum-Picker-label.is-placeholder:hover {
+      color: rgb(44, 44, 44);
+    }
+.spectrum--light .spectrum-Picker-label.is-placeholder:active {
+      color: rgb(44, 44, 44);
+    }
+.spectrum--light .spectrum-Picker-trigger.focus-ring .spectrum-Picker-label.is-placeholder {
+    color: rgb(44, 44, 44);
+  }
+.spectrum--light .spectrum-Picker-trigger.focus-ring .spectrum-Picker-icon {
+    color: rgb(44, 44, 44)
+  }
+.spectrum--lightest .spectrum-Picker .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+      color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Picker .spectrum-Picker-trigger.is-selected .is-placeholder {
+        color: rgb(50, 50, 50);
+      }
+.spectrum--lightest .spectrum-Picker.is-invalid .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+      color: rgb(215, 55, 63);
+    }
+.spectrum--lightest .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon,
+.spectrum--lightest .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+        color: rgb(211, 211, 211);
+      }
+.spectrum--lightest .spectrum-Picker.is-disabled .spectrum-Picker-icon,
+.spectrum--lightest .spectrum-Picker.is-disabled .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+        color: rgb(211, 211, 211);
+      }
+.spectrum--lightest .spectrum-Picker.is-disabled .spectrum-Picker-label.is-placeholder {
+        color: rgb(188, 188, 188);
+      }
+.spectrum--lightest .spectrum-Picker-icon {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Picker-label.is-placeholder {
+    color: rgb(149, 149, 149);
+  }
+.spectrum--lightest .spectrum-Picker-label.is-placeholder:hover {
+      color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Picker-label.is-placeholder:active {
+      color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Picker-trigger.focus-ring .spectrum-Picker-label.is-placeholder {
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-Picker-trigger.focus-ring .spectrum-Picker-icon {
+    color: rgb(50, 50, 50)
+  }

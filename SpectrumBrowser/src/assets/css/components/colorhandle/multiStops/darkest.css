@@ -1,0 +1,22 @@
+.spectrum--darkest .spectrum-ColorHandle {
+  border-color: rgb(255, 255, 255);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.42);
+
+  background-color: rgb(255, 255, 255);
+  background-image:
+    linear-gradient(-45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(-45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%),
+    linear-gradient(45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%);
+}
+.spectrum--darkest .spectrum-ColorHandle.is-disabled {
+    border-color: rgb(73, 73, 73);
+    background: rgb(57, 57, 57);
+    box-shadow: none;
+  }
+.spectrum--darkest .spectrum-ColorHandle.is-disabled .spectrum-ColorHandle-color {
+      display: none;
+    }
+.spectrum--darkest .spectrum-ColorHandle-color {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.42);
+}

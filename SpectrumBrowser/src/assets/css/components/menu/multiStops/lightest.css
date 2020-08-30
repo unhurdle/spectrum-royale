@@ -5,11 +5,20 @@
   background-color: transparent;
   color: rgb(80, 80, 80);
 }
+.spectrum--lightest [dir="ltr"] .spectrum-Menu-item.focus-ring,
+.spectrum--lightest [dir="ltr"] 
+  .spectrum-Menu-item.is-focused {
+    border-left-color: rgb(55, 142, 240);
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Menu-item.focus-ring,
+.spectrum--lightest [dir="rtl"] 
+  .spectrum-Menu-item.is-focused {
+    border-right-color: rgb(55, 142, 240);
+}
 .spectrum--lightest .spectrum-Menu-item.focus-ring,
 .spectrum--lightest .spectrum-Menu-item.is-focused {
     background-color: rgba(50,50,50,0.04);
     color: rgb(80, 80, 80);
-    border-left-color: rgb(55, 142, 240);
   }
 .spectrum--lightest .spectrum-Menu-item:hover,
 .spectrum--lightest .spectrum-Menu-item:focus,

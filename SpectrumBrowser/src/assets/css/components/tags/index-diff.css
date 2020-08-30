@@ -1,7 +1,12 @@
 .spectrum--large .spectrum-Tags-item {
 
-  margin: 5px 5px;
-  padding: 0 12px;
+  margin-top: 5px;
+
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: calc(13px - var(--spectrum-tag-border-size));
+  padding-right: calc(13px - var(--spectrum-tag-border-size));
   height: 30px;
 
   border-width: 1px;
@@ -12,17 +17,34 @@
     box-shadow 130ms ease-in-out,
     background-color 130ms ease-in-out;
 }
-.spectrum--large .spectrum-Tags-item > .spectrum-Icon,
-  .spectrum--large .spectrum-Tags-item > .spectrum-Avatar {
+.spectrum--large [dir="ltr"] .spectrum-Tags-item > .spectrum-Icon,.spectrum--large [dir="ltr"] 
+  .spectrum-Tags-item > .spectrum-Avatar {
     margin-right: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item > .spectrum-Icon,.spectrum--large [dir="rtl"] 
+  .spectrum-Tags-item > .spectrum-Avatar {
+    margin-left: 10px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tags-item > .spectrum-Icon,.spectrum--large [dir="ltr"] 
+  .spectrum-Tags-item > .spectrum-Avatar {
     margin-left: -3px;
-  }
-.spectrum--large .spectrum-Tags-item > .spectrum-Icon ~ .spectrum-Tags-itemLabel, .spectrum--large .spectrum-Tags-item > .spectrum-Avatar ~ .spectrum-Tags-itemLabel {
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item > .spectrum-Icon,.spectrum--large [dir="rtl"] 
+  .spectrum-Tags-item > .spectrum-Avatar {
+    margin-right: -3px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tags-item > .spectrum-Icon ~ .spectrum-Tags-itemLabel,.spectrum--large [dir="ltr"]  .spectrum-Tags-item > .spectrum-Avatar ~ .spectrum-Tags-itemLabel {
       margin-right: -3px;
-    }
-.spectrum--large .spectrum-Tags-item .spectrum-ClearButton {
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item > .spectrum-Icon ~ .spectrum-Tags-itemLabel,.spectrum--large [dir="rtl"]  .spectrum-Tags-item > .spectrum-Avatar ~ .spectrum-Tags-itemLabel {
+      margin-left: -3px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tags-item .spectrum-ClearButton {
     margin-right: -13px;
-  }
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item .spectrum-ClearButton {
+    margin-left: -13px;
+}
 .spectrum--large .spectrum-Tags-itemLabel {
   line-height: 28px;
   font-size: 15px;

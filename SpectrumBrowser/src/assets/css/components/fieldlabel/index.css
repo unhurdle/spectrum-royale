@@ -4,7 +4,11 @@
 
   box-sizing: border-box;
 
-  padding: 4px 0 5px;
+  padding-top: 4px;
+
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
 
   font-size: 12px;
   font-weight: 400;
@@ -16,20 +20,61 @@
   -moz-osx-font-smoothing: auto;
   font-smoothing: subpixel-antialiased;
 }
+[dir="ltr"] .spectrum-FieldLabel-requiredIcon {
+  margin-left: 2px;
+  margin-right: 0;
+}
+[dir="rtl"] .spectrum-FieldLabel-requiredIcon {
+  margin-right: 2px;
+  margin-left: 0;
+}
 .spectrum-FieldLabel-requiredIcon {
-  margin: 4px 0 0 2px;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+[dir="ltr"] .spectrum-FieldLabel--left {
+  padding-left: 0;
+  padding-right: 8px;
+}
+[dir="rtl"] .spectrum-FieldLabel--left {
+  padding-right: 0;
+  padding-left: 8px;
 }
 .spectrum-FieldLabel--left {
   display: inline-block;
-  padding: 8px 8px 0 0;
+  padding-top: 8px;
+  padding-bottom: 0;
+}
+[dir="ltr"] .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon {
+    margin-left: 2px;
+    margin-right: 0;
+}
+[dir="rtl"] .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon {
+    margin-right: 2px;
+    margin-left: 0;
 }
 .spectrum-FieldLabel--left .spectrum-FieldLabel-requiredIcon {
-    margin: 0px 0 0 2px;
+    margin-top: 0px;
+    margin-bottom: 0;
   }
+[dir="ltr"] .spectrum-FieldLabel--right {
+  text-align: right;
+}
+[dir="rtl"] .spectrum-FieldLabel--right {
+  text-align: left;
+}
+[dir="ltr"] .spectrum-FieldLabel--right {
+  padding-left: 0;
+  padding-right: 8px;
+}
+[dir="rtl"] .spectrum-FieldLabel--right {
+  padding-right: 0;
+  padding-left: 8px;
+}
 .spectrum-FieldLabel--right {
   display: inline-block;
-  text-align: right;
-  padding: 8px 8px 0 0;
+  padding-top: 8px;
+  padding-bottom: 0;
 }
 .spectrum-Form {
   display: table;

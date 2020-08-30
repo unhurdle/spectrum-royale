@@ -115,9 +115,19 @@
     left: 50%;
     margin-left: -4px;
   }
-.spectrum-Tooltip-typeIcon {
+[dir="ltr"] .spectrum-Tooltip-typeIcon {
   margin-left: -2px;
+}
+[dir="rtl"] .spectrum-Tooltip-typeIcon {
+  margin-right: -2px;
+}
+[dir="ltr"] .spectrum-Tooltip-typeIcon {
   margin-right: 8px;
+}
+[dir="rtl"] .spectrum-Tooltip-typeIcon {
+  margin-left: 8px;
+}
+.spectrum-Tooltip-typeIcon {
   width: 14px;
   height: 14px;
   -ms-flex-item-align: start;

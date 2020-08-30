@@ -24,22 +24,34 @@
 
   transition: width 1s;
 }
+[dir="ltr"] .spectrum-BarLoader-label,[dir="ltr"] 
+.spectrum-BarLoader-percentage {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-BarLoader-label,[dir="rtl"] 
+.spectrum-BarLoader-percentage {
+  text-align: right;
+}
 .spectrum-BarLoader-label,
 .spectrum-BarLoader-percentage {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.3;
-  text-align: left;
   margin-bottom: 9px;
 }
 .spectrum-BarLoader-label {
   -ms-flex: 1 1 0%;
       flex: 1 1 0%;
 }
+[dir="ltr"] .spectrum-BarLoader-percentage {
+  margin-left: 12px;
+}
+[dir="rtl"] .spectrum-BarLoader-percentage {
+  margin-right: 12px;
+}
 .spectrum-BarLoader-percentage {
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-left: 12px;
 }
 .spectrum-BarLoader--sideLabel {
   display: -ms-inline-flexbox;
@@ -50,15 +62,30 @@
       justify-content: space-between;
   width: auto;
 }
-.spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+[dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
     margin-right: 12px;
+}
+[dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-left: 12px;
+}
+.spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
     margin-bottom: 0;
   }
+[dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    text-align: right;
+}
+[dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    text-align: left;
+}
+[dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-left: 12px;
+}
+[dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-right: 12px;
+}
 .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
     -ms-flex-order: 3;
         order: 3;
-    text-align: right;
-    margin-left: 12px;
     margin-bottom: 0;
   }
 .spectrum-BarLoader--small {
@@ -74,16 +101,28 @@
 .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
   width: 136px;
   position: relative;
-  animation: indeterminate-loop 1000ms infinite;
   animation-timing-function: cubic-bezier(.45, 0, .40, 1);
-  left: -136px;
   will-change: transform;
 }
-@keyframes indeterminate-loop {
-  0% {
-    transform: translate(0);
+[dir='ltr'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  animation: indeterminate-loop-ltr 1000ms infinite;
+}
+[dir='rtl'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  animation: indeterminate-loop-rtl 1000ms infinite;
+}
+@keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(-136px);
   }
-  100% {
-    transform: translate(328px);
+  to {
+    transform: translate(192px);
+  }
+}
+@keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(192px);
+  }
+  to {
+    transform: translate(-192px);
   }
 }

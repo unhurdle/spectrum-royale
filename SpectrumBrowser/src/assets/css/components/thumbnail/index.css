@@ -1,0 +1,70 @@
+.spectrum-Thumbnail {
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 2px;
+  vertical-align: top;
+
+  overflow: hidden;
+
+  background-size: 16px 16px;
+
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+.spectrum-Thumbnail:before {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+  }
+.spectrum-Thumbnail--S {
+  width: 24px;
+  height: 24px;
+}
+.spectrum-Thumbnail--M {
+  width: 32px;
+  height: 32px;
+}
+.spectrum-Thumbnail--L {
+  width: 40px;
+  height: 40px;
+}
+.spectrum-Thumbnail--XL {
+  width: 48px;
+  height: 48px;
+}
+.spectrum-Thumbnail--XXL {
+  width: 56px;
+  height: 56px;
+}
+.spectrum-Thumbnail-image {
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 1;
+}
+.spectrum-Thumbnail-background {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}

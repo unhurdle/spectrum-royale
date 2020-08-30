@@ -1,9 +1,6 @@
 .spectrum--lightest .spectrum-Search-icon {
   color: rgb(116, 116, 116);
 }
-.spectrum--lightest .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
-      color: rgb(188, 188, 188);
-    }
 .spectrum--lightest .spectrum-Search-input:hover ~ .spectrum-Search-icon {
       color: rgb(50, 50, 50);
     }
@@ -12,4 +9,7 @@
     }
 .spectrum--lightest .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
       color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(188, 188, 188);
     }

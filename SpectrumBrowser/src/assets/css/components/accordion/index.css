@@ -4,11 +4,17 @@
   padding: 0;
   margin: 0;
 }
+[dir="ltr"] .spectrum-Accordion-itemIndicator {
+  left: 16px;
+}
+[dir="rtl"] .spectrum-Accordion-itemIndicator {
+  right: 16px;
+}
+[dir="rtl"] .spectrum-Accordion-itemIndicator { transform: matrix(-1, 0, 0, 1, 0, 0) ; }
 .spectrum-Accordion-itemIndicator {
   display: block;
 
   position: absolute;
-  left: 16px;
   top: 14.5px;
 
   transition: transform ease 130ms;
@@ -28,6 +34,20 @@
 .spectrum-Accordion-itemHeading {
   margin: 0;
 }
+[dir="ltr"] .spectrum-Accordion-itemHeader {
+  padding-left: 34px;
+  padding-right: 16px;
+}
+[dir="rtl"] .spectrum-Accordion-itemHeader {
+  padding-right: 34px;
+  padding-left: 16px;
+}
+[dir="ltr"] .spectrum-Accordion-itemHeader {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-Accordion-itemHeader {
+  text-align: right;
+}
 .spectrum-Accordion-itemHeader {
   position: relative;
 
@@ -40,7 +60,8 @@
       justify-content: flex-start;
 
   box-sizing: border-box;
-  padding: 12px 16px 12px 34px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   margin: 0;
 
   min-height: 39px;
@@ -59,32 +80,37 @@
   background-color: inherit;
   border: 0;
   font-family: inherit;
-  text-align: start;
   width: 100%;
 }
 .spectrum-Accordion-itemHeader:focus {
     outline: none;
   }
+[dir="ltr"] .spectrum-Accordion-itemHeader:focus::after {
+      left: 0;
+}
+[dir="rtl"] .spectrum-Accordion-itemHeader:focus::after {
+      right: 0;
+}
 .spectrum-Accordion-itemHeader:focus::after {
       content: '';
 
       position: absolute;
-      left: 0;
       top: -1px;
       bottom: -1px;
 
       width: 2px;
     }
 .spectrum-Accordion-itemContent {
-  padding: 0 16px 16px 16px;
+  padding-top: 0;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
   display: none;
 }
-.spectrum-Accordion-item.is-open > .spectrum-Accordion-itemHeading > .spectrum-Accordion-itemIndicator {
-        transform: rotate(90deg);
-      }
-.spectrum-Accordion-item.is-open > .spectrum-Accordion-itemIndicator {
-      transform: rotate(90deg);
-    }
+[dir="ltr"] .spectrum-Accordion-item.is-open > .spectrum-Accordion-itemHeading > .spectrum-Accordion-itemIndicator { transform: rotate(90deg); }
+[dir="rtl"] .spectrum-Accordion-item.is-open > .spectrum-Accordion-itemHeading > .spectrum-Accordion-itemIndicator { transform: matrix(-1, 0, 0, 1, 0, 0) rotate(90deg); }
+[dir="ltr"] .spectrum-Accordion-item.is-open > .spectrum-Accordion-itemIndicator { transform: rotate(90deg); }
+[dir="rtl"] .spectrum-Accordion-item.is-open > .spectrum-Accordion-itemIndicator { transform: matrix(-1, 0, 0, 1, 0, 0) rotate(90deg); }
 .spectrum-Accordion-item.is-open > .spectrum-Accordion-itemHeader::after {
       height: 39px;
     }

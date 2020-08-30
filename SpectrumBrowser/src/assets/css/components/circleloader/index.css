@@ -502,10 +502,15 @@
   border-width: 3px;
   border-radius: 32px;
 }
+[dir="ltr"] .spectrum-CircleLoader-fills {
+  left: 0;
+}
+[dir="rtl"] .spectrum-CircleLoader-fills {
+  right: 0;
+}
 .spectrum-CircleLoader-fills {
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
 }

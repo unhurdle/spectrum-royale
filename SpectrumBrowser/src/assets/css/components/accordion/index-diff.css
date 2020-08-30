@@ -1,5 +1,10 @@
-.spectrum--large .spectrum-Accordion-itemIndicator {
+.spectrum--large [dir="ltr"] .spectrum-Accordion-itemIndicator {
   left: 16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Accordion-itemIndicator {
+  right: 16px;
+}
+.spectrum--large .spectrum-Accordion-itemIndicator {
   top: 14.5px;
 
   transition: transform ease 130ms;
@@ -11,8 +16,17 @@
 .spectrum--large .spectrum-Accordion-item:first-of-type {
     border-top: 1px solid transparent;
   }
+.spectrum--large [dir="ltr"] .spectrum-Accordion-itemHeader {
+  padding-left: 34px;
+  padding-right: 16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Accordion-itemHeader {
+  padding-right: 34px;
+  padding-left: 16px;
+}
 .spectrum--large .spectrum-Accordion-itemHeader {
-  padding: 15px 16px 15px 34px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 
   min-height: 39px;
 
@@ -27,7 +41,10 @@
       width: 2px;
     }
 .spectrum--large .spectrum-Accordion-itemContent {
-  padding: 0 20px 20px 20px;
+  padding-top: 0;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .spectrum--large .spectrum-Accordion-item.is-open > .spectrum-Accordion-itemHeader::after {
       height: 39px;

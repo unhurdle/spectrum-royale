@@ -1,13 +1,3 @@
-.spectrum--large .spectrum-Icon,
-.spectrum--large .spectrum-UIIcon {
-  display: inline-block;
-  color: inherit;
-  fill: currentColor;
-  pointer-events: none;
-}
-.spectrum--large .spectrum-Icon:not(:root), .spectrum--large .spectrum-UIIcon:not(:root) {
-    overflow: hidden;
-  }
 .spectrum--large .spectrum-Icon--sizeXXS,
   .spectrum--large .spectrum-Icon--sizeXXS img,
   .spectrum--large .spectrum-Icon--sizeXXS svg {
@@ -50,26 +40,6 @@
     height: 90px;
     width: 90px;
   }
-.spectrum--large .spectrum--medium .spectrum-UIIcon--large {
-    display: none;
-  }
-.spectrum--large .spectrum--medium .spectrum-UIIcon--medium {
-    display: inline;
-  }
-.spectrum--large .spectrum--large .spectrum-UIIcon--medium {
-    display: none;
-  }
-.spectrum--large .spectrum--large .spectrum-UIIcon--large {
-    display: inline;
-  }
-.spectrum--large .spectrum--large {
-  --ui-icon-large-display: block;
-  --ui-icon-medium-display: none;
-}
-.spectrum--large .spectrum--medium {
-  --ui-icon-medium-display: block;
-  --ui-icon-large-display: none;
-}
 .spectrum--large .spectrum-UIIcon--large {
   display: var(--ui-icon-large-display);
 }

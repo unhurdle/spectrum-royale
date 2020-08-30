@@ -8,8 +8,11 @@
 .spectrum--lightest .spectrum-Toast-typeIcon {
   color: white;
 }
-.spectrum--lightest .spectrum-Toast-buttons {
+.spectrum--lightest [dir="ltr"] .spectrum-Toast-buttons {
   border-left-color: rgba(255, 255, 255, 0.2);
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Toast-buttons {
+  border-right-color: rgba(255, 255, 255, 0.2);
 }
 .spectrum--lightest .spectrum-Toast--warning {
   background-color: rgb(203, 111, 16);
@@ -43,4 +46,3 @@
 .spectrum--lightest .spectrum-Toast--success .spectrum-Toast-closeButton.focus-ring:not(:active) {
       color: rgb(18, 128, 92);
     }
-
