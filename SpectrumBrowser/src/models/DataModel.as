@@ -72,7 +72,6 @@ package models
         "Text Area",
         "Text Field",
         "Toast",
-        "Tool",
         "Tooltip",
         "Tree View",
         "Typography (Internationalized)",

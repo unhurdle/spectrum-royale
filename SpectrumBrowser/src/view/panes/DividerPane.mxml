@@ -14,16 +14,16 @@
       '[Bindable] private var properties:String = IconPrefix._18 + "Properties";\n'+
       '[Bindable] private var select:String = IconPrefix._18 + "Select";\n\n'+
       '<Div style="display: flex; flex-direction: row; height: 32px">\n'+
-      '  <sp:Tool icon="{properties}"/>\n'+
+      '  <sp:ActionButton icon="{properties}"/>\n'+
       '  <sp:Divider vertical="true" size="small"/>\n'+
-      '  <sp:Tool icon="{select}"/>\n'+
+      '  <sp:ActionButton icon="{select}"/>\n'+
       '</Div>';
 
       [Bindable]public var verticalMedium:String =
       '<Div style="display: flex; flex-direction: row; height: 32px">\n'+
-      '  <sp:Tool icon="{properties}"/>\n'+
+      '  <sp:ActionButton icon="{properties}"/>\n'+
       '  <sp:Divider vertical="true" size="medium"/>\n'+
-      '  <sp:Tool icon="{select}"/>\n'+
+      '  <sp:ActionButton icon="{select}"/>\n'+
       '</Div>';
       
     ]]>
@@ -69,9 +69,9 @@
   
   <comp:Variant header="Vertical, Small">
     <Div style="display: flex; flex-direction: row; height: 32px">
-      <sp:Tool icon="{properties}"/>
+      <sp:ActionButton icon="{properties}"/>
       <sp:Divider vertical="true" size="small"/>
-      <sp:Tool icon="{select}"/>
+      <sp:ActionButton icon="{select}"/>
     </Div>
   </comp:Variant>
   <comp:Markup>    
@@ -80,9 +80,9 @@
   
   <comp:Variant header="Vertical, Medium">
     <Div style="display: flex; flex-direction: row; height: 32px">
-      <sp:Tool icon="{properties}"/>
+      <sp:ActionButton icon="{properties}"/>
       <sp:Divider vertical="true" size="medium"/>
-      <sp:Tool icon="{select}"/>
+      <sp:ActionButton icon="{select}"/>
     </Div>
   </comp:Variant>
   <comp:Markup>    

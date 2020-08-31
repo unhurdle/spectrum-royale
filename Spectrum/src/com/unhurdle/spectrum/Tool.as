@@ -2,7 +2,7 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS{}
   
-
+	[Deprecated(message="Use ActionButton instead")]
   public class Tool extends ActionButton
   {
     //TODO the CSS for this exists in Button. We might need to create ButtonBase to import the CSS
