@@ -145,6 +145,7 @@ package com.unhurdle.spectrum
                 invalidIcon = new Icon(Icon.getCSSTypeSelector(type));
                 invalidIcon.className = appendSelector("-validationIcon");
                 invalidIcon.type = type;
+                invalidIcon.style = {'box-sizing': 'content-box'};
                 }
                 if(getElementIndex(invalidIcon) == -1){
                 addElementAt(invalidIcon,0);
