@@ -4,161 +4,277 @@
   xmlns:assets="view.assets.*" xmlns:comp="view.components.*" title="Action Button">
   <fx:Script>
     <![CDATA[
-import com.unhurdle.spectrum.const.IconPrefix;
+      import com.unhurdle.spectrum.const.IconPrefix;
 
       [Bindable]public var codeString:String = 
 
-'[Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";\n'+
-'[Bindable]public var flyoutList:Array = ["One","Two","Three"];\n'+
-'\n'+
-'\n'+
-'<sp:FieldGroup vertical="true">\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton text="Edit"/>\n'+
-'    <sp:ActionButton text="Edit" selected="true"/>\n'+
-'    <sp:ActionButton text="Edit" disabled="true"/>\n'+
-'    <sp:ActionButton text="Edit" disabled="true" selected="true"/>\n'+
-'  </sp:ButtonGroup>\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton text="Edit" icon="{iconSelector}"/>\n'+
-'    <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true"/>\n'+
-'    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
-'    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
-'  </sp:ButtonGroup>\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton icon="{iconSelector}"/>\n'+
-'    <sp:ActionButton icon="{iconSelector}" selected="true"/>\n'+
-'    <sp:ActionButton icon="{iconSelector}" disabled="true"/>\n'+
-'    <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true"/>\n'+
-'  </sp:ButtonGroup>\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
-'    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
-'    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
-'    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
-'  </sp:ButtonGroup>\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton text="Button">\n'+
-'    <sp:iconElement>\n'+
-'      <assets:CalendarIcon/>\n'+
-'    </sp:iconElement>\n'+
-'    </sp:ActionButton>\n'+
-'    <sp:ActionButton text="Button" selected="true">\n'+
-'    <sp:iconElement>\n'+
-'      <assets:CalendarIcon/>\n'+
-'    </sp:iconElement>\n'+
-'    </sp:ActionButton>\n'+
-'    <sp:ActionButton text="Button" disabled="true">\n'+
-'    <sp:iconElement>\n'+
-'      <assets:CalendarIcon/>\n'+
-'    </sp:iconElement>\n'+
-'    </sp:ActionButton>\n'+
-'    <sp:ActionButton text="Button" disabled="true" selected="true">\n'+
-'    <sp:iconElement>\n'+
-'      <assets:CalendarIcon/>\n'+
-'    </sp:iconElement>\n'+
-'    </sp:ActionButton>\n'+
-'  </sp:ButtonGroup>\n'+
-'</sp:FieldGroup>';
+      '[Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";\n'+
+      '[Bindable]public var flyoutList:Array = ["One","Two","Three"];\n'+
+      '\n'+
+      '\n'+
+      '<sp:FieldGroup vertical="true">\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Edit"/>\n'+
+      '    <sp:ActionButton text="Edit" selected="true"/>\n'+
+      '    <sp:ActionButton text="Edit" disabled="true"/>\n'+
+      '    <sp:ActionButton text="Edit" disabled="true" selected="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton icon="{iconSelector}"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" selected="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" disabled="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Button">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" selected="true">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" disabled="true">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" disabled="true" selected="true">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '</sp:FieldGroup>';
 
-[Bindable] public var string2:String = 
-'<sp:FieldGroup vertical="true">\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}"/>\n'+
-'    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" selected="true"/>\n'+
-'    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
-'    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
-'  </sp:ButtonGroup>\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton quiet="true" icon="{iconSelector}"/>\n'+
-'    <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true"/>\n'+
-'    <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true"/>\n'+
-'    <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
-'  </sp:ButtonGroup>\n'+
-'  <sp:ButtonGroup>\n'+
-'    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
-'    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
-'    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
-'    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
-'  </sp:ButtonGroup>\n'+
-'</sp:FieldGroup>';
+      [Bindable] public var string2:String = 
+      '[Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";\n'+
+      '[Bindable]public var flyoutList:Array = ["One","Two","Three"];\n'+
+      '\n'+
+      '\n'+
+      '<sp:FieldGroup vertical="true">\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}"/>\n'+
+      '    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" selected="true"/>\n'+
+      '    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true"/>\n'+
+      '    <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton quiet="true" icon="{iconSelector}"/>\n'+
+      '    <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true"/>\n'+
+      '    <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true"/>\n'+
+      '    <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}"/>\n'+
+      '    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>\n'+
+      '    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>\n'+
+      '    <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '</sp:FieldGroup>';
+
+      [Bindable]public var codeString3:String = 
+
+      '[Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";\n'+
+      '[Bindable]public var flyoutList:Array = ["One","Two","Three"];\n'+
+      '\n'+
+      '\n'+
+      '<sp:FieldGroup vertical="true">\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Edit" emphasized="true"/>\n'+
+      '    <sp:ActionButton text="Edit" selected="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton text="Edit" disabled="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton text="Edit" disabled="true" selected="true" emphasized="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" emphasized="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true" emphasized="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" emphasized="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" selected="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" disabled="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true" emphasized="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" emphasized="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" emphasized="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true" emphasized="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Button emphasized="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" selected="true emphasized="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" disabled="true emphasized="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" disabled="true" selected="true emphasized="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '</sp:FieldGroup>';
+
+      [Bindable]public var codeString4:String = 
+
+      '[Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";\n'+
+      '[Bindable]public var flyoutList:Array = ["One","Two","Three"];\n'+
+      '\n'+
+      '\n'+
+      '<sp:FieldGroup vertical="true">\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Edit" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton text="Edit" selected="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton text="Edit" disabled="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton text="Edit" disabled="true" selected="true" emphasized="true" quiet="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true" emphasized="true" quiet="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" selected="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" disabled="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true" emphasized="true" quiet="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" emphasized="true" quiet="true"/>\n'+
+      '    <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true" emphasized="true" quiet="true"/>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '  <sp:ButtonGroup>\n'+
+      '    <sp:ActionButton text="Button emphasized="true" quiet="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" selected="true emphasized="true" quiet="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" disabled="true emphasized="true" quiet="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '    <sp:ActionButton text="Button" disabled="true" selected="true emphasized="true" quiet="true"">\n'+
+      '    <sp:iconElement>\n'+
+      '      <assets:CalendarIcon/>\n'+
+      '    </sp:iconElement>\n'+
+      '    </sp:ActionButton>\n'+
+      '  </sp:ButtonGroup>\n'+
+      '</sp:FieldGroup>';
+      
 
       [Bindable]public var iconSelector:String = IconPrefix._18 + "Edit";
       [Bindable]public var flyoutList:Array = ["One","Two","Three"];
     ]]>
   </fx:Script>
   <comp:Variant>
-  <sp:FieldGroup vertical="true">
-    <sp:ButtonGroup>
-      <sp:ActionButton text="Edit"/>
-      <sp:ActionButton text="Edit" selected="true"/>
-      <sp:ActionButton text="Edit" disabled="true"/>
-      <sp:ActionButton text="Edit" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <sp:ButtonGroup>
-      <sp:ActionButton text="Edit" icon="{iconSelector}"/>
-      <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true"/>
-      <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true"/>
-      <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <sp:ButtonGroup>
-      <sp:ActionButton icon="{iconSelector}"/>
-      <sp:ActionButton icon="{iconSelector}" selected="true"/>
-      <sp:ActionButton icon="{iconSelector}" disabled="true"/>
-      <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <sp:ButtonGroup>
-      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}"/>
-      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>
-      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>
-      <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>
-    </sp:ButtonGroup>
-    <sp:ButtonGroup>
-      <sp:ActionButton text="Button">
-      <sp:iconElement>
-        <assets:CalendarIcon/>
-      </sp:iconElement>
-      </sp:ActionButton>
-      <sp:ActionButton text="Button" selected="true">
-      <sp:iconElement>
-        <assets:CalendarIcon/>
-      </sp:iconElement>
-      </sp:ActionButton>
-      <sp:ActionButton text="Button" disabled="true">
-      <sp:iconElement>
-        <assets:CalendarIcon/>
-      </sp:iconElement>
-      </sp:ActionButton>
-      <sp:ActionButton text="Button" disabled="true" selected="true">
-      <sp:iconElement>
-        <assets:CalendarIcon/>
-      </sp:iconElement>
-      </sp:ActionButton>
-    </sp:ButtonGroup>
-  </sp:FieldGroup>
-  <comp:Markup>
-    <comp:StyledCode text="{codeString}"/>
-  </comp:Markup>
+    <sp:FieldGroup vertical="true">
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Edit" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" selected="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" disabled="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" disabled="true" selected="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton icon="{iconSelector}" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" selected="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" disabled="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Button" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" selected="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" disabled="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" disabled="true" selected="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+      </sp:ButtonGroup>
+    </sp:FieldGroup>
+    <comp:Markup>
+      <comp:StyledCode text="{codeString}"/>
+    </comp:Markup>
   </comp:Variant>
+
   <comp:Variant header="Quiet">
     <sp:FieldGroup vertical="true">
       <sp:ButtonGroup>
-        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}"/>
-        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" selected="true"/>
-        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true"/>
-        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true"/>
+        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" selected="true" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" text="Edit" icon="{iconSelector}" disabled="true" selected="true" style="margin-right: 5px;"/>
       </sp:ButtonGroup>
       <sp:ButtonGroup>
-        <sp:ActionButton quiet="true" icon="{iconSelector}"/>
-        <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true"/>
-        <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true"/>
-        <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true"/>
+        <sp:ActionButton quiet="true" icon="{iconSelector}" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" icon="{iconSelector}" selected="true" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" icon="{iconSelector}" disabled="true" selected="true" style="margin-right: 5px;"/>
       </sp:ButtonGroup>
       <sp:ButtonGroup>
-        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}"/>
-        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true"/>
-        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true"/>
-        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true"/>
+        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" style="margin-right: 5px;"/>
+        <sp:ActionButton quiet="true" dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true" style="margin-right: 5px;"/>
       </sp:ButtonGroup>
     </sp:FieldGroup>
     <comp:Markup>
@@ -166,5 +282,112 @@ import com.unhurdle.spectrum.const.IconPrefix;
     </comp:Markup>
   </comp:Variant>
 
+  <comp:Variant header="Emphasized">
+    <sp:FieldGroup vertical="true">
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Edit" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" selected="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" disabled="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" disabled="true" selected="true" emphasized="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true" emphasized="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton icon="{iconSelector}" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" selected="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" disabled="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true" emphasized="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" emphasized="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true" emphasized="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Button" emphasized="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" selected="true" emphasized="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" disabled="true" emphasized="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" disabled="true" selected="true" emphasized="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+      </sp:ButtonGroup>
+    </sp:FieldGroup>
+    <comp:Markup>
+      <comp:StyledCode text="{codeString3}"/>
+    </comp:Markup>
+  </comp:Variant>
+
+  <comp:Variant header="Emphasized (quiet)">
+    <sp:FieldGroup vertical="true">
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Edit" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" disabled="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" disabled="true" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton text="Edit" icon="{iconSelector}" disabled="true" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton icon="{iconSelector}" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" disabled="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton icon="{iconSelector}" disabled="true" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+        <sp:ActionButton dataProvider="{flyoutList}" icon="{iconSelector}" disabled="true" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;"/>
+      </sp:ButtonGroup>
+      <sp:ButtonGroup>
+        <sp:ActionButton text="Button" emphasized="true" quiet="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" disabled="true" emphasized="true" quiet="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+        <sp:ActionButton text="Button" disabled="true" selected="true" emphasized="true" quiet="true" style="margin-right: 5px;">
+        <sp:iconElement>
+          <assets:CalendarIcon/>
+        </sp:iconElement>
+        </sp:ActionButton>
+      </sp:ButtonGroup>
+    </sp:FieldGroup>
+    <comp:Markup>
+      <comp:StyledCode text="{codeString4}"/>
+    </comp:Markup>
+  </comp:Variant>
 
 </view:DemoPane>

@@ -60,6 +60,20 @@ package com.unhurdle.spectrum
     	_selectable = value;
     }
 
+    private var _emphasized:Boolean;
+
+    public function get emphasized():Boolean
+    {
+    	return _emphasized;
+    }
+
+    public function set emphasized(value:Boolean):void
+    {
+      if(_emphasized != value){
+        toggle(valueToSelector("emphasized"),value);
+      }
+    	_emphasized = value;
+    }
     override public function addedToParent():void{
       super.addedToParent();
       if(selectable){
