@@ -138,7 +138,9 @@ package com.unhurdle.spectrum
           addElementAt(validIcon,0);
         }
       } else{
-        removeElement(validIcon);
+        if(validIcon){
+          removeElement(validIcon);
+        }
       }
     }
 
@@ -164,7 +166,9 @@ package com.unhurdle.spectrum
           addElementAt(invalidIcon,0);
         }
       } else{
-        removeElement(invalidIcon);
+        if(invalidIcon){
+          removeElement(invalidIcon);
+        }
       }
     }
 
