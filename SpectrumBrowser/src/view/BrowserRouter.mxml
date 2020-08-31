@@ -85,7 +85,7 @@
     <js:ComponentRoute title="Table" component="view.panes.ComingSoonPane" baseName="table"/>
     <js:ComponentRoute title="Tabs" component="view.panes.TabsPane" baseName="tabs"/>
     <js:ComponentRoute title="Tags" component="view.panes.TagsPane" baseName="tags"/>
-    <js:ComponentRoute title="Text area" component="view.panes.TextareaPane" baseName="text_area"/>
+    <js:ComponentRoute title="Text Area" component="view.panes.TextareaPane" baseName="text_area"/>
     <js:ComponentRoute title="Text Field" component="view.panes.TextFieldPane" baseName="text_field"/>
     <js:ComponentRoute title="Toast" component="view.panes.ToastPane" baseName="toast"/>
     <js:ComponentRoute title="Tool" component="view.panes.ToolPane" baseName="tool"/>

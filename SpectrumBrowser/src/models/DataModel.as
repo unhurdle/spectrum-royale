@@ -69,7 +69,7 @@ package models
         "Table",
         "Tabs",
         "Tags",
-        "Text area",
+        "Text Area",
         "Text Field",
         "Text Field - Decorated",
         "Toast",
