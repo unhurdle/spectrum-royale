@@ -27,7 +27,6 @@ package com.unhurdle.spectrum
       return "spectrum-Search";
     }
     private var input:TextField;
-    private var inputIcon:Icon;
     private var button:ClearButton;
 
     public function get text():String
@@ -75,18 +74,18 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
     addElementToWrapper(this,"form");
     input = new TextField();
+    // percentWidth needed to allow the container copmponent to be sized
     input.percentWidth = 100;
     (input.element as HTMLInputElement).type = "search";
     input.placeholder = "Search"
-    input.className = appendSelector("-input");
     //TODO forward events
     addElement(input);
     var type:String = IconType.MAGNIFIER;
-    inputIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
-    inputIcon.type = type;
-    inputIcon.className = appendSelector("-icon");
-    addElement(inputIcon);
+    input.icon = IconPrefix.SPECTRUM_CSS_ICON + type;
+    input.iconType = type;
+
     button = new ClearButton();
+    button.className = appendSelector("-clearButton");
     button.addEventListener("clear" , clear);
     addElement(button);
     element.addEventListener("submit", handleSubmit);
@@ -102,14 +101,14 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("search"));
       return false;
     }
-    COMPILE::JS
-    public function set searchIcon(value:Boolean):void
-    {
-      if(!value){
-        removeElement(inputIcon);
-        input.className = "";
-      }
-    }
+    // COMPILE::JS
+    // public function set searchIcon(value:Boolean):void
+    // {
+    //   if(!value){
+    //     removeElement(inputIcon);
+    //     input.className = "";
+    //   }
+    // }
 
     public function get placeholder():String
     {

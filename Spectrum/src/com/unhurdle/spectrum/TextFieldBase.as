@@ -118,5 +118,103 @@ package com.unhurdle.spectrum
     	_keyboardFocused = value;
     }
 
+    private var _icon:String;
+
+    /**
+     * Icon selector name
+     */
+    public function get icon():String
+    {
+    	return _icon;
+    }
+
+    public function set icon(value:String):void
+    {
+    	_icon = value;
+      createIcon(value);
+    }
+
+    private var _iconClass:String = "";
+
+    public function get iconClass():String
+    {
+    	return _iconClass;
+    }
+
+    public function set iconClass(value:String):void
+    {
+    	_iconClass = value;
+      if(iconElement){
+        iconElement.className = value;
+      }
+    }
+    private var _iconSize:String; "S"
+
+    public function get iconSize():String
+    {
+    	return _iconSize;
+    }
+
+    public function set iconSize(value:String):void
+    {
+      if(!Icon.validateSize(value)){
+        return;
+      }
+    	_iconSize = value;
+      if(iconElement){
+        iconElement.size = value;
+      }
+    }
+    private var _iconType:String;
+
+    public function get iconType():String
+    {
+    	return _iconType;
+    }
+
+    public function set iconType(value:String):void
+    {
+    	_iconType = value;
+      if(iconElement){
+        iconElement.type = value;
+      }
+    }
+    private var _iconElement:Icon;
+
+    public function get iconElement():Icon
+    {
+    	return _iconElement;
+    }
+
+    public function set iconElement(value:Icon):void
+    {
+      if(_iconElement){
+        removeElement(_iconElement);
+      }
+    	_iconElement = value;
+      if(_iconElement){
+        addElementAt(_iconElement,0);
+      }
+    }
+
+    protected function createIcon(selector:String):void{
+      if(_iconElement){
+        _iconElement.selector = selector;
+        setIconProps();
+      } else {
+        _iconElement = new Icon(selector);
+        setIconProps();
+        addElementAt(_iconElement,0);
+      }
+    }
+    protected function setIconProps():void{
+      if(iconClass){
+        _iconElement.className = iconClass;
+      }
+      _iconElement.size = iconSize;
+      _iconElement.type = iconType;
+      _iconElement.toggle(appendSelector("-icon"),true);
+    }
+
   }
 }
