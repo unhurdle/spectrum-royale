@@ -13,16 +13,15 @@ package com.unhurdle.spectrum
       toggle(valueToSelector("explicit"),true);
       pagesNum = 1;
       pageIsSelected = 1;
-      href = "";
     }
     override protected function getSelector():String{
 				return "spectrum-Pagination";
 		}
 
-    private var input:HTMLInputElement;
     private var span:TextNode;
     private var prev:HTMLLinkElement;
     private var next:HTMLLinkElement;
+    private var textField:TextField;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -35,12 +34,10 @@ package com.unhurdle.spectrum
       prev.appendChild(prevCheckIcon.element);
       prev.addEventListener("click",prevPage);
       elem.appendChild(prev);
-      input = newElement("input","spectrum-Textfield " + appendSelector("-input")) as HTMLInputElement;
-      input.type = "text";
-      input.name = "field";
-      input.value = "" + pageIsSelected;
-      input.addEventListener("change",changeValue);
-      elem.appendChild(input);
+      textField = new TextField();
+      textField.text = "" + pageIsSelected;
+      textField.addEventListener("change",changeValue);
+      elem.appendChild(textField.element);
       span = new TextNode("");
       span.element = newElement("span","spectrum-Body--secondary" + appendSelector("-counter"));
       span.element.style.marginLeft = '6px';
@@ -53,26 +50,6 @@ package com.unhurdle.spectrum
       next.addEventListener("click",nextPage);
       elem.appendChild(next);
       return elem;
-    }
-    private var _href:String;
-
-    public function get href():String
-    {
-    	return _href;
-    }
-
-    public function set href(value:String):void
-    {
-      if(value){
-      	_href = value;
-      } else {
-        _href = "#";
-        }
-        COMPILE::JS
-        {
-          prev.href = _href;
-          next.href = _href;
-        }
     }
 
     private function prevPage():void{
@@ -99,7 +76,7 @@ package com.unhurdle.spectrum
       	_pageIsSelected = val;
       }
       enableOrDisable();
-      input.value = "" + _pageIsSelected;
+      textField.text = "" + _pageIsSelected;
     }
     private var _pagesNum:int;
 
@@ -118,13 +95,13 @@ package com.unhurdle.spectrum
 
     private function changeValue():void{
       COMPILE::JS{
-        if(Number(input.value) > pagesNum){
-          input.value = "" + pagesNum;
+        if(Number(textField.text) > pagesNum){
+          textField.text = "" + pagesNum;
         }
-        if(Number(input.value) < 0){
-          input.value = "1";
+        if(Number(textField.text) < 0){
+          textField.text = "1";
         }
-        pageIsSelected = Number(input.value);
+        pageIsSelected = Number(textField.text);
       }
     }
   }

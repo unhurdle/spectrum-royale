@@ -134,7 +134,6 @@ package com.unhurdle.spectrum
             for(var i:int=0;i<val;i++){
               //TODO use ActionButton?
                 var link:HTMLElement = newElement("a","spectrum-ActionButton spectrum-ActionButton--quiet");
-                link.setAttribute("href","#");
                 var node:TextNode = new TextNode("span");
                 node.className = "spectrum-ActionButton-label";
                 node.text = "" + (i + 1);
