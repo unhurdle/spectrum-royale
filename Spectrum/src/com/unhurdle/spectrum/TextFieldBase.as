@@ -47,15 +47,15 @@ package com.unhurdle.spectrum
 
     public function get valid():Boolean
     {
-    	return _invalid;
+    	return _valid;
     }
 
     public function set valid(value:Boolean):void
     {
-      if(value != _invalid){
+      if(value != _valid){
         toggle("is-valid",value);
       }
-    	_invalid = value;
+    	_valid = value;
     }
 
     private var _invalid:Boolean;
@@ -71,6 +71,51 @@ package com.unhurdle.spectrum
         toggle("is-invalid",value);
       }
     	_invalid = value;
+    }
+
+  private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+    	return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+      if(!!value != !!_disabled){
+        toggle("is-disabled",value);
+      }
+      _disabled = value;
+    }
+
+    private var _focused:Boolean;
+
+    public function get focused():Boolean
+    {
+    	return _focused;
+    }
+
+    public function set focused(value:Boolean):void
+    {
+      if(value != _focused){
+        toggle("is-focused",value);
+      }
+    	_focused = value;
+    }
+
+    private var _keyboardFocused:Boolean;
+
+    public function get keyboardFocused():Boolean
+    {
+    	return _keyboardFocused;
+    }
+
+    public function set keyboardFocused(value:Boolean):void
+    {
+      if(value != _keyboardFocused){
+        toggle("is-keyboardFocused",value);
+      }
+    	_keyboardFocused = value;
     }
 
   }

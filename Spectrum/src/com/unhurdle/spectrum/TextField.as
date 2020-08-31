@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
   {
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
+    import com.unhurdle.spectrum.const.IconType;
   }
 
 /**
@@ -100,27 +101,80 @@ package com.unhurdle.spectrum
       _required = value;
     }
 
-    private var _disabled:Boolean;
 
-    public function get disabled():Boolean
+    override public function get disabled():Boolean
     {
-    	return _disabled;
+    	return super.disabled;
     }
 
-    public function set disabled(value:Boolean):void
+    override public function set disabled(value:Boolean):void
     {
-      if(!!value != !!_disabled){
+      if(!!value != !!super.disabled){
         input.disabled = value;
       }
-      _disabled = value;
+      super.disabled = value;
+    }
+
+    private var validIcon:Icon;
+    private var invalidIcon:Icon;
+    override public function get valid():Boolean
+    {
+    	return super.valid;
+    }
+
+    COMPILE::JS
+    override public function set valid(value:Boolean):void
+    {
+      super.valid = value;
+      if(value){
+        if(!validIcon){
+          var type:String = IconType.CHECKMARK_MEDIUM;
+          validIcon = new Icon(Icon.getCSSTypeSelector(type));
+          validIcon.className = appendSelector("-validationIcon");
+          validIcon.type = type;
+        }
+        //if icon doesn't exist
+        if(getElementIndex(validIcon) == -1){
+          addElementAt(validIcon,0);
+        }
+      } else{
+        removeElement(validIcon);
+      }
+    }
+
+
+    override public function get invalid():Boolean
+    {
+    	return super.invalid;
+    }
+
+    COMPILE::JS
+    override public function set invalid(value:Boolean):void
+    {
+      super.invalid = value;
+      if(value){
+        if(!invalidIcon){
+          var type:String = IconType.ALERT_MEDIUM;
+          invalidIcon = new Icon(Icon.getCSSTypeSelector(type));
+          invalidIcon.className = appendSelector("-validationIcon");
+          invalidIcon.type = type;
+        }
+        if(getElementIndex(invalidIcon) == -1){
+          addElementAt(invalidIcon,0);
+        }
+      } else{
+        removeElement(invalidIcon);
+      }
     }
 
     protected var input:HTMLInputElement;
 
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
-      input = addElementToWrapper(this,'input') as HTMLInputElement;
-      return element;
+      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      input = newElement("input",appendSelector("-input")) as HTMLInputElement;
+      elem.appendChild(input);
+      return elem;
     }
   }
 }

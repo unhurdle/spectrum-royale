@@ -87,7 +87,6 @@
     <js:ComponentRoute title="Tags" component="view.panes.TagsPane" baseName="tags"/>
     <js:ComponentRoute title="Text area" component="view.panes.TextareaPane" baseName="text_area"/>
     <js:ComponentRoute title="Text Field" component="view.panes.TextFieldPane" baseName="text_field"/>
-    <js:ComponentRoute title="Text Field - Decorated" component="view.panes.TextFieldDecoratedPane" baseName="text_field_decorated"/>
     <js:ComponentRoute title="Toast" component="view.panes.ToastPane" baseName="toast"/>
     <js:ComponentRoute title="Tool" component="view.panes.ToolPane" baseName="tool"/>
     <js:ComponentRoute title="Tooltip" component="view.panes.TooltipPane" baseName="tooltip"/>

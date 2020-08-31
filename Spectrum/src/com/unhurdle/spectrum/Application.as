@@ -26,7 +26,7 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         element.className = 'Application spectrum spectrum--medium spectrum--light';
-
+        element.dir =_dir;
       }
       _current = this;
     }
@@ -125,6 +125,20 @@ package com.unhurdle.spectrum
       	_appScale = value;
 
         //TODO load the correct icons?
+      }
+    }
+    private var _dir:String = "ltr";
+
+    public function get dir():String
+    {
+    	return _dir;
+    }
+
+    public function set dir(value:String):void
+    {
+    	_dir = value;
+      COMPILE::JS{
+        element.dir =_dir;
       }
     }
   }
