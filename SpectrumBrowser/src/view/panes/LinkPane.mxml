@@ -12,26 +12,33 @@
         '    <Span text=". This is just filler text, but if you keep reading maybe something good will happen."/>\n'+
         '  </sp:Body>\n'+
         '</Div>';
+        [Bindable] public var quietOverBackgroundMarkup:String = 
+        '<Div style="background-color: rgb(15, 121, 125); padding: 15px 20px; display: inline-block;">\n'+
+        '  <sp:Body style="color: rgb(255, 255, 255);" text="Hello, this is my ">\n'+
+        '    <sp:Link href="#!logic_button" text="spectrum-Link--overBackground" overBackground="true" quiet="true"/>\n'+
+        '    <Span text=". This is just filler text, but if you keep reading maybe something good will happen."/>\n'+
+        '  </sp:Body>\n'+
+        '</Div>';
     ]]>
   </fx:Script>
   <comp:Variant>
-    <sp:Link href="#!logic_button" text="Link using spectrum-Link"/>
+    <sp:Link href="#!logic_button" text="Spectrum link"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Link href="#!logic_button" text="Link using spectrum-Link"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Link href="#!logic_button" text="Spectrum link"/&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Quiet">
-    <P>This uses <sp:Link href="#!logic_button" text="spectrum-Link--quiet" quiet="true"/>.</P>
+  <comp:Variant header="Link - Secondary">
+    <sp:Link href="#!logic_button" text="This link is secondary" secondary="true"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;P&gt;This uses &lt;sp:Link href="#!logic_button" text="spectrum-Link--quiet" quiet="true"/&gt;.&lt;/P&gt;'/>
+    <comp:StyledCode text='&lt;sp:Link href="#!logic_button" text="This link is secondary" secondary="true"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Link - Over Background">
     <Div style="background-color: rgb(15, 121, 125); padding: 15px 20px; display: inline-block;">
       <sp:Body style="color: rgb(255, 255, 255);" text="Hello, this is my ">
-        <sp:Link href="#!logic_button" text="spectrum-Link--overBackground" overBackground="true"/>
+        <sp:Link href="#!logic_button" text="spectrum link over background" overBackground="true"/>
         <Span text=". This is just filler text, but if you keep reading maybe something good will happen."/>
       </sp:Body>
     </Div>
@@ -40,18 +47,30 @@
     <comp:StyledCode text='{overBackgroundMarkup}'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Disabled" notes="Do not use disabled links.">
-    <P>This uses <sp:Link href="#!logic_button" text="is-disabled" disabled="true"/>.</P>
+  <comp:Variant header="Link - Quiet">
+    <P>This link is <sp:Link href="#!logic_button" text="quiet" quiet="true"/>.</P>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;P&gt;This uses &lt;sp:Link href="#!logic_button" text="is-disabled" disabled="true"/&gt;.&lt;/P&gt;'/>
+    <comp:StyledCode text='&lt;P&gt;This link is &lt;sp:Link href="#!logic_button" text="quiet" quiet="true"/&gt;.&lt;/P&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Subtle" notes="Use quiet instead">
-    <P>This uses <sp:Link href="#!logic_button" text="spectrum-Link--subtle" subtle="true"/>.</P>
+  <comp:Variant header="Link - Quiet">
+    <P>This link is <sp:Link href="#!logic_button" text="quiet" quiet="true" secondary="true"/>.</P>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;P&gt;This uses &lt;sp:Link href="#!logic_button" text="spectrum-Link--subtle" subtle="true"/&gt;.&lt;/P&gt;'/>
+    <comp:StyledCode text='&lt;P&gt;This link is &lt;sp:Link href="#!logic_button" text="quiet" quiet="true" secondary="true"/&gt;.&lt;/P&gt;'/>
+  </comp:Markup>
+
+  <comp:Variant header="Link - Over Background">
+    <Div style="background-color: rgb(15, 121, 125); padding: 15px 20px; display: inline-block;">
+      <sp:Body style="color: rgb(255, 255, 255);" text="Hello, this is my ">
+        <sp:Link href="#!logic_button" text="spectrum link over background" overBackground="true" quiet="true"/>
+        <Span text=". This is just filler text, but if you keep reading maybe something good will happen."/>
+      </sp:Body>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{quietOverBackgroundMarkup}'/>
   </comp:Markup>
 
 </view:DemoPane>

@@ -111,19 +111,19 @@ package com.unhurdle.spectrum
       }
     	_quiet = value;
     }
-    private var _subtle:Boolean;
+    private var _secondary:Boolean;
 
-    public function get subtle():Boolean
+    public function get secondary():Boolean
     {
-    	return _subtle;
+    	return _secondary;
     }
 
-    public function set subtle(value:Boolean):void
+    public function set secondary(value:Boolean):void
     {
-      if(_subtle != value){
-        toggle(valueToSelector("subtle"),value);
+      if(_secondary != value){
+        toggle(valueToSelector("secondary"),value);
       }
-    	_subtle = value;
+    	_secondary = value;
     }
   }
 }
