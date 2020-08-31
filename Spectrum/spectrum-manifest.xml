@@ -50,7 +50,6 @@
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="DataItemRenderer" class="com.unhurdle.spectrum.renderers.DataItemRenderer"/>
     <component id="DatePicker" class="com.unhurdle.spectrum.DatePicker"/>
-    <component id="DecoratedTextField" class="com.unhurdle.spectrum.DecoratedTextField"/>
     <component id="Detail" class="com.unhurdle.spectrum.typography.Detail"/>
     <component id="Dial" class="com.unhurdle.spectrum.Dial"/>
     <component id="Dialog" class="com.unhurdle.spectrum.Dialog"/>
