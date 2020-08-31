@@ -8,10 +8,10 @@
   </fx:Script>
   
   <comp:Variant header="Image">
-    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" width="128" height="128"/>
+    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" width="128" height="128"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" width="128" height="128"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" width="128" height="128"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="File">

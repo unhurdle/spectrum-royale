@@ -40,7 +40,7 @@
             if(branch){
                 assetListItem.selectable = true;
             }
-            assetListItem.imageIcon = "https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg";
+            assetListItem.imageIcon = "https://opensource.adobe.com/spectrum-css/img/example-ava.jpg";
             arr.push(assetListItem);
 
             var childArray:Array = [{"children":arr}]

@@ -13,9 +13,9 @@
         '</sp:TagGroup>\n'+
         '<Br/><Br/>\n'+
         '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>\n'+
-        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>\n'+
-        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>\n'+
+        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
+        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
+        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
         '</sp:TagGroup>\n'+
         '<Br/><Br/>\n'+
         '<sp:TagGroup>\n'+
@@ -31,9 +31,9 @@
         '</sp:TagGroup>\n'+
         '<Br/><Br/>\n'+
         '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
+        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
         '</sp:TagGroup>\n'+
         '<Br/><Br/>\n'+
         '<sp:TagGroup>\n'+
@@ -51,9 +51,9 @@
     </sp:TagGroup>
     <Br/><Br/>
     <sp:TagGroup>
-        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>
-        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>
-        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>
     </sp:TagGroup>
     <Br/><Br/>
     <sp:TagGroup>
@@ -73,9 +73,9 @@
     </sp:TagGroup>
     <Br/><Br/>
     <sp:TagGroup>
-        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg"/>
-        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" invalid="true"/>
-        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/static/images/example-ava.jpg" isDisabled="true"/>
+        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>
+        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>
+        <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>
     </sp:TagGroup>
     <Br/><Br/>
     <sp:TagGroup>

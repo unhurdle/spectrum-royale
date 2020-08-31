@@ -9,7 +9,7 @@
     </fx:Script>
     <comp:Variant header="And">
         <Div>
-            <sp:LogicButton type="and"/>
+            <sp:LogicButton type="and" style="margin-right: 5px;"/>
             <sp:LogicButton type="and" disabled="true"/>
         </Div>
     </comp:Variant>
@@ -20,7 +20,7 @@
     </comp:Markup>
     <comp:Variant header="Or">
         <Div>
-            <sp:LogicButton type="or"/>
+            <sp:LogicButton type="or" style="margin-right: 5px;"/>
             <sp:LogicButton type="or" disabled="true"/>
         </Div>
     </comp:Variant>

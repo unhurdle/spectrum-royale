@@ -16,7 +16,6 @@
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/&gt;'/>  </comp:Markup>
-   <sp:Heading size="4" text="Error"/>
 
   <comp:Variant header="Info">
     <sp:Banner header="Most Popular" content="Includes Illustrator CC"/>
@@ -28,7 +27,7 @@
     <comp:StyledCode text='&lt;sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Error">
+  <comp:Variant header="Warning">
     <sp:Banner type="warning" header="Purchase Soon" content="Your trial is about to expire"/>
   </comp:Variant>
   <comp:Markup>

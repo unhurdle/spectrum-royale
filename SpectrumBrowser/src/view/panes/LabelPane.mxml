@@ -45,14 +45,14 @@
   </fx:Script>
   <comp:Variant>
     <Div>
-      <sp:Label text="Grey Label" color="grey"/>
-      <sp:Label text="Red Label" color="red"/>
-      <sp:Label text="Orange Label" color="orange"/>
-      <sp:Label text="Yellow Label" color="yellow"/>
-      <sp:Label text="Seafoam Label" color="seafoam"/>
-      <sp:Label text="Green Label" color="green"/>
-      <sp:Label text="Blue Label" color="blue"/>
-      <sp:Label text="Fuchsia Label" color="fuchsia"/>
+      <sp:Label text="Grey Label" color="grey" style="margin-right: 5px;"/>
+      <sp:Label text="Red Label" color="red" style="margin-right: 5px;"/>
+      <sp:Label text="Orange Label" color="orange" style="margin-right: 5px;"/>
+      <sp:Label text="Yellow Label" color="yellow" style="margin-right: 5px;"/>
+      <sp:Label text="Seafoam Label" color="seafoam" style="margin-right: 5px;"/>
+      <sp:Label text="Green Label" color="green" style="margin-right: 5px;"/>
+      <sp:Label text="Blue Label" color="blue" style="margin-right: 5px;"/>
+      <sp:Label text="Fuchsia Label" color="fuchsia" style="margin-right: 5px;"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
@@ -77,14 +77,14 @@
 
   <comp:Variant header="Small" notes="A small label">
     <Div>
-      <sp:Label size="small" text="Grey Label" color="grey"/>
-      <sp:Label size="small" text="Red Label" color="red"/>
-      <sp:Label size="small" text="Orange Label" color="orange"/>
-      <sp:Label size="small" text="Yellow Label" color="yellow"/>
-      <sp:Label size="small" text="Seafoam Label" color="seafoam"/>
-      <sp:Label size="small" text="Green Label" color="green"/>
-      <sp:Label size="small" text="Blue Label" color="blue"/>
-      <sp:Label size="small" text="Fuchsia Label" color="fuchsia"/>
+      <sp:Label size="small" text="Grey Label" color="grey" style="margin-right: 5px;"/>
+      <sp:Label size="small" text="Red Label" color="red" style="margin-right: 5px;"/>
+      <sp:Label size="small" text="Orange Label" color="orange" style="margin-right: 5px;"/>
+      <sp:Label size="small" text="Yellow Label" color="yellow" style="margin-right: 5px;"/>
+      <sp:Label size="small" text="Seafoam Label" color="seafoam" style="margin-right: 5px;"/>
+      <sp:Label size="small" text="Green Label" color="green" style="margin-right: 5px;"/>
+      <sp:Label size="small" text="Blue Label" color="blue" style="margin-right: 5px;"/>
+      <sp:Label size="small" text="Fuchsia Label" color="fuchsia" style="margin-right: 5px;"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
@@ -93,14 +93,14 @@
 
   <comp:Variant header="Large" notes="A large label">
     <Div>
-      <sp:Label size="large" text="Grey Label" color="grey"/>
-      <sp:Label size="large" text="Red Label" color="red"/>
-      <sp:Label size="large" text="Orange Label" color="orange"/>
-      <sp:Label size="large" text="Yellow Label" color="yellow"/>
-      <sp:Label size="large" text="Seafoam Label" color="seafoam"/>
-      <sp:Label size="large" text="Green Label" color="green"/>
-      <sp:Label size="large" text="Blue Label" color="blue"/>
-      <sp:Label size="large" text="Fuchsia Label" color="fuchsia"/>
+      <sp:Label size="large" text="Grey Label" color="grey" style="margin-right: 5px;"/>
+      <sp:Label size="large" text="Red Label" color="red" style="margin-right: 5px;"/>
+      <sp:Label size="large" text="Orange Label" color="orange" style="margin-right: 5px;"/>
+      <sp:Label size="large" text="Yellow Label" color="yellow" style="margin-right: 5px;"/>
+      <sp:Label size="large" text="Seafoam Label" color="seafoam" style="margin-right: 5px;"/>
+      <sp:Label size="large" text="Green Label" color="green" style="margin-right: 5px;"/>
+      <sp:Label size="large" text="Blue Label" color="blue" style="margin-right: 5px;"/>
+      <sp:Label size="large" text="Fuchsia Label" color="fuchsia" style="margin-right: 5px;"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
