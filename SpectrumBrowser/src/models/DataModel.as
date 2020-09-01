@@ -71,7 +71,6 @@ package models
         "Tags",
         "Text area",
         "Text Field",
-        "Text Field - Decorated",
         "Toast",
         "Tool",
         "Tooltip",

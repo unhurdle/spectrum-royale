@@ -347,6 +347,11 @@ package com.unhurdle.spectrum
                     } else if (j == 6){
                         span.lastInWeek = true;
                     }
+                    if(days[k+l] && days[k + l].getDate() == 1){
+                        span.firstInMonth = true;
+                    } else if(days[k + l] && new Date(days[k + l].getTime() + 86400000).getDate() === 1){
+                        span.lastInMonth = true;
+                    }
                     span.disabled = disabled;
                     if(span.firstInWeek && k+l > 7 && !days[k+l]){
                         // only need 5 rows.

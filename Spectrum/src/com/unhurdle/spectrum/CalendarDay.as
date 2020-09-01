@@ -126,6 +126,10 @@ package com.unhurdle.spectrum
 
     public var firstInWeek:Boolean;
     public var lastInWeek:Boolean;
+    public var firstInMonth:Boolean;
+    public var lastInMonth:Boolean;
+    private var atStart:Boolean;
+    private var atEnd:Boolean;
 
     public function setRange(start:Date,end:Date):void{
       if(!_date || !start || !end)
@@ -134,8 +138,8 @@ package com.unhurdle.spectrum
       }
       COMPILE::JS
       {
-        var atStart:Boolean;
-        var atEnd:Boolean;
+        atStart = false;
+        atEnd = false;
         var between:Boolean;
         var selectionStart:String = "is-selection-start";
         var selectionEnd:String = "is-selection-end";
@@ -182,21 +186,25 @@ package com.unhurdle.spectrum
     }
     private var _curWeekStart:Boolean = false;
     private function toggleWeekStart(value:Boolean):void{
-      if(!firstInWeek){
+      if(!firstInWeek && !firstInMonth){
         return;
       }
-      if(value != _curWeekStart){
-        _curWeekStart = (element as HTMLElement).classList.toggle("is-range-start");
+      if(atStart){
+        value = false;
       }
+      _curWeekStart = value;
+      toggle("is-range-start",value);
     }
     private var _curWeekEnd:Boolean = false;
     private function toggleWeekEnd(value:Boolean):void{
-      if(!lastInWeek){
+      if(!lastInWeek && !lastInMonth){
         return;
       }
-      if(value != _curWeekEnd){
-        _curWeekEnd = (element as HTMLElement).classList.toggle("is-range-end");
+      if(atEnd){
+        value = false;
       }
+      _curWeekEnd = value;
+      toggle("is-range-end",value);
     }
     private var span:TextNode;
 
