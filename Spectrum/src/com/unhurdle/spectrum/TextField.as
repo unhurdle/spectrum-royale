@@ -172,12 +172,17 @@ package com.unhurdle.spectrum
       }
     }
 
-    protected var input:HTMLInputElement;
+    protected var _input:HTMLInputElement;
+
+    public function get input():HTMLInputElement
+    {
+    	return _input;
+    }
 
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      input = newElement("input",appendSelector("-input")) as HTMLInputElement;
+      _input = newElement("input",appendSelector("-input")) as HTMLInputElement;
       elem.appendChild(input);
       return elem;
     }

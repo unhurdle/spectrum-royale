@@ -32,7 +32,7 @@ package com.unhurdle.spectrum{
 		private function appendSelector(value:String):String{
 			return InputGroupInclude.getSelector() + value;
 		}
-		private var input:TextField;
+		private var textfield:TextField;
 		
 		/**
 		 *  The TextInput component of the ComboBox.
@@ -46,7 +46,7 @@ package com.unhurdle.spectrum{
 		 */
 		public function get textInputField():Object
 		{
-			return input;
+			return textfield;
 		}
 		
 		private var button:FieldButton;
@@ -97,20 +97,21 @@ package com.unhurdle.spectrum{
 			
 			comboHost = value as ComboBox;
 			
-			input = new TextField();
-      input.className = appendSelector("-field");
+			textfield = new TextField();
+      textfield.className = appendSelector("-textfield");
+			textfield.input.classList.add(appendSelector('-input'));
 			COMPILE::JS
 			{
-				input.element.addEventListener('focus',function():void{
+				textfield.element.addEventListener('focus',function():void{
 					comboHost.toggle("is-focused",true);
 				});
 
-				input.element.addEventListener('blur', function():void{
+				textfield.element.addEventListener('blur', function():void{
 					comboHost.toggle("is-focused",false);
 				});
 			}
-			input.addEventListener(KeyboardEvent.KEY_UP,inputHandler);
-			input.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+			textfield.addEventListener(KeyboardEvent.KEY_UP,inputHandler);
+			textfield.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
 			button = new FieldButton();
       button.className = appendSelector("-button");
 			var type:String = IconType.CHEVRON_DOWN_MEDIUM;
@@ -143,7 +144,7 @@ package com.unhurdle.spectrum{
     	// 	"width": "100%"
 			// };
 
-			comboHost.addElement(input as IChild);
+			comboHost.addElement(textfield as IChild);
 			comboHost.addElement(button as IChild);
       // host.addElement(_popup);
 			list.model.addEventListener("selectedIndexChanged", handleItemChange);
@@ -222,8 +223,8 @@ package com.unhurdle.spectrum{
 			if (ev.key.length > 1 && ev.key != "Backspace" && ev.key != "Delete") {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
-			if(input.text){
-				list.dataProvider = comboHost.filterFunction(input.text,model.dataProvider);
+			if(textfield.text){
+				list.dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
 			} else {
 				list.dataProvider = model.dataProvider;
 			}
@@ -312,25 +313,25 @@ package com.unhurdle.spectrum{
       list.dataProvider = model.dataProvider;
     }
     protected function handlePlaceholderChange(event:Event):void{
-      input.placeholder = model.placeholder;
+      textfield.placeholder = model.placeholder;
     }
     protected function handlePatternChange(event:Event):void{
-      input.pattern = model.pattern;
+      textfield.pattern = model.pattern;
     }
     protected function handleRequiredChange(event:Event):void{
-      input.required = model.required;
+      textfield.required = model.required;
     }
     protected function handleDisabledChange(event:Event):void{
-      button.disabled = input.disabled = model.disabled;
+      button.disabled = textfield.disabled = model.disabled;
 
     }
     protected function handleQuietChange(event:Event):void{
-      button.quiet = input.quiet = model.quiet;
+      button.quiet = textfield.quiet = model.quiet;
 			comboHost.toggle(InputGroupInclude.getSelector()+ "--quiet",model.quiet);
     }
 		protected function handleInvalidChange(event:Event):void{
-      button.invalid = input.invalid = model.invalid;
-			comboHost.toggle("is-invalid",model.quiet);
+      button.invalid = textfield.invalid = model.invalid;
+			comboHost.toggle("is-invalid",model.invalid);
 
 		}
 		/**
@@ -349,7 +350,7 @@ package com.unhurdle.spectrum{
 			var item:Object = model.selectedItem;
 			var text:String = getLabelFromData(list,item);
 			if(handleInput && text){
-				input.text = text;
+				textfield.text = text;
 			}
 		}
 		

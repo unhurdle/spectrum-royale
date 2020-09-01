@@ -58,7 +58,7 @@
   <comp:Markup>
     <comp:StyledCode text='{defaultMarkup}'/>
     <Br/>
-    <comp:StyledCode text='&lt;p:ComboBox placeholder="Type here" disabled="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" disabled="true"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" invalid="true"/&gt;'/>
   </comp:Markup>
@@ -89,7 +89,7 @@
   <comp:Markup>
     <comp:StyledCode text='{quietMarkup}'/>
     <Br/>
-    <comp:StyledCode text='&lt;p:ComboBox placeholder="Type here" disabled="true" quiet="true"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" disabled="true" quiet="true"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" invalid="true" quiet="true"/&gt;'/>
   </comp:Markup>
