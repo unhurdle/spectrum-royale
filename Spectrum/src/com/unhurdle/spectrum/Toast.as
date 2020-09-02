@@ -29,7 +29,6 @@ package com.unhurdle.spectrum
     {
       super();
       typeNames = appendSelector("-container");
-      flavor = "info";
       if(content){
         text = content;
       }
@@ -43,6 +42,8 @@ package com.unhurdle.spectrum
     public static const INFO:String = "info";
     public static const NEGATIVE:String = "negative";
     public static const POSITIVE:String = "positive";
+    public static const WARNING:String = "warning";
+    public static const SUCCESS:String = "success";
 
     override protected function getSelector():String{
       return "spectrum-Toast";
@@ -175,7 +176,7 @@ package com.unhurdle.spectrum
     	_autoClose = value;
     }
 
-    [Inspectable(category="General", enumeration="info,positive,negative")]
+    [Inspectable(category="General", enumeration="info,success,positive,negative,warning")]
     /**
      * Set the flavor of the Toast
      * One of info, success, positive and negative. warning also appears to be an option
@@ -187,7 +188,11 @@ package com.unhurdle.spectrum
         switch(value){
           case "info":
           case "positive":
+          case "success":
           case "negative":
+          case "error":
+          case "warning":
+          case "":
             break;
           default:
             throw new Error("Unknown flavor: " + value);
@@ -211,7 +216,10 @@ package com.unhurdle.spectrum
       switch(flavor){
         case "negative":type = "Alert";break;
         case "positive":type = "Success";break;
+        case "success":type = "Success";break;
         case "info":type = "Info";break;
+        case "error":type = "Alert";break;
+        case "warning":type = "Alert";break;
         default: return; // no default icon
       }
       var sizedType:String = type + "Medium";
