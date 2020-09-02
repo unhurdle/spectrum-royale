@@ -140,6 +140,7 @@
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
+    <component id="Thumbnail" class="com.unhurdle.spectrum.Thumbnail"/>
 	<component id="Toast" class="com.unhurdle.spectrum.Toast"/>
 	<component id="Tool" class="com.unhurdle.spectrum.Tool"/>
 	<component id="Tooltip" class="com.unhurdle.spectrum.Tooltip"/>
