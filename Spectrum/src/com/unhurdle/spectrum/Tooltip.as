@@ -71,8 +71,6 @@ package com.unhurdle.spectrum
           case "info":
           case "positive":
           case "negative":
-          case "success":
-          case "error":
           case "":
             break;
           default:
@@ -119,9 +117,6 @@ package com.unhurdle.spectrum
           break;
         case "alert":
           type = IconType.ALERT_SMALL;
-          break;
-        case "help":
-          type = IconType.HELP_SMALL;
           break;
         default:
           throw new Error("unknown type: " + value);

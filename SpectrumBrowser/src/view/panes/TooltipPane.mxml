@@ -106,33 +106,6 @@
     <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="bottom"/&gt;'/>
   </comp:Markup>
   
-  <comp:Variant header="Success" notes="Use positive instead.">
-    <Div>
-      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="success"/>
-    </Div>
-  </comp:Variant>
-  <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="success"/&gt;'/>
-  </comp:Markup>
-
-  <comp:Variant header="Error" notes="Use negative instead.">
-    <Div>
-      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="error"/>
-    </Div>
-  </comp:Variant>
-  <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="error"/&gt;'/>
-  </comp:Markup>
-
-  <comp:Variant header="Help" notes="An informative tooltip with a help icon.\n Use info">
-    <Div>
-      <sp:Tooltip isOpen="true" text="Help" direction="top" flavor="info" icon="help"/>
-    </Div>
-  </comp:Variant>
-  <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Tooltip isOpen="true" text="Label" direction="top" flavor="info" icon="help"/&gt;'/>
-  </comp:Markup>
-
   <comp:Variant header="Show on over" notes="A tooltip that shows on hover using CSS only. Note that this approach does not support text wrapping.">
     <Div>
       <sp:ShowOnOverTooltip direction="left" text="Tooltip Left" visibleText="Left"/>
