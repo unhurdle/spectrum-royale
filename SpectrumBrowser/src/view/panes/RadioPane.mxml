@@ -32,7 +32,7 @@
       '  <sp:Radio radioName="pets" quiet="true" text="Kittens" invalid="true"/>\n'+
       '  <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true" invalid="true"/>\n'+
       '</sp:Form>\n'+
-      '<sp:Radio radioName="longname" quiet="true" text="Radio with an extraordinarily long label please don`t do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>';
+      '<sp:Radio radioName="longname1" quiet="true" text="Radio with an extraordinarily long label please don`t do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>';
 
     ]]>
   </fx:Script>
@@ -68,7 +68,7 @@
       <sp:Radio radioName="pets" quiet="true" text="Kittens" invalid="true"/>
       <sp:Radio radioName="pets" quiet="true" text="Puppies" checked="true" invalid="true"/>
     </sp:Form>
-    <sp:Radio radioName="longname" quiet="true" text="Radio with an extraordinarily long label please don't do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>
+    <sp:Radio radioName="longname1" quiet="true" text="Radio with an extraordinarily long label please don't do this but if you did it should truncate text when it gets longer than the container which contains the radio which has an unacceptably long label"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{quietMarkup}'/>
