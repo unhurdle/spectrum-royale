@@ -186,5 +186,17 @@ package com.unhurdle.spectrum
       elem.appendChild(input);
       return elem;
     }
+    private var _inputClass:String;
+
+    public function get inputClass():String
+    {
+    	return _inputClass;
+    }
+
+    public function set inputClass(value:String):void
+    {
+    	_inputClass = value;
+      input.className = appendSelector("-input") + " " + value;
+    }
   }
 }

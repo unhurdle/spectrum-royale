@@ -2,7 +2,7 @@
   xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
   xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
-  title="Rule">
+  title="Divider">
   <fx:Script>
     <![CDATA[
       import com.unhurdle.spectrum.const.IconPrefix;
@@ -14,64 +14,64 @@
       '[Bindable] private var properties:String = IconPrefix._18 + "Properties";\n'+
       '[Bindable] private var select:String = IconPrefix._18 + "Select";\n\n'+
       '<Div style="display: flex; flex-direction: row; height: 32px">\n'+
-      '  <sp:Tool icon="{properties}"/>\n'+
-      '  <sp:Rule vertical="true" size="small"/>\n'+
-      '  <sp:Tool icon="{select}"/>\n'+
+      '  <sp:ActionButton icon="{properties}"/>\n'+
+      '  <sp:Divider vertical="true" size="small"/>\n'+
+      '  <sp:ActionButton icon="{select}"/>\n'+
       '</Div>';
 
       [Bindable]public var verticalMedium:String =
       '<Div style="display: flex; flex-direction: row; height: 32px">\n'+
-      '  <sp:Tool icon="{properties}"/>\n'+
-      '  <sp:Rule vertical="true" size="medium"/>\n'+
-      '  <sp:Tool icon="{select}"/>\n'+
+      '  <sp:ActionButton icon="{properties}"/>\n'+
+      '  <sp:Divider vertical="true" size="medium"/>\n'+
+      '  <sp:ActionButton icon="{select}"/>\n'+
       '</Div>';
       
     ]]>
   </fx:Script>
   <comp:Variant header="Large">
     <sp:Heading size="2" text="Large"/>
-    <sp:Rule size="large"/>
+    <sp:Divider size="large"/>
     <sp:Body text="Page or Section Titles."/>
   </comp:Variant>
   <comp:Markup>    
     <comp:StyledCode text='sp:Heading size="2" text="Large"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Rule size="large"/&gt;'/>
+    <comp:StyledCode text='sp:Divider size="large"/&gt;'/>
     <Br/>
     <comp:StyledCode text='sp:Body text="Page or Section Titles."/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Medium">
     <sp:Heading size="2" text="Medium"/>
-    <sp:Rule size="medium"/>
+    <sp:Divider size="medium"/>
     <sp:Body text="Divide subsections, or divide different groups of elements (between panels, rails, etc.)"/>
   </comp:Variant>
   <comp:Markup>    
     <comp:StyledCode text='sp:Heading size="2" text="Medium"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Rule size="medium"/&gt;'/>
+    <comp:StyledCode text='sp:Divider size="medium"/&gt;'/>
     <Br/>
     <comp:StyledCode text='sp:Body text="Divide subsections, or divide different groups of elements (between panels, rails, etc.)"/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Small">
     <sp:Heading size="3" text="small"/>
-    <sp:Rule size="small"/>
+    <sp:Divider size="small"/>
     <sp:Body text="Divide like-elements (tables, tool groups, elements within a panel, etc.)"/>
   </comp:Variant>
   <comp:Markup>    
     <comp:StyledCode text='sp:Heading size="3" text="small"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Rule size="small"/&gt;'/>
+    <comp:StyledCode text='sp:Divider size="small"/&gt;'/>
     <Br/>
     <comp:StyledCode text='sp:Body text="Divide like-elements (tables, tool groups, elements within a panel, etc.)"/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Vertical, Small">
     <Div style="display: flex; flex-direction: row; height: 32px">
-      <sp:Tool icon="{properties}"/>
-      <sp:Rule vertical="true" size="small"/>
-      <sp:Tool icon="{select}"/>
+      <sp:ActionButton icon="{properties}"/>
+      <sp:Divider vertical="true" size="small"/>
+      <sp:ActionButton icon="{select}"/>
     </Div>
   </comp:Variant>
   <comp:Markup>    
@@ -80,9 +80,9 @@
   
   <comp:Variant header="Vertical, Medium">
     <Div style="display: flex; flex-direction: row; height: 32px">
-      <sp:Tool icon="{properties}"/>
-      <sp:Rule vertical="true" size="medium"/>
-      <sp:Tool icon="{select}"/>
+      <sp:ActionButton icon="{properties}"/>
+      <sp:Divider vertical="true" size="medium"/>
+      <sp:ActionButton icon="{select}"/>
     </Div>
   </comp:Variant>
   <comp:Markup>    

@@ -5,8 +5,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-	[Deprecated(message="Use Divider instead")]
-  public class Rule extends SpectrumBase
+  public class Divider extends SpectrumBase
   {
     /**
      * <inject_html>
@@ -14,7 +13,7 @@ package com.unhurdle.spectrum
      * </inject_html>
      * 
      */
-    public function Rule()
+    public function Divider()
     {
       super();
       size = "medium";

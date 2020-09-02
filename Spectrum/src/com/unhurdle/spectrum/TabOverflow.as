@@ -23,7 +23,7 @@ package com.unhurdle.spectrum
       }
     }
     private var direction:String;
-    private var dropDown:Dropdown;
+    private var dropDown:Picker;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement 
@@ -35,7 +35,7 @@ package com.unhurdle.spectrum
       width = 409;
       // var elemStyle:String = "width: 409px";
       // element.setAttribute("style",elemStyle);
-      dropDown = new Dropdown();
+      dropDown = new Picker();
       addElement(dropDown);
       element.appendChild(dummySpacing());
       addIndicator();

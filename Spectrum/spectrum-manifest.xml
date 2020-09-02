@@ -59,6 +59,7 @@
     <component id="DialogTitle" class="com.unhurdle.spectrum.DialogTitle"/>
     <component id="DialogTypeIcon" class="com.unhurdle.spectrum.DialogTypeIcon"/>
     <component id="Display" class="com.unhurdle.spectrum.typography.Display"/>
+    <component id="Divider" class="com.unhurdle.spectrum.Divider"/>
     <component id="Dropdown" class="com.unhurdle.spectrum.Dropdown"/>
     <component id="DropdownItem" class="com.unhurdle.spectrum.data.DropdownItem"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>

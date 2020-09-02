@@ -50,6 +50,7 @@
     <js:ComponentRoute title="Date Picker" component="view.panes.DatePickerPane" baseName="date_picker"/>
     <js:ComponentRoute title="Dial" component="view.panes.DialPane" baseName="dial"/>
     <js:ComponentRoute title="Dialog" component="view.panes.DialogPane" baseName="dialog"/>
+    <js:ComponentRoute title="Divider" component="view.panes.DividerPane" baseName="divider"/>
     <js:ComponentRoute title="Dropdown" component="view.panes.DropdownPane" baseName="dropdown"/>
     <js:ComponentRoute title="Drop Indicator" component="view.panes.DropIndicatorPane" baseName="drop_indicator"/>
     <js:ComponentRoute title="Dropzone" component="view.panes.DropzonePane" baseName="dropzone"/>
@@ -71,7 +72,6 @@
     <js:ComponentRoute title="Quick Actions" component="view.panes.QuickActionsPane" baseName="quick_actions"/>
     <js:ComponentRoute title="Radio" component="view.panes.RadioPane" baseName="radio"/>
     <js:ComponentRoute title="Rating" component="view.panes.RatingPane" baseName="rating"/>
-    <js:ComponentRoute title="Rule" component="view.panes.RulePane" baseName="rule"/>
     <js:ComponentRoute title="Search" component="view.panes.SearchPane" baseName="search"/>
     <js:ComponentRoute title="Search Within" component="view.panes.SearchWithinPane" baseName="search_within"/>
     <js:ComponentRoute title="Side Navigation" component="view.panes.SideNavPane" baseName="side_navigation"/>
@@ -85,11 +85,10 @@
     <js:ComponentRoute title="Table" component="view.panes.ComingSoonPane" baseName="table"/>
     <js:ComponentRoute title="Tabs" component="view.panes.TabsPane" baseName="tabs"/>
     <js:ComponentRoute title="Tags" component="view.panes.TagsPane" baseName="tags"/>
-    <js:ComponentRoute title="Text area" component="view.panes.TextareaPane" baseName="text_area"/>
+    <js:ComponentRoute title="Text Area" component="view.panes.TextareaPane" baseName="text_area"/>
     <js:ComponentRoute title="Text Field" component="view.panes.TextFieldPane" baseName="text_field"/>
     <js:ComponentRoute title="Thumbnail" component="view.panes.ThumbnailPane" baseName="thumbnail"/>
     <js:ComponentRoute title="Toast" component="view.panes.ToastPane" baseName="toast"/>
-    <js:ComponentRoute title="Tool" component="view.panes.ToolPane" baseName="tool"/>
     <js:ComponentRoute title="Tooltip" component="view.panes.TooltipPane" baseName="tooltip"/>
     <js:ComponentRoute title="Tree View" component="view.panes.TreeViewPane" baseName="tree_view"/>
     <js:ComponentRoute title="Typography (Internationalized)" component="view.panes.TypographyInternationalizedPane" baseName="typography_internationalized"/>

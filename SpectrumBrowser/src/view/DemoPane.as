@@ -2,12 +2,12 @@ package view
 {
   import com.unhurdle.spectrum.typography.Display;
   import com.unhurdle.spectrum.typography.Heading;
-  import com.unhurdle.spectrum.Rule;
   import org.apache.royale.html.Spacer;
   import com.unhurdle.spectrum.typography.Body;
   import com.unhurdle.spectrum.Container;
   import com.unhurdle.spectrum.Group;
   import com.unhurdle.spectrum.typography.Article;
+  import com.unhurdle.spectrum.Divider;
 
   public class DemoPane extends Container
   {
@@ -24,9 +24,9 @@ package view
       heading.size = 3;
       heading.text = "Variants";
       group.addElement(heading);
-      var rule:Rule = new Rule();
-      rule.size = "large";
-      group.addElement(rule);
+      var divider:Divider = new Divider();
+      divider.size = "large";
+      group.addElement(divider);
       addElement(group);
     }
     private var titleElem:Display;
@@ -75,9 +75,9 @@ package view
       notesHeading.size = 3;
       notesHeading.text = "Usage notes";
       notesGroup.addElement(notesHeading);
-      var rule:Rule = new Rule();
-      rule.size = "large";
-      notesGroup.addElement(rule);
+      var divider:Divider = new Divider();
+      divider.size = "large";
+      notesGroup.addElement(divider);
       var spacer:Spacer = new Spacer();
       spacer.height = 33;
       notesGroup.addElement(spacer);

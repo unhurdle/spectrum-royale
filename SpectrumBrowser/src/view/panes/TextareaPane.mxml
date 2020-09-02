@@ -2,7 +2,7 @@
   xmlns:fx="http://ns.adobe.com/mxml/2009"
   xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
   xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
-  title="Text area" notes="A multi-line text field.">
+  title="Text Area" notes="A multi-line text field.">
   <fx:Script>
     <![CDATA[
       [Bindable]public var codeString1:String =

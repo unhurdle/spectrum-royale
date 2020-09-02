@@ -22,6 +22,7 @@ package com.unhurdle.spectrum
    */
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="showMenu", type="org.apache.royale.events.Event")]
+  [Deprecated(message="Use Picker instead")]
   public class Dropdown extends SpectrumBase
   {
     /**
@@ -49,7 +50,7 @@ package com.unhurdle.spectrum
       button.icon = Icon.getCSSTypeSelector(type);
       button.iconType = type;
       button.iconClass = appendSelector("-icon");
-      button.textNode.element.style.maxWidth = '85%';
+      // button.textNode.element.style.maxWidth = '85%';
       addElement(button);
       popover = new ComboBoxList();
       popover.className = appendSelector("-popover");

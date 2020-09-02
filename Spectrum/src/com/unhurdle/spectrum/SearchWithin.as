@@ -22,9 +22,11 @@ package com.unhurdle.spectrum
     public function SearchWithin()
     {
       super();
-      typeNames = "spectrum-SearchWithin";
     }
-    public function get dropdown():Dropdown
+    override protected function getSelector():String{
+      return "spectrum-SearchWithin";
+    }
+    public function get dropdown():Picker
     {
       return _dropdown;
     }
@@ -32,20 +34,25 @@ package com.unhurdle.spectrum
     // {
     //   return _search;
     // }
-    private var _dropdown:Dropdown;
+    private var _dropdown:Picker;
     private var input:TextField;
     private var button:ClearButton;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'form');
 
-      _dropdown = new Dropdown();
+      _dropdown = new Picker();
+      _dropdown.toggle(appendSelector("-picker"),true);
+      _dropdown.button.toggle(appendSelector("-pickerTrigger"),true);
       _dropdown.visible = false;
       //TODO this should really be fixed in the spectrum css
-      _dropdown.style = {"max-width":"50%"};
+      // https://github.com/adobe/spectrum-css/issues/880
+      _dropdown.style = {"max-width": "calc(100% - 96px)"};
       input = new TextField();
       input.placeholder = "Search";
+      input.inputClass = appendSelector("-input");
       button = new ClearButton();
+      button.className = appendSelector("-clearButton");
       button.addEventListener("clear" , clear);
       element.addEventListener("submit", handleSubmit);
       addElement(_dropdown);
