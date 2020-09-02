@@ -7,14 +7,26 @@ title="Stepper">
 </fx:Script>
 <comp:Variant header="Standard">
     <sp:Stepper placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
     <sp:Stepper invalid = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper invalid="true" focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper invalid="true" keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
     <sp:Stepper disabled = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
 </comp:Variant>
 
 <comp:Markup>
     <comp:StyledCode text='&lt;sp:Stepper placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
     <comp:StyledCode text='&lt;sp:Stepper invalid = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper invalid = "true" focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper invalid = "true" keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
     <comp:StyledCode text='&lt;sp:Stepper disabled = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
@@ -22,14 +34,26 @@ title="Stepper">
 
 <comp:Variant header="Quiet">
     <sp:Stepper quiet = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper quiet="true" focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper quiet="true" keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
     <sp:Stepper quiet = "true" invalid = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper quiet="true" invalid="true" focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
+    <sp:Stepper quiet="true" invalid="true" keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
     <sp:Stepper quiet = "true" disabled = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/>
 </comp:Variant>
 
 <comp:Markup>
     <comp:StyledCode text='&lt;sp:Stepper quiet = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
     <comp:StyledCode text='&lt;sp:Stepper quiet = "true" invalid = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" invalid = "true" focused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
+        <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" invalid = "true" keyboardFocused = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
     <comp:StyledCode text='&lt;sp:Stepper quiet = "true" disabled = "true" placeholder="enter a number" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
