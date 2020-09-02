@@ -1,13 +1,13 @@
-.spectrum--large [dir="ltr"] .spectrum-Toast {
+.spectrum--large :dir(ltr) .spectrum-Toast {
   padding-right: 10px;
 }
-.spectrum--large [dir="rtl"] .spectrum-Toast {
+.spectrum--large :dir(rtl) .spectrum-Toast {
   padding-left: 10px;
 }
-.spectrum--large [dir="ltr"] .spectrum-Toast {
+.spectrum--large :dir(ltr) .spectrum-Toast {
   padding-left: 20px;
 }
-.spectrum--large [dir="rtl"] .spectrum-Toast {
+.spectrum--large :dir(rtl) .spectrum-Toast {
   padding-right: 20px;
 }
 .spectrum--large .spectrum-Toast {
@@ -21,10 +21,10 @@
   font-size: 17px;
   font-weight: 700;
 }
-.spectrum--large [dir="ltr"] .spectrum-Toast-typeIcon {
+.spectrum--large :dir(ltr) .spectrum-Toast-typeIcon {
   margin-right: 15px;
 }
-.spectrum--large [dir="rtl"] .spectrum-Toast-typeIcon {
+.spectrum--large :dir(rtl) .spectrum-Toast-typeIcon {
   margin-left: 15px;
 }
 .spectrum--large .spectrum-Toast-typeIcon {
@@ -33,50 +33,50 @@
 
   margin-bottom: 9px;
 }
-.spectrum--large [dir="ltr"] .spectrum-Toast-content {
+.spectrum--large :dir(ltr) .spectrum-Toast-content {
   padding-right: 20px;
 }
-.spectrum--large [dir="rtl"] .spectrum-Toast-content {
+.spectrum--large :dir(rtl) .spectrum-Toast-content {
   padding-left: 20px;
 }
 .spectrum--large .spectrum-Toast-content {
   padding-top: 6px;
   padding-bottom: 6px;
 }
-.spectrum--large [dir="ltr"] .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,.spectrum--large [dir="ltr"] 
-    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,.spectrum--large [dir="ltr"] 
-    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,.spectrum--large [dir="ltr"] 
+.spectrum--large :dir(ltr) .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,.spectrum--large :dir(ltr) 
+    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,.spectrum--large :dir(ltr) 
+    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,.spectrum--large :dir(ltr) 
     .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-ClearButton {
       margin-left: 10px;
 }
-.spectrum--large [dir="rtl"] .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,.spectrum--large [dir="rtl"] 
-    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,.spectrum--large [dir="rtl"] 
-    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,.spectrum--large [dir="rtl"] 
+.spectrum--large :dir(rtl) .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,.spectrum--large :dir(rtl) 
+    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,.spectrum--large :dir(rtl) 
+    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,.spectrum--large :dir(rtl) 
     .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-ClearButton {
       margin-right: 10px;
 }
-.spectrum--large [dir="ltr"] .spectrum-Toast-body .spectrum-Button {
+.spectrum--large :dir(ltr) .spectrum-Toast-body .spectrum-Button {
     margin-right: 14px;
 }
-.spectrum--large [dir="rtl"] .spectrum-Toast-body .spectrum-Button {
+.spectrum--large :dir(rtl) .spectrum-Toast-body .spectrum-Button {
     margin-left: 14px;
 }
-.spectrum--large [dir="ltr"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+.spectrum--large :dir(ltr) .spectrum-Toast-body + .spectrum-Toast-buttons {
     padding-left: 10px;
 }
-.spectrum--large [dir="rtl"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+.spectrum--large :dir(rtl) .spectrum-Toast-body + .spectrum-Toast-buttons {
     padding-right: 10px;
 }
-[dir="ltr"] .spectrum-Toast {
+:dir(ltr) .spectrum-Toast {
   padding-right: 8px;
 }
-[dir="rtl"] .spectrum-Toast {
+:dir(rtl) .spectrum-Toast {
   padding-left: 8px;
 }
-[dir="ltr"] .spectrum-Toast {
+:dir(ltr) .spectrum-Toast {
   padding-left: 16px;
 }
-[dir="rtl"] .spectrum-Toast {
+:dir(rtl) .spectrum-Toast {
   padding-right: 16px;
 }
 .spectrum-Toast {
@@ -98,16 +98,16 @@
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
 }
-[dir="ltr"] .spectrum-Toast-typeIcon {
+:dir(ltr) .spectrum-Toast-typeIcon {
   margin-right: 12px;
 }
-[dir="rtl"] .spectrum-Toast-typeIcon {
+:dir(rtl) .spectrum-Toast-typeIcon {
   margin-left: 12px;
 }
-[dir="ltr"] .spectrum-Toast-typeIcon {
+:dir(ltr) .spectrum-Toast-typeIcon {
   margin-left: 0;
 }
-[dir="rtl"] .spectrum-Toast-typeIcon {
+:dir(rtl) .spectrum-Toast-typeIcon {
   margin-right: 0;
 }
 .spectrum-Toast-typeIcon {
@@ -120,22 +120,22 @@
 
   margin-bottom: 7px;
 }
-[dir="ltr"] .spectrum-Toast-content {
+:dir(ltr) .spectrum-Toast-content {
   padding-right: 16px;
 }
-[dir="rtl"] .spectrum-Toast-content {
+:dir(rtl) .spectrum-Toast-content {
   padding-left: 16px;
 }
-[dir="ltr"] .spectrum-Toast-content {
+:dir(ltr) .spectrum-Toast-content {
   padding-left: 0;
 }
-[dir="rtl"] .spectrum-Toast-content {
+:dir(rtl) .spectrum-Toast-content {
   padding-right: 0;
 }
-[dir="ltr"] .spectrum-Toast-content {
+:dir(ltr) .spectrum-Toast-content {
   text-align: left;
 }
-[dir="rtl"] .spectrum-Toast-content {
+:dir(rtl) .spectrum-Toast-content {
   text-align: right;
 }
 .spectrum-Toast-content {
@@ -154,15 +154,15 @@
   -ms-flex-align: start;
       align-items: flex-start;
 }
-[dir="ltr"] .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,[dir="ltr"] 
-    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,[dir="ltr"] 
-    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,[dir="ltr"] 
+:dir(ltr) .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,:dir(ltr) 
+    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,:dir(ltr) 
+    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,:dir(ltr) 
     .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-ClearButton {
       margin-left: 8px;
 }
-[dir="rtl"] .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,[dir="rtl"] 
-    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,[dir="rtl"] 
-    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,[dir="rtl"] 
+:dir(rtl) .spectrum-Toast-buttons .spectrum-Button + .spectrum-Button,:dir(rtl) 
+    .spectrum-Toast-buttons .spectrum-Button + .spectrum-ClearButton,:dir(rtl) 
+    .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-Button,:dir(rtl) 
     .spectrum-Toast-buttons .spectrum-ClearButton + .spectrum-ClearButton {
       margin-right: 8px;
 }
@@ -173,36 +173,36 @@
       -ms-grid-row-align: center;
       align-self: center;
 }
-[dir="ltr"] .spectrum-Toast-body .spectrum-Button {
+:dir(ltr) .spectrum-Toast-body .spectrum-Button {
     float: right;
 }
-[dir="rtl"] .spectrum-Toast-body .spectrum-Button {
+:dir(rtl) .spectrum-Toast-body .spectrum-Button {
     float: left;
 }
-[dir="ltr"] .spectrum-Toast-body .spectrum-Button {
+:dir(ltr) .spectrum-Toast-body .spectrum-Button {
     margin-right: 11px;
 }
-[dir="rtl"] .spectrum-Toast-body .spectrum-Button {
+:dir(rtl) .spectrum-Toast-body .spectrum-Button {
     margin-left: 11px;
 }
-[dir="ltr"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+:dir(ltr) .spectrum-Toast-body + .spectrum-Toast-buttons {
     padding-left: 8px;
 }
-[dir="rtl"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+:dir(rtl) .spectrum-Toast-body + .spectrum-Toast-buttons {
     padding-right: 8px;
 }
-[dir="ltr"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+:dir(ltr) .spectrum-Toast-body + .spectrum-Toast-buttons {
 
     border-left-width: 1px;
 }
-[dir="rtl"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+:dir(rtl) .spectrum-Toast-body + .spectrum-Toast-buttons {
 
     border-right-width: 1px;
 }
-[dir="ltr"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+:dir(ltr) .spectrum-Toast-body + .spectrum-Toast-buttons {
     border-left-style: solid;
 }
-[dir="rtl"] .spectrum-Toast-body + .spectrum-Toast-buttons {
+:dir(rtl) .spectrum-Toast-body + .spectrum-Toast-buttons {
     border-right-style: solid;
 }
 .spectrum--dark .spectrum-Toast {
@@ -215,10 +215,10 @@
 .spectrum--dark .spectrum-Toast-typeIcon {
   color: white;
 }
-.spectrum--dark [dir="ltr"] .spectrum-Toast-buttons {
+.spectrum--dark :dir(ltr) .spectrum-Toast-buttons {
   border-left-color: rgba(255, 255, 255, 0.2);
 }
-.spectrum--dark [dir="rtl"] .spectrum-Toast-buttons {
+.spectrum--dark :dir(rtl) .spectrum-Toast-buttons {
   border-right-color: rgba(255, 255, 255, 0.2);
 }
 .spectrum--dark .spectrum-Toast--warning {
@@ -263,10 +263,10 @@
 .spectrum--darkest .spectrum-Toast-typeIcon {
   color: white;
 }
-.spectrum--darkest [dir="ltr"] .spectrum-Toast-buttons {
+.spectrum--darkest :dir(ltr) .spectrum-Toast-buttons {
   border-left-color: rgba(255, 255, 255, 0.2);
 }
-.spectrum--darkest [dir="rtl"] .spectrum-Toast-buttons {
+.spectrum--darkest :dir(rtl) .spectrum-Toast-buttons {
   border-right-color: rgba(255, 255, 255, 0.2);
 }
 .spectrum--darkest .spectrum-Toast--warning {
@@ -311,10 +311,10 @@
 .spectrum--light .spectrum-Toast-typeIcon {
   color: white;
 }
-.spectrum--light [dir="ltr"] .spectrum-Toast-buttons {
+.spectrum--light :dir(ltr) .spectrum-Toast-buttons {
   border-left-color: rgba(255, 255, 255, 0.2);
 }
-.spectrum--light [dir="rtl"] .spectrum-Toast-buttons {
+.spectrum--light :dir(rtl) .spectrum-Toast-buttons {
   border-right-color: rgba(255, 255, 255, 0.2);
 }
 .spectrum--light .spectrum-Toast--warning {
@@ -359,10 +359,10 @@
 .spectrum--lightest .spectrum-Toast-typeIcon {
   color: white;
 }
-.spectrum--lightest [dir="ltr"] .spectrum-Toast-buttons {
+.spectrum--lightest :dir(ltr) .spectrum-Toast-buttons {
   border-left-color: rgba(255, 255, 255, 0.2);
 }
-.spectrum--lightest [dir="rtl"] .spectrum-Toast-buttons {
+.spectrum--lightest :dir(rtl) .spectrum-Toast-buttons {
   border-right-color: rgba(255, 255, 255, 0.2);
 }
 .spectrum--lightest .spectrum-Toast--warning {
