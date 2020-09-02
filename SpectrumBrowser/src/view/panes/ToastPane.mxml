@@ -6,46 +6,30 @@
     <![CDATA[
       [Bindable]public var codeString:String = 
       '<fx:Declarations>\n'+
-      '  <sp:Toast id="defaultToast" text="Button.xd has been archived" action="Undo"/>\n'+
       '  <sp:Toast id="infoToast" flavor="info" text="The toast is done"/>\n'+
       '  <sp:Toast id="negativeToast" flavor="negative" text="The toast is on fire" action="Eject"/>\n'+
       '  <sp:Toast id="positiveToast" flavor="positive" text="The toast is golden brown" action="Eject"/>\n'+
-      '  <sp:Toast id="errorToast" flavor="error" text="The toast is on fire" action="Eject"/>\n'+
-      '  <sp:Toast id="warningToast" flavor="warning" text="The toast is on fire" action="Eject"/>\n'+
-      '  <sp:Toast id="successToast" flavor="success" text="The toast is golden brown" action="Eject"/>\n'+
       '</fx:Declarations>\n'+
       '<sp:Heading size="4" text="Standard"/>\n'+
       '<html:Div height="12"/>\n'+
       '<sp:ButtonGroup>\n'+
-      '  <sp:Button text="Open Default" click="defaultToast.show()"/>\n'+
       '  <sp:Button text="Open Info" click="infoToast.show()"/>\n'+
       '  <sp:Button text="Open Negative" click="negativeToast.show()"/>\n'+
       '  <sp:Button text="Open Positive" click="positiveToast.show()"/>\n'+
-      '  <sp:Button text="Open Error" click="errorToast.show()"/>\n'+
-      '  <sp:Button text="Open Warning" click="warningToast.show()"/>\n'+
-      '  <sp:Button text="Open Success" click="successToast.show()"/>\n'+
       '</sp:ButtonGroup>';
 
     ]]>
   </fx:Script>
   <fx:Declarations>
-    <sp:Toast id="defaultToast" text="Button.xd has been archived" action="Undo"/>
     <sp:Toast id="infoToast" flavor="info" text="The toast is done"/>
     <sp:Toast id="negativeToast" flavor="negative" text="The toast is on fire" action="Eject"/>
     <sp:Toast id="positiveToast" flavor="positive" text="The toast is golden brown" action="Eject"/>
-    <sp:Toast id="errorToast" flavor="error" text="The toast is on fire" action="Eject"/>
-    <sp:Toast id="warningToast" flavor="warning" text="The toast is on fire" action="Eject"/>
-    <sp:Toast id="successToast" flavor="success" text="The toast is golden brown" action="Eject"/>
   </fx:Declarations>
   <comp:Variant>
     <sp:ButtonGroup>
-      <sp:Button text="Open Default" click="defaultToast.show()"/>
       <sp:Button text="Open Info" click="infoToast.show()"/>
       <sp:Button text="Open Negative" click="negativeToast.show()"/>
       <sp:Button text="Open Positive" click="positiveToast.show()"/>
-      <sp:Button text="Open Error" click="errorToast.show()"/>
-      <sp:Button text="Open Warning" click="warningToast.show()"/>
-      <sp:Button text="Open Success" click="successToast.show()"/>
     </sp:ButtonGroup>
   </comp:Variant>
   <comp:Markup>
