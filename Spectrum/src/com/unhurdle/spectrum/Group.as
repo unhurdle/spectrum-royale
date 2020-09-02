@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
 
-  public class Group extends org.apache.royale.html.Group
+  public class Group extends org.apache.royale.html.Group implements ISpectrumElement
   {
     public function Group()
     {

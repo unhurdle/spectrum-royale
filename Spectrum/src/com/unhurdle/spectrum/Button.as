@@ -4,7 +4,6 @@ package com.unhurdle.spectrum
   {
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
-    import com.unhurdle.spectrum.includes.ButtonGroupInclude;
   }
 
 
@@ -243,13 +242,6 @@ package com.unhurdle.spectrum
       textNode.className = appendSelector("-label");
       element.appendChild(textNode.element);
       return element;
-    }
-    COMPILE::JS
-    override public function addedToParent():void{
-      super.addedToParent();
-      if(this.parent is ButtonGroup){
-        element.classList.add(ButtonGroupInclude.getSelector() + "-item");
-      }
     }
   }
 }

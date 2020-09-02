@@ -60,9 +60,6 @@ package com.unhurdle.spectrum
     	_src = value;
       (element as HTMLImageElement).src = value;
     }
-    public function setStyle(attribute:String,value:Object):void{
-      (element as HTMLElement).style[attribute] = value;
-    }
 
 		COMPILE::JS
 		override protected function setClassName(value:String):void

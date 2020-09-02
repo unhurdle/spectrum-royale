@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.WrappedHTMLElement;
   }
 
-  public class SpectrumBase extends UIBase
+  public class SpectrumBase extends UIBase implements ISpectrumElement
   {
     public function SpectrumBase()
     {
@@ -67,6 +67,14 @@ package com.unhurdle.spectrum
           element.style.flexGrow = value;
         }
 
+      }
+    }
+
+    public function setStyle(property:String,value:Object):void
+    {
+      COMPILE::JS
+      {
+        element.style[property] = value;
       }
     }
 
