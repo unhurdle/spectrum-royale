@@ -76,6 +76,10 @@
 .spectrum-SearchWithin-input {
   -ms-flex: 1;
       flex: 1;
+  min-width: inherit;
+}
+.spectrum-SearchWithin > .spectrum-Textfield {
+  flex-grow: 1;
 }
 .spectrum-SearchWithin-input:hover, .spectrum-SearchWithin-input:focus {
     position: relative;

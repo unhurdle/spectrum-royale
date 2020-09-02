@@ -37,20 +37,23 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Picker";
     }
-    private var button:FieldButton;
+    private var _button:FieldButton;
+    public function get button():FieldButton{
+    	return _button;
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      button = new FieldButton();
-      button.labelClass = appendSelector("-label");
-      button.className = appendSelector("-trigger");
-      button.addEventListener("click",toggleDropdown);
+      _button = new FieldButton();
+      _button.labelClass = appendSelector("-label");
+      _button.className = appendSelector("-trigger");
+      _button.addEventListener("click",toggleDropdown);
       var type:String = IconType.CHEVRON_DOWN_MEDIUM;
-      button.icon = Icon.getCSSTypeSelector(type);
-      button.iconType = type;
-      button.iconClass = appendSelector("-icon");
-      button.textNode.element.style.maxWidth = '85%';
-      addElement(button);
+      _button.icon = Icon.getCSSTypeSelector(type);
+      _button.iconType = type;
+      _button.iconClass = appendSelector("-icon");
+      // _button.textNode.element.style.maxWidth = '85%';
+      addElement(_button);
       popover = new ComboBoxList();
       popover.className = appendSelector("-popover");
       // popover.percentWidth = 100;
@@ -117,18 +120,18 @@ package com.unhurdle.spectrum
       } else {
         closePopup();
       }
-      button.selected = !open;
+      _button.selected = !open;
     }
     private function openPopup():void{
       popover.open = true;
-			button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
       popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
     }
     private function closePopup():void{
       if(popover && popover.open){
   			popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-	  		button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+	  		_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         popover.open = false;
       }
@@ -190,27 +193,27 @@ package com.unhurdle.spectrum
     }
 
     private function setButtonAsset(index:int,icon:Boolean):void{
-      if(button.getElementAt(0) is IAsset){
-        button.removeElement(button.getElementAt(0));
+      if(_button.getElementAt(0) is IAsset){
+        _button.removeElement(_button.getElementAt(0));
       }
       if (icon)
       {
         var iconClone:Icon = new Icon(dataProvider[index].icon);
-        button.addElementAt(iconClone, 0);
+        _button.addElementAt(iconClone, 0);
       } else
       {
         var asset:ImageAsset = new ImageAsset();
         asset.style = "width:18px;margin-right:8px;";      
         asset.src = icon? dataProvider[index].icon: dataProvider[index].imageIcon;
-        button.addElementAt(asset,0);
+        _button.addElementAt(asset,0);
       }
     }
     private function setButtonText():void{
       if(selectedIndex){
         if(selectedIndex < 0 || dataProvider[selectedIndex].isDivider){
-          button.text = "";
+          _button.text = "";
         }else{
-          button.text = dataProvider[selectedIndex].text;
+          _button.text = dataProvider[selectedIndex].text;
           if(dataProvider[selectedIndex].imageIcon){
             setButtonAsset(selectedIndex,false);
           }else if(dataProvider[selectedIndex].icon){
@@ -218,9 +221,9 @@ package com.unhurdle.spectrum
           }
         }
       }else if(!selectedItem ||selectedItem.isDivider){
-        button.text = "";
+        _button.text = "";
       }else{
-        button.text = selectedItem.text;
+        _button.text = selectedItem.text;
         var i:int = dataProvider.indexOf(selectedItem)
         if(dataProvider[i].imageIcon){
           setButtonAsset(i,false);
@@ -282,7 +285,7 @@ package com.unhurdle.spectrum
     public function set placeholder(value:String):void
     {
       _placeholder = value;
-    	button.placeholderText = value;
+    	_button.placeholderText = value;
     }
 
     public function handleListChange():void{
@@ -303,12 +306,12 @@ package com.unhurdle.spectrum
     {
       if(value != _invalid){
         toggle("is-invalid",value);
-        button.invalid = value;
+        _button.invalid = value;
         if(value){
           var invalidIcon:Icon = new Icon(IconPrefix._18 + "Alert");
-          button.addElementAt(invalidIcon, button.numElements - 1);
+          _button.addElementAt(invalidIcon, _button.numElements - 1);
         }else{
-          button.removeElement(invalidIcon);
+          _button.removeElement(invalidIcon);
         }
       }
     	_invalid = value;
@@ -324,7 +327,7 @@ package com.unhurdle.spectrum
     {
       if(value != _quiet){
         toggle(valueToSelector("quiet"),value);
-        button.quiet = value;
+        _button.quiet = value;
         popover.quiet = value;
       }
     	_quiet = value;
@@ -341,7 +344,7 @@ package com.unhurdle.spectrum
     {
       if(value != !!_disabled){
         toggle("is-disabled",value);
-        button.disabled = value;
+        _button.disabled = value;
       }
     	_disabled = value;
     }
