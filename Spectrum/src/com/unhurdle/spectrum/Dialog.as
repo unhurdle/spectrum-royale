@@ -43,14 +43,14 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Dialog";
     }
-
+    private var modal:Modal;
     COMPILE::JS
     private var outerElement:HTMLElement;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
-      outerElement = newElement("div",appendSelector("-wrapper"));
-      outerElement.appendChild(elem);
+      modal = new Modal();
+      modal.element.appendChild(elem);
       return elem
     }
     /**
@@ -60,7 +60,9 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override public function get positioner():WrappedHTMLElement
     {
-        return outerElement as WrappedHTMLElement;
+      // The modal wrapper is transparent to the user.
+      // Proxy the modal's positioner.
+      return modal.positioner;
     }
 
     override public function addedToParent():void{
@@ -245,12 +247,14 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("modalShown"));
     }
     private function handleModalShow(ev:Event):void{
-        toggle("is-open",true);
+      modal.open = true;
+        // toggle("is-open",true);
     }
     public function hide():void
     {
       visible = false;
-      toggle("is-open",false);
+      modal.open = false;
+      // toggle("is-open",false);
       parent.removeElement(this);
       dispatchEvent(new Event("modalHidden"));
       dispatchEvent(new Event("hide"));
