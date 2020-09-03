@@ -21,7 +21,7 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Country"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Dropdown placeholder="Select a Country"/>\n'+
+        '      <sp:Picker placeholder="Select a Country"/>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '  <sp:FormItem>\n'+
@@ -62,7 +62,7 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Country"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Dropdown placeholder="Select a Country"/>\n'+
+        '      <sp:Picker placeholder="Select a Country"/>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '  <sp:FormItem>\n'+
@@ -103,7 +103,7 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Country"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Dropdown placeholder="Select a Country"/>\n'+
+        '      <sp:Picker placeholder="Select a Country"/>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '  <sp:FormItem>\n'+
@@ -145,7 +145,7 @@
       <sp:FormItem>
         <sp:FormLabel text="Country"/>
         <sp:FormField>
-          <sp:Dropdown placeholder="Select a Country"/>
+          <sp:Picker placeholder="Select a Country"/>
         </sp:FormField>
       </sp:FormItem>
       <sp:FormItem>
@@ -191,7 +191,7 @@
       <sp:FormItem>
         <sp:FormLabel text="Country"/>
         <sp:FormField>
-          <sp:Dropdown placeholder="Select a Country"/>
+          <sp:Picker placeholder="Select a Country"/>
         </sp:FormField>
       </sp:FormItem>
       <sp:FormItem>
@@ -237,7 +237,7 @@
       <sp:FormItem>
         <sp:FormLabel text="Country"/>
         <sp:FormField>
-          <sp:Dropdown placeholder="Select a Country"/>
+          <sp:Picker placeholder="Select a Country"/>
         </sp:FormField>
       </sp:FormItem>
       <sp:FormItem>

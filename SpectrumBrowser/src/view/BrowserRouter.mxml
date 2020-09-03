@@ -51,7 +51,6 @@
     <js:ComponentRoute title="Dial" component="view.panes.DialPane" baseName="dial"/>
     <js:ComponentRoute title="Dialog" component="view.panes.DialogPane" baseName="dialog"/>
     <js:ComponentRoute title="Divider" component="view.panes.DividerPane" baseName="divider"/>
-    <js:ComponentRoute title="Dropdown" component="view.panes.DropdownPane" baseName="dropdown"/>
     <js:ComponentRoute title="Drop Indicator" component="view.panes.DropIndicatorPane" baseName="drop_indicator"/>
     <js:ComponentRoute title="Dropzone" component="view.panes.DropzonePane" baseName="dropzone"/>
     <js:ComponentRoute title="Field Group" component="view.panes.FieldGroupPane" baseName="field_group"/>
@@ -68,6 +67,7 @@
     <js:ComponentRoute title="Pagination - Button Style" component="view.panes.PaginationButtonStylePane" baseName="pagination_button_style"/>
     <js:ComponentRoute title="Pagination - Explicit" component="view.panes.PaginationExplicitPane" baseName="pagination_explicit"/>
     <js:ComponentRoute title="Pagination - Page" component="view.panes.PaginationPagePane" baseName="pagination_page"/>
+    <js:ComponentRoute title="Picker" component="view.panes.PickerPane" baseName="picker"/>
     <js:ComponentRoute title="Popover" component="view.panes.PopoverPane" baseName="popover"/>
     <js:ComponentRoute title="Quick Actions" component="view.panes.QuickActionsPane" baseName="quick_actions"/>
     <js:ComponentRoute title="Radio" component="view.panes.RadioPane" baseName="radio"/>
