@@ -77,6 +77,12 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+[dir="ltr"] .spectrum-Toast-buttons {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+[dir="rtl"] .spectrum-Toast-buttons {
+  border-right-color: rgba(255, 255, 255, 0.2);
+}
 .spectrum-Toast-buttons {
   display: -ms-flexbox;
   display: flex;

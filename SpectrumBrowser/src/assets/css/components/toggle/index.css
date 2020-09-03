@@ -145,6 +145,6 @@
     top: 0;
     margin: 0;
 
-    transition: box-shadow 130ms ease-out,
+    transition: opacity 130ms ease-out,
                 margin 130ms ease-out;
   }

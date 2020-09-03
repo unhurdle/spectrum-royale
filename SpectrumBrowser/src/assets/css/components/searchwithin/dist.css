@@ -78,9 +78,6 @@
       flex: 1;
   min-width: inherit;
 }
-.spectrum-SearchWithin > .spectrum-Textfield {
-  flex-grow: 1;
-}
 .spectrum-SearchWithin-input:hover, .spectrum-SearchWithin-input:focus {
     position: relative;
   }
@@ -93,4 +90,8 @@
 .spectrum-SearchWithin-clearButton {
   position: absolute;
   top: 0;
+}
+.spectrum-SearchWithin > .spectrum-Textfield {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
 }

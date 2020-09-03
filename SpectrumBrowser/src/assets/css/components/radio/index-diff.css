@@ -56,7 +56,7 @@
 .spectrum--large .spectrum-Radio-button:after {
     margin: 2px;
 
-    transition: box-shadow 130ms ease-out,
+    transition: opacity 130ms ease-out,
                 margin 130ms ease-out;
   }
 .spectrum--large .spectrum-Radio--labelBelow {

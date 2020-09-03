@@ -146,6 +146,12 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+[dir="ltr"] .spectrum-Toast-buttons {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+[dir="rtl"] .spectrum-Toast-buttons {
+  border-right-color: rgba(255, 255, 255, 0.2);
+}
 .spectrum-Toast-buttons {
   display: -ms-flexbox;
   display: flex;
@@ -214,12 +220,6 @@
 }
 .spectrum--dark .spectrum-Toast-typeIcon {
   color: white;
-}
-[dir="ltr"] .spectrum-Toast-buttons {
-  border-left-color: rgba(255, 255, 255, 0.2);
-}
-[dir="rtl"] .spectrum-Toast-buttons {
-  border-right-color: rgba(255, 255, 255, 0.2);
 }
 .spectrum--dark .spectrum-Toast--warning {
   background-color: rgb(203, 111, 16);

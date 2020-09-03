@@ -59,7 +59,7 @@
     border-radius: 4px;
     margin: 2px;
 
-    transition: box-shadow 130ms ease-out,
+    transition: opacity 130ms ease-out,
                 margin 130ms ease-out;
   }
 .spectrum--large [dir="ltr"] .spectrum-Checkbox-checkmark,.spectrum--large [dir="ltr"] 

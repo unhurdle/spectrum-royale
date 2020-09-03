@@ -70,6 +70,13 @@
 .spectrum--lightest .spectrum-Radio .spectrum-Radio-input:checked:disabled ~ .spectrum-Radio-label {
     color: rgb(188, 188, 188);
   }
+.spectrum--lightest .spectrum-Radio .spectrum-Radio-input + .spectrum-Radio-button:after,
+.spectrum--lightest .spectrum-Radio:hover .spectrum-Radio-input + .spectrum-Radio-button:after,
+.spectrum--lightest .spectrum-Radio--quiet .spectrum-Radio-input + .spectrum-Radio-button:after,
+.spectrum--lightest .spectrum-Radio--quiet:hover .spectrum-Radio-input + .spectrum-Radio-button:after {
+        box-shadow: 0 0 0 2px rgb(55, 142, 240);
+        opacity: 0;
+      }
 .spectrum--lightest .spectrum-Radio .spectrum-Radio-input.focus-ring + .spectrum-Radio-button:before,
 .spectrum--lightest .spectrum-Radio:hover .spectrum-Radio-input.focus-ring + .spectrum-Radio-button:before,
 .spectrum--lightest .spectrum-Radio--quiet .spectrum-Radio-input.focus-ring + .spectrum-Radio-button:before,
@@ -80,7 +87,7 @@
 .spectrum--lightest .spectrum-Radio:hover .spectrum-Radio-input.focus-ring + .spectrum-Radio-button:after,
 .spectrum--lightest .spectrum-Radio--quiet .spectrum-Radio-input.focus-ring + .spectrum-Radio-button:after,
 .spectrum--lightest .spectrum-Radio--quiet:hover .spectrum-Radio-input.focus-ring + .spectrum-Radio-button:after {
-        box-shadow: 0 0 0 2px rgb(55, 142, 240);
+        opacity: 1;
       }
 .spectrum--lightest .spectrum-Radio .spectrum-Radio-input.focus-ring:checked + .spectrum-Radio-button:before,
 .spectrum--lightest .spectrum-Radio:hover .spectrum-Radio-input.focus-ring:checked + .spectrum-Radio-button:before,

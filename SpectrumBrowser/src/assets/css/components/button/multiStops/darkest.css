@@ -1,8 +1,13 @@
+.spectrum--darkest .spectrum-LogicButton:after,
+.spectrum--darkest .spectrum-Button:after {
+    box-shadow: 0 0 0 2px rgb(20, 115, 230);
+    opacity: 0;
+  }
 .spectrum--darkest .spectrum-LogicButton.focus-ring:after,
 .spectrum--darkest .spectrum-LogicButton.is-focused:after,
 .spectrum--darkest .spectrum-Button.focus-ring:after,
 .spectrum--darkest .spectrum-Button.is-focused:after {
-      box-shadow: 0 0 0 2px rgb(20, 115, 230);
+      opacity: 1;
     }
 .spectrum--darkest .spectrum-ClearButton {
   background-color: transparent;

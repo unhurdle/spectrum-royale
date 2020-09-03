@@ -75,9 +75,14 @@
 .spectrum--darkest .spectrum-ToggleSwitch.spectrum-ToggleSwitch--quiet:active .spectrum-ToggleSwitch-input:checked:enabled + .spectrum-ToggleSwitch-switch:before {
       border-color: rgb(239, 239, 239);
     }
+.spectrum--darkest .spectrum-ToggleSwitch .spectrum-ToggleSwitch-input + .spectrum-ToggleSwitch-switch:after,
+.spectrum--darkest .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input + .spectrum-ToggleSwitch-switch:after {
+        box-shadow: 0 0 0 2px rgb(20, 115, 230);
+        opacity: 0;
+      }
 .spectrum--darkest .spectrum-ToggleSwitch .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch:after,
 .spectrum--darkest .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch:after {
-        box-shadow: 0 0 0 2px rgb(20, 115, 230);
+        opacity: 1;
       }
 .spectrum--darkest .spectrum-ToggleSwitch .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch:before,
 .spectrum--darkest .spectrum-ToggleSwitch:hover .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch:before {

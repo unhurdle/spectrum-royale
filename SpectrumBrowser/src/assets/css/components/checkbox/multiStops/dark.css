@@ -6,6 +6,7 @@
   color: rgb(47, 47, 47);
 }
 .spectrum--dark .spectrum-Checkbox-box:before {
+    forced-color-adjust: none;
     border-color: rgb(144, 144, 144);
     background-color: rgb(47, 47, 47);
   }
@@ -46,13 +47,18 @@
     }
 .spectrum--dark .spectrum-Checkbox .spectrum-Checkbox-input:disabled ~ .spectrum-Checkbox-label,
 .spectrum--dark .spectrum-Checkbox .spectrum-Checkbox-input:checked:disabled ~ .spectrum-Checkbox-label {
+    forced-color-adjust: none;
     color: rgb(110, 110, 110);
   }
+.spectrum--dark .spectrum-Checkbox-input + .spectrum-Checkbox-box:after {
+      box-shadow: 0 0 0 2px rgb(38, 128, 235);
+      opacity: 0;
+    }
 .spectrum--dark .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before {
       border-color: rgb(185, 185, 185);
     }
 .spectrum--dark .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:after {
-      box-shadow: 0 0 0 2px rgb(38, 128, 235);
+      opacity: 1;
     }
 .spectrum--dark .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:before,
 .spectrum--dark .spectrum-Checkbox-input:checked.focus-ring + .spectrum-Checkbox-box:before {
@@ -103,3 +109,33 @@
 .spectrum--dark .spectrum-Checkbox.is-invalid:active .spectrum-Checkbox-label {
       color: rgb(255, 123, 130);
     }
+@media (forced-colors: active) {
+    .spectrum--dark .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box {
+      forced-color-adjust: none;
+      outline-color: rgb(38, 128, 235);
+      outline-style: auto;
+      outline-offset: 2px;
+      outline-width: 2px;    }
+  .spectrum--dark :root {
+    --spectrum-checkbox-emphasized-box-background-color : transparent;
+    --spectrum-checkbox-emphasized-box-background-color-disabled : transparent;
+    --spectrum-checkbox-emphasized-box-border-color-disabled : GrayText;
+    --spectrum-checkbox-text-color-disabled : GrayText;
+    --spectrum-checkbox-box-border-color-key-focus: FieldText;
+    --spectrum-checkbox-emphasized-box-border-color: FieldText;
+    --spectrum-checkbox-quiet-box-border-color: FieldText; 
+    --spectrum-checkbox-box-border-color-selected-hover : Highlight;
+    --spectrum-checkbox-emphasized-box-border-color-selected-hover : Highlight;
+    --spectrum-checkbox-quiet-box-border-color-selected-hover : Highlight;
+    --spectrum-checkbox-emphasized-box-border-color-selected: Highlight; 
+    --spectrum-checkbox-quiet-box-border-color-selected: Highlight;
+    --spectrum-checkbox-checkmark-color: HighlightText;
+    --spectrum-checkbox-focus-ring-color-key-focus: Highlight;
+    --spectrum-checkbox-focus-ring-gap-key-focus: 2px;
+    --spectrum-checkbox-focus-ring-size-key-focus: 3px;
+    --spectrum-checkbox-box-border-color-error: FieldText;
+    --spectrum-checkbox-box-border-color-error-hover: FieldText;
+    --spectrum-checkbox-box-border-color-error-selected: FieldText;
+    --spectrum-checkbox-text-color-error: FieldText;
+  }        
+}

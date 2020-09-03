@@ -45,7 +45,6 @@
       touch-action: none;
 
   cursor: pointer;
-
 }
 .spectrum-Button:focus,
 .spectrum-ActionButton:focus,
@@ -94,7 +93,7 @@
     top: 0;
     margin: -2px;
 
-    transition: box-shadow 130ms ease-out,
+    transition: opacity 130ms ease-out,
                 margin 130ms ease-out;
   }
 .spectrum-Button.focus-ring:after,
@@ -125,19 +124,15 @@
   }
 [dir="ltr"] .spectrum-Button .spectrum-Icon + .spectrum-Button-label {
     margin-left: 8px;
-
 }
 [dir="rtl"] .spectrum-Button .spectrum-Icon + .spectrum-Button-label {
     margin-right: 8px;
-
 }
 [dir="ltr"] .spectrum-Button .spectrum-Button-label + .spectrum-Icon {
     margin-left: 4px;
-
 }
 [dir="rtl"] .spectrum-Button .spectrum-Button-label + .spectrum-Icon {
     margin-right: 4px;
-
 }
 a.spectrum-Button,
 a.spectrum-ActionButton {
@@ -162,27 +157,21 @@ a.spectrum-ActionButton {
 }
 [dir="ltr"] .spectrum-ActionButton .spectrum-Icon + .spectrum-ActionButton-label {
     padding-left: 7px;
-
 }
 [dir="rtl"] .spectrum-ActionButton .spectrum-Icon + .spectrum-ActionButton-label {
     padding-right: 7px;
-
 }
 [dir="ltr"] .spectrum-ActionButton .spectrum-Icon + .spectrum-ActionButton-label {
     padding-right: 5px;
-
 }
 [dir="rtl"] .spectrum-ActionButton .spectrum-Icon + .spectrum-ActionButton-label {
     padding-left: 5px;
-
 }
 [dir="ltr"] .spectrum-ActionButton .spectrum-Icon--sizeS:only-child {
     left: calc(50% - 9px);
-
 }
 [dir="rtl"] .spectrum-ActionButton .spectrum-Icon--sizeS:only-child {
     right: calc(50% - 9px);
-
 }
 .spectrum-ActionButton .spectrum-Icon--sizeS:only-child {
     position: absolute;
@@ -193,11 +182,9 @@ a.spectrum-ActionButton {
   }
 [dir="ltr"] .spectrum-ActionButton-hold {
   right: 3px;
-
 }
 [dir="rtl"] .spectrum-ActionButton-hold {
   left: 3px;
-
 }
 [dir="rtl"] .spectrum-ActionButton-hold { transform: matrix(-1, 0, 0, 1, 0, 0) ; }
 .spectrum-ActionButton-hold {

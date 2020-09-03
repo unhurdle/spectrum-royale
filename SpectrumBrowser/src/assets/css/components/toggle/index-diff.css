@@ -51,6 +51,6 @@
 .spectrum--large .spectrum-ToggleSwitch-switch:after {
     border-radius: 13px;
 
-    transition: box-shadow 130ms ease-out,
+    transition: opacity 130ms ease-out,
                 margin 130ms ease-out;
   }
