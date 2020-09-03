@@ -28,7 +28,7 @@
   </fx:Script>
   <sp:FieldGroup>
     <sp:FieldLabel text="Theme" position="left"/>
-    <sp:Dropdown id="themeDropdown" quiet="true" change="notifyThemeChange()">
+    <sp:Picker id="themeDropdown" quiet="true" change="notifyThemeChange()">
       <sp:dataProvider>
         <fx:Array id="themeArray">
           <fx:String>Lightest</fx:String>
@@ -37,16 +37,16 @@
           <fx:String>Darkest</fx:String>
         </fx:Array>
       </sp:dataProvider>
-    </sp:Dropdown>
+    </sp:Picker>
     <Div width="32"/>
     <sp:FieldLabel text="Theme" position="left"/>
-    <sp:Dropdown id="sizeDropdown" quiet="true" change="notifySizeChange()">
+    <sp:Picker id="sizeDropdown" quiet="true" change="notifySizeChange()">
       <sp:dataProvider>
         <fx:Array id="sizeArray">
           <fx:String>Medium</fx:String>
           <fx:String>Large</fx:String>
         </fx:Array>
       </sp:dataProvider>
-    </sp:Dropdown>
+    </sp:Picker>
   </sp:FieldGroup>
 </sp:FlexContainer>

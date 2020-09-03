@@ -309,6 +309,7 @@ package com.unhurdle.spectrum
         _button.invalid = value;
         if(value){
           var invalidIcon:Icon = new Icon(IconPrefix._18 + "Alert");
+          invalidIcon.size = "S";
           _button.addElementAt(invalidIcon, _button.numElements - 1);
         }else{
           _button.removeElement(invalidIcon);

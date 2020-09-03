@@ -95,6 +95,7 @@
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>
     <component id="PageTitle" class="com.unhurdle.spectrum.typography.PageTitle"/>
     <component id="PagePagination" class="com.unhurdle.spectrum.PagePagination"/>
+    <component id="Picker" class="com.unhurdle.spectrum.Picker"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="QuickActions" class="com.unhurdle.spectrum.QuickActions"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>

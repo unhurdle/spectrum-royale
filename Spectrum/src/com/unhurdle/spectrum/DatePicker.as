@@ -18,7 +18,7 @@ package com.unhurdle.spectrum
     public function DatePicker()
     {
       super();
-      typeNames = getSelector() + " " + InputGroupInclude.getSelector();
+      typeNames = getSelector();
     }
     override protected function getSelector():String{
       return "spectrum-Datepicker";
@@ -45,7 +45,8 @@ package com.unhurdle.spectrum
       //TODO is this right?
       className = InputGroupInclude.getSelector();
       input = new TextField();
-      input.toggle(appendInputGroup("-field"),true);
+      input.toggle(appendInputGroup("-textfield"),true);
+      input.input.classList.add(appendInputGroup('-input'));
       // input.readOnly = true;
       button = new FieldButton()
       button.className = appendInputGroup("-button");
@@ -94,7 +95,7 @@ package com.unhurdle.spectrum
     public function set quiet(value:Boolean):void
     {
     	if(_quiet != !!value){
-        toggle(valueToSelector("quiet"),value);
+        toggle(appendInputGroup("--quiet"),value);
         input.quiet = value;
         button.quiet = value;
         if(input2){
@@ -197,20 +198,22 @@ package com.unhurdle.spectrum
       model = calendar.model;
       (model as DatePickerModel).addEventListener("selectedDateChanged",handleSelectedDay);
       if(range){
-        input.toggle(appendDatePicker("-startField"),true);
+        input.input.classList.add(appendDatePicker("-startField"),true);
         input.placeholder = dateFormat;
         // add dash
         var div:Div = new Div();
-        div.className = valueToSelector("rangeDash");
+        div.className = appendSelector("-rangeDash");
         addElementAt(div,1);
         // add second field
         input2 = new TextField();
-        input2.toggle(appendInputGroup("-field"),true);
-        input2.toggle(appendDatePicker("-endField"),true);
+        input2.toggle(appendInputGroup("-textfield"),true);
+        input2.input.classList.add(appendInputGroup('-input'));
+        input2.input.classList.add(appendDatePicker("-endField"));
         input2.placeholder = dateFormat;
         if(invalid){
           input2.invalid = true;
           input.invalid = false;
+          input.toggle("is-invalid",true);
         }
         input2.quiet = quiet;
         input2.disabled = disabled;
