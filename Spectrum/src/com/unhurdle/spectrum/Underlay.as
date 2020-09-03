@@ -1,19 +1,22 @@
 package com.unhurdle.spectrum
 {
-  
-  import org.apache.royale.events.EventDispatcher;
+
+  COMPILE::JS
+  {
+    import org.apache.royale.core.WrappedHTMLElement;
+    import org.apache.royale.html.util.addElementToWrapper;
+  }
+
   import org.apache.royale.core.IBead;
   import org.apache.royale.core.IStrand;
   import org.apache.royale.core.IUIBase;
   import org.apache.royale.events.Event;
   import org.apache.royale.events.IEventDispatcher;
   import org.apache.royale.core.IParent;
-  import org.apache.royale.core.UIBase;
   import org.apache.royale.events.MouseEvent;
-  import org.apache.royale.html.elements.Div;
 
 
-  public class Underlay extends EventDispatcher implements IBead
+  public class Underlay extends SpectrumBase implements IBead
   {
     /**
      * <inject_html>
@@ -24,8 +27,11 @@ package com.unhurdle.spectrum
     public function Underlay()
     {
       super();
+      addEventListener(MouseEvent.CLICK,handleClick);
     }
-
+    override protected function getSelector():String{
+      return "spectrum-Underlay";
+    }
     protected var _strand:IStrand;
 
     public function set strand(value:IStrand):void
@@ -50,7 +56,6 @@ package com.unhurdle.spectrum
     // Application and View are both possible parents,
     // but there's no single interface for both that will work.
     private var hostParent:IParent;
-    private var underlay:UIBase;
     /**
      *  @royaleignorecoercion Object
      */
@@ -58,10 +63,8 @@ package com.unhurdle.spectrum
     {
       hostParent = host.parent;
       var index:int = hostParent.getElementIndex(host);
-      underlay = new Div();
-      underlay.className = "spectrum-Underlay is-open";
-      hostParent.addElementAt(underlay,index);
-      underlay.addEventListener(MouseEvent.CLICK,handleClick);
+      hostParent.addElementAt(this,index);
+      toggle("is-open",true);
     }
 
     private function handleClick(ev:MouseEvent):void
@@ -77,7 +80,9 @@ package com.unhurdle.spectrum
 
     private function handleHidden(ev:Event):void
     {
-      hostParent.removeElement(underlay);
+      //TODO enable hide animation
+      toggle("is-open",false);
+      hostParent.removeElement(this);
     }
 
     private var _hideOnClick:Boolean = true;
