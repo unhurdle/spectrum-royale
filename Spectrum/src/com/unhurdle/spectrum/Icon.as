@@ -13,7 +13,7 @@ package com.unhurdle.spectrum
     {
       _selector = selector;
       super();
-      // size = "S";
+      size = "S";
     }
 
     public static function getCSSTypeSelector(type:String):String{
