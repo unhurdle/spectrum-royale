@@ -7,12 +7,11 @@ package com.unhurdle.spectrum
   }
     import com.unhurdle.spectrum.const.IconPrefix;
     import org.apache.royale.events.Event;
-    import com.unhurdle.spectrum.const.IconSize;
   
 
-  public class Tab extends SpectrumBase
+  public class TabAnchor extends SpectrumBase
   {
-    public function Tab()
+    public function TabAnchor()
     {
       super();
       addEventListener('click',selectedTab);
@@ -26,6 +25,8 @@ package com.unhurdle.spectrum
     private var overflowButton:HTMLElement;
     private var overflowIcon:Icon;
     private var _text:String;
+    private var _href:String;
+    private var anchorElement:HTMLAnchorElement;
 
     public function get text():String
     {
@@ -38,31 +39,21 @@ package com.unhurdle.spectrum
       label.text = _text;
     }
 
-    public function get iconType():String
+    public function get href():String
     {
-    	return _iconType;
+    	return _href;
     }
 
-    public function set iconType(value:String):void
+    public function set href(value:String):void
     {
+     if(value != _href){
       if(value){
-        switch(value){
-          case "Folder":
-          case "Image":
-          case "Filter":
-          case "Comment":
-            break;
-          default:
-            throw new Error("Invalid icon: " + value);
+      	_href = value;
+      } else {
+        _href = "#";
         }
-      icon = new Icon(IconPrefix._18 + value); //allow the user to specify an icon..
-      icon.size = IconSize.S;
-      COMPILE::JS{
-        element.insertBefore(icon.element, element.childNodes[0] || null);
+        anchorElement.href = _href;
       }
-      icon.addedToParent(); 
-      }
-      _iconType = value;
     }
 
     private var _selected:Boolean;
@@ -96,7 +87,7 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         if(ev.currentTarget.parent){//no parent if overflow
-          var tabSelected:Tab = ev.currentTarget as Tab;
+          var tabSelected:TabAnchor = ev.currentTarget as TabAnchor;
           var tabBar:TabBar = ev.currentTarget.parent as TabBar; 
           checkSelected(tabBar);
           tabSelected.selected = true;
@@ -146,11 +137,7 @@ package com.unhurdle.spectrum
         styleStr = "height: 46px; top: 0px;";
         }
           else{
-            if(icon && text){
-              styleStr = "width: 45px; left: 0px;";              
-            }else{
-              styleStr = "width: 27px; left: 0px;";
-            }
+            styleStr = "width: 27px; left: 0px;";
           }
         newIndicator.setAttribute("style",styleStr);
         addElement(newIndicator);
@@ -182,11 +169,10 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     { 
-      addElementToWrapper(this,'div');
+      anchorElement = addElementToWrapper(this,'a') as HTMLAnchorElement;
       label = new TextNode("label");
       label.className = getTabsSelector() + "-itemLabel"; 
-      element.appendChild(label.element); //addElem
-      element.tabIndex = 0;
+      label.element = anchorElement;
       return element;
     }
 

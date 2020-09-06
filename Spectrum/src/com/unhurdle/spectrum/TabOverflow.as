@@ -9,6 +9,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.data.DropdownItem;
   import org.apache.royale.events.ValueEvent;
   import com.unhurdle.spectrum.renderers.MenuItemRenderer;
+  import com.unhurdle.spectrum.utils.getDataProviderItem;
   
 
   [Event(name="children", type="org.apache.royale.events.Event")]
@@ -21,6 +22,12 @@ package com.unhurdle.spectrum
       {
         addEventListener("tabs",tabsArray);
       }
+      typeNames = getSelector() + " " + valueToSelector("horizontal");
+
+    }
+    override protected function getSelector():String
+    {
+      return getTabsSelector(); 
     }
     private var direction:String;
     private var dropDown:Picker;
@@ -29,19 +36,68 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement 
     { 
       addElementToWrapper(this,'div');
-      direction = " spectrum-Tabs--horizontal";
-      element.className = appendSelector("");
       //TODO why is this hard coded?
       width = 409;
       // var elemStyle:String = "width: 409px";
       // element.setAttribute("style",elemStyle);
       dropDown = new Picker();
+      dropDown.quiet = true;
       addElement(dropDown);
       element.appendChild(dummySpacing());
       addIndicator();
       return element;
     }
-    
+    private var _dataProvider:Object;
+
+    public function get dataProvider():Object
+    {
+    	return _dataProvider;
+    }
+
+    public function set dataProvider(value:Object):void{
+       if(!value || _selectedIndex > value.length){
+          _selectedIndex = -1;
+        }
+        dropDown.dataProvider = value;
+        if(value && value.length){
+          dropDown.visible = true;
+          if(_selectedIndex > -1){
+            selectedItem = getDataProviderItem(value,_selectedIndex);
+          } else {
+            selectedItem = getDataProviderItem(dropDown.dataProvider,0);
+          }
+        }
+        else{
+          dropDown.visible = false;
+        }
+    }
+
+    private var _selectedIndex:int;
+
+    public function get selectedIndex():int{
+    	return _selectedIndex;
+    }
+
+    public function set selectedIndex(value:int):void{
+      if(value == -1)
+        selectedItem = null;
+    	_selectedIndex = value;
+      if(_selectedIndex > -1 && dataProvider)
+      {
+        selectedItem = getDataProviderItem(dropDown.dataProvider,0);
+      }
+    }
+
+    public function get selectedItem():Object{
+    	return dropDown.selectedItem;
+    }
+
+    public function set selectedItem(value:Object):void{
+      if(dropDown.selectedItem != value){        
+        dropDown.selectedItem = value;
+        dropDown.handleListChange();
+      }
+    }    
     private function addIndicator():void
     { 
       COMPILE::JS
@@ -59,12 +115,13 @@ package com.unhurdle.spectrum
       return _compact;
     }
     
-    COMPILE::JS
     public function set compact(value:Boolean):void 
     {
       if(value != !!_compact){
-      element.classList.add("spectrum-Tabs--compact");
-      _compact = value;
+        COMPILE::JS{
+          element.classList.add("spectrum-Tabs--compact");
+        }
+        _compact = value;
       }
     }
 
@@ -87,6 +144,8 @@ package com.unhurdle.spectrum
         placeHolder(dpTab);
         if(!dropDown.placeholder){
           dropDown.placeholder = (tabsForDp[0] as Object ).text;
+          checkForDuplicateSelected(tabsForDp); 
+          dpTab.selected = true;
         }
         dpTab = new DropdownItem(dpTab.text);
         addEventListener('click',checkForSelected);
@@ -126,6 +185,7 @@ package com.unhurdle.spectrum
           tabsArray[i].selected = false;
           dpArray[i].selected = false;
           removeIndicator(tabsArray[i]);
+          setIndicatorSpot(tabsArray[i]);
         }
       }
     }
@@ -141,9 +201,20 @@ package com.unhurdle.spectrum
         }
       }
     }
-
-    
-
-    
+    private function setIndicatorSpot(tabBar:TabBar):void
+    {
+      COMPILE::JS
+      {
+        var newIndicator:TabIndicator = new TabIndicator();
+        var styleStr:String;
+        if(tabBar.vertical){
+        styleStr = "height: 46px; top: 0px;";
+        }else{
+            styleStr = "width: 27px; left: 0px;";
+        }
+        newIndicator.setAttribute("style",styleStr);
+        addElement(newIndicator);
+      }
+    }
   }
 }
