@@ -30,6 +30,7 @@ package com.unhurdle.spectrum
       addBead(underlay);
       addEventListener("modalShown",handleModalShow);
       addEventListener("modalHidden",handleModalHidden);
+      visible = false;
     }
 
     public static const ALERT:int = 1;
@@ -43,27 +44,26 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Dialog";
     }
-    private var modal:Modal;
-    COMPILE::JS
-    private var outerElement:HTMLElement;
+
+    // COMPILE::JS
+    // private var outerElement:HTMLElement;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
-      modal = new Modal();
-      modal.element.appendChild(elem);
+      // outerElement = newElement("div",appendSelector("-wrapper"));
+      // // outerElement.style.top = "0px";
+      // outerElement.appendChild(elem);
       return elem
     }
     /**
      * The HTMLElement used to position the component.
      * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement
      */
-    COMPILE::JS
-    override public function get positioner():WrappedHTMLElement
-    {
-      // The modal wrapper is transparent to the user.
-      // Proxy the modal's positioner.
-      return modal.positioner;
-    }
+    // COMPILE::JS
+    // override public function get positioner():WrappedHTMLElement
+    // {
+    //     return outerElement as WrappedHTMLElement;
+    // }
 
     override public function addedToParent():void{
       super.addedToParent();
@@ -244,23 +244,50 @@ package com.unhurdle.spectrum
     public function show():void{
       Application.current.popUpParent.addElement(this);
       visible = true;
+      COMPILE::JS
+      {
+        if(alreadyShown){
+          requestAnimationFrame(dispatchShown);
+        } else {
+          // for some reason, the first time the animation doesn't show unless delayed
+          requestAnimationFrame(delayShow);
+        }
+      }
+      
+    }
+    COMPILE::JS
+    private function delayShow():void{
+      requestAnimationFrame(dispatchShown);
+    }
+    private var alreadyShown:Boolean = false;
+    private function dispatchShown():void{
       dispatchEvent(new Event("modalShown"));
     }
     private function handleModalShow(ev:Event):void{
-      modal.open = true;
-        // toggle("is-open",true);
+        // COMPILE::JS
+        // {
+        //   outerElement.classList.add("is-open");
+        // }
+        toggle("is-open",true);
     }
     public function hide():void
     {
       visible = false;
-      modal.open = false;
-      // toggle("is-open",false);
+      toggle("is-open",false);
+        // COMPILE::JS
+        // {
+        //   outerElement.classList.remove("is-open");
+        // }
       parent.removeElement(this);
       dispatchEvent(new Event("modalHidden"));
       dispatchEvent(new Event("hide"));
     }
     private function handleModalHidden(ev:Event):void{
       toggle("is-open",false);
+        // COMPILE::JS
+        // {
+        //   outerElement.classList.remove("is-open");
+        // }
     }
   }
 }
