@@ -45,6 +45,9 @@
     <js:ComponentRoute title="Clear Button" component="view.panes.ClearButtonPane" baseName="clear_button"/>
     <js:ComponentRoute title="Coach Mark" component="view.panes.CoachMarkPane" baseName="coach_mark"/>
     <js:ComponentRoute title="Color Area" component="view.panes.ColorAreaPane" baseName="color_area"/>
+    <js:ComponentRoute title="Color Handle" component="view.panes.ColorHandlePane" baseName="color_handle"/>
+    <js:ComponentRoute title="Color Loupe" component="view.panes.ColorLoupePane" baseName="color_loupe"/>
+    <js:ComponentRoute title="Color Slider" component="view.panes.ColorSliderPane" baseName="color_slider"/>
     <js:ComponentRoute title="Combobox" component="view.panes.ComboboxPane" baseName="combobox"/>
     <js:ComponentRoute title="Cycle Button" component="view.panes.CycleButtonPane" baseName="cycle_button"/>
     <js:ComponentRoute title="Date Picker" component="view.panes.DatePickerPane" baseName="date_picker"/>

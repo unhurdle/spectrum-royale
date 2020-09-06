@@ -9,16 +9,16 @@ package com.unhurdle.spectrum
     import org.apache.royale.geom.Point;
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
-  public class ColorSlider extends SpectrumBase
+  public class ColorWheel extends SpectrumBase
   {
-    public function ColorSlider()
+    public function ColorWheel()
     {
       super();
       // typeNames = getSelector() + " " + valueToSelector("color");
     }
     
     override protected function getSelector():String{
-      return "spectrum-ColorSlider";
+      return "spectrum-ColorWheel";
     }
     private var handle:ColorHandle;
 		private var gradient:HTMLElement;
@@ -28,8 +28,12 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        var checkerboardContainer:HTMLElement = newElement("div",appendSelector("-checkerboard"));
-        checkerboardContainer.setAttribute("role","presentation");
+        var checkerboardContainer:HTMLElement = newElement("svg",appendSelector("-wheel"));
+        checkerboardContainer.setAttribute("viewBox","0 0 160 160");
+        checkerboardContainer.setAttribute("aria-hidden","true");
+        var defs:HTMLElement = newElement("defs");
+        var mask:HTMLElement = newElement("mask");
+        mask.id = "mask";
         gradient = newElement("div",appendSelector("-gradient"));
         gradient.setAttribute("role","presentation");
         // gradient.style = {"background":"linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%)"};

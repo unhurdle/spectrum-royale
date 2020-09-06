@@ -99,7 +99,7 @@
     <comp:StyledCode text='&lt;sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" disabled="true" width="400"/&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Color" notes="Spectrum Color slider\n A new color slider is forthcoming.">
+  <!-- <comp:Variant header="Color" notes="Spectrum Color slider\n A new color slider is forthcoming.">
     <sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" width="400"/>
     <sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true" width="400"/>
     <sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true" disabled="true" width="400"/>
@@ -110,6 +110,6 @@
     <comp:StyledCode text='&lt;sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true" width="400"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;sp:ColorSlider value="14" max="20" min="10" step="2" label="Color" showingAlpha="true" disabled="true" width="400"/&gt;'/>
-  </comp:Markup>
+  </comp:Markup> -->
 
 </view:DemoPane>
