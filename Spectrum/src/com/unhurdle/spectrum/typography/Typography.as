@@ -67,10 +67,6 @@ package com.unhurdle.spectrum.typography
         "XXS"
     ]
     public function validateSize(value:String):Boolean{
-      var numVal:Number = Number(value);
-      if(!isNaN(numVal)){
-        value = numLookup[numVal];
-      }
       if(getSizes().indexOf(value) != -1){
         return true;
       }
@@ -80,6 +76,10 @@ package com.unhurdle.spectrum.typography
     {
       if(!value || value == _size){
         return;
+      }
+      var numVal:Number = Number(value);
+      if(!isNaN(numVal)){
+        value = numLookup[numVal];
       }
       if(!validateSize(value)){
           throw new Error("invalid size: " + value);
