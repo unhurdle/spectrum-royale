@@ -48,6 +48,13 @@ package com.unhurdle.spectrum
 			value = newVal;
       dispatchEvent(new Event("change"));
     }
+    private function inputChanged():void
+    {
+      var val:Number = value;
+      val = Math.min(val,max);
+      val = Math.max(val,min);
+      value = val;
+    }
     
     private var input:NumberField;
     private var button1:FieldButton;
@@ -62,6 +69,7 @@ package com.unhurdle.spectrum
       // default to any valid integer
       input.min = Number.MIN_SAFE_INTEGER;
       input.max = Number.MAX_SAFE_INTEGER;
+      input.addEventListener(Event.CHANGE,inputChanged);
       addElement(input);
       var span:Span = new Span();
       // var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
