@@ -95,7 +95,7 @@
     <js:ComponentRoute title="Tooltip" component="view.panes.TooltipPane" baseName="tooltip"/>
     <js:ComponentRoute title="Tree View" component="view.panes.TreeViewPane" baseName="tree_view"/>
     <js:ComponentRoute title="Typography" component="view.panes.TypographyPane" baseName="typography"/>
-    <js:ComponentRoute title="Typography (Internationalized)" component="view.panes.TypographyInternationalizedPane" baseName="typography_internationalized"/>
+    <js:ComponentRoute title="Typography (Internationalized)" component="view.panes.TypographyInternationalizedPane" baseName="typography_internationalized_"/>
     <js:ComponentRoute title="TypographyBody" component="view.panes.TypographyBodyPane" baseName="typography_body"/>
     <js:ComponentRoute title="TypographyCode" component="view.panes.TypographyCodePane" baseName="typography_code"/>
     <js:ComponentRoute title="TypographyDetail" component="view.panes.TypographyDetailPane" baseName="typography_detail"/>

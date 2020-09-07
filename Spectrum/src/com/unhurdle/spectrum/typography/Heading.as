@@ -34,11 +34,12 @@ package com.unhurdle.spectrum.typography
 
     public function set quiet(value:Boolean):void
     {
-      if(value != !!_quiet){
-        _strong = false;
-      	_quiet = value;
-        setTypeNames();
-      }
+      light = value;
+      // if(value != !!_quiet){
+      //   _strong = false;
+      // 	_quiet = value;
+      //   setTypeNames();
+      // }
     }
     private var _strong:Boolean;
 
@@ -52,11 +53,12 @@ package com.unhurdle.spectrum.typography
 
     public function set strong(value:Boolean):void
     {
-      if(value != !!_strong){
-      	_strong = value;
-        _quiet = false;
-        setTypeNames();
-      }
+      heavy = value;
+      // if(value != !!_strong){
+      // 	_strong = value;
+      //   _quiet = false;
+      //   setTypeNames();
+      // }
     }
     private var _display:Boolean;
 
@@ -87,6 +89,9 @@ package com.unhurdle.spectrum.typography
       if(value != !!_heavy){
         toggle(valueToSelector("heavy"),value);
       }
+      if(value){
+        light = false;
+      }
       _heavy = value;
     }
     private var _light:Boolean;
@@ -100,6 +105,9 @@ package com.unhurdle.spectrum.typography
     {
       if(value != !!_light){
         toggle(valueToSelector("light"),value);
+      }
+      if(value){
+        heavy = false;
       }
       _light = value;
     }

@@ -45,20 +45,36 @@ package com.unhurdle.spectrum.typography
     {
     	return _size;
     }
+    protected function getSizes():Array{
+      return[
+        "XXS",
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL",
+        "XXXL"
+      ];
+    }
+    private var numLookup:Array = [
+        "",
+        "XL",
+        "L",
+        "M",
+        "S",
+        "XS",
+        "XXS"
+    ]
     public function validateSize(value:String):Boolean{
-      switch(value){
-        case "XXS":
-        case "XS":
-        case "S":
-        case "M":
-        case "L":
-        case "XL":
-        case "XXL":
-        case "XXXL":
-          return true;
-        default:
-          return false;
+      var numVal:Number = Number(value);
+      if(!isNaN(numVal)){
+        value = numLookup[numVal];
       }
+      if(getSizes().indexOf(value) != -1){
+        return true;
+      }
+      return false;
     }
     public function set size(value:String):void
     {

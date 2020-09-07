@@ -23,17 +23,14 @@ package com.unhurdle.spectrum.typography
       textNode.element = element;
       return element;
     }
-    override public function validateSize(value:String):Boolean{
-      switch(value){
-        case "XS":
-        case "S":
-        case "M":
-        case "L":
-        case "XL":
-          return true;
-        default:
-          return false;
-      }
+    override protected function getSizes():Array{
+      return[
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+      ];
     }
   }
 }

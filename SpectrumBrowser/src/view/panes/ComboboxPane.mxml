@@ -33,7 +33,7 @@
     ]]>
   </fx:Script>
   <comp:Variant>
-  <sp:Heading size="5" text="Default"/>
+  <sp:Heading size="XS" text="Default"/>
   <sp:ComboBox placeholder="Type here">
     <sp:dataProvider>
     <fx:Array>
@@ -47,12 +47,12 @@
   </sp:ComboBox>
   <Br/>
   <Br/>
-  <sp:Heading size="5" text="Disabled"/>
+  <sp:Heading size="XS" text="Disabled"/>
   <sp:ComboBox placeholder="Type here" disabled="true"/>
   <Br/>
   <Br/>
-  <sp:Heading size="5" text="Invalid"/>
-  <sp:Body size="5" text="You would normally set the validity using a validation bead"/>
+  <sp:Heading size="XS" text="Invalid"/>
+  <sp:Body size="XS" text="You would normally set the validity using a validation bead"/>
   <sp:ComboBox placeholder="Type here" invalid="true"/>
   </comp:Variant>
   <comp:Markup>
@@ -64,7 +64,7 @@
   </comp:Markup>
 
   <comp:Variant header="Quiet">
-  <sp:Heading size="5" text="Default"/>
+  <sp:Heading size="XS" text="Default"/>
   <sp:ComboBox placeholder="Type here" quiet="true">
     <sp:dataProvider>
     <fx:Array>
@@ -78,12 +78,12 @@
   </sp:ComboBox>
   <Br/>
   <Br/>
-  <sp:Heading size="5" text="Disabled"/>
+  <sp:Heading size="XS" text="Disabled"/>
   <sp:ComboBox placeholder="Type here" disabled="true" quiet="true"/>
   <Br/>
   <Br/>
-  <sp:Heading size="5" text="Invalid"/>
-  <sp:Body size="5" text="You would normally set the validity using a validation bead"/>
+  <sp:Heading size="XS" text="Invalid"/>
+  <sp:Body size="XS" text="You would normally set the validity using a validation bead"/>
   <sp:ComboBox placeholder="Type here" invalid="true" quiet="true"/>
   </comp:Variant>
   <comp:Markup>

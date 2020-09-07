@@ -11,11 +11,31 @@ package com.unhurdle.spectrum.typography
     public function Subtitle()
     {
       super();
+      typeNames = "";
     }
     override protected function getSelector():String{
       return getTypographySelector() + "--subtitle";
     }
-
-
+    override public function validateSize(value:String):Boolean{
+      var numVal:Number = Number(value);
+      if(!isNaN(numVal) && numVal<=3 && numVal>=1){
+        return true;
+      }
+      return false;
+    }
+    override public function set size(value:String):void
+    {
+      if(!value || value == _size){
+        return;
+      }
+      if(!validateSize(value)){
+          throw new Error("invalid size: " + value);
+      }
+      if(_size){
+        toggle(appendSelector(_size),false);
+      }
+    	_size = value;
+      toggle(appendSelector(value),true);
+    }
   }
 }

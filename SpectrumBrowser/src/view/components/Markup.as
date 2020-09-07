@@ -10,7 +10,7 @@ package view.components
       super();
       typeNames = "markup-section";
       var headerElem:Heading = new Heading();
-      headerElem.size = "L";
+      headerElem.size = "S";
       headerElem.className = "markup-header";
       headerElem.text = "Markup"; 
       addElement(headerElem);

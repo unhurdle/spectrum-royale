@@ -18,16 +18,13 @@ package com.unhurdle.spectrum.typography
       return "spectrum-Detail";
     }
 
-    override public function validateSize(value:String):Boolean{
-      switch(value){
-        case "S":
-        case "M":
-        case "L":
-        case "XL":
-          return true;
-        default:
-          return false;
-      }
+    override protected function getSizes():Array{
+      return[
+        "S",
+        "M",
+        "L",
+        "XL",
+      ];
     }
 
     private var _lightText:String;

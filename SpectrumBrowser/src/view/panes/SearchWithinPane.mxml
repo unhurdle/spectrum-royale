@@ -11,24 +11,24 @@
             '[Bindable]public var provider:Array = ["All","Item 1","Item 2","Item 3"];\n'+
             '\n'+
             '\n'+
-            '<sp:Heading size="5" text="Default"/>\n'+
+            '<sp:Heading size="XS" text="Default"/>\n'+
             '<sp:SearchWithin dataProvider="{provider}"/>\n'+
             '<Br/>\n'+
-            '<sp:Heading size="5" text="Default (Changed Selection)"/>\n'+
+            '<sp:Heading size="XS" text="Default (Changed Selection)"/>\n'+
             '<sp:SearchWithin dataProvider="{provider}" selectedItem="{provider[1]}"/>\n'+
             '<Br/>\n'+
-            '<sp:Heading size="5" text="Disabled"/>\n'+
+            '<sp:Heading size="XS" text="Disabled"/>\n'+
             '<sp:SearchWithin dataProvider="{provider}" disabled="true"/>';
         ]]>
     </fx:Script>
     <comp:Variant>
-        <sp:Heading size="5" text="Default"/>
+        <sp:Heading size="XS" text="Default"/>
         <sp:SearchWithin dataProvider="{provider}"/>
         <Br/>
-        <sp:Heading size="5" text="Default (Changed Selection)"/>
+        <sp:Heading size="XS" text="Default (Changed Selection)"/>
         <sp:SearchWithin dataProvider="{provider}" selectedItem="{provider[1]}"/>
         <Br/>
-        <sp:Heading size="5" text="Disabled"/>
+        <sp:Heading size="XS" text="Disabled"/>
         <sp:SearchWithin dataProvider="{provider}" disabled="true"/>
     </comp:Variant>
     <comp:Markup>
