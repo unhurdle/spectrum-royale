@@ -12,6 +12,9 @@ package com.unhurdle.spectrum
     {
       super();
     }
+    override protected function getSelector():String{
+      return "spectrum-Typography";
+    }
 
     private var _language:String;
 

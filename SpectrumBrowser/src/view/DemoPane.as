@@ -8,6 +8,7 @@ package view
   import com.unhurdle.spectrum.Group;
   import com.unhurdle.spectrum.typography.Article;
   import com.unhurdle.spectrum.Divider;
+  import com.unhurdle.spectrum.TypographyGroup;
 
   public class DemoPane extends Container
   {
@@ -36,9 +37,10 @@ package view
     }
     public function set title(value:String):void{
       if(!titleElem){
-        var article:Article = new Article();
+        var article:TypographyGroup = new TypographyGroup();
         article.setStyle("paddingBottom","33px");
         titleElem = new Display();
+        titleElem.serif = true;
         article.addElement(titleElem);
         addElementAt(article,1);
       }

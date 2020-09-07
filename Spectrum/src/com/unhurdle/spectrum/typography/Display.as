@@ -6,10 +6,11 @@ package com.unhurdle.spectrum.typography
     public function Display()
     {
       super();
+      size = "XXXL";
     }
 
-    override protected function getSelector():String{
-      return getTypographySelector() + "--display " + getTypographySelector();
-    }
+    // override protected function getSelector():String{
+    //   return getTypographySelector() + "--display " + getTypographySelector();
+    // }
   }
 }
