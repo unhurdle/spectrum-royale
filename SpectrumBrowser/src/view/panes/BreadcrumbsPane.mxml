@@ -161,7 +161,7 @@ import com.unhurdle.spectrum.data.BreadcrumbsItem;
 
 
 [Bindable]public var titleString:String =
-'<sp:Breadcrumbs isTitle="true" id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'<sp:Breadcrumbs isTitle="true" id="breadcrumbs14" itemClicked="new Toast((breadcrumbs14.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
 '   <sp:dataProvider>\n'+
 '       <sp:BreadcrumbsItem text="Home"/>\n'+
 '          <sp:BreadcrumbsItem text="Playground"/>\n'+
@@ -170,6 +170,38 @@ import com.unhurdle.spectrum.data.BreadcrumbsItem;
 '</sp:Breadcrumbs>\n';
 
 
+[Bindable]public var disabledString:String =
+'<sp:Breadcrumbs id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'  <sp:dataProvider>\n'+
+'    <sp:BreadcrumbsItem text="Nav Root" isFolder="true" isDisabled="true">\n'+
+'      <sp:Breadcrumbs>\n'+
+'        <sp:dataProvider>\n'+
+'          <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
+'          <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
+'          <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
+'        </sp:dataProvider>\n'+
+'      </sp:Breadcrumbs>\n'+
+'    </sp:BreadcrumbsItem>\n'+
+'    <sp:BreadcrumbsItem text="Trend"/>\n'+
+'    <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'  </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>\n'+
+'<Br/>\n'+
+'<sp:Breadcrumbs id="breadcrumbs13" itemClicked="new Toast((breadcrumbs13.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'  <sp:dataProvider>\n'+
+'    <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+
+'      <sp:Breadcrumbs>\n'+
+'        <sp:dataProvider>\n'+
+'          <sp:BreadcrumbsItem text="Nav Root Nested"/>\n'+
+'          <sp:BreadcrumbsItem text="Trend Nested"/>\n'+
+'          <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>\n'+
+'        </sp:dataProvider>\n'+
+'      </sp:Breadcrumbs>\n'+
+'    </sp:BreadcrumbsItem>\n'+
+'    <sp:BreadcrumbsItem text="Trend" isDisabled="true"/>\n'+
+'    <sp:BreadcrumbsItem text="January 2019 Assets"/>\n'+
+'  </sp:dataProvider>\n'+
+'</sp:Breadcrumbs>';
     
         
     ]]>
@@ -368,8 +400,46 @@ import com.unhurdle.spectrum.data.BreadcrumbsItem;
       <comp:StyledCode text='{compactNestedRootVisible}'/>
     </comp:Markup>
 
+    <comp:Variant header="Disabled">
+      <sp:Breadcrumbs id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root" isFolder="true" isDisabled="true">
+            <sp:Breadcrumbs>
+              <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root Nested"/>
+                <sp:BreadcrumbsItem text="Trend Nested"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>
+              </sp:dataProvider>
+            </sp:Breadcrumbs>
+          </sp:BreadcrumbsItem>
+          <sp:BreadcrumbsItem text="Trend"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+      <Br/>
+      <sp:Breadcrumbs id="breadcrumbs13" itemClicked="new Toast((breadcrumbs13.selectedItem as BreadcrumbsItem).label,1000).show()">
+        <sp:dataProvider>
+          <sp:BreadcrumbsItem text="Nav Root" isFolder="true">
+            <sp:Breadcrumbs>
+              <sp:dataProvider>
+                <sp:BreadcrumbsItem text="Nav Root Nested"/>
+                <sp:BreadcrumbsItem text="Trend Nested"/>
+                <sp:BreadcrumbsItem text="January 2019 Assets Nested"/>
+              </sp:dataProvider>
+            </sp:Breadcrumbs>
+          </sp:BreadcrumbsItem>
+          <sp:BreadcrumbsItem text="Trend" isDisabled="true"/>
+          <sp:BreadcrumbsItem text="January 2019 Assets"/>
+        </sp:dataProvider>
+      </sp:Breadcrumbs>
+    </comp:Variant>
+
+    <comp:Markup>
+      <comp:StyledCode text='{disabledString}'/>
+    </comp:Markup>
+
     <comp:Variant header="Title" notes= "Use the multiline variant instead">
-      <sp:Breadcrumbs isTitle="true" id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as BreadcrumbsItem).label,1000).show()">
+      <sp:Breadcrumbs isTitle="true" id="breadcrumbs14" itemClicked="new Toast((breadcrumbs14.selectedItem as BreadcrumbsItem).label,1000).show()">
         <sp:dataProvider>
           <sp:BreadcrumbsItem text="Home"/>
           <sp:BreadcrumbsItem text="Playground"/>

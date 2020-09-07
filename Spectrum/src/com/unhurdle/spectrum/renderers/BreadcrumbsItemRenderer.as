@@ -64,12 +64,19 @@ package com.unhurdle.spectrum.renderers
           button.iconType = type;
           element.insertBefore(button.element,icon.element);
           element.style.marginTop = 'inherit';
+          if(breadCrumbsItem.isDisabled){
+            button.disabled = true;
+          }
+        }else if(breadCrumbsItem.isDisabled){
+          textNode.element.classList.add("is-disabled");
         }
       }
       else{
         element.style.marginTop = '8px';
       }
-      addEventListener(MouseEvent.CLICK,handleClicked);
+      if(!breadCrumbsItem.isDisabled){
+        addEventListener(MouseEvent.CLICK,handleClicked);        
+      }
     }
 
     protected function createFolderIcon():Icon{

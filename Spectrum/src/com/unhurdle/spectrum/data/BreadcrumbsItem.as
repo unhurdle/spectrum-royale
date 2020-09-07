@@ -31,6 +31,17 @@ package com.unhurdle.spectrum.data
     {
     	_isTitle = value;
     }
+    private var _isDisabled:Boolean;
+
+    public function get isDisabled():Boolean
+    {
+    	return _isDisabled;
+    }
+
+    public function set isDisabled(value:Boolean):void
+    {
+      _isDisabled = value;
+    }
     private var _isFolder:Boolean = false;
 
     public function get isFolder():Boolean

@@ -337,6 +337,9 @@
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var provider:Array = ["Tab 1","Tab 2","Tab 3","Tab 4"];'/>
+    <Br/>
+    <Br/>
     <comp:StyledCode text="{codeString1}"/>
   </comp:Markup>
 
