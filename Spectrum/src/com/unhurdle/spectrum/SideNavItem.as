@@ -104,9 +104,9 @@ package com.unhurdle.spectrum
       if(value && !value != !_icon){
         var type:String = value;
         var iconElement:Icon = new Icon(Icon.getCSSTypeSelector(type));
-        addElementAt(iconElement,0);
         COMPILE::JS{
-          _textNode.element.style.width = 'calc(100% - 18px)';
+          _textNode.element.insertBefore(iconElement.element,_textNode.element.firstChild);
+          _textNode.element.style.width = '100%';
         }
       }
     	_icon = value;
