@@ -14,7 +14,7 @@ package view.components
       vertical = true;
       alignItems = "flex-start";
       headerElem = new Heading();
-      headerElem.size = 4;
+      headerElem.size = "L";
       headerElem.className = "variant-header";
       headerElem.text = "Standard"; 
       addElement(headerElem);
@@ -50,7 +50,8 @@ package view.components
       }
       if(!notesElem){
         notesElem = new Body();
-        notesElem.size = 4;
+        headerElem.size = "XL";
+        // notesElem.size = 4;
         addElementAt(notesElem,1);
       }
       notesElem.text = value || "";

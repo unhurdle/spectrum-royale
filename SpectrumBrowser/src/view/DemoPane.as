@@ -21,7 +21,7 @@ package view
     private function addVariants():void{
       var group:Group = new Group();
       var heading:Heading = new Heading();
-      heading.size = 3;
+      heading.size = "M";
       heading.text = "Variants";
       group.addElement(heading);
       var divider:Divider = new Divider();
@@ -55,7 +55,7 @@ package view
       if(value){
         if(!notesGroup){
           _notesBody = new Body();
-          _notesBody.size = 3;
+          _notesBody.size = "M";
           wrapNotesBody();
         }
           _notesBody.text = value;
@@ -72,7 +72,7 @@ package view
       title = title;
       notesGroup = new Group();
       var notesHeading:Heading = new Heading();
-      notesHeading.size = 3;
+      notesHeading.size = "M";
       notesHeading.text = "Usage notes";
       notesGroup.addElement(notesHeading);
       var divider:Divider = new Divider();

@@ -80,6 +80,10 @@ package models
         "Tree View",
         "Typography (Internationalized)",
         "Typography",
+        "Typography Body",
+        "Typography Code",
+        "Typography Detail",
+        "Typography Heading",
         "Well"
     ];
   }

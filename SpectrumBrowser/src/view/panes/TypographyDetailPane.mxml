@@ -1,0 +1,38 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Typography Detail" notes="Detail is a typography component used for disclosing extra information or smaller items in hierarchical relationships of text.">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString:String = 
+        '<Div class="spectrum">\n'+
+        '  <sp:Detail size="XL" text="DetailXL" light="true" lightText=" DetailXL Light"><Em text=" DetailXL Emphasis"/><Strong text=" DetailXL Strong."/></sp:Detail>\n'+
+        '  <sp:Detail size="L" text="DetailL" light="true" lightText=" DetailL Light"><Em text=" DetailL Emphasis"/><Strong text=" DetailL Strong."/></sp:Detail>\n'+
+        '  <sp:Detail size="M" text="DetailM" light="true" lightText=" DetailM Light"><Em text=" DetailM Emphasis"/><Strong text=" DetailM Strong."/></sp:Detail>\n'+
+        '  <sp:Detail size="S" text="DetailS" light="true" lightText=" DetailS Light"><Em text=" DetailS Emphasis"/><Strong text=" DetailS Strong."/></sp:Detail>\n'+
+        '  <Br/>\n'+
+        '  <sp:Detail size="XL" serif="true" text="DetailXL" light="true" lightText=" DetailXL Light"><Em text=" DetailXL Emphasis"/><Strong text=" DetailXL Strong."/></sp:Detail>\n'+
+        '  <sp:Detail size="L" serif="true" text="DetailL" light="true" lightText=" DetailL Light"><Em text=" DetailL Emphasis"/><Strong text=" DetailL Strong."/></sp:Detail>\n'+
+        '  <sp:Detail size="M" serif="true" text="DetailM" light="true" lightText=" DetailM Light"><Em text=" DetailM Emphasis"/><Strong text=" DetailM Strong."/></sp:Detail>\n'+
+        '  <sp:Detail size="S" serif="true" text="DetailS" light="true" lightText=" DetailS Light"><Em text=" DetailS Emphasis"/><Strong text=" DetailS Strong."/></sp:Detail>\n'+
+        '</Div>';
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Detail">
+    <Div class="spectrum">
+      <sp:Detail size="XL" text="DetailXL" light="true" lightText=" DetailXL Light"><Em text=" DetailXL Emphasis"/><Strong text=" DetailXL Strong."/></sp:Detail>
+      <sp:Detail size="L" text="DetailL" light="true" lightText=" DetailL Light"><Em text=" DetailL Emphasis"/><Strong text=" DetailL Strong."/></sp:Detail>
+      <sp:Detail size="M" text="DetailM" light="true" lightText=" DetailM Light"><Em text=" DetailM Emphasis"/><Strong text=" DetailM Strong."/></sp:Detail>
+      <sp:Detail size="S" text="DetailS" light="true" lightText=" DetailS Light"><Em text=" DetailS Emphasis"/><Strong text=" DetailS Strong."/></sp:Detail>
+      <Br/>
+      <sp:Detail size="XL" serif="true" text="DetailXL" light="true" lightText=" DetailXL Light"><Em text=" DetailXL Emphasis"/><Strong text=" DetailXL Strong."/></sp:Detail>
+      <sp:Detail size="L" serif="true" text="DetailL" light="true" lightText=" DetailL Light"><Em text=" DetailL Emphasis"/><Strong text=" DetailL Strong."/></sp:Detail>
+      <sp:Detail size="M" serif="true" text="DetailM" light="true" lightText=" DetailM Light"><Em text=" DetailM Emphasis"/><Strong text=" DetailM Strong."/></sp:Detail>
+      <sp:Detail size="S" serif="true" text="DetailS" light="true" lightText=" DetailS Light"><Em text=" DetailS Emphasis"/><Strong text=" DetailS Strong."/></sp:Detail>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString}"/>
+  </comp:Markup>
+</view:DemoPane>

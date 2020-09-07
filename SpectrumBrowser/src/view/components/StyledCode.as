@@ -7,7 +7,7 @@ package view.components
     public function StyledCode()
     {
       super();
-      size = 5;
+      size = "XL";
       setStyle("whiteSpace","break-spaces");
     }
   }

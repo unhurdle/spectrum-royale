@@ -1,0 +1,168 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Typography Heading" notes="Heading is a typography component used to create various levels of hierarchies between text.">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString1:String = 
+        '<Div class="spectrum">\n'+
+        '  <sp:Heading size="XXXL" text="HeadingXXXL"><Em text=" HeadingXXXL Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXL" text="HeadingXXL"><Em text=" HeadingXXL Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XL" text="HeadingXL"><Em text=" HeadingXL Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="L" text="HeadingL"><Em text=" HeadingL Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="M" text="HeadingM"><Em text=" HeadingM Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="S" text="HeadingS"><Em text=" HeadingS Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XS" text="HeadingXS"><Em text=" HeadingXS Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXS" text="HeadingXXS"><Em text=" HeadingXXS Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <Br/>\n'+
+        '  <sp:Heading size="XXXL" serif="true" text="HeadingXXXL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXL" serif="true" text="HeadingXXL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XL" serif="true" text="HeadingXL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="L" serif="true" text="HeadingL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="M" serif="true" text="HeadingM Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="S" serif="true" text="HeadingS Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XS" serif="true" text="HeadingXS Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXS" serif="true" text="HeadingXXS Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>\n'+
+        '</Div>';
+      [Bindable]public var codeString2:String = 
+        '<Div class="spectrum">\n'+
+        '  <sp:Heading size="XXXL" heavy="true" text="HeadingXXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXL" heavy="true" text="HeadingXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XL" heavy="true" text="HeadingXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="L" heavy="true" text="HeadingL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <Br/>\n'+
+        '  <sp:Heading size="XXXL" heavy="true" serif="true" text="HeadingXXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXL" heavy="true" serif="true" text="HeadingXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XL" heavy="true" serif="true" text="HeadingXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="L" heavy="true" serif="true" text="HeadingL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '</Div>';
+      [Bindable]public var codeString3:String = 
+        '<Div class="spectrum">\n'+
+        '  <sp:Heading size="XXXL" light="true" text="HeadingXXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXL" light="true" text="HeadingXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XL" light="true" text="HeadingXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="L" light="true" text="HeadingL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <Br/>\n'+
+        '  <sp:Heading size="XXXL" light="true" serif="true" text="HeadingXXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XXL" light="true" serif="true" text="HeadingXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="XL" light="true" serif="true" text="HeadingXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '  <sp:Heading size="L" light="true" serif="true" text="HeadingL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>\n'+
+        '</Div>';
+      [Bindable]public var codeString4:String =
+        '<sp:SpacedTypography>\n'+
+        '  <sp:Heading size="XXXL" text="Aliquet Mauris Eu"/>\n'+
+        '  <sp:Body size="XXXL" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="XXXL" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '  <sp:Heading size="XXL" text="Aliquet Mauris Eu"/>\n'+
+        '  <sp:Body size="XXL" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="XXL" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '  <sp:Heading size="XL" text="Aliquet Mauris Eu"/>\n'+
+        '  <sp:Body size="XL" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="XL" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '  <sp:Heading size="L" text="Aliquet Mauris Eu"/>\n'+
+        '  <sp:Body size="L" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="L" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '  <sp:Heading size="M" text="Lorem Ipsum Dolor"/>\n'+
+        '  <sp:Body size="M" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="M" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '  <sp:Heading size="S" text="Lorem Ipsum Dolor"/>\n'+
+        '  <sp:Body size="S" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="S" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '  <sp:Heading size="XS" text="Lorem Ipsum Dolor"/>\n'+
+        '  <sp:Body size="XS" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="XS" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '  <sp:Heading size="XXS" text="Lorem Ipsum Dolor"/>\n'+
+        '  <sp:Body size="XS" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>\n'+
+        '  <sp:Body size="XS" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>\n'+
+        '</sp:SpacedTypography>';
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Heading" notes="Headings for typography.">
+    <Div class="spectrum">
+      <sp:Heading size="XXXL" text="HeadingXXXL"><Em text=" HeadingXXXL Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XXL" text="HeadingXXL"><Em text=" HeadingXXL Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XL" text="HeadingXL"><Em text=" HeadingXL Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="L" text="HeadingL"><Em text=" HeadingL Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="M" text="HeadingM"><Em text=" HeadingM Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="S" text="HeadingS"><Em text=" HeadingS Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XS" text="HeadingXS"><Em text=" HeadingXS Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XXS" text="HeadingXXS"><Em text=" HeadingXXS Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <Br/>
+      <sp:Heading size="XXXL" serif="true" text="HeadingXXXL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+      <sp:Heading size="XXL" serif="true" text="HeadingXXL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+      <sp:Heading size="XL" serif="true" text="HeadingXL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+      <sp:Heading size="L" serif="true" text="HeadingL Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+      <sp:Heading size="M" serif="true" text="HeadingM Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+      <sp:Heading size="S" serif="true" text="HeadingS Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+      <sp:Heading size="XS" serif="true" text="HeadingXS Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+      <sp:Heading size="XXS" serif="true" text="HeadingXXS Serief"><Em text=" Serief Emphasis"/><Strong text=" Serief Strong."/></sp:Heading>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString1}"/>
+  </comp:Markup>
+  <comp:Variant header="Heading (Heavy)" notes="Strong headings for typography.">
+    <Div class="spectrum">
+      <sp:Heading size="XXXL" heavy="true" text="HeadingXXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XXL" heavy="true" text="HeadingXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XL" heavy="true" text="HeadingXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="L" heavy="true" text="HeadingL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <Br/>
+      <sp:Heading size="XXXL" heavy="true" serif="true" text="HeadingXXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XXL" heavy="true" serif="true" text="HeadingXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XL" heavy="true" serif="true" text="HeadingXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="L" heavy="true" serif="true" text="HeadingL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString2}"/>
+  </comp:Markup>
+  <comp:Variant header="Heading (Light)" notes="Light headings for typography.">
+    <Div class="spectrum">
+      <sp:Heading size="XXXL" light="true" text="HeadingXXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XXL" light="true" text="HeadingXXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XL" light="true" text="HeadingXL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="L" light="true" text="HeadingL"><Em text="  Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <Br/>
+      <sp:Heading size="XXXL" light="true" serif="true" text="HeadingXXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XXL" light="true" serif="true" text="HeadingXXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="XL" light="true" serif="true" text="HeadingXL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+      <sp:Heading size="L" light="true" serif="true" text="HeadingL Serief"><Em text=" Emphasis"/><Strong text=" Strong."/></sp:Heading>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString3}"/>
+  </comp:Markup>
+  <comp:Variant notes="Typography elements paired to display clear content hierarchies.">
+    <sp:SpacedTypography>
+      <sp:Heading size="XXXL" text="Aliquet Mauris Eu"/>
+      <sp:Body size="XXXL" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="XXXL" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      <sp:Heading size="XXL" text="Aliquet Mauris Eu"/>
+      <sp:Body size="XXL" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="XXL" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      <sp:Heading size="XL" text="Aliquet Mauris Eu"/>
+      <sp:Body size="XL" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="XL" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      <sp:Heading size="L" text="Aliquet Mauris Eu"/>
+      <sp:Body size="L" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="L" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      <sp:Heading size="M" text="Lorem Ipsum Dolor"/>
+      <sp:Body size="M" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="M" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      <sp:Heading size="S" text="Lorem Ipsum Dolor"/>
+      <sp:Body size="S" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="S" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      <sp:Heading size="XS" text="Lorem Ipsum Dolor"/>
+      <sp:Body size="XS" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="XS" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+      <sp:Heading size="XXS" text="Lorem Ipsum Dolor"/>
+      <sp:Body size="XS" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend est mollis ligula lobortis, tempus ultricies sapien lacinia. Nulla ut turpis velit. Sed finibus dapibus diam et sollicitudin. Phasellus in ipsum nec ante elementum congue eget in leo. Morbi eleifend justo non rutrum venenatis. Fusce cursus et lectus eu facilisis. Ut laoreet felis in magna dignissim feugiat."/>
+      <sp:Body size="XS" text="Ut et lectus finibus, aliquet mauris eu, tincidunt mi. Donec scelerisque orci sit amet venenatis luctus. Morbi eget lacus est. Duis iaculis magna quis aliquam lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit."/>
+    </sp:SpacedTypography>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString4}"/>
+  </comp:Markup>
+</view:DemoPane>

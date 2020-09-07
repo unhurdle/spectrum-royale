@@ -22,14 +22,13 @@ package com.unhurdle.spectrum.typography
       return "";
     }
     override protected function getSelector():String{
-      var sizeStr:String = size? "" + size: "";
       var retVal:String = '';
       var suffix:Array = getSuffix();
       if(!suffix.length){
-        return getTypographySelector() + sizeStr;
+        return getTypographySelector();
       }
       for(var i:int =0;i<suffix.length;i++){
-        retVal += getTypographySelector() + sizeStr + suffix[i] + ' ';
+        retVal += getTypographySelector() + suffix[i] + ' ';
       }
       return retVal.trim();
     }
@@ -40,58 +39,42 @@ package com.unhurdle.spectrum.typography
       return 1;
     }
 
-    protected var _size:Number;
+    protected var _size:String;
 
-    public function get size():Number
+    public function get size():String
     {
-      if(isNaN(_size)){
-        _size = getDefaultSize();
-      }
     	return _size;
     }
-    protected function getMax():int{
-      return 5;
-    }
-    public function set size(value:Number):void
-    {
-      if(value != _size){
-        value = Math.min(value,getMax());
-        value = Math.max(value,1);
-        value = Math.round(value);
-      	_size = value;
-        setTypeNames();
+    public function validateSize(value:String):Boolean{
+      switch(value){
+        case "XXS":
+        case "XS":
+        case "S":
+        case "M":
+        case "L":
+        case "XL":
+        case "XXL":
+        case "XXXL":
+          return true;
+        default:
+          return false;
       }
     }
-
-    protected var _textSize:String;
-
-    public function get textSize():String
+    public function set size(value:String):void
     {
-        return _textSize;
-    }
-    public function set textSize(value:String):void
-    {
-      if(value != _textSize){
-        if(value){
-          _size = 0;
-        }
-        switch (value){
-          case "small":
-          case "large":
-          case "":
-              break;
-          default:
-              throw new Error("Invalid size: " + value);
-        }
-        if(_textSize){
-          toggle(valueToSelector(_textSize), false);
-        }
-        if(value == "small" || value == "large"){
-          toggle(valueToSelector(value),true);
-        }
-        _textSize = value;
+      if(!value || value == _size){
+        return;
       }
-    }    
+      if(!validateSize(value)){
+          throw new Error("invalid size: " + value);
+      }
+      if(_size){
+        toggle(valueToSelector(_size),false);
+      }
+    	_size = value;
+      toggle(valueToSelector(value),true);
+    }
+
     private var _italic:Boolean;
 
     public function get isItalic():Boolean
@@ -102,12 +85,23 @@ package com.unhurdle.spectrum.typography
     public function set isItalic(value:Boolean):void
     {
         if(value != !!_italic){
-            if(value){
-              _size = 0;
-            }
             toggle(valueToSelector("italic"),value);
         }
         _italic = value;
+    }
+    private var _serif:Boolean;
+
+    public function get serif():Boolean
+    {
+    	return _serif;
+    }
+
+    public function set serif(value:Boolean):void
+    {
+      if(value != !!_serif){
+        toggle(valueToSelector("serif"),value);
+      }
+      _serif = value;
     }
     private var _isSecondary:Boolean;
 
@@ -119,9 +113,6 @@ package com.unhurdle.spectrum.typography
     public function set isSecondary(value:Boolean):void
     {
       if(value != !!_isSecondary){
-        if(value){
-          _size = 0;
-        }
         toggle(valueToSelector("secondary"),value);
       }
       _isSecondary = value;

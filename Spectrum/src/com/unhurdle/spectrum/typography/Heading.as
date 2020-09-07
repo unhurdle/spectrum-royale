@@ -7,20 +7,20 @@ package com.unhurdle.spectrum.typography
     {
       super();
     }
-    override protected function getSuffix():Array{
-      var suffix:Array = [];
-      if(size == 1 || size == 2){
-        if(quiet){
-          suffix.push("--quiet");
-        } else if(strong){
-          suffix.push("--strong");
-        }
-        if(display){
-          suffix.push("--display");
-        }
-      }
-      return suffix;
-    }
+    // override protected function getSuffix():Array{
+    //   var suffix:Array = [];
+    //   if(size == 1 || size == 2){
+    //     if(quiet){
+    //       suffix.push("--quiet");
+    //     } else if(strong){
+    //       suffix.push("--strong");
+    //     }
+    //     if(display){
+    //       suffix.push("--display");
+    //     }
+    //   }
+    //   return suffix;
+    // }
 
     private var _quiet:Boolean;
 
@@ -75,8 +75,33 @@ package com.unhurdle.spectrum.typography
         setTypeNames();
       }
     }
-    override protected function getMax():int{
-      return 6;
+    private var _heavy:Boolean;
+
+    public function get heavy():Boolean
+    {
+    	return _heavy;
+    }
+
+    public function set heavy(value:Boolean):void
+    {
+      if(value != !!_heavy){
+        toggle(valueToSelector("heavy"),value);
+      }
+      _heavy = value;
+    }
+    private var _light:Boolean;
+
+    public function get light():Boolean
+    {
+    	return _light;
+    }
+
+    public function set light(value:Boolean):void
+    {
+      if(value != !!_light){
+        toggle(valueToSelector("light"),value);
+      }
+      _light = value;
     }
 
     override protected function getTypographySelector():String{

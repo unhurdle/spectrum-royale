@@ -1,0 +1,36 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Typography Code" notes="Code is a typography component used for text that represents code.">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString:String =
+      '<sp:Code size="XL" text="CodeXL Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>\n'+
+      '<sp:Code size="L" text="CodeL Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>\n'+
+      '<sp:Code size="M" text="CodeM Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>\n'+
+      '<sp:Code size="S" text="CodeS Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>\n'+
+      '<sp:Code size="XS" text="CodeXS Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>\n'+
+      '<Pre><sp:Code size="M" text="CodeM Text\n'+
+      '  wrapped in\n'+
+      '  pre tags for\n'+
+      '  multiline\n'+
+      '  goodness"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code></Pre>';
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Typography - Code" notes="Typographic styles for computer code.">
+    <sp:Code size="XL" text="CodeXL Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>
+    <sp:Code size="L" text="CodeL Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>
+    <sp:Code size="M" text="CodeM Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>
+    <sp:Code size="S" text="CodeS Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>
+    <sp:Code size="XS" text="CodeXS Text"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code>
+    <Pre><sp:Code size="M" text="CodeM Text
+      wrapped in
+      pre tags for
+      multiline
+      goodness"><Strong text="Strong"/><Em text="Emphasis"/></sp:Code></Pre>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString}"/>
+  </comp:Markup>
+</view:DemoPane>

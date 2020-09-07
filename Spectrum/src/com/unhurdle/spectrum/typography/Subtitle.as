@@ -13,12 +13,9 @@ package com.unhurdle.spectrum.typography
       super();
     }
     override protected function getSelector():String{
-      return getTypographySelector() + "--subtitle" + size;
+      return getTypographySelector() + "--subtitle";
     }
 
-    override protected function getMax():int{
-      return 3;
-    }
 
   }
 }
