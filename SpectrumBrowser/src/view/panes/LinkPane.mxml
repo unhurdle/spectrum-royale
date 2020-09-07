@@ -21,21 +21,21 @@
         '</Div>';
     ]]>
   </fx:Script>
-  <comp:Variant>
+  <comp:Variant header="Link (Primary)">
     <sp:Link href="#!logic_button" text="Spectrum link"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:Link href="#!logic_button" text="Spectrum link"/&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Secondary">
+  <comp:Variant header="Link (Secondary)">
     <sp:Link href="#!logic_button" text="This link is secondary" secondary="true"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:Link href="#!logic_button" text="This link is secondary" secondary="true"/&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Over Background">
+  <comp:Variant header="Link (Over Background)">
     <Div style="background-color: rgb(15, 121, 125); padding: 15px 20px; display: inline-block;">
       <sp:Body style="color: rgb(255, 255, 255);" text="Hello, this is my ">
         <sp:Link href="#!logic_button" text="spectrum link over background" overBackground="true"/>
@@ -47,21 +47,21 @@
     <comp:StyledCode text='{overBackgroundMarkup}'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Quiet">
+  <comp:Variant header="Link - Quiet (Primary)">
     <P>This link is <sp:Link href="#!logic_button" text="quiet" quiet="true"/>.</P>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;P&gt;This link is &lt;sp:Link href="#!logic_button" text="quiet" quiet="true"/&gt;.&lt;/P&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Quiet">
+  <comp:Variant header="Link - Quiet (Secondary)">
     <P>This link is <sp:Link href="#!logic_button" text="quiet" quiet="true" secondary="true"/>.</P>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;P&gt;This link is &lt;sp:Link href="#!logic_button" text="quiet" quiet="true" secondary="true"/&gt;.&lt;/P&gt;'/>
   </comp:Markup>
 
-  <comp:Variant header="Link - Over Background">
+  <comp:Variant header="Link - Quiet (Over Background)">
     <Div style="background-color: rgb(15, 121, 125); padding: 15px 20px; display: inline-block;">
       <sp:Body style="color: rgb(255, 255, 255);" text="Hello, this is my ">
         <sp:Link href="#!logic_button" text="spectrum link over background" overBackground="true" quiet="true"/>

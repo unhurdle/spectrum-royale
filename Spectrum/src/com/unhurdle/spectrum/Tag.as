@@ -13,8 +13,10 @@ package com.unhurdle.spectrum
     public function Tag()
     {
       super();
-      typeNames = "spectrum-Tags-item";
       
+    }
+    override protected function getSelector():String{
+      return "spectrum-Tags-item";
     }
     private var span:TextNode;
     COMPILE::JS
@@ -22,7 +24,7 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       span = new TextNode("");
       span.element = newElement("span") as HTMLSpanElement;
-      span.className = appendSelector("-itemLabel");
+      span.className = "spectrum-Tags-itemLabel";
       elem.appendChild(span.element);
       clearButton = new ClearButton();
       clearButton.small = true;

@@ -61,7 +61,7 @@
 
   <comp:Variant header="Activity labels">
     <Div>    
-      <sp:Label text="Active" color="active"/>
+      <sp:Label text="Active" color="active" style="margin-right: 5px;"/>
       <sp:Label text="Inactive" color="inactive"/>
     </Div>
   </comp:Variant>
