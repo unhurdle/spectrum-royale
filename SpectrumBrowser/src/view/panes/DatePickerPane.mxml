@@ -24,9 +24,7 @@
   <comp:Variant header="Range">
     <sp:ButtonGroup vertical="true">
       <sp:DatePicker range="true"/>
-      <P/>
       <sp:DatePicker range="true" invalid="true"/>
-      <P/>
       <sp:DatePicker range="true" disabled="true"/>
     </sp:ButtonGroup>
   </comp:Variant>
@@ -41,9 +39,7 @@
   <comp:Variant header="Range (quiet)">
     <sp:ButtonGroup vertical="true">
       <sp:DatePicker quiet="true" range="true"/>
-      <P/>
       <sp:DatePicker quiet="true" range="true" invalid="true"/>
-      <P/>
       <sp:DatePicker quiet="true" range="true" disabled="true"/>
     </sp:ButtonGroup>
   </comp:Variant>
