@@ -15,14 +15,14 @@
       '[Bindable] private var select:String = IconPrefix._18 + "Select";\n\n'+
       '<Div style="display: flex; flex-direction: row; height: 32px">\n'+
       '  <sp:ActionButton icon="{properties}" quiet="true"/>\n'+
-      '  <sp:Divider vertical="true" size="small"/>\n'+
+      '  <sp:VDivider fitHeight="true" size="small"/>\n'+
       '  <sp:ActionButton icon="{select}" quiet="true"/>\n'+
       '</Div>';
 
       [Bindable]public var verticalMedium:String =
       '<Div style="display: flex; flex-direction: row; height: 32px">\n'+
       '  <sp:ActionButton icon="{properties}" quiet="true"/>\n'+
-      '  <sp:Divider vertical="true" size="medium"/>\n'+
+      '  <sp:VDivider fitHeight="true" size="medium"/>\n'+
       '  <sp:ActionButton icon="{select}" quiet="true"/>\n'+
       '</Div>';
       
@@ -30,7 +30,7 @@
   </fx:Script>
   <comp:Variant header="Large">
     <sp:Subtitle size="1" text="Large"/>
-    <sp:Divider size="large"/>
+    <sp:HDivider size="large"/>
     <sp:Body text="Page or Section Titles."/>
   </comp:Variant>
   <comp:Markup>    
@@ -43,7 +43,7 @@
   
   <comp:Variant header="Medium">
     <sp:Subtitle size="2" text="Medium"/>
-    <sp:Divider size="medium"/>
+    <sp:HDivider size="medium"/>
     <sp:Body text="Divide subsections, or divide different groups of elements (between panels, rails, etc.)"/>
   </comp:Variant>
   <comp:Markup>    
@@ -56,7 +56,7 @@
   
   <comp:Variant header="Small">
     <sp:Subtitle size="3" text="small"/>
-    <sp:Divider size="small"/>
+    <sp:HDivider size="small"/>
     <sp:Body text="Divide like-elements (tables, tool groups, elements within a panel, etc.)"/>
   </comp:Variant>
   <comp:Markup>    
@@ -70,7 +70,7 @@
   <comp:Variant header="Vertical, Small">
     <Div style="display: flex; flex-direction: row; height: 32px">
       <sp:ActionButton icon="{properties}" quiet="true"/>
-      <sp:Divider vertical="true" size="small"/>
+      <sp:VDivider fitHeight="true" size="small"/>
       <sp:ActionButton icon="{select}" quiet="true"/>
     </Div>
   </comp:Variant>
@@ -81,7 +81,7 @@
   <comp:Variant header="Vertical, Medium">
     <Div style="display: flex; flex-direction: row; height: 32px">
       <sp:ActionButton icon="{properties}" quiet="true"/>
-      <sp:Divider vertical="true" size="medium"/>
+      <sp:VDivider fitHeight="true" size="medium"/>
       <sp:ActionButton icon="{select}" quiet="true"/>
     </Div>
   </comp:Variant>

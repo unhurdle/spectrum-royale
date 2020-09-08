@@ -63,7 +63,7 @@
     <component id="DialogTitle" class="com.unhurdle.spectrum.DialogTitle"/>
     <component id="DialogTypeIcon" class="com.unhurdle.spectrum.DialogTypeIcon"/>
     <component id="Display" class="com.unhurdle.spectrum.typography.Display"/>
-    <component id="Divider" class="com.unhurdle.spectrum.Divider"/>
+    <!-- <component id="Divider" class="com.unhurdle.spectrum.Divider"/> -->
     <component id="Dropdown" class="com.unhurdle.spectrum.Dropdown"/>
     <component id="DropdownItem" class="com.unhurdle.spectrum.data.DropdownItem"/>
     <component id="DropIndicator" class="com.unhurdle.spectrum.DropIndicator"/>
@@ -80,6 +80,7 @@
     <component id="FormItem" class="com.unhurdle.spectrum.FormItem"/>
     <component id="FormLabel" class="com.unhurdle.spectrum.FormLabel"/>
     <component id="Heading" class="com.unhurdle.spectrum.typography.Heading"/>
+    <component id="HDivider" class="com.unhurdle.spectrum.HDivider"/>
     <component id="HSplitView" class="com.unhurdle.spectrum.HSplitView"/>
     <component id="Icon" class="com.unhurdle.spectrum.Icon"/>
     <component id="IllustratedMessage" class="com.unhurdle.spectrum.IllustratedMessage"/>
@@ -158,6 +159,7 @@
     <component id="Underlay" class="com.unhurdle.spectrum.Underlay"/>
 	<component id="VideoPlayerSlider" class="com.unhurdle.spectrum.VideoPlayerSlider"/>
 	<component id="View" class="com.unhurdle.spectrum.View"/>
+    <component id="VDivider" class="com.unhurdle.spectrum.VDivider"/>
     <component id="VSplitView" class="com.unhurdle.spectrum.VSplitView"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
 

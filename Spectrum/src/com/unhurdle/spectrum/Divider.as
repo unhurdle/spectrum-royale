@@ -24,10 +24,6 @@ package com.unhurdle.spectrum
       return "spectrum-Divider";
     }
 
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,"hr");;
-    }
     private var _vertical:Boolean;
 
     public function get vertical():Boolean
