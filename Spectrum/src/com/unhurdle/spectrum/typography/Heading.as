@@ -60,28 +60,37 @@ package com.unhurdle.spectrum.typography
       //   setTypeNames();
       // }
     }
-    // private var _display:Boolean;
+    private var _display:Boolean;
 
     /**
      * The display varient of Heading1 or Heading2
      */
     public function get display():Boolean
     {
-    	return size.includes('XXL');
+    	return size.indexOf('XXL') != -1 || _display;
     }
 
     public function set display(value:Boolean):void
     {
+      _display = value;
+      if(!_size){
+        return;
+      }
       if(value){
-        if(size.includes('L')){
-          if(size.split('X').length <= 2){
-            size = 'XX'.concat(size);
+        if(size.indexOf('L') != -1){
+          if(size.indexOf('XX') == -1){
+            size = 'XX' + size;
           }
         }
       }else{
-        if(size.includes('XXL')){
-          size = size.replace('XX','');
-        }
+        size = size.replace('XX','');
+      }
+    }
+    override public function set size(value:String):void{
+      super.size = value;
+      if(display && value.indexOf("XXL") == -1){
+        // set it again to modify the size value
+        display = true;
       }
     }
     private var _heavy:Boolean;
