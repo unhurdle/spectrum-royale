@@ -158,6 +158,9 @@ package com.unhurdle.spectrum
                 }
             }
         }
+        override public function get focusElement():HTMLElement{
+        return textarea;
+        }
 
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{

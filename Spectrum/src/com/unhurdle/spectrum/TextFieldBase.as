@@ -1,5 +1,9 @@
 package com.unhurdle.spectrum
 {
+  import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
+  import org.apache.royale.debugging.assert;
+  import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
+
   COMPILE::JS
   {}
 
@@ -8,7 +12,7 @@ package com.unhurdle.spectrum
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
  * <input type="text" placeholder="Enter your name" name="field" value="A valid input" class="spectrum-Textfield spectrum-Textfield--quiet is-valid" pattern="[\w\s]+" required disabled>
  */
-  public class TextFieldBase extends SpectrumBase
+  public class TextFieldBase extends SpectrumBase implements IKeyboardFocusable
   {
     /**
      * <inject_html>
@@ -22,6 +26,10 @@ package com.unhurdle.spectrum
     }
     override protected function getSelector():String{
       return "spectrum-Textfield";
+    }
+    public function get focusElement():HTMLElement{
+      assert(false,"Must override focusElement getter!");
+      return null;
     }
 
     private var _quiet:Boolean;
@@ -37,6 +45,11 @@ package com.unhurdle.spectrum
           toggle(valueToSelector("quiet"),value);
       }
     	_quiet = value;
+    }
+    
+    //TODO
+    public function validate():Boolean{
+      return true;
     }
 
     public function setValidity(value:Boolean):void{
@@ -99,6 +112,9 @@ package com.unhurdle.spectrum
     {
       if(value != _focused){
         toggle("is-focused",value);
+        if(value){
+          toggle("is-keyboardFocused",false);
+        }
       }
     	_focused = value;
     }
@@ -114,6 +130,9 @@ package com.unhurdle.spectrum
     {
       if(value != _keyboardFocused){
         toggle("is-keyboardFocused",value);
+        if(value){
+          toggle("is-focused",false);
+        }
       }
     	_keyboardFocused = value;
     }
@@ -215,6 +234,25 @@ package com.unhurdle.spectrum
       _iconElement.type = iconType;
       _iconElement.toggle(appendSelector("-icon"),true);
     }
+    private var _autoFocus:Boolean = true;
+    /**
+     * if autoFocus is true the component handles its own focus management
+     */
+    public function get autoFocus():Boolean
+    {
+    	return _autoFocus;
+    }
 
+    public function set autoFocus(value:Boolean):void
+    {
+    	_autoFocus = value;
+    }
+
+    override public function addedToParent():void{
+      super.addedToParent();
+      if(autoFocus){
+        addBead(new KeyboardFocusHandler());
+      }
+    }
   }
 }

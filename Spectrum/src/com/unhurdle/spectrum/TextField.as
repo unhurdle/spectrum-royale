@@ -171,6 +171,10 @@ package com.unhurdle.spectrum
         }
       }
     }
+    
+    override public function get focusElement():HTMLElement{
+      return _input;
+    }
 
     protected var _input:HTMLInputElement;
 

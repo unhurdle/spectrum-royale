@@ -9,9 +9,11 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconType;
   import org.apache.royale.events.MouseEvent;
   import org.apache.royale.html.elements.Span;
+  import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
+  import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
   
   [Event(name="change", type="org.apache.royale.events.Event")]
-  public class Stepper extends SpectrumBase
+  public class Stepper extends SpectrumBase implements IKeyboardFocusable
   {
     /**
      * <inject_html>
@@ -22,10 +24,16 @@ package com.unhurdle.spectrum
     public function Stepper()
     {
       super();
+      addBead(new KeyboardFocusHandler());
     }
     override protected function getSelector():String{
       return "spectrum-Stepper";
     }
+
+    public function get focusElement():HTMLElement{
+      return input.focusElement;
+    }
+
     private function button1Clicked(event:Event):void{
       event.preventDefault();
       nudgeValue(true);
@@ -64,6 +72,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
       input = new NumberField();
+      input.autoFocus = false;
       input.className =  appendSelector("-textfield");
       input.input.classList.add(appendSelector("-input"));
       // default to any valid integer
@@ -149,9 +158,13 @@ package com.unhurdle.spectrum
     {
       if(value != _focused){
         toggle("is-focused",value);
+        if(value){
+          toggle("is-keyboardFocused",false);
+        }
       }
     	_focused = value;
     }
+
     private var _keyboardFocused:Boolean;
 
     public function get keyboardFocused():Boolean
@@ -163,9 +176,13 @@ package com.unhurdle.spectrum
     {
       if(value != _keyboardFocused){
         toggle("is-keyboardFocused",value);
+        if(value){
+          toggle("is-focused",false);
+        }
       }
-    	_focused = value;
+    	_keyboardFocused = value;
     }
+
     private var _invalid:Boolean;
 
     public function get invalid():Boolean
