@@ -66,12 +66,14 @@ package com.unhurdle.spectrum.typography
         "XS",
         "XXS"
     ]
+
     public function validateSize(value:String):Boolean{
       if(getSizes().indexOf(value) != -1){
         return true;
       }
       return false;
     }
+    [Inspectable(category="General", enumeration="XXS,XS,S,M,L,XL,XXL,XXXL", defaultValue="L")]
     public function set size(value:String):void
     {
       if(!value || value == _size){

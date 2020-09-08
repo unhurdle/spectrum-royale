@@ -32,5 +32,12 @@ package com.unhurdle.spectrum.typography
         "XL",
       ];
     }
+    /**
+     * override to set the correct enumerations
+     */
+    [Inspectable(category="General", enumeration="XS,S,M,L,XL", defaultValue="L")]
+    override public function set size(value:String):void{
+      super.size = value;
+    }
   }
 }
