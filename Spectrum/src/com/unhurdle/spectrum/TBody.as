@@ -1,10 +1,5 @@
 package com.unhurdle.spectrum
 {
-    COMPILE::JS
-    {
-    import org.apache.royale.core.WrappedHTMLElement;
-		import org.apache.royale.html.util.addElementToWrapper;
-    }
 
 	public class TBody extends Group
 	{
@@ -15,10 +10,8 @@ package com.unhurdle.spectrum
 			typeNames = 'spectrum-Table-body';
 		}
 		
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      return addElementToWrapper(this, 'tbody');
+    override protected function getTag():String{
+      return "tbody";
     }
-    }
+  }
 }

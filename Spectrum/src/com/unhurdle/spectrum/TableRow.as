@@ -14,10 +14,9 @@ package com.unhurdle.spectrum
       typeNames = 'spectrum-Table-row';
     }
 
-    COMPILE::JS
-		override protected function createElement():WrappedHTMLElement
-		{
-			return addElementToWrapper(this, 'tr');
-		}
+    override protected function getTag():String{
+      return "tr";
+    }
+
   }
 }

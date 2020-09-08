@@ -161,7 +161,7 @@ package com.unhurdle.spectrum
 
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = super.createElement();
             textarea = newElement("textarea",appendSelector("-input")) as HTMLTextAreaElement;
             elem.appendChild(textarea);
             return elem;

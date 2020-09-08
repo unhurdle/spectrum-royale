@@ -244,8 +244,8 @@ package com.unhurdle.spectrum
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
+      var elem:WrappedHTMLElement = super.createElement();
       var styleStr:String = "visibility:hidden;position:fixed;bottom:30px;width:100%;display:flex;align-items:center;justify-content:center;z-index:100;";
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
       elem.setAttribute("style",styleStr);
       toast = newElement("div");
       toast.className = getSelector();

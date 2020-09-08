@@ -18,20 +18,8 @@ package com.unhurdle.spectrum
 			typeNames = 'spectrum-Table-head';
 		}
 
-    
-    
-
-    // COMPILE::JS
-    // private var elem:WrappedHTMLElement;
-    // COMPILE::SWF
-		// private var elem:Object;
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      return addElementToWrapper(this,'thead');
-      // elem = addElementToWrapper(this,'thead');
-      // return elem;
+    override protected function getTag():String{
+      return "thead";
     }
-    }
+  }
 }

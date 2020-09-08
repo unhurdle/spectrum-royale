@@ -33,11 +33,7 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement
 		{
-		
-		elem = addElementToWrapper(this, 'tbody');
-
-
-		return elem;
+			return addElementToWrapper(this, 'tbody');
 		}
 
 		private var itemRenderers:Array = [];

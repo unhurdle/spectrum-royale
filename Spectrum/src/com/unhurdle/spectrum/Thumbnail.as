@@ -21,12 +21,6 @@ package com.unhurdle.spectrum
       return "spectrum-Thumbnail";
     }
 
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-        var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-        return elem;
-    }
-    
     private var img:HTMLImageElement;
 
     COMPILE::JS

@@ -1,9 +1,6 @@
 package com.unhurdle.spectrum
 {
-    COMPILE::JS{
-      import org.apache.royale.core.WrappedHTMLElement;
-      import org.apache.royale.html.util.addElementToWrapper;
-    }
+
   public class Well extends Group
   {
     /**
@@ -19,9 +16,8 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Well";
     }
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,'span');
+    override protected function getTag():String{
+      return "span";
     }
   }
 }

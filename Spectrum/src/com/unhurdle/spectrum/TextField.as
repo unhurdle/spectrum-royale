@@ -181,7 +181,7 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = super.createElement();
       _input = newElement("input",appendSelector("-input")) as HTMLInputElement;
       elem.appendChild(input);
       return elem;

@@ -35,7 +35,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement 
     { 
-      addElementToWrapper(this,'div');
+      super.createElement();
       //TODO why is this hard coded?
       width = 409;
       // var elemStyle:String = "width: 409px";

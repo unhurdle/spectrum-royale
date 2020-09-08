@@ -18,6 +18,13 @@ package com.unhurdle.spectrum.card
     public function CardActionMenu()
     {
       super();
+
+      menu = new ActionMenu();
+      //change should bubble automatically
+      menu.addEventListener("change",handleChange)
+      menu.addEventListener("beforeShow",handleBeforeShow)
+      addElement(menu);
+
     }
     override protected function getSelector():String{
       return getCardSelector() + "-actionButton";
@@ -30,17 +37,6 @@ package com.unhurdle.spectrum.card
 
     private function handleBeforeShow(event:Event):void{
       dispatchEvent(new Event("beforeShow"));
-    }
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement =  addElementToWrapper(this,'div');
-      menu = new ActionMenu();
-      //change should bubble automatically
-      menu.addEventListener("change",handleChange)
-      menu.addEventListener("beforeShow",handleBeforeShow)
-      addElement(menu);
-      return elem;
     }
 
     public function get dataProvider():Object{

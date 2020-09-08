@@ -195,7 +195,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement 
     {   
-        addElementToWrapper(this,'div');
+        super.createElement();
         direction = " spectrum-Tabs--horizontal";
         element.className = appendSelector("");;
         var elemStyle:String = "width: 409px";
