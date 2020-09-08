@@ -60,21 +60,28 @@ package com.unhurdle.spectrum.typography
       //   setTypeNames();
       // }
     }
-    private var _display:Boolean;
+    // private var _display:Boolean;
 
     /**
      * The display varient of Heading1 or Heading2
      */
     public function get display():Boolean
     {
-    	return _display;
+    	return size.includes('XXL');
     }
 
     public function set display(value:Boolean):void
     {
-      if(value != !!_display){
-        _display = value;
-        setTypeNames();
+      if(value){
+        if(size.includes('L')){
+          if(size.split('X').length <= 2){
+            size = 'XX'.concat(size);
+          }
+        }
+      }else{
+        if(size.includes('XXL')){
+          size.replace('XX','');
+        }
       }
     }
     private var _heavy:Boolean;

@@ -13,7 +13,6 @@ package com.unhurdle.spectrum.typography
     {
       super();
     }
-    private var span:Span;
     override protected function getSelector():String{
       return "spectrum-Detail";
     }
@@ -34,20 +33,6 @@ package com.unhurdle.spectrum.typography
       super.size = value;
     }
 
-    private var _lightText:String;
-
-    public function get lightText():String
-    {
-    	return _lightText;
-    }
-
-    public function set lightText(value:String):void
-    {
-    	_lightText = value;
-      if(span){
-        span.text = value;
-      }
-    }
     private var _light:Boolean;
 
     public function get light():Boolean
@@ -58,15 +43,7 @@ package com.unhurdle.spectrum.typography
     public function set light(value:Boolean):void
     {
       if(value != !!_light){
-        if(value && !span){
-          span = new Span();
-          span.className = valueToSelector("light");
-          span.text = lightText;
-          addElement(span);
-        }else if(!value && span){
-          removeElement(span);
-          span = null;
-        }
+        toggle(valueToSelector("light"),value);
       }
       _light = value;
     }
