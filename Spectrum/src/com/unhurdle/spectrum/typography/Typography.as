@@ -93,12 +93,12 @@ package com.unhurdle.spectrum.typography
 
     private var _italic:Boolean;
 
-    public function get isItalic():Boolean
+    public function get italic():Boolean
     {
         return _italic;
     }
 
-    public function set isItalic(value:Boolean):void
+    public function set italic(value:Boolean):void
     {
         if(value != !!_italic){
             toggle(valueToSelector("italic"),value);
@@ -119,19 +119,19 @@ package com.unhurdle.spectrum.typography
       }
       _serif = value;
     }
-    private var _isSecondary:Boolean;
+    private var _secondary:Boolean;
 
-    public function get isSecondary():Boolean
+    public function get secondary():Boolean
     {
-    	return _isSecondary;
+    	return _secondary;
     }
 
-    public function set isSecondary(value:Boolean):void
+    public function set secondary(value:Boolean):void
     {
-      if(value != !!_isSecondary){
+      if(value != !!_secondary){
         toggle(valueToSelector("secondary"),value);
       }
-      _isSecondary = value;
+      _secondary = value;
     }
     protected function setTypeNames():void{
       typeNames = getSelector();
