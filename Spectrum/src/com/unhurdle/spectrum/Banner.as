@@ -75,7 +75,8 @@ package com.unhurdle.spectrum
         {
             return _type;
         }
-
+        
+        [Inspectable(category="General", enumeration="info,error,warning", defaultValue="info")]
         public function set type(value:String):void
         {
             if(value != _type){

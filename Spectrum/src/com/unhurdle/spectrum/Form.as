@@ -26,6 +26,7 @@ package com.unhurdle.spectrum
     	return _labelPosition;
     }
 
+    [Inspectable(category="General", enumeration="top,left,right", defaultValue="right")]
     public function set labelPosition(value:String):void
     {
       if(_labelPosition == value){

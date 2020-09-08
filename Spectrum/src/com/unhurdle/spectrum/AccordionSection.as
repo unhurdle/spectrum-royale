@@ -61,7 +61,9 @@ package com.unhurdle.spectrum
       }
     }
     private function toggleSection():void{
-      open = !open;
+      if(!disabled){
+        open = !open;
+      }
     }
     /**
      * modify the following methods to ignore the header element

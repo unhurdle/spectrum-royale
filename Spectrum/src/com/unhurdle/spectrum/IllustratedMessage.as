@@ -42,7 +42,7 @@ package com.unhurdle.spectrum
         return _type;
     }
         
-        
+    [Inspectable(category="General", enumeration="cta,default,overBackground", defaultValue="default")]
     public function set type(value:String):void //change to type :type
     {
       if(value != _type){

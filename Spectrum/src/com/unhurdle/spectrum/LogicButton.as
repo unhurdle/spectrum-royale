@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
     public function LogicButton()
     {
       super();
+			type = "and";
     }
     override protected function getSelector():String{
       return "spectrum-LogicButton";
@@ -42,6 +43,7 @@ package com.unhurdle.spectrum
 				return _type || "";
 			}
 
+			[Inspectable(category="General", enumeration="and,or", defaultValue="and")]
 			public function set type(value:String):void
 			{
 				if(value != _type){
