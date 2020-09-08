@@ -34,11 +34,11 @@
     <sp:Body text="Page or Section Titles."/>
   </comp:Variant>
   <comp:Markup>    
-    <comp:StyledCode text='sp:Subtitle size="1" text="Large"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Subtitle size="1" text="Large"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Divider size="large"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Divider size="large"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Body text="Page or Section Titles."/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Body text="Page or Section Titles."/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Medium">
@@ -47,11 +47,11 @@
     <sp:Body text="Divide subsections, or divide different groups of elements (between panels, rails, etc.)"/>
   </comp:Variant>
   <comp:Markup>    
-    <comp:StyledCode text='sp:Subtitle size="2" text="Medium"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Subtitle size="2" text="Medium"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Divider size="medium"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Divider size="medium"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Body text="Divide subsections, or divide different groups of elements (between panels, rails, etc.)"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Body text="Divide subsections, or divide different groups of elements (between panels, rails, etc.)"/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Small">
@@ -60,11 +60,11 @@
     <sp:Body text="Divide like-elements (tables, tool groups, elements within a panel, etc.)"/>
   </comp:Variant>
   <comp:Markup>    
-    <comp:StyledCode text='sp:Subtitle size="3" text="small"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Subtitle size="3" text="small"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Divider size="small"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Divider size="small"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='sp:Body text="Divide like-elements (tables, tool groups, elements within a panel, etc.)"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Body text="Divide like-elements (tables, tool groups, elements within a panel, etc.)"/&gt;'/>
   </comp:Markup>
   
   <comp:Variant header="Vertical, Small">

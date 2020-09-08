@@ -30,7 +30,8 @@ package com.unhurdle.spectrum
     {
     	return _status;
     }
-
+    
+    [Inspectable(category="General", enumeration="celery,yellow,fuchsia,indigo,seafoam,chartreuse,magenta,purple,neutral,info,positive,notice,negative,active", defaultValue="neutral")]
     public function set status(value:String):void
     {
       if(value != _status){

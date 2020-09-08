@@ -148,19 +148,23 @@ package com.unhurdle.spectrum
             return _size;
         }
 
+        [Inspectable(category="General", enumeration="small,large,normal", defaultValue="normal")]
         public function set size(value:String):void
         {
             if(value != _size){
                 switch (value){
                 case "small":
                 case "large":
+                case "normal":
                     break;
                 default:
                     throw new Error("Invalid size: " + value);
                 }
                 var oldSize:String = valueToSelector(_size);
-                var newSize:String = valueToSelector(value);
-                toggle(newSize, true);
+                if(value != "normal"){
+                    var newSize:String = valueToSelector(value);
+                    toggle(newSize, true);
+                }
                 toggle(oldSize, false);
                 _size = value;
             }

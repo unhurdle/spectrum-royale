@@ -211,6 +211,7 @@ package com.unhurdle.spectrum
     	return _status;
     }
     
+    [Inspectable(category="General", enumeration="error,help,info,success,warning")]
     public function set status(value:String):void
     {
       //TODO can status be none?

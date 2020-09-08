@@ -17,6 +17,7 @@ package com.unhurdle.spectrum
         public function Label()
         {
             super();
+            color = "grey";
         }
         override protected function getSelector():String{
           return "spectrum-Label";
@@ -45,6 +46,7 @@ package com.unhurdle.spectrum
             return _color;
         }
 
+        [Inspectable(category="General", enumeration="grey,red,orange,yellow,seafoam,green,blue,fuchsia,active,inactive", defaultValue="grey")]
         public function set color(value:String):void
         {
             if(value != _color){
@@ -68,6 +70,7 @@ package com.unhurdle.spectrum
         	return _size;
         }
 
+        [Inspectable(category="General", enumeration="small,large,normal")]
         public function set size(value:String):void
         {
             if(value != _size){

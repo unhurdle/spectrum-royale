@@ -70,12 +70,14 @@ package com.unhurdle.spectrum
             return _flavor;
         }
 
+        [Inspectable(category="General", enumeration="dark,light,default", defaultValue="default")]
         public function set flavor(value:String):void
         {
             if(value != _flavor){
                 switch (value){
                 case "dark":
                 case "light":
+                case "default":
                 case "":
                     break;
                 default:
@@ -85,7 +87,7 @@ package com.unhurdle.spectrum
                     var oldFlavor:String = valueToSelector(_flavor);
                     toggle(oldFlavor, false);
                 }
-                if(value){
+                if(value && value != "default"){
                     var newFlavor:String = valueToSelector(value);
                     toggle(newFlavor, true);
                 }

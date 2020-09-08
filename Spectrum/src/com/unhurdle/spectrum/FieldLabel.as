@@ -88,6 +88,7 @@ package com.unhurdle.spectrum
     	return _position;
     }
 
+    [Inspectable(category="General", enumeration="top,left,right", defaultValue="top")]
     public function set position(value:String):void
     {
       if(value == _position){
