@@ -80,7 +80,7 @@ package com.unhurdle.spectrum.typography
         }
       }else{
         if(size.includes('XXL')){
-          size.replace('XX','');
+          size = size.replace('XX','');
         }
       }
     }
