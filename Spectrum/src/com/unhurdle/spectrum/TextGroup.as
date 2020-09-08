@@ -1,17 +1,13 @@
 package com.unhurdle.spectrum
 {
-  COMPILE::JS
-  {
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-  }
 
-  public class TextBase extends SpectrumBase
+  public class TextGroup extends Group
   {
-    public function TextBase()
+    public function TextGroup()
     {
       super();
     }
+
 
     public function get text():String
     {
@@ -37,6 +33,7 @@ package com.unhurdle.spectrum
     }
     COMPILE::JS
     protected var textNode:TextNode;
+
 
     COMPILE::JS
     protected function createTextNode():void{

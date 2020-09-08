@@ -44,9 +44,13 @@ package com.unhurdle.spectrum
     protected function valueToSelector(value:String):String{
       return getSelector() + "--" + value;
     }
+    protected function getTag():String{
+      return "div";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,'div');
+      return addElementToWrapper(this,getTag());
     }
 
     private var _flexGrow:int = -1;

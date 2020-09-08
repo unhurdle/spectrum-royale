@@ -23,11 +23,5 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-AssetList";
     }
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'ul');
-      return elem;
-    }
   }
 }

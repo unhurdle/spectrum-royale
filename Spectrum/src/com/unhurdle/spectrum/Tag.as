@@ -21,7 +21,7 @@ package com.unhurdle.spectrum
     private var span:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = super.createElement();
       span = new TextNode("");
       span.element = newElement("span") as HTMLSpanElement;
       span.className = "spectrum-Tags-itemLabel";

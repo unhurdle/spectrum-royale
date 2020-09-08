@@ -15,14 +15,10 @@ package com.unhurdle.spectrum.typography
     override protected function getTypographySelector():String{
       return "spectrum-Code";
     }
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,"code");
-      textNode = new TextNode("");
-      textNode.element = element;
-      return element;
+    override protected function getTag():String{
+      return "code";
     }
+
     override protected function getSizes():Array{
       return[
         "XS",

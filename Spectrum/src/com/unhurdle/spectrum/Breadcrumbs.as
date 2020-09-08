@@ -22,11 +22,8 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Breadcrumbs";
     }
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      return elem;
+    override protected function getTag():String{
+      return "div";
     }
     private var _isTitle:Boolean;
 

@@ -51,10 +51,13 @@ package com.unhurdle.spectrum
     { 
       return (classList.compute() + super.computeFinalClassNames()).trim();
     }
+    protected function getTag():String{
+      return "ul";
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      return addElementToWrapper(this,'ul');
+      return addElementToWrapper(this,getTag());
     }
   }
 }

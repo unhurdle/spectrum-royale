@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum
 {
-  public class TypographyGroup extends Group
+  public class TypographyGroup extends TextGroup
   {
     /**
      * <inject_html>

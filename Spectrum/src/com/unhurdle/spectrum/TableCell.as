@@ -10,7 +10,7 @@ package com.unhurdle.spectrum
 		
 		
 	
-	public class TableCell extends Group
+	public class TableCell extends TextGroup
 	{
 	
 		public function TableCell()
@@ -51,11 +51,8 @@ package com.unhurdle.spectrum
 				setAttribute('rowspan', _rowSpan);
 			}
 		}
-
-		COMPILE::JS
-		override protected function createElement():WrappedHTMLElement
-		{
-			return addElementToWrapper(this,'td');
+		override protected function getTag():String{
+			return "td";
 		}
 	}
 }

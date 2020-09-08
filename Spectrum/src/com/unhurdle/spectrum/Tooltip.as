@@ -24,9 +24,12 @@ package com.unhurdle.spectrum
       return "spectrum-Tooltip";
     }
     private var span1:TextNode;
+    override protected function getTag():String{
+      return "span";
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,'span') as HTMLSpanElement;
+      super.createElement();
       // direction = "top";
       span1 = new TextNode("");
       span1.element = newElement("span") as HTMLSpanElement;

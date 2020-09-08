@@ -208,9 +208,13 @@ package com.unhurdle.spectrum
     }
     private var span:TextNode;
 
+    override protected function getTag():String{
+      return "span";
+    }
+    
     COMPILE::JS
     override protected function createElement():org.apache.royale.core.WrappedHTMLElement{
-      addElementToWrapper(this,'span') as HTMLSpanElement;
+      super.createElement();
       element.setAttribute("role","presentation");
       span = new TextNode("");
       span.element = element;

@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.includes.FieldLabelInclude;
 
-  public class FieldLabel extends SpectrumBase
+  public class FieldLabel extends TextBase
   {
     public function FieldLabel()
     {
@@ -111,26 +111,9 @@ package com.unhurdle.spectrum
     	_position = value;
     }
 
-    public function get text():String
-    {
-    	return textNode.text;
+    override protected function getTag():String{
+      return "label";
     }
 
-    public function set text(value:String):void
-    {
-      if(value != textNode.text){
-        textNode.text = value;
-      }
-    }
-
-    private var textNode:TextNode;
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,"label");
-      textNode = new TextNode("");
-      textNode.element = element;
-      return element;
-    }
   }
 }

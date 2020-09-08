@@ -17,9 +17,12 @@ package com.unhurdle.spectrum
         }
         
 		private var colorDiv:HTMLElement;
+        override protected function getTag():String{
+            return "svg";
+        }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-			var elem:WrappedHTMLElement = addElementToWrapper(this,'svg');
+			var elem:WrappedHTMLElement = super.createElement();
             var inner:Path = new Path();
             inner.className = appendSelector("-inner");
             inner.d = "M24,0A24,24,0,0,1,48,24c0,16.255-24,40-24,40S0,40.255,0,24A24,24,0,0,1,24,0Z";

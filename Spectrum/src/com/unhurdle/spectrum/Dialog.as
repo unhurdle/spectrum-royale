@@ -47,14 +47,14 @@ package com.unhurdle.spectrum
 
     // COMPILE::JS
     // private var outerElement:HTMLElement;
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
-      // outerElement = newElement("div",appendSelector("-wrapper"));
-      // // outerElement.style.top = "0px";
-      // outerElement.appendChild(elem);
-      return elem
-    }
+    // COMPILE::JS
+    // override protected function createElement():WrappedHTMLElement{
+    //   var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
+    //   // outerElement = newElement("div",appendSelector("-wrapper"));
+    //   // // outerElement.style.top = "0px";
+    //   // outerElement.appendChild(elem);
+    //   return elem
+    // }
     /**
      * The HTMLElement used to position the component.
      * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement

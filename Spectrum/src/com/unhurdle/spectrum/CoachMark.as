@@ -27,7 +27,7 @@ package com.unhurdle.spectrum
         }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = super.createElement();
             // add three ring elements
             for(var i:int=0;i<3;i++){
                 elem.appendChild(newElement("div",appendSelector("-ring")));

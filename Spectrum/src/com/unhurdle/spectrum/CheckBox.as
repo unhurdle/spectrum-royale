@@ -38,7 +38,7 @@ package com.unhurdle.spectrum
         private var spanLabel:TextNode;
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = super.createElement();
             input = newElement("input") as HTMLInputElement;
             input.type = "checkbox";
             input.className = appendSelector("-input");

@@ -284,7 +284,7 @@ package com.unhurdle.spectrum
         }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            addElementToWrapper(this,'div');
+            super.createElement();
             var styleStr:String = "width:280px;z-index:1;";
             setAttribute("style",styleStr);
 

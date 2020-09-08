@@ -235,9 +235,12 @@ package com.unhurdle.spectrum
     }
     public var textNode:TextNode;
 
+    override protected function getTag():String{
+      return "button";
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,'button');
+      super.createElement();
       textNode = new TextNode("span");
       textNode.className = appendSelector("-label");
       element.appendChild(textNode.element);

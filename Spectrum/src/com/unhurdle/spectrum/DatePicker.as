@@ -41,7 +41,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       //TODO how much of this can be done in Icons and other classes?
-      addElementToWrapper(this,'div');
+      super.createElement();
       //TODO is this right?
       className = InputGroupInclude.getSelector();
       input = new TextField();

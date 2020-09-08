@@ -16,9 +16,12 @@ package com.unhurdle.spectrum
       private var textNode:TextNode;
       private var toolTip:Tooltip;
 
+      override protected function getTag():String{
+        return "span";
+      }
       COMPILE::JS
       override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,"span") as HTMLSpanElement;
+      super.createElement();
       textNode = new TextNode("");
       toolTip = new Tooltip();
       style="margin: 15px 50px; cursor: default;";

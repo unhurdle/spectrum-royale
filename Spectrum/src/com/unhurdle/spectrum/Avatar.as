@@ -46,12 +46,9 @@ package com.unhurdle.spectrum
     {
       (element as HTMLImageElement).src = value;
     }
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,'img');
-      return element;
+    override protected function getTag():String{
+      return "img";
     }
 
-}
+  }
 }

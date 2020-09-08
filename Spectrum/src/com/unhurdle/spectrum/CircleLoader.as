@@ -30,7 +30,7 @@ package com.unhurdle.spectrum
 
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = super.createElement();
             var track:HTMLDivElement = newElement("div") as HTMLDivElement;
             track.className = appendSelector("-track");
             elem.appendChild(track);

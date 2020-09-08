@@ -37,7 +37,7 @@ package com.unhurdle.spectrum
     private var coachMark:CoachMark;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-        var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+        var elem:WrappedHTMLElement = super.createElement();
         coachMark = new CoachMark();
         addElement(coachMark);
         popover = newElement("div",getSelector()) as HTMLDivElement;

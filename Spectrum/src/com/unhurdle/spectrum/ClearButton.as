@@ -20,9 +20,12 @@ package com.unhurdle.spectrum
 
         private var icon:Icon;
         
+        override protected function getTag():String{
+            return "button";
+        }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            button = addElementToWrapper(this,'button') as HTMLButtonElement;
+            button = super.createElement() as HTMLButtonElement;
             button.type = "reset";
             var type:String = IconType.CROSS_SMALL;
             icon = new Icon(Icon.getCSSTypeSelector(type));

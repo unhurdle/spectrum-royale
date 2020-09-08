@@ -29,9 +29,12 @@ package com.unhurdle.spectrum
     }
     private var playIcon:Icon;
     private var pauseIcon:Icon;
+    override protected function getTag():String{
+      return "button";
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'button');
+      var elem:WrappedHTMLElement = super.createElement();
       // var type:String =
       playIcon = new Icon(IconPrefix._18 + "PlayCircle");
       playIcon.className = appendSelector("-item");

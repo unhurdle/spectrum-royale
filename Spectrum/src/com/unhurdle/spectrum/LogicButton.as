@@ -17,9 +17,12 @@ package com.unhurdle.spectrum
     
 		private var textNode:TextNode;
 		
+		override protected function getTag():String{
+			return "button";
+		}
 		COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-			addElementToWrapper(this,'button');
+			super.createElement();
 			textNode = new TextNode("");
       textNode.element = element;
 			addEventListener('click',clickHandler)

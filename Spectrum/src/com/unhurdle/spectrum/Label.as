@@ -6,7 +6,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
 
-    public class Label extends SpectrumBase
+    public class Label extends TextBase
     {
     /**
      * <inject_html>
@@ -91,24 +91,9 @@ package com.unhurdle.spectrum
             }
         }
 
-        private var span:TextNode;
+        override protected function getTag():String{
+            return "span";
+        }
 
-        COMPILE::JS
-        override protected function createElement():WrappedHTMLElement{
-            addElementToWrapper(this,'span') as HTMLSpanElement;
-            span = new TextNode("");
-            span.element = element;
-            return element;
-        }
-        public function get text():String
-        {
-        	return _text;
-        }
-        private var _text:String;
-        public function set text(value:String):void
-        {
-            _text = value;
-            span.text = value;
-        }
     }
 }

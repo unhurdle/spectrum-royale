@@ -5,7 +5,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
 		import org.apache.royale.html.util.addElementToWrapper;
 		}
-  public class TableHeaderCell  extends TableCell
+  public class TableHeaderCell extends TableCell
   {
    
     public function TableHeaderCell()
@@ -44,29 +44,20 @@ package com.unhurdle.spectrum
 
     
  
-  private var textNode:TextNode;
+    private var textNode:TextNode;
 
+    override protected function getTag():String{
+      return "th";
+    }
     COMPILE::JS
 		override protected function createElement():WrappedHTMLElement
 		{
-      elem = addElementToWrapper(this,'th');
+      elem = super.createElement();
       elem.className = "spectrum-Table-headCell";
       // elem.tabIndex = 0;
-      textNode = new TextNode("");
-      textNode.element = elem;
       return elem;
 		}
 
-
-    public function get text():String
-    {
-    	return textNode.text;
-    }
-
-    public function set text(value:String):void
-    {
-    	textNode.text = value;
-    }
     //event to sort the cells in the column
     //text needs to be label of the first cell in the column ?
   }

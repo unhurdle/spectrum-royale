@@ -29,7 +29,7 @@ package com.unhurdle.spectrum
 
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
-			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+			var elem:WrappedHTMLElement = super.createElement();
 			controlsContainer = newElement("div",appendSelector("-controls"));
 			handle = newElement("div") as HTMLDivElement;
 			handle.className = appendSelector("-handle");

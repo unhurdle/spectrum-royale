@@ -27,7 +27,7 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-        var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+        var elem:WrappedHTMLElement = super.createElement();
         var checkerboardContainer:HTMLElement = newElement("svg",appendSelector("-wheel"));
         checkerboardContainer.setAttribute("viewBox","0 0 160 160");
         checkerboardContainer.setAttribute("aria-hidden","true");

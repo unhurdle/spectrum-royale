@@ -58,7 +58,7 @@ package com.unhurdle.spectrum
 
         COMPILE::JS        
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = super.createElement();
             headerNode = new TextNode("div");
             headerNode.className = appendSelector("-header");
             elem.appendChild(headerNode.element);

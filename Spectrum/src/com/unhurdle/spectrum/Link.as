@@ -5,7 +5,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  public class Link extends Group
+  public class Link extends TextGroup
   {
     /**
      * <inject_html>
@@ -16,40 +16,19 @@ package com.unhurdle.spectrum
     public function Link()
     {
       super();
-      _text = "";
     }
     override protected function getSelector():String{
       return "spectrum-Link";
     }
+    override protected function getTag():String{
+      return "a";
+    }
+
     COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      anchorElement = addElementToWrapper(this,'a') as HTMLAnchorElement;
-      textNode = new TextNode("");
-      textNode.element = anchorElement;
-      return element;
+    private function getAnchorElement():HTMLAnchorElement{
+      return element as HTMLAnchorElement;
     }
 
-    private var anchorElement:HTMLAnchorElement;
-
-    private var _text:String;
-
-    public function get text():String
-    {
-    	return _text;
-    }
-
-    public function set text(value:String):void
-    {
-      if(value != !!_text){
-    	  _text = value;
-      }
-      else if(!_text){
-        _text = "link without text";
-      }
-      textNode.text = _text;
-    }
-    private var textNode:TextNode;
 
     private var _overBackground:Boolean;
 
@@ -81,7 +60,10 @@ package com.unhurdle.spectrum
       } else {
         _href = "#";
         }
-        anchorElement.href = _href;
+        COMPILE::JS
+        {
+          getAnchorElement().href = _href;
+        }
       }
     }
 

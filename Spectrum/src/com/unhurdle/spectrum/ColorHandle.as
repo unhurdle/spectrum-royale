@@ -20,7 +20,7 @@ package com.unhurdle.spectrum
 		private var colorLoupe:ColorLoupe;
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+			var elem:WrappedHTMLElement = super.createElement();
             elem.style.position = "absolute";
 			var colorDiv:HTMLElement = newElement("div",appendSelector("-color"));
 			elem.appendChild(colorDiv);

@@ -25,9 +25,12 @@ package com.unhurdle.spectrum
     private var prev:HTMLLinkElement;
     private var next:HTMLLinkElement;
 
+    override protected function getTag():String{
+      return "nav";
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"nav");
+      var elem:WrappedHTMLElement = super.createElement();
       var buttonBase:String = "spectrum-Button spectrum-Button--primary spectrum-Button--quiet ";
       prev = newElement("a",buttonBase+appendSelector("-prevButton")) as HTMLLinkElement
       var prevSpan:TextNode = new TextNode("");
