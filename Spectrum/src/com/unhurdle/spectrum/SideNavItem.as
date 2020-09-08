@@ -104,6 +104,8 @@ package com.unhurdle.spectrum
       if(value && !value != !_icon){
         var type:String = value;
         var iconElement:Icon = new Icon(Icon.getCSSTypeSelector(type));
+        iconElement.type = type;
+        iconElement.toggle(SideNavInclude.getSelector() + "-itemIcon",true);
         COMPILE::JS{
           _textNode.element.insertBefore(iconElement.element,_textNode.element.firstChild);
           _textNode.element.style.width = '100%';

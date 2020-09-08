@@ -48,20 +48,20 @@
                 
            
             [Bindable]public var nestedMarkup:String = 
-            '          <sp:Menu>\n'+
-            '            <sp:dataProvider>\n'+
-            '                <sp:MenuItem text="Deselect"/>\n'+
-            '                <sp:MenuItem text="Select Inverse"/>\n'+
-            '                <sp:MenuItem text= "Feather...">\n'+
-            '                    <sp:subMenu>\n'+
-            '                        <sp:MenuItem text="Deselect"/>\n'+
-            '                        <sp:MenuItem text="Select and Mask"/>\n'+
-            '                    </sp:subMenu>\n'+
-            '                </sp:MenuItem>\n'+
-            '                <sp:MenuItem text="Select and Mask..."/>\n'+
-            '                <sp:MenuItem text="Save Selection"/>\n'+
-            '            </sp:dataProvider>\n'+
-            '          </sp:Menu>';
+            '<sp:Menu>\n'+
+            '  <sp:dataProvider>\n'+
+            '      <sp:MenuItem text="Deselect"/>\n'+
+            '      <sp:MenuItem text="Select Inverse"/>\n'+
+            '      <sp:MenuItem text= "Feather...">\n'+
+            '          <sp:subMenu>\n'+
+            '              <sp:MenuItem text="Deselect"/>\n'+
+            '              <sp:MenuItem text="Select and Mask"/>\n'+
+            '          </sp:subMenu>\n'+
+            '      </sp:MenuItem>\n'+
+            '      <sp:MenuItem text="Select and Mask..."/>\n'+
+            '      <sp:MenuItem text="Save Selection"/>\n'+
+            '  </sp:dataProvider>\n'+
+            '</sp:Menu>';
         ]]>
 
     </fx:Script>
