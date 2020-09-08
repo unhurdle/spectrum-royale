@@ -24,6 +24,9 @@ package com.unhurdle.spectrum
     public function Stepper()
     {
       super();
+    }
+    override protected function loadBeads():void{
+      super.loadBeads();
       addBead(new KeyboardFocusHandler());
     }
     override protected function getSelector():String{

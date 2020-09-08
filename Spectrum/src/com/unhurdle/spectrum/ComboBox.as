@@ -3,19 +3,31 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.includes.InputGroupInclude;
   import org.apache.royale.collections.IArrayList;
   import com.unhurdle.spectrum.data.IMenuItem;
+  import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
+  import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
 
-  public class ComboBox extends SpectrumBase
+  public class ComboBox extends SpectrumBase implements IKeyboardFocusable
   {
     public function ComboBox()
     {
       super();
     }
+		override protected function loadBeads():void{
+			super.loadBeads();
+			addBead(new KeyboardFocusHandler());
+		}
     override protected function getSelector():String{
       return InputGroupInclude.getSelector();
     }
+		public function get focusElement():HTMLElement{
+			return getView().textInputField.focusElement;
+		}
     private function getModel():IComboBoxModel{
       return model as IComboBoxModel;
     }
+		private function getView():ComboBoxView{
+			return view as ComboBoxView;
+		}
 
 		// is-open?????????????????????????????????????????????????????????????
 		/**
@@ -126,6 +138,21 @@ package com.unhurdle.spectrum
 		{
 			getModel().quiet = value;
 		}
+
+		public function get focused():Boolean{
+			return getModel().focused;
+		}
+		public function set focused(value:Boolean):void{
+			getModel().focused = value;
+		}
+
+		public function get keyboardFocused():Boolean{
+			return getModel().keyboardFocused;
+		}
+		public function set keyboardFocused(value:Boolean):void{
+			getModel().keyboardFocused = value;
+		}
+
 		public var filterFunction:Function = function(input:String,dataProvider:Object):Array{
 			var inArray:Array;
 			if(dataProvider is IArrayList){

@@ -69,5 +69,11 @@ package com.unhurdle.spectrum
 		function get invalid():Boolean;
 		function set invalid(value:Boolean):void;
 
+		function get focused():Boolean;
+		function set focused(value:Boolean):void;
+
+		function get keyboardFocused():Boolean;
+		function set keyboardFocused(value:Boolean):void;
+
 	}  
 }

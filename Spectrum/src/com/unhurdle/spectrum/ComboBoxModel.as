@@ -87,5 +87,25 @@ package com.unhurdle.spectrum
       _invalid = value;
       dispatchEvent(new Event("invalidChange"));
     }
+
+    private var _focused:Boolean;
+    public function get focused():Boolean{
+    	return _focused;
+    }
+    public function set focused(value:Boolean):void{
+    	_focused = value;
+      _keyboardFocused = false;
+      dispatchEvent(new Event("focusChange"));
+    }
+    private var _keyboardFocused:Boolean;
+    public function get keyboardFocused():Boolean{
+    	return _keyboardFocused;
+    }
+    public function set keyboardFocused(value:Boolean):void{
+    	_keyboardFocused = value;
+      _focused = false;
+      dispatchEvent(new Event("focusChange"));
+    }
+
   }
 }

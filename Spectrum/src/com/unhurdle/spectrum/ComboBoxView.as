@@ -44,7 +44,7 @@ package com.unhurdle.spectrum{
 		 *  @playerversion AIR 2.6
 		 *  @productversion Royale 0.0
 		 */
-		public function get textInputField():Object
+		public function get textInputField():TextField
 		{
 			return textfield;
 		}
@@ -61,7 +61,7 @@ package com.unhurdle.spectrum{
 		 *  @playerversion AIR 2.6
 		 *  @productversion Royale 0.0
 		 */
-		public function get popupButton():Object
+		public function get popupButton():FieldButton
 		{
 			return button;
 		}
@@ -79,7 +79,7 @@ package com.unhurdle.spectrum{
 		 *  @playerversion AIR 2.6
 		 *  @productversion Royale 0.0
 		 */
-		public function get popUp():Object
+		public function get popUp():Menu
 		{
 			return list;
 		}
@@ -98,6 +98,7 @@ package com.unhurdle.spectrum{
 			comboHost = value as ComboBox;
 			
 			textfield = new TextField();
+			textfield.autoFocus = false;
       textfield.className = appendSelector("-textfield");
 			textfield.input.classList.add(appendSelector('-input'));
 			COMPILE::JS
@@ -159,6 +160,7 @@ package com.unhurdle.spectrum{
       model.addEventListener("disabledChange",handleDisabledChange);
       model.addEventListener("quietChange",handleQuietChange);
       model.addEventListener("invalidChange",handleInvalidChange);
+			model.addEventListener("focusChange",focusChangeHandler);
 			(_strand as IEventDispatcher).addEventListener("sizeChanged",handleSizeChange);
 			
 			// set initial value and positions using default sizes
@@ -333,6 +335,10 @@ package com.unhurdle.spectrum{
       button.invalid = textfield.invalid = model.invalid;
 			comboHost.toggle("is-invalid",model.invalid);
 
+		}
+		private function focusChangeHandler(event:Event):void{
+			comboHost.toggle("is-keyboardFocused",model.keyboardFocused);
+			comboHost.toggle("is-focused",model.focused);
 		}
 		/**
 		 * @private
