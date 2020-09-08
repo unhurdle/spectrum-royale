@@ -10,21 +10,21 @@
       [Bindable]public var standard:String =
       '<Div width="600">\n'+
       ' <sp:ActionBar isOpen="true" countSelected="2">\n'+
-      '   <sp:ButtonGroup>\n'+
+      '   <sp:ButtonGroup compact="true">\n'+
       '     <sp:ActionButton quiet="true" text="Edit"/>\n'+
       '     <sp:ActionButton quiet="true" text="Copy"/>\n'+
       '     <sp:ActionButton quiet="true" text="Delete"/>\n'+
       '   </sp:ButtonGroup>\n'+
       ' </sp:ActionBar>\n'+
       ' <sp:ActionBar isOpen="true" countSelected="4">\n'+
-      '   <sp:ButtonGroup>\n'+
+      '   <sp:ButtonGroup compact="true">\n'+
       '     <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + "Edit"}"/>\n'+
       '     <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + "Copy"}"/>\n'+
       '     <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + "Delete"}"/>\n'+
       '   </sp:ButtonGroup>\n'+
       ' </sp:ActionBar>\n'+
       ' <sp:ActionBar isOpen="true" countSelected="6">\n'+
-      '   <sp:ButtonGroup>\n'+
+      '   <sp:ButtonGroup compact="true">\n'+
       '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Edit"}"/>\n'+
       '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Copy"}"/>\n'+
       '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Delete"}"/>\n'+
@@ -34,7 +34,7 @@
       [Bindable]public var flexible:String =
       '<Div width="600">\n'+
       ' <sp:ActionBar isOpen="true" countSelected="228" flexible="true">\n'+
-      '   <sp:ButtonGroup>\n'+
+      '   <sp:ButtonGroup compact="true">\n'+
       '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Edit"}"/>\n'+
       '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "More"}"/>\n'+
       '   </sp:ButtonGroup>\n'+
@@ -138,21 +138,21 @@
   <comp:Variant notes="Standard Action Bars fill the width of their container.">
     <Div width="600">
       <sp:ActionBar isOpen="true" countSelected="2">
-        <sp:ButtonGroup>
+        <sp:ButtonGroup compact="true">
           <sp:ActionButton quiet="true" text="Edit"/>
           <sp:ActionButton quiet="true" text="Copy"/>
           <sp:ActionButton quiet="true" text="Delete"/>
         </sp:ButtonGroup>
       </sp:ActionBar>
       <sp:ActionBar isOpen="true" countSelected="4">
-        <sp:ButtonGroup>
+        <sp:ButtonGroup compact="true">
           <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + 'Edit'}"/>
           <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + 'Copy'}"/>
           <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + 'Delete'}"/>
         </sp:ButtonGroup>
       </sp:ActionBar>
       <sp:ActionBar isOpen="true" countSelected="6">
-        <sp:ButtonGroup>
+        <sp:ButtonGroup compact="true">
           <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Edit'}"/>
           <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Copy'}"/>
           <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Delete'}"/>
@@ -166,7 +166,7 @@
   <comp:Variant header="Flexible" notes="Flexible Action Bars fit the width of their content.">
     <Div width="600">
       <sp:ActionBar isOpen="true" countSelected="228" flexible="true">
-        <sp:ButtonGroup>
+        <sp:ButtonGroup compact="true">
           <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'Edit'}"/>
           <sp:ActionButton quiet="true" icon="{IconPrefix._18 + 'More'}"/>
         </sp:ButtonGroup>

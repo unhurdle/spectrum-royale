@@ -12,11 +12,23 @@
       '    <sp:Button flavor="secondary" text="Remind me later"/>\n'+
       '    <sp:Button flavor="primary" text="Rate now"/>\n'+
       '</sp:ButtonGroup>';
+      [Bindable]public var horizontalCompactString:String = 
+      '<sp:ButtonGroup compact="true">\n'+
+      '    <sp:ActionButton flavor="secondary" text="No, thanks"/>\n'+
+      '    <sp:ActionButton flavor="secondary" text="Remind me later"/>\n'+
+      '    <sp:ActionButton flavor="primary" text="Rate now"/>\n'+
+      '</sp:ButtonGroup>';
       [Bindable]public var verticalString:String =
       '<sp:ButtonGroup vertical="true">\n'+
       '    <sp:Button flavor="secondary" text="No, thanks"/>\n'+
       '    <sp:Button flavor="secondary" text="Remind me later"/>\n'+
       '    <sp:Button flavor="primary" text="Rate now"/>\n'+
+      '</sp:ButtonGroup>';
+      [Bindable]public var verticalCompactString:String =
+      '<sp:ButtonGroup vertical="true" compact="true">\n'+
+      '    <sp:ActionButton flavor="secondary" text="No, thanks"/>\n'+
+      '    <sp:ActionButton flavor="secondary" text="Remind me later"/>\n'+
+      '    <sp:ActionButton flavor="primary" text="Rate now"/>\n'+
       '</sp:ButtonGroup>';
 
     ]]>
@@ -31,6 +43,16 @@
   <comp:Markup>
     <comp:StyledCode text='{horizontalString}'/>
   </comp:Markup>
+  <comp:Variant header="Horizontal (compact)">
+  <sp:ButtonGroup compact="true">
+      <sp:ActionButton flavor="secondary" text="No, thanks"/>
+      <sp:ActionButton flavor="secondary" text="Remind me later"/>
+      <sp:ActionButton flavor="primary" text="Rate now"/>
+  </sp:ButtonGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{horizontalCompactString}'/>
+  </comp:Markup>
   <comp:Variant header="Vertical">
   <sp:ButtonGroup vertical="true">
       <sp:Button flavor="secondary" text="No, thanks"/>
@@ -40,6 +62,17 @@
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{verticalString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical (compact)">
+  <sp:ButtonGroup vertical="true" compact="true">
+      <sp:ActionButton flavor="secondary" text="No, thanks"/>
+      <sp:ActionButton flavor="secondary" text="Remind me later"/>
+      <sp:ActionButton flavor="primary" text="Rate now"/>
+  </sp:ButtonGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{verticalCompactString}'/>
   </comp:Markup>
 
 </view:DemoPane>

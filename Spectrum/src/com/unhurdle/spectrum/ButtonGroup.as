@@ -32,18 +32,35 @@ package com.unhurdle.spectrum
       }
     	_vertical = value;
     }
+    private var _compact:Boolean;
+    /**
+     * compact button groups do not add spacing between buttons
+     */
+    public function get compact():Boolean
+    {
+    	return _compact;
+    }
+
+    public function set compact(value:Boolean):void
+    {
+    	_compact = value;
+    }
+
     // button group children need item selectors
     override public function addElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.addElement(c,dispatchEvent);
-      (c as ISpectrumElement).toggle(appendSelector("-item"),true);
+      if(!compact)
+        (c as ISpectrumElement).toggle(appendSelector("-item"),true);
     }
     override public function addElementAt(c:org.apache.royale.core.IChild, index:int, dispatchEvent:Boolean = true):void{
       super.addElementAt(c,index,dispatchEvent);
-      (c as ISpectrumElement).toggle(appendSelector("-item"),true);
+      if(!compact)
+        (c as ISpectrumElement).toggle(appendSelector("-item"),true);
     }
     override public function removeElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.removeElement(c,dispatchEvent);
-      (c as ISpectrumElement).toggle(appendSelector("-item"),false);
+      if(!compact)
+        (c as ISpectrumElement).toggle(appendSelector("-item"),false);
     }
   }
 }
