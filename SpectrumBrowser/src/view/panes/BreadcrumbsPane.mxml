@@ -171,7 +171,8 @@ import com.unhurdle.spectrum.data.BreadcrumbsItem;
 
 
 [Bindable]public var disabledString:String =
-'<sp:Breadcrumbs id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'<sp:Breadcrumbs id="breadcrumbs12" itemClicked="new Toast((breadcrumbs12.selectedItem as\n'+
+'BreadcrumbsItem).label,1000).show()">\n'+
 '  <sp:dataProvider>\n'+
 '    <sp:BreadcrumbsItem text="Nav Root" isFolder="true" isDisabled="true">\n'+
 '      <sp:Breadcrumbs>\n'+
@@ -187,7 +188,8 @@ import com.unhurdle.spectrum.data.BreadcrumbsItem;
 '  </sp:dataProvider>\n'+
 '</sp:Breadcrumbs>\n'+
 '<Br/>\n'+
-'<sp:Breadcrumbs id="breadcrumbs13" itemClicked="new Toast((breadcrumbs13.selectedItem as BreadcrumbsItem).label,1000).show()">\n'+
+'<sp:Breadcrumbs id="breadcrumbs13" itemClicked="new Toast((breadcrumbs13.selectedItem as\n'+
+'BreadcrumbsItem).label,1000).show()">\n'+
 '  <sp:dataProvider>\n'+
 '    <sp:BreadcrumbsItem text="Nav Root" isFolder="true">\n'+
 '      <sp:Breadcrumbs>\n'+
