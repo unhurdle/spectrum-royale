@@ -19,7 +19,6 @@ package com.unhurdle.spectrum
     public function MillerColumns()
     {
       super();
-      typeNames = getSelector();
     }
     override protected function getSelector():String{
       return "spectrum-MillerColumns";
@@ -28,12 +27,6 @@ package com.unhurdle.spectrum
 
       var c:Object = value.source["children"][0];
       addElement(new MillerColumnsItem(c.children));
-    }
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      return elem;
     }
   }
 }

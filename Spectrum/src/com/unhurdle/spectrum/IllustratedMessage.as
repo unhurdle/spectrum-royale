@@ -64,7 +64,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      addElementToWrapper(this,'div');
+      super.createElement();
       element.appendChild(generateSVG(predefinedSVGElement()));
       //TODO deprecated using Heading2 quiet instead
       header = new PageTitle(); 

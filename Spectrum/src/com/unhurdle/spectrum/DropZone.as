@@ -74,7 +74,7 @@ package com.unhurdle.spectrum
   
   COMPILE::JS
   override protected function createElement():WrappedHTMLElement{
-    addElementToWrapper(this,'div');
+    super.createElement();
     element.setAttribute("role","region"); 
     element.tabIndex = 0;
     element.style.width = "300px";

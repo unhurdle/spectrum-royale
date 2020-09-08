@@ -20,6 +20,7 @@ package com.unhurdle.spectrum
     public function TabBar()
     { 
       super();
+      window.addEventListener("resize",resized,false);
     }
 
     private var _quiet:Boolean;
@@ -87,14 +88,6 @@ package com.unhurdle.spectrum
       _vertical = value;
     }
     
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    { 
-      addElementToWrapper(this,'div');
-      window.addEventListener("resize",resized,false);
-      return element;
-    }  
-
     private function resized():void
   {
     if(!vertical == true){

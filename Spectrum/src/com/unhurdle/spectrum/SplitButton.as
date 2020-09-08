@@ -31,7 +31,7 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"div");
+      var elem:WrappedHTMLElement = super.createElement();
       actionButton = new Button();
       actionButton.className = appendSelector("-action");
       triggerButton = new Button();

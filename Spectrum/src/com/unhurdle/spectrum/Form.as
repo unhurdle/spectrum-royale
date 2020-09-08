@@ -47,11 +47,9 @@ package com.unhurdle.spectrum
     	_labelPosition = value;
 
     }
-
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,'form');
+    override protected function getTag():String{
+      return "form";
     }
+
   }
 }

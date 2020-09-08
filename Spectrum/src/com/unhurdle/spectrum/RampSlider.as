@@ -19,7 +19,7 @@ package com.unhurdle.spectrum
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-        var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+        var elem:WrappedHTMLElement = super.createElement();
         controlsContainer = newElement("div",appendSelector("-controls"));
         var ramp:HTMLDivElement = newElement("div") as HTMLDivElement;
         ramp.className = appendSelector("-ramp");

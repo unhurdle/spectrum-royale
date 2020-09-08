@@ -69,9 +69,13 @@ package com.unhurdle.spectrum
     /**
      * @royaleignorecoercion org.apache.royale.core.WrappedHTMLElement
      */
+    override protected function getTag():String{
+      return "img";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"img");
+      var elem:WrappedHTMLElement = super.createElement();
       elem.setAttribute("focusable", false);
       elem.setAttribute("aria-hidden",true);
       return elem;

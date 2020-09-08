@@ -1,5 +1,7 @@
 package com.unhurdle.spectrum
 {
+  import org.apache.royale.core.IChild;
+
   public class VSplitView extends SplitView
   {
     public function VSplitView()
@@ -67,6 +69,13 @@ package com.unhurdle.spectrum
           }
         }
       }
+    }
+
+		override public function addElement(c:IChild, dispatchEvent:Boolean = true):void{
+			super.addElement(c,dispatchEvent);
+      // apply changes
+      topVisible = topVisible;
+      bottomVisible = bottomVisible;
     }
   }
 }

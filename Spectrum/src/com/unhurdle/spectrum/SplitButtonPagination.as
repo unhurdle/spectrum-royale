@@ -25,9 +25,14 @@ package com.unhurdle.spectrum
     private var trigger:HTMLLinkElement;
     private var action:HTMLLinkElement;
     private var label:TextNode;
+
+    override protected function getTag():String{
+      return "nav";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"nav");
+      var elem:WrappedHTMLElement = super.createElement();
       var buttonBase:String = "spectrum-Button";
       trigger = newElement("a", buttonBase + " " + appendSelector("-trigger")) as HTMLLinkElement
       var triggerType:String = IconType.CHEVRON_LEFT_MEDIUM;

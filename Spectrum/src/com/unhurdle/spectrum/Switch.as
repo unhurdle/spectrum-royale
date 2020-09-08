@@ -27,7 +27,7 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = super.createElement();
       input = newElement("input") as HTMLInputElement;
       input.className = appendSelector("-input");
       input.type = "checkbox";

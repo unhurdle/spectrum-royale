@@ -182,7 +182,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     { 
-      addElementToWrapper(this,'div');
+      super.createElement();
       label = new TextNode("label");
       label.className = getTabsSelector() + "-itemLabel"; 
       element.appendChild(label.element); //addElem

@@ -28,7 +28,7 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,'div');
+      super.createElement();
       input = newElement("input") as HTMLInputElement;
       input.className = appendSelector("-input");
       input.type = "range";

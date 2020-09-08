@@ -27,7 +27,7 @@ package com.unhurdle.spectrum
 
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+            var elem:WrappedHTMLElement = super.createElement();
             input = newElement("input",appendSelector("-input")) as HTMLInputElement;
             input.type = "radio";
             elem.appendChild(input);

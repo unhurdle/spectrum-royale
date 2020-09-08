@@ -17,11 +17,5 @@ package com.unhurdle.spectrum
       return getTabsSelector() + "-selectionIndicator";
     }
     
-  COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      return elem;
-    }    
   }
 }

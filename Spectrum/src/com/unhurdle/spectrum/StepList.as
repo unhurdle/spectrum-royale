@@ -20,17 +20,12 @@ package com.unhurdle.spectrum
     public function StepList()
     {
       super();
+      max = 4;
+      value = 0;
     }
     override protected function getSelector():String{
         return "spectrum-Steplist";
     }
-    COMPILE::JS
-		override protected function createElement():WrappedHTMLElement{
-      addElementToWrapper(this,'div');
-      max = 4;
-      value = 0;
-			return element;
-		}
     override public function addedToParent():void{
       super.addedToParent();
       value = value;

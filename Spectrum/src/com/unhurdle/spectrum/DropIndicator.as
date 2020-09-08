@@ -23,18 +23,13 @@ package com.unhurdle.spectrum
             return "spectrum-DropIndicator";
         }
         
-        COMPILE::JS
-        override protected function createElement():WrappedHTMLElement{
-            var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-            return elem;
-        }
         private var _direction:String;
 
         public function get direction():String
         {
             return _direction;
         }
-
+        [Inspectable(category="General", enumeration="horizontal,vertical", defaultValue="horizontal")]
         public function set direction(value:String):void
         {
             var elem:HTMLElement = element as HTMLElement;

@@ -43,7 +43,7 @@ package com.unhurdle.spectrum
     }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = super.createElement();
       _button = new FieldButton();
       _button.labelClass = appendSelector("-label");
       _button.className = appendSelector("-trigger");

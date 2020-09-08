@@ -25,12 +25,6 @@ package com.unhurdle.spectrum
       super();
     }
 
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      return addElementToWrapper(this,'ul');
-    }
-
     override public function set dataProvider(value:Object):void{
       if(value is Array){
         convertArray(value);

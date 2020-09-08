@@ -26,7 +26,9 @@ package com.unhurdle.spectrum
     private var overflowIcon:Icon;
     private var _text:String;
     private var _href:String;
-    private var anchorElement:HTMLAnchorElement;
+    private function get anchorElement():HTMLAnchorElement{
+      return element as HTMLAnchorElement;
+    }
 
     public function get text():String
     {
@@ -165,19 +167,19 @@ package com.unhurdle.spectrum
       }
     }
   }
-    
+    override protected function getTag():String{
+      return "a";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     { 
-      anchorElement = addElementToWrapper(this,'a') as HTMLAnchorElement;
+      super.createElement();
       label = new TextNode("label");
       label.className = getTabsSelector() + "-itemLabel"; 
       label.element = anchorElement;
       return element;
     }
-
-
-    
 
     private function checkTabs(elem:Object):void
     {

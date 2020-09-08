@@ -22,11 +22,10 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-Divider";
     }
-
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,"hr");;
+    override protected function getTag():String{
+      return "hr";
     }
+
     private var _vertical:Boolean;
 
     public function get vertical():Boolean

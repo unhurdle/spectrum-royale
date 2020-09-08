@@ -23,9 +23,13 @@ package com.unhurdle.spectrum
     private var next:HTMLLinkElement;
     private var textField:TextField;
 
+    override protected function getTag():String{
+      return "nav";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,"nav");
+      var elem:WrappedHTMLElement = super.createElement();
       var buttonBase:String = "spectrum-ActionButton spectrum-ActionButton--quiet ";
       prev = newElement("a",buttonBase + appendSelector("-prevButton")) as HTMLLinkElement
       var prevType:String = IconType.CHEVRON_LEFT_MEDIUM;

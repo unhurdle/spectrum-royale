@@ -20,10 +20,7 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-FieldGroup";
     }
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,'div');
-    }
+
     private var _vertical:Boolean;
 
     public function get vertical():Boolean

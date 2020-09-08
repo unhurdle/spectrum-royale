@@ -5,6 +5,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  import org.apache.royale.core.IChild;
+
 	[Event(name="resizeStart", type="org.apache.royale.events.Event")]
   [Event(name="resizeFinish", type="org.apache.royale.events.Event")]
   public class SplitView extends Group
@@ -22,18 +24,18 @@ package com.unhurdle.spectrum
     public function SplitView()
     {
       super();
+			direction = "horizontal"
     }
     override protected function getSelector():String{
         return "spectrum-SplitView";
     }
-		protected var splitter:HTMLDivElement;
-		
-		COMPILE::JS
-		override protected function createElement():WrappedHTMLElement{
-			var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-			splitter = newElement('div') as HTMLDivElement;
-			splitter.className = appendSelector("-splitter");
-			return elem;
+		private var _splitter:HTMLDivElement;
+		protected function get splitter():HTMLDivElement{
+			if(!_splitter){
+				_splitter = newElement('div') as HTMLDivElement;
+				_splitter.className = appendSelector("-splitter");
+			}
+			return _splitter;
 		}
 
 		private var _isDraggable:Boolean;
@@ -129,6 +131,7 @@ package com.unhurdle.spectrum
 		{
 			return _direction;
 		}
+    [Inspectable(category="General", enumeration="horizontal,vertical", defaultValue="horizontal")]
 		protected function set direction(value:String):void
 		{
 				switch (value){
@@ -180,20 +183,13 @@ package com.unhurdle.spectrum
 				positionElements(percent);
 			}
 		}
-		COMPILE::JS
-		public override function addElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
+		
+		public override function addElement(c:IChild, dispatchEvent:Boolean = true):void{
 			super.addElement(c,dispatchEvent);
 			c.element.classList.add(appendSelector("-pane"));
 			positionElements(position);
 			if(element.children.length == 1){
 				element.appendChild(splitter);
-			}
-			if(this is HSplitView){
-				(this as HSplitView).leftVisible = (this as HSplitView).leftVisible;
-				(this as HSplitView).rightVisible = (this as HSplitView).rightVisible;
-			} else{
-				(this as VSplitView).topVisible = (this as VSplitView).topVisible;
-				(this as VSplitView).bottomVisible = (this as VSplitView).bottomVisible;
 			}
 		}
   }

@@ -37,9 +37,12 @@ package com.unhurdle.spectrum
     private var _dropdown:Picker;
     private var input:TextField;
     private var button:ClearButton;
+    override protected function getTag():String{
+      return "form";
+    }
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'form');
+      var elem:WrappedHTMLElement = super.createElement();
 
       _dropdown = new Picker();
       _dropdown.toggle(appendSelector("-picker"),true);

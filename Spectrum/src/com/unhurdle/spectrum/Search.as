@@ -70,9 +70,13 @@ package com.unhurdle.spectrum
     	_disabled = value;
     }
 
+    override protected function getTag():String{
+      return "form";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-    addElementToWrapper(this,"form");
+    super.createElement();
     input = new TextField();
     // percentWidth needed to allow the container copmponent to be sized
     input.percentWidth = 100;
