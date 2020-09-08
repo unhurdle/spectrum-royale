@@ -46,9 +46,13 @@ package com.unhurdle.spectrum.renderers
     {
       return classList.compute() + super.computeFinalClassNames();
     }
+    protected function getTag():String{
+      return "div";
+    }
+    
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      return addElementToWrapper(this,'div');
+      return addElementToWrapper(this,getTag());
     }
 
     public function setStyle(property:String,value:Object):void

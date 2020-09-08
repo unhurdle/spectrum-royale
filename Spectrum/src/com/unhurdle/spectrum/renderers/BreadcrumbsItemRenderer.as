@@ -100,7 +100,7 @@ package com.unhurdle.spectrum.renderers
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      var elem:WrappedHTMLElement = super.createElement();
       textNode = new TextNode("a");
       textNode.className = appendSelector("-itemLink");
       textNode.element.setAttribute('tabindex',"0");

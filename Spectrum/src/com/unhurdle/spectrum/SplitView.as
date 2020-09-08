@@ -184,6 +184,7 @@ package com.unhurdle.spectrum
 			}
 		}
 		
+		COMPILE::JS
 		public override function addElement(c:IChild, dispatchEvent:Boolean = true):void{
 			super.addElement(c,dispatchEvent);
 			c.element.classList.add(appendSelector("-pane"));

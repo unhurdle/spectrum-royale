@@ -24,16 +24,6 @@ package com.unhurdle.spectrum.data
     }
     private var assetList:AssetList;
     private var object:Object;
-    COMPILE::JS
-    private var elem:WrappedHTMLElement;
-    COMPILE::SWF
-    private var elem:Object;
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      elem = addElementToWrapper(this,'div');
-      return elem;
-    }
  
     private function itemClicked(ev:ValueEvent):void
     {
@@ -55,14 +45,19 @@ package com.unhurdle.spectrum.data
       }
       ev.value.selected = true;
     }
+    COMPILE::SWF
+    private function checkChild(item:Object, ev:ValueEvent):void{
 
+    }
+
+    COMPILE::JS
     private function checkChild(item:Object, ev:ValueEvent):void
     {
       for each (var c:Object in ev.target.dataProvider){
         if(c.isOpen){
-          for(var k:int = elem.parentElement.children.length-1;k>0;k--){
-            if(ev.target.element != elem.parentElement.children[k].children[0] ){
-              this.parent.removeElement(elem.parentElement.children[k].royale_wrapper);
+          for(var k:int = element.parentElement.children.length-1;k>0;k--){
+            if(ev.target.element != element.parentElement.children[k].children[0] ){
+              this.parent.removeElement(element.parentElement.children[k].royale_wrapper);
             }
           }
           toFalse(c);

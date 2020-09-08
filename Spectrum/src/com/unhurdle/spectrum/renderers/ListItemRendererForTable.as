@@ -71,12 +71,14 @@ package com.unhurdle.spectrum.renderers
             text = getLabelFromData(this, value);
 			dispatchEvent(new Event("dataChange"));
 		}
-
+		override protected function getTag():String{
+			return "li";
+		}
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-			addElementToWrapper(this, 'li');
-            
+			super.createElement();
+			//TODO what's this for?
 			if(MXMLDescriptor == null)
 			{
 				textNode = new TextNode('');

@@ -211,10 +211,15 @@ package com.unhurdle.spectrum.renderers
     private var indicator:Icon;
     private var type:String;
     private var checkIcon:Icon;
+
+    override protected function getTag():String{
+      return "li";
+    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'li');
+      var elem:WrappedHTMLElement = super.createElement();
       textNode = new TextNode("span");
       textNode.className = appendSelector("-itemLabel");
       textNode.element.style.userSelect = "none";

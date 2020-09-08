@@ -28,11 +28,5 @@ package com.unhurdle.spectrum.renderers
       //   // addElement(millerColumnsItem.assetList);
       // }
     }
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement
-    {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-      return elem;
-    }
   }
 }
