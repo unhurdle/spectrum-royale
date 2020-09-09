@@ -1,0 +1,873 @@
+<view:DemoPane xmlns="library://ns.apache.org/royale/html"
+  xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns:assets="view.assets.*" xmlns:comp="view.components.*"
+  title="Table">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var standard:String =
+      '<sp:Table>\n'+
+      '  <sp:THead>\n'+
+      '      <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell text="column title"/>\n'+
+      '  </sp:THead>\n'+
+      '  <sp:TBody>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '    </sp:TableRow>\n'+
+      '  </sp:TBody>\n'+
+      '</sp:Table>';
+
+      [Bindable]public var multiSelect:String =
+      '<sp:Table>\n'+
+      '  <sp:THead>\n'+
+      '    <sp:TableHeaderCell checkboxCell="true"/>\n'+
+      '      <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell text="column title"/>\n'+
+      '  </sp:THead>\n'+
+      '  <sp:TBody>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '    </sp:TableRow>\n'+
+      '  </sp:TBody>\n'+
+      '</sp:Table>';
+
+      [Bindable]public var quiet:String =
+      '<sp:Table quiet="true">\n'+
+      '  <sp:THead>\n'+
+      '      <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell text="column title"/>\n'+
+      '  </sp:THead>\n'+
+      '  <sp:TBody>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '    </sp:TableRow>\n'+
+      '  </sp:TBody>\n'+
+      '</sp:Table>';
+
+      [Bindable]public var quietMultiSelect:String =
+      '<sp:Table quiet="true">\n'+
+      '  <sp:THead>\n'+
+      '    <sp:TableHeaderCell checkboxCell="true"/>\n'+
+      '      <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell text="column title"/>\n'+
+      '  </sp:THead>\n'+
+      '  <sp:TBody>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell checkboxCell="true"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '    </sp:TableRow>\n'+
+      '  </sp:TBody>\n'+
+      '</sp:Table>';
+
+      [Bindable]public var columnDividers:String =
+      '<sp:Table>\n'+
+      '  <sp:THead>\n'+
+      '      <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:TableHeaderCell text="column title"/>\n'+
+      '  </sp:THead>\n'+
+      '  <sp:TBody>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell divider="true" text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '      <sp:TableCell text="Row Item Alpha"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell divider="true" text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '      <sp:TableCell text="Row Item Bravo"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell divider="true" text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '      <sp:TableCell text="Row Item Charlie"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell divider="true" text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '      <sp:TableCell text="Row Item Delta"/>\n'+
+      '    </sp:TableRow>\n'+
+      '    <sp:TableRow>\n'+
+      '      <sp:TableCell divider="true" text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '      <sp:TableCell text="Row Item Eco"/>\n'+
+      '    </sp:TableRow>\n'+
+      '  </sp:TBody>\n'+
+      '</sp:Table>';
+
+      [Bindable]public var divs:String =
+      '<sp:DivTable>\n'+
+      '  <sp:DivTHead>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell text="column title"/>\n'+
+      '  </sp:DivTHead>\n'+
+      '  <sp:DivTBody>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '  </sp:DivTBody>\n'+
+      '</sp:DivTable>';
+
+      [Bindable]public var divsQuiet:String =
+      '<sp:DivTable quiet="true">\n'+
+      '  <sp:DivTHead>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell text="column title"/>\n'+
+      '  </sp:DivTHead>\n'+
+      '  <sp:DivTBody>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '  </sp:DivTBody>\n'+
+      '</sp:DivTable>';
+
+      [Bindable]public var bodyDropzone:String =
+      '<sp:DivTable>\n'+
+      '  <sp:DivTHead>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell text="column title"/>\n'+
+      '  </sp:DivTHead>\n'+
+      '  <sp:DivTBody isDropTarget="true" height="120">\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '  </sp:DivTBody>\n'+
+      '</sp:DivTable>';
+
+      [Bindable]public var bodyDropzoneQuiet:String =
+      '<sp:DivTable quiet="true">\n'+
+      '  <sp:DivTHead>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell text="column title"/>\n'+
+      '  </sp:DivTHead>\n'+
+      '  <sp:DivTBody isDropTarget="true" height="120">\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '  </sp:DivTBody>\n'+
+      '</sp:DivTable>';      
+
+      [Bindable]public var rowDropzone:String =
+      '<sp:DivTable>\n'+
+      '  <sp:DivTHead>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell text="column title"/>\n'+
+      '  </sp:DivTHead>\n'+
+      '  <sp:DivTBody height="120">\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow isDropTarget="true">\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '  </sp:DivTBody>\n'+
+      '</sp:DivTable>';
+
+      [Bindable]public var rowDropzoneQuiet:String =
+      '<sp:DivTable quiet="true">\n'+
+      '  <sp:DivTHead>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell text="column title"/>\n'+
+      '  </sp:DivTHead>\n'+
+      '  <sp:DivTBody height="120">\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow isDropTarget="true">\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '  </sp:DivTBody>\n'+
+      '</sp:DivTable>';
+
+    ]]>
+  </fx:Script>
+  <comp:Variant>
+    <sp:Table>
+      <sp:THead>
+          <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:TableHeaderCell sortable="true" text="column title"/>
+          <sp:TableHeaderCell text="column title"/>
+      </sp:THead>
+      <sp:TBody>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+        </sp:TableRow>
+      </sp:TBody>
+    </sp:Table>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{standard}'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Multi-select" notes="The standard multi-select table.">
+    <sp:Table>
+      <sp:THead>
+        <sp:TableHeaderCell checkboxCell="true"/>
+          <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:TableHeaderCell sortable="true" text="column title"/>
+          <sp:TableHeaderCell text="column title"/>
+      </sp:THead>
+      <sp:TBody>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true"/>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true" checked="true"/>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true" checked="true"/>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true"/>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true"/>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+        </sp:TableRow>
+      </sp:TBody>
+    </sp:Table>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{multiSelect}'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Ouiet" notes="The quiet table.">
+    <sp:Table quiet="true">
+      <sp:THead>
+          <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:TableHeaderCell sortable="true" text="column title"/>
+          <sp:TableHeaderCell text="column title"/>
+      </sp:THead>
+      <sp:TBody>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+        </sp:TableRow>
+      </sp:TBody>
+    </sp:Table>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{quiet}'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Quiet multi-select" notes="The quiet multi-select table.">
+    <sp:Table quiet="true">
+      <sp:THead>
+        <sp:TableHeaderCell checkboxCell="true"/>
+          <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:TableHeaderCell sortable="true" text="column title"/>
+          <sp:TableHeaderCell text="column title"/>
+      </sp:THead>
+      <sp:TBody>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true"/>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true" checked="true"/>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true" checked="true"/>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true"/>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell checkboxCell="true"/>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+        </sp:TableRow>
+      </sp:TBody>
+    </sp:Table>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{quietMultiSelect}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Column dividers" notes="The standard table with column dividers.">
+    <sp:Table>
+      <sp:THead>
+          <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:TableHeaderCell sortable="true" text="column title"/>
+          <sp:TableHeaderCell text="column title"/>
+      </sp:THead>
+      <sp:TBody>
+        <sp:TableRow>
+          <sp:TableCell divider="true" text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+          <sp:TableCell text="Row Item Alpha"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell divider="true" text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+          <sp:TableCell text="Row Item Bravo"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell divider="true" text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+          <sp:TableCell text="Row Item Charlie"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell divider="true" text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+          <sp:TableCell text="Row Item Delta"/>
+        </sp:TableRow>
+        <sp:TableRow>
+          <sp:TableCell divider="true" text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+          <sp:TableCell text="Row Item Eco"/>
+        </sp:TableRow>
+      </sp:TBody>
+    </sp:Table>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{columnDividers}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Divs" notes="A table composed with &lt;div&gt; tags.">
+    <sp:DivTable>
+      <sp:DivTHead>
+          <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:DivTableHeaderCell sortable="true" text="column title"/>
+          <sp:DivTableHeaderCell text="column title"/>
+      </sp:DivTHead>
+      <sp:DivTBody>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+        </sp:DivTableRow>
+      </sp:DivTBody>
+    </sp:DivTable>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{divs}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Divs (quiet)">
+    <sp:DivTable quiet="true">
+      <sp:DivTHead>
+          <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:DivTableHeaderCell sortable="true" text="column title"/>
+          <sp:DivTableHeaderCell text="column title"/>
+      </sp:DivTHead>
+      <sp:DivTBody>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+        </sp:DivTableRow>
+      </sp:DivTBody>
+    </sp:DivTable>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{divsQuiet}'/>
+  </comp:Markup>
+  
+
+  <comp:Variant header="Body dropzone" notes="Tables that accept dropped content.">
+    <sp:DivTable>
+      <sp:DivTHead>
+          <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:DivTableHeaderCell sortable="true" text="column title"/>
+          <sp:DivTableHeaderCell text="column title"/>
+      </sp:DivTHead>
+      <sp:DivTBody isDropTarget="true" height="120">
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+        </sp:DivTableRow>
+      </sp:DivTBody>
+    </sp:DivTable>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{bodyDropzone}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Body dropzone (quiet)">
+    <sp:DivTable quiet="true">
+      <sp:DivTHead>
+          <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:DivTableHeaderCell sortable="true" text="column title"/>
+          <sp:DivTableHeaderCell text="column title"/>
+      </sp:DivTHead>
+      <sp:DivTBody isDropTarget="true" height="120">
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+        </sp:DivTableRow>
+      </sp:DivTBody>
+    </sp:DivTable>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{bodyDropzoneQuiet}'/>
+  </comp:Markup>
+  
+
+  <comp:Variant header="Row dropzone">
+    <sp:DivTable>
+      <sp:DivTHead>
+          <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:DivTableHeaderCell sortable="true" text="column title"/>
+          <sp:DivTableHeaderCell text="column title"/>
+      </sp:DivTHead>
+      <sp:DivTBody height="120">
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow isDropTarget="true">
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+        </sp:DivTableRow>
+      </sp:DivTBody>
+    </sp:DivTable>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{rowDropzone}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Row dropzone (quiet)">
+    <sp:DivTable quiet="true">
+      <sp:DivTHead>
+          <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+          <sp:DivTableHeaderCell sortable="true" text="column title"/>
+          <sp:DivTableHeaderCell text="column title"/>
+      </sp:DivTHead>
+      <sp:DivTBody>
+        <sp:DivTableRow height="120">
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+          <sp:DivTableCell text="Row Item Alpha"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow isDropTarget="true">
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+          <sp:DivTableCell text="Row Item Bravo"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+          <sp:DivTableCell text="Row Item Charlie"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+          <sp:DivTableCell text="Row Item Delta"/>
+        </sp:DivTableRow>
+        <sp:DivTableRow>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+          <sp:DivTableCell text="Row Item Eco"/>
+        </sp:DivTableRow>
+      </sp:DivTBody>
+    </sp:DivTable>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{rowDropzoneQuiet}'/>
+  </comp:Markup>
+  
+</view:DemoPane>
+          
