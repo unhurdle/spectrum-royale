@@ -40,98 +40,80 @@
       '   </sp:ButtonGroup>\n'+
       ' </sp:ActionBar>\n'+
       '</Div>';
-      // [Bindable]public var table:String =
-      // '<Div width="600">\n'+
-      // '  <sp:Table>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox indeterminate="true"/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="column title"/>\n'+
-      // '    <sp:TableHeaderCell text="column title"/>\n'+
-      // '    <sp:TableHeaderCell text="column title"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox checked="true"/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Alpha"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Alpha"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Alpha"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox checked="true"/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Bravo"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Bravo"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Bravo"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox checked="true"/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Charlie"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Charlie"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Charlie"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Delta"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Delta"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Delta"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox checked="true"/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Eco"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Eco"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Eco"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Frank"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Frank"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Frank"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item George"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item George"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item George"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Henry"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Henry"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Henry"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  <sp:TableRow>\n'+
-      // '    <sp:TableHeaderCell>\n'+
-      // '      <sp:CheckBox/>\n'+
-      // '    </sp:TableHeaderCell>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Jake"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Jake"/>\n'+
-      // '    <sp:TableHeaderCell text="Row Item Jake"/>\n'+
-      // '  </sp:TableRow>\n'+
-      // '  </sp:Table>\n'+
-      // '  <sp:ActionBar isOpen="true" countSelected="4" sticky="true">\n'+
-      // '    <sp:ButtonGroup>\n'+
-      // '      <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + "Edit"}"/>\n'+
-      // '      <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + "Copy"}"/>\n'+
-      // '      <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + "Delete"}"/>\n'+
-      // '    </sp:ButtonGroup>\n'+
-      // '  </sp:ActionBar>\n'+
-      // '</Div>';
+      [Bindable]public var table:String =
+      '<Div width="600">\n'+
+      '<sp:DivTable quiet="true">\n'+
+      '  <sp:DivTHead>\n'+
+      '    <sp:DivTableHeaderCell checkboxCell="true" indeterminate="true"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell sortable="true" text="column title"/>\n'+
+      '      <sp:DivTableHeaderCell text="column title"/>\n'+
+      '  </sp:DivTHead>\n'+
+      '  <sp:DivTBody height="240">\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '      <sp:DivTableCell text="Row Item Alpha"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '      <sp:DivTableCell text="Row Item Bravo"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '      <sp:DivTableCell text="Row Item Charlie"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '      <sp:DivTableCell text="Row Item Delta"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true" checked="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '      <sp:DivTableCell text="Row Item Eco"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Frank"/>\n'+
+      '      <sp:DivTableCell text="Row Item Frank"/>\n'+
+      '      <sp:DivTableCell text="Row Item Frank"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item George"/>\n'+
+      '      <sp:DivTableCell text="Row Item George"/>\n'+
+      '      <sp:DivTableCell text="Row Item George"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Henry"/>\n'+
+      '      <sp:DivTableCell text="Row Item Henry"/>\n'+
+      '      <sp:DivTableCell text="Row Item Henry"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '    <sp:DivTableRow>\n'+
+      '      <sp:DivTableCell checkboxCell="true"/>\n'+
+      '      <sp:DivTableCell text="Row Item Jake"/>\n'+
+      '      <sp:DivTableCell text="Row Item Jake"/>\n'+
+      '      <sp:DivTableCell text="Row Item Jake"/>\n'+
+      '    </sp:DivTableRow>\n'+
+      '  </sp:DivTBody>\n'+
+      '</sp:DivTable>\n'+
+      '  <sp:ActionBar isOpen="true" countSelected="4" sticky="true">\n'+
+      '    <sp:ButtonGroup compact="true">\n'+
+      '      <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + "Edit"}"/>\n'+
+      '      <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + "Copy"}"/>\n'+
+      '      <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + "Delete"}"/>\n'+
+      '    </sp:ButtonGroup>\n'+
+      '  </sp:ActionBar>\n'+
+      '</Div>';
 
     ]]>
   </fx:Script>
@@ -176,74 +158,74 @@
   <comp:Markup>
     <comp:StyledCode text='{flexible}'/>
   </comp:Markup>
-  <!-- <comp:Variant header="Table with ActionBar" notes="Example usage within a table.">
+  <comp:Variant header="Table with ActionBar" notes="Example usage within a table.">
     <Div width="600">
-      <sp:Table>
-        <sp:THead>
-          <sp:TableHeaderCell checkboxCell="true"/>
-            <sp:TableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
-            <sp:TableHeaderCell sortable="true" text="column title"/>
-            <sp:TableHeaderCell text="column title"/>
-        </sp:THead>
-        <sp:TBody>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true" checked="true"/>
-            <sp:TableCell text="Row Item Alpha"/>
-            <sp:TableCell text="Row Item Alpha"/>
-            <sp:TableCell text="Row Item Alpha"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true" checked="true"/>
-            <sp:TableCell text="Row Item Bravo"/>
-            <sp:TableCell text="Row Item Bravo"/>
-            <sp:TableCell text="Row Item Bravo"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true" checked="true"/>
-            <sp:TableCell text="Row Item Charlie"/>
-            <sp:TableCell text="Row Item Charlie"/>
-            <sp:TableCell text="Row Item Charlie"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true"/>
-            <sp:TableCell text="Row Item Delta"/>
-            <sp:TableCell text="Row Item Delta"/>
-            <sp:TableCell text="Row Item Delta"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true" checked="true"/>
-            <sp:TableCell text="Row Item Eco"/>
-            <sp:TableCell text="Row Item Eco"/>
-            <sp:TableCell text="Row Item Eco"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true"/>
-            <sp:TableCell text="Row Item Frank"/>
-            <sp:TableCell text="Row Item Frank"/>
-            <sp:TableCell text="Row Item Frank"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true"/>
-            <sp:TableCell text="Row Item George"/>
-            <sp:TableCell text="Row Item George"/>
-            <sp:TableCell text="Row Item George"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true"/>
-            <sp:TableCell text="Row Item Henry"/>
-            <sp:TableCell text="Row Item Henry"/>
-            <sp:TableCell text="Row Item Henry"/>
-          </sp:TableRow>
-          <sp:TableRow>
-            <sp:TableCell checkboxCell="true"/>
-            <sp:TableCell text="Row Item Jake"/>
-            <sp:TableCell text="Row Item Jake"/>
-            <sp:TableCell text="Row Item Jake"/>
-          </sp:TableRow>
-        </sp:TBody>
-      </sp:Table>
+      <sp:DivTable quiet="true">
+        <sp:DivTHead>
+          <sp:DivTableHeaderCell checkboxCell="true" indeterminate="true"/>
+            <sp:DivTableHeaderCell sortable="true" sortedDesc="true" text="column title"/>
+            <sp:DivTableHeaderCell sortable="true" text="column title"/>
+            <sp:DivTableHeaderCell text="column title"/>
+        </sp:DivTHead>
+        <sp:DivTBody height="240">
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true" checked="true"/>
+            <sp:DivTableCell text="Row Item Alpha"/>
+            <sp:DivTableCell text="Row Item Alpha"/>
+            <sp:DivTableCell text="Row Item Alpha"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true" checked="true"/>
+            <sp:DivTableCell text="Row Item Bravo"/>
+            <sp:DivTableCell text="Row Item Bravo"/>
+            <sp:DivTableCell text="Row Item Bravo"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true" checked="true"/>
+            <sp:DivTableCell text="Row Item Charlie"/>
+            <sp:DivTableCell text="Row Item Charlie"/>
+            <sp:DivTableCell text="Row Item Charlie"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true"/>
+            <sp:DivTableCell text="Row Item Delta"/>
+            <sp:DivTableCell text="Row Item Delta"/>
+            <sp:DivTableCell text="Row Item Delta"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true" checked="true"/>
+            <sp:DivTableCell text="Row Item Eco"/>
+            <sp:DivTableCell text="Row Item Eco"/>
+            <sp:DivTableCell text="Row Item Eco"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true"/>
+            <sp:DivTableCell text="Row Item Frank"/>
+            <sp:DivTableCell text="Row Item Frank"/>
+            <sp:DivTableCell text="Row Item Frank"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true"/>
+            <sp:DivTableCell text="Row Item George"/>
+            <sp:DivTableCell text="Row Item George"/>
+            <sp:DivTableCell text="Row Item George"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true"/>
+            <sp:DivTableCell text="Row Item Henry"/>
+            <sp:DivTableCell text="Row Item Henry"/>
+            <sp:DivTableCell text="Row Item Henry"/>
+          </sp:DivTableRow>
+          <sp:DivTableRow>
+            <sp:DivTableCell checkboxCell="true"/>
+            <sp:DivTableCell text="Row Item Jake"/>
+            <sp:DivTableCell text="Row Item Jake"/>
+            <sp:DivTableCell text="Row Item Jake"/>
+          </sp:DivTableRow>
+        </sp:DivTBody>
+      </sp:DivTable>
       <sp:ActionBar isOpen="true" countSelected="4" sticky="true">
-        <sp:ButtonGroup>
+        <sp:ButtonGroup compact="true">
           <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + 'Edit'}"/>
           <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + 'Copy'}"/>
           <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + 'Delete'}"/>
@@ -253,5 +235,5 @@
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{table}'/>
-  </comp:Markup> -->
+  </comp:Markup>
 </view:DemoPane>

@@ -103,7 +103,7 @@ package com.unhurdle.spectrum.renderers
 		tbody.removeAllItemRenderers();
 		removeElements(view.thead);
 		createHeader();
-		var presentationModel:IListPresentationModel = table.presentationModel as IListPresentationModel;
+		// var presentationModel:IListPresentationModel = table.presentationModel as IListPresentationModel;
 		labelField = model.labelField;
 		var column:TableColumn;
 		var ir:ITextItemRenderer;
@@ -116,7 +116,7 @@ package com.unhurdle.spectrum.renderers
 				column = model.columns[j] as TableColumn;
 				
 				if(column.multiSelect == true){
-						checkBoxRenderer(column,i,j,index,presentationModel);
+						// checkBoxRenderer(column,i,j,index,presentationModel);
 				}
 				else{
 						if(column.itemRenderer != null)
@@ -135,7 +135,7 @@ package com.unhurdle.spectrum.renderers
 				(ir as DataItemRenderer).columnIndex = j;
 		
 			
-				fillRenderer(index++, item, (ir as ILabelFieldItemRenderer), presentationModel);
+				// fillRenderer(index++, item, (ir as ILabelFieldItemRenderer), presentationModel);
 				}
 			}
 		(_strand as IEventDispatcher).dispatchEvent(new Event("itemsCreated"));
@@ -268,12 +268,12 @@ package com.unhurdle.spectrum.renderers
 			for (var i:int = 0;i<headerRow.element.children.length;i++){
 				if(headerRow.element.children[i].classList.contains('is-sortable')) {
 					if(!isSorted){ //ascending A-Z
-						table.dataProvider = sortByColumn(i,true);
+						// table.dataProvider = sortByColumn(i,true);
 						isSorted = true;
 					}
 					else{
 					//descending - Z-A
-						table.dataProvider = sortByColumn(i,false);
+						// table.dataProvider = sortByColumn(i,false);
 						isSorted = false;
 					}
 	
@@ -286,14 +286,14 @@ package com.unhurdle.spectrum.renderers
 		}
 
 		private function sortByColumn(idx:int,ascending:Boolean):ArrayList{
-		var column:TableColumn = table.columns[idx];
-		var property:String = column.dataField;
+		// var column:TableColumn = table.columns[idx];
+		// var property:String = column.dataField;
 		var arr:ArrayList;
-		if(table.dataProvider is ArrayList){
-			arr = table.dataProvider as ArrayList;
-		} else {
-			arr = table.dataProvider.source;
-		}
+		// if(table.dataProvider is ArrayList){
+			// arr = table.dataProvider as ArrayList;
+		// } else {
+			// arr = table.dataProvider.source;
+		// }
 		arr.source.sort(sortItem);
 		if(ascending){
 			isSorted = true;
@@ -303,13 +303,13 @@ package com.unhurdle.spectrum.renderers
 		return arr;
 		function sortItem(a:Object,b:Object):int{
 			var result:int;
-			if(a[property] > b[property]){
-				return ascending ? 1 : -1;
-			} 
-			if(a[property] < b[property]){
-				return ascending ? -1 : 1;
-			}
-			return 0;
+			// if(a[property] > b[property]){
+			// 	return ascending ? 1 : -1;
+			// } 
+			// if(a[property] < b[property]){
+			// 	return ascending ? -1 : 1;
+			// }
+			// return 0;
 		}
 	}
 

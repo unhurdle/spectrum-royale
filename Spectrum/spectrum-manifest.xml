@@ -63,6 +63,12 @@
     <component id="DialogTitle" class="com.unhurdle.spectrum.DialogTitle"/>
     <component id="DialogTypeIcon" class="com.unhurdle.spectrum.DialogTypeIcon"/>
     <component id="Display" class="com.unhurdle.spectrum.typography.Display"/>
+    <component id="DivTable" class="com.unhurdle.spectrum.DivTable"/>
+    <component id="DivTableCell" class="com.unhurdle.spectrum.DivTableCell"/>
+    <component id="DivTableHeaderCell" class="com.unhurdle.spectrum.DivTableHeaderCell"/>
+    <component id="DivTableRow" class="com.unhurdle.spectrum.DivTableRow"/>
+    <component id="DivTBody" class="com.unhurdle.spectrum.DivTBody"/>
+    <component id="DivTHead" class="com.unhurdle.spectrum.DivTHead"/>
     <!-- <component id="Divider" class="com.unhurdle.spectrum.Divider"/> -->
     <component id="Dropdown" class="com.unhurdle.spectrum.Dropdown"/>
     <component id="DropdownItem" class="com.unhurdle.spectrum.data.DropdownItem"/>

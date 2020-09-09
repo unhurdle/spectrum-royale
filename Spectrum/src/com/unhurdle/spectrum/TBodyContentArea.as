@@ -84,16 +84,16 @@ package com.unhurdle.spectrum
 			
 			var t:Table = host as Table;
 
-			for (var i:Number = 0;i<t.columns.length;i++){
-				if(t.columns[i].columnDividers == true){
-					if(r.dataField == t.columns[i].dataField){
-						COMPILE::JS
-						{
-							r.element.classList.add("spectrum-Table-cell--divider");
-						}
-					}
-				}
-			}
+			// for (var i:Number = 0;i<t.columns.length;i++){
+			// 	if(t.columns[i].columnDividers == true){
+			// 		if(r.dataField == t.columns[i].dataField){
+			// 			COMPILE::JS
+			// 			{
+			// 				r.element.classList.add("spectrum-Table-cell--divider");
+			// 			}
+			// 		}
+			// 	}
+			// }
 
 			itemRenderers.push(r);
 			dispatchItemAdded(r);

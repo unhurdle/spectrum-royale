@@ -85,7 +85,7 @@
     <js:ComponentRoute title="Steplist" component="view.panes.SteplistPane" baseName="steplist"/>
     <js:ComponentRoute title="Stepper" component="view.panes.StepperPane" baseName="stepper"/>
     <js:ComponentRoute title="Switch" component="view.panes.SwitchPane" baseName="switch"/>
-    <js:ComponentRoute title="Table" component="view.panes.ComingSoonPane" baseName="table"/>
+    <js:ComponentRoute title="Table" component="view.panes.TablePane" baseName="table"/>
     <js:ComponentRoute title="Tabs" component="view.panes.TabsPane" baseName="tabs"/>
     <js:ComponentRoute title="Tags" component="view.panes.TagsPane" baseName="tags"/>
     <js:ComponentRoute title="Text Area" component="view.panes.TextareaPane" baseName="text_area"/>

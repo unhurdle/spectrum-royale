@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
     public function TableHeaderCell()
     {
       super();
+      typeNames = "spectrum-Table-headCell";
     }
 
 
@@ -41,10 +42,19 @@ package com.unhurdle.spectrum
       }
       _sortable = value;
     }
-
-    
- 
-    private var textNode:TextNode;
+    private var _sortedDesc:Boolean;
+  
+    public function get sortedDesc():Boolean
+    {
+    	return _sortedDesc;
+    }
+    public function set sortedDesc(value:Boolean):void 
+    {
+      if(value != _sortedDesc){
+        toggle("is-sorted-desc",value);
+      }
+      _sortable = value;
+    }
 
     override protected function getTag():String{
       return "th";
@@ -53,8 +63,6 @@ package com.unhurdle.spectrum
 		override protected function createElement():WrappedHTMLElement
 		{
       elem = super.createElement();
-      elem.className = "spectrum-Table-headCell";
-      // elem.tabIndex = 0;
       return elem;
 		}
 
