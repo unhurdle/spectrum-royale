@@ -6,61 +6,52 @@
   <fx:Script>
     <![CDATA[
         [Bindable]public var codeString1:String =
+        '[Bindable]public var nameRegex:String = "^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$";\n'+
+        '\n'+
+        '\n'+
         '<sp:TextField placeholder="Enter your name"/>\n'+
         '<sp:TextField placeholder="Enter your name" disabled="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" text="Invalid input" pattern="[\w\s]+" invalid="true" required="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" text="Invalid input" invalid="true" disabled="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" focused="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" keyboardFocused="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" text="Invalid input" focused="true" invalid="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" text="Invalid input" keyboardFocused="true" invalid="true"/>';
+        '<sp:TextField placeholder="Enter your name" required="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" required="true" disabled="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" text="test@gmail.com" pattern="{nameRegex}"/>\n'+
+        '<sp:TextField placeholder="Enter your name" text="Invalid input" pattern="{nameRegex}"/>';
         [Bindable]public var codeString2:String =
-        '<sp:TextField placeholder="Enter your name" quiet="true"/>\n'+
+        '[Bindable]public var nameRegex:String = "^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$";\n'+
+        '\n'+
+        '\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true"/>\n'+ 
         '<sp:TextField placeholder="Enter your name" quiet="true" disabled="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" pattern="[\w\s]+" invalid="true" required="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" invalid="true" disabled="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" focused="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" keyboardFocused="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" focused="true" invalid="true"/>\n'+
-        '<sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" keyboardFocused="true" invalid="true"/>';
+        '<sp:TextField placeholder="Enter your name" quiet="true" required="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" required="true" disabled="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" text="test@gmail.com" pattern="{nameRegex}"/>\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" pattern="{nameRegex}"/>';
+        [Bindable]public var nameRegex:String = "^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$";
     ]]>
   </fx:Script>
   <comp:Variant>
     <Div>
         <sp:TextField placeholder="Enter your name" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" text="Invalid input" pattern="[\w\s]+" invalid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" text="Invalid input" invalid="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" focused="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" keyboardFocused="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" text="Invalid input" focused="true" invalid="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" text="Invalid input" keyboardFocused="true" invalid="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" required="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" text="test@gmail.com" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" text="Invalid input" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='{codeString2}'/>
+    <comp:StyledCode text='{codeString1}'/>
   </comp:Markup>
   <comp:Variant header="Text Field - Quiet" notes="A Spectrum text field - quiet">
     <Div>
         <sp:TextField placeholder="Enter your name" quiet="true" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" quiet="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" text="A valid input" valid="true" pattern="[\w\s]+" required="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" pattern="[\w\s]+" invalid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" invalid="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" focused="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" keyboardFocused="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" focused="true" invalid="true" style="margin-right: 5px;margin-top: 5px;"/>
-        <sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" keyboardFocused="true" invalid="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" required="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" text="test@gmail.com" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='{codeString1}'/>
+    <comp:StyledCode text='{codeString2}'/>
   </comp:Markup>
 </view:DemoPane>

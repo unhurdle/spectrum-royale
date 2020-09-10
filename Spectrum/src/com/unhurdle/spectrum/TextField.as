@@ -4,8 +4,9 @@ package com.unhurdle.spectrum
   {
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.util.addElementToWrapper;
-    import com.unhurdle.spectrum.const.IconType;
   }
+  import com.unhurdle.spectrum.const.IconType;
+  import goog.events.EventType;
 
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
@@ -16,6 +17,7 @@ package com.unhurdle.spectrum
     public function TextField()
     {
       super();
+      _input.addEventListener(EventType.INPUT,checkValidation);
     }
 
     public function get placeholder():String
@@ -67,6 +69,7 @@ package com.unhurdle.spectrum
       } else {
         input.value = "";
       }
+      checkValidation();
     }
 
     private var _pattern:String;
@@ -78,14 +81,10 @@ package com.unhurdle.spectrum
 
     public function set pattern(value:String):void
     {
-      if(value != _pattern){
-        if(value){
-          input.pattern = value;
-        } else {
-          input.removeAttribute("pattern")
-        }
-      }
       _pattern = value;
+      if(text){
+        checkValidation();
+      }
     }
     private var _required:Boolean;
     public function get required():Boolean
@@ -122,7 +121,6 @@ package com.unhurdle.spectrum
     	return super.valid;
     }
 
-    COMPILE::JS
     override public function set valid(value:Boolean):void
     {
       super.valid = value;
@@ -138,19 +136,17 @@ package com.unhurdle.spectrum
           addElementAt(validIcon,0);
         }
       } else{
-        if(validIcon){
+        if(validIcon && getElementIndex(validIcon) != -1){
           removeElement(validIcon);
         }
       }
     }
-
 
     override public function get invalid():Boolean
     {
     	return super.invalid;
     }
 
-    COMPILE::JS
     override public function set invalid(value:Boolean):void
     {
       super.invalid = value;
@@ -166,8 +162,20 @@ package com.unhurdle.spectrum
           addElementAt(invalidIcon,0);
         }
       } else{
-        if(invalidIcon){
+        if(invalidIcon && getElementIndex(invalidIcon) != -1){
           removeElement(invalidIcon);
+        }
+      }
+    }
+
+    private function checkValidation():void
+    {
+      if(pattern){
+        var patt:RegExp = new RegExp(pattern);
+        if(patt.test(_input.value)){
+          valid = true;
+        } else{
+          invalid = true;
         }
       }
     }

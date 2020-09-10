@@ -4,8 +4,9 @@ package com.unhurdle.spectrum
     {
         import org.apache.royale.html.util.addElementToWrapper;
         import org.apache.royale.core.WrappedHTMLElement;
-        import com.unhurdle.spectrum.const.IconType;
     }
+    import com.unhurdle.spectrum.const.IconType;
+    import goog.events.EventType;
 
     public class TextArea extends TextFieldBase
     {
@@ -13,6 +14,7 @@ package com.unhurdle.spectrum
         {
             super();
             toggle(valueToSelector("multiline"),true);
+            textarea.addEventListener(EventType.INPUT,checkValidation);
         }
 
         private var textarea:HTMLTextAreaElement;
@@ -65,12 +67,41 @@ package com.unhurdle.spectrum
 
         public function get text():String
         {
-        	return textarea.text;
+        	return textarea.value;
         }
         
         public function set text(value:String):void
         {
-            textarea.text = value;
+            textarea.value = value;
+            checkValidation();
+        }
+        private var _maxLength:Number = Number.MAX_VALUE;
+
+        public function get maxLength():Number
+        {
+        	return _maxLength;
+        }
+        
+        public function set maxLength(value:Number):void
+        {
+            _maxLength = value;
+            if(text){
+                checkValidation();
+            }
+        }
+        private var _minLength:Number = Number.MIN_VALUE;
+
+        public function get minLength():Number
+        {
+        	return _minLength;
+        }
+        
+        public function set minLength(value:Number):void
+        {
+            _minLength = value;
+            if(text){
+                checkValidation();
+            }
         }
 
         //name???
@@ -110,7 +141,6 @@ package com.unhurdle.spectrum
             return super.valid;
         }
 
-        COMPILE::JS
         override public function set valid(value:Boolean):void
         {
             super.valid = value;
@@ -126,7 +156,7 @@ package com.unhurdle.spectrum
                 addElementAt(validIcon,0);
                 }
             } else{
-                if(validIcon){
+                if(validIcon && getElementIndex(validIcon) != -1){
                     removeElement(validIcon);
                 }
             }
@@ -137,7 +167,6 @@ package com.unhurdle.spectrum
             return super.invalid;
         }
 
-        COMPILE::JS
         override public function set invalid(value:Boolean):void
         {
             super.invalid = value;
@@ -153,8 +182,19 @@ package com.unhurdle.spectrum
                 addElementAt(invalidIcon,0);
                 }
             } else{
-                if(invalidIcon){
+                if(invalidIcon  && getElementIndex(invalidIcon) != -1){
                     removeElement(invalidIcon);
+                }
+            }
+        }
+        private function checkValidation():void
+        {
+            if(maxLength != Number.MAX_VALUE || minLength != Number.MIN_VALUE){
+                var len:Number = textarea.value.length;
+                if(len <= maxLength && len >= minLength){
+                    valid = true;
+                } else{
+                    invalid = true;
                 }
             }
         }

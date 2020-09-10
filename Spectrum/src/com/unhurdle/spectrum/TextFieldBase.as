@@ -80,6 +80,9 @@ package com.unhurdle.spectrum
       if(value != _valid){
         toggle("is-valid",value);
       }
+      if(value){
+        invalid = false;
+      }
     	_valid = value;
     }
 
@@ -95,10 +98,13 @@ package com.unhurdle.spectrum
       if(value != _invalid){
         toggle("is-invalid",value);
       }
+      if(value){
+        valid = false;
+      }
     	_invalid = value;
     }
 
-  private var _disabled:Boolean;
+    private var _disabled:Boolean;
 
     public function get disabled():Boolean
     {

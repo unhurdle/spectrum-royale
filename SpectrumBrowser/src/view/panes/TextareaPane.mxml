@@ -8,39 +8,33 @@
       [Bindable]public var codeString1:String =
       '<sp:TextArea placeholder="Enter your name"/>\n'+
       '<sp:TextArea placeholder="Enter your name" disabled="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="A valid input" valid="true" required="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="A valid input" valid="true" disabled="true" required="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" invalid="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" invalid="true" disabled="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" focused="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" keyboardFocused="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" focused="true" invalid="true" required="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" keyboardFocused="true" invalid="true" required="true"/>';
+      '<sp:TextArea placeholder="Enter your name" text="A valid input" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" text="A valid input" disabled="true" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" text="A valid input" minLength="5"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" text="Invalid input" minLength="20"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" text="Invalid input" maxLength="3"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" text="Invalid input" minLength="2" maxLength="7"/>';
       [Bindable]public var codeString2:String =
       '<sp:TextArea placeholder="Enter your name" quiet="true"/>\n'+
       '<sp:TextArea placeholder="Enter your name" quiet="true" disabled="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="A valid input" quiet="true" valid="true" required="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="A valid input" quiet="true" valid="true" disabled="true" required="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" invalid="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" invalid="true" disabled="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" quiet="true" focused="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" quiet="true" keyboardFocused="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" focused="true" invalid="true" required="true"/>\n'+
-      '<sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" keyboardFocused="true" invalid="true" required="true"/>';
+      '<sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" disabled="true" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" minLength="5"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" minLength="20"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" maxLength="3"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" minLength="2" maxLength="7"/>';
     ]]>
   </fx:Script>
   <comp:Variant>
     <Div>
       <sp:TextArea placeholder="Enter your name" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="A valid input" valid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="A valid input" valid="true" disabled="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" invalid="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" invalid="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" focused="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" keyboardFocused="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" focused="true" invalid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" keyboardFocused="true" invalid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" text="A valid input" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" text="A valid input" disabled="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" text="A valid input" minLength="5" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" text="Invalid input" minLength="20" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" text="Invalid input" maxLength="3" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" text="Invalid input" minLength="2" maxLength="7" style="margin-right: 5px;margin-top: 5px;"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
@@ -50,14 +44,12 @@
     <Div>
       <sp:TextArea placeholder="Enter your name" quiet="true" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" quiet="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="A valid input" quiet="true" valid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="A valid input" quiet="true" valid="true" disabled="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" invalid="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" invalid="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" quiet="true" focused="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" quiet="true" keyboardFocused="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" focused="true" invalid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
-      <sp:TextArea placeholder="Enter your name" text="Invalid input" quiet="true" keyboardFocused="true" invalid="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" disabled="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" minLength="5" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" minLength="20" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" maxLength="3" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" minLength="2" maxLength="7" style="margin-right: 5px;margin-top: 5px;"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
