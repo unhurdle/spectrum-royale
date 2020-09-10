@@ -380,6 +380,7 @@ package com.unhurdle.spectrum
     	_minMenuHeight = value;
     }
 
+    [Inspectable(category="General", enumeration="bottom,top,right,left")]
     public function set position(value:String):void
     {
       switch(value){

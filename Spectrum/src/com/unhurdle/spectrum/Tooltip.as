@@ -67,6 +67,7 @@ package com.unhurdle.spectrum
     	return _flavor;
     }
 
+    [Inspectable(category="General", enumeration="info,positive,negetive,success,error")]
     public function set flavor(value:String):void
     {
       if(value != _flavor){
@@ -103,6 +104,7 @@ package com.unhurdle.spectrum
     	return _icon;
     }
 
+    [Inspectable(category="General", enumeration="info,success,alert,help")]
     public function set icon(value:String):void
     {
       var type:String;
@@ -150,6 +152,7 @@ package com.unhurdle.spectrum
     	return _direction;
     }
 
+    [Inspectable(category="General", enumeration="left,right,bottom,top" defaultValue="top")]
     public function set direction(value:String):void
     {
       if(_direction){

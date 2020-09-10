@@ -23,6 +23,7 @@ package com.unhurdle.spectrum
     	return _language;
     }
 
+    [Inspectable(category="General", enumeration="he,ar,ja,en")]
     public function set language(value:String):void
     {
     	_language = value;

@@ -41,29 +41,30 @@ package com.unhurdle.spectrum
     	_vertical = value;
     }
     
-        private var _size:String;
+    private var _size:String;
 
-        public function get size():String
-        {
-            return _size;
-        }
-        public function set size(value:String):void
-        {
-            if(value != _size){
-                switch (value){
-                  case "small":
-                  case "medium":
-                  case "large":
-                      break;
-                  default:
-                      throw new Error("Invalid size: " + value);
-                }
-                if(_size){
-                  toggle(valueToSelector(_size), false);
-                }
-                toggle(valueToSelector(value), true);
-                _size = value;
+    public function get size():String
+    {
+        return _size;
+    }
+    [Inspectable(category="General", enumeration="small,medium,large" defaultValue="medium")]
+    public function set size(value:String):void
+    {
+        if(value != _size){
+            switch (value){
+              case "small":
+              case "medium":
+              case "large":
+                  break;
+              default:
+                  throw new Error("Invalid size: " + value);
             }
+            if(_size){
+              toggle(valueToSelector(_size), false);
+            }
+            toggle(valueToSelector(value), true);
+            _size = value;
         }
+    }
   }
 }

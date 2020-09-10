@@ -43,6 +43,7 @@ package com.unhurdle.spectrum
     	return _iconType;
     }
 
+    [Inspectable(category="General", enumeration="Folder,Image,Filter,Comment")]
     public function set iconType(value:String):void
     {
       if(value){

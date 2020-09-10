@@ -72,6 +72,7 @@ package com.unhurdle.spectrum
     	return _colorstop;
     }
 
+    [Inspectable(category="General", enumeration="light,lightest,dark,darkest,paneldarkest" defaultValue="light")]
     public function set colorstop(value:String):void
     {
       if(value != _colorstop){
@@ -107,6 +108,7 @@ package com.unhurdle.spectrum
     	return _appScale;
     }
 
+    [Inspectable(category="General", enumeration="medium,large" defaultValue="medium")]
     public function set appScale(value:String):void
     {
       if(value != _appScale){
@@ -134,6 +136,7 @@ package com.unhurdle.spectrum
     	return _dir;
     }
 
+    [Inspectable(category="General", enumeration="ltr,rtl" defaultValue="ltr")]
     public function set dir(value:String):void
     {
     	_dir = value;

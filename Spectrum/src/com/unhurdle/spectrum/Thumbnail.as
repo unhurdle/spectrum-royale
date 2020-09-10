@@ -231,6 +231,7 @@ package com.unhurdle.spectrum
       }
 
     }
+    [Inspectable(category="General", enumeration="S,M,L,XL,XXL" defaultValue="M")]
     public function set size(value:String):void
     {
       if(!value || value == _size){

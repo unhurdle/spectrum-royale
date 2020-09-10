@@ -37,6 +37,7 @@ package com.unhurdle.spectrum
 			_toolTip = value;
 		}
 
+    [Inspectable(category="General", enumeration="left,right,bottom,top", defaultValue="top")]
 		public function set direction(value:String):void
 		{
 			_direction = value;

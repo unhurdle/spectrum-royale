@@ -86,6 +86,7 @@ package com.unhurdle.spectrum.typography
         size = size.replace('XX','');
       }
     }
+    [Inspectable(category="General", enumeration="XXS,XS,S,M,L,XL,XXL,XXXL" defaultValue="L")]
     override public function set size(value:String):void{
       super.size = value;
       if(display && value.indexOf("XXL") == -1){
