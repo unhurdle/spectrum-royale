@@ -22,31 +22,31 @@
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (focused)">
-    <sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (landscape image)" notes="Landscape images will fill horizontally and have space above and below.">
-    <sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" imgAlt="Landscape with mountains and lake"/>
+    <sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" imgAlt="Landscape with mountains and lake"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" imgAlt="Landscape with mountains and lake"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" imgAlt="Landscape with mountains and lake"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (portrait image)" notes="Portrait images will fill vertically and have space on either side.">
-    <sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" imgAlt="Eiffel Tower at night"/>
+    <sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" imgAlt="Eiffel Tower at night"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" imgAlt="Eiffel Tower at night"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" imgAlt="Eiffel Tower at night"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (background portrait)" notes="Portrait images set as the background will fill horizontally">
-    <sp:Thumbnail focused="true" backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" backgroundTitle="Eiffel Tower at night"/>
+    <sp:Thumbnail backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" backgroundTitle="Eiffel Tower at night"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" backgroundTitle="Eiffel Tower at night"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" backgroundTitle="Eiffel Tower at night"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (background landscape)" notes="Portrait images set as the background will fill vertically">

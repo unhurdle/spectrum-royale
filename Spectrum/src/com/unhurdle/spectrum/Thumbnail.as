@@ -16,6 +16,12 @@ package com.unhurdle.spectrum
     public function Thumbnail()
     {
       super();
+      addEventListener('focus',function():void{
+        toggle("is-focused",true);
+      });
+      addEventListener('blur',function():void{
+        toggle("is-focused",false);
+      });
     }
     override protected function getSelector():String{
       return "spectrum-Thumbnail";
@@ -206,21 +212,6 @@ package com.unhurdle.spectrum
     	_selected = value;
     }
 
-    private var _focused:Boolean;
-
-    public function get focused():Boolean
-    {
-    	return _focused;
-    }
-
-    public function set focused(value:Boolean):void
-    {
-      if(value != !!_focused){
-        toggle("is-focused",value);
-      }
-    	_focused = value;
-    }
-    
     private var _size:String;
 
     public function get size():String

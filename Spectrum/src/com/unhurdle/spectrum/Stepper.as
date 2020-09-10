@@ -24,6 +24,21 @@ package com.unhurdle.spectrum
     public function Stepper()
     {
       super();
+      COMPILE::JS
+      {
+        input.element.addEventListener("focus", function():void{
+          focused = true;
+        });
+        input.element.addEventListener("blur", function():void{
+          focused = false;
+        });
+        input.element.addEventListener("keyboardFocus", function():void{
+          keyboardFocused = true;
+        });
+        input.element.addEventListener("keyboardBlur", function():void{
+          keyboardFocused = false;
+        });
+      }
     }
     override protected function loadBeads():void{
       super.loadBeads();
