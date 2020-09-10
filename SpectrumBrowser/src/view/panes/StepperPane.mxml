@@ -7,55 +7,25 @@ title="Stepper">
 </fx:Script>
 <comp:Variant header="Standard">
     <sp:Stepper placeholder="0" min="-2" max="2" step="0.5"/>
-    <sp:Stepper focused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper invalid = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper invalid="true" focused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper invalid="true" keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper disabled = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
+    <sp:Stepper disabled="true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
 </comp:Variant>
 
 <comp:Markup>
     <comp:StyledCode text='&lt;sp:Stepper placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper focused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper invalid = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper invalid = "true" focused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper invalid = "true" keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper disabled = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Stepper disabled="true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
 </comp:Markup>
 
 <comp:Variant header="Quiet">
-    <sp:Stepper quiet = "true" placeholder="0" min="-2" max="2" step="0.5"/>
-    <sp:Stepper quiet="true" focused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper quiet="true" keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper quiet = "true" invalid = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper quiet="true" invalid="true" focused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper quiet="true" invalid="true" keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
-    <sp:Stepper quiet = "true" disabled = "true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
+    <sp:Stepper quiet="true" placeholder="0" min="-2" max="2" step="0.5"/>
+    <sp:Stepper quiet="true" disabled="true" placeholder="0" min="-2" max="2" step="0.5" style="margin-top: 5px;"/>
 </comp:Variant>
 
 <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet="true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" focused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" invalid = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" invalid = "true" focused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" invalid = "true" keyboardFocused = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
-        <Br/>
-    <comp:StyledCode text='&lt;sp:Stepper quiet = "true" disabled = "true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet="true" disabled="true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
 </comp:Markup>
 </view:DemoPane>

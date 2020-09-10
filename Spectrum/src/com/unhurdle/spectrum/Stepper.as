@@ -201,20 +201,6 @@ package com.unhurdle.spectrum
     	_keyboardFocused = value;
     }
 
-    private var _invalid:Boolean;
-
-    public function get invalid():Boolean
-    {
-    	return _invalid;
-    }
-
-    public function set invalid(value:Boolean):void
-    {
-      if(value != _invalid){
-        toggle("is-invalid",value);
-      }
-    	_invalid = value;
-    }
     private var _disabled:Boolean;
 
     public function get disabled():Boolean
