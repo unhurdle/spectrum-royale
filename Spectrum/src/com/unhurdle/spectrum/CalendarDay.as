@@ -12,12 +12,6 @@ package com.unhurdle.spectrum
     {
       super();
       typeNames = "spectrum-Calendar-date";
-      addEventListener('focus',function():void{
-        isFocused = true;
-      });
-      addEventListener('blur',function():void{
-        isFocused = false;
-      });
     }
     private var _date:Date;
 
@@ -52,12 +46,12 @@ package com.unhurdle.spectrum
     }
     private var _isFocused:Boolean;
 
-    private function get isFocused():Boolean
+    public function get isFocused():Boolean
     {
     	return _isFocused;
     }
 
-    private function set isFocused(value:Boolean):void
+    public function set isFocused(value:Boolean):void
     {
       // if(value != !!_isFocused){
         // if(value){

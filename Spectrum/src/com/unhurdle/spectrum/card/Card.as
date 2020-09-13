@@ -17,12 +17,20 @@ package com.unhurdle.spectrum.card
     public function Card()
     {
       super();
-      addEventListener('focus',function():void{
-        toggle("is-focused",true);
-      });
-      addEventListener('blur',function():void{
-        toggle("is-focused",false);
-      });
+    }
+    private var _focused:Boolean;
+
+    public function get focused():Boolean
+    {
+    	return _focused;
+    }
+
+    public function set focused(value:Boolean):void
+    {
+      if(value != _focused){
+        toggle("is-focused",value);
+      }
+    	_focused = value;
     }
 
     private var _selected:Boolean;

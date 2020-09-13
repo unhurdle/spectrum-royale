@@ -10,7 +10,7 @@
     '    <sp:CardBody>\n'+
     '      <sp:CardHeader>\n'+
     '        <sp:CardTitle text="Card Title"/>\n'+
-    '        <sp:CardActionMenu localId="actionMenu" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1"/>\n'+
+    '        <sp:CardActionMenu localId="actionMenu" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1" change="changeFocus()"/>\n'+
     '      </sp:CardHeader>\n'+
     '      <sp:CardContent>\n'+
     '        <sp:CardSubtitle text="jpg"/>\n'+
@@ -36,7 +36,7 @@
     '      <sp:CardBody>\n'+
     '        <sp:CardHeader>\n'+
     '          <sp:CardTitle text="Name"/>\n'+
-    '          <sp:CardActionMenu localId="actionMenu2" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1"/>\n'+
+    '          <sp:CardActionMenu localId="actionMenu2" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1" change="changeFocus()"/>\n'+
     '        </sp:CardHeader>\n'+
     '        <sp:CardContent>\n'+
     '          <sp:CardSubtitle text="jpg"/>\n'+
@@ -165,7 +165,7 @@
     '    </sp:body>\n'+
     '    <sp:actions>\n'+
     '      <sp:QuickActions>\n'+
-    '        <sp:ActionMenu localId="actionMenu3" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1"/>\n'+
+    '        <sp:ActionMenu localId="actionMenu3" dataProvider="[\'Focused\',\'Unfocused\']" selectedIndex="1" change="changeFocus()"/>\n'+
     '      </sp:QuickActions>\n'+
     '    </sp:actions>\n'+
     '    <sp:quickActions>\n'+
@@ -176,6 +176,11 @@
     '  </sp:Card>\n'+
     '</Div>';
 
+      private function changeFocus():void{
+          card1.focused = actionMenu1.selectedIndex == 0;
+          card2.focused = actionMenu2.selectedIndex == 0;
+          card3.focused = actionMenu3.selectedIndex == 0;
+      }
     ]]>
   </fx:Script>
 
@@ -185,7 +190,7 @@
         <sp:CardBody>
           <sp:CardHeader>
             <sp:CardTitle text="Card Title"/>
-            <sp:CardActionMenu localId="actionMenu1" dataProvider="['Focused','Unfocused']" selectedIndex="1"/>
+            <sp:CardActionMenu localId="actionMenu1" dataProvider="['Focused','Unfocused']" selectedIndex="1" change="changeFocus()"/>
           </sp:CardHeader>
           <sp:CardContent>
             <sp:CardSubtitle text="jpg"/>
@@ -216,7 +221,7 @@
           <sp:CardBody>
             <sp:CardHeader>
               <sp:CardTitle text="Name"/>
-              <sp:CardActionMenu localId="actionMenu2" dataProvider="['Focused','Unfocused']" selectedIndex="1"/>
+              <sp:CardActionMenu localId="actionMenu2" dataProvider="['Focused','Unfocused']" selectedIndex="1" change="changeFocus()"/>
             </sp:CardHeader>
             <sp:CardContent>
               <sp:CardSubtitle text="jpg"/>
@@ -361,7 +366,7 @@
         </sp:body>
         <sp:actions>
           <sp:QuickActions>
-            <sp:ActionMenu localId="actionMenu3" dataProvider="['Focused','Unfocused']" selectedIndex="1"/>
+            <sp:ActionMenu localId="actionMenu3" dataProvider="['Focused','Unfocused']" selectedIndex="1" change="changeFocus()"/>
           </sp:QuickActions>
         </sp:actions>
         <sp:quickActions>

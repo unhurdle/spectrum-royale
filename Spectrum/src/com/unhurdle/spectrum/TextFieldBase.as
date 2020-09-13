@@ -23,18 +23,6 @@ package com.unhurdle.spectrum
     public function TextFieldBase()
     {
       super();
-      addEventListener('focus',function():void{
-        focused = true;
-      });
-      addEventListener('blur',function():void{
-        focused = false;
-      });
-      addEventListener('keyboardFocus',function():void{
-        keyboardFocused = true;
-      });
-      addEventListener('keyboardBlur',function():void{
-        keyboardFocused = false;
-      });
     }
     override protected function getSelector():String{
       return "spectrum-Textfield";
