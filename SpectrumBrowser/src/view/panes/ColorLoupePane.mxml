@@ -6,13 +6,9 @@
     <![CDATA[
     ]]>
   </fx:Script>
-  <fx:Script>
-    <![CDATA[
-    ]]>
-  </fx:Script>
   <comp:Variant>
     <Div>
-      <sp:ColorLoupe open="true" style="top:31%;left:15%"/>
+      <sp:ColorLoupe open="true" style="top:31%;left:15%"/><!--bottom:unset;left:unset;position: relative;-->
     </Div>
   </comp:Variant>
   <comp:Markup>
