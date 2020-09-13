@@ -10,6 +10,7 @@ package models
         "Accordion",
         "Action Bar",
         "Action Button",
+        "Action Group",
         "Action Menu",
         "Alert",
         "Asset",

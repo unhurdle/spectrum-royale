@@ -1,0 +1,240 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Action Group">
+  <fx:Script>
+    <![CDATA[
+      import com.unhurdle.spectrum.const.IconPrefix;
+      [Bindable]public var editIcon:String = IconPrefix._18 + "Edit";
+      [Bindable]public var copyIcon:String = IconPrefix._18 + "Copy";
+      [Bindable]public var deleteIcon:String = IconPrefix._18 + "Delete";
+
+      // [Bindable]public var edit:String = IconPrefix._18 + "Edit";
+      // [Bindable]public var copy:String = IconPrefix._18 + "Copy";
+      // [Bindable]public var delete:String = IconPrefix._18 + "Delete";
+
+
+      [Bindable]public var horizontalString:String = 
+      '<sp:ActionGroup>\n'+
+        '<sp:ActionButton text="Edit" />\n'+
+        '<sp:ActionButton text="Copy" />\n'+
+        '<sp:ActionButton text="Delete"/>\n'+
+      '</sp:ActionGroup>';
+
+
+      [Bindable]public var horizontalIconString:String = 
+      '<sp:ActionGroup>\n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton iicon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var horizontalQuietIconString:String = 
+      '<sp:ActionGroup quiet=true>\n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton iicon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var horizontalCompactString:String = 
+      '<sp:ActionGroup compact=true >\n'+
+        '<sp:ActionButton text="Edit" />\n'+
+        '<sp:ActionButton text="Copy" />\n'+
+        '<sp:ActionButton text="Delete"/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var horizontalCompactIconString:String = 
+      '<sp:ActionGroup compact=true>\n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton iicon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var horizontalCompactQuietIconString:String = 
+      '<sp:ActionGroup quiet=true>\n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton iicon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var verticalString:String = 
+      '<sp:ActionGroup>\n'+
+        '<sp:ActionButton text="Edit" />\n'+
+        '<sp:ActionButton text="Copy" />\n'+
+        '<sp:ActionButton text="Delete"/>\n'+
+      '</sp:ActionGroup>';
+
+
+      [Bindable]public var verticalIconString:String = 
+      '<sp:ActionGroup vertical=true>\n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton icon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var verticalQuietIconString:String = 
+      '<sp:ActionGroup quiet=true vertical=true>\n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton icon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var verticalCompactString:String = 
+      '<sp:ActionGroup vertical=true compact=true >\n'+
+        '<sp:ActionButton text="Edit" />\n'+
+        '<sp:ActionButton text="Copy" />\n'+
+        '<sp:ActionButton text="Delete"/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var verticalCompactIconString:String = 
+      '<sp:ActionGroup vertical=true compact=true>\n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton icon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var verticalCompactQuietIconString:String = 
+      '<sp:ActionGroup vertical=true quiet=true> \n'+
+        '<sp:ActionButton icon="{editIcon}" />\n'+
+        '<sp:ActionButton icon="{copyIcon}" />\n'+
+        '<sp:ActionButton icon="{deleteIcon}/>\n'+
+      '</sp:ActionGroup>';
+
+
+    ]]>
+  </fx:Script>
+  <comp:Variant header="Horizontal">
+  <sp:ActionGroup>
+    <sp:ActionButton text="Edit" />
+    <sp:ActionButton text="Copy" />
+    <sp:ActionButton text="Delete"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{horizontalString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Horizontal icon-only">
+  <sp:ActionGroup>
+    <sp:ActionButton icon="{editIcon}" />
+    <sp:ActionButton icon="{copyIcon}" />
+    <sp:ActionButton icon="{deleteIcon}"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{horizontalIconString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Horizontal quiet,icon-only">
+  <sp:ActionGroup quiet="true">
+    <sp:ActionButton icon="{editIcon}" quiet="true"/>
+    <sp:ActionButton icon="{copyIcon}" quiet="true"/>
+    <sp:ActionButton icon="{deleteIcon}" quiet="true"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{horizontalQuietIconString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Horizontal compact">
+  <sp:ActionGroup compact="true">
+    <sp:ActionButton text="Edit"/>
+    <sp:ActionButton text="Copy"/>
+    <sp:ActionButton text="Delete"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{horizontalCompactString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Horizontal compact,icon-only">
+  <sp:ActionGroup compact="true">
+    <sp:ActionButton icon="{editIcon}" />
+    <sp:ActionButton icon="{copyIcon}" />
+    <sp:ActionButton icon="{deleteIcon}"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{horizontalCompactIconString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Horizontal compact,quiet,icon-only">
+  <sp:ActionGroup compact="true" quiet="true">
+    <sp:ActionButton icon="{editIcon}" />
+    <sp:ActionButton icon="{copyIcon}" />
+    <sp:ActionButton icon="{deleteIcon}"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{horizontalCompactQuietIconString}'/>
+  </comp:Markup>
+
+
+<comp:Variant header="Vertical">
+  <sp:ActionGroup vertical="true">
+    <sp:ActionButton text="Edit"/>
+    <sp:ActionButton text="Copy"/>
+    <sp:ActionButton text="Delete"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{verticalString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical icon-only">
+  <sp:ActionGroup vertical="true">
+    <sp:ActionButton icon="{editIcon}" />
+    <sp:ActionButton icon="{copyIcon}" />
+    <sp:ActionButton icon="{deleteIcon}"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{verticalIconString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical quiet,icon-only">
+  <sp:ActionGroup vertical="true" quiet="true">
+    <sp:ActionButton icon="{editIcon}" quiet="true"/>
+    <sp:ActionButton icon="{copyIcon}" quiet="true"/>
+    <sp:ActionButton icon="{deleteIcon}" quiet="true"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{verticalQuietIconString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical compact">
+  <sp:ActionGroup vertical="true" compact="true">
+    <sp:ActionButton text="Edit"/>
+    <sp:ActionButton text="Copy"/>
+    <sp:ActionButton text="Delete"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{verticalCompactString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical compact,icon-only">
+  <sp:ActionGroup vertical="true" compact="true">
+    <sp:ActionButton icon="{editIcon}" />
+    <sp:ActionButton icon="{copyIcon}" />
+    <sp:ActionButton icon="{deleteIcon}"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{verticalCompactIconString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Vertical compact,quiet,icon-only">
+  <sp:ActionGroup vertical="true" compact="true" quiet="true">
+    <sp:ActionButton icon="{editIcon}" />
+    <sp:ActionButton icon="{copyIcon}" />
+    <sp:ActionButton icon="{deleteIcon}"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{verticalCompactQuietIconString}'/>
+  </comp:Markup>
+
+  
+</view:DemoPane>

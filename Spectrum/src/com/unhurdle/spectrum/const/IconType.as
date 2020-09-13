@@ -38,5 +38,9 @@ package com.unhurdle.spectrum.const
     public static const TRIPLE_GRIPPER:String = "TripleGripper"      
     public static const VIEW_LIST:String = "viewList"      
     public static const VIEW_GRID:String = "viewGrid"      
+    public static const VIEW_CARD:String = "viewCard"      
+    public static const EDIT:String = "viewCard"      
+    public static const COPY:String = "viewCard"      
+    public static const DELETE:String = "viewCard"      
   }
 }

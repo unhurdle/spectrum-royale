@@ -25,6 +25,7 @@
   <js:RouteToComponent id="componentRouter">
     <js:ComponentRoute title="Accordion" component="view.panes.AccordionPane" baseName="accordion" defaultRoute="true"/>
     <js:ComponentRoute title="Action Bar" component="view.panes.ActionBarPane" baseName="action_bar"/>
+    <js:ComponentRoute title="Action Group" component="view.panes.ActionGroupPane" baseName="action_group"/>
     <js:ComponentRoute title="Action Button" component="view.panes.ActionButtonPane" baseName="action_button"/>
     <js:ComponentRoute title="Action Menu" component="view.panes.ActionMenuPane" baseName="action_menu"/>
     <js:ComponentRoute title="Alert" component="view.panes.AlertPane" baseName="alert"/>

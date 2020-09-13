@@ -5,6 +5,7 @@
     <component id="AccordionSection" class="com.unhurdle.spectrum.AccordionSection"/>
     <component id="ActionBar" class="com.unhurdle.spectrum.ActionBar"/>
     <component id="ActionButton" class="com.unhurdle.spectrum.ActionButton"/>
+    <component id="ActionGroup" class="com.unhurdle.spectrum.ActionGroup"/>
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
