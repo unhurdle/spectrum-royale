@@ -16,10 +16,7 @@ package com.unhurdle.spectrum
      */
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:SVGElement = newSVGElement("svg","");
-      elem.setAttribute("focusable", false);
-      elem.setAttribute("aria-hidden",true);
-      element = elem as WrappedHTMLElement;
+      element = newIconSVG("") as WrappedHTMLElement;
       return element;
     }
   }

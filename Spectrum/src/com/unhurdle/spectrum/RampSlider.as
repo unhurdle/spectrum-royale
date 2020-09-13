@@ -23,10 +23,9 @@ package com.unhurdle.spectrum
         controlsContainer = newElement("div",appendSelector("-controls"));
         var ramp:HTMLDivElement = newElement("div") as HTMLDivElement;
         ramp.className = appendSelector("-ramp");
-        var svgElement:SVGElement = newSVGElement("svg","");
+        var svgElement:SVGElement = newIconSVG("");
         var pathElement:SVGPathElement = newSVGElement("path","") as SVGPathElement;
         pathElement.setAttribute("d","M240,4v8c0,2.3-1.9,4.1-4.2,4L1,9C0.4,9,0,8.5,0,8c0-0.5,0.4-1,1-1l234.8-7C238.1-0.1,240,1.7,240,4z");
-        svgElement.setAttribute("focusable",false);
         svgElement.setAttribute("viewBox","0 0 240 16");
         svgElement.setAttribute("preserveAspectRatio","none");
         svgElement.setAttribute("aria-hidden",true);

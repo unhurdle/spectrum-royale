@@ -120,9 +120,7 @@ package com.unhurdle.spectrum
      */
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-      var elem:SVGElement = newSVGElement("svg","");
-      elem.setAttribute("focusable", false);
-      elem.setAttribute("aria-hidden",true);
+      var elem:SVGElement = newIconSVG("");
       useElement = newSVGElement("use","") as SVGUseElement;
       useElement.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', selector);
       elem.appendChild(useElement);

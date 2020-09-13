@@ -246,5 +246,22 @@ package com.unhurdle.spectrum
       element.appendChild(textNode.element);
       return element;
     }
+
+    private var _tabDisabled:Boolean;
+
+    public function get tabDisabled():Boolean
+    {
+    	return _tabDisabled;
+    }
+
+    public function set tabDisabled(value:Boolean):void
+    {
+      if(value){
+        setAttribute("tabindex","-1");
+      } else{
+        removeAttribute("tabindex");
+      }
+    	_tabDisabled = value;
+    }
   }
 }

@@ -58,7 +58,6 @@ package com.unhurdle.spectrum
       datePicker.type = "hidden";
       
       var svgElement:SVGIcon = new SVGIcon();
-      svgElement.setAttribute("focusable",false);
       svgElement.setAttribute("viewBox","0 0 36 36");
       svgElement.setAttribute("role","img");
       

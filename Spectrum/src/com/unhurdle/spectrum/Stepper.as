@@ -37,11 +37,11 @@ package com.unhurdle.spectrum
       return input.focusElement;
     }
 
-    private function button1Clicked(event:Event):void{
+    private function upButtonClicked(event:Event):void{
       event.preventDefault();
       nudgeValue(true);
     }
-    private function button2Clicked(event:Event):void{
+    private function downButtonClicked(event:Event):void{
       event.preventDefault();
       nudgeValue(false);
     }
@@ -68,8 +68,8 @@ package com.unhurdle.spectrum
     }
     
     private var input:NumberField;
-    private var button1:FieldButton;
-    private var button2:FieldButton;
+    private var upButton:FieldButton;
+    private var downButton:FieldButton;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -86,22 +86,22 @@ package com.unhurdle.spectrum
       var span:Span = new Span();
       // var span:HTMLSpanElement = newElement("span") as HTMLSpanElement;
       span.className = appendSelector("-buttons");
-      button1 = new FieldButton();
-      button1.className = appendSelector("-stepUp");
-      var type:String = IconType.CHEVRON_UP_SMALL;
-      button1.icon = Icon.getCSSTypeSelector(type);
-      button1.iconType = type;
-      button1.addEventListener(MouseEvent.CLICK,button1Clicked);
-      span.addElement(button1);
-      button2 = new FieldButton();
-      button2.className = appendSelector("-stepDown");
-      type = IconType.CHEVRON_DOWN_SMALL
-      button2.icon = Icon.getCSSTypeSelector(type);
-      button2.iconType = type;
-      button2.addEventListener(MouseEvent.CLICK,button2Clicked);
-      span.addElement(button2);
+      upButton = getButton("-stepUp",IconType.CHEVRON_UP_SMALL);
+      upButton.addEventListener(MouseEvent.CLICK,upButtonClicked);
+      span.addElement(upButton);
+      downButton = getButton("-stepDown",IconType.CHEVRON_DOWN_SMALL);
+      downButton.addEventListener(MouseEvent.CLICK,downButtonClicked);
+      span.addElement(downButton);
       addElement(span);
       return elem;
+    }
+    private function getButton(selector:String,type:String):FieldButton{
+      var button:FieldButton = new FieldButton();
+      button.tabDisabled = true;
+      button.className = appendSelector(selector);
+      button.icon = Icon.getCSSTypeSelector(type);
+      button.iconType = type;
+      return button;
     }
     public function get placeholder():String
     {
@@ -198,8 +198,8 @@ package com.unhurdle.spectrum
       if(value != !!_disabled){
         toggle("is-disabled",value);
         input.disabled = value;
-        button1.disabled = value;
-        button2.disabled = value;
+        upButton.disabled = value;
+        downButton.disabled = value;
       }
     	_disabled = value;
     }
@@ -215,8 +215,8 @@ package com.unhurdle.spectrum
       if(value != !!_quiet){
         toggle(valueToSelector("quiet"),value);
         input.quiet = value;
-        button1.quiet = value;
-        button2.quiet = value;
+        upButton.quiet = value;
+        downButton.quiet = value;
       }
     	_quiet = value;
     }
