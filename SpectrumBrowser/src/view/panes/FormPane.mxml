@@ -21,7 +21,17 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Country"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Picker placeholder="Select a Country"/>\n'+
+        '      <sp:Picker placeholder="Select a Country">\n'+
+        '        <sp:dataProvider>\n'+
+        '          <fx:Array>\n'+
+        '            <sp:MenuItem text="Ballard"/>\n'+
+        '            <sp:MenuItem text="Freemont"/>\n'+
+        '            <sp:MenuItem text="Greenwood"/>\n'+
+        '            <sp:MenuItem isDivider="true"/>\n'+
+        '            <sp:MenuItem text="United States of America" disabled="true"/>\n'+
+        '          </fx:Array>\n'+
+        '        </sp:dataProvider>\n'+
+        '      </sp:Picker>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '  <sp:FormItem>\n'+
@@ -62,7 +72,17 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Country"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Picker placeholder="Select a Country"/>\n'+
+        '      <sp:Picker placeholder="Select a Country">\n'+
+        '        <sp:dataProvider>\n'+
+        '          <fx:Array>\n'+
+        '            <sp:MenuItem text="Ballard"/>\n'+
+        '            <sp:MenuItem text="Freemont"/>\n'+
+        '            <sp:MenuItem text="Greenwood"/>\n'+
+        '            <sp:MenuItem isDivider="true"/>\n'+
+        '            <sp:MenuItem text="United States of America" disabled="true"/>\n'+
+        '          </fx:Array>\n'+
+        '        </sp:dataProvider>\n'+
+        '      </sp:Picker>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '  <sp:FormItem>\n'+
@@ -103,7 +123,17 @@
         '  <sp:FormItem>\n'+
         '    <sp:FormLabel text="Country"/>\n'+
         '    <sp:FormField>\n'+
-        '      <sp:Picker placeholder="Select a Country"/>\n'+
+        '      <sp:Picker placeholder="Select a Country">\n'+
+        '        <sp:dataProvider>\n'+
+        '          <fx:Array>\n'+
+        '            <sp:MenuItem text="Ballard"/>\n'+
+        '            <sp:MenuItem text="Freemont"/>\n'+
+        '            <sp:MenuItem text="Greenwood"/>\n'+
+        '            <sp:MenuItem isDivider="true"/>\n'+
+        '            <sp:MenuItem text="United States of America" disabled="true"/>\n'+
+        '          </fx:Array>\n'+
+        '        </sp:dataProvider>\n'+
+        '      </sp:Picker>\n'+
         '    </sp:FormField>\n'+
         '  </sp:FormItem>\n'+
         '  <sp:FormItem>\n'+
@@ -145,7 +175,17 @@
       <sp:FormItem>
         <sp:FormLabel text="Country"/>
         <sp:FormField>
-          <sp:Picker placeholder="Select a Country"/>
+          <sp:Picker placeholder="Select a Country">
+            <sp:dataProvider>
+              <fx:Array>
+                <sp:MenuItem text="Ballard"/>
+                <sp:MenuItem text="Freemont"/>
+                <sp:MenuItem text="Greenwood"/>
+                <sp:MenuItem isDivider="true"/>
+                <sp:MenuItem text="United States of America" disabled="true"/>
+              </fx:Array>
+            </sp:dataProvider>
+          </sp:Picker>
         </sp:FormField>
       </sp:FormItem>
       <sp:FormItem>
@@ -191,7 +231,17 @@
       <sp:FormItem>
         <sp:FormLabel text="Country"/>
         <sp:FormField>
-          <sp:Picker placeholder="Select a Country"/>
+          <sp:Picker placeholder="Select a Country">
+            <sp:dataProvider>
+              <fx:Array>
+                <sp:MenuItem text="Ballard"/>
+                <sp:MenuItem text="Freemont"/>
+                <sp:MenuItem text="Greenwood"/>
+                <sp:MenuItem isDivider="true"/>
+                <sp:MenuItem text="United States of America" disabled="true"/>
+              </fx:Array>
+            </sp:dataProvider>
+          </sp:Picker>
         </sp:FormField>
       </sp:FormItem>
       <sp:FormItem>
@@ -237,7 +287,17 @@
       <sp:FormItem>
         <sp:FormLabel text="Country"/>
         <sp:FormField>
-          <sp:Picker placeholder="Select a Country"/>
+          <sp:Picker placeholder="Select a Country">
+            <sp:dataProvider>
+              <fx:Array>
+                <sp:MenuItem text="Ballard"/>
+                <sp:MenuItem text="Freemont"/>
+                <sp:MenuItem text="Greenwood"/>
+                <sp:MenuItem isDivider="true"/>
+                <sp:MenuItem text="United States of America" disabled="true"/>
+              </fx:Array>
+            </sp:dataProvider>
+          </sp:Picker>
         </sp:FormField>
       </sp:FormItem>
       <sp:FormItem>
