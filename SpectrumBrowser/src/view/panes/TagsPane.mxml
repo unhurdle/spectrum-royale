@@ -5,43 +5,52 @@
   title="Tags" notes="A list of tags.">
   <fx:Script>
     <![CDATA[
-        [Bindable]public var codeString1:String =
-        '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Tag 1"/>\n'+
-        '    <sp:Tag text="Tag 2" invalid="true"/>\n'+
-        '    <sp:Tag text="Tag 3" isDisabled="true"/>\n'+
-        '</sp:TagGroup>\n'+
-        '<Br/><Br/>\n'+
-        '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
-        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
-        '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
-        '</sp:TagGroup>\n'+
-        '<Br/><Br/>\n'+
-        '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Shantanu" src=""/>\n'+
-        '    <sp:Tag text="Shantanu" src="" invalid="true"/>\n'+
-        '    <sp:Tag text="Shantanu" src="" isDisabled="true"/>\n'+
-        '</sp:TagGroup>';
-        [Bindable]public var codeString2:String =
-        '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Tag 1" deletable="true"/>\n'+
-        '    <sp:Tag text="Tag 2" deletable="true" invalid="true"/>\n'+
-        '    <sp:Tag text="Tag 3" deletable="true" isDisabled="true"/>\n'+
-        '</sp:TagGroup>\n'+
-        '<Br/><Br/>\n'+
-        '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
-        '</sp:TagGroup>\n'+
-        '<Br/><Br/>\n'+
-        '<sp:TagGroup>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src=""/>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="" invalid="true"/>\n'+
-        '    <sp:Tag text="Shantanu" deletable="true" src="" isDisabled="true"/>\n'+
-        '</sp:TagGroup>';
-    ]]>
+      import com.unhurdle.spectrum.const.IconPrefix;
+
+      [Bindable]public var iconSelector:String = IconPrefix._24 + "SentimentPositive";
+      [Bindable]public var codeString1:String =
+      '[Bindable]public var iconSelector:String = IconPrefix._24 + "SentimentPositive";\n'+
+      '\n'+
+      '\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Tag 1"/>\n'+
+      '    <sp:Tag text="Tag 2" invalid="true"/>\n'+
+      '    <sp:Tag text="Tag 3" isDisabled="true"/>\n'+
+      '</sp:TagGroup>\n'+
+      '<Br/><Br/>\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
+      '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
+      '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
+      '</sp:TagGroup>\n'+
+      '<Br/><Br/>\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Shantanu" icon="{iconSelector}"/>\n'+
+      '    <sp:Tag text="Shantanu" icon="{iconSelector}" invalid="true"/>\n'+
+      '    <sp:Tag text="Shantanu" icon="{iconSelector}" isDisabled="true"/>\n'+
+      '</sp:TagGroup>';
+      [Bindable]public var codeString2:String =
+      '[Bindable]public var iconSelector:String = IconPrefix._24 + "SentimentPositive";\n'+
+      '\n'+
+      '\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Tag 1" deletable="true"/>\n'+
+      '    <sp:Tag text="Tag 2" deletable="true" invalid="true"/>\n'+
+      '    <sp:Tag text="Tag 3" deletable="true" isDisabled="true"/>\n'+
+      '</sp:TagGroup>\n'+
+      '<Br/><Br/>\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
+      '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
+      '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
+      '</sp:TagGroup>\n'+
+      '<Br/><Br/>\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}"/>\n'+
+      '    <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}" invalid="true"/>\n'+
+      '    <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}" isDisabled="true"/>\n'+
+      '</sp:TagGroup>';
+  ]]>
   </fx:Script>
   <comp:Variant>
     <sp:TagGroup>
@@ -57,9 +66,9 @@
     </sp:TagGroup>
     <Br/><Br/>
     <sp:TagGroup>
-        <sp:Tag text="Shantanu" src=""/>
-        <sp:Tag text="Shantanu" src="" invalid="true"/>
-        <sp:Tag text="Shantanu" src="" isDisabled="true"/>
+        <sp:Tag text="Shantanu" icon="{iconSelector}"/>
+        <sp:Tag text="Shantanu" icon="{iconSelector}" invalid="true"/>
+        <sp:Tag text="Shantanu" icon="{iconSelector}" isDisabled="true"/>
     </sp:TagGroup>
   </comp:Variant>
   <comp:Markup>
@@ -79,9 +88,9 @@
     </sp:TagGroup>
     <Br/><Br/>
     <sp:TagGroup>
-        <sp:Tag text="Shantanu" deletable="true" src=""/>
-        <sp:Tag text="Shantanu" deletable="true" src="" invalid="true"/>
-        <sp:Tag text="Shantanu" deletable="true" src="" isDisabled="true"/>
+        <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}"/>
+        <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}" invalid="true"/>
+        <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}" isDisabled="true"/>
     </sp:TagGroup>
   </comp:Variant>
   <comp:Markup>
