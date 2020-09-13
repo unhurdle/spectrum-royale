@@ -51,7 +51,6 @@ package com.unhurdle.spectrum
     }
 
     private var imageElement:Avatar;
-    private var icon:Icon;
     public function set src(value:String):void
     {
       if(value == _src){
@@ -59,24 +58,36 @@ package com.unhurdle.spectrum
       }
       var elem:HTMLElement = element as HTMLElement;
       if(value){
-        if(icon){
-          removeElement(icon);
-          icon = null;
-        }
         if(!imageElement){
           imageElement = new Avatar();
           addElementAt(imageElement,0);
         }
         imageElement.src = value;
       }
-      else{
-        if(!icon){
-          icon = new Icon(IconPrefix._24 + "SentimentPositive");
-          icon.size = IconSize.XS;
-        }
-        addElementAt(icon,0);
-      }
     	_src = value;
+    }
+    private var _icon:String;
+    private var iconElement:Icon;
+
+    /**
+     * Icon selector name
+     */
+    public function get icon():String
+    {
+    	return _icon;
+    }
+
+    public function set icon(value:String):void
+    {
+    	_icon = value;
+      if(iconElement){
+        iconElement.selector = value;
+        iconElement.size = 'XS';
+      } else {
+        iconElement = new Icon(value);
+        iconElement.size = 'XS';
+        addElementAt(iconElement,0);
+      }
     }
     private var _isDisabled:Boolean;
 
