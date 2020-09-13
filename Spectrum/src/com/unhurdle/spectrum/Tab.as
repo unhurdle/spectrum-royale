@@ -21,8 +21,6 @@ package com.unhurdle.spectrum
       return getTabsSelector() + "-item";
     }
     private var label:TextNode;
-    private var icon:Icon;
-    private var _iconType:String;
     private var overflowButton:HTMLElement;
     private var overflowIcon:Icon;
     private var _text:String;
@@ -38,34 +36,29 @@ package com.unhurdle.spectrum
       label.text = _text;
     }
 
-    public function get iconType():String
+    private var _icon:String;
+    private var iconElement:Icon;
+
+    /**
+     * Icon selector name
+     */
+    public function get icon():String
     {
-    	return _iconType;
+    	return _icon;
     }
 
-    [Inspectable(category="General", enumeration="Folder,Image,Filter,Comment")]
-    public function set iconType(value:String):void
+    public function set icon(value:String):void
     {
-      if(value){
-        switch(value){
-          case "Folder":
-          case "Image":
-          case "Filter":
-          case "Comment":
-            break;
-          default:
-            throw new Error("Invalid icon: " + value);
-        }
-      icon = new Icon(IconPrefix._18 + value); //allow the user to specify an icon..
-      icon.size = IconSize.S;
-      COMPILE::JS{
-        element.insertBefore(icon.element, element.childNodes[0] || null);
+    	_icon = value;
+      if(iconElement){
+        iconElement.selector = value;
+        iconElement.size = 'S';
+      } else {
+        iconElement = new Icon(value);
+        iconElement.size = 'S';
+        addElementAt(iconElement,0);
       }
-      icon.addedToParent(); 
-      }
-      _iconType = value;
     }
-
     private var _selected:Boolean;
 
     public function get selected():Boolean
@@ -147,7 +140,7 @@ package com.unhurdle.spectrum
         styleStr = "height: 46px; top: 0px;";
         }
           else{
-            if(icon && text){
+            if(iconElement && text){
               styleStr = "width: 45px; left: 0px;";              
             }else{
               styleStr = "width: 27px; left: 0px;";

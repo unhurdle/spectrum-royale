@@ -5,9 +5,23 @@
   title="Tabs">
   <fx:Script>
     <![CDATA[
+      import com.unhurdle.spectrum.const.IconPrefix;
+
       [Bindable]public var provider:Array = ["Tab 1","Tab 2","Tab 3","Tab 4"];
+      [Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";
+      [Bindable]public var imageIcon:String = IconPrefix._18 + "Image";
+      [Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";
+      [Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";
       private const codeString1:String = '<sp:TabOverflow dataProvider="{provider}"/>';
       private const codeString2:String = '<sp:TabOverflow compact="true" dataProvider="{provider}"/>';
+      private const codeStringFolderIcon:String = '    <sp:Tab icon="{folderIcon}"/>';
+      private const codeStringFolderWithText:String = '    <sp:Tab text="Tab1" icon="{folderIcon}"/>';
+      private const codeStringImageIcon:String = '    <sp:Tab icon="{ImageIcon}" selected="true"/>';
+      private const codeStringImageWithText:String = '    <sp:Tab text="Tab1" icon="{ImageIcon}" selected="true"/>';
+      private const codeStringFilterIcon:String = '    <sp:Tab icon="{FilterIcon}"/>';
+      private const codeStringFilterWithText:String = '    <sp:Tab text="Tab1" icon="{FilterIcon}"/>';
+      private const codeStringCommentIcon:String = '    <sp:Tab icon="{CommentIcon}"/>';
+      private const codeStringCommentWithText:String = '    <sp:Tab text="Tab1" icon="{CommentIcon}"/>';
     ]]>
   </fx:Script>
   <comp:Variant header="Basic tabs">
@@ -35,23 +49,32 @@
 
   <comp:Variant header="Tabs with icons">
   <sp:TabBar>
-    <sp:Tab text="Tab1" iconType="Folder"/>
-    <sp:Tab text="Tab2" iconType="Image" selected="true"/>
-    <sp:Tab text="Tab3" iconType="Filter"/>
-    <sp:Tab text="Tab4" iconType="Comment"/>
+    <sp:Tab text="Tab1" icon="{folderIcon}"/>
+    <sp:Tab text="Tab2" icon="{imageIcon}" selected="true"/>
+    <sp:Tab text="Tab3" icon="{filterIcon}"/>
+    <sp:Tab text="Tab4" icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab1" iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab2" iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab3" iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab4" iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentWithText}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
@@ -81,23 +104,32 @@
 
   <comp:Variant header="Quiet tabs with icons">
   <sp:TabBar quiet="true">
-    <sp:Tab text="Tab1" iconType="Folder"/>
-    <sp:Tab text="Tab2" iconType="Image" selected="true"/>
-    <sp:Tab text="Tab3" iconType="Filter"/>
-    <sp:Tab text="Tab4" iconType="Comment"/>
+    <sp:Tab text="Tab1" icon="{folderIcon}"/>
+    <sp:Tab text="Tab2" icon="{imageIcon}" selected="true"/>
+    <sp:Tab text="Tab3" icon="{filterIcon}"/>
+    <sp:Tab text="Tab4" icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar quiet="true"&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab1" iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab2" iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab3" iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab4" iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentWithText}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
@@ -127,46 +159,64 @@
 
   <comp:Variant header="Compact tabs with icons and text">
   <sp:TabBar compact="true">
-    <sp:Tab text="Tab1" iconType="Folder"/>
-    <sp:Tab text="Tab2" iconType="Image" selected="true"/>
-    <sp:Tab text="Tab3" iconType="Filter"/>
-    <sp:Tab text="Tab4" iconType="Comment"/>
+    <sp:Tab text="Tab1" icon="{folderIcon}"/>
+    <sp:Tab text="Tab2" icon="{imageIcon}" selected="true"/>
+    <sp:Tab text="Tab3" icon="{filterIcon}"/>
+    <sp:Tab text="Tab4" icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar compact="true"&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab1" iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab2" iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab3" iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab4" iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentWithText}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Compact tabs with icons">
   <sp:TabBar compact="true">
-    <sp:Tab iconType="Folder"/>
-    <sp:Tab iconType="Image" selected="true"/>
-    <sp:Tab iconType="Filter"/>
-    <sp:Tab iconType="Comment"/>
+    <sp:Tab icon="{folderIcon}"/>
+    <sp:Tab icon="{imageIcon}" selected="true"/>
+    <sp:Tab icon="{filterIcon}"/>
+    <sp:Tab icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar compact="true"&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderIcon}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageIcon}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterIcon}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentIcon}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
@@ -196,46 +246,64 @@
 
   <comp:Variant header="Compact tabs with icons and text (quiet)">
   <sp:TabBar compact="true" quiet="true">
-    <sp:Tab text="Tab1" iconType="Folder"/>
-    <sp:Tab text="Tab2" iconType="Image" selected="true"/>
-    <sp:Tab text="Tab3" iconType="Filter"/>
-    <sp:Tab text="Tab4" iconType="Comment"/>
+    <sp:Tab text="Tab1" icon="{folderIcon}"/>
+    <sp:Tab text="Tab2" icon="{imageIcon}" selected="true"/>
+    <sp:Tab text="Tab3" icon="{filterIcon}"/>
+    <sp:Tab text="Tab4" icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar compact="true" quiet="true"&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab1" iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab2" iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab3" iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab4" iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentWithText}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Compact tabs with icons only (quiet)">
   <sp:TabBar compact="true" quiet="true">
-    <sp:Tab iconType="Folder"/>
-    <sp:Tab iconType="Image" selected="true"/>
-    <sp:Tab iconType="Filter"/>
-    <sp:Tab iconType="Comment"/>
+    <sp:Tab icon="{folderIcon}"/>
+    <sp:Tab icon="{imageIcon}" selected="true"/>
+    <sp:Tab icon="{filterIcon}"/>
+    <sp:Tab icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar compact="true" quiet="true"&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderIcon}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageIcon}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterIcon}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentIcon}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
@@ -265,23 +333,32 @@
 
   <comp:Variant header="Vertical tabs with icons and text">
   <sp:TabBar vertical="true">
-    <sp:Tab text="Tab1" iconType="Folder"/>
-    <sp:Tab text="Tab2" iconType="Image" selected="true"/>
-    <sp:Tab text="Tab3" iconType="Filter"/>
-    <sp:Tab text="Tab4" iconType="Comment"/>
+    <sp:Tab text="Tab1" icon="{folderIcon}"/>
+    <sp:Tab text="Tab2" icon="{imageIcon}" selected="true"/>
+    <sp:Tab text="Tab3" icon="{filterIcon}"/>
+    <sp:Tab text="Tab4" icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar vertical="true"&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab1" iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab2" iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab3" iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab4" iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentWithText}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
@@ -311,23 +388,32 @@
 
   <comp:Variant header="Compact vertical tabs with icons and text">
   <sp:TabBar vertical="true" compact="true">
-    <sp:Tab text="Tab1" iconType="Folder"/>
-    <sp:Tab text="Tab2" iconType="Image" selected="true"/>
-    <sp:Tab text="Tab3" iconType="Filter"/>
-    <sp:Tab text="Tab4" iconType="Comment"/>
+    <sp:Tab text="Tab1" icon="{folderIcon}"/>
+    <sp:Tab text="Tab2" icon="{imageIcon}" selected="true"/>
+    <sp:Tab text="Tab3" icon="{filterIcon}"/>
+    <sp:Tab text="Tab4" icon="{commentIcon}"/>
   </sp:TabBar>
   </comp:Variant>
 
   <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var folderIcon:String = IconPrefix._18 + "Folder";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var imageIcon:String = IconPrefix._18 + "Image";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var filterIcon:String = IconPrefix._18 + "Filter";'/>
+    <Br/>
+    <comp:StyledCode text='[Bindable]public var commentIcon:String = IconPrefix._18 + "Comment";'/>
+    <Br/>
+    <Br/><Br/>
     <comp:StyledCode text='&lt;sp:TabBar vertical="true" compact="true"&gt;'/> 
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab1" iconType="Folder"/&gt;'/>
+    <comp:StyledCode text='{codeStringFolderWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab2" iconType="Image" selected="true"/&gt;'/>
+    <comp:StyledCode text='{codeStringImageWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab3" iconType="Filter"/&gt;'/>
+    <comp:StyledCode text='{codeStringFilterWithText}'/>
     <Br/>
-    <comp:StyledCode text='    &lt;sp:Tab text="Tab4" iconType="Comment"/&gt;'/>
+    <comp:StyledCode text='{codeStringCommentWithText}'/>
     <Br/>
     <comp:StyledCode text='&lt;/sp:TabBar&gt;'/>
   </comp:Markup>
