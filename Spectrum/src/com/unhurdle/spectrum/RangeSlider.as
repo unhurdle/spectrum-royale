@@ -129,13 +129,24 @@ package com.unhurdle.spectrum
       middleTrack.style.right = (100 - endPercent) + '%';
       rightTrack.style.width = (100 - endPercent) + '%';
 		}
+    private var handle:Object;
+
+    COMPILE::JS
+    override protected function onMouseDown(e:MouseEvent):void{
+      super.onMouseDown(e);
+      handle = e.target;
+    }
+    
+    override protected function onMouseUp():void{
+      super.onMouseUp();
+      handle = null;
+    }
 
     COMPILE::JS
     override protected function onMouseMove(e:MouseEvent):void{
       if(disabled){
           return;
       }
-      var handle:Object = e.target;
       var sliderOffsetWidth:Number = element.offsetWidth;
       
       var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
