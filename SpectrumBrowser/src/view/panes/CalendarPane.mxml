@@ -28,8 +28,15 @@
     <comp:StyledCode text='&lt;sp:Calendar/&gt;'/>
   </comp:Markup>
 
+  <comp:Variant header="Narrow Headers">
+    <sp:Calendar useNarrowHeaders="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:Calendar useNarrowHeaders="true"/&gt;'/>
+  </comp:Markup>
+
   <comp:Variant header="Disabled">
-    <sp:Calendar disabled="true" />
+    <sp:Calendar disabled="true"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:Calendar disabled="true"/&gt;'/>

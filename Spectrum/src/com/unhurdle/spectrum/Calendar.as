@@ -15,6 +15,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.elements.Table;
     import org.apache.royale.html.elements.Tbody;
     import org.apache.royale.html.elements.Div;
+    import com.unhurdle.spectrum.utils.DateUtil;
  
 
     [Event(name="dayNamesChanged ", type="org.apache.royale.events.Event")]
@@ -61,6 +62,26 @@ package com.unhurdle.spectrum
         private var _endDate:Date;
         private var displayedDates:Vector.<CalendarDay>;
 
+        private var _useNarrowHeaders:Boolean = false;
+
+        public function get useNarrowHeaders():Boolean
+        {
+        	return _useNarrowHeaders;
+        }
+
+        public function set useNarrowHeaders(value:Boolean):void
+        {
+        	_useNarrowHeaders = value;
+        }
+
+        private function getWeekdays(i:int):String
+        {
+            if(useNarrowHeaders){
+                return datePickerModel.narrowDayNames[i]; 
+            }
+            return datePickerModel.shortDayNames[i]; 
+        }
+
         public function get disabled():Boolean
         {
             return _disabled;
@@ -77,62 +98,34 @@ package com.unhurdle.spectrum
         {
             return datePickerModel.dayNames;
         }
-           
-        public function set dayNames(value:Array):void
-        {
-            datePickerModel.dayNames = value;
-        }
-
         public function get monthNames():Array
         {
             return datePickerModel.monthNames;
         }
         
-        public function set monthNames(value:Array):void
-        {
-            datePickerModel.monthNames = value;
-        }
 
         public function get displayedYear():Number
         {
             return datePickerModel.displayedYear;
         }
         
-        public function set displayedYear(value:Number):void
-        {
-            datePickerModel.displayedYear = value;
-        }
 
         public function get displayedMonth():Number
         {
             return datePickerModel.displayedMonth;
         }
         
-        
-        public function set displayedMonth(value:Number):void
-        {
-            datePickerModel.displayedMonth = value;
-        }
-
         public function get firstDayOfWeek():Number
         {
             return datePickerModel.firstDayOfWeek;
         }
         
-        public function set firstDayOfWeek(value:Number):void
-        {
-            datePickerModel.firstDayOfWeek = value;
-        }
         
         public function get days():Array
         {
             return datePickerModel.days;
         }
         
-        public function set days(value:Array):void
-        {
-            datePickerModel.days = value;
-        }
 
         private var _today:Date;
 
@@ -144,20 +137,12 @@ package com.unhurdle.spectrum
         	return _today;
         }
 
-        public function set today(value:Date):void
-        {
-        	_today = value;
-        }
         
         public function get selectedDate():Date
         {
             return datePickerModel.selectedDate;
         }
         
-        public function set selectedDate(value:Date):void
-        {
-            datePickerModel.selectedDate = value;
-        }
 
         public function get startDate():Date
         {
@@ -193,7 +178,7 @@ package com.unhurdle.spectrum
         
         private function updateDisplay():void
         {
-            title.text = monthNames[displayedMonth] + " " + String(displayedYear);
+            title.text = datePickerModel.monthNames[displayedMonth] + " " + String(displayedYear);
             setDates();
         }
         
@@ -216,8 +201,8 @@ package com.unhurdle.spectrum
                 month = 11;
                 year--;
             }
-            displayedMonth = month;
-            displayedYear = year;
+            datePickerModel.displayedMonth = month;
+            datePickerModel.displayedYear = year;
             updateDisplay();
         }
 
@@ -231,18 +216,18 @@ package com.unhurdle.spectrum
                 month = 0;
                 year++;
             }
-            displayedMonth = month;
-            displayedYear = year;
+            datePickerModel.displayedMonth = month;
+            datePickerModel.displayedYear = year;
             updateDisplay();
         }
         COMPILE::JS
         override public function addedToParent():void{
             super.addedToParent();
             if(!displayedYear){
-                displayedYear = today.getFullYear();
+                datePickerModel.displayedYear = today.getFullYear();
             }
             if(!displayedMonth){
-                displayedMonth = today.getMonth();
+                datePickerModel.displayedMonth = today.getMonth();
             }
             var body:HTMLElement = newElement('div');
             body.className = appendSelector("-body");
@@ -267,8 +252,8 @@ package com.unhurdle.spectrum
 
                 var d:TextNode = new TextNode('abbr');  
                 d.className = appendSelector("-dayOfWeek");
-                d.text = datePickerModel.shortDayNames[i]; 
-                d.element.title = dayNames[i];
+                d.text = getWeekdays(i);
+                d.element.title = datePickerModel.dayNames[i];
                 dayOfWeek.appendChild(d.element); 
                 daysOfTheWeek.appendChild(dayOfWeek); 
             }
@@ -299,6 +284,7 @@ package com.unhurdle.spectrum
             prev = new ActionButton();
             prev.quiet = true;
             prev.className = appendSelector("-prevMonth");
+            prev.element.title = "Previous";
             prev.addEventListener("click",prevMonthClickHandler);
             var type:String = "ChevronLeftLarge";
             var prevIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
@@ -309,6 +295,7 @@ package com.unhurdle.spectrum
             next = new ActionButton();
             next.quiet = true;
             next.className = appendSelector("-nextMonth");
+            next.element.title = "Next";
             next.addEventListener("click",nextMonthClickHandler);
             type = "ChevronRightLarge";
             var nextIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
@@ -363,7 +350,7 @@ package com.unhurdle.spectrum
                         span.isToday = days[k+l].toDateString() == today.toDateString();
                         var styleStr:String = "width:40px;height:40px;";
                         cell.setAttribute("style",styleStr);
-                        cell.element.title = days[k+l].getDate();
+                        cell.element.title = DateUtil.getDateString(days[k + l]);
                         span.date = days[k+l] as Date;
                         
                         span.addEventListener(MouseEvent.CLICK,handleSelectedDay);
@@ -412,7 +399,7 @@ package com.unhurdle.spectrum
                     }
                 }
             }
-            selectedDate = date;
+            datePickerModel.selectedDate = date;
             if(elementSelected){//remove selected from last selected element
                 elementSelected.selected = false;
             }

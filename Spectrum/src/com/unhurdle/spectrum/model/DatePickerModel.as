@@ -4,6 +4,7 @@ package com.unhurdle.spectrum.model
   import org.apache.royale.core.IDateChooserModel;
   import org.apache.royale.core.IStrand;
   import org.apache.royale.events.Event;
+  import com.unhurdle.spectrum.utils.DateUtil;
 
   public class DatePickerModel extends EventDispatcher implements IDateChooserModel
 	{
@@ -30,9 +31,9 @@ package com.unhurdle.spectrum.model
 			_strand = value;
 		}
 		
-		private var _dayNames:Array   = ["Sunday","Monday","Tuesday","Wednesday","Thurdsay","Friday","Saturday"];
-		private var _monthNames:Array = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    	private var _days:Array;
+		private var _dayNames:Array = DateUtil.getLongWeekdays();
+		private var _monthNames:Array = DateUtil.getMonths();
+    private var _days:Array;
 		private var _displayedYear:Number;
 		private var _displayedMonth:Number;
 		private var _firstDayOfWeek:Number = 0;
@@ -56,17 +57,18 @@ package com.unhurdle.spectrum.model
 			_dayNames = value;
 			dispatchEvent( new Event("dayNamesChanged") );
 		}
+		private var _narrowDayNames:Array = DateUtil.getNarrowWeekdays();
+
+		public function get narrowDayNames():Array
+		{
+			return _narrowDayNames;
+		}
 		
-		private var _shortDayNames:Array = ["Su","Mo","Tu","We","Th","Fr","Sa"];
+		private var _shortDayNames:Array = DateUtil.getShortWeekdays();
 
 		public function get shortDayNames():Array
 		{
 			return _shortDayNames;
-		}
-
-		public function set shortDayNames(value:Array):void
-		{
-			_shortDayNames = value;
 		}
 		/**
 		 *  An array of strings used to name the months of the year with January being
