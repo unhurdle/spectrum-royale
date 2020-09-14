@@ -72,7 +72,7 @@ package com.unhurdle.spectrum
     	return _colorstop;
     }
 
-    [Inspectable(category="General", enumeration="light,lightest,dark,darkest,paneldarkest" defaultValue="light")]
+    [Inspectable(category="General", enumeration="light,lightest,dark,darkest" defaultValue="light")]
     public function set colorstop(value:String):void
     {
       if(value != _colorstop){

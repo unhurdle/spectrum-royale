@@ -12,6 +12,7 @@ package com.unhurdle.spectrum.renderers
  
 
   import org.apache.royale.events.Event;
+  import com.unhurdle.spectrum.const.IconType;
   
   public class AssetListItemRenderer extends ListItemRenderer
   {
@@ -37,9 +38,14 @@ package com.unhurdle.spectrum.renderers
         imageIcon.toggle(appendSelector("-itemThumbnail"),true);
       }
       //TODO submenus
-      // if(assetListItem.isBranch){
-      //   (element as HTMLElement).classList.add("is-branch");
-      // }
+      if(assetListItem.isBranch){
+        toggle("is-branch",true);
+        var type:String = IconType.CHEVRON_RIGHT_MEDIUM;
+        var branchIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
+        branchIcon.type = type;
+        branchIcon.className = appendSelector("-itemChildIndicator");
+        addElement(branchIcon);
+      }
       // (element as HTMLElement).classList.toggle("is-selected",false);
       // addEventListener("itemClicked",itemClicked);
       

@@ -5,7 +5,7 @@ package com.unhurdle.spectrum
     public function NumberField()
     {
       super();
-      input.type = "number"
+      input.type = "number";
       input.step = "1";
     }
 
