@@ -12,6 +12,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
   import org.apache.royale.utils.callLater;
   import com.unhurdle.spectrum.const.IconType;
+  import com.unhurdle.spectrum.includes.ActionButtonInclude;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="selectionChanged", type="org.apache.royale.events.Event")]
@@ -25,7 +26,7 @@ package com.unhurdle.spectrum
       addEventListener(MouseEvent.MOUSE_DOWN,handleMouseDown);
     }
     override protected function getSelector():String{
-      return "spectrum-ActionButton";
+      return ActionButtonInclude.getSelector();
     }
 
     override public function set flavor(value:String):void{

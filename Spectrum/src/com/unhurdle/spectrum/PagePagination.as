@@ -5,6 +5,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.events.Event;
   }
+  import com.unhurdle.spectrum.includes.ActionButtonInclude;
   public class PagePagination extends SpectrumBase
   {
     /**
@@ -136,9 +137,11 @@ package com.unhurdle.spectrum
         	_pagesNum = val;
             for(var i:int=0;i<val;i++){
               //TODO use ActionButton?
-                var link:HTMLElement = newElement("a","spectrum-ActionButton spectrum-ActionButton--quiet");
+                var actionButtonSelector:String = ActionButtonInclude.getSelector();
+                var link:HTMLElement = newElement("a",actionButtonSelector);
+                link.classList.toggle(actionButtonSelector + "--quiet");
                 var node:TextNode = new TextNode("span");
-                node.className = "spectrum-ActionButton-label";
+                node.className = actionButtonSelector + "-label";
                 node.text = "" + (i + 1);
                 link.appendChild(node.element);
                 link.addEventListener("click",changeValue);

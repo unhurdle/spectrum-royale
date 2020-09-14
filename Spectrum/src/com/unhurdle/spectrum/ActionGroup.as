@@ -2,6 +2,7 @@ package com.unhurdle.spectrum
 {
   import org.apache.royale.core.IChild;
   import com.unhurdle.spectrum.const.IconType;
+  import com.unhurdle.spectrum.includes.ActionButtonInclude;
 
   public class ActionGroup extends Group
   {
@@ -92,14 +93,23 @@ package com.unhurdle.spectrum
     override public function addElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.addElement(c,dispatchEvent);
       (c as ISpectrumElement).toggle(appendSelector("-item"),true);
+      if(quiet){
+        (c as ISpectrumElement).toggle(ActionButtonInclude.getSelector() + "--quiet",true)
+      }
     }
     override public function addElementAt(c:org.apache.royale.core.IChild, index:int, dispatchEvent:Boolean = true):void{
       super.addElementAt(c,index,dispatchEvent);
       (c as ISpectrumElement).toggle(appendSelector("-item"),true);
+      if(quiet){
+        (c as ISpectrumElement).toggle(ActionButtonInclude.getSelector() + "--quiet",true)
+      }
     }
     override public function removeElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.removeElement(c,dispatchEvent);
       (c as ISpectrumElement).toggle(appendSelector("-item"),false);
+      if(quiet){
+        (c as ISpectrumElement).toggle(ActionButtonInclude.getSelector() + "--quiet",false)
+      }
     }
   }
 }

@@ -4,6 +4,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
     import com.unhurdle.spectrum.const.IconType;
+    import com.unhurdle.spectrum.includes.ActionButtonInclude;
+    import com.unhurdle.spectrum.includes.ActionButtonInclude;
   }
   public class ExplicitPagination extends SpectrumBase
   {
@@ -30,8 +32,10 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
-      var buttonBase:String = "spectrum-ActionButton spectrum-ActionButton--quiet ";
-      prev = newElement("a",buttonBase + appendSelector("-prevButton")) as HTMLLinkElement
+      var buttonBase:String = ActionButtonInclude.getSelector();
+      prev = newElement("a",buttonBase) as HTMLLinkElement;
+      prev.classList.toggle(appendSelector("-prevButton"),true);
+      prev.classList.toggle(ActionButtonInclude.getSelector() + "--quiet",true);
       var prevType:String = IconType.CHEVRON_LEFT_MEDIUM;
       var prevCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(prevType));
       prevCheckIcon.type = prevType;
@@ -46,7 +50,9 @@ package com.unhurdle.spectrum
       span.element = newElement("span","spectrum-Body--secondary" + appendSelector("-counter"));
       span.element.style.marginLeft = '6px';
       elem.appendChild(span.element);
-      next = newElement("a",buttonBase + appendSelector("-nextButton")) as HTMLLinkElement
+      next = newElement("a",buttonBase) as HTMLLinkElement;
+      next.classList.toggle(appendSelector("-nextButton"),true);
+      next.classList.toggle(ActionButtonInclude.getSelector() + "--quiet",true);
       var nextType:String = IconType.CHEVRON_RIGHT_MEDIUM;
       var nextCheckIcon:Icon = new Icon(Icon.getCSSTypeSelector(nextType));
       nextCheckIcon.type = nextType;

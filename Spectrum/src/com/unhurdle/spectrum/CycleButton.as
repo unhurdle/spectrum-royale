@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
     }
       import com.unhurdle.spectrum.const.IconPrefix;
       import org.apache.royale.events.Event;
+      import com.unhurdle.spectrum.includes.ActionButtonInclude;
 
   public class CycleButton extends SpectrumBase
   {
@@ -20,7 +21,7 @@ package com.unhurdle.spectrum
     {
       super();
       // we need spectrum-ActionButton spectrum-ActionButton--quiet appended to the classes
-      var actionStr:String = "spectrum-ActionButton";
+      var actionStr:String = ActionButtonInclude.getSelector();
       classList.add(actionStr);
       classList.add(actionStr + "--quiet");
     }
