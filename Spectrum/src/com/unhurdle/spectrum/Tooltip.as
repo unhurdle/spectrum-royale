@@ -67,7 +67,7 @@ package com.unhurdle.spectrum
     	return _flavor;
     }
 
-    [Inspectable(category="General", enumeration="info,positive,negetive,success,error")]
+    [Inspectable(category="General", enumeration="info,positive,negative,success,error")]
     public function set flavor(value:String):void
     {
       if(value != _flavor){
