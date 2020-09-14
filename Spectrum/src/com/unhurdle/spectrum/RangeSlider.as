@@ -116,7 +116,6 @@ package com.unhurdle.spectrum
 			return "" + startPercent + " - " + endPercent;
 		}    
     override protected function positionElements():void{
-      displayValue = true;
 				// var leftPercent:Number = this.leftValue / (max - min) * 100;
 				// leftHandle.style.left = leftPercent + "%";
         

@@ -73,8 +73,10 @@ package com.unhurdle.spectrum
 				valueNode.text = "" + value;
 			}
     }
+    override protected function getValue():String{
+			return input.value;
+		}
     override protected function positionElements():void{
-      displayValue = true;
         var percent:Number = this.value / (max - min) * 100;
         handle.style.left = percent + "%";
       if (leftTrack && rightTrack) {
@@ -88,7 +90,7 @@ package com.unhurdle.spectrum
       var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
       var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
       var percent:Number = (x / sliderOffsetWidth) * 100;
-      var val:Number = (max-min) / (100/percent);
+      var val:Number = (max-min) / (100/percent) + min;
       var stepVal:Number = step;
       var rem:Number = val % stepVal;
       val = val - rem;

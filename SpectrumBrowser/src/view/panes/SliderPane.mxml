@@ -50,13 +50,13 @@
   </comp:Markup>
 
   <comp:Variant header="Range" notes="A range slider with two handles.">
-    <sp:RangeSlider label="Slider Label" width="400"/>
-    <sp:RangeSlider label="Slider Label - Disabled" disabled="true" width="400"/>
+    <sp:RangeSlider label="Slider Label" displayValue="true" width="400"/>
+    <sp:RangeSlider label="Slider Label - Disabled" disabled="true" displayValue="true" width="400"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label" width="400"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label" displayValue="true" width="400"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label - Disabled" disabled="true" width="400"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:RangeSlider label="Slider Label - Disabled" disabled="true" displayValue="true" width="400"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Tick" notes="Spectrum tick slider">
@@ -80,21 +80,21 @@
   </comp:Markup>
 
   <comp:Variant header="Video Player" notes="Displays a buffer for video players.">
-    <sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" width="400"/>
-    <sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" disabled="true" width="400"/>
+    <sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" displayValue="true" width="400"/>
+    <sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" disabled="true" displayValue="true" width="400"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" width="400"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" displayValue="true" width="400"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" disabled="true" width="400"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:VideoPlayerSlider label="My Video" value="14" max="20" min="10" step="2" disabled="true" displayValue="true" width="400"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Ramp">
-    <sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" width="400"/>
+    <sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" displayValue="true" width="400"/>
     <sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" disabled="true" width="400"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" width="400"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" displayValue="true" width="400"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;sp:RampSlider label="Slider Label" value="14" max="20" min="10" step="2" disabled="true" width="400"/&gt;'/>
   </comp:Markup>
