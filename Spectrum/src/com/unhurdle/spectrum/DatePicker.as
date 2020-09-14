@@ -210,6 +210,10 @@ package com.unhurdle.spectrum
         input2.input.classList.add(appendInputGroup('-input'));
         input2.input.classList.add(appendDatePicker("-endField"));
         input2.placeholder = dateFormat;
+        if(datetimeRange){
+          input.placeholder +=" hh:mm a";
+          input2.placeholder +=" hh:mm a";
+        }
         if(invalid){
           input2.invalid = true;
           input.invalid = false;
@@ -283,6 +287,34 @@ package com.unhurdle.spectrum
         toggle(valueToSelector("range"),value);
       }
     	_range = value;
+    }
+    private var _datetimeRange:Boolean;
+
+    public function get datetimeRange():Boolean
+    {
+    	return _datetimeRange;
+    }
+    public function set datetimeRange(value:Boolean):void
+    {
+      if(range){        
+        if(_datetimeRange != !!value){
+          toggle(valueToSelector("datetimeRange"),value);
+          if(value){            
+            input.placeholder = dateFormat + " hh:mm a";
+            if(input2){
+              input2.placeholder = dateFormat + " hh:mm a";
+            }
+          }else{
+            input.placeholder = dateFormat;
+            if(input2){
+              input2.placeholder = dateFormat;
+            }
+          }
+        }
+        _datetimeRange = value;
+      }else{
+        _datetimeRange = false;
+      }
     }
   }
 }
