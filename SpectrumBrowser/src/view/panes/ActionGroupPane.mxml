@@ -100,6 +100,29 @@
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
+      [Bindable]public var justifiedString:String = 
+      '<sp:ActionGroup justified=true>\n'+
+      ' <sp:ActionButton text="Edit"/>\n'+
+      ' <sp:ActionButton text="Copy"/>\n'+
+      ' <sp:ActionButton text="Delete" selected="true"/>\n'+
+      '</sp:ActionGroup>';
+
+
+      [Bindable]public var justifiedIconString:String = 
+      '<sp:ActionGroup justified=true>\n'+
+      ' <sp:ActionButton icon="{editIcon}"/>\n'+
+      ' <sp:ActionButton iicon="{copyIcon}"/>\n'+
+      ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
+      '</sp:ActionGroup>';
+
+      [Bindable]public var justifiedCompactIconString:String = 
+      '<sp:ActionGroup justified=true compact=true>\n'+
+      ' <sp:ActionButton icon="{editIcon}"/>\n'+
+      ' <sp:ActionButton icon="{copyIcon}"/>\n'+
+      ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
+      '</sp:ActionGroup>';
+
+
 
     ]]>
   </fx:Script>
@@ -234,6 +257,39 @@
 </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{verticalCompactQuietIconString}'/>
+  </comp:Markup>
+
+<comp:Variant header="Justified">
+  <sp:ActionGroup justified="true">
+    <sp:ActionButton text="Edit"/>
+    <sp:ActionButton text="Copy"/>
+    <sp:ActionButton text="Delete" selected="true"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{justifiedString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Justified icon-only">
+  <sp:ActionGroup justified="true">
+    <sp:ActionButton icon="{editIcon}"/>
+    <sp:ActionButton icon="{copyIcon}"/>
+    <sp:ActionButton icon="{deleteIcon}" selected="true"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{justifiedIconString}'/>
+  </comp:Markup>
+
+  <comp:Variant header="Justified compact,icon-only">
+  <sp:ActionGroup justified="true" compact="true">
+    <sp:ActionButton icon="{editIcon}" />
+    <sp:ActionButton icon="{copyIcon}" />
+    <sp:ActionButton icon="{deleteIcon}" selected="true"/>
+</sp:ActionGroup>
+</comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{justifiedCompactIconString}'/>
   </comp:Markup>
 
   
