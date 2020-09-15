@@ -1,0 +1,38 @@
+.spectrum--dark .spectrum-Picker .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Picker .spectrum-Picker-trigger.is-selected .is-placeholder {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--dark .spectrum-Picker.is-invalid .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+      color: rgb(247, 109, 116);
+    }
+.spectrum--dark .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon,
+.spectrum--dark .spectrum-Picker.is-invalid.is-disabled .spectrum-Icon:not(.spectrum-Picker-icon):not(.spectrum-Menu-checkmark) {
+        color: rgb(90, 90, 90);
+      }
+.spectrum--dark .spectrum-Picker.is-disabled .spectrum-Picker-icon,
+.spectrum--dark .spectrum-Picker.is-disabled .spectrum-Picker-trigger:hover .spectrum-Picker-icon {
+        color: rgb(90, 90, 90);
+      }
+.spectrum--dark .spectrum-Picker.is-disabled .spectrum-Picker-label.is-placeholder {
+        color: rgb(110, 110, 110);
+      }
+.spectrum--dark .spectrum-Picker-icon {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Picker-label.is-placeholder {
+    color: rgb(144, 144, 144);
+  }
+.spectrum--dark .spectrum-Picker-label.is-placeholder:hover {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Picker-label.is-placeholder:active {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-Picker-trigger.focus-ring .spectrum-Picker-label.is-placeholder {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Picker-trigger.focus-ring .spectrum-Picker-icon {
+    color: rgb(255, 255, 255)
+  }

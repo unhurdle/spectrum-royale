@@ -1,0 +1,122 @@
+.spectrum-Picker {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  width: 192px;
+  min-width: 32px;
+}
+.spectrum-Picker select {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    -ms-appearance: none;
+  }
+.spectrum-Picker select::-ms-expand {
+      display: none;
+    }
+.spectrum-Picker select::-ms-value {
+      background-color: transparent;
+    }
+[dir="ltr"] .spectrum-Picker select + .spectrum-Picker-icon {
+      right: 12px;
+}
+[dir="rtl"] .spectrum-Picker select + .spectrum-Picker-icon {
+      left: 12px;
+}
+.spectrum-Picker select + .spectrum-Picker-icon {
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+    }
+.spectrum-Picker-trigger {
+  position: relative;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+}
+[dir="ltr"] .spectrum-Picker-label {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-Picker-label {
+  text-align: right;
+}
+.spectrum-Picker-label {
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  height: 30px;
+  line-height: 30px;
+
+  font-size: 14px;
+
+  text-overflow: ellipsis;
+}
+.spectrum-Picker-label.is-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+  }
+[dir="ltr"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-left: 12px;
+}
+[dir="rtl"] .spectrum-Picker-label + .spectrum-Picker-icon {
+  margin-right: 12px;
+}
+[dir="ltr"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-left: 8px;
+}
+[dir="rtl"] .spectrum-Icon + .spectrum-Picker-label {
+  margin-right: 8px;
+}
+[dir="ltr"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-left: 12px;
+}
+[dir="rtl"] .spectrum-Picker-label ~ .spectrum-Picker-icon {
+  margin-right: 12px;
+}
+.spectrum-Picker-icon {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  transition: color 130ms ease-out;
+  margin-top: 12px;
+  margin-bottom: 12px;
+
+  opacity: 1;
+}
+.spectrum-Picker-trigger .spectrum-Icon:not(.spectrum-Picker-icon) {
+  margin-top: 6px;
+    margin-bottom: 6px;
+  }
+[dir="ltr"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-left: 12px;
+}
+[dir="rtl"] .spectrum-Picker-trigger .spectrum-Picker-label + .spectrum-Icon:not(.spectrum-Picker-icon) {
+    margin-right: 12px;
+}
+[dir="ltr"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-left: 8px;
+}
+[dir="rtl"] .spectrum-Icon + .spectrum-Picker-icon {
+  margin-right: 8px;
+}
+.spectrum-Picker--quiet {
+  width: auto;
+  min-width: 18px;
+}
+.spectrum-Picker-popover {
+  max-width: 240px;
+}
+[dir="ltr"] .spectrum-Picker-popover--quiet {
+  margin-left: -13px;
+}
+[dir="rtl"] .spectrum-Picker-popover--quiet {
+  margin-right: -13px;
+}

@@ -1,0 +1,9 @@
+.spectrum--light .spectrum-Divider--large {
+  background-color: rgb(75, 75, 75);
+}
+.spectrum--light .spectrum-Divider--medium {
+  background-color: rgb(225, 225, 225);
+}
+.spectrum--light .spectrum-Divider--small {
+  background-color: rgb(225, 225, 225);
+}

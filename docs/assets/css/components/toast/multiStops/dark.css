@@ -8,9 +8,6 @@
 .spectrum--dark .spectrum-Toast-typeIcon {
   color: white;
 }
-.spectrum--dark .spectrum-Toast-buttons {
-  border-left-color: rgba(255, 255, 255, 0.2);
-}
 .spectrum--dark .spectrum-Toast--warning {
   background-color: rgb(203, 111, 16);
   color: rgb(203, 111, 16);
@@ -43,4 +40,3 @@
 .spectrum--dark .spectrum-Toast--success .spectrum-Toast-closeButton.focus-ring:not(:active) {
       color: rgb(18, 128, 92);
     }
-

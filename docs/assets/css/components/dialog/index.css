@@ -61,16 +61,38 @@
 .spectrum-Dialog--large {
   width: 640px;
 }
-.spectrum-Dialog-hero {
-  height: 128px;
+[dir="ltr"] .spectrum-Dialog-hero {
 
   margin-left: -40px;
+}
+[dir="rtl"] .spectrum-Dialog-hero {
+
   margin-right: -40px;
-  margin-top: -40px;
-  margin-bottom: 40px;
+}
+[dir="ltr"] .spectrum-Dialog-hero {
+  margin-right: -40px;
+}
+[dir="rtl"] .spectrum-Dialog-hero {
+  margin-left: -40px;
+}
+[dir="ltr"] .spectrum-Dialog-hero {
 
   border-top-left-radius: 4px;
+}
+[dir="rtl"] .spectrum-Dialog-hero {
+
   border-top-right-radius: 4px;
+}
+[dir="ltr"] .spectrum-Dialog-hero {
+  border-top-right-radius: 4px;
+}
+[dir="rtl"] .spectrum-Dialog-hero {
+  border-top-left-radius: 4px;
+}
+.spectrum-Dialog-hero {
+  height: 128px;
+  margin-top: -40px;
+  margin-bottom: 40px;
 
   background-size: cover;
   background-position: center center;
@@ -87,7 +109,10 @@
   -ms-flex-negative: 0;
       flex-shrink: 0;
 
-  border-radius: 4px 4px 0 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
   outline: none;
 
   padding-bottom: 30px;
@@ -104,7 +129,7 @@
 .spectrum-Dialog-wrapper {
   position: fixed;
   left: 0;
-  top: 0;
+  right: 0;
 
   display: -ms-flexbox;
 
@@ -160,13 +185,28 @@ only screen and (max-device-width: 400px), only screen and (max-device-height: 3
 .spectrum-Dialog--dismissible .spectrum-Dialog-closeButton {
     display: initial;
   }
+[dir="ltr"] .spectrum-Dialog-closeButton {
+  right: -28px;
+}
+[dir="rtl"] .spectrum-Dialog-closeButton {
+  left: -28px;
+}
 .spectrum-Dialog-closeButton {
   position: absolute;
   top: -28px;
-  right: -28px;
+}
+[dir="ltr"] .spectrum-Dialog-typeIcon {
+  margin-left: 24px;
+}
+[dir="rtl"] .spectrum-Dialog-typeIcon {
+  margin-right: 24px;
 }
 .spectrum-Dialog-typeIcon {
   display: block;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
 .spectrum-Dialog-content {
   display: block;
@@ -191,7 +231,10 @@ only screen and (max-device-width: 400px), only screen and (max-device-height: 3
   }
 }
 .spectrum-Dialog-footer {
-  border-radius: 0 0 4px 4px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
   padding-top: 28px;
 
   -ms-flex: 0 1 auto;
@@ -231,10 +274,10 @@ only screen and (max-device-width: 400px), only screen and (max-device-height: 3
   width: 480px;
 }
 .spectrum-Dialog--fullscreen {
-  left: 32px;
   top: 32px;
   right: 32px;
   bottom: 32px;
+  left: 32px;
 
   transform: translate(0, 20px);
 }
@@ -262,10 +305,10 @@ only screen and (max-device-width: 400px), only screen and (max-device-height: 3
   }
 .spectrum-Dialog--fullscreenTakeover {
   position: fixed;
-  left: 0;
-  right: 0;
   top: 0;
+  right: 0;
   bottom: 0;
+  left: 0;
 
   box-sizing: border-box;
   border: none;

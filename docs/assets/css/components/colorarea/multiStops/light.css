@@ -1,0 +1,12 @@
+.spectrum--light .spectrum-ColorArea:before {
+    box-shadow: inset 0 0 0 1px rgba(44,44,44,0.1);
+  }
+.spectrum--light .spectrum-ColorArea.is-disabled {
+    background: rgb(225, 225, 225);
+  }
+.spectrum--light .spectrum-ColorArea.is-disabled:before {
+      box-shadow: inset 0 0 0 1px rgb(225, 225, 225);
+    }
+.spectrum--light .spectrum-ColorArea.is-disabled .spectrum-ColorArea-gradient {
+      display: none;
+    }

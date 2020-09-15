@@ -1,0 +1,102 @@
+.spectrum--large .spectrum-Divider {
+  border-width: 2px;
+  border-radius: 2px;
+}
+.spectrum--large .spectrum-Divider--large {
+  height: 4px;
+
+  border-radius: 2px;
+}
+.spectrum--large .spectrum-Divider--medium {
+  height: 2px;
+
+  border-radius: 1px;
+}
+.spectrum--large .spectrum-Divider--small {
+  height: 1px;
+
+  border-radius: 1px;
+}
+.spectrum--large .spectrum-Divider--vertical {
+  height: 100%;
+}
+.spectrum--large .spectrum-Divider--vertical.spectrum-Divider--large {
+    width: 4px;
+  }
+.spectrum--large .spectrum-Divider--vertical.spectrum-Divider--medium {
+    width: 2px;
+  }
+.spectrum--large .spectrum-Divider--vertical.spectrum-Divider--small {
+    width: 1px;
+  }
+.spectrum-Divider {
+  width: 100%;
+  overflow: visible;
+
+  border: none;
+  border-width: 2px;
+  border-radius: 2px;
+}
+.spectrum-Divider--large {
+  height: 4px;
+
+  border-radius: 2px;
+}
+.spectrum-Divider--medium {
+  height: 2px;
+
+  border-radius: 1px;
+}
+.spectrum-Divider--small {
+  height: 1px;
+
+  border-radius: 1px;
+}
+.spectrum-Divider--vertical {
+  height: 100%;
+}
+.spectrum-Divider--vertical.spectrum-Divider--large {
+    width: 4px;
+  }
+.spectrum-Divider--vertical.spectrum-Divider--medium {
+    width: 2px;
+  }
+.spectrum-Divider--vertical.spectrum-Divider--small {
+    width: 1px;
+  }
+.spectrum--dark .spectrum-Divider--large {
+  background-color: rgb(227, 227, 227);
+}
+.spectrum--dark .spectrum-Divider--medium {
+  background-color: rgb(74, 74, 74);
+}
+.spectrum--dark .spectrum-Divider--small {
+  background-color: rgb(74, 74, 74);
+}
+.spectrum--darkest .spectrum-Divider--large {
+  background-color: rgb(200, 200, 200);
+}
+.spectrum--darkest .spectrum-Divider--medium {
+  background-color: rgb(57, 57, 57);
+}
+.spectrum--darkest .spectrum-Divider--small {
+  background-color: rgb(57, 57, 57);
+}
+.spectrum--light .spectrum-Divider--large {
+  background-color: rgb(75, 75, 75);
+}
+.spectrum--light .spectrum-Divider--medium {
+  background-color: rgb(225, 225, 225);
+}
+.spectrum--light .spectrum-Divider--small {
+  background-color: rgb(225, 225, 225);
+}
+.spectrum--lightest .spectrum-Divider--large {
+  background-color: rgb(80, 80, 80);
+}
+.spectrum--lightest .spectrum-Divider--medium {
+  background-color: rgb(234, 234, 234);
+}
+.spectrum--lightest .spectrum-Divider--small {
+  background-color: rgb(234, 234, 234);
+}

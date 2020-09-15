@@ -1,0 +1,48 @@
+.spectrum--large .spectrum-ColorLoupe {
+  width: 52px;
+  height: 68px;
+  transform: translate(0, 8px);
+  bottom: calc(50% + 16px);
+  left: calc(50% - 26px);
+}
+.spectrum--large .spectrum-ColorLoupe-outer {
+  stroke-width: 1px;
+}
+.spectrum-ColorLoupe {
+  width: 52px;
+  height: 68px;
+
+  position: absolute;
+  transform: translate(0, 8px);
+  opacity: 0;
+  transform-origin: bottom center;
+  bottom: calc(50% + 16px);
+  left: calc(50% - 26px);
+  transition: transform 100ms ease-in-out,
+              opacity 125ms ease-in-out;
+
+  pointer-events: none;
+}
+.spectrum-ColorLoupe.is-open {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+.spectrum-ColorLoupe-outer {
+  stroke-width: 1px;
+}
+.spectrum--dark .spectrum-ColorLoupe-outer {
+  fill: rgb(255, 255, 255);
+  stroke: rgba(50,50,50,0.1);
+}
+.spectrum--darkest .spectrum-ColorLoupe-outer {
+  fill: rgb(255, 255, 255);
+  stroke: rgba(50,50,50,0.1);
+}
+.spectrum--light .spectrum-ColorLoupe-outer {
+  fill: rgb(255, 255, 255);
+  stroke: rgba(50,50,50,0.1);
+}
+.spectrum--lightest .spectrum-ColorLoupe-outer {
+  fill: rgb(255, 255, 255);
+  stroke: rgba(50,50,50,0.1);
+}

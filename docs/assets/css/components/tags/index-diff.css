@@ -1,7 +1,10 @@
 .spectrum--large .spectrum-Tags-item {
-
-  margin: 5px 5px;
-  padding: 0 12px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
   height: 30px;
 
   border-width: 1px;
@@ -12,18 +15,46 @@
     box-shadow 130ms ease-in-out,
     background-color 130ms ease-in-out;
 }
-.spectrum--large .spectrum-Tags-item > .spectrum-Icon,
-  .spectrum--large .spectrum-Tags-item > .spectrum-Avatar {
+.spectrum--large [dir="ltr"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
     margin-right: 10px;
-    margin-left: -3px;
-  }
-.spectrum--large .spectrum-Tags-item > .spectrum-Icon ~ .spectrum-Tags-itemLabel, .spectrum--large .spectrum-Tags-item > .spectrum-Avatar ~ .spectrum-Tags-itemLabel {
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
+    margin-left: 10px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
+    margin-left: -2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
+    margin-right: -2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tags-item > .spectrum-Tags-itemIcon ~ .spectrum-Tags-itemLabel {
       margin-right: -3px;
-    }
-.spectrum--large .spectrum-Tags-item .spectrum-ClearButton {
-    margin-right: -13px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item > .spectrum-Tags-itemIcon ~ .spectrum-Tags-itemLabel {
+      margin-left: -3px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-right: -6.5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-left: -6.5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-left: 6.5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-right: 6.5px;
+}
+.spectrum--large .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    height: 17px;
+    width: 17px;
+    border-radius: 2px;
   }
 .spectrum--large .spectrum-Tags-itemLabel {
   line-height: 28px;
   font-size: 15px;
 }
+.spectrum--large .spectrum-Tags-item--removable .spectrum-Tags-itemClearButton.is-focused {
+      border: 2px solid;
+      border-radius: 5px;
+    }

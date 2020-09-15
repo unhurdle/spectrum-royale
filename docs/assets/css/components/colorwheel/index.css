@@ -1,0 +1,67 @@
+.spectrum-ColorWheel.is-focused .spectrum-ColorWheel-handle {
+  width: 32px;
+  height: 32px;
+
+  margin-left: -16px;
+  margin-top: -16px;
+}
+.spectrum-ColorWheel-slider {
+  opacity: 0.0001;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  margin: 0;
+  pointer-events: none;
+}
+.spectrum-ColorWheel {
+  position: relative;
+  display: block;
+  width: 160px;
+  height: 160px;
+
+  border-radius: 100%;
+
+  -webkit-user-select: none;
+
+     -moz-user-select: none;
+
+      -ms-user-select: none;
+
+          user-select: none;
+  cursor: default;
+}
+.spectrum-ColorWheel.is-focused {
+    z-index: 2;
+  }
+.spectrum-ColorWheel.is-disabled {
+    pointer-events: none;
+  }
+.spectrum-ColorWheel.is-dragged {
+    z-index: 2;
+  }
+.spectrum-ColorWheel-gradient {
+  position: relative;
+  z-index: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 100%;
+  box-sizing: border-box;
+
+  border-width: 1px;
+  border-style: solid;
+}
+.spectrum-ColorWheel-wheel {
+  position: relative;
+  z-index: 1;
+}
+.spectrum-ColorWheel-outerCircle,
+.spectrum-ColorWheel-innerCircle {
+  fill: transparent;
+
+  stroke-width: 1px;
+}
+.spectrum-ColorWheel-handle {
+  left: 50%;
+  top: 50%;
+}

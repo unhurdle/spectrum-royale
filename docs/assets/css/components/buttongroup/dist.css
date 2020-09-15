@@ -1,63 +1,44 @@
-.spectrum--large .spectrum-ButtonGroup .spectrum-Button + .spectrum-Button {
+.spectrum--large [dir="ltr"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
     margin-left: 16px;
-  }
-.spectrum--large .spectrum-ButtonGroup .spectrum-ActionButton + .spectrum-ActionButton {
-    margin-left: 10px;
-  }
-.spectrum--large .spectrum-ButtonGroup .spectrum-Tool + .spectrum-Tool {
-    margin-left: 10px;
-  }
-.spectrum--large .spectrum-ButtonGroup--vertical .spectrum-Button + .spectrum-Button {
+}
+.spectrum--large [dir="rtl"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 16px;
+}
+.spectrum--large [dir="ltr"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-left: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 0;
+}
+.spectrum--large .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
     margin-top: 16px;
-    margin-left: 0;
-  }
-.spectrum--large .spectrum-ButtonGroup--vertical .spectrum-ActionButton + .spectrum-ActionButton {
-    margin-top: 10px;
-    margin-left: 0;
-  }
-.spectrum--large .spectrum-ButtonGroup--vertical .spectrum-Tool + .spectrum-Tool {
-    margin-top: 10px;
-    margin-left: 0;
   }
 .spectrum-ButtonGroup {
   display: -ms-flexbox;
   display: flex;
 }
-.spectrum-ButtonGroup .spectrum-Button,
-  .spectrum-ButtonGroup .spectrum-ActionButton,
-  .spectrum-ButtonGroup .spectrum-Tool {
+.spectrum-ButtonGroup .spectrum-ButtonGroup-item {
     -ms-flex-negative: 0;
         flex-shrink: 0;
   }
-.spectrum-ButtonGroup .spectrum-Button + .spectrum-Button {
+[dir="ltr"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
     margin-left: 16px;
-  }
-.spectrum-ButtonGroup .spectrum-ActionButton + .spectrum-ActionButton {
-    margin-left: 8px;
-  }
-.spectrum-ButtonGroup .spectrum-Tool + .spectrum-Tool {
-    margin-left: 8px;
-  }
+}
+[dir="rtl"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 16px;
+}
 .spectrum-ButtonGroup--vertical {
   display: -ms-inline-flexbox;
   display: inline-flex;
   -ms-flex-direction: column;
       flex-direction: column;
 }
-.spectrum-ButtonGroup--vertical .spectrum-ActionButton-label {
-    -ms-flex-positive: 1;
-        flex-grow: 1;
-    text-align: left;
-  }
-.spectrum-ButtonGroup--vertical .spectrum-Button + .spectrum-Button {
+[dir="ltr"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-left: 0;
+}
+[dir="rtl"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 0;
+}
+.spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
     margin-top: 16px;
-    margin-left: 0;
-  }
-.spectrum-ButtonGroup--vertical .spectrum-ActionButton + .spectrum-ActionButton {
-    margin-top: 8px;
-    margin-left: 0;
-  }
-.spectrum-ButtonGroup--vertical .spectrum-Tool + .spectrum-Tool {
-    margin-top: 8px;
-    margin-left: 0;
   }

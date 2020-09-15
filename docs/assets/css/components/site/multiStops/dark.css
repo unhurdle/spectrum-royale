@@ -14,6 +14,14 @@
 .spectrum--dark .spectrum-Site-overlay {
   background: rgba(0, 0, 0, 0.2);
 }
+.spectrum--dark .spectrum-CSSComponent-resource--github {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  color: black;
+}
+.spectrum--dark .spectrum-CSSComponent-resource--adobe {
+  color: #FA0F00 !important;
+  background-color: rgb(50, 50, 50) !important;
+}
 .spectrum--dark .u-scrollable::-webkit-scrollbar-track,
 .spectrum--dark .u-scrollable::-webkit-scrollbar-track-piece {
   background: rgb(47, 47, 47);
@@ -44,4 +52,11 @@
 .spectrum--dark .spectrum-CSSExample-example--overlay {
   background: rgba(0,0,0,0.4);
   color: rgba(0,0,0,0.4);
+}
+.spectrum--dark .spectrum-CSSExample-oldAPI {
+  color: rgb(247, 109, 116);
+}
+.spectrum--dark .spectrum-CodeBlock {
+  border-color: rgb(90, 90, 90);
+  background-color: rgb(47, 47, 47);
 }

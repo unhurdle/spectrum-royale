@@ -35,16 +35,26 @@
   -ms-flex-pack: center;
       justify-content: center;
 
-  padding: 4px 4px;
+  padding-top: 4px;
+
+  padding-bottom: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
 
   height: 40px;
 
   border-radius: 4px;
 }
-.spectrum-QuickActions .spectrum-ActionButton + .spectrum-ActionButton {
+[dir="ltr"] .spectrum-QuickActions .spectrum-ActionButton + .spectrum-ActionButton {
     margin-left: 8px;
-  }
-.spectrum-QuickActions--textOnly .spectrum-ActionButton + .spectrum-ActionButton {
+}
+[dir="rtl"] .spectrum-QuickActions .spectrum-ActionButton + .spectrum-ActionButton {
+    margin-right: 8px;
+}
+[dir="ltr"] .spectrum-QuickActions--textOnly .spectrum-ActionButton + .spectrum-ActionButton {
     margin-left: 4px;
-  }
+}
+[dir="rtl"] .spectrum-QuickActions--textOnly .spectrum-ActionButton + .spectrum-ActionButton {
+    margin-right: 4px;
+}
 

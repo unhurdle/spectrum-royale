@@ -1,15 +1,24 @@
-.spectrum--large .spectrum-Pagination-input {
+.spectrum--large .spectrum-Pagination-textfield {
   width: 60px;
   min-width: 60px;
 }
-.spectrum--large .spectrum-Pagination-counter {
+.spectrum--large [dir="ltr"] .spectrum-Pagination-counter {
   margin-left: 6px;
 }
-.spectrum--large .spectrum-Pagination-prevButton {
+.spectrum--large [dir="rtl"] .spectrum-Pagination-counter {
   margin-right: 6px;
 }
-.spectrum--large .spectrum-Pagination-nextButton {
+.spectrum--large [dir="ltr"] .spectrum-Pagination-prevButton {
+  margin-right: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-prevButton {
   margin-left: 6px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Pagination-nextButton {
+  margin-left: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-nextButton {
+  margin-right: 6px;
 }
 .spectrum-Pagination--explicit,
 .spectrum-Pagination--listing {
@@ -20,19 +29,29 @@
   -ms-flex-align: center;
       align-items: center;
 }
-.spectrum-Pagination-input {
+.spectrum-Pagination-textfield {
   width: 48px;
   min-width: 48px;
 }
-.spectrum-Pagination-counter {
+[dir="ltr"] .spectrum-Pagination-counter {
   margin-left: 5px;
 }
-.spectrum-Pagination-prevButton {
+[dir="rtl"] .spectrum-Pagination-counter {
   margin-right: 5px;
 }
-.spectrum-Pagination-nextButton {
+[dir="ltr"] .spectrum-Pagination-prevButton {
+  margin-right: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-prevButton {
   margin-left: 5px;
 }
+[dir="ltr"] .spectrum-Pagination-nextButton {
+  margin-left: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-nextButton {
+  margin-right: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-prevButton .spectrum-Icon,[dir="rtl"]  .spectrum-Pagination-nextButton .spectrum-Icon { transform: matrix(-1, 0, 0, 1, 0, 0) ; }
 .spectrum--dark .spectrum-Pagination-pageButton:hover {
     background-color: rgba(255,255,255,0.06);
   }

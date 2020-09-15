@@ -1,43 +1,79 @@
-.spectrum--large .spectrum-Checkbox {
-
-  min-height: 40px;
+.spectrum--large [dir="ltr"] .spectrum-Checkbox {
 
   margin-right: 20px;
 }
-.spectrum--large .spectrum-Checkbox-input {
+.spectrum--large [dir="rtl"] .spectrum-Checkbox {
+
+  margin-left: 20px;
+}
+.spectrum--large .spectrum-Checkbox {
+
+  min-height: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Checkbox-input {
   left: -10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Checkbox-input {
+  right: -10px;
+}
+.spectrum--large .spectrum-Checkbox-input {
   width: calc(100% + 20px);
 }
-.spectrum--large .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box {
-    border-width: 9px
-  }
-.spectrum--large .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box,
-  .spectrum--large .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box {
-    border-width: 9px
-  }
-.spectrum--large .spectrum-Checkbox-label {
+.spectrum--large .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before {
+      border-width: 9px;
+    }
+.spectrum--large .spectrum-Checkbox-input.focus-ring + .spectrum-Checkbox-box:after {
+        margin: -2px;
+      }
+.spectrum--large .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-box:before, .spectrum--large .spectrum-Checkbox.is-indeterminate .spectrum-Checkbox-input:checked + .spectrum-Checkbox-box:before {
+      border-width: 9px;
+    }
+.spectrum--large [dir="ltr"] .spectrum-Checkbox-label {
   margin-left: 13px;
-  margin-top: 9px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Checkbox-label {
+  margin-right: 13px;
+}
+.spectrum--large .spectrum-Checkbox-label {
+  margin-top: 6px;
   font-size: 17px;
   font-weight: 400;
   line-height: 1.49;
-  transition: color 130ms ease-in-out;
 }
 .spectrum--large .spectrum-Checkbox-box {
   width: 18px;
   height: 18px;
   margin: 11px 0;
+}
+.spectrum--large .spectrum-Checkbox-box:before {
 
-  border-radius: 2px;
-  border-width: 2px;
+    width: 18px;
+    height: 18px;
 
-  transition: border 130ms ease-in-out, box-shadow 130ms ease-in-out;
+    border-radius: 2px;
+    border-width: 2px;
+
+    transition: border 130ms ease-in-out, box-shadow 130ms ease-in-out;
+  }
+.spectrum--large .spectrum-Checkbox-box:after {
+    border-radius: 4px;
+    margin: 2px;
+
+    transition: opacity 130ms ease-out,
+                margin 130ms ease-out;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Checkbox-checkmark,.spectrum--large [dir="ltr"] 
+.spectrum-Checkbox-partialCheckmark {
+  margin-left: -6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Checkbox-checkmark,.spectrum--large [dir="rtl"] 
+.spectrum-Checkbox-partialCheckmark {
+  margin-right: -6px;
 }
 .spectrum--large .spectrum-Checkbox-checkmark,
 .spectrum--large .spectrum-Checkbox-partialCheckmark {
 
   margin-top: -6px;
-  margin-left: -6px;
 
   transition: opacity 130ms ease-in-out, transform 130ms ease-in-out;
 }

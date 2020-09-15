@@ -20,14 +20,17 @@
   }
 .spectrum--lightest .spectrum-Slider-handle {
   border-color: rgb(116, 116, 116);
-  background: rgb(255, 255, 255);
+  background: transparent;
 }
 .spectrum--lightest .spectrum-Slider-handle:hover {
     border-color: rgb(80, 80, 80);
   }
 .spectrum--lightest .spectrum-Slider-handle.is-focused {
-    border-color: rgb(55, 142, 240);
+    border-color: rgb(80, 80, 80);
   }
+.spectrum--lightest .spectrum-Slider-handle.is-focused:before {
+      box-shadow: 0 0 0 2px rgb(55, 142, 240);
+    }
 .spectrum--lightest .spectrum-Slider-handle:active,
 .spectrum--lightest .spectrum-Slider-handle.is-dragged {
     border-color: rgb(80, 80, 80);
@@ -40,10 +43,6 @@
 }
 .spectrum--lightest .spectrum-Slider-tick:after {
     background-color: rgb(234, 234, 234);
-  }
-.spectrum--lightest .spectrum-Slider-handle.is-focused {
-    border-color: rgb(55, 142, 240);
-    background: rgb(55, 142, 240);
   }
 .spectrum--lightest .spectrum-Slider-handle.is-dragged {
     border-color: rgb(80, 80, 80);
@@ -88,6 +87,9 @@
 .spectrum--lightest .spectrum-Dial-handle {
   box-shadow: none;
 }
+.spectrum--lightest .spectrum-Dial-handle:before {
+    display: none;
+  }
 .spectrum--lightest .spectrum-Dial-handle::after {
     background-color: rgb(116, 116, 116);
   }
@@ -95,9 +97,9 @@
       background-color: rgb(80, 80, 80);
     }
 .spectrum--lightest .spectrum-Dial-handle.is-focused {
-    background-color: rgb(55, 142, 240);
+    background-color: transparent;
 
-    border-color: rgb(55, 142, 240);
+    border-color: rgb(80, 80, 80);
   }
 .spectrum--lightest .spectrum-Dial-handle.is-focused::after {
       background-color: rgb(255, 255, 255);

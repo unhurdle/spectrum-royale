@@ -3,7 +3,7 @@
   background-color: rgb(255, 255, 255);
   border-color: rgb(149, 149, 149);
 }
-.spectrum--lightest .spectrum-Tags-item .spectrum-ClearButton {
+.spectrum--lightest .spectrum-Tags-item .spectrum-Tags-itemIcon {
     color: rgb(149, 149, 149);
   }
 .spectrum--lightest .spectrum-Tags-item:hover {
@@ -11,40 +11,75 @@
     color: rgb(50, 50, 50);
     border-color: rgb(50, 50, 50);
   }
-.spectrum--lightest .spectrum-Tags-item:hover .spectrum-ClearButton {
+.spectrum--lightest .spectrum-Tags-item:hover .spectrum-Tags-itemIcon {
       color: rgb(50, 50, 50);
     }
 .spectrum--lightest .spectrum-Tags-item.focus-ring {
     background-color: rgb(255, 255, 255);
     color: rgb(50, 50, 50);
     border-color: rgb(55, 142, 240);
-    box-shadow: 0 0 0 1px rgb(55, 142, 240);
+    box-shadow: 0 0 0 2px rgb(55, 142, 240);
   }
-.spectrum--lightest .spectrum-Tags-item.focus-ring .spectrum-ClearButton {
+.spectrum--lightest .spectrum-Tags-item.focus-ring .spectrum-Tags-itemIcon {
       color: rgb(50, 50, 50);
     }
+.spectrum--lightest .spectrum-Tags-item.is-selected {
+    background-color: rgb(116, 116, 116);
+    color: rgb(255, 255, 255);
+    border-color: transparent;
+  }
+.spectrum--lightest .spectrum-Tags-item.is-selected .spectrum-Tags-itemIcon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--lightest .spectrum-Tags-item.is-selected:hover {
+      background-color: rgb(80, 80, 80);
+    }
+.spectrum--lightest .spectrum-Tags-item.is-selected.focus-ring {
+      box-shadow: 0 0 0 2px rgb(55, 142, 240);
+      border-color: rgb(255, 255, 255);
+    }
+.spectrum--lightest .spectrum-Tags-item.is-selected.is-invalid {
+      border-color: transparent;
+      background-color: rgb(227, 72, 80);
+    }
+.spectrum--lightest .spectrum-Tags-item.is-selected.is-invalid .spectrum-Tags-itemIcon,
+.spectrum--lightest .spectrum-Tags-item.is-selected.is-invalid .spectrum-Tags-itemLabel,
+.spectrum--lightest .spectrum-Tags-item.is-selected.is-invalid .spectrum-Tags-itemClearButton {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--lightest .spectrum-Tags-item.is-selected.is-invalid.focus-ring {
+        box-shadow: 0 0 0 2px rgb(55, 142, 240);
+        border-color: rgb(255, 255, 255);
+      }
+.spectrum--lightest .spectrum-Tags-item.is-selected.is-invalid:hover {
+        border-color: transparent;
+        background-color: rgb(215, 55, 63);
+      }
+.spectrum--lightest .spectrum-Tags-item.is-selected.is-invalid:hover .spectrum-Tags-itemIcon {
+          color: rgb(255, 255, 255);
+        }
 .spectrum--lightest .spectrum-Tags-item.is-invalid {
-    color: rgb(116, 116, 116);
+    color: rgb(227, 72, 80);
     border-color: rgb(227, 72, 80);
+
   }
-.spectrum--lightest .spectrum-Tags-item.is-invalid .spectrum-ClearButton {
-      color: rgb(227, 72, 80);
-    }
 .spectrum--lightest .spectrum-Tags-item.is-invalid:hover {
-      color: rgb(50, 50, 50);
+      color: rgb(215, 55, 63);
       border-color: rgb(215, 55, 63);
     }
-.spectrum--lightest .spectrum-Tags-item.is-invalid:hover .spectrum-ClearButton {
+.spectrum--lightest .spectrum-Tags-item.is-invalid:hover .spectrum-Tags-itemIcon,
+.spectrum--lightest .spectrum-Tags-item.is-invalid:hover .spectrum-Tags-itemClearButton {
         color: rgb(215, 55, 63);
       }
 .spectrum--lightest .spectrum-Tags-item.is-invalid.focus-ring {
-      color: rgb(50, 50, 50);
+      color: rgb(215, 55, 63);
       border-color: rgb(55, 142, 240);
-      box-shadow: 0 0 0 1px rgb(55, 142, 240);
+      box-shadow: 0 0 0 2px rgb(55, 142, 240);
     }
-.spectrum--lightest .spectrum-Tags-item.is-invalid.focus-ring .spectrum-ClearButton {
-        color: rgb(215, 55, 63);
-      }
+.spectrum--lightest .spectrum-Tags-item.is-invalid .spectrum-Tags-itemIcon,
+.spectrum--lightest .spectrum-Tags-item.is-invalid .spectrum-Tags-itemClearButton {
+      color: rgb(227, 72, 80);
+    }
 .spectrum--lightest .spectrum-Tags-item.is-disabled {
     color: rgb(188, 188, 188);
     background-color: rgb(244, 244, 244);
@@ -53,41 +88,53 @@
 .spectrum--lightest .spectrum-Tags-item.is-disabled .spectrum-Avatar {
       opacity: 0.3;
     }
-.spectrum--lightest .spectrum-Tags-item--deletable:hover {
+.spectrum--lightest .spectrum-Tags-item.is-disabled .spectrum-Tags-itemIcon {
+      color: rgb(188, 188, 188);
+    }
+.spectrum--lightest .spectrum-Tags-item--removable:hover {
+    color: rgb(50, 50, 50);
+  }
+.spectrum--lightest .spectrum-Tags-item--removable:active {
     color: rgb(116, 116, 116);
   }
-.spectrum--lightest .spectrum-Tags-item--deletable:hover .spectrum-ClearButton {
-      color: rgb(50, 50, 50);
-    }
-.spectrum--lightest .spectrum-Tags-item--deletable:active {
-    color: rgb(116, 116, 116);
-  }
-.spectrum--lightest .spectrum-Tags-item--deletable:active .spectrum-ClearButton {
-      color: rgb(50, 50, 50);
-    }
-.spectrum--lightest .spectrum-Tags-item--deletable.is-invalid:hover {
+.spectrum--lightest .spectrum-Tags-item--removable.is-invalid:hover {
       border-color: rgb(215, 55, 63);
-      color: rgb(116, 116, 116);
     }
-.spectrum--lightest .spectrum-Tags-item--deletable.is-invalid:hover .spectrum-ClearButton {
+.spectrum--lightest .spectrum-Tags-item--removable.is-invalid:hover .spectrum-Tags-itemClearButton {
         color: rgb(215, 55, 63);
       }
-.spectrum--lightest .spectrum-Tags-item--deletable.is-invalid:active {
+.spectrum--lightest .spectrum-Tags-item--removable.is-invalid:active {
       border-color: rgb(201, 37, 45);
-      color: rgb(116, 116, 116);
     }
-.spectrum--lightest .spectrum-Tags-item--deletable.is-invalid:active .spectrum-ClearButton {
-        color: rgb(201, 37, 45);
-      }
-.spectrum--lightest .spectrum-Tags-item--deletable.focus-ring {
+.spectrum--lightest .spectrum-Tags-item--removable.is-focused {
     color: rgb(116, 116, 116);
   }
-.spectrum--lightest .spectrum-Tags-item--deletable.focus-ring .spectrum-ClearButton {
-      color: rgb(50, 50, 50);
-    }
-.spectrum--lightest .spectrum-Tags-item--deletable.focus-ring.is-invalid {
+.spectrum--lightest .spectrum-Tags-item--removable.is-focused.is-invalid {
       color: rgb(116, 116, 116);
     }
-.spectrum--lightest .spectrum-Tags-item.is-disabled .spectrum-ClearButton .spectrum-Icon {
-    color: rgb(188, 188, 188);
+.spectrum--lightest .spectrum-Tags-item--removable.is-selected {
+    color: rgb(255, 255, 255);
   }
+.spectrum--lightest .spectrum-Tags-item--removable.is-selected.is-focused {
+       color: rgb(255, 255, 255);
+    }
+.spectrum--lightest .spectrum-Tags-item--removable.is-selected .spectrum-Tags-itemClearButton {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--lightest .spectrum-Tags-item--removable.is-selected .spectrum-Tags-itemClearButton:hover {
+         color: rgb(255, 255, 255);
+      }
+.spectrum--lightest .spectrum-Tags-item--removable.is-selected.is-invalid:hover .spectrum-Tags-itemClearButton {
+          color: rgb(255, 255, 255);
+        }
+.spectrum--lightest .spectrum-Tags-item--removable .spectrum-Tags-itemClearButton.is-focused {
+      border-color: rgb(55, 142, 240);
+      background-color: rgb(149, 149, 149);
+      color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Tags-item--removable .spectrum-Tags-itemClearButton:hover {
+      color: rgb(50, 50, 50);
+    }
+.spectrum--lightest .spectrum-Tags-item--removable .spectrum-Tags-itemClearButton:active {
+      background-color: rgb(234, 234, 234);
+    }

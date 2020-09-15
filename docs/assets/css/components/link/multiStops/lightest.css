@@ -10,23 +10,16 @@
 .spectrum--lightest .spectrum-Link.focus-ring {
     color: rgb(20, 115, 230);
   }
-.spectrum--lightest .spectrum-Link.is-disabled {
-    color: rgb(188, 188, 188);
-  }
-.spectrum--lightest .spectrum-Link--quiet,
-.spectrum--lightest .spectrum-Link--subtle {
+.spectrum--lightest .spectrum-Link--secondary{
   color: inherit;
 }
-.spectrum--lightest .spectrum-Link--quiet:hover,
-.spectrum--lightest .spectrum-Link--subtle:hover {
+.spectrum--lightest .spectrum-Link--secondary:hover {
     color: inherit;
   }
-.spectrum--lightest .spectrum-Link--quiet:active,
-.spectrum--lightest .spectrum-Link--subtle:active {
+.spectrum--lightest .spectrum-Link--secondary:active {
     color: inherit;
   }
-.spectrum--lightest .spectrum-Link--quiet:focus,
-.spectrum--lightest .spectrum-Link--subtle:focus {
+.spectrum--lightest .spectrum-Link--secondary:focus {
     color: inherit;
   }
 .spectrum--lightest .spectrum-Link--overBackground {
@@ -40,7 +33,4 @@
   }
 .spectrum--lightest .spectrum-Link--overBackground:focus {
     color: rgb(255, 255, 255);
-  }
-.spectrum--lightest .spectrum-Link--overBackground.is-disabled {
-    color: rgba(255,255,255,0.5);
   }

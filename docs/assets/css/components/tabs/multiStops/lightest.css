@@ -1,8 +1,11 @@
 .spectrum--lightest .spectrum-Tabs {
   border-bottom-color: rgb(244, 244, 244);
 }
-.spectrum--lightest .spectrum-Tabs--vertical {
+.spectrum--lightest [dir="ltr"] .spectrum-Tabs--vertical {
   border-left-color: rgb(244, 244, 244);
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Tabs--vertical {
+  border-right-color: rgb(244, 244, 244);
 }
 .spectrum--lightest .spectrum-Tabs-selectionIndicator {
   background-color: rgb(50, 50, 50);
@@ -46,10 +49,16 @@
 .spectrum--lightest .spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator {
     background-color: rgb(50, 50, 50);
   }
-.spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
-.spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+.spectrum--lightest [dir="ltr"] .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+.spectrum--lightest [dir="ltr"] 
+  .spectrum-Tabs--vertical.spectrum-Tabs--compact {
     border-left-color: transparent;
-  }
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Tabs--vertical.spectrum-Tabs--quiet,
+.spectrum--lightest [dir="rtl"] 
+  .spectrum-Tabs--vertical.spectrum-Tabs--compact {
+    border-right-color: transparent;
+}
 .spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--quiet .spectrum-Tabs-selectionIndicator,
 .spectrum--lightest .spectrum-Tabs--vertical.spectrum-Tabs--compact .spectrum-Tabs-selectionIndicator {
       background-color: rgb(50, 50, 50);

@@ -1,3 +1,9 @@
+[dir="ltr"] .spectrum-Well {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-Well {
+  text-align: right;
+}
 .spectrum-Well {
   display: block;
   min-width: 240px;

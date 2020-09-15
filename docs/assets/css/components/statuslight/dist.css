@@ -1,7 +1,9 @@
 .spectrum--large .spectrum-StatusLight {
   min-height: 40px;
 
-  padding: 7px 0 9px 0;
+  padding-top: 5px;
+
+  padding-bottom: 7px;
 
   font-size: 17px;
   font-weight: 400;
@@ -10,7 +12,10 @@
 .spectrum--large .spectrum-StatusLight::before {
     width: 10px;
     height: 10px;
-    margin: 9px 15px 7px 15px;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 .spectrum-StatusLight {
   min-height: 32px;
@@ -21,7 +26,11 @@
   -ms-flex-align: start;
       align-items: flex-start;
 
-  padding: 5px 0 7px 0;
+  padding-top: 4px;
+
+  padding-bottom: 6px;
+  padding-left: 0;
+  padding-right: 0;
   box-sizing: border-box;
 
   font-size: 14px;
@@ -38,7 +47,12 @@
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    margin: 7px 12px 5px 12px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    margin-left: 12px;
+    margin-right: 12px;
+    -ms-high-contrast-adjust: none;
+    forced-color-adjust: none;
   }
 .spectrum-StatusLight--neutral {
   font-style: italic;

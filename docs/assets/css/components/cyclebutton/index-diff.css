@@ -1,3 +1,4 @@
 .spectrum--large .spectrum-CycleButton {
-  padding: 0 9px
+  padding-left: 9px;
+  padding-right: 9px;
 }

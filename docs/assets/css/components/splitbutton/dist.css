@@ -1,50 +1,227 @@
-.spectrum--large .spectrum-SplitButton + .spectrum-SplitButton,
-  .spectrum--large .spectrum-SplitButton + .spectrum-Button {
-    margin-left: 15px;
-  }
-.spectrum--large .spectrum-Button + .spectrum-SplitButton {
+.spectrum--large [dir="ltr"] .spectrum-Button + .spectrum-SplitButton {
   margin-left: 15px;
 }
-.spectrum--large .spectrum-SplitButton-action {
-
-  border-radius: 20px 0 0 20px;
+.spectrum--large [dir="rtl"] .spectrum-Button + .spectrum-SplitButton {
+  margin-right: 15px;
 }
-.spectrum--large .spectrum-SplitButton-action.spectrum-Button--cta {
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action {
+
+  border-top-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action {
+
+  border-top-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action {
+  border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action {
+  border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action.spectrum-Button--cta {
     margin-right: 2px;
-  }
-.spectrum--large .spectrum-SplitButton-action + .spectrum-SplitButton-trigger {
-    margin-left: 0;
-  }
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action.spectrum-Button--cta {
+    margin-left: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action:after {
+    border-top-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action:after {
+    border-top-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action:after {
+    border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action:after {
+    border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  border-top-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  border-top-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  border-left-width: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  border-right-width: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+
+  padding-left: 12px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+
+  padding-right: 12px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  padding-right: 13px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  padding-left: 13px;
+}
 .spectrum--large .spectrum-SplitButton-trigger {
 
-  border-radius: 0 20px 20px 0;
-  border-left-width: 0;
-
-  padding-left: 10.00005px;
-  padding-right: 13px;
-
-  min-width: 0
+  min-width: 0;
 }
-.spectrum--large .spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger.spectrum-Button--cta {
+    border-left-width: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger.spectrum-Button--cta {
+    border-right-width: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger:after {
+    border-top-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger:after {
+    border-top-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger:after {
+    border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger:after {
+    border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
     margin-left: 15px;
-  }
-.spectrum--large .spectrum-SplitButton--left .spectrum-SplitButton-action {
-    border-radius: 0 20px 20px 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
+    margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
     margin-left: 0;
-  }
-.spectrum--large .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    margin-right: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      padding-left: 16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      padding-right: 16px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
       margin-left: 2px;
-    }
-.spectrum--large .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      margin-right: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
 
-    border-radius: 20px 0 0 20px;
+    border-top-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    border-top-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
 
     border-left-width: 2px;
-    border-right-width: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
 
-    padding-right: 10.00005px;
+    border-right-width: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-right-width: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-left-width: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    padding-right: 12px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    padding-left: 12px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
     padding-left: 13px;
-  }
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    padding-right: 13px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger.spectrum-Button--cta {
+      border-right-width: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger.spectrum-Button--cta {
+      border-left-width: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-right-radius: 20px;
+}
 .spectrum-SplitButton {
   position: relative;
   display: -ms-inline-flexbox;
@@ -53,39 +230,139 @@
       flex-direction: row;
   vertical-align: top;
 }
-.spectrum-SplitButton + .spectrum-SplitButton,
-  .spectrum-SplitButton + .spectrum-Button {
-    margin-left: 12px;
-  }
-.spectrum-Button + .spectrum-SplitButton {
+[dir="ltr"] .spectrum-Button + .spectrum-SplitButton {
   margin-left: 12px;
 }
-.spectrum-SplitButton-action {
-  margin-left: 0;
-
-  border-radius: 16px 0 0 16px;
+[dir="rtl"] .spectrum-Button + .spectrum-SplitButton {
+  margin-right: 12px;
 }
-.spectrum-SplitButton-action.spectrum-Button--cta {
-    border-right: 0;
-    margin-right: 2px;
-  }
-.spectrum-SplitButton-action + .spectrum-SplitButton-trigger {
-    margin-left: 0;
-  }
-.spectrum-SplitButton-trigger {
+[dir="ltr"] .spectrum-SplitButton-action {
   margin-left: 0;
+}
+[dir="rtl"] .spectrum-SplitButton-action {
+  margin-right: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-action {
 
-  border-radius: 0 16px 16px 0;
+  border-top-left-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton-action {
+
+  border-top-right-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton-action {
+  border-top-right-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton-action {
+  border-top-left-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-action {
+  border-bottom-right-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton-action {
+  border-bottom-left-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-action {
+  border-bottom-left-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton-action {
+  border-bottom-right-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton-action.spectrum-Button--cta {
+    margin-right: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton-action.spectrum-Button--cta {
+    margin-left: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton-action:after {
+    border-top-right-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton-action:after {
+    border-top-left-radius: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton-action:after {
+    border-bottom-right-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton-action:after {
+    border-bottom-left-radius: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
+  margin-left: 0;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+  margin-right: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
+
+  border-top-left-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+
+  border-top-right-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
+  border-top-right-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+  border-top-left-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
+  border-bottom-right-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+  border-bottom-left-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
+  border-bottom-left-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+  border-bottom-right-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
   border-left-width: 0;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+  border-right-width: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
 
-  padding-left: 8.00004px;
+  padding-left: 8px;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+
+  padding-right: 8px;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger {
   padding-right: 10px;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger {
+  padding-left: 10px;
+}
+.spectrum-SplitButton-trigger {
 
   min-width: 0;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger.spectrum-Button--cta {
+    border-left-width: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger.spectrum-Button--cta {
+    border-right-width: 2px;
 }
 .spectrum-SplitButton-trigger.focus-ring {
     box-shadow: none;
   }
+[dir="ltr"] .spectrum-SplitButton-trigger:after {
+    border-top-left-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger:after {
+    border-top-right-radius: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton-trigger:after {
+    border-bottom-left-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton-trigger:after {
+    border-bottom-right-radius: 2px;
+}
 .spectrum-SplitButton-icon {
   display: block;
   margin-top: 1px;
@@ -97,26 +374,171 @@
 .spectrum-SplitButton-action:focus, .spectrum-SplitButton-trigger:focus {
     z-index: 1;
   }
-.spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
+[dir="ltr"] .spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
     margin-left: 12px;
-  }
-.spectrum-SplitButton--left .spectrum-SplitButton-action {
-    border-radius: 0 16px 16px 0;
+}
+[dir="rtl"] .spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
+    margin-right: 12px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-left-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-right-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-right-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-left-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-right-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-left-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-left-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-right-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
     margin-right: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
     margin-left: 0;
-  }
-.spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
-      border-left: 0;
-      margin-left: 2px;
-    }
-.spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    margin-left: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
     margin-right: 0;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      padding-left: 12px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      padding-right: 12px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      margin-left: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      margin-right: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-left-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-right-radius: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-right-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-left-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-right-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-left-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-left-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-right-radius: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    margin-right: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    margin-left: 0;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
 
-    border-radius: 16px 0 0 16px;
+    border-top-left-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    border-top-right-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-top-right-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-top-left-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-right-radius: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-left-radius: 0;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-left-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-right-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
 
     border-left-width: 2px;
-    border-right-width: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
 
-    padding-right: 8.00004px;
+    border-right-width: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-right-width: 0;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-left-width: 0;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    padding-right: 8px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    padding-left: 8px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
     padding-left: 10px;
-  }
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    padding-right: 10px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger.spectrum-Button--cta {
+      border-right-width: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger.spectrum-Button--cta {
+      border-left-width: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-left-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-right-radius: 16px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-right-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-left-radius: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-right-radius: 2px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-left-radius: 2px;
+}
+[dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-left-radius: 16px;
+}
+[dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-right-radius: 16px;
+}

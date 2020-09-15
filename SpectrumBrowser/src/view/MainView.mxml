@@ -68,7 +68,7 @@
     <view:BrowserRouter localId="router" routeComplete="hashChanged()"/>
   </sp:beads>
   <sp:FlexContainer id="mainGroup" wrap="false">
-    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;flex-shrink: 0; padding-left:10px; padding-right:10px; background-color:rgba(0.5,0.5,0.5,0.05)"/>
+    <sp:List id="sideNav" dataProvider="{navProvider}" change="onNavChange()" style="max-height:100vh;flex-shrink: 0; padding-left:14px; padding-right:14px; background-color:rgba(0.5,0.5,0.5,0.05)"/>
     <html:Div id="paneHolder" style="flex-grow: 1;"/>
   </sp:FlexContainer>
 

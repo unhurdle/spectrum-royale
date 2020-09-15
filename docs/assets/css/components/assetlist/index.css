@@ -3,6 +3,14 @@
   margin-bottom: 0;
   padding: 0;
 }
+[dir="ltr"] .spectrum-AssetList-item {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+[dir="rtl"] .spectrum-AssetList-item {
+  padding-right: 16px;
+  padding-left: 16px;
+}
 .spectrum-AssetList-item {
   position: relative;
 
@@ -16,8 +24,13 @@
   width: 272px;
   height: 40px;
 
-  padding: 0 16px 0 16px;
-  margin: 0 0 4px 0;
+  padding-top: 0;
+
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 4px;
+  margin-left: 0;
+  margin-right: 0;
 
   border-radius: 4px;
 
@@ -31,12 +44,22 @@
 
   outline: none;
 }
+[dir="ltr"] .spectrum-AssetList-item::before {
+    left: 0;
+}
+[dir="rtl"] .spectrum-AssetList-item::before {
+    right: 0;
+}
+[dir="ltr"] .spectrum-AssetList-item::before {
+    right: 0;
+}
+[dir="rtl"] .spectrum-AssetList-item::before {
+    left: 0;
+}
 .spectrum-AssetList-item::before {
     content: '';
 
     position: absolute;
-    left: 0;
-    right: 0;
 
     height: 40px;
 
@@ -51,26 +74,42 @@
 .spectrum-AssetList-item.is-branch .spectrum-AssetList-itemChildIndicator {
       display: block;
     }
+[dir="ltr"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-left: 8px;
+}
+[dir="rtl"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-right: 8px;
+}
 .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
     border-style: none;
 
     width: 24px;
     height: 24px;
-    margin-left: 8px;
     vertical-align: middle;
   }
+[dir="ltr"] .spectrum-AssetList-itemSelector {
+  margin-right: 0;
+}
+[dir="rtl"] .spectrum-AssetList-itemSelector {
+  margin-left: 0;
+}
 .spectrum-AssetList-itemSelector {
   display: none;
-  margin: 0;
 }
+[dir="rtl"] .spectrum-AssetList-itemChildIndicator { transform: matrix(-1, 0, 0, 1, 0, 0) ; }
 .spectrum-AssetList-itemChildIndicator {
   display: none;
   transition: transform ease 130ms;
 }
+[dir="ltr"] .spectrum-AssetList-itemLabel {
+  padding-left: 8px;
+}
+[dir="rtl"] .spectrum-AssetList-itemLabel {
+  padding-right: 8px;
+}
 .spectrum-AssetList-itemLabel {
   -ms-flex: 1;
       flex: 1;
-  padding-left: 8px;
 
   text-overflow: ellipsis;
   overflow: hidden;

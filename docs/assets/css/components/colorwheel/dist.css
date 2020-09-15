@@ -1,0 +1,159 @@
+.spectrum--large .spectrum-ColorWheel.is-focused .spectrum-ColorWheel-handle {
+  width: 40px;
+  height: 40px;
+
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.spectrum--large .spectrum-ColorWheel {
+  width: 208px;
+  height: 208px;
+
+  border-radius: 100%;
+}
+.spectrum--large .spectrum-ColorWheel-gradient {
+  width: 208px;
+  height: 208px;
+
+  border-width: 1px;
+}
+.spectrum--large .spectrum-ColorWheel-outerCircle,
+.spectrum--large .spectrum-ColorWheel-innerCircle {
+
+  stroke-width: 1px;
+}
+.spectrum-ColorWheel.is-focused .spectrum-ColorWheel-handle {
+  width: 32px;
+  height: 32px;
+
+  margin-left: -16px;
+  margin-top: -16px;
+}
+.spectrum-ColorWheel-slider {
+  opacity: 0.0001;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+  margin: 0;
+  pointer-events: none;
+}
+.spectrum-ColorWheel {
+  position: relative;
+  display: block;
+  width: 160px;
+  height: 160px;
+
+  border-radius: 100%;
+
+  -webkit-user-select: none;
+
+     -moz-user-select: none;
+
+      -ms-user-select: none;
+
+          user-select: none;
+  cursor: default;
+}
+.spectrum-ColorWheel.is-focused {
+    z-index: 2;
+  }
+.spectrum-ColorWheel.is-disabled {
+    pointer-events: none;
+  }
+.spectrum-ColorWheel.is-dragged {
+    z-index: 2;
+  }
+.spectrum-ColorWheel-gradient {
+  position: relative;
+  z-index: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 100%;
+  box-sizing: border-box;
+
+  border-width: 1px;
+  border-style: solid;
+}
+.spectrum-ColorWheel-wheel {
+  position: relative;
+  z-index: 1;
+}
+.spectrum-ColorWheel-outerCircle,
+.spectrum-ColorWheel-innerCircle {
+  fill: transparent;
+
+  stroke-width: 1px;
+}
+.spectrum-ColorWheel-handle {
+  left: 50%;
+  top: 50%;
+}
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle,
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-innerCircle {
+      stroke: rgb(74, 74, 74);
+    }
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle {
+      fill: rgb(74, 74, 74);
+    }
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-segment {
+      display: none;
+    }
+.spectrum--dark .spectrum-ColorWheel-gradient {
+  border-color: rgba(255,255,255,0.1);
+}
+.spectrum--dark .spectrum-ColorWheel-outerCircle,
+.spectrum--dark .spectrum-ColorWheel-innerCircle {
+  stroke: rgba(255,255,255,0.1);
+}
+.spectrum--darkest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle,
+.spectrum--darkest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-innerCircle {
+      stroke: rgb(57, 57, 57);
+    }
+.spectrum--darkest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle {
+      fill: rgb(57, 57, 57);
+    }
+.spectrum--darkest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-segment {
+      display: none;
+    }
+.spectrum--darkest .spectrum-ColorWheel-gradient {
+  border-color: rgba(239,239,239,0.1);
+}
+.spectrum--darkest .spectrum-ColorWheel-outerCircle,
+.spectrum--darkest .spectrum-ColorWheel-innerCircle {
+  stroke: rgba(239,239,239,0.1);
+}
+.spectrum--light .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle,
+.spectrum--light .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-innerCircle {
+      stroke: rgb(225, 225, 225);
+    }
+.spectrum--light .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle {
+      fill: rgb(225, 225, 225);
+    }
+.spectrum--light .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-segment {
+      display: none;
+    }
+.spectrum--light .spectrum-ColorWheel-gradient {
+  border-color: rgba(44,44,44,0.1);
+}
+.spectrum--light .spectrum-ColorWheel-outerCircle,
+.spectrum--light .spectrum-ColorWheel-innerCircle {
+  stroke: rgba(44,44,44,0.1);
+}
+.spectrum--lightest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle,
+.spectrum--lightest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-innerCircle {
+      stroke: rgb(234, 234, 234);
+    }
+.spectrum--lightest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle {
+      fill: rgb(234, 234, 234);
+    }
+.spectrum--lightest .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-segment {
+      display: none;
+    }
+.spectrum--lightest .spectrum-ColorWheel-gradient {
+  border-color: rgba(50,50,50,0.1);
+}
+.spectrum--lightest .spectrum-ColorWheel-outerCircle,
+.spectrum--lightest .spectrum-ColorWheel-innerCircle {
+  stroke: rgba(50,50,50,0.1);
+}
