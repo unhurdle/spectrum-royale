@@ -12,6 +12,7 @@ package com.unhurdle.spectrum.renderers
   import com.unhurdle.spectrum.ImageIcon;
   import com.unhurdle.spectrum.data.IListItem;
   import org.apache.royale.core.IListDataItemRenderer;
+  import org.apache.royale.core.IParent;
 
   public class ListItemRenderer extends DataItemRenderer implements IListDataItemRenderer
   {
@@ -60,6 +61,9 @@ package com.unhurdle.spectrum.renderers
     //   }
     // }
     protected var firstElementPosition:Number = 0;
+    protected function get iconParent():IParent{
+      return this;
+    }
     override public function set data(value:Object):void{
       super.data = value;
      setText(getLabelFromData(this,value));
@@ -69,7 +73,7 @@ package com.unhurdle.spectrum.renderers
         if(iconSelector){
           if(!icon){
             icon = new Icon(iconSelector);
-            addElementAt(icon,firstElementPosition);
+            iconParent.addElementAt(icon,firstElementPosition);
           } else {
             icon.setStyle("display",null);
             icon.selector = iconSelector;
@@ -82,7 +86,7 @@ package com.unhurdle.spectrum.renderers
         if(iconSrc){
           if(!imageIcon){
             imageIcon = new ImageIcon(iconSrc);
-            addElementAt(imageIcon,firstElementPosition);
+            iconParent.addElementAt(imageIcon,firstElementPosition);
           } else {
             imageIcon.setStyle("display",null);
             imageIcon.src = iconSrc;

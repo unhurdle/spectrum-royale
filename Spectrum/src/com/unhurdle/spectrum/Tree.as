@@ -28,6 +28,34 @@ package com.unhurdle.spectrum
     protected function appendSelector(value:String):String{
       return getSelector() + value;
     }
+    private var _quiet:Boolean;
+
+    public function get quiet():Boolean
+    {
+    	return _quiet;
+    }
+
+    public function set quiet(value:Boolean):void
+    {
+      if(_quiet != value){
+        toggle(valueToSelector("quiet"),value);
+      }
+    	_quiet = value;
+    }
+    private var _standalone:Boolean;
+
+    public function get standalone():Boolean
+    {
+    	return _standalone;
+    }
+
+    public function set standalone(value:Boolean):void
+    {
+      if(_standalone != value){
+        toggle(valueToSelector("standalone"),value);
+      }
+    	_standalone = value;
+    }
 
     protected var classList:CSSClassList;
 
