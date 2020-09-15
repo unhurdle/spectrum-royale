@@ -8,10 +8,10 @@
   </fx:Script>
   <comp:Variant>
     <Div>
-      <sp:ColorLoupe open="true" style="top:31%;left:15%"/><!--bottom:unset;left:unset;position: relative;-->
+      <sp:ColorLoupe open="true" style="top:38%;left:50%"/><!--bottom:unset;left:unset;position: relative; -->
     </Div>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:ColorLoupe open="true" style="top:31%;left:15%"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:ColorLoupe open="true" style="top:38%;left:50%"/&gt;'/>
   </comp:Markup>
 </view:DemoPane>
