@@ -8,93 +8,79 @@
     ]]>
   </fx:Script>
   <comp:Variant header="Thumbnail" notes="Rectangular images will fill the entire space.">
-    <sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
-  </comp:Markup>
-
-  <comp:Variant header="Thumbnail (selected)">
-    <sp:Thumbnail selected="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
-  </comp:Variant>
-  <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail selected="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
-  </comp:Markup>
-
-  <comp:Variant header="Thumbnail (focused)">
-    <sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
-  </comp:Variant>
-  <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (landscape image)" notes="Landscape images will fill horizontally and have space above and below.">
-    <sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" imgAlt="Landscape with mountains and lake"/>
+    <sp:Thumbnail src="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" title="Landscape with mountains and lake"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" imgAlt="Landscape with mountains and lake"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail src="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" title="Landscape with mountains and lake"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (portrait image)" notes="Portrait images will fill vertically and have space on either side.">
-    <sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" imgAlt="Eiffel Tower at night"/>
+    <sp:Thumbnail src="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" title="Eiffel Tower at night"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" imgSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" imgAlt="Eiffel Tower at night"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail src="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" title="Eiffel Tower at night"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (background portrait)" notes="Portrait images set as the background will fill horizontally">
-    <sp:Thumbnail focused="true" backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" backgroundTitle="Eiffel Tower at night"/>
+    <sp:Thumbnail fill="true" src="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" title="Eiffel Tower at night"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail focused="true" backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" backgroundTitle="Eiffel Tower at night"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail fill="true" src="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg" title="Eiffel Tower at night"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (background landscape)" notes="Portrait images set as the background will fill vertically">
-    <sp:Thumbnail backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" backgroundTitle="Eiffel Tower at night"/>
+    <sp:Thumbnail fill="true" src="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" title="Eiffel Tower at night"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail backgroundstyleImage="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" backgroundTitle="Eiffel Tower at night"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail fill="true" src="https://opensource.adobe.com/spectrum-css/img/example-card-landscape.jpeg" title="Eiffel Tower at night"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (image agaist background)">
-    <sp:Thumbnail backgroundstyleColor="orange" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail backgroundColor="orange" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail backgroundstyleColor="orange" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail backgroundColor="orange" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (S)">
-    <sp:Thumbnail size="S" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail size="S" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail size="S" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail size="S" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (M, default)">
-    <sp:Thumbnail size="M" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail size="M" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail size="M" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail size="M" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (L)">
-    <sp:Thumbnail size="L" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail size="L" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail size="L" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail size="L" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (XL)">
-    <sp:Thumbnail size="XL" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail size="XL" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail size="XL" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail size="XL" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Thumbnail (XXL)">
-    <sp:Thumbnail size="XXL" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/>
+    <sp:Thumbnail size="XXL" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Thumbnail size="XXL" imgSrc="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" imgAlt="Woman crouching"/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Thumbnail size="XXL" src="https://opensource.adobe.com/spectrum-css/img/thumbnail.png" title="Woman crouching"/&gt;'/>
   </comp:Markup>
 </view:DemoPane>
