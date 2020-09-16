@@ -3,9 +3,7 @@
   <fx:Script>
     <![CDATA[
       import com.unhurdle.spectrum.Application;
-      import org.apache.royale.html.elements.Div;
       import view.MainView;
-      import org.apache.royale.core.IParent;
       import org.apache.royale.routing.ComponentRoute;
 
       private function setAppScale(value:String):void{
