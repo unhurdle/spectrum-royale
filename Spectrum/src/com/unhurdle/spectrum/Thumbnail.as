@@ -5,7 +5,8 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.const.IconType;
-  public class Thumbnail extends SpectrumBase
+  import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
+  public class Thumbnail extends SpectrumBase implements IKeyboardFocusable
   {
     /**
      * <inject_html>
@@ -19,6 +20,20 @@ package com.unhurdle.spectrum
     }
     override protected function getSelector():String{
       return "spectrum-Thumbnail";
+    }
+    
+    public function get focusElement():HTMLElement{
+      COMPILE::JS{
+        return element;
+      }
+      return null;
+    }
+    override public function addedToParent():void{
+      super.addedToParent();
+      addEventListener('click',function():void
+      {
+        selected = !selected;
+      });
     }
 
     private var img:HTMLImageElement;
@@ -215,10 +230,31 @@ package com.unhurdle.spectrum
 
     public function set focused(value:Boolean):void
     {
-      if(value != !!_focused){
+      if(value != _focused){
         toggle("is-focused",value);
+        // if(value){
+        //   toggle("is-keyboardFocused",false);
+        // }
       }
     	_focused = value;
+    }
+
+    private var _keyboardFocused:Boolean;
+
+    public function get keyboardFocused():Boolean
+    {
+    	return _keyboardFocused;
+    }
+
+    public function set keyboardFocused(value:Boolean):void
+    {
+      // if(value != _keyboardFocused){
+      //   toggle("is-keyboardFocused",value);
+      //   if(value){
+      //     toggle("is-focused",false);
+      //   }
+      // }
+    	_keyboardFocused = value;
     }
     
     private var _size:String;
