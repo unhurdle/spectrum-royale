@@ -34,6 +34,31 @@ package com.unhurdle.spectrum
       {
         selected = !selected;
       });
+      if(fill){
+        COMPILE::JS{
+          createBackground();
+        }
+        background.style.backgroundImage = "url(" + src + ")";
+        background.style.backgroundColor = "";
+        if(title){
+          background.title = title;
+        }
+      }else{
+        if(backgroundColor){
+          COMPILE::JS{
+          createBackground();
+        }
+          background.style.backgroundColor = backgroundColor;
+          background.style.backgroundImage = "";
+        }
+        COMPILE::JS{
+          createImage();
+        }
+        img.src = src;
+        if(title){
+          img.alt = title;
+        }
+      }
     }
 
     private var img:HTMLImageElement;
@@ -44,68 +69,41 @@ package com.unhurdle.spectrum
       img.className = appendSelector("-image");
       element.appendChild(img);      
     }
-    COMPILE::JS
-    private function removeImage():void{
-      element.removeChild(img);
-      img = null;
-    }
+    private var _src:String;
 
-    private var _imgSrc:String;
-
-    public function get imgSrc():String
+    public function get src():String
     {
-    	return _imgSrc;
+    	return _src;
     }
 
-    public function set imgSrc(value:String):void
+    public function set src(value:String):void
     {
-      if(value != _imgSrc){
-        if(value){          
-          if(!img){
-            COMPILE::JS{
-              createImage();
-            }
-          }
-          img.src = value;
-        }else{
-          if(img){
-            COMPILE::JS{
-              removeImage();
-            }
-          }
-        }
-      }
-    	_imgSrc = value;
+    	_src = value;
     }
 
-    private var _imgAlt:String;
+    private var _fill:String;
 
-    public function get imgAlt():String
+    public function get fill():String
     {
-    	return _imgAlt;
+    	return _fill;
     }
 
-    public function set imgAlt(value:String):void
+    public function set fill(value:String):void
     {
-      if(value != _imgAlt){
-        if(value){          
-          if(!img){
-            COMPILE::JS{
-              createImage();
-            }
-          }
-          img.alt = value;
-        }else{
-          if(img){
-            COMPILE::JS{
-              removeImage();
-            }
-          }
-        }
-      }
-    	_imgAlt = value;
+    	_fill = value;
     }
-    
+
+    private var _title:String;
+
+    public function get title():String
+    {
+    	return _title;
+    }
+
+    public function set title(value:String):void
+    {
+    	_title = value;
+    }
     private var background:HTMLDivElement;
 
     COMPILE::JS
@@ -114,96 +112,17 @@ package com.unhurdle.spectrum
       background.className = appendSelector("-background");
       element.appendChild(background);      
     }
-    COMPILE::JS
-    private function removeBackground():void{
-      element.removeChild(background);
-      background = null;
+
+    private var _backgroundColor:String;
+
+    public function get backgroundColor():String
+    {
+    	return _backgroundColor;
     }
 
-    private var _backgroundstyleColor:String;
-
-    public function get backgroundstyleColor():String
+    public function set backgroundColor(value:String):void
     {
-    	return _backgroundstyleColor;
-    }
-
-    public function set backgroundstyleColor(value:String):void
-    {
-      if(value != _backgroundstyleColor){
-        if(value){          
-          if(!background){
-            COMPILE::JS{
-              createBackground();
-            }
-          }
-          background.style.backgroundColor = value;
-          background.style.backgroundImage = "";
-        }else{
-          if(background){
-            COMPILE::JS{
-              removeBackground();
-            }
-          }
-        }
-      }
-    	_backgroundstyleColor = value;
-    }
-
-    private var _backgroundstyleImage:String;
-
-    public function get backgroundstyleImage():String
-    {
-    	return _backgroundstyleImage;
-    }
-
-    public function set backgroundstyleImage(value:String):void
-    {
-      if(value != _backgroundstyleImage){
-        if(value){          
-          if(!background){
-            COMPILE::JS{
-              createBackground();
-            }
-          }
-          background.style.backgroundImage = "url(" + value + ")";
-          background.style.backgroundColor = "";
-        }else{
-          if(background){
-            COMPILE::JS{
-              removeBackground();
-            }
-          }
-        }
-      }
-    	_backgroundstyleImage = value;
-    }
-
-    private var _backgroundTitle:String;
-
-    public function get backgroundTitle():String
-    {
-    	return _backgroundTitle;
-    }
-
-    public function set backgroundTitle(value:String):void
-    {
-      if(value != _backgroundTitle){
-        if(value){          
-          if(!background){
-            COMPILE::JS{
-              createImage();
-            }
-          }
-          background.title = value;
-        }else{
-          if(background){
-            COMPILE::JS{
-              removeImage();
-            }
-          }
-        }
-      }
-    	_backgroundTitle = value;
+    	_backgroundColor = value;
     }
 
     private var _selected:Boolean;
