@@ -26,7 +26,6 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         element.className = 'Application spectrum spectrum--medium spectrum--light';
-        element.dir =_dir;
       }
       _current = this;
     }
@@ -141,8 +140,16 @@ package com.unhurdle.spectrum
     {
     	_dir = value;
       COMPILE::JS{
-        element.dir =_dir;
+        if(initialView){
+          initialView.element.dir =_dir;
+        }
+        document.documentElement.dir = _dir;
       }
+    }
+    COMPILE::JS
+    override protected function initialize():void{
+      super.initialize();
+      dir = _dir;
     }
   }
 }
