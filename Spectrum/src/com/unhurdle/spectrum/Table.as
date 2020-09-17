@@ -62,11 +62,9 @@ package com.unhurdle.spectrum
         
             _multiSelect = value;
         }
-        COMPILE::JS
-        override protected function createElement():WrappedHTMLElement
+        override protected function getTag():String
         {
-        addElementToWrapper(this, 'table');
-        return element;
+            return 'table';
         }
 
   }

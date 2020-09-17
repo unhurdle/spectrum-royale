@@ -12,6 +12,7 @@ package com.unhurdle.spectrum.renderers
   import org.apache.royale.events.ItemClickedEvent;
   import org.apache.royale.html.elements.A;
   import org.apache.royale.core.IParent;
+  import org.apache.royale.events.Event;
 
   public class TreeItemRenderer extends ListItemRenderer
   {
@@ -41,30 +42,26 @@ package com.unhurdle.spectrum.renderers
         if(icon){
           icon.toggle(appendSelector('-itemIcon'),true);
         }
-        if(treeListData.hasChildren){
+        if(children){
           var type:String = "ChevronRightMedium";
           var chevronRightIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
           chevronRightIcon.type = type;
           chevronRightIcon.toggle(appendSelector("-itemIndicator"),true);
+          link.addElementAt(chevronRightIcon,0);
           chevronRightIcon.addEventListener(MouseEvent.CLICK,function (ev:Event):void
           {
-            if(disabled){
-              ev.stopImmediatePropagation();
+            if(!disabled){
+              isOpen = !isOpen;
+              toggle('is-open',isOpen);
+              treeListData.isOpen = isOpen;
+              var expandEvent:ItemClickedEvent = new ItemClickedEvent("itemExpanded");
+              expandEvent.data = data;
+              expandEvent.index = index;
+              //wait until all the intem renderers are updated to modify the list 
+              setTimeout(function():void{
+                dispatchEvent(expandEvent);
+              })
             }
-          })
-          link.addElementAt(chevronRightIcon,0);
-          link.addEventListener(MouseEvent.CLICK,function ():void
-          {
-            isOpen = !isOpen;
-            toggle('is-open',isOpen);
-            treeListData.isOpen = isOpen;
-            var expandEvent:ItemClickedEvent = new ItemClickedEvent("itemExpanded");
-            expandEvent.data = data;
-            expandEvent.index = index;
-            //wait until all the intem renderers are updated to modify the list 
-            setTimeout(function():void{
-              dispatchEvent(expandEvent);
-            })
           });
         }
       }

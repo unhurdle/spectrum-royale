@@ -182,13 +182,13 @@ package com.unhurdle.spectrum.renderers
 				var tr:Object = ev.currentTarget.parentElement.parentElement.children[i];
 				for (var j:int = 0;j<tr.children.length;j++){
 					var td:Object = tr.children[j];
-						if(td.classList.contains('spectrum-Table-checkboxCell')){
-							if(td.children[0].children[0].checked == true){
-								count++;	
-							}
+					if(td.classList.contains('spectrum-Table-checkboxCell')){
+						if(td.children[0].children[0].checked == true){
+							count++;
 						}
 					}
 				}
+			}
 
 			if(count > 0 && !headerRow.element.children[0].children[0].children[0].checked){
 						headerRow.element.children[0].children[0].classList.toggle("is-indeterminate",true);
