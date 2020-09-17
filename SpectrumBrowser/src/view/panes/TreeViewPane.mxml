@@ -25,38 +25,37 @@
         var hierarchicalData1:HierarchicalData = new HierarchicalData({'children':arr1});
         provider1 = new TreeData(hierarchicalData1);
 
-        var arr2:Array = [];
-        arr2.push({label:'Layer 1',icon:IconPrefix._18 + "Layers"});
-        arr2.push({label:'Group 1',icon:IconPrefix._18 + "Folder",children:[{label:'Layer 2',icon:IconPrefix._18 + "Layers"},{label:'Layer 3',icon:IconPrefix._18 + "Layers"}]});
-        arr2.push({label:'Layer 4',icon:IconPrefix._18 + "Layers"});
-        arr2.push({label:'Layer 5',icon:IconPrefix._18 + "Layers"});
-        arr2.push({label:'Group 2',icon:IconPrefix._18 + "Folder",children:[{label:'Group 3',icon:IconPrefix._18 + "Folder",children:[{label:'Group 4',icon:IconPrefix._18 + "Folder",children:[{label:'Layer 6',icon:IconPrefix._18 + "Layers"},{label:'Group 5',icon:IconPrefix._18 + "Folder",children:[]}]}]}]});
-        var hierarchicalData2:HierarchicalData = new HierarchicalData({'children':arr2});
-        provider2 = new TreeData(hierarchicalData2);
-        
         var arr3:Array = [];
-        arr3.push({label:'Layer 1'});
-        arr3.push({label:'Group 1',disabled:true,children:[{label:'Layer 2'},{label:'Layer 3'}]});
-        arr3.push({label:'Layer 4'});
-        arr3.push({label:'Layer 5'});
-        arr3.push({label:'Group 2',children:[{label:'Group 3',children:[{label:'Group 4',children:[{label:'Layer 6'},{label:'Group 5',children:[]}]}]}]});
+        arr3.push({label:'Layer 1',icon:IconPrefix._18 + "Layers"});
+        arr3.push({label:'Group 1',icon:IconPrefix._18 + "Folder",children:[{label:'Layer 2',icon:IconPrefix._18 + "Layers"},{label:'Layer 3',icon:IconPrefix._18 + "Layers"}]});
+        arr3.push({label:'Layer 4',icon:IconPrefix._18 + "Layers"});
+        arr3.push({label:'Layer 5',icon:IconPrefix._18 + "Layers"});
+        arr3.push({label:'Group 2',icon:IconPrefix._18 + "Folder",children:[{label:'Group 3',icon:IconPrefix._18 + "Folder",children:[{label:'Group 4',icon:IconPrefix._18 + "Folder",children:[{label:'Layer 6',icon:IconPrefix._18 + "Layers"},{label:'Group 5',icon:IconPrefix._18 + "Folder",children:[]}]}]}]});
         var hierarchicalData3:HierarchicalData = new HierarchicalData({'children':arr3});
         provider3 = new TreeData(hierarchicalData3);
 
         var arr4:Array = [];
         arr4.push({label:'Layer 1'});
-        arr4.push({label:'Layer 2'});
+        arr4.push({label:'Group 1',disabled:true,children:[{label:'Layer 2'},{label:'Layer 3'}]});
+        arr4.push({label:'Layer 4'});
+        arr4.push({label:'Layer 5'});
+        arr4.push({label:'Group 2',children:[{label:'Group 3',children:[{label:'Group 4',children:[{label:'Layer 6'},{label:'Group 5',children:[]}]}]}]});
         var hierarchicalData4:HierarchicalData = new HierarchicalData({'children':arr4});
         provider4 = new TreeData(hierarchicalData4);
 
+        var arr2:Array = [];
+        arr2.push({label:'Layer 1'});
+        arr2.push({label:'Layer 2'});
+        var hierarchicalData2:HierarchicalData = new HierarchicalData({'children':arr2});
+        provider2 = new TreeData(hierarchicalData2);
       }
       [Bindable]private var notes:String = 'Standalone treeviews are meant to be used outside of a panel.\nItems in standalone treeviews have rounded corners.';
       [Bindable]public var codeString1:String = '<sp:Tree dataProvider="{provider1}"/>';
-      [Bindable]public var codeString2:String = '<sp:Tree dataProvider="{provider2}"/>';
       [Bindable]public var codeString3:String = '<sp:Tree dataProvider="{provider3}"/>';
-      [Bindable]public var codeStringQuiet:String = '<sp:Tree dataProvider="{provider4}" quiet="true"/>';
-      [Bindable]public var codeStringStandalone:String = '<sp:Tree dataProvider="{provider4}" standalone="true"/>';
-      [Bindable]public var codeStringStandaloneQuiet:String = '<sp:Tree dataProvider="{provider4}" standalone="true" quiet="true"/>';
+      [Bindable]public var codeString4:String = '<sp:Tree dataProvider="{provider4}"/>';
+      [Bindable]public var codeStringQuiet:String = '<sp:Tree dataProvider="{provider2}" quiet="true"/>';
+      [Bindable]public var codeStringStandalone:String = '<sp:Tree dataProvider="{provider2}" standalone="true"/>';
+      [Bindable]public var codeStringStandaloneQuiet:String = '<sp:Tree dataProvider="{provider2}" standalone="true" quiet="true"/>';
     ]]>
   </fx:Script>
   <comp:Variant >
@@ -66,33 +65,33 @@
       <comp:StyledCode text="{codeString1}"/>
   </comp:Markup>
   <comp:Variant header="Quiet" notes="A Spectrum tree view quiet selection.">
-    <sp:Tree dataProvider="{provider4}" quiet="true"/>
+    <sp:Tree dataProvider="{provider2}" quiet="true"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text="{codeStringQuiet}"/>
   </comp:Markup>
   <comp:Variant header="Standalone" notes="{notes}">
-    <sp:Tree dataProvider="{provider4}" standalone="true"/>
+    <sp:Tree dataProvider="{provider2}" standalone="true"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text="{codeStringStandalone}"/>
   </comp:Markup>
   <comp:Variant header="Standalone (quiet)" notes="A standalone, quiet treeview.">
-    <sp:Tree dataProvider="{provider4}" standalone="true" quiet="true"/>
+    <sp:Tree dataProvider="{provider2}" standalone="true" quiet="true"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text="{codeStringStandaloneQuiet}"/>
   </comp:Markup>
   <comp:Variant header="Icons" notes="A Spectrum tree view with icons.">
-    <sp:Tree dataProvider="{provider2}"/>
-  </comp:Variant>
-  <comp:Markup>
-    <comp:StyledCode text="{codeString2}"/>
-  </comp:Markup>
-  <comp:Variant header="Disabled">
     <sp:Tree dataProvider="{provider3}"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text="{codeString3}"/>
+  </comp:Markup>
+  <comp:Variant header="Disabled">
+    <sp:Tree dataProvider="{provider4}"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString4}"/>
   </comp:Markup>
 </view:DemoPane>

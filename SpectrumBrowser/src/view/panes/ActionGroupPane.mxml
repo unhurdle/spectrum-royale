@@ -30,28 +30,28 @@
       '</sp:ActionGroup>';
 
       [Bindable]public var horizontalQuietIconString:String = 
-      '<sp:ActionGroup quiet=true>\n'+
+      '<sp:ActionGroup quiet="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton iicon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var horizontalCompactString:String = 
-      '<sp:ActionGroup compact=true >\n'+
+      '<sp:ActionGroup compact="true" >\n'+
       ' <sp:ActionButton text="Edit"/>\n'+
       ' <sp:ActionButton text="Copy"/>\n'+
       ' <sp:ActionButton text="Delete" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var horizontalCompactIconString:String = 
-      '<sp:ActionGroup compact=true>\n'+
+      '<sp:ActionGroup compact="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton iicon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var horizontalCompactQuietIconString:String = 
-      '<sp:ActionGroup quiet=true>\n'+
+      '<sp:ActionGroup quiet="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton iicon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
@@ -66,42 +66,42 @@
 
 
       [Bindable]public var verticalIconString:String = 
-      '<sp:ActionGroup vertical=true>\n'+
+      '<sp:ActionGroup vertical="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton icon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var verticalQuietIconString:String = 
-      '<sp:ActionGroup quiet=true vertical=true>\n'+
+      '<sp:ActionGroup quiet="true" vertical="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton icon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var verticalCompactString:String = 
-      '<sp:ActionGroup vertical=true compact=true >\n'+
+      '<sp:ActionGroup vertical="true" compact="true" >\n'+
       ' <sp:ActionButton text="Edit"/>\n'+
       ' <sp:ActionButton text="Copy"/>\n'+
       ' <sp:ActionButton text="Delete" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var verticalCompactIconString:String = 
-      '<sp:ActionGroup vertical=true compact=true>\n'+
+      '<sp:ActionGroup vertical="true" compact="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton icon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var verticalCompactQuietIconString:String = 
-      '<sp:ActionGroup vertical=true quiet=true> \n'+
+      '<sp:ActionGroup vertical="true" quiet="true"> \n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton icon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var justifiedString:String = 
-      '<sp:ActionGroup justified=true>\n'+
+      '<sp:ActionGroup justified="true">\n'+
       ' <sp:ActionButton text="Edit"/>\n'+
       ' <sp:ActionButton text="Copy"/>\n'+
       ' <sp:ActionButton text="Delete" selected="true"/>\n'+
@@ -109,14 +109,14 @@
 
 
       [Bindable]public var justifiedIconString:String = 
-      '<sp:ActionGroup justified=true>\n'+
+      '<sp:ActionGroup justified="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton iicon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
       '</sp:ActionGroup>';
 
       [Bindable]public var justifiedCompactIconString:String = 
-      '<sp:ActionGroup justified=true compact=true>\n'+
+      '<sp:ActionGroup justified="true" compact="true">\n'+
       ' <sp:ActionButton icon="{editIcon}"/>\n'+
       ' <sp:ActionButton icon="{copyIcon}"/>\n'+
       ' <sp:ActionButton icon="{deleteIcon}" selected="true"/>\n'+
