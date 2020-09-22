@@ -10,6 +10,7 @@
   <comp:Variant header="CTA" notes="A CTA split button.">
     <Div>
       <sp:SplitButton text="Split Button" type="cta"/>
+      <Br/><Br/>
       <sp:SplitButton text="Split Button" type="cta" left="true"/>
     </Div>
   </comp:Variant>
@@ -17,6 +18,10 @@
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
     <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="cta"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;Br/&gt;'/>
     <Br/>
     <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="cta" left="true"/&gt;'/>
     <Br/>
@@ -26,6 +31,7 @@
   <comp:Variant header="Primary" notes="A primary split button.">
     <Div>
       <sp:SplitButton text="Split Button" type="primary"/>
+      <Br/><Br/>
       <sp:SplitButton text="Split Button" type="primary" left="true"/>
     </Div>
   </comp:Variant>
@@ -33,6 +39,10 @@
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
     <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="primary"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;Br/&gt;'/>
     <Br/>
     <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="primary" left="true"/&gt;'/>
     <Br/>
@@ -42,6 +52,7 @@
   <comp:Variant header="Secondary " notes="A secondary  split button.">
     <Div>
       <sp:SplitButton text="Split Button" type="secondary"/>
+      <Br/><Br/>
       <sp:SplitButton text="Split Button" type="secondary" left="true"/>
     </Div>
   </comp:Variant>
@@ -49,6 +60,10 @@
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
     <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="secondary"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='  &lt;Br/&gt;'/>
     <Br/>
     <comp:StyledCode text='  &lt;sp:SplitButton text="Split Button" type="secondary" left="true"/&gt;'/>
     <Br/>
