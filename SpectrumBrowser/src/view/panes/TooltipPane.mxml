@@ -9,7 +9,7 @@
   </fx:Script>
   <comp:Variant header="Netural">
     <Div>
-      <sp:Tooltip isOpen="true" text="Label" direction="top"/>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" style="margin-right: 5px;"/>
       <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top"/>
     </Div>
   </comp:Variant>
@@ -21,9 +21,9 @@
 
   <comp:Variant header="Informative">
     <Div>
-      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="info"/>
-      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="info"/>
-      <sp:Tooltip isOpen="true" text="Info" direction="top" flavor="info" icon="info"/>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="info" style="margin-right: 5px;"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="info" style="margin-right: 5px;"/>
+      <sp:Tooltip isOpen="true" text="Info" direction="top" flavor="info" icon="info" style="margin-right: 5px;"/>
       <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="info" icon="info"/>
     </Div>
   </comp:Variant>
@@ -39,9 +39,9 @@
 
   <comp:Variant header="Positive">
     <Div>
-      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="positive"/>
-      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="positive"/>
-      <sp:Tooltip isOpen="true" text="Success" direction="top" flavor="positive" icon="success"/>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="positive" style="margin-right: 5px;"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="positive" style="margin-right: 5px;"/>
+      <sp:Tooltip isOpen="true" text="Success" direction="top" flavor="positive" icon="success" style="margin-right: 5px;"/>
       <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="positive" icon="success"/>
     </Div>
   </comp:Variant>
@@ -57,9 +57,9 @@
 
   <comp:Variant header="Negative">
     <Div>
-      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="negative"/>
-      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="negative"/>
-      <sp:Tooltip isOpen="true" text="Warning" direction="top" flavor="negative" icon="alert"/>
+      <sp:Tooltip isOpen="true" text="Label" direction="top" flavor="negative" style="margin-right: 5px;"/>
+      <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="negative" style="margin-right: 5px;"/>
+      <sp:Tooltip isOpen="true" text="Warning" direction="top" flavor="negative" icon="alert" style="margin-right: 5px;"/>
       <sp:Tooltip isOpen="true" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit" direction="top" flavor="negative" icon="alert"/>
     </Div>
   </comp:Variant>
