@@ -209,30 +209,30 @@ package com.unhurdle.spectrum
         }
         private function skipTourPage():void
         {
-          pageIsSelected = pagesNum;
+          selectedPage = pagesNum;
         }
         private function nextPage():void{
-          pageIsSelected < pagesNum? pageIsSelected++: pageIsSelected = pagesNum;
+          selectedPage < pagesNum? selectedPage++: selectedPage = pagesNum;
         }
     private function enableOrDisable():void{
-      pageIsSelected == pagesNum? nextButton.disabled = true: nextButton.disabled = false
+      selectedPage == pagesNum? nextButton.disabled = true: nextButton.disabled = false
       skipTourButton.disabled = nextButton.disabled;
         if(step){
-          step.text = pageIsSelected + " of " + pagesNum;
+          step.text = selectedPage + " of " + pagesNum;
         }
     }
     
-    private var _pageIsSelected:Number = 2;
+    private var _selectedPage:Number = 2;
 
-    public function get pageIsSelected():Number
+    public function get selectedPage():Number
     {
-    	return _pageIsSelected;
+    	return _selectedPage;
     }
 
-    public function set pageIsSelected(val:Number):void
+    public function set selectedPage(val:Number):void
     {
       if(val && val <= pagesNum){
-      	_pageIsSelected = val;
+      	_selectedPage = val;
       }
       enableOrDisable();
     }

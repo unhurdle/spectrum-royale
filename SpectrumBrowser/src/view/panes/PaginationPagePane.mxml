@@ -6,9 +6,9 @@
       <![CDATA[]]>
     </fx:Script>
     <comp:Variant header= "Standard">
-      <sp:PagePagination pagesNum="5"/>
+      <sp:PagePagination pagesNum="5" selectedPage="3"/>
     </comp:Variant>
     <comp:Markup>
-      <comp:StyledCode text='&lt;sp:PagePagination pagesNum="5"/&gt;'/>
+      <comp:StyledCode text='&lt;sp:PagePagination pagesNum="5" selectedPage="3"/&gt;'/>
     </comp:Markup>
 </view:DemoPane>

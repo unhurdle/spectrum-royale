@@ -15,7 +15,7 @@ package com.unhurdle.spectrum
       type = "primary";
       href = "#";
       pagesNum = 1;
-      pageIsSelected = 1;
+      selectedPage = 1;
     }
 
 		override protected function getSelector():String{
@@ -92,26 +92,26 @@ package com.unhurdle.spectrum
         enableOrDisable();
     }
     private function prevPage():void{
-      pageIsSelected > 1? pageIsSelected--: pageIsSelected = 1;
+      selectedPage > 1? selectedPage--: selectedPage = 1;
     }
     private function nextPage():void{
-      pageIsSelected < pagesNum? pageIsSelected++: pageIsSelected = pagesNum;
+      selectedPage < pagesNum? selectedPage++: selectedPage = pagesNum;
     }
     private function enableOrDisable():void{
-      pageIsSelected == 1? trigger.classList.add("is-disabled"): trigger.classList.remove("is-disabled");
-      pageIsSelected >= pagesNum? action.classList.add("is-disabled"): action.classList.remove("is-disabled");
+      selectedPage == 1? trigger.classList.add("is-disabled"): trigger.classList.remove("is-disabled");
+      selectedPage >= pagesNum? action.classList.add("is-disabled"): action.classList.remove("is-disabled");
     }
-    private var _pageIsSelected:Number;
+    private var _selectedPage:Number;
 
-    public function get pageIsSelected():Number
+    public function get selectedPage():Number
     {
-    	return _pageIsSelected;
+    	return _selectedPage;
     }
 
-    public function set pageIsSelected(val:Number):void
+    public function set selectedPage(val:Number):void
     {
       if(val && val <= pagesNum){
-      	_pageIsSelected = val;
+      	_selectedPage = val;
       }
       enableOrDisable();
     }

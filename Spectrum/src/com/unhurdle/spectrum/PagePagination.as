@@ -82,7 +82,7 @@ package com.unhurdle.spectrum
     }
     private function findChild(children:NodeList):void{
        for each(var selectedChild:Element in children){
-          if(selectedChild.text && selectedChild.text == "" + pageIsSelected){
+          if(selectedChild.text && selectedChild.text == "" + selectedPage){
             selectedChild.classList.add("is-selected");
           }
           else{
@@ -99,27 +99,27 @@ package com.unhurdle.spectrum
         }
     }
     private function prevPage():void{
-      pageIsSelected > 1? pageIsSelected--: pageIsSelected = 1;
+      selectedPage > 1? selectedPage--: selectedPage = 1;
     }
     private function nextPage():void{
-      pageIsSelected < pagesNum? pageIsSelected++: pageIsSelected = pagesNum;
+      selectedPage < pagesNum? selectedPage++: selectedPage = pagesNum;
     }
     private function enableOrDisable():void{
-      pageIsSelected == 1? prev.classList.add("is-disabled"): prev.classList.remove("is-disabled");
-      pageIsSelected == pagesNum? next.classList.add("is-disabled"): next.classList.remove("is-disabled");
+      selectedPage == 1? prev.classList.add("is-disabled"): prev.classList.remove("is-disabled");
+      selectedPage == pagesNum? next.classList.add("is-disabled"): next.classList.remove("is-disabled");
     }
     
-    private var _pageIsSelected:Number = 2;
+    private var _selectedPage:Number = 2;
 
-    public function get pageIsSelected():Number
+    public function get selectedPage():Number
     {
-    	return _pageIsSelected;
+    	return _selectedPage;
     }
 
-    public function set pageIsSelected(val:Number):void
+    public function set selectedPage(val:Number):void
     {
       if(val){
-      	_pageIsSelected = val;
+      	_selectedPage = val;
         selected = true;
         enableOrDisable();
       }
@@ -155,7 +155,7 @@ package com.unhurdle.spectrum
     private function changeValue(ev:Event):void
     {
       COMPILE::JS{
-        pageIsSelected = Number(ev.target.textContent);
+        selectedPage = Number(ev.target.textContent);
       }
     }
   }

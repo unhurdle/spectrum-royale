@@ -8,21 +8,21 @@
     ]]>
     </fx:Script>
     <comp:Variant header="CTA">
-        <sp:SplitButtonPagination type="cta" pagesNum="7" pageIsSelected="2"/>
+        <sp:SplitButtonPagination type="cta" pagesNum="7" selectedPage="2"/>
     </comp:Variant>
     <comp:Markup>
-        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="cta" pagesNum="7" pageIsSelected="2"/&gt;'/>
+        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="cta" pagesNum="7" selectedPage="2"/&gt;'/>
     </comp:Markup>
     <comp:Variant header="Primary">
-        <sp:SplitButtonPagination type="primary" pagesNum="15" pageIsSelected="2"/>
+        <sp:SplitButtonPagination type="primary" pagesNum="15" selectedPage="2"/>
     </comp:Variant>
     <comp:Markup>
-        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="primary" pagesNum="15" pageIsSelected="2"/&gt;'/>
+        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="primary" pagesNum="15" selectedPage="2"/&gt;'/>
     </comp:Markup>
     <comp:Variant header="Secondary">
-        <sp:SplitButtonPagination type="secondary" pagesNum="13" pageIsSelected="2"/>
+        <sp:SplitButtonPagination type="secondary" pagesNum="13" selectedPage="2"/>
     </comp:Variant>
     <comp:Markup>
-        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="secondary" pagesNum="13" pageIsSelected="2"/&gt;'/>
+        <comp:StyledCode text='&lt;sp:SplitButtonPagination type="secondary" pagesNum="13" selectedPage="2"/&gt;'/>
     </comp:Markup>
 </view:DemoPane>
