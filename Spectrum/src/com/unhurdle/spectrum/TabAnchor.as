@@ -52,7 +52,7 @@ package com.unhurdle.spectrum
       if(value){
       	_href = value;
       } else {
-        _href = "#";
+        _href = "";
         }
         anchorElement.href = _href;
       }

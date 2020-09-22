@@ -61,7 +61,7 @@ package com.unhurdle.spectrum
       if(value){
       	_href = value;
       } else {
-        _href = "#";
+        _href = "";
         }
     }
     private var _selected:Boolean = false;

@@ -13,7 +13,7 @@ package com.unhurdle.spectrum
       super();
       toggle(valueToSelector("left"),true);
       type = "primary";
-      href = "#";
+      href = "";
       pagesNum = 1;
       selectedPage = 1;
     }
@@ -68,7 +68,7 @@ package com.unhurdle.spectrum
       if(value){
       	_href = value;
       } else {
-        _href = "#";
+        _href = "";
         }
         COMPILE::JS
         {
