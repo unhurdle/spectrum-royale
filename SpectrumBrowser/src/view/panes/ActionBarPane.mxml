@@ -18,16 +18,16 @@
       ' </sp:ActionBar>\n'+
       ' <sp:ActionBar isOpen="true" countSelected="4">\n'+
       '   <sp:ButtonGroup compact="true">\n'+
-      '     <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + "Edit"}"/>\n'+
-      '     <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + "Copy"}"/>\n'+
-      '     <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + "Delete"}"/>\n'+
+      '     <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + \'Edit\'}"/>\n'+
+      '     <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + \'Copy\'}"/>\n'+
+      '     <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + \'Delete\'}"/>\n'+
       '   </sp:ButtonGroup>\n'+
       ' </sp:ActionBar>\n'+
       ' <sp:ActionBar isOpen="true" countSelected="6">\n'+
       '   <sp:ButtonGroup compact="true">\n'+
-      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Edit"}"/>\n'+
-      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Copy"}"/>\n'+
-      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Delete"}"/>\n'+
+      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Edit\'}"/>\n'+
+      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Copy\'}"/>\n'+
+      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Delete\'}"/>\n'+
       '   </sp:ButtonGroup>\n'+
       ' </sp:ActionBar>\n'+
       '</Div>';
@@ -35,8 +35,8 @@
       '<Div width="600">\n'+
       ' <sp:ActionBar isOpen="true" countSelected="228" flexible="true">\n'+
       '   <sp:ButtonGroup compact="true">\n'+
-      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "Edit"}"/>\n'+
-      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + "More"}"/>\n'+
+      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'Edit\'}"/>\n'+
+      '     <sp:ActionButton quiet="true" icon="{IconPrefix._18 + \'More\'}"/>\n'+
       '   </sp:ButtonGroup>\n'+
       ' </sp:ActionBar>\n'+
       '</Div>';
@@ -108,9 +108,9 @@
       '</sp:DivTable>\n'+
       '  <sp:ActionBar isOpen="true" countSelected="4" sticky="true">\n'+
       '    <sp:ButtonGroup compact="true">\n'+
-      '      <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + "Edit"}"/>\n'+
-      '      <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + "Copy"}"/>\n'+
-      '      <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + "Delete"}"/>\n'+
+      '      <sp:ActionButton quiet="true" text="Edit" icon="{IconPrefix._18 + \'Edit\'}"/>\n'+
+      '      <sp:ActionButton quiet="true" text="Copy" icon="{IconPrefix._18 + \'Copy\'}"/>\n'+
+      '      <sp:ActionButton quiet="true" text="Delete" icon="{IconPrefix._18 + \'Delete\'}"/>\n'+
       '    </sp:ButtonGroup>\n'+
       '  </sp:ActionBar>\n'+
       '</Div>';
