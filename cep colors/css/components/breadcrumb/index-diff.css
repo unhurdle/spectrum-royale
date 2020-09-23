@@ -1,0 +1,58 @@
+.spectrum--large .spectrum-Breadcrumbs-itemSeparator {
+  top: 1px;
+
+  width: 8px;
+  height: 10px;
+}
+.spectrum--large .spectrum-Breadcrumbs-item {
+  height: 40px;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.spectrum--large .spectrum-Breadcrumbs-item:last-of-type {
+    font-weight: 700;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Breadcrumbs-item > .spectrum-ActionButton {
+    margin-right: 1px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Breadcrumbs-item > .spectrum-ActionButton {
+    margin-left: 1px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Breadcrumbs-itemLink {
+
+  margin-right: 1px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Breadcrumbs-itemLink {
+
+  margin-left: 1px;
+}
+.spectrum--large .spectrum-Breadcrumbs-itemLink {
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-Breadcrumbs-item.is-dragged .spectrum-Breadcrumbs-itemLink:before,
+.spectrum--large .spectrum-Breadcrumbs-itemLink.focus-ring:before {
+
+  border-width: 2px;
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-Breadcrumbs--compact .spectrum-Breadcrumbs-item {
+    font-size: 17px;
+  }
+.spectrum--large .spectrum-Breadcrumbs--multiline .spectrum-Breadcrumbs-item {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+.spectrum--large .spectrum-Breadcrumbs--multiline .spectrum-Breadcrumbs-item:last-of-type {
+
+      margin-top: 0px;
+
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+    }

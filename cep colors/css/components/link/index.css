@@ -1,0 +1,19 @@
+.spectrum-Link {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  text-decoration: underline;
+  transition: color 130ms ease-in-out;
+  outline: none;
+  cursor: pointer;
+}
+.spectrum-Link.focus-ring {
+    text-decoration: underline;
+    -webkit-text-decoration-style: double;
+            text-decoration-style: double;
+  }
+.spectrum-Link--quiet {
+  text-decoration: none;
+}
+.spectrum-Link--quiet:hover {
+    text-decoration: underline;
+  }

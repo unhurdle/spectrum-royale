@@ -1,0 +1,126 @@
+.spectrum-SplitView {
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+.spectrum-SplitView-pane {
+  height: 100%;
+}
+[dir="ltr"] .spectrum-SplitView-gripper {
+  left: -4px;
+}
+[dir="rtl"] .spectrum-SplitView-gripper {
+  right: -4px;
+}
+.spectrum-SplitView-gripper {
+  content: '';
+  display: block;
+  position: absolute;
+  border-style: solid;
+  border-radius: 2px;
+
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 4px;
+  height: 16px;
+  border-top-width: 4px;
+  border-bottom-width: 4px;
+  border-left-width: 3px;
+  border-right-width: 3px;
+}
+.spectrum-SplitView-splitter {
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  width: 2px;
+  height: 100%;
+  z-index: 1;
+}
+[dir="ltr"] .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper:before,[dir="ltr"]  .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper:before {
+        left: calc(50% - 1px);
+}
+[dir="rtl"] .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper:before,[dir="rtl"]  .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper:before {
+        right: calc(50% - 1px);
+}
+.spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper:before, .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper:before {
+        content: '';
+        position: absolute;
+
+        top: 0;
+        width: 2px;
+        height: 100%;
+      }
+[dir="ltr"] .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper {
+      left: 0;
+}
+[dir="rtl"] .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper {
+      right: 0;
+}
+[dir="ltr"] .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper {
+      right: 0;
+}
+[dir="rtl"] .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper {
+      left: 0;
+}
+[dir="ltr"] .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper {
+      left: auto;
+}
+[dir="rtl"] .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper {
+      right: auto;
+}
+.spectrum-SplitView--vertical {
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+.spectrum-SplitView--vertical .spectrum-SplitView-pane {
+    height: auto;
+    width: 100%;
+  }
+[dir="ltr"] .spectrum-SplitView--vertical .spectrum-SplitView-gripper {
+    left: 50%;
+}
+[dir="rtl"] .spectrum-SplitView--vertical .spectrum-SplitView-gripper {
+    right: 50%;
+}
+.spectrum-SplitView--vertical .spectrum-SplitView-gripper {
+    top: -4px;
+
+    transform: translate(-50%, 0);
+    width: 16px;
+    height: 4px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 4px;
+    border-right-width: 4px;
+  }
+.spectrum-SplitView--vertical .spectrum-SplitView-splitter {
+    width: 100%;
+    height: 2px;
+  }
+[dir="ltr"] .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper,[dir="ltr"]  .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper {
+        left: 50%;
+}
+[dir="rtl"] .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper,[dir="rtl"]  .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper {
+        right: 50%;
+}
+[dir="ltr"] .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper:before,[dir="ltr"]  .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper:before {
+          left: 0;
+}
+[dir="rtl"] .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper:before,[dir="rtl"]  .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper:before {
+          right: 0;
+}
+.spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper:before, .spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper:before {
+          top: calc(50% - 1px);
+          width: 100%;
+          height: 2px;
+        }
+.spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-start .spectrum-SplitView-gripper {
+        top: 0;
+      }
+.spectrum-SplitView--vertical .spectrum-SplitView-splitter.is-collapsed-end .spectrum-SplitView-gripper {
+        top: auto;
+        bottom: 0;
+      }

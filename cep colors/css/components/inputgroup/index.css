@@ -1,0 +1,197 @@
+.spectrum-InputGroup {
+  position: relative;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  min-width: 192px;
+  border-radius: 4px;
+}
+[dir="ltr"] .spectrum-InputGroup .spectrum-InputGroup-button {
+    border-top-left-radius: 0;
+}
+[dir="rtl"] .spectrum-InputGroup .spectrum-InputGroup-button {
+    border-top-right-radius: 0;
+}
+[dir="ltr"] .spectrum-InputGroup .spectrum-InputGroup-button {
+    border-bottom-left-radius: 0;
+}
+[dir="rtl"] .spectrum-InputGroup .spectrum-InputGroup-button {
+    border-bottom-right-radius: 0;
+}
+.spectrum-InputGroup .spectrum-InputGroup-button {
+    padding: 0;
+    width: 32px;
+  }
+.spectrum-InputGroup .spectrum-InputGroup-input {
+    width: auto;
+  }
+.spectrum-InputGroup-button {
+  position: relative;
+}
+[dir="ltr"] .spectrum-InputGroup-input {
+  border-top-right-radius: 0;
+}
+[dir="rtl"] .spectrum-InputGroup-input {
+  border-top-left-radius: 0;
+}
+[dir="ltr"] .spectrum-InputGroup-input {
+  border-bottom-right-radius: 0;
+}
+[dir="rtl"] .spectrum-InputGroup-input {
+  border-bottom-left-radius: 0;
+}
+[dir="ltr"] .spectrum-InputGroup-input {
+  border-right-width: 0;
+}
+[dir="rtl"] .spectrum-InputGroup-input {
+  border-left-width: 0;
+}
+.spectrum-InputGroup-input {
+  -ms-flex: 1;
+      flex: 1;
+}
+.spectrum-InputGroup--quiet {
+  border-radius: 0;
+}
+[dir="ltr"] .spectrum-InputGroup--quiet .spectrum-InputGroup-button {
+
+    padding-left: 11px;
+}
+[dir="rtl"] .spectrum-InputGroup--quiet .spectrum-InputGroup-button {
+
+    padding-right: 11px;
+}
+[dir="ltr"] .spectrum-InputGroup--quiet .spectrum-InputGroup-button {
+    padding-right: 0;
+}
+[dir="rtl"] .spectrum-InputGroup--quiet .spectrum-InputGroup-button {
+    padding-left: 0;
+}
+.spectrum-InputGroup--quiet .spectrum-InputGroup-button {
+    width: auto;
+    position: relative;
+
+    border-bottom: 1px solid;
+    border-radius: 0;
+  }
+[dir="ltr"] .spectrum-InputGroup--quiet .spectrum-InputGroup-button:after {
+      right: -11px;
+}
+[dir="rtl"] .spectrum-InputGroup--quiet .spectrum-InputGroup-button:after {
+      left: -11px;
+}
+.spectrum-InputGroup--quiet .spectrum-InputGroup-button:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 11px;
+    }
+[dir="ltr"] .spectrum-InputGroup--quiet .spectrum-InputGroup-icon {
+    right: 0;
+}
+[dir="rtl"] .spectrum-InputGroup--quiet .spectrum-InputGroup-icon {
+    left: 0;
+}
+.spectrum-Datepicker--range {
+  border-radius: 4px;
+}
+.spectrum-Datepicker--range.spectrum-InputGroup--quiet {
+    border-radius: 0;
+  }
+.spectrum-Datepicker--range.spectrum-InputGroup--quiet .spectrum-InputGroup-textfield {
+      min-width: 0;
+      width: 106px;
+    }
+.spectrum-Datepicker--range.spectrum-InputGroup--quiet .spectrum-InputGroup-textfield:first-of-type {
+        width: 88px;
+      }
+.spectrum-Datepicker--range.spectrum-InputGroup--quiet .spectrum-InputGroup-button {
+      border-radius: 0;
+    }
+.spectrum-Datepicker--range.spectrum-Datepicker--datetimeRange .spectrum-InputGroup-textfield {
+      width: 176px;
+      min-width: 0;
+    }
+.spectrum-Datepicker--range.spectrum-Datepicker--datetimeRange .spectrum-InputGroup-textfield:first-of-type {
+        width: 158px;
+      }
+.spectrum-Datepicker--range.spectrum-Datepicker--datetimeRange.spectrum-InputGroup--quiet .spectrum-InputGroup-textfield {
+        width: 164px;
+      }
+.spectrum-Datepicker--range.spectrum-Datepicker--datetimeRange.spectrum-InputGroup--quiet .spectrum-InputGroup-textfield:first-of-type {
+          width: 146px;
+        }
+.spectrum-Datepicker--range .spectrum-InputGroup-textfield {
+    -ms-flex: initial;
+        flex: initial;
+    min-width: 0;
+    width: 122px;
+  }
+.spectrum-Datepicker--range .spectrum-InputGroup-textfield:first-of-type {
+      width: 104px;
+    }
+[dir="ltr"] .spectrum-Datepicker--range .spectrum-InputGroup-textfield.is-invalid .spectrum-InputGroup-input {
+        padding-right: 12px;
+}
+[dir="rtl"] .spectrum-Datepicker--range .spectrum-InputGroup-textfield.is-invalid .spectrum-InputGroup-input {
+        padding-left: 12px;
+}
+.spectrum-Datepicker--range .spectrum-InputGroup-input {
+    width: 100%;
+  }
+[dir="ltr"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-startField {
+      border-right: 0;
+}
+[dir="rtl"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-startField {
+      border-left: 0;
+}
+[dir="ltr"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-startField {
+      padding-right: 12px;
+}
+[dir="rtl"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-startField {
+      padding-left: 12px;
+}
+[dir="ltr"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-endField {
+      border-left: 0;
+}
+[dir="rtl"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-endField {
+      border-right: 0;
+}
+[dir="ltr"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-endField {
+      padding-left: 12px;
+}
+[dir="rtl"] .spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-endField {
+      padding-right: 12px;
+}
+.spectrum-Datepicker--range .spectrum-InputGroup-input.spectrum-Datepicker-endField {
+      border-radius: 0;
+    }
+.spectrum-Datepicker--range .spectrum-Datepicker-rangeDash {
+    line-height: 24px;
+    padding-top: 0;
+    -ms-flex: initial;
+        flex: initial;
+    width: 0;
+    z-index: 1;
+  }
+.spectrum-Datepicker--range .spectrum-Datepicker-rangeDash:before {
+      content: '–';
+      display: inline-block;
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: -7px;
+      margin-right: -7px;
+      overflow: hidden;
+      text-align: center;
+      vertical-align: middle;
+      width: 14px;
+    }
+[dir="ltr"] .spectrum-Datepicker--range.spectrum-InputGroup--quiet .spectrum-Datepicker--rangeDash:before {
+        margin-left: -7px;
+}
+[dir="rtl"] .spectrum-Datepicker--range.spectrum-InputGroup--quiet .spectrum-Datepicker--rangeDash:before {
+        margin-right: -7px;
+}

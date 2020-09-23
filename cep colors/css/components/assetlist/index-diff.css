@@ -1,0 +1,54 @@
+.spectrum--large [dir="ltr"] .spectrum-AssetList-item {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-item {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+.spectrum--large .spectrum-AssetList-item {
+
+  width: 272px;
+  height: 40px;
+  margin-top: 0;
+  margin-bottom: 4px;
+
+  border-radius: 4px;
+
+  transition: background-color 130ms ease-in-out;
+
+  font-size: 17px;
+  font-weight: 400;
+}
+.spectrum--large .spectrum-AssetList-item::before {
+
+    height: 40px;
+
+    border-radius: 4px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-left: 8px;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-right: 8px;
+}
+.spectrum--large .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+
+    width: 24px;
+    height: 24px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-AssetList-itemSelector {
+  margin-right: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-itemSelector {
+  margin-left: 0;
+}
+.spectrum--large .spectrum-AssetList-itemChildIndicator {
+  transition: transform ease 130ms;
+}
+.spectrum--large [dir="ltr"] .spectrum-AssetList-itemLabel {
+  padding-left: 8px;
+}
+.spectrum--large [dir="rtl"] .spectrum-AssetList-itemLabel {
+  padding-right: 8px;
+}

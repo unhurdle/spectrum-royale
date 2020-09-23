@@ -1,0 +1,94 @@
+.spectrum--large .spectrum-Pagination-textfield {
+  width: 60px;
+  min-width: 60px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Pagination-counter {
+  margin-left: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-counter {
+  margin-right: 6px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Pagination-prevButton {
+  margin-right: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-prevButton {
+  margin-left: 6px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Pagination-nextButton {
+  margin-left: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-nextButton {
+  margin-right: 6px;
+}
+.spectrum-Pagination--explicit,
+.spectrum-Pagination--listing {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.spectrum-Pagination-textfield {
+  width: 48px;
+  min-width: 48px;
+}
+[dir="ltr"] .spectrum-Pagination-counter {
+  margin-left: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-counter {
+  margin-right: 5px;
+}
+[dir="ltr"] .spectrum-Pagination-prevButton {
+  margin-right: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-prevButton {
+  margin-left: 5px;
+}
+[dir="ltr"] .spectrum-Pagination-nextButton {
+  margin-left: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-nextButton {
+  margin-right: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-prevButton .spectrum-Icon,[dir="rtl"]  .spectrum-Pagination-nextButton .spectrum-Icon { transform: matrix(-1, 0, 0, 1, 0, 0) ; }
+.spectrum--dark .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(255,255,255,0.06);
+  }
+.spectrum--dark .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(38, 128, 235);
+  }
+.spectrum--dark .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(203, 203, 203);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--darkest .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(255,255,255,0.08);
+  }
+.spectrum--darkest .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(20, 115, 230);
+  }
+.spectrum--darkest .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(40,40,40,0.04);
+  }
+.spectrum--light .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(38, 128, 235);
+  }
+.spectrum--light .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--lightest .spectrum-Pagination-pageButton:hover {
+    background-color: rgba(73,73,73,0.04);
+  }
+.spectrum--lightest .spectrum-Pagination-pageButton:focus {
+    border-color: rgb(55, 142, 240);
+  }
+.spectrum--lightest .spectrum-Pagination-pageButton.is-selected {
+    background-color: rgb(73, 73, 73);
+    color: rgb(255, 255, 255);
+  }

@@ -1,0 +1,206 @@
+.spectrum--large .spectrum-Popover {
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+}
+.spectrum--large .spectrum-Popover--bottom.is-open {
+  transform: translateY(8px);
+}
+.spectrum--large .spectrum-Popover--top.is-open {
+  transform: translateY(-8px);
+}
+.spectrum--large .spectrum-Popover--right.is-open {
+  transform: translateX(8px);
+}
+.spectrum--large .spectrum-Popover--left.is-open {
+  transform: translateX(-8px);
+}
+.spectrum--large .spectrum-Popover {
+
+  min-width: 40px;
+  min-height: 40px;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-Popover-tip {
+  --spectrum-popover-tip-size: 25px;
+  --spectrum-popover-tip-borderWidth: 1px;
+}
+.spectrum--large .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+    stroke-width: 1px;
+  }
+.spectrum--large .spectrum-Popover--dialog {
+  min-width: 270px;
+  padding: 30px 29px;
+}
+.spectrum--large .spectrum-Popover--left.spectrum-Popover--withTip {
+    margin-right: 13px;
+  }
+.spectrum--large .spectrum-Popover--right.spectrum-Popover--withTip {
+    margin-left: 13px;
+  }
+.spectrum--large .spectrum-Popover--left .spectrum-Popover-tip, .spectrum--large .spectrum-Popover--right .spectrum-Popover-tip {
+    margin-top: -15px;
+  }
+.spectrum--large .spectrum-Popover--bottom.spectrum-Popover--withTip {
+    margin-top: 13px;
+  }
+.spectrum--large .spectrum-Popover--top.spectrum-Popover--withTip {
+    margin-bottom: 13px;
+  }
+.spectrum--large .spectrum-Popover--bottom .spectrum-Popover-tip, .spectrum--large .spectrum-Popover--top .spectrum-Popover-tip {
+    margin-left: -15px;
+  }
+.spectrum-Popover {
+  visibility: hidden;
+
+  opacity: 0;
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+
+  pointer-events: none;
+}
+.spectrum-Popover.is-open {
+  visibility: visible;
+
+  opacity: 1;
+
+  transition-delay: 0ms;
+
+  pointer-events: auto;
+}
+.spectrum-Popover--bottom.is-open {
+  transform: translateY(6px);
+}
+.spectrum-Popover--top.is-open {
+  transform: translateY(-6px);
+}
+.spectrum-Popover--right.is-open {
+  transform: translateX(6px);
+}
+.spectrum-Popover--left.is-open {
+  transform: translateX(-6px);
+}
+.spectrum-Popover {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  box-sizing: border-box;
+
+  min-width: 32px;
+  min-height: 32px;
+
+  position: absolute;
+
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+
+  outline: none;
+  box-sizing: border-box;
+}
+.spectrum-Popover-tip {
+  position: absolute;
+  --spectrum-popover-tip-size: 20px;
+  --spectrum-popover-tip-borderWidth: 1px;
+  -webkit-transform: translate(0, 0);
+}
+.spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    stroke-width: 1px;
+  }
+.spectrum-Popover--dialog {
+  min-width: 270px;
+  padding: 30px 29px;
+}
+.spectrum-Popover--left.spectrum-Popover--withTip {
+    margin-right: 13px;
+  }
+.spectrum-Popover--left .spectrum-Popover-tip {
+    left: 100%;
+  }
+.spectrum-Popover--right.spectrum-Popover--withTip {
+    margin-left: 13px;
+  }
+.spectrum-Popover--right .spectrum-Popover-tip {
+    right: 100%;
+    transform: scaleX(-1);
+  }
+.spectrum-Popover--left .spectrum-Popover-tip, .spectrum-Popover--right .spectrum-Popover-tip {
+    top: 50%;
+    margin-top: -12px;
+  }
+.spectrum-Popover--bottom.spectrum-Popover--withTip {
+    margin-top: 13px;
+  }
+.spectrum-Popover--bottom .spectrum-Popover-tip {
+    bottom: 100%;
+    transform: scaleY(-1);
+  }
+.spectrum-Popover--top.spectrum-Popover--withTip {
+    margin-bottom: 13px;
+  }
+.spectrum-Popover--top .spectrum-Popover-tip {
+    top: 100%;
+  }
+.spectrum-Popover--bottom .spectrum-Popover-tip, .spectrum-Popover--top .spectrum-Popover-tip {
+    left: 50%;
+    margin-left: -12px;
+  }
+.spectrum--dark .spectrum-Popover {
+  background-color: rgb(37, 37, 37);
+  border-color: rgb(90, 90, 90);
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.5));
+  will-change: filter;
+  -webkit-clip-path: inset(-30px -30px);
+          clip-path: inset(-30px -30px);
+}
+.spectrum--dark .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+      fill: rgb(37, 37, 37);
+      stroke: rgb(90, 90, 90);
+    }
+.spectrum--darkest .spectrum-Popover {
+  background-color: rgb(8, 8, 8);
+  border-color: rgb(73, 73, 73);
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.8));
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.8));
+  will-change: filter;
+  -webkit-clip-path: inset(-30px -30px);
+          clip-path: inset(-30px -30px);
+}
+.spectrum--darkest .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+      fill: rgb(8, 8, 8);
+      stroke: rgb(73, 73, 73);
+    }
+.spectrum--light .spectrum-Popover {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(202, 202, 202);
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+  will-change: filter;
+  -webkit-clip-path: inset(-30px -30px);
+          clip-path: inset(-30px -30px);
+}
+.spectrum--light .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+      fill: rgb(255, 255, 255);
+      stroke: rgb(202, 202, 202);
+    }
+.spectrum--lightest .spectrum-Popover {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(211, 211, 211);
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+  will-change: filter;
+  -webkit-clip-path: inset(-30px -30px);
+          clip-path: inset(-30px -30px);
+}
+.spectrum--lightest .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+      fill: rgb(255, 255, 255);
+      stroke: rgb(211, 211, 211);
+    }

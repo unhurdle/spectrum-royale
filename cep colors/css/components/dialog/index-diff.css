@@ -1,0 +1,144 @@
+.spectrum--large .spectrum-Dialog {
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+}
+.spectrum--large .spectrum-Dialog {
+  transform: translateX(-50%) translateY(-50%) translateY(25px);
+  max-width: 90vw;
+  max-height: 90vh;
+  min-width: 288px;
+
+  padding: 24px;
+
+  border-radius: 5px;
+  transition: opacity 130ms cubic-bezier(.50, 0, 1, 1) 0ms,
+              visibility 0ms linear 130ms,
+              transform 0ms linear 130ms;
+}
+.spectrum--large .spectrum-Dialog.is-open {
+    transition: transform 250ms cubic-bezier(0, 0, 0.40, 1) 160ms,
+                opacity 250ms cubic-bezier(0, 0, 0.40, 1) 160ms;
+
+    transform: translate(-50%, calc(-50% + -2vh));
+  }
+.spectrum--large .spectrum-Dialog--small {
+  width: 400px;
+}
+.spectrum--large .spectrum-Dialog--medium {
+  width: 480px;
+}
+.spectrum--large .spectrum-Dialog--large {
+  width: 640px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Dialog-hero {
+
+  margin-left: -24px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Dialog-hero {
+
+  margin-right: -24px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Dialog-hero {
+  margin-right: -24px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Dialog-hero {
+  margin-left: -24px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Dialog-hero {
+
+  border-top-left-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Dialog-hero {
+
+  border-top-right-radius: 5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Dialog-hero {
+  border-top-right-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Dialog-hero {
+  border-top-left-radius: 5px;
+}
+.spectrum--large .spectrum-Dialog-hero {
+  height: 160px;
+  margin-top: -24px;
+  margin-bottom: 24px;
+}
+.spectrum--large .spectrum-Dialog-header {
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  padding-bottom: 30px;
+}
+.spectrum--large .spectrum-Dialog-header::after {
+    bottom: 16px;
+
+    height: 2px;
+  }
+.spectrum--large .spectrum-Dialog-wrapper {
+  transition: visibility 0ms linear 130ms;
+}
+.spectrum--large .spectrum-Dialog-wrapper .spectrum-Dialog:not(.spectrum-Dialog--fullscreen):not(.spectrum-Dialog--fullscreenTakeover) {
+    transform: translateY(25px);
+    margin-top: -2vh;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Dialog-closeButton {
+  right: -35px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Dialog-closeButton {
+  left: -35px;
+}
+.spectrum--large .spectrum-Dialog-closeButton {
+  top: -35px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Dialog-typeIcon {
+  margin-left: 24px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Dialog-typeIcon {
+  margin-right: 24px;
+}
+.spectrum--large .spectrum-Dialog-content {
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.spectrum--large .spectrum-Dialog-footer {
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-top: 35px;
+
+  margin: -10px;
+}
+.spectrum--large .spectrum-Dialog-footer > *,
+  .spectrum--large .spectrum-Dialog-footer > .spectrum-Button + .spectrum-Button {
+    margin: 10px;
+  }
+.spectrum--large .spectrum-Dialog-title {
+
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.spectrum--large .spectrum-Dialog--alert {
+  width: 480px;
+}
+.spectrum--large .spectrum-Dialog--fullscreen {
+  top: 32px;
+  right: 32px;
+  bottom: 32px;
+  left: 32px;
+
+  transform: translate(0, 25px);
+}
+.spectrum--large .spectrum-Dialog--fullscreen,
+.spectrum--large .spectrum-Dialog--fullscreenTakeover {
+
+  padding-top: 14px;
+}
+.spectrum--large .spectrum-Dialog--fullscreen .spectrum-Dialog-title, .spectrum--large .spectrum-Dialog--fullscreenTakeover .spectrum-Dialog-title {
+    font-size: 28px;
+    font-weight: 100;
+  }

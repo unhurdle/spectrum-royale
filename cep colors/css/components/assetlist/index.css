@@ -1,0 +1,117 @@
+.spectrum-AssetList {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+[dir="ltr"] .spectrum-AssetList-item {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+[dir="rtl"] .spectrum-AssetList-item {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+.spectrum-AssetList-item {
+  position: relative;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  box-sizing: border-box;
+  -ms-flex-align: center;
+      align-items: center;
+
+  width: 272px;
+  height: 40px;
+
+  padding-top: 0;
+
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 4px;
+  margin-left: 0;
+  margin-right: 0;
+
+  border-radius: 4px;
+
+  transition: background-color 130ms ease-in-out;
+
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+
+  cursor: pointer;
+
+  outline: none;
+}
+[dir="ltr"] .spectrum-AssetList-item::before {
+    left: 0;
+}
+[dir="rtl"] .spectrum-AssetList-item::before {
+    right: 0;
+}
+[dir="ltr"] .spectrum-AssetList-item::before {
+    right: 0;
+}
+[dir="rtl"] .spectrum-AssetList-item::before {
+    left: 0;
+}
+.spectrum-AssetList-item::before {
+    content: '';
+
+    position: absolute;
+
+    height: 40px;
+
+    background-color: transparent;
+
+    border-radius: 4px;
+  }
+.spectrum-AssetList-item.is-selectable .spectrum-Checkbox, .spectrum-AssetList-item.is-selected .spectrum-Checkbox, .spectrum-AssetList-item:hover .spectrum-Checkbox, .spectrum-AssetList-item:focus .spectrum-Checkbox {
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+    }
+.spectrum-AssetList-item.is-branch .spectrum-AssetList-itemChildIndicator {
+      display: block;
+    }
+[dir="ltr"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-left: 8px;
+}
+[dir="rtl"] .spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    margin-right: 8px;
+}
+.spectrum-AssetList-item .spectrum-AssetList-itemThumbnail {
+    border-style: none;
+
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+  }
+[dir="ltr"] .spectrum-AssetList-itemSelector {
+  margin-right: 0;
+}
+[dir="rtl"] .spectrum-AssetList-itemSelector {
+  margin-left: 0;
+}
+.spectrum-AssetList-itemSelector {
+  display: none;
+}
+[dir="rtl"] .spectrum-AssetList-itemChildIndicator { transform: matrix(-1, 0, 0, 1, 0, 0) ; }
+.spectrum-AssetList-itemChildIndicator {
+  display: none;
+  transition: transform ease 130ms;
+}
+[dir="ltr"] .spectrum-AssetList-itemLabel {
+  padding-left: 8px;
+}
+[dir="rtl"] .spectrum-AssetList-itemLabel {
+  padding-right: 8px;
+}
+.spectrum-AssetList-itemLabel {
+  -ms-flex: 1;
+      flex: 1;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

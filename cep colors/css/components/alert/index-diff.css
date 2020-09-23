@@ -1,0 +1,14 @@
+.spectrum--large .spectrum-Alert {
+  min-width: 368px;
+  min-height: 38px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  border-width: 2px;
+  border-radius: 4px;
+}
+.spectrum--large .spectrum-Alert-content {
+  margin: 8px 0 0 0;
+}

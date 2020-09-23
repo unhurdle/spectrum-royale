@@ -1,0 +1,56 @@
+.spectrum--large [dir="ltr"] .spectrum-ToggleSwitch {
+
+  margin-right: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-ToggleSwitch {
+
+  margin-left: 20px;
+}
+.spectrum--large .spectrum-ToggleSwitch {
+
+  min-height: 40px;
+}
+.spectrum--large [dir='ltr'] .spectrum-ToggleSwitch-input:checked + .spectrum-ToggleSwitch-switch::before {
+      transform: translateX(calc(100% - 2px));
+    }
+.spectrum--large [dir='rtl'] .spectrum-ToggleSwitch-input:checked + .spectrum-ToggleSwitch-switch::before {
+      transform: translateX(calc(-100% + 2px));
+    }
+.spectrum--large .spectrum-ToggleSwitch-input.focus-ring + .spectrum-ToggleSwitch-switch:after {
+        margin: -2px;
+      }
+.spectrum--large .spectrum-ToggleSwitch-label {
+  margin-left: 13px;
+  margin-right: 13px;
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.49;
+  transition: color 160ms ease-in-out;
+}
+.spectrum--large .spectrum-ToggleSwitch-switch {
+
+  width: 36px;
+  margin-top: 11px;
+  margin-bottom: 11px;
+
+  transition: background 130ms ease-in-out, border 130ms ease-in-out;
+
+  height: 18px;
+
+  border-radius: 9px;
+}
+.spectrum--large .spectrum-ToggleSwitch-switch:before {
+    transition: background 130ms ease-in-out, border 130ms ease-in-out, transform 130ms ease-in-out, box-shadow 130ms ease-in-out;
+
+    width: 18px;
+    height: 18px;
+
+    border-width: 2px;
+    border-radius: 9px;
+  }
+.spectrum--large .spectrum-ToggleSwitch-switch:after {
+    border-radius: 13px;
+
+    transition: opacity 130ms ease-out,
+                margin 130ms ease-out;
+  }

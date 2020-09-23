@@ -1,0 +1,88 @@
+.spectrum--large .spectrum-Search--quiet .spectrum-Search-clearButton {
+    transform: translateX(15px);
+  }
+.spectrum-Search {
+  display: inline-block;
+  position: relative;
+}
+[dir="ltr"] .spectrum-Search-clearButton {
+  right: 0;
+}
+[dir="rtl"] .spectrum-Search-clearButton {
+  left: 0;
+}
+.spectrum-Search-clearButton {
+  position: absolute;
+  top: 0;
+}
+.spectrum-Search-input {
+  -webkit-appearance: none;
+  outline-offset: -2px;
+}
+.spectrum-Search-input::-webkit-search-cancel-button,
+  .spectrum-Search-input::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+.spectrum-Search--quiet .spectrum-Search-clearButton {
+    transform: translateX(12px);
+  }
+.spectrum--dark .spectrum-Search-icon {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(198, 198, 198);
+    }
+.spectrum--darkest .spectrum-Search-icon {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(151, 151, 151);
+    }
+.spectrum--light .spectrum-Search-icon {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(179, 179, 179);
+    }
+.spectrum--lightest .spectrum-Search-icon {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Search-input:hover ~ .spectrum-Search-icon {
+      color: rgb(73, 73, 73);
+    }
+.spectrum--lightest .spectrum-Search-input:active ~ .spectrum-Search-icon {
+      color: rgb(73, 73, 73);
+    }
+.spectrum--lightest .spectrum-Search-input.focus-ring ~ .spectrum-Search-icon {
+      color: rgb(73, 73, 73);
+    }
+.spectrum--lightest .spectrum-Search-input:disabled ~ .spectrum-Search-icon {
+      color: rgb(188, 188, 188);
+    }

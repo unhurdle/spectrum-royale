@@ -1,0 +1,80 @@
+.spectrum--large .spectrum-Banner {
+  border-radius: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 15px;
+  line-height: 1.3;
+}
+.spectrum-Banner {
+  display: inline-block;
+  border-radius: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.spectrum-Banner-header {
+  font-weight: bold;
+}
+[dir="ltr"] .spectrum-Banner--corner {
+  right: -10px;
+}
+[dir="rtl"] .spectrum-Banner--corner {
+  left: -10px;
+}
+.spectrum-Banner--corner {
+  position: absolute;
+  top: -10px;
+}
+.spectrum--dark .spectrum-Banner {
+  color: rgb(255, 255, 255);
+}
+.spectrum--dark .spectrum-Banner--info {
+  background-color: rgb(55, 142, 240);
+}
+.spectrum--dark .spectrum-Banner--warning {
+  background-color: rgb(242, 148, 35);
+}
+.spectrum--dark .spectrum-Banner--error {
+  background-color: rgb(236, 91, 98);
+}
+.spectrum--darkest .spectrum-Banner {
+  color: rgb(255, 255, 255);
+}
+.spectrum--darkest .spectrum-Banner--info {
+  background-color: rgb(38, 128, 235);
+}
+.spectrum--darkest .spectrum-Banner--warning {
+  background-color: rgb(230, 134, 25);
+}
+.spectrum--darkest .spectrum-Banner--error {
+  background-color: rgb(227, 72, 80);
+}
+.spectrum--light .spectrum-Banner {
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Banner--info {
+  background-color: rgb(20, 115, 230);
+}
+.spectrum--light .spectrum-Banner--warning {
+  background-color: rgb(218, 123, 17);
+}
+.spectrum--light .spectrum-Banner--error {
+  background-color: rgb(215, 55, 63);
+}
+.spectrum--lightest .spectrum-Banner {
+  color: rgb(255, 255, 255);
+}
+.spectrum--lightest .spectrum-Banner--info {
+  background-color: rgb(38, 128, 235);
+}
+.spectrum--lightest .spectrum-Banner--warning {
+  background-color: rgb(230, 134, 25);
+}
+.spectrum--lightest .spectrum-Banner--error {
+  background-color: rgb(227, 72, 80);
+}

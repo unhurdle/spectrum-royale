@@ -1,0 +1,54 @@
+.spectrum--large .spectrum-Popover {
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+}
+.spectrum--large .spectrum-Popover--bottom.is-open {
+  transform: translateY(8px);
+}
+.spectrum--large .spectrum-Popover--top.is-open {
+  transform: translateY(-8px);
+}
+.spectrum--large .spectrum-Popover--right.is-open {
+  transform: translateX(8px);
+}
+.spectrum--large .spectrum-Popover--left.is-open {
+  transform: translateX(-8px);
+}
+.spectrum--large .spectrum-Popover {
+
+  min-width: 40px;
+  min-height: 40px;
+  border-width: 1px;
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-Popover-tip {
+  --spectrum-popover-tip-size: 25px;
+  --spectrum-popover-tip-borderWidth: 1px;
+}
+.spectrum--large .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+    stroke-width: 1px;
+  }
+.spectrum--large .spectrum-Popover--dialog {
+  min-width: 270px;
+  padding: 30px 29px;
+}
+.spectrum--large .spectrum-Popover--left.spectrum-Popover--withTip {
+    margin-right: 13px;
+  }
+.spectrum--large .spectrum-Popover--right.spectrum-Popover--withTip {
+    margin-left: 13px;
+  }
+.spectrum--large .spectrum-Popover--left .spectrum-Popover-tip, .spectrum--large .spectrum-Popover--right .spectrum-Popover-tip {
+    margin-top: -15px;
+  }
+.spectrum--large .spectrum-Popover--bottom.spectrum-Popover--withTip {
+    margin-top: 13px;
+  }
+.spectrum--large .spectrum-Popover--top.spectrum-Popover--withTip {
+    margin-bottom: 13px;
+  }
+.spectrum--large .spectrum-Popover--bottom .spectrum-Popover-tip, .spectrum--large .spectrum-Popover--top .spectrum-Popover-tip {
+    margin-left: -15px;
+  }

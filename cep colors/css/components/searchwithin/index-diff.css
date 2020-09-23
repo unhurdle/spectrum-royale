@@ -1,0 +1,33 @@
+.spectrum--large .spectrum-SearchWithin {
+  width: 250px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SearchWithin-pickerTrigger {
+  border-top-right-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SearchWithin-pickerTrigger {
+  border-top-left-radius: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SearchWithin-pickerTrigger {
+  border-bottom-right-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SearchWithin-pickerTrigger {
+  border-bottom-left-radius: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SearchWithin-input {
+  margin-left: -1px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SearchWithin-input {
+  margin-right: -1px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SearchWithin-input {
+  border-top-left-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SearchWithin-input {
+  border-top-right-radius: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SearchWithin-input {
+  border-bottom-left-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SearchWithin-input {
+  border-bottom-right-radius: 0;
+}

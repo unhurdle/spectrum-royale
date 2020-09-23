@@ -1,0 +1,7 @@
+.spectrum--large .spectrum-Well {
+  min-width: 300px;
+  padding: 20px;
+  margin-top: 5px;
+  border-width: 1px;
+  border-radius: 5px;
+}

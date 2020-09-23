@@ -1,0 +1,224 @@
+.spectrum--large [dir="ltr"] .spectrum-Button + .spectrum-SplitButton {
+  margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Button + .spectrum-SplitButton {
+  margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action {
+
+  border-top-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action {
+
+  border-top-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action {
+  border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action {
+  border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action.spectrum-Button--cta {
+    margin-right: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action.spectrum-Button--cta {
+    margin-left: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action:after {
+    border-top-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action:after {
+    border-top-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action:after {
+    border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action:after {
+    border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  border-top-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  border-top-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  border-left-width: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  border-right-width: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+
+  padding-left: 12px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+
+  padding-right: 12px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger {
+  padding-right: 13px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger {
+  padding-left: 13px;
+}
+.spectrum--large .spectrum-SplitButton-trigger {
+
+  min-width: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger.spectrum-Button--cta {
+    border-left-width: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger.spectrum-Button--cta {
+    border-right-width: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger:after {
+    border-top-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger:after {
+    border-top-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-trigger:after {
+    border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-trigger:after {
+    border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
+    margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton-action .spectrum-Button-label + .spectrum-Icon {
+    margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-top-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    margin-left: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action {
+    margin-right: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      padding-left: 16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      padding-right: 16px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      margin-left: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action.spectrum-Button--cta {
+      margin-right: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-top-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-action:after {
+      border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    border-top-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    border-top-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-bottom-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    border-left-width: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    border-right-width: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-right-width: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    border-left-width: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    padding-right: 12px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+
+    padding-left: 12px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    padding-left: 13px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger {
+    padding-right: 13px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger.spectrum-Button--cta {
+      border-right-width: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger.spectrum-Button--cta {
+      border-left-width: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-right-radius: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-top-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-right-radius: 2px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-left-radius: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-left-radius: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SplitButton--left .spectrum-SplitButton-trigger:after {
+      border-bottom-right-radius: 20px;
+}

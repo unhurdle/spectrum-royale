@@ -1,0 +1,45 @@
+.spectrum--large .spectrum-DropIndicator:before,
+  .spectrum--large .spectrum-DropIndicator:after {
+    width: 12px;
+    height: 12px;
+    border: 2px solid;
+  }
+.spectrum--large .spectrum-DropIndicator--horizontal {
+  height: 2px;
+  margin: 0 12px;
+}
+.spectrum--large .spectrum-DropIndicator--horizontal:before,
+  .spectrum--large .spectrum-DropIndicator--horizontal:after {
+    top: -5px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-DropIndicator--horizontal:before {
+    left: -12px;
+}
+.spectrum--large [dir="rtl"] .spectrum-DropIndicator--horizontal:before {
+    right: -12px;
+}
+.spectrum--large [dir="ltr"] .spectrum-DropIndicator--horizontal:after {
+    right: -12px;
+}
+.spectrum--large [dir="rtl"] .spectrum-DropIndicator--horizontal:after {
+    left: -12px;
+}
+.spectrum--large .spectrum-DropIndicator--vertical {
+  width: 2px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.spectrum--large [dir="ltr"] .spectrum-DropIndicator--vertical:before,.spectrum--large [dir="ltr"] 
+  .spectrum-DropIndicator--vertical:after {
+    left: -5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-DropIndicator--vertical:before,.spectrum--large [dir="rtl"] 
+  .spectrum-DropIndicator--vertical:after {
+    right: -5px;
+}
+.spectrum--large .spectrum-DropIndicator--vertical:before {
+    top: -12px;
+  }
+.spectrum--large .spectrum-DropIndicator--vertical:after {
+    bottom: -12px;
+  }

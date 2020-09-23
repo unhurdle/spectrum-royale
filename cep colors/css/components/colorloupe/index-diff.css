@@ -1,0 +1,10 @@
+.spectrum--large .spectrum-ColorLoupe {
+  width: 52px;
+  height: 68px;
+  transform: translate(0, 8px);
+  bottom: calc(50% + 16px);
+  left: calc(50% - 26px);
+}
+.spectrum--large .spectrum-ColorLoupe-outer {
+  stroke-width: 1px;
+}

@@ -1,0 +1,54 @@
+.spectrum-DropIndicator {
+  position: relative;
+}
+.spectrum-DropIndicator:before,
+  .spectrum-DropIndicator:after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid;
+    box-sizing: border-box;
+  }
+.spectrum-DropIndicator--horizontal {
+  height: 2px;
+  margin: 0 12px;
+}
+.spectrum-DropIndicator--horizontal:before,
+  .spectrum-DropIndicator--horizontal:after {
+    top: -5px;
+  }
+[dir="ltr"] .spectrum-DropIndicator--horizontal:before {
+    left: -12px;
+}
+[dir="rtl"] .spectrum-DropIndicator--horizontal:before {
+    right: -12px;
+}
+[dir="ltr"] .spectrum-DropIndicator--horizontal:after {
+    right: -12px;
+}
+[dir="rtl"] .spectrum-DropIndicator--horizontal:after {
+    left: -12px;
+}
+.spectrum-DropIndicator--vertical {
+  width: 2px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 0;
+  margin-right: 0;
+}
+[dir="ltr"] .spectrum-DropIndicator--vertical:before,[dir="ltr"] 
+  .spectrum-DropIndicator--vertical:after {
+    left: -5px;
+}
+[dir="rtl"] .spectrum-DropIndicator--vertical:before,[dir="rtl"] 
+  .spectrum-DropIndicator--vertical:after {
+    right: -5px;
+}
+.spectrum-DropIndicator--vertical:before {
+    top: -12px;
+  }
+.spectrum-DropIndicator--vertical:after {
+    bottom: -12px;
+  }

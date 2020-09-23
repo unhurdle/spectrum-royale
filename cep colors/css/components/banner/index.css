@@ -1,0 +1,23 @@
+.spectrum-Banner {
+  display: inline-block;
+  border-radius: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.spectrum-Banner-header {
+  font-weight: bold;
+}
+[dir="ltr"] .spectrum-Banner--corner {
+  right: -10px;
+}
+[dir="rtl"] .spectrum-Banner--corner {
+  left: -10px;
+}
+.spectrum-Banner--corner {
+  position: absolute;
+  top: -10px;
+}

@@ -1,0 +1,17 @@
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle,
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-innerCircle {
+      stroke: rgb(74, 74, 74);
+    }
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-outerCircle {
+      fill: rgb(74, 74, 74);
+    }
+.spectrum--dark .spectrum-ColorWheel.is-disabled .spectrum-ColorWheel-segment {
+      display: none;
+    }
+.spectrum--dark .spectrum-ColorWheel-gradient {
+  border-color: rgba(255,255,255,0.1);
+}
+.spectrum--dark .spectrum-ColorWheel-outerCircle,
+.spectrum--dark .spectrum-ColorWheel-innerCircle {
+  stroke: rgba(255,255,255,0.1);
+}

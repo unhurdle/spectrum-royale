@@ -1,0 +1,71 @@
+.spectrum--large .spectrum-SideNav-item {
+
+  margin-top: 5px;
+
+  margin-bottom: 5px;
+}
+.spectrum--large .spectrum-SideNav-itemLink {
+  min-height: 40px;
+
+  padding-left: 15px;
+
+  padding-right: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+  border-radius: 5px;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  transition: background-color 130ms ease-out,
+              color 130ms ease-out;
+}
+.spectrum--large .spectrum-SideNav-itemLink.focus-ring::before {
+
+    border-top: 2px solid transparent;
+
+    border-bottom: 2px solid transparent;
+    border-radius: 5px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+    margin-right: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SideNav-itemLink .spectrum-SideNav-itemIcon {
+    margin-left: 10px;
+}
+.spectrum--large .spectrum-SideNav-heading {
+  height: 40px;
+  line-height: 40px;
+
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav-itemLink {
+    font-weight: 700;
+  }
+.spectrum--large [dir="ltr"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+
+      padding-left: 30px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+
+      padding-right: 30px;
+}
+.spectrum--large .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav-itemLink {
+      font-weight: 400;
+    }
+.spectrum--large [dir="ltr"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+        padding-left: 45px;
+}
+.spectrum--large [dir="rtl"] .spectrum-SideNav--multiLevel .spectrum-SideNav .spectrum-SideNav .spectrum-SideNav-itemLink {
+        padding-right: 45px;
+}

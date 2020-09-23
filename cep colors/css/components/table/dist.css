@@ -1,0 +1,997 @@
+.spectrum--large [dir="ltr"] .spectrum-Table-sortedIcon {
+  margin-left: 13px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table-sortedIcon {
+  margin-right: 13px;
+}
+.spectrum--large .spectrum-Table-sortedIcon {
+
+  transition: transform 130ms ease-in-out;
+}
+.spectrum--large .spectrum-Table-headCell {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  min-height: 15px;
+  letter-spacing: 0.06em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: color 130ms ease-in-out;
+  border-radius: 0px;
+}
+.spectrum--large .spectrum-Table-headCell.is-sorted-asc .spectrum-Table-sortedIcon, .spectrum--large .spectrum-Table-headCell.is-sorted-desc .spectrum-Table-sortedIcon {
+      margin-top: -2px;
+    }
+.spectrum--large .spectrum-Table-body {
+
+  border-width: 1px;
+  border-radius: 5px;
+  vertical-align: top;
+}
+.spectrum--large .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body {
+    border-width: 1px;
+    border-radius: 5px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:first-child {
+      border-top-left-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:first-child {
+      border-top-right-radius: 5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:last-child {
+      border-top-right-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:last-child {
+      border-top-left-radius: 5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:first-child {
+      border-bottom-left-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:first-child {
+      border-bottom-right-radius: 5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:last-child {
+      border-bottom-right-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:last-child {
+      border-bottom-left-radius: 5px;
+}
+.spectrum--large .spectrum-Table-cell {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+  min-height: 24px;
+}
+.spectrum--large .spectrum-Table-cell.focus-ring::before, .spectrum--large .spectrum-Table-cell.is-focused::before, .spectrum--large .spectrum-Table-headCell.focus-ring::before, .spectrum--large .spectrum-Table-headCell.is-focused::before {
+
+      border-radius: 4px;
+    }
+.spectrum--large [dir="ltr"] .spectrum-Table-headCell.focus-ring::before,.spectrum--large [dir="ltr"]  .spectrum-Table-headCell.is-focused::before {
+      right: 1px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table-headCell.focus-ring::before,.spectrum--large [dir="rtl"]  .spectrum-Table-headCell.is-focused::before {
+      left: 1px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Table-headCell.focus-ring::before,.spectrum--large [dir="ltr"]  .spectrum-Table-headCell.is-focused::before {
+      left: 1px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table-headCell.focus-ring::before,.spectrum--large [dir="rtl"]  .spectrum-Table-headCell.is-focused::before {
+      right: 1px;
+}
+.spectrum--large .spectrum-Table-headCell.focus-ring::before, .spectrum--large .spectrum-Table-headCell.is-focused::before {
+      top: 1px;
+      bottom: 1px;
+    }
+.spectrum--large [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-width: 1px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-width: 1px;
+}
+.spectrum--large .spectrum-Table-row {
+  transition: background-color 130ms ease-in-out;
+}
+.spectrum--large .spectrum-Table--quiet .spectrum-Table-body {
+    border-radius: 0px;
+  }
+.spectrum--large .spectrum-Table--quiet .spectrum-Table-body.is-drop-target::before, .spectrum--large .spectrum-Table--quiet .spectrum-Table-row.is-drop-target::before {
+        border-radius: 5px;
+      }
+.spectrum--large [dir="ltr"] .spectrum-Table-checkboxCell {
+  padding-right: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Table-checkboxCell {
+  padding-left: 10px;
+}
+.spectrum--large .spectrum-Table-checkboxCell {
+  vertical-align: middle;
+}
+.spectrum-Table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+[dir="ltr"] .spectrum-Table-sortedIcon {
+  margin-left: 10px;
+}
+[dir="rtl"] .spectrum-Table-sortedIcon {
+  margin-right: 10px;
+}
+.spectrum-Table-sortedIcon {
+  display: none;
+
+  vertical-align: middle;
+
+  transition: transform 130ms ease-in-out;
+}
+[dir="ltr"] .spectrum-Table-headCell {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-Table-headCell {
+  text-align: right;
+}
+.spectrum-Table-headCell {
+  box-sizing: border-box;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  min-height: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  transition: color 130ms ease-in-out;
+  cursor: default;
+  outline: 0;
+  border-radius: 0px;
+}
+.spectrum-Table-headCell.is-sortable {
+    cursor: pointer;
+  }
+.spectrum-Table-headCell.is-sorted-asc .spectrum-Table-sortedIcon, .spectrum-Table-headCell.is-sorted-desc .spectrum-Table-sortedIcon {
+      display: inline-block;
+      margin-top: -2px;
+    }
+.spectrum-Table-headCell.is-sorted-asc .spectrum-Table-sortedIcon {
+      transform: rotateZ(180deg);
+    }
+.spectrum-Table-cell--alignCenter {
+  text-align: center;
+}
+[dir="ltr"] .spectrum-Table-cell--alignRight {
+  text-align: right;
+}
+[dir="rtl"] .spectrum-Table-cell--alignRight {
+  text-align: left;
+}
+[dir="ltr"] .spectrum-Table-body.is-drop-target::before,[dir="ltr"] 
+.spectrum-Table-row.is-drop-target::before {
+    left: 0;
+}
+[dir="rtl"] .spectrum-Table-body.is-drop-target::before,[dir="rtl"] 
+.spectrum-Table-row.is-drop-target::before {
+    right: 0;
+}
+[dir="ltr"] .spectrum-Table-body.is-drop-target::before,[dir="ltr"] 
+.spectrum-Table-row.is-drop-target::before {
+    right: 0;
+}
+[dir="rtl"] .spectrum-Table-body.is-drop-target::before,[dir="rtl"] 
+.spectrum-Table-row.is-drop-target::before {
+    left: 0;
+}
+.spectrum-Table-body.is-drop-target::before,
+.spectrum-Table-row.is-drop-target::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+.spectrum-Table-body {
+  position: relative;
+
+  border-width: 1px;
+  border-radius: 4px;
+  overflow: auto;
+  vertical-align: top;
+}
+.spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body {
+    border-width: 1px;
+    border-radius: 4px;
+  }
+[dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:first-child {
+      border-top-left-radius: 4px;
+}
+[dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:first-child {
+      border-top-right-radius: 4px;
+}
+[dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:last-child {
+      border-top-right-radius: 4px;
+}
+[dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:first-child .spectrum-Table-cell:last-child {
+      border-top-left-radius: 4px;
+}
+[dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:first-child {
+      border-bottom-left-radius: 4px;
+}
+[dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:first-child {
+      border-bottom-right-radius: 4px;
+}
+[dir="ltr"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:last-child {
+      border-bottom-right-radius: 4px;
+}
+[dir="rtl"] .spectrum-Table:not(.spectrum-Table--quiet) tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell:last-child {
+      border-bottom-left-radius: 4px;
+}
+.spectrum-Table-cell {
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
+  min-height: 20px;
+}
+.spectrum-Table-cell,
+.spectrum-Table-headCell {
+  position: relative;
+}
+.spectrum-Table-cell.focus-ring,
+  .spectrum-Table-cell.is-focused,
+  .spectrum-Table-headCell.focus-ring,
+  .spectrum-Table-headCell.is-focused {
+    outline: none;
+  }
+[dir="ltr"] .spectrum-Table-cell.focus-ring::before,[dir="ltr"]  .spectrum-Table-cell.is-focused::before,[dir="ltr"]  .spectrum-Table-headCell.focus-ring::before,[dir="ltr"]  .spectrum-Table-headCell.is-focused::before {
+      right: 0;
+}
+[dir="rtl"] .spectrum-Table-cell.focus-ring::before,[dir="rtl"]  .spectrum-Table-cell.is-focused::before,[dir="rtl"]  .spectrum-Table-headCell.focus-ring::before,[dir="rtl"]  .spectrum-Table-headCell.is-focused::before {
+      left: 0;
+}
+[dir="ltr"] .spectrum-Table-cell.focus-ring::before,[dir="ltr"]  .spectrum-Table-cell.is-focused::before,[dir="ltr"]  .spectrum-Table-headCell.focus-ring::before,[dir="ltr"]  .spectrum-Table-headCell.is-focused::before {
+      left: 0;
+}
+[dir="rtl"] .spectrum-Table-cell.focus-ring::before,[dir="rtl"]  .spectrum-Table-cell.is-focused::before,[dir="rtl"]  .spectrum-Table-headCell.focus-ring::before,[dir="rtl"]  .spectrum-Table-headCell.is-focused::before {
+      right: 0;
+}
+.spectrum-Table-cell.focus-ring::before, .spectrum-Table-cell.is-focused::before, .spectrum-Table-headCell.focus-ring::before, .spectrum-Table-headCell.is-focused::before {
+      content: '';
+      z-index: 1;
+      position: absolute;
+
+      top: 0;
+      bottom: 0;
+
+      border-radius: 3px;
+    }
+[dir="ltr"] .spectrum-Table-headCell.focus-ring::before,[dir="ltr"]  .spectrum-Table-headCell.is-focused::before {
+      right: 1px;
+}
+[dir="rtl"] .spectrum-Table-headCell.focus-ring::before,[dir="rtl"]  .spectrum-Table-headCell.is-focused::before {
+      left: 1px;
+}
+[dir="ltr"] .spectrum-Table-headCell.focus-ring::before,[dir="ltr"]  .spectrum-Table-headCell.is-focused::before {
+      left: 1px;
+}
+[dir="rtl"] .spectrum-Table-headCell.focus-ring::before,[dir="rtl"]  .spectrum-Table-headCell.is-focused::before {
+      right: 1px;
+}
+.spectrum-Table-headCell.focus-ring::before, .spectrum-Table-headCell.is-focused::before {
+      top: 1px;
+      bottom: 1px;
+    }
+[dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-width: 1px;
+}
+[dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-width: 1px;
+}
+.spectrum-Table-row {
+  position: relative;
+  cursor: pointer;
+  transition: background-color 130ms ease-in-out;
+}
+.spectrum-Table-row:focus {
+    outline: 0;
+  }
+.spectrum-Table > .spectrum-Table-body > .spectrum-Table-row:last-of-type {
+  border-bottom-style: none;
+}
+.spectrum-Table--quiet .spectrum-Table-body {
+    border-radius: 0px;
+  }
+.spectrum-Table--quiet .spectrum-Table-body.is-drop-target::before, .spectrum-Table--quiet .spectrum-Table-row.is-drop-target::before {
+        border-radius: 4px;
+      }
+[dir="ltr"] .spectrum-Table-checkboxCell {
+  padding-right: 8px;
+}
+[dir="rtl"] .spectrum-Table-checkboxCell {
+  padding-left: 8px;
+}
+.spectrum-Table-checkboxCell {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  vertical-align: middle;
+}
+.spectrum-Table-checkbox {
+  vertical-align: super;
+}
+.spectrum--dark .spectrum-Table-headCell {
+  color: rgb(185, 185, 185);
+  background-color: transparent;
+}
+.spectrum--dark .spectrum-Table-headCell.is-sortable .spectrum-Table-sortedIcon {
+      color: rgb(144, 144, 144);
+    }
+.spectrum--dark .spectrum-Table-headCell.is-sortable:hover {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-Table-headCell.is-sortable:hover .spectrum-Table-sortedIcon {
+        color: rgb(203, 203, 203);
+      }
+.spectrum--dark .spectrum-Table-headCell.is-sortable.focus-ring,
+.spectrum--dark .spectrum-Table-headCell.is-sortable.is-focused {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-Table-headCell.is-sortable.focus-ring .spectrum-Table-sortedIcon,
+.spectrum--dark .spectrum-Table-headCell.is-sortable.is-focused .spectrum-Table-sortedIcon {
+        color: rgb(203, 203, 203);
+      }
+.spectrum--dark .spectrum-Table-headCell.is-sortable:active {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-Table-headCell.is-sortable:active .spectrum-Table-sortedIcon {
+        color: rgb(203, 203, 203);
+      }
+.spectrum--dark .spectrum-Table-cell.focus-ring::before,
+.spectrum--dark .spectrum-Table-cell.is-focused::before,
+.spectrum--dark .spectrum-Table-headCell.focus-ring::before,
+.spectrum--dark .spectrum-Table-headCell.is-focused::before {
+      box-shadow: inset 0 0 0 2px rgb(38, 128, 235);
+    }
+.spectrum--dark .spectrum-Table-body {
+  border-style: solid;
+  border-color: rgb(74, 74, 74);
+  background-color: rgb(37, 37, 37);
+}
+.spectrum--dark .spectrum-Table-body.is-drop-target {
+    border-color: rgb(38, 128, 235);
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+  }
+.spectrum--dark .spectrum-Table-body.is-drop-target::before {
+      background-color: rgba(55,142,240,0.15);
+    }
+.spectrum--dark tbody.spectrum-Table-body {
+  border: none;
+}
+.spectrum--dark tbody.spectrum-Table-body .spectrum-Table-row {
+    border-top: none;
+  }
+.spectrum--dark tbody.spectrum-Table-body .spectrum-Table-cell {
+    border-top: 1px solid rgb(74, 74, 74);
+  }
+.spectrum--dark [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-left: 1px solid rgb(74, 74, 74);
+}
+.spectrum--dark [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-right: 1px solid rgb(74, 74, 74);
+}
+.spectrum--dark [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-right: 1px solid rgb(74, 74, 74);
+}
+.spectrum--dark [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-left: 1px solid rgb(74, 74, 74);
+}
+.spectrum--dark tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell {
+    border-bottom: 1px solid rgb(74, 74, 74);
+  }
+.spectrum--dark .spectrum-Table-row {
+  border-bottom: 1px solid rgb(74, 74, 74);
+  background-color: transparent;
+}
+.spectrum--dark .spectrum-Table-row:hover {
+    background-color: rgba(255,255,255,0.07);
+  }
+.spectrum--dark .spectrum-Table-row.focus-ring,
+.spectrum--dark .spectrum-Table-row.is-focused {
+    background-color: rgba(255,255,255,0.07);
+  }
+.spectrum--dark .spectrum-Table-row:active {
+    background-color: rgba(255,255,255,0.1);
+  }
+.spectrum--dark .spectrum-Table-row.is-selected {
+    background-color: rgba(55,142,240,0.15);
+  }
+.spectrum--dark .spectrum-Table-row.is-selected:hover {
+      background-color: rgba(55,142,240,0.25);
+    }
+.spectrum--dark .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--dark .spectrum-Table-row.is-selected.is-focused {
+      background-color: rgba(55,142,240,0.25);
+    }
+.spectrum--dark .spectrum-Table-row.is-drop-target::before {
+      box-shadow: inset 0 0 0 2px rgb(38, 128, 235);
+      background-color: rgba(55,142,240,0.15);
+    }
+.spectrum--dark .spectrum-Table-cell {
+  color: rgb(203, 203, 203);
+  background-color: transparent;
+}
+.spectrum--dark [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-style: solid;
+}
+.spectrum--dark [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-style: solid;
+}
+.spectrum--dark [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-color: rgb(74, 74, 74);
+}
+.spectrum--dark [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-color: rgb(74, 74, 74);
+}
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-body {
+    border-width: 1px 0;
+    background-color: transparent;
+  }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-body.is-drop-target {
+      box-shadow: none;
+      border-color: transparent;
+    }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-body.is-drop-target::before {
+        box-shadow: inset 0 0 0 2px rgb(38, 128, 235);
+      }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row {
+    background-color: transparent;
+  }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row:hover {
+      background-color: rgba(255,255,255,0.07);
+    }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row.focus-ring,
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row.is-focused {
+      background-color: rgba(255,255,255,0.07);
+    }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row:active {
+      background-color: rgba(255,255,255,0.1);
+    }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row.is-selected {
+      background-color: rgba(55,142,240,0.15);
+    }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row.is-selected:hover {
+        background-color: rgba(55,142,240,0.25);
+      }
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--dark .spectrum-Table--quiet .spectrum-Table-row.is-selected.is-focused {
+        background-color: rgba(55,142,240,0.25);
+      }
+.spectrum--dark [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--dark [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}
+.spectrum--dark [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--dark [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--dark [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--dark [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--dark [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--dark [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}
+.spectrum--darkest .spectrum-Table-headCell {
+  color: rgb(162, 162, 162);
+  background-color: transparent;
+}
+.spectrum--darkest .spectrum-Table-headCell.is-sortable .spectrum-Table-sortedIcon {
+      color: rgb(162, 162, 162);
+    }
+.spectrum--darkest .spectrum-Table-headCell.is-sortable:hover {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Table-headCell.is-sortable:hover .spectrum-Table-sortedIcon {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--darkest .spectrum-Table-headCell.is-sortable.focus-ring,
+.spectrum--darkest .spectrum-Table-headCell.is-sortable.is-focused {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Table-headCell.is-sortable.focus-ring .spectrum-Table-sortedIcon,
+.spectrum--darkest .spectrum-Table-headCell.is-sortable.is-focused .spectrum-Table-sortedIcon {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--darkest .spectrum-Table-headCell.is-sortable:active {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-Table-headCell.is-sortable:active .spectrum-Table-sortedIcon {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--darkest .spectrum-Table-cell.focus-ring::before,
+.spectrum--darkest .spectrum-Table-cell.is-focused::before,
+.spectrum--darkest .spectrum-Table-headCell.focus-ring::before,
+.spectrum--darkest .spectrum-Table-headCell.is-focused::before {
+      box-shadow: inset 0 0 0 2px rgb(20, 115, 230);
+    }
+.spectrum--darkest .spectrum-Table-body {
+  border-style: solid;
+  border-color: rgb(57, 57, 57);
+  background-color: rgb(8, 8, 8);
+}
+.spectrum--darkest .spectrum-Table-body.is-drop-target {
+    border-color: rgb(20, 115, 230);
+    box-shadow: 0 0 0 1px rgb(20, 115, 230);
+  }
+.spectrum--darkest .spectrum-Table-body.is-drop-target::before {
+      background-color: rgba(38,128,235,0.2);
+    }
+.spectrum--darkest tbody.spectrum-Table-body {
+  border: none;
+}
+.spectrum--darkest tbody.spectrum-Table-body .spectrum-Table-row {
+    border-top: none;
+  }
+.spectrum--darkest tbody.spectrum-Table-body .spectrum-Table-cell {
+    border-top: 1px solid rgb(57, 57, 57);
+  }
+.spectrum--darkest [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-left: 1px solid rgb(57, 57, 57);
+}
+.spectrum--darkest [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-right: 1px solid rgb(57, 57, 57);
+}
+.spectrum--darkest [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-right: 1px solid rgb(57, 57, 57);
+}
+.spectrum--darkest [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-left: 1px solid rgb(57, 57, 57);
+}
+.spectrum--darkest tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell {
+    border-bottom: 1px solid rgb(57, 57, 57);
+  }
+.spectrum--darkest .spectrum-Table-row {
+  border-bottom: 1px solid rgb(57, 57, 57);
+  background-color: transparent;
+}
+.spectrum--darkest .spectrum-Table-row:hover {
+    background-color: rgba(255,255,255,0.08);
+  }
+.spectrum--darkest .spectrum-Table-row.focus-ring,
+.spectrum--darkest .spectrum-Table-row.is-focused {
+    background-color: rgba(255,255,255,0.08);
+  }
+.spectrum--darkest .spectrum-Table-row:active {
+    background-color: rgba(239,239,239,0.15);
+  }
+.spectrum--darkest .spectrum-Table-row.is-selected {
+    background-color: rgba(38,128,235,0.2);
+  }
+.spectrum--darkest .spectrum-Table-row.is-selected:hover {
+      background-color: rgba(38,128,235,0.3);
+    }
+.spectrum--darkest .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--darkest .spectrum-Table-row.is-selected.is-focused {
+      background-color: rgba(38,128,235,0.3);
+    }
+.spectrum--darkest .spectrum-Table-row.is-drop-target::before {
+      box-shadow: inset 0 0 0 2px rgb(20, 115, 230);
+      background-color: rgba(38,128,235,0.2);
+    }
+.spectrum--darkest .spectrum-Table-cell {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+}
+.spectrum--darkest [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-style: solid;
+}
+.spectrum--darkest [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-style: solid;
+}
+.spectrum--darkest [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-color: rgb(57, 57, 57);
+}
+.spectrum--darkest [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-color: rgb(57, 57, 57);
+}
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-body {
+    border-width: 1px 0;
+    background-color: transparent;
+  }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-body.is-drop-target {
+      box-shadow: none;
+      border-color: transparent;
+    }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-body.is-drop-target::before {
+        box-shadow: inset 0 0 0 2px rgb(20, 115, 230);
+      }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row {
+    background-color: transparent;
+  }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row:hover {
+      background-color: rgba(255,255,255,0.08);
+    }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row.focus-ring,
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row.is-focused {
+      background-color: rgba(255,255,255,0.08);
+    }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row:active {
+      background-color: rgba(239,239,239,0.15);
+    }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row.is-selected {
+      background-color: rgba(38,128,235,0.2);
+    }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row.is-selected:hover {
+        background-color: rgba(38,128,235,0.3);
+      }
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--darkest .spectrum-Table--quiet .spectrum-Table-row.is-selected.is-focused {
+        background-color: rgba(38,128,235,0.3);
+      }
+.spectrum--darkest [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--darkest [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}
+.spectrum--darkest [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--darkest [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--darkest [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--darkest [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--darkest [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--darkest [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}
+.spectrum--light .spectrum-Table-headCell {
+  color: rgb(110, 110, 110);
+  background-color: transparent;
+}
+.spectrum--light .spectrum-Table-headCell.is-sortable .spectrum-Table-sortedIcon {
+      color: rgb(142, 142, 142);
+    }
+.spectrum--light .spectrum-Table-headCell.is-sortable:hover {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-Table-headCell.is-sortable:hover .spectrum-Table-sortedIcon {
+        color: rgb(40, 40, 40);
+      }
+.spectrum--light .spectrum-Table-headCell.is-sortable.focus-ring,
+.spectrum--light .spectrum-Table-headCell.is-sortable.is-focused {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-Table-headCell.is-sortable.focus-ring .spectrum-Table-sortedIcon,
+.spectrum--light .spectrum-Table-headCell.is-sortable.is-focused .spectrum-Table-sortedIcon {
+        color: rgb(40, 40, 40);
+      }
+.spectrum--light .spectrum-Table-headCell.is-sortable:active {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-Table-headCell.is-sortable:active .spectrum-Table-sortedIcon {
+        color: rgb(40, 40, 40);
+      }
+.spectrum--light .spectrum-Table-cell.focus-ring::before,
+.spectrum--light .spectrum-Table-cell.is-focused::before,
+.spectrum--light .spectrum-Table-headCell.focus-ring::before,
+.spectrum--light .spectrum-Table-headCell.is-focused::before {
+      box-shadow: inset 0 0 0 2px rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-Table-body {
+  border-style: solid;
+  border-color: rgb(225, 225, 225);
+  background-color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Table-body.is-drop-target {
+    border-color: rgb(38, 128, 235);
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+  }
+.spectrum--light .spectrum-Table-body.is-drop-target::before {
+      background-color: rgba(20,115,230,0.1);
+    }
+.spectrum--light tbody.spectrum-Table-body {
+  border: none;
+}
+.spectrum--light tbody.spectrum-Table-body .spectrum-Table-row {
+    border-top: none;
+  }
+.spectrum--light tbody.spectrum-Table-body .spectrum-Table-cell {
+    border-top: 1px solid rgb(225, 225, 225);
+  }
+.spectrum--light [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-left: 1px solid rgb(225, 225, 225);
+}
+.spectrum--light [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-right: 1px solid rgb(225, 225, 225);
+}
+.spectrum--light [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-right: 1px solid rgb(225, 225, 225);
+}
+.spectrum--light [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-left: 1px solid rgb(225, 225, 225);
+}
+.spectrum--light tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell {
+    border-bottom: 1px solid rgb(225, 225, 225);
+  }
+.spectrum--light .spectrum-Table-row {
+  border-bottom: 1px solid rgb(225, 225, 225);
+  background-color: transparent;
+}
+.spectrum--light .spectrum-Table-row:hover {
+    background-color: rgba(40,40,40,0.06);
+  }
+.spectrum--light .spectrum-Table-row.focus-ring,
+.spectrum--light .spectrum-Table-row.is-focused {
+    background-color: rgba(40,40,40,0.06);
+  }
+.spectrum--light .spectrum-Table-row:active {
+    background-color: rgba(40,40,40,0.1);
+  }
+.spectrum--light .spectrum-Table-row.is-selected {
+    background-color: rgba(20,115,230,0.1);
+  }
+.spectrum--light .spectrum-Table-row.is-selected:hover {
+      background-color: rgba(20,115,230,0.2);
+    }
+.spectrum--light .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--light .spectrum-Table-row.is-selected.is-focused {
+      background-color: rgba(20,115,230,0.2);
+    }
+.spectrum--light .spectrum-Table-row.is-drop-target::before {
+      box-shadow: inset 0 0 0 2px rgb(38, 128, 235);
+      background-color: rgba(20,115,230,0.1);
+    }
+.spectrum--light .spectrum-Table-cell {
+  color: rgb(40, 40, 40);
+  background-color: transparent;
+}
+.spectrum--light [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-style: solid;
+}
+.spectrum--light [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-style: solid;
+}
+.spectrum--light [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-color: rgb(225, 225, 225);
+}
+.spectrum--light [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-color: rgb(225, 225, 225);
+}
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-body {
+    border-width: 1px 0;
+    background-color: transparent;
+  }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-body.is-drop-target {
+      box-shadow: none;
+      border-color: transparent;
+    }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-body.is-drop-target::before {
+        box-shadow: inset 0 0 0 2px rgb(38, 128, 235);
+      }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row {
+    background-color: transparent;
+  }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row:hover {
+      background-color: rgba(40,40,40,0.06);
+    }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row.focus-ring,
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row.is-focused {
+      background-color: rgba(40,40,40,0.06);
+    }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row:active {
+      background-color: rgba(40,40,40,0.1);
+    }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row.is-selected {
+      background-color: rgba(20,115,230,0.1);
+    }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row.is-selected:hover {
+        background-color: rgba(20,115,230,0.2);
+      }
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--light .spectrum-Table--quiet .spectrum-Table-row.is-selected.is-focused {
+        background-color: rgba(20,115,230,0.2);
+      }
+.spectrum--light [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}
+.spectrum--light [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--light [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--light [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--light [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}
+.spectrum--lightest .spectrum-Table-headCell {
+  color: rgb(116, 116, 116);
+  background-color: transparent;
+}
+.spectrum--lightest .spectrum-Table-headCell.is-sortable .spectrum-Table-sortedIcon {
+      color: rgb(149, 149, 149);
+    }
+.spectrum--lightest .spectrum-Table-headCell.is-sortable:hover {
+      color: rgb(73, 73, 73);
+    }
+.spectrum--lightest .spectrum-Table-headCell.is-sortable:hover .spectrum-Table-sortedIcon {
+        color: rgb(73, 73, 73);
+      }
+.spectrum--lightest .spectrum-Table-headCell.is-sortable.focus-ring,
+.spectrum--lightest .spectrum-Table-headCell.is-sortable.is-focused {
+      color: rgb(73, 73, 73);
+    }
+.spectrum--lightest .spectrum-Table-headCell.is-sortable.focus-ring .spectrum-Table-sortedIcon,
+.spectrum--lightest .spectrum-Table-headCell.is-sortable.is-focused .spectrum-Table-sortedIcon {
+        color: rgb(73, 73, 73);
+      }
+.spectrum--lightest .spectrum-Table-headCell.is-sortable:active {
+      color: rgb(73, 73, 73);
+    }
+.spectrum--lightest .spectrum-Table-headCell.is-sortable:active .spectrum-Table-sortedIcon {
+        color: rgb(73, 73, 73);
+      }
+.spectrum--lightest .spectrum-Table-cell.focus-ring::before,
+.spectrum--lightest .spectrum-Table-cell.is-focused::before,
+.spectrum--lightest .spectrum-Table-headCell.focus-ring::before,
+.spectrum--lightest .spectrum-Table-headCell.is-focused::before {
+      box-shadow: inset 0 0 0 2px rgb(55, 142, 240);
+    }
+.spectrum--lightest .spectrum-Table-body {
+  border-style: solid;
+  border-color: rgb(234, 234, 234);
+  background-color: rgb(255, 255, 255);
+}
+.spectrum--lightest .spectrum-Table-body.is-drop-target {
+    border-color: rgb(55, 142, 240);
+    box-shadow: 0 0 0 1px rgb(55, 142, 240);
+  }
+.spectrum--lightest .spectrum-Table-body.is-drop-target::before {
+      background-color: rgba(38,128,235,0.1);
+    }
+.spectrum--lightest tbody.spectrum-Table-body {
+  border: none;
+}
+.spectrum--lightest tbody.spectrum-Table-body .spectrum-Table-row {
+    border-top: none;
+  }
+.spectrum--lightest tbody.spectrum-Table-body .spectrum-Table-cell {
+    border-top: 1px solid rgb(234, 234, 234);
+  }
+.spectrum--lightest [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-left: 1px solid rgb(234, 234, 234);
+}
+.spectrum--lightest [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child {
+    border-right: 1px solid rgb(234, 234, 234);
+}
+.spectrum--lightest [dir="ltr"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-right: 1px solid rgb(234, 234, 234);
+}
+.spectrum--lightest [dir="rtl"] tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+    border-left: 1px solid rgb(234, 234, 234);
+}
+.spectrum--lightest tbody.spectrum-Table-body .spectrum-Table-row:last-child .spectrum-Table-cell {
+    border-bottom: 1px solid rgb(234, 234, 234);
+  }
+.spectrum--lightest .spectrum-Table-row {
+  border-bottom: 1px solid rgb(234, 234, 234);
+  background-color: transparent;
+}
+.spectrum--lightest .spectrum-Table-row:hover {
+    background-color: rgba(73,73,73,0.06);
+  }
+.spectrum--lightest .spectrum-Table-row.focus-ring,
+.spectrum--lightest .spectrum-Table-row.is-focused {
+    background-color: rgba(73,73,73,0.06);
+  }
+.spectrum--lightest .spectrum-Table-row:active {
+    background-color: rgba(73,73,73,0.1);
+  }
+.spectrum--lightest .spectrum-Table-row.is-selected {
+    background-color: rgba(38,128,235,0.1);
+  }
+.spectrum--lightest .spectrum-Table-row.is-selected:hover {
+      background-color: rgba(38,128,235,0.2);
+    }
+.spectrum--lightest .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--lightest .spectrum-Table-row.is-selected.is-focused {
+      background-color: rgba(38,128,235,0.2);
+    }
+.spectrum--lightest .spectrum-Table-row.is-drop-target::before {
+      box-shadow: inset 0 0 0 2px rgb(55, 142, 240);
+      background-color: rgba(38,128,235,0.1);
+    }
+.spectrum--lightest .spectrum-Table-cell {
+  color: rgb(73, 73, 73);
+  background-color: transparent;
+}
+.spectrum--lightest [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-style: solid;
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-style: solid;
+}
+.spectrum--lightest [dir="ltr"] .spectrum-Table-cell--divider {
+  border-right-color: rgb(234, 234, 234);
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table-cell--divider {
+  border-left-color: rgb(234, 234, 234);
+}
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-body {
+    border-width: 1px 0;
+    background-color: transparent;
+  }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-body.is-drop-target {
+      box-shadow: none;
+      border-color: transparent;
+    }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-body.is-drop-target::before {
+        box-shadow: inset 0 0 0 2px rgb(55, 142, 240);
+      }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row {
+    background-color: transparent;
+  }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row:hover {
+      background-color: rgba(73,73,73,0.06);
+    }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row.focus-ring,
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row.is-focused {
+      background-color: rgba(73,73,73,0.06);
+    }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row:active {
+      background-color: rgba(73,73,73,0.1);
+    }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row.is-selected {
+      background-color: rgba(38,128,235,0.1);
+    }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row.is-selected:hover {
+        background-color: rgba(38,128,235,0.2);
+      }
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row.is-selected.focus-ring,
+.spectrum--lightest .spectrum-Table--quiet .spectrum-Table-row.is-selected.is-focused {
+        background-color: rgba(38,128,235,0.2);
+      }
+.spectrum--lightest [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--lightest [dir="ltr"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="ltr"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-right: none;
+}
+.spectrum--lightest [dir="rtl"] .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:first-child,
+.spectrum--lightest [dir="rtl"] 
+    .spectrum-Table--quiet tbody.spectrum-Table-body .spectrum-Table-row .spectrum-Table-cell:last-child {
+      border-left: none;
+}

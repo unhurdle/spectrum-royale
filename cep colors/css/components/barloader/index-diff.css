@@ -1,0 +1,94 @@
+.spectrum--large {
+@-webkit-keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(-170px);
+  }
+  to {
+    transform: translate(240px);
+  }
+}
+@keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(-170px);
+  }
+  to {
+    transform: translate(240px);
+  }
+}
+@-webkit-keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(240px);
+  }
+  to {
+    transform: translate(-240px);
+  }
+}
+@keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(240px);
+  }
+  to {
+    transform: translate(-240px);
+  }
+}
+
+}
+.spectrum--large .spectrum-BarLoader {
+  width: 240px;
+}
+.spectrum--large .spectrum-BarLoader-track {
+  width: 240px;
+  height: 8px;
+  border-radius: 4px;
+}
+.spectrum--large .spectrum-BarLoader-fill {
+  height: 8px;
+}
+.spectrum--large .spectrum-BarLoader-label,
+.spectrum--large .spectrum-BarLoader-percentage {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 11px;
+}
+.spectrum--large [dir="ltr"] .spectrum-BarLoader-percentage {
+  margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-BarLoader-percentage {
+  margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-right: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-left: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-right: 15px;
+}
+.spectrum--large .spectrum-BarLoader--small {
+  min-width: 240px;
+}
+.spectrum--large .spectrum-BarLoader--small .spectrum-BarLoader-fill {
+    height: 5px;
+  }
+.spectrum--large .spectrum-BarLoader--small .spectrum-BarLoader-track {
+    height: 5px;
+    border-radius: 3px;
+  }
+.spectrum--large .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  width: 170px;
+  -webkit-animation-timing-function: cubic-bezier(.45, 0, .40, 1);
+          animation-timing-function: cubic-bezier(.45, 0, .40, 1);
+}
+.spectrum--large [dir='ltr'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  -webkit-animation: indeterminate-loop-ltr 1000ms infinite;
+          animation: indeterminate-loop-ltr 1000ms infinite;
+}
+.spectrum--large [dir='rtl'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  -webkit-animation: indeterminate-loop-rtl 1000ms infinite;
+          animation: indeterminate-loop-rtl 1000ms infinite;
+}

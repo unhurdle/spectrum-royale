@@ -1,0 +1,161 @@
+.spectrum--large .spectrum-Calendar {
+  width: 336px;
+}
+.spectrum--large .spectrum-Calendar--padded {
+  margin: 32px 24px;
+}
+.spectrum--large .spectrum-Calendar-title {
+  font-size: 22px;
+
+  line-height: 32px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar .spectrum-Calendar-prevMonth,.spectrum--large [dir="ltr"] 
+  .spectrum-Calendar .spectrum-Calendar-nextMonth,.spectrum--large [dir="rtl"] 
+  .spectrum-Calendar .spectrum-Calendar-prevMonth,.spectrum--large [dir="rtl"] 
+  .spectrum-Calendar .spectrum-Calendar-nextMonth {
+    margin: 0 4px;
+  }
+.spectrum--large .spectrum-Calendar-dayOfWeek {
+
+  width: 40px;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+.spectrum--large .spectrum-Calendar-dayOfWeek[title] {
+    letter-spacing: 0.06em;
+  }
+.spectrum--large .spectrum-Calendar-tableCell {
+  height: 40px;
+  width: 40px;
+  padding: 4px;
+}
+.spectrum--large .spectrum-Calendar-date {
+
+  height: 40px;
+  width: 40px;
+  margin: 4px;
+
+  border-radius: 40px;
+  border: 2px solid transparent;
+
+  font-size: 17px;
+  line-height: 36px;
+}
+.spectrum--large .spectrum-Calendar-date:lang(ja), .spectrum--large .spectrum-Calendar-date:lang(zh), .spectrum--large .spectrum-Calendar-date:lang(ko) {
+    font-size: 13px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date:before {
+    left: calc(50% - 20px);
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date:before {
+    right: calc(50% - 20px);
+}
+.spectrum--large .spectrum-Calendar-date:before {
+    top: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    border: 2px solid transparent;
+  }
+.spectrum--large .spectrum-Calendar-date.is-selected:not(.is-range-selection) {
+    font-weight: 700;
+  }
+.spectrum--large .spectrum-Calendar-date.is-today {
+    font-weight: 700;
+  }
+.spectrum--large .spectrum-Calendar-date.is-range-selection {
+    margin: 4px 0;
+    border-width: 0;
+    line-height: 40px;
+    border-radius: 0;
+    width: 48px;
+  }
+.spectrum--large .spectrum-Calendar-date.is-range-selection.is-range-start,
+    .spectrum--large .spectrum-Calendar-date.is-range-selection.is-range-end,
+    .spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-start,
+    .spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      width: 44px;
+    }
+.spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-start,
+    .spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      font-weight: 700;
+    }
+.spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-start:after, .spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-end:after {
+
+        height: 40px;
+        width: 40px;
+
+        border-radius: 40px;
+      }
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      padding-right: 4px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      padding-left: 4px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      margin-left: 4px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      margin-right: 4px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      border-top-left-radius: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      border-top-right-radius: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      border-bottom-left-radius: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-start,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-start {
+      border-bottom-right-radius: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      padding-left: 4px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      padding-right: 4px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      margin-right: 4px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      margin-left: 4px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      border-top-right-radius: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      border-top-left-radius: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="ltr"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      border-bottom-right-radius: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Calendar-date.is-range-selection.is-range-end,.spectrum--large [dir="rtl"] 
+    .spectrum-Calendar-date.is-range-selection.is-selection-end {
+      border-bottom-left-radius: 40px;
+}
+.spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-start.is-selection-end,
+    .spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-start.is-range-end,
+    .spectrum--large .spectrum-Calendar-date.is-range-selection.is-selection-end.is-range-start,
+    .spectrum--large .spectrum-Calendar-date.is-range-selection.is-range-start.is-range-end {
+      width: 40px;
+      border-radius: 40px;
+    }

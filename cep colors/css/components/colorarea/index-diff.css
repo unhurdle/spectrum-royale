@@ -1,0 +1,19 @@
+.spectrum--large .spectrum-ColorArea.is-focused .spectrum-ColorArea-handle {
+  width: 40px;
+  height: 40px;
+
+  margin-left: -20px;
+  margin-top: -20px;
+}
+.spectrum--large .spectrum-ColorArea {
+  width: 240px;
+  height: 240px;
+
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-ColorArea:before {
+    border-radius: 5px;
+  }
+.spectrum--large .spectrum-ColorArea-gradient {
+  border-radius: 5px;
+}

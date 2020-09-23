@@ -1,0 +1,148 @@
+.spectrum--large .spectrum-Textfield {
+  min-width: 60px;
+  width: 240px;
+}
+.spectrum--large .spectrum-Textfield.spectrum-Textfield--quiet.spectrum-Textfield--multiline .spectrum-Textfield-input {
+    height: 40px;
+    min-height: 40px;
+  }
+.spectrum--large .spectrum-Textfield-input {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 3px 15px 5px 14px;
+  height: 40px;
+  font-family: adobe-clean, 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Trebuchet MS', 'Lucida Grande', sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+
+  transition: border-color 130ms ease-in-out, box-shadow 130ms ease-in-out;
+}
+.spectrum--large .spectrum-Textfield-input::-webkit-input-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum--large .spectrum-Textfield-input::placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum--large .spectrum-Textfield-input::-ms-input-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+  }
+.spectrum--large .spectrum-Textfield-input:hover::-webkit-input-placeholder {
+      font-weight: 400;
+    }
+.spectrum--large .spectrum-Textfield-input:hover::placeholder {
+      font-weight: 400;
+    }
+.spectrum--large .spectrum-Textfield-input:disabled::-webkit-input-placeholder {
+      font-weight: 400;
+    }
+.spectrum--large .spectrum-Textfield-input:disabled::placeholder {
+      font-weight: 400;
+    }
+.spectrum--large [dir="ltr"] .spectrum-Textfield.is-valid .spectrum-Textfield-input {
+    padding-right: 46px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield.is-valid .spectrum-Textfield-input {
+    padding-left: 46px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Textfield.is-invalid .spectrum-Textfield-input {
+    padding-right: 52px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield.is-invalid .spectrum-Textfield-input {
+    padding-left: 52px;
+}
+.spectrum--large .spectrum-Textfield--multiline .spectrum-Textfield-input {
+    height: auto;
+    min-height: 70px;
+    padding: 3px 15px 5px 14px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-left: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-right: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-right: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-left: 0;
+}
+.spectrum--large .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    border-radius: 0;
+    border-bottom-width: 1px;
+  }
+.spectrum--large [dir="ltr"] .is-invalid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-right: 37px;
+}
+.spectrum--large [dir="rtl"] .is-invalid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-left: 37px;
+}
+.spectrum--large [dir="ltr"] .is-valid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-right: 31px;
+}
+.spectrum--large [dir="rtl"] .is-valid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-left: 31px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+    right: 9px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+    left: 9px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+
+    padding-right: 6.5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+
+    padding-left: 6.5px;
+}
+.spectrum--large .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+    width: 22px;
+    height: 22px;
+    bottom: 9px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+    right: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+    left: 15px;
+}
+.spectrum--large .spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+    width: 16px;
+    height: 16px;
+    bottom: 12px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Textfield-icon {
+  left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield-icon {
+  right: 15px;
+}
+.spectrum--large .spectrum-Textfield-icon {
+  height: 22px;
+  width: 22px;
+  top: 9px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-icon ~ .spectrum-Textfield-input {
+      padding-left: 30px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-icon ~ .spectrum-Textfield-input {
+      padding-right: 30px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Textfield-icon + .spectrum-Textfield-input {
+    padding-left: 43px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Textfield-icon + .spectrum-Textfield-input {
+    padding-right: 43px;
+}
+.spectrum--large .spectrum-Textfield--multiline .spectrum-Textfield-icon ~ .spectrum-Textfield-input {
+      height: 40px;
+      min-height: 40px;
+    }

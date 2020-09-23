@@ -1,0 +1,53 @@
+.spectrum--darkest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(151, 151, 151);
+    }
+.spectrum--darkest .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(73, 73, 73);
+      }
+.spectrum--darkest .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink:before {
+        background-color: rgba(38,128,235,0.2);
+        border-color: rgb(20, 115, 230);
+      }
+.spectrum--darkest .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink .spectrum-TreeView-itemIcon {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--darkest .spectrum-TreeView-item.is-drop-target > .spectrum-TreeView-itemLink:before {
+        background-color: rgba(38,128,235,0.2);
+        border-color: rgb(20, 115, 230);
+      }
+.spectrum--darkest .spectrum-TreeView--quiet .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink:before {
+          background-color: rgba(255,255,255,0.08);
+          border-color: transparent;
+        }
+.spectrum--darkest .spectrum-TreeView--quiet .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink.focus-ring:before {
+            border-color: rgb(20, 115, 230);
+          }
+.spectrum--darkest .spectrum-TreeView-itemIcon {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-TreeView-itemLink {
+  color: rgb(255, 255, 255);
+}
+.spectrum--darkest .spectrum-TreeView-itemLink:hover {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--darkest .spectrum-TreeView-itemLink:hover:before {
+      background-color: rgba(255,255,255,0.08);
+    }
+.spectrum--darkest .spectrum-TreeView-itemLink:hover .spectrum-TreeView-itemIcon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-TreeView-itemLink.focus-ring {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--darkest .spectrum-TreeView-itemLink.focus-ring::before {
+      background-color: rgba(255,255,255,0.08);
+
+      border-color: rgb(20, 115, 230);
+    }
+.spectrum--darkest .spectrum-TreeView-itemLink.focus-ring .spectrum-TreeView-itemIcon {
+      color: rgb(255, 255, 255);
+    }

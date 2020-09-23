@@ -1,0 +1,86 @@
+.spectrum-Alert {
+  position: relative;
+
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 368px;
+  min-height: 38px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+}
+[dir="ltr"] .spectrum-Alert-icon {
+  right: 20px;
+}
+[dir="rtl"] .spectrum-Alert-icon {
+  left: 20px;
+}
+.spectrum-Alert-icon {
+  position: absolute;
+  display: block;
+  top: 20px;
+}
+[dir="ltr"] .spectrum-Alert-header {
+  padding-right: 30px;
+}
+[dir="rtl"] .spectrum-Alert-header {
+  padding-left: 30px;
+}
+.spectrum-Alert-header {
+  display: inline-block;
+  height: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 14px;
+  text-transform: none;
+}
+.spectrum-Alert-content {
+  display: block;
+  margin: 8px 0 0 0;
+  padding: 0;
+
+  font-size: 14px;
+  word-wrap: break-word;
+}
+[dir="ltr"] .spectrum-Alert-footer {
+
+  text-align: right;
+}
+[dir="rtl"] .spectrum-Alert-footer {
+
+  text-align: left;
+}
+.spectrum-Alert-footer {
+  display: block;
+
+  padding-top: 0.5rem;
+}
+.spectrum-Alert-footer:empty {
+    display: none;
+  }
+[dir="ltr"] .spectrum-Alert-footer .spectrum-Button {
+    margin-right: 0;
+}
+[dir="rtl"] .spectrum-Alert-footer .spectrum-Button {
+    margin-left: 0;
+}
+[dir="ltr"] .spectrum-Alert-footer .spectrum-Button {
+    margin-left: 0.75rem;
+}
+[dir="rtl"] .spectrum-Alert-footer .spectrum-Button {
+    margin-right: 0.75rem;
+}

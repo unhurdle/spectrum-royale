@@ -1,0 +1,15 @@
+[dir="ltr"] .spectrum-Well {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-Well {
+  text-align: right;
+}
+.spectrum-Well {
+  display: block;
+  min-width: 240px;
+  padding: 16px;
+  margin-top: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+}

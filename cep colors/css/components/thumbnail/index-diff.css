@@ -1,0 +1,34 @@
+.spectrum--large .spectrum-Thumbnail {
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 2px;
+
+  background-size: 16px 16px;
+
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+.spectrum--large .spectrum-Thumbnail:before {
+    border-radius: 2px;
+  }
+.spectrum--large .spectrum-Thumbnail--S {
+  width: 30px;
+  height: 30px;
+}
+.spectrum--large .spectrum-Thumbnail--M {
+  width: 40px;
+  height: 40px;
+}
+.spectrum--large .spectrum-Thumbnail--L {
+  width: 50px;
+  height: 50px;
+}
+.spectrum--large .spectrum-Thumbnail--XL {
+  width: 60px;
+  height: 60px;
+}
+.spectrum--large .spectrum-Thumbnail--XXL {
+  width: 70px;
+  height: 70px;
+}

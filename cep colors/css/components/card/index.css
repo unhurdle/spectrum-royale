@@ -1,0 +1,349 @@
+.spectrum-Card {
+  position: relative;
+
+  display: -ms-inline-flexbox;
+
+  display: inline-flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+
+  box-sizing: border-box;
+  min-width: 240px;
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  text-decoration: none;
+}
+.spectrum-Card:focus {
+    outline: none;
+  }
+.spectrum-Card.is-focused .spectrum-Card-quickActions,
+    .spectrum-Card.is-focused .spectrum-Card-actions,
+    .spectrum-Card.is-selected .spectrum-Card-quickActions,
+    .spectrum-Card.is-selected .spectrum-Card-actions,
+    .spectrum-Card:focus .spectrum-Card-quickActions,
+    .spectrum-Card:focus .spectrum-Card-actions,
+    .spectrum-Card:hover .spectrum-Card-quickActions,
+    .spectrum-Card:hover .spectrum-Card-actions {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: all;
+    }
+[dir="ltr"] .spectrum-Card-actions {
+  right: 10px;
+}
+[dir="rtl"] .spectrum-Card-actions {
+  left: 10px;
+}
+.spectrum-Card-actions {
+  position: absolute;
+  top: 10px;
+  height: 40px;
+  visibility: hidden;
+}
+[dir="ltr"] .spectrum-Card-quickActions {
+  left: 16px;
+}
+[dir="rtl"] .spectrum-Card-quickActions {
+  right: 16px;
+}
+.spectrum-Card-quickActions {
+  position: absolute;
+  top: 16px;
+
+  width: 40px;
+  height: 40px;
+
+  visibility: hidden;
+}
+[dir="ltr"] .spectrum-Card-quickActions .spectrum-Checkbox,[dir="rtl"] 
+  .spectrum-Card-quickActions .spectrum-Checkbox {
+    margin: 0;
+  }
+.spectrum-Card-coverPhoto {
+  height: 136px;
+  box-sizing: border-box;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+
+  background-size: cover;
+  background-position: center center;
+}
+[dir="ltr"] .spectrum-Card-body {
+  padding-right: 24px;
+}
+[dir="rtl"] .spectrum-Card-body {
+  padding-left: 24px;
+}
+[dir="ltr"] .spectrum-Card-body {
+  padding-left: 24px;
+}
+[dir="rtl"] .spectrum-Card-body {
+  padding-right: 24px;
+}
+.spectrum-Card-body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.spectrum-Card-body:last-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+.spectrum-Card-preview {
+  overflow: hidden;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.spectrum-Card-header {
+  height: 18px;
+}
+.spectrum-Card-content {
+  display: -ms-flexbox;
+  display: flex;
+  height: 14px;
+  margin-top: 6px;
+}
+[dir="ltr"] .spectrum-Card-title {
+  padding-right: 8px;
+}
+[dir="rtl"] .spectrum-Card-title {
+  padding-left: 8px;
+}
+.spectrum-Card-title {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+[dir="ltr"] .spectrum-Card-subtitle {
+  padding-right: 8px;
+}
+[dir="rtl"] .spectrum-Card-subtitle {
+  padding-left: 8px;
+}
+.spectrum-Card-subtitle {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.spectrum-Card-description {
+  font-size: 11px;
+}
+[dir="ltr"] .spectrum-Card-subtitle + .spectrum-Card-description:before {
+  padding-right: 8px;
+}
+[dir="rtl"] .spectrum-Card-subtitle + .spectrum-Card-description:before {
+  padding-left: 8px;
+}
+.spectrum-Card-subtitle + .spectrum-Card-description:before {
+  content: "•";
+}
+[dir="ltr"] .spectrum-Card-footer {
+  margin-right: 24px;
+}
+[dir="rtl"] .spectrum-Card-footer {
+  margin-left: 24px;
+}
+[dir="ltr"] .spectrum-Card-footer {
+  margin-left: 24px;
+}
+[dir="rtl"] .spectrum-Card-footer {
+  margin-right: 24px;
+}
+.spectrum-Card-footer {
+  padding-top: 14px;
+  padding-bottom: 20px;
+
+  border-top: 1px solid;
+}
+.spectrum-Card-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: baseline;
+      align-items: baseline;
+}
+.spectrum-Card-actionButton {
+  -ms-flex: 1;
+      flex: 1;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+}
+.spectrum-Card--quiet .spectrum-Card-preview {
+    min-height: 136px;
+  }
+.spectrum-Card--quiet,
+.spectrum-Card--gallery {
+  width: 100%;
+  height: 100%;
+  min-width: 136px;
+  border-width: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+.spectrum-Card--quiet .spectrum-Card-preview, .spectrum-Card--gallery .spectrum-Card-preview {
+    width: 100%;
+    -ms-flex: 1;
+        flex: 1;
+    padding: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 4px;
+    position: relative;
+    transition: background-color 130ms;
+    overflow: visible;
+  }
+[dir="ltr"] .spectrum-Card--quiet .spectrum-Card-preview:before,[dir="ltr"]  .spectrum-Card--gallery .spectrum-Card-preview:before {
+      left: 0;
+}
+[dir="rtl"] .spectrum-Card--quiet .spectrum-Card-preview:before,[dir="rtl"]  .spectrum-Card--gallery .spectrum-Card-preview:before {
+      right: 0;
+}
+.spectrum-Card--quiet .spectrum-Card-preview:before, .spectrum-Card--gallery .spectrum-Card-preview:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      border-radius: inherit;
+      border: 1px solid transparent;
+    }
+.spectrum-Card--quiet.is-drop-target .spectrum-Card-preview, .spectrum-Card--gallery.is-drop-target .spectrum-Card-preview {
+      transition: none;
+    }
+.spectrum-Card--quiet .spectrum-Card-header, .spectrum-Card--gallery .spectrum-Card-header {
+    height: 18px;
+    margin-top: 14px;
+  }
+.spectrum-Card--quiet .spectrum-Card-body, .spectrum-Card--gallery .spectrum-Card-body {
+    padding: 0;
+  }
+.spectrum-Card--small {
+  min-width: 72px;
+}
+[dir="ltr"] .spectrum-Card--small .spectrum-Card-quickActions {
+    left: 10px;
+}
+[dir="rtl"] .spectrum-Card--small .spectrum-Card-quickActions {
+    right: 10px;
+}
+.spectrum-Card--small .spectrum-Card-quickActions {
+    top: 10px;
+  }
+.spectrum-Card--small .spectrum-Card-preview {
+    padding: 12px;
+    min-height: 72px;
+  }
+.spectrum-Card--small .spectrum-Card-header {
+    margin-top: 8px;
+    height: 12px;
+  }
+.spectrum-Card--small .spectrum-Card-title {
+    font-size: 14px;
+  }
+.spectrum-Card--horizontal {
+  -ms-flex-direction: row;
+      flex-direction: row;
+}
+[dir="ltr"] .spectrum-Card--horizontal .spectrum-Card-preview {
+
+    border-top-left-radius: 4px;
+}
+[dir="rtl"] .spectrum-Card--horizontal .spectrum-Card-preview {
+
+    border-top-right-radius: 4px;
+}
+[dir="ltr"] .spectrum-Card--horizontal .spectrum-Card-preview {
+    border-top-right-radius: 0;
+}
+[dir="rtl"] .spectrum-Card--horizontal .spectrum-Card-preview {
+    border-top-left-radius: 0;
+}
+[dir="ltr"] .spectrum-Card--horizontal .spectrum-Card-preview {
+    border-bottom-left-radius: 4px;
+}
+[dir="rtl"] .spectrum-Card--horizontal .spectrum-Card-preview {
+    border-bottom-right-radius: 4px;
+}
+[dir="ltr"] .spectrum-Card--horizontal .spectrum-Card-preview {
+    border-bottom-right-radius: 0;
+}
+[dir="rtl"] .spectrum-Card--horizontal .spectrum-Card-preview {
+    border-bottom-left-radius: 0;
+}
+[dir="ltr"] .spectrum-Card--horizontal .spectrum-Card-preview {
+
+    border-right: 1px solid transparent;
+}
+[dir="rtl"] .spectrum-Card--horizontal .spectrum-Card-preview {
+
+    border-left: 1px solid transparent;
+}
+.spectrum-Card--horizontal .spectrum-Card-preview {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    min-height: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+
+    padding: 14px;
+  }
+.spectrum-Card--horizontal .spectrum-Card-header,
+  .spectrum-Card--horizontal .spectrum-Card-content {
+    margin-top: 0;
+    height: auto;
+  }
+[dir="ltr"] .spectrum-Card--horizontal .spectrum-Card-title {
+    padding-right: 0;
+}
+[dir="rtl"] .spectrum-Card--horizontal .spectrum-Card-title {
+    padding-left: 0;
+}
+.spectrum-Card--horizontal .spectrum-Card-body {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-direction: column;
+        flex-direction: column;
+
+    padding-top: 0;
+
+    padding-bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+.spectrum-Card--gallery {
+  min-width: 0;
+}
+.spectrum-Card--gallery .spectrum-Card-preview {
+    padding: 0;
+    border-radius: 0;
+  }

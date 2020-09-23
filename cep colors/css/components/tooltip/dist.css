@@ -1,0 +1,436 @@
+.spectrum--large .spectrum-Tooltip {
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+}
+.spectrum--large .spectrum-Tooltip--bottom.is-open {
+  transform: translateY(8px);
+}
+.spectrum--large .spectrum-Tooltip--top.is-open {
+  transform: translateY(-8px);
+}
+.spectrum--large .spectrum-Tooltip--right.is-open {
+  transform: translateX(8px);
+}
+.spectrum--large .spectrum-Tooltip--left.is-open {
+  transform: translateX(-8px);
+}
+.spectrum--large .spectrum-Tooltip {
+  padding: 5px 13px;
+  border-radius: 5px;
+  min-height: 30px;
+
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 19px;
+}
+.spectrum--large .spectrum-Tooltip-tip {
+
+  border-width: 5px;
+}
+.spectrum--large .spectrum-Tooltip--right .spectrum-Tooltip-tip, .spectrum--large .spectrum-Tooltip--left .spectrum-Tooltip-tip {
+    margin-top: -5px;
+  }
+.spectrum--large .spectrum-Tooltip--right {
+  margin-left: 3px;
+}
+.spectrum--large .spectrum-Tooltip--left {
+  margin-right: 3px;
+}
+.spectrum--large .spectrum-Tooltip--top {
+  margin-bottom: 3px;
+}
+.spectrum--large .spectrum-Tooltip--bottom {
+  margin-top: 3px;
+}
+.spectrum--large .spectrum-Tooltip--bottom .spectrum-Tooltip-tip, .spectrum--large .spectrum-Tooltip--top .spectrum-Tooltip-tip {
+    margin-left: -5px;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Tooltip-typeIcon {
+  margin-left: -3px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Tooltip-typeIcon {
+  margin-right: -3px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Tooltip-typeIcon {
+  margin-right: 10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Tooltip-typeIcon {
+  margin-left: 10px;
+}
+.spectrum--large .spectrum-Tooltip-typeIcon {
+  width: 18px;
+  height: 18px;
+}
+.spectrum--large .spectrum-Tooltip-label {
+  max-width: 126px;
+  line-height: 19px;
+}
+.spectrum--large .u-tooltip-showOnHover .spectrum-Tooltip {
+    transition: transform 130ms ease-in-out;
+  }
+.spectrum--large .u-tooltip-showOnHover .spectrum-Tooltip--bottom {
+    transform: translate(-50%, -5px);
+  }
+.spectrum--large .u-tooltip-showOnHover .spectrum-Tooltip--top {
+    transform: translate(-50%, 5px);
+  }
+.spectrum--large .u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--top,
+  .spectrum--large .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--top,
+  .spectrum--large .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--top,
+  .spectrum--large .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--top {
+    transform: translate(-50%, -5px);
+  }
+.spectrum--large .u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--left,
+  .spectrum--large .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--left,
+  .spectrum--large .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--left,
+  .spectrum--large .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--left {
+    transform: translate(calc(-100% - 5px), -50%);
+  }
+.spectrum--large .u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--right,
+  .spectrum--large .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--right,
+  .spectrum--large .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--right,
+  .spectrum--large .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--right {
+    transform: translate(5px, -50%);
+  }
+.spectrum-Tooltip {
+  visibility: hidden;
+
+  opacity: 0;
+
+  transition: transform 130ms ease-in-out,
+              opacity 130ms ease-in-out,
+              visibility 0ms linear 130ms;
+
+  pointer-events: none;
+}
+.spectrum-Tooltip.is-open {
+  visibility: visible;
+
+  opacity: 1;
+
+  transition-delay: 0ms;
+
+  pointer-events: auto;
+}
+.spectrum-Tooltip--bottom.is-open {
+  transform: translateY(6px);
+}
+.spectrum-Tooltip--top.is-open {
+  transform: translateY(-6px);
+}
+.spectrum-Tooltip--right.is-open {
+  transform: translateX(6px);
+}
+.spectrum-Tooltip--left.is-open {
+  transform: translateX(-6px);
+}
+.spectrum-Tooltip {
+
+  position: relative;
+  left: 0px;
+  top: 0px;
+
+  display: -ms-inline-flexbox;
+
+  display: inline-flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+  box-sizing: border-box;
+
+  vertical-align: top;
+
+  width: auto;
+  padding: 4px 10px;
+  border-radius: 4px;
+  min-height: 24px;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+.spectrum-Tooltip {
+    cursor: default;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+.spectrum-Tooltip p {
+    margin: 0;
+  }
+.spectrum-Tooltip-tip {
+  position: absolute;
+
+  height: 0;
+  width: 0;
+
+  border-width: 4px;
+  border-style: solid;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+.spectrum-Tooltip--right .spectrum-Tooltip-tip, .spectrum-Tooltip--left .spectrum-Tooltip-tip {
+    top: 50%;
+    margin-top: -4px;
+  }
+.spectrum-Tooltip--right {
+  margin-left: 3px;
+}
+.spectrum-Tooltip--right .spectrum-Tooltip-tip {
+    right: 100%;
+    transform: rotate(90deg);
+  }
+.spectrum-Tooltip--left {
+  margin-right: 3px;
+}
+.spectrum-Tooltip--left .spectrum-Tooltip-tip {
+    left: 100%;
+    transform: rotate(-90deg);
+  }
+.spectrum-Tooltip--top {
+  margin-bottom: 3px;
+}
+.spectrum-Tooltip--top .spectrum-Tooltip-tip {
+    top: 100%;
+  }
+.spectrum-Tooltip--bottom {
+  margin-top: 3px;
+}
+.spectrum-Tooltip--bottom .spectrum-Tooltip-tip {
+    bottom: 100%;
+    transform: rotate(-180deg);
+  }
+.spectrum-Tooltip--bottom .spectrum-Tooltip-tip, .spectrum-Tooltip--top .spectrum-Tooltip-tip {
+    left: 50%;
+    margin-left: -4px;
+  }
+[dir="ltr"] .spectrum-Tooltip-typeIcon {
+  margin-left: -2px;
+}
+[dir="rtl"] .spectrum-Tooltip-typeIcon {
+  margin-right: -2px;
+}
+[dir="ltr"] .spectrum-Tooltip-typeIcon {
+  margin-right: 8px;
+}
+[dir="rtl"] .spectrum-Tooltip-typeIcon {
+  margin-left: 8px;
+}
+.spectrum-Tooltip-typeIcon {
+  width: 14px;
+  height: 14px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 1px;
+}
+.spectrum-Tooltip-label {
+  max-width: 101px;
+  line-height: 16px;
+}
+.u-tooltip-showOnHover {
+  display: inline-block;
+  position: relative;
+}
+.u-tooltip-showOnHover .spectrum-Tooltip {
+    position: absolute;
+    white-space: nowrap;
+    visibility: visible !important;
+    transition: transform 130ms ease-in-out;
+    top: -100%;
+  }
+.u-tooltip-showOnHover .spectrum-Tooltip-label {
+    max-width: none;
+  }
+.u-tooltip-showOnHover .spectrum-Tooltip--right,
+  .u-tooltip-showOnHover .spectrum-Tooltip--left {
+    top: 50%;
+  }
+.u-tooltip-showOnHover .spectrum-Tooltip--right .spectrum-Tooltip-tip, .u-tooltip-showOnHover .spectrum-Tooltip--left .spectrum-Tooltip-tip {
+      top: 50%;
+    }
+.u-tooltip-showOnHover .spectrum-Tooltip--right {
+    left: 100%;
+    transform: translate(0, -50%);
+  }
+.u-tooltip-showOnHover .spectrum-Tooltip--left {
+    transform: translate(-100%, -50%);
+  }
+.u-tooltip-showOnHover .spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover .spectrum-Tooltip--top {
+    left: 50%;
+  }
+.u-tooltip-showOnHover .spectrum-Tooltip--bottom .spectrum-Tooltip-tip, .u-tooltip-showOnHover .spectrum-Tooltip--top .spectrum-Tooltip-tip {
+      left: 50%;
+    }
+.u-tooltip-showOnHover .spectrum-Tooltip--bottom {
+    top: 100%;
+    transform: translate(-50%, -4px);
+  }
+.u-tooltip-showOnHover .spectrum-Tooltip--top {
+    transform: translate(-50%, 4px);
+  }
+.u-tooltip-showOnHover:hover .spectrum-Tooltip,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip {
+    opacity: 1;
+  }
+.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--bottom,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--bottom {
+    transform: translate(-50%, 0);
+  }
+.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--top,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--top,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--top,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--top {
+    transform: translate(-50%, -4px);
+  }
+.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--left,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--left,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--left,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--left {
+    transform: translate(calc(-100% - 4px), -50%);
+  }
+.u-tooltip-showOnHover:hover .spectrum-Tooltip.spectrum-Tooltip--right,
+  .u-tooltip-showOnHover:focus .spectrum-Tooltip.spectrum-Tooltip--right,
+  .u-tooltip-showOnHover.is-focused .spectrum-Tooltip.spectrum-Tooltip--right,
+  .u-tooltip-showOnHover *:focus .spectrum-Tooltip.spectrum-Tooltip--right {
+    transform: translate(4px, -50%);
+  }
+.spectrum--dark .spectrum-Tooltip {
+  background-color: rgb(116, 116, 116);
+
+  color: rgb(255, 255, 255);
+}
+.spectrum--dark .spectrum-Tooltip-tip {
+  border-top-color: rgb(116, 116, 116);
+}
+.spectrum--dark .spectrum-Tooltip--negative,
+.spectrum--dark .spectrum-Tooltip--error {
+  background-color: rgb(201, 37, 45);
+}
+.spectrum--dark .spectrum-Tooltip--negative .spectrum-Tooltip-tip,
+.spectrum--dark .spectrum-Tooltip--error .spectrum-Tooltip-tip {
+    border-top-color: rgb(201, 37, 45);
+  }
+.spectrum--dark .spectrum-Tooltip--info,
+.spectrum--dark .spectrum-Tooltip--help {
+  background-color: rgb(13, 102, 208);
+}
+.spectrum--dark .spectrum-Tooltip--info .spectrum-Tooltip-tip,
+.spectrum--dark .spectrum-Tooltip--help .spectrum-Tooltip-tip {
+    border-top-color: rgb(13, 102, 208);
+  }
+.spectrum--dark .spectrum-Tooltip--positive,
+.spectrum--dark .spectrum-Tooltip--success {
+  background-color: rgb(18, 128, 92);
+}
+.spectrum--dark .spectrum-Tooltip--positive .spectrum-Tooltip-tip,
+.spectrum--dark .spectrum-Tooltip--success .spectrum-Tooltip-tip {
+    border-top-color: rgb(18, 128, 92);
+  }
+.spectrum--darkest .spectrum-Tooltip {
+  background-color: rgb(116, 116, 116);
+
+  color: rgb(255, 255, 255);
+}
+.spectrum--darkest .spectrum-Tooltip-tip {
+  border-top-color: rgb(116, 116, 116);
+}
+.spectrum--darkest .spectrum-Tooltip--negative,
+.spectrum--darkest .spectrum-Tooltip--error {
+  background-color: rgb(201, 37, 45);
+}
+.spectrum--darkest .spectrum-Tooltip--negative .spectrum-Tooltip-tip,
+.spectrum--darkest .spectrum-Tooltip--error .spectrum-Tooltip-tip {
+    border-top-color: rgb(201, 37, 45);
+  }
+.spectrum--darkest .spectrum-Tooltip--info,
+.spectrum--darkest .spectrum-Tooltip--help {
+  background-color: rgb(13, 102, 208);
+}
+.spectrum--darkest .spectrum-Tooltip--info .spectrum-Tooltip-tip,
+.spectrum--darkest .spectrum-Tooltip--help .spectrum-Tooltip-tip {
+    border-top-color: rgb(13, 102, 208);
+  }
+.spectrum--darkest .spectrum-Tooltip--positive,
+.spectrum--darkest .spectrum-Tooltip--success {
+  background-color: rgb(18, 128, 92);
+}
+.spectrum--darkest .spectrum-Tooltip--positive .spectrum-Tooltip-tip,
+.spectrum--darkest .spectrum-Tooltip--success .spectrum-Tooltip-tip {
+    border-top-color: rgb(18, 128, 92);
+  }
+.spectrum--light .spectrum-Tooltip {
+  background-color: rgb(116, 116, 116);
+
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Tooltip-tip {
+  border-top-color: rgb(116, 116, 116);
+}
+.spectrum--light .spectrum-Tooltip--negative,
+.spectrum--light .spectrum-Tooltip--error {
+  background-color: rgb(201, 37, 45);
+}
+.spectrum--light .spectrum-Tooltip--negative .spectrum-Tooltip-tip,
+.spectrum--light .spectrum-Tooltip--error .spectrum-Tooltip-tip {
+    border-top-color: rgb(201, 37, 45);
+  }
+.spectrum--light .spectrum-Tooltip--info,
+.spectrum--light .spectrum-Tooltip--help {
+  background-color: rgb(13, 102, 208);
+}
+.spectrum--light .spectrum-Tooltip--info .spectrum-Tooltip-tip,
+.spectrum--light .spectrum-Tooltip--help .spectrum-Tooltip-tip {
+    border-top-color: rgb(13, 102, 208);
+  }
+.spectrum--light .spectrum-Tooltip--positive,
+.spectrum--light .spectrum-Tooltip--success {
+  background-color: rgb(18, 128, 92);
+}
+.spectrum--light .spectrum-Tooltip--positive .spectrum-Tooltip-tip,
+.spectrum--light .spectrum-Tooltip--success .spectrum-Tooltip-tip {
+    border-top-color: rgb(18, 128, 92);
+  }
+.spectrum--lightest .spectrum-Tooltip {
+  background-color: rgb(116, 116, 116);
+
+  color: rgb(255, 255, 255);
+}
+.spectrum--lightest .spectrum-Tooltip-tip {
+  border-top-color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-Tooltip--negative,
+.spectrum--lightest .spectrum-Tooltip--error {
+  background-color: rgb(201, 37, 45);
+}
+.spectrum--lightest .spectrum-Tooltip--negative .spectrum-Tooltip-tip,
+.spectrum--lightest .spectrum-Tooltip--error .spectrum-Tooltip-tip {
+    border-top-color: rgb(201, 37, 45);
+  }
+.spectrum--lightest .spectrum-Tooltip--info,
+.spectrum--lightest .spectrum-Tooltip--help {
+  background-color: rgb(13, 102, 208);
+}
+.spectrum--lightest .spectrum-Tooltip--info .spectrum-Tooltip-tip,
+.spectrum--lightest .spectrum-Tooltip--help .spectrum-Tooltip-tip {
+    border-top-color: rgb(13, 102, 208);
+  }
+.spectrum--lightest .spectrum-Tooltip--positive,
+.spectrum--lightest .spectrum-Tooltip--success {
+  background-color: rgb(18, 128, 92);
+}
+.spectrum--lightest .spectrum-Tooltip--positive .spectrum-Tooltip-tip,
+.spectrum--lightest .spectrum-Tooltip--success .spectrum-Tooltip-tip {
+    border-top-color: rgb(18, 128, 92);
+  }

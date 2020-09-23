@@ -1,0 +1,29 @@
+.spectrum-ButtonGroup {
+  display: -ms-flexbox;
+  display: flex;
+}
+.spectrum-ButtonGroup .spectrum-ButtonGroup-item {
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+  }
+[dir="ltr"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-left: 16px;
+}
+[dir="rtl"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 16px;
+}
+.spectrum-ButtonGroup--vertical {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+[dir="ltr"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-left: 0;
+}
+[dir="rtl"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 0;
+}
+.spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-top: 16px;
+  }

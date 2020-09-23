@@ -1,0 +1,229 @@
+.spectrum-Textfield {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  min-width: 48px;
+  width: 192px;
+}
+.spectrum-Textfield.spectrum-Textfield--quiet.spectrum-Textfield--multiline .spectrum-Textfield-input {
+    height: 32px;
+    min-height: 32px;
+  }
+.spectrum-Textfield-input {
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 3px 12px 5px 11px;
+  text-indent: 0;
+
+  width: 100%;
+  height: 32px;
+
+  vertical-align: top;
+  margin: 0;
+  overflow: visible;
+  font-family: adobe-clean, 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Trebuchet MS', 'Lucida Grande', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+
+  transition: border-color 130ms ease-in-out, box-shadow 130ms ease-in-out;
+
+  outline: none;
+
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+.spectrum-Textfield-input::-webkit-input-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+    opacity: 1;
+  }
+.spectrum-Textfield-input::placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+    opacity: 1;
+  }
+.spectrum-Textfield-input::-ms-input-placeholder {
+    font-weight: 400;
+    font-style: italic;
+    transition: color 130ms ease-in-out;
+    opacity: 1;
+  }
+.spectrum-Textfield-input:lang(ja)::-webkit-input-placeholder, .spectrum-Textfield-input:lang(zh)::-webkit-input-placeholder, .spectrum-Textfield-input:lang(ko)::-webkit-input-placeholder {
+       font-style: normal;
+    }
+.spectrum-Textfield-input:lang(ja)::placeholder, .spectrum-Textfield-input:lang(zh)::placeholder, .spectrum-Textfield-input:lang(ko)::placeholder {
+       font-style: normal;
+    }
+.spectrum-Textfield-input:lang(ja)::-ms-input-placeholder, .spectrum-Textfield-input:lang(zh)::-ms-input-placeholder, .spectrum-Textfield-input:lang(ko)::-ms-input-placeholder {
+       font-style: normal;
+    }
+.spectrum-Textfield-input:hover::-webkit-input-placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield-input:hover::placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield-input:disabled {
+    resize: none;
+    opacity: 1;
+  }
+.spectrum-Textfield-input:disabled::-webkit-input-placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield-input:disabled::placeholder {
+      font-weight: 400;
+    }
+.spectrum-Textfield-input::-ms-clear {
+    width: 0;
+    height: 0;
+  }
+.spectrum-Textfield-input::-webkit-inner-spin-button,
+  .spectrum-Textfield-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+.spectrum-Textfield-input:-moz-ui-invalid {
+    box-shadow: none;
+  }
+[dir="ltr"] .spectrum-Textfield.is-valid .spectrum-Textfield-input {
+    padding-right: 36px;
+}
+[dir="rtl"] .spectrum-Textfield.is-valid .spectrum-Textfield-input {
+    padding-left: 36px;
+}
+[dir="ltr"] .spectrum-Textfield.is-invalid .spectrum-Textfield-input {
+    padding-right: 42px;
+}
+[dir="rtl"] .spectrum-Textfield.is-invalid .spectrum-Textfield-input {
+    padding-left: 42px;
+}
+.spectrum-Textfield--multiline .spectrum-Textfield-input {
+    height: auto;
+    min-height: 56px;
+    padding: 3px 12px 5px 11px;
+    overflow: auto;
+  }
+[dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-left: 0;
+}
+[dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-right: 0;
+}
+[dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-right: 0;
+}
+[dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-input {
+    padding-left: 0;
+}
+.spectrum-Textfield--quiet .spectrum-Textfield-input {
+    border-radius: 0;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    border-left-width: 0;
+    border-right-width: 0;
+    resize: none;
+    overflow-y: hidden;
+  }
+[dir="ltr"] .is-invalid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-right: 30px;
+}
+[dir="rtl"] .is-invalid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-left: 30px;
+}
+[dir="ltr"] .is-valid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-right: 24px;
+}
+[dir="rtl"] .is-valid.spectrum-Textfield--quiet .spectrum-Textfield-input {
+      padding-left: 24px;
+}
+.spectrum-Textfield-validationIcon {
+  position: absolute;
+  pointer-events: all;
+}
+[dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-validationIcon {
+    padding-right: 0;
+}
+[dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-validationIcon {
+    padding-left: 0;
+}
+[dir="ltr"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+    right: 7px;
+}
+[dir="rtl"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+    left: 7px;
+}
+[dir="ltr"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+
+    padding-right: 5px;
+}
+[dir="rtl"] .spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+
+    padding-left: 5px;
+}
+.spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+    width: 18px;
+    height: 18px;
+    bottom: 7px;
+  }
+[dir="ltr"] .spectrum-Textfield--quiet.spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+      right: 0;
+}
+[dir="rtl"] .spectrum-Textfield--quiet.spectrum-Textfield.is-invalid .spectrum-Textfield-validationIcon {
+      left: 0;
+}
+[dir="ltr"] .spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+    right: 12px;
+}
+[dir="rtl"] .spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+    left: 12px;
+}
+.spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+    width: 12px;
+    height: 12px;
+    bottom: 10px;
+  }
+[dir="ltr"] .spectrum-Textfield--quiet.spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+      right: 0;
+}
+[dir="rtl"] .spectrum-Textfield--quiet.spectrum-Textfield.is-valid .spectrum-Textfield-validationIcon {
+      left: 0;
+}
+[dir="ltr"] .spectrum-Textfield-icon {
+  left: 12px;
+}
+[dir="rtl"] .spectrum-Textfield-icon {
+  right: 12px;
+}
+.spectrum-Textfield-icon {
+  display: block;
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  top: 7px;
+}
+[dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-icon {
+    left: 0;
+}
+[dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-icon {
+    right: 0;
+}
+[dir="ltr"] .spectrum-Textfield--quiet .spectrum-Textfield-icon ~ .spectrum-Textfield-input {
+      padding-left: 24px;
+}
+[dir="rtl"] .spectrum-Textfield--quiet .spectrum-Textfield-icon ~ .spectrum-Textfield-input {
+      padding-right: 24px;
+}
+[dir="ltr"] .spectrum-Textfield-icon + .spectrum-Textfield-input {
+    padding-left: 35px;
+}
+[dir="rtl"] .spectrum-Textfield-icon + .spectrum-Textfield-input {
+    padding-right: 35px;
+}
+.spectrum-Textfield--multiline .spectrum-Textfield-icon ~ .spectrum-Textfield-input {
+      height: 32px;
+      min-height: 32px;
+    }

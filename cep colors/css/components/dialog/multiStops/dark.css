@@ -1,0 +1,27 @@
+.spectrum--dark .spectrum-Dialog {
+  background: rgb(84, 84, 84);
+}
+.spectrum--dark .spectrum-Dialog-header {
+  background: rgb(84, 84, 84);
+}
+.spectrum--dark .spectrum-Dialog-header:after {
+    background: rgb(74, 74, 74);
+  }
+.spectrum--dark .spectrum-Dialog-title {
+  color: rgb(203, 203, 203);
+}
+.spectrum--dark .spectrum-Dialog-content {
+  color: rgb(203, 203, 203);
+}
+.spectrum--dark .spectrum-Dialog-typeIcon {
+  color: rgb(203, 203, 203);
+}
+.spectrum--dark .spectrum-Dialog-footer {
+  background: rgb(84, 84, 84);
+}
+.spectrum--dark .spectrum-Dialog--error .spectrum-Dialog-title {
+    color: rgb(203, 203, 203);
+  }
+.spectrum--dark .spectrum-Dialog--error .spectrum-Dialog-typeIcon {
+    color: rgb(247, 109, 116);
+  }

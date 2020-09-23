@@ -1,0 +1,53 @@
+.spectrum--dark .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink {
+      color: rgb(198, 198, 198);
+    }
+.spectrum--dark .spectrum-TreeView-item.is-disabled > .spectrum-TreeView-itemLink .spectrum-Icon {
+        color: rgb(90, 90, 90);
+      }
+.spectrum--dark .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink:before {
+        background-color: rgba(55,142,240,0.15);
+        border-color: rgb(38, 128, 235);
+      }
+.spectrum--dark .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink .spectrum-TreeView-itemIcon {
+        color: rgb(203, 203, 203);
+      }
+.spectrum--dark .spectrum-TreeView-item.is-drop-target > .spectrum-TreeView-itemLink:before {
+        background-color: rgba(55,142,240,0.15);
+        border-color: rgb(38, 128, 235);
+      }
+.spectrum--dark .spectrum-TreeView--quiet .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink:before {
+          background-color: rgba(255,255,255,0.07);
+          border-color: transparent;
+        }
+.spectrum--dark .spectrum-TreeView--quiet .spectrum-TreeView-item.is-selected > .spectrum-TreeView-itemLink.focus-ring:before {
+            border-color: rgb(38, 128, 235);
+          }
+.spectrum--dark .spectrum-TreeView-itemIcon {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-TreeView-itemLink {
+  color: rgb(203, 203, 203);
+}
+.spectrum--dark .spectrum-TreeView-itemLink:hover {
+    color: rgb(203, 203, 203);
+  }
+.spectrum--dark .spectrum-TreeView-itemLink:hover:before {
+      background-color: rgba(255,255,255,0.06);
+    }
+.spectrum--dark .spectrum-TreeView-itemLink:hover .spectrum-TreeView-itemIcon {
+      color: rgb(203, 203, 203);
+    }
+.spectrum--dark .spectrum-TreeView-itemLink.focus-ring {
+    color: rgb(203, 203, 203);
+  }
+.spectrum--dark .spectrum-TreeView-itemLink.focus-ring::before {
+      background-color: rgba(255,255,255,0.06);
+
+      border-color: rgb(38, 128, 235);
+    }
+.spectrum--dark .spectrum-TreeView-itemLink.focus-ring .spectrum-TreeView-itemIcon {
+      color: rgb(203, 203, 203);
+    }

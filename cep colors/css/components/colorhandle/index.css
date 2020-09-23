@@ -1,0 +1,59 @@
+.spectrum-ColorHandle.is-focused,
+.spectrum-ColorHandle.focus-ring {
+  width: 32px;
+  height: 32px;
+
+  margin-left: -16px;
+  margin-top: -16px;
+}
+.spectrum-ColorHandle {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+
+  margin-left: -8px;
+  margin-top: -8px;
+
+  border-width: 2px;
+  border-style: solid;
+
+  background-size:
+    16px
+    16px;
+  background-position:
+    -2px -2px,
+    -2px 6px,
+    6px -10px,
+    -10px -2px;
+
+  transition:
+    width 130ms ease-in-out,
+    height 130ms ease-in-out,
+    border-width 130ms ease-in-out,
+    margin-left 130ms ease-in-out,
+    margin-top 130ms ease-in-out;
+}
+.spectrum-ColorHandle,
+  .spectrum-ColorHandle:after {
+    border-radius: 100%;
+  }
+.spectrum-ColorHandle:after {
+    content: '';
+    left: calc(50% - 12px);
+    top: calc(50% - 12px);
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+.spectrum-ColorHandle.is-disabled {
+    pointer-events: none;
+  }
+.spectrum-ColorHandle-color {
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+}

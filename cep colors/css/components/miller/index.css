@@ -1,0 +1,31 @@
+.spectrum-MillerColumns {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 8px 0;
+}
+[dir="ltr"] .spectrum-MillerColumns-item {
+  margin-right: 8px;
+}
+[dir="rtl"] .spectrum-MillerColumns-item {
+  margin-left: 8px;
+}
+.spectrum-MillerColumns-item {
+  display: inline-block;
+  width: 272px;
+  vertical-align: top;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  height: 100%;
+}
+[dir="ltr"] .spectrum-MillerColumns-item:first-child {
+    margin-left: 8px;
+}
+[dir="rtl"] .spectrum-MillerColumns-item:first-child {
+    margin-right: 8px;
+}

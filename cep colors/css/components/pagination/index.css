@@ -1,0 +1,32 @@
+.spectrum-Pagination--explicit,
+.spectrum-Pagination--listing {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.spectrum-Pagination-textfield {
+  width: 48px;
+  min-width: 48px;
+}
+[dir="ltr"] .spectrum-Pagination-counter {
+  margin-left: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-counter {
+  margin-right: 5px;
+}
+[dir="ltr"] .spectrum-Pagination-prevButton {
+  margin-right: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-prevButton {
+  margin-left: 5px;
+}
+[dir="ltr"] .spectrum-Pagination-nextButton {
+  margin-left: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-nextButton {
+  margin-right: 5px;
+}
+[dir="rtl"] .spectrum-Pagination-prevButton .spectrum-Icon,[dir="rtl"]  .spectrum-Pagination-nextButton .spectrum-Icon { transform: matrix(-1, 0, 0, 1, 0, 0) ; }

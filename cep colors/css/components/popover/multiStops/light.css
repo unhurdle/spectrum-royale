@@ -1,0 +1,13 @@
+.spectrum--light .spectrum-Popover {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(202, 202, 202);
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+  will-change: filter;
+  -webkit-clip-path: inset(-30px -30px);
+          clip-path: inset(-30px -30px);
+}
+.spectrum--light .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
+      fill: rgb(255, 255, 255);
+      stroke: rgb(202, 202, 202);
+    }

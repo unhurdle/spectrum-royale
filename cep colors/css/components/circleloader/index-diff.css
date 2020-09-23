@@ -1,0 +1,48 @@
+.spectrum--large .spectrum-CircleLoader {
+  width: 32px;
+  height: 32px;
+}
+.spectrum--large .spectrum-CircleLoader-track {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+  border-radius: 32px;
+}
+.spectrum--large .spectrum-CircleLoader-fill {
+  width: 32px;
+  height: 32px;
+  border-width: 4px;
+  border-radius: 32px;
+}
+.spectrum--large .spectrum-CircleLoader--small {
+  width: 16px;
+  height: 16px;
+}
+.spectrum--large .spectrum-CircleLoader--small .spectrum-CircleLoader-track {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+    border-radius: 16px;
+  }
+.spectrum--large .spectrum-CircleLoader--small .spectrum-CircleLoader-fill {
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+    border-radius: 16px;
+  }
+.spectrum--large .spectrum-CircleLoader--large {
+  width: 80px;
+  height: 80px;
+}
+.spectrum--large .spectrum-CircleLoader--large .spectrum-CircleLoader-track {
+    width: 80px;
+    height: 80px;
+    border-width: 5px;
+    border-radius: 80px;
+  }
+.spectrum--large .spectrum-CircleLoader--large .spectrum-CircleLoader-fill {
+    width: 80px;
+    height: 80px;
+    border-width: 5px;
+    border-radius: 80px;
+  }

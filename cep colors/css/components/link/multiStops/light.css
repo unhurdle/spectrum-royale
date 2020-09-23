@@ -1,0 +1,36 @@
+.spectrum--light .spectrum-Link {
+  color: rgb(13, 102, 208);
+}
+.spectrum--light .spectrum-Link:hover {
+    color: rgb(13, 102, 208);
+  }
+.spectrum--light .spectrum-Link:active {
+    color: rgb(9, 90, 186);
+  }
+.spectrum--light .spectrum-Link.focus-ring {
+    color: rgb(13, 102, 208);
+  }
+.spectrum--light .spectrum-Link--secondary{
+  color: inherit;
+}
+.spectrum--light .spectrum-Link--secondary:hover {
+    color: inherit;
+  }
+.spectrum--light .spectrum-Link--secondary:active {
+    color: inherit;
+  }
+.spectrum--light .spectrum-Link--secondary:focus {
+    color: inherit;
+  }
+.spectrum--light .spectrum-Link--overBackground {
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Link--overBackground:hover {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Link--overBackground:active {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Link--overBackground:focus {
+    color: rgb(255, 255, 255);
+  }

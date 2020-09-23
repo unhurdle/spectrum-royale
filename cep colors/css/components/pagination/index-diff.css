@@ -1,0 +1,22 @@
+.spectrum--large .spectrum-Pagination-textfield {
+  width: 60px;
+  min-width: 60px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Pagination-counter {
+  margin-left: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-counter {
+  margin-right: 6px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Pagination-prevButton {
+  margin-right: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-prevButton {
+  margin-left: 6px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Pagination-nextButton {
+  margin-left: 6px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Pagination-nextButton {
+  margin-right: 6px;
+}

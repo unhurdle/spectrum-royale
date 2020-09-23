@@ -1,0 +1,94 @@
+.spectrum-Tags {
+  display: inline-block;
+
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.spectrum-Tags-item {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+      align-items: center;
+  box-sizing: border-box;
+  vertical-align: middle;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 9px;
+  padding-right: 9px;
+  height: 24px;
+  max-width: 100%;
+
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 4px;
+  outline: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  transition: border-color 130ms ease-in-out,
+    color 130ms ease-in-out,
+    box-shadow 130ms ease-in-out,
+    background-color 130ms ease-in-out;
+}
+.spectrum-Tags-item.is-disabled {
+    pointer-events: none;
+  }
+[dir="ltr"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
+    margin-right: 8px;
+}
+[dir="rtl"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
+    margin-left: 8px;
+}
+[dir="ltr"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
+    margin-left: -2px;
+}
+[dir="rtl"] .spectrum-Tags-item > .spectrum-Tags-itemIcon {
+    margin-right: -2px;
+}
+[dir="ltr"] .spectrum-Tags-item > .spectrum-Tags-itemIcon ~ .spectrum-Tags-itemLabel {
+      margin-right: -2px;
+}
+[dir="rtl"] .spectrum-Tags-item > .spectrum-Tags-itemIcon ~ .spectrum-Tags-itemLabel {
+      margin-left: -2px;
+}
+[dir="ltr"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-right: -5px;
+}
+[dir="rtl"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-left: -5px;
+}
+[dir="ltr"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-left: 5px;
+}
+[dir="rtl"] .spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    margin-right: 5px;
+}
+.spectrum-Tags-item .spectrum-Tags-itemClearButton {
+    display: -ms-flexbox;
+    display: flex;
+    height: 14px;
+    width: 14px;
+    border-radius: 2px;
+  }
+.spectrum-Tags-itemLabel {
+  height: 100%;
+  line-height: 22px;
+  -ms-flex: 1 1 auto;
+      flex: 1 1 auto;
+  font-size: 12px;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.spectrum-Tags-item--removable .spectrum-Tags-itemClearButton.is-focused {
+      border: 2px solid;
+      border-radius: 4px;
+    }

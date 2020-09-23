@@ -1,0 +1,681 @@
+.spectrum--light .spectrum-LogicButton:after,
+.spectrum--light .spectrum-Button:after {
+    box-shadow: 0 0 0 2px rgb(38, 128, 235);
+    opacity: 0;
+  }
+.spectrum--light .spectrum-LogicButton.focus-ring:after,
+.spectrum--light .spectrum-LogicButton.is-focused:after,
+.spectrum--light .spectrum-Button.focus-ring:after,
+.spectrum--light .spectrum-Button.is-focused:after {
+      opacity: 1;
+    }
+.spectrum--light .spectrum-ClearButton {
+  background-color: transparent;
+
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-ClearButton:hover {
+    background-color: transparent;
+
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ClearButton:active {
+    background-color: transparent;
+
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ClearButton.focus-ring {
+    background-color: transparent;
+
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ClearButton:disabled,
+.spectrum--light .spectrum-ClearButton.is-disabled {
+    background-color: transparent;
+
+    color: rgb(202, 202, 202);
+  }
+.spectrum--light .spectrum-Button--cta {
+  background-color: rgb(20, 115, 230);
+  border-color: rgb(20, 115, 230);
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Button--cta:hover {
+    background-color: rgb(13, 102, 208);
+    border-color: rgb(13, 102, 208);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--cta.focus-ring {
+    background-color: rgb(13, 102, 208);
+    border-color: rgb(13, 102, 208);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--cta:active {
+    background-color: rgb(9, 90, 186);
+    border-color: rgb(9, 90, 186);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--cta:disabled,
+.spectrum--light .spectrum-Button--cta.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-Button--primary {
+  background-color: transparent;
+  border-color: rgb(40, 40, 40);
+  color: rgb(40, 40, 40);
+}
+.spectrum--light .spectrum-Button--primary:hover {
+    background-color: rgb(40, 40, 40);
+    border-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--primary.focus-ring {
+    background-color: rgb(40, 40, 40);
+    border-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--primary:active {
+    background-color: rgb(40, 40, 40);
+    border-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--primary:disabled,
+.spectrum--light .spectrum-Button--primary.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-Button--secondary {
+  background-color: transparent;
+  border-color: rgb(110, 110, 110);
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Button--secondary:hover {
+    background-color: rgb(110, 110, 110);
+    border-color: rgb(110, 110, 110);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--secondary.focus-ring {
+    background-color: rgb(110, 110, 110);
+    border-color: rgb(110, 110, 110);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--secondary:active {
+    background-color: rgb(40, 40, 40);
+    border-color: rgb(40, 40, 40);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--secondary:disabled,
+.spectrum--light .spectrum-Button--secondary.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-Button--warning {
+  background-color: transparent;
+  border-color: rgb(201, 37, 45);
+  color: rgb(201, 37, 45);
+}
+.spectrum--light .spectrum-Button--warning:hover {
+    background-color: rgb(201, 37, 45);
+    border-color: rgb(201, 37, 45);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--warning.focus-ring {
+    background-color: rgb(201, 37, 45);
+    border-color: rgb(201, 37, 45);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--warning:active {
+    background-color: rgb(187, 18, 26);
+    border-color: rgb(187, 18, 26);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--warning:disabled,
+.spectrum--light .spectrum-Button--warning.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-Button--overBackground {
+  background-color: transparent;
+  border-color: rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Button--overBackground:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: inherit;
+  }
+.spectrum--light .spectrum-Button--overBackground.focus-ring {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: inherit;
+  }
+.spectrum--light .spectrum-Button--overBackground.focus-ring:after {
+      box-shadow: 0 0 0 2px rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-Button--overBackground:active {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+    color: inherit;
+  }
+.spectrum--light .spectrum-Button--overBackground:disabled,
+.spectrum--light .spectrum-Button--overBackground.is-disabled {
+    background-color: rgba(255,255,255,0.1);
+    border-color: transparent;
+    color: rgba(255,255,255,0.35);
+  }
+.spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet,
+.spectrum--light .spectrum-ClearButton--overBackground {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet:hover,
+.spectrum--light .spectrum-ClearButton--overBackground:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-color: transparent;
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet.focus-ring,
+.spectrum--light .spectrum-ClearButton--overBackground.focus-ring {
+    background-color: rgba(255,255,255,0.1);
+    border-color: transparent;
+    color: rgb(255, 255, 255);
+    box-shadow: none;
+  }
+.spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet.focus-ring:after,
+.spectrum--light .spectrum-ClearButton--overBackground.focus-ring:after {
+      box-shadow: 0 0 0 2px rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet:active,
+.spectrum--light .spectrum-ClearButton--overBackground:active {
+    background-color: rgba(255,255,255,0.15);
+    border-color: transparent;
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet:disabled,
+.spectrum--light .spectrum-Button--overBackground.spectrum-Button--quiet.is-disabled,
+.spectrum--light .spectrum-ClearButton--overBackground:disabled,
+.spectrum--light .spectrum-ClearButton--overBackground.is-disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgba(255,255,255,0.15);
+  }
+.spectrum--light .spectrum-Button--primary.spectrum-Button--quiet {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(40, 40, 40);
+}
+.spectrum--light .spectrum-Button--primary.spectrum-Button--quiet:hover {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-Button--primary.spectrum-Button--quiet.focus-ring {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-Button--primary.spectrum-Button--quiet:active {
+    background-color: rgb(225, 225, 225);
+    border-color: rgb(225, 225, 225);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-Button--primary.spectrum-Button--quiet:disabled,
+.spectrum--light .spectrum-Button--primary.spectrum-Button--quiet.is-disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-Button--secondary.spectrum-Button--quiet {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-Button--secondary.spectrum-Button--quiet:hover {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-Button--secondary.spectrum-Button--quiet.focus-ring {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-Button--secondary.spectrum-Button--quiet:active {
+    background-color: rgb(225, 225, 225);
+    border-color: rgb(225, 225, 225);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-Button--secondary.spectrum-Button--quiet:disabled,
+.spectrum--light .spectrum-Button--secondary.spectrum-Button--quiet.is-disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-ActionButton {
+  background-color: rgb(250, 250, 250);
+  border-color: rgb(202, 202, 202);
+  color: rgb(40, 40, 40);
+}
+.spectrum--light .spectrum-ActionButton .spectrum-Icon {
+    color: rgb(110, 110, 110);
+  }
+.spectrum--light .spectrum-ActionButton .spectrum-ActionButton-hold {
+    color: rgb(110, 110, 110);
+  }
+.spectrum--light .spectrum-ActionButton:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(179, 179, 179);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton:hover .spectrum-Icon {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton:hover .spectrum-ActionButton-hold {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton.focus-ring {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(38, 128, 235);
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton.focus-ring:active {
+      border-color: rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-ActionButton.focus-ring .spectrum-Icon {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton.focus-ring .spectrum-ActionButton-hold {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton:active {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(179, 179, 179);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton:active .spectrum-ActionButton-hold {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton:disabled,
+.spectrum--light .spectrum-ActionButton.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-ActionButton:disabled .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton.is-disabled .spectrum-Icon {
+      color: rgb(202, 202, 202);
+    }
+.spectrum--light .spectrum-ActionButton:disabled .spectrum-ActionButton-hold,
+.spectrum--light .spectrum-ActionButton.is-disabled .spectrum-ActionButton-hold {
+      color: rgb(202, 202, 202);
+    }
+.spectrum--light .spectrum-ActionButton.is-selected {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(202, 202, 202);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton.is-selected .spectrum-Icon {
+      color: rgb(110, 110, 110);
+    }
+.spectrum--light .spectrum-ActionButton.is-selected.focus-ring {
+      background-color: rgb(234, 234, 234);
+      border-color: rgb(38, 128, 235);
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton.is-selected.focus-ring:active {
+        border-color: rgb(38, 128, 235);
+      }
+.spectrum--light .spectrum-ActionButton.is-selected.focus-ring .spectrum-Icon {
+        color: rgb(40, 40, 40);
+      }
+.spectrum--light .spectrum-ActionButton.is-selected:hover {
+      background-color: rgb(234, 234, 234);
+      border-color: rgb(179, 179, 179);
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton.is-selected:hover .spectrum-Icon {
+        color: rgb(40, 40, 40);
+      }
+.spectrum--light .spectrum-ActionButton.is-selected:active {
+      background-color: rgb(234, 234, 234);
+      border-color: rgb(179, 179, 179);
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton.is-selected:active .spectrum-Icon {
+        color: rgb(40, 40, 40);
+      }
+.spectrum--light .spectrum-ActionButton.is-selected:disabled,
+.spectrum--light .spectrum-ActionButton.is-selected.is-disabled {
+      background-color: rgb(234, 234, 234);
+      border-color: rgb(234, 234, 234);
+      color: rgb(179, 179, 179);
+    }
+.spectrum--light .spectrum-ActionButton.is-selected:disabled .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton.is-selected.is-disabled .spectrum-Icon {
+        color: rgb(202, 202, 202);
+      }
+.spectrum--light .spectrum-ActionButton--emphasized {
+  background-color: rgb(250, 250, 250);
+  border-color: rgb(202, 202, 202);
+  color: rgb(40, 40, 40);
+}
+.spectrum--light .spectrum-ActionButton--emphasized .spectrum-Icon {
+    color: rgb(110, 110, 110);
+  }
+.spectrum--light .spectrum-ActionButton--emphasized .spectrum-ActionButton-hold {
+    color: rgb(110, 110, 110);
+  }
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected .spectrum-ActionButton-hold {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected:hover .spectrum-ActionButton-hold {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--light .spectrum-ActionButton--emphasized:hover {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(179, 179, 179);
+    box-shadow: none;
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton--emphasized:hover .spectrum-Icon {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized:hover .spectrum-ActionButton-hold {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.focus-ring {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(38, 128, 235);
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton--emphasized.focus-ring .spectrum-Icon {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.focus-ring .spectrum-ActionButton-hold {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.is-active {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(179, 179, 179);
+    box-shadow: none;
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton--emphasized.is-active .spectrum-ActionButton-hold {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized:disabled,
+.spectrum--light .spectrum-ActionButton--emphasized.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-ActionButton--emphasized:disabled .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.is-disabled .spectrum-Icon {
+      color: rgb(202, 202, 202);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized:disabled .spectrum-ActionButton-hold,
+.spectrum--light .spectrum-ActionButton--emphasized.is-disabled .spectrum-ActionButton-hold {
+      color: rgb(202, 202, 202);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected {
+    background-color: rgb(20, 115, 230);
+    border-color: rgb(20, 115, 230);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected .spectrum-Icon {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected.focus-ring,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected.focus-ring {
+      background-color: rgb(20, 115, 230);
+      border-color: rgb(20, 115, 230);
+      color: rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected.focus-ring .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected.focus-ring .spectrum-Icon {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected:hover,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected:hover {
+      background-color: rgb(13, 102, 208);
+      border-color: rgb(13, 102, 208);
+      color: rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected:hover .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected:hover .spectrum-Icon {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected.is-active,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected.is-active {
+      background-color: rgb(9, 90, 186);
+      border-color: rgb(9, 90, 186);
+      color: rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected.is-active .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected.is-active .spectrum-Icon {
+        color: rgb(255, 255, 255);
+      }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected:disabled,
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected.is-disabled,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected:disabled,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected.is-disabled {
+      background-color: rgb(234, 234, 234);
+      border-color: rgb(234, 234, 234);
+      color: rgb(179, 179, 179);
+    }
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected:disabled .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.spectrum-ActionButton--quiet.is-selected.is-disabled .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected:disabled .spectrum-Icon,
+.spectrum--light .spectrum-ActionButton--emphasized.is-selected.is-disabled .spectrum-Icon {
+        color: rgb(202, 202, 202);
+      }
+.spectrum--light .spectrum-ActionButton--quiet {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(40, 40, 40);
+}
+.spectrum--light .spectrum-ActionButton--quiet:hover {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton--quiet.focus-ring {
+    background-color: transparent;
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    border-color: rgb(38, 128, 235);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton--quiet:active {
+    background-color: rgb(225, 225, 225);
+    border-color: rgb(225, 225, 225);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton--quiet:disabled,
+.spectrum--light .spectrum-ActionButton--quiet.is-disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-ActionButton--quiet.is-selected {
+    background-color: rgb(225, 225, 225);
+    border-color: rgb(202, 202, 202);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-ActionButton--quiet.is-selected.focus-ring {
+      background-color: rgb(225, 225, 225);
+      border-color: rgb(38, 128, 235);
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--quiet.is-selected:hover {
+      background-color: rgb(225, 225, 225);
+      border-color: rgb(179, 179, 179);
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--quiet.is-selected:active {
+      background-color: rgb(225, 225, 225);
+      border-color: rgb(179, 179, 179);
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-ActionButton--quiet.is-selected:disabled,
+.spectrum--light .spectrum-ActionButton--quiet.is-selected.is-disabled {
+      background-color: rgb(234, 234, 234);
+      border-color: rgb(234, 234, 234);
+      color: rgb(179, 179, 179);
+    }
+.spectrum--light .spectrum-Button--warning.spectrum-Button--quiet {
+  background-color: transparent;
+  border-color: transparent;
+  color: rgb(201, 37, 45);
+}
+.spectrum--light .spectrum-Button--warning.spectrum-Button--quiet:hover {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(187, 18, 26);
+  }
+.spectrum--light .spectrum-Button--warning.spectrum-Button--quiet.focus-ring {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(187, 18, 26);
+  }
+.spectrum--light .spectrum-Button--warning.spectrum-Button--quiet:active {
+    background-color: rgb(225, 225, 225);
+    border-color: rgb(225, 225, 225);
+    color: rgb(187, 18, 26);
+  }
+.spectrum--light .spectrum-Button--warning.spectrum-Button--quiet:disabled,
+.spectrum--light .spectrum-Button--warning.spectrum-Button--quiet.is-disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-LogicButton--and {
+  background-color: rgb(20, 115, 230);
+  border-color: rgb(20, 115, 230);
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-LogicButton--and:hover {
+    background-color: rgb(9, 90, 186);
+    border-color: rgb(9, 90, 186);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-LogicButton--and:disabled,
+.spectrum--light .spectrum-LogicButton--and.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-LogicButton--or {
+  background-color: rgb(206, 39, 131);
+  border-color: rgb(206, 39, 131);
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-LogicButton--or:hover {
+    background-color: rgb(174, 14, 102);
+    border-color: rgb(174, 14, 102);
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-LogicButton--or:disabled,
+.spectrum--light .spectrum-LogicButton--or.is-disabled {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-FieldButton {
+  color: rgb(40, 40, 40);
+  background-color: rgb(250, 250, 250);
+  border-color: rgb(202, 202, 202);
+}
+.spectrum--light .spectrum-FieldButton:hover {
+    color: rgb(40, 40, 40);
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-FieldButton:active,
+.spectrum--light .spectrum-FieldButton.is-selected {
+    background-color: rgb(234, 234, 234);
+    border-color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-FieldButton.focus-ring,
+.spectrum--light .spectrum-FieldButton.is-focused {
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(38, 128, 235);
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-FieldButton.focus-ring.is-placeholder,
+.spectrum--light .spectrum-FieldButton.is-focused.is-placeholder {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-FieldButton.is-invalid {
+    border-color: rgb(215, 55, 63);
+  }
+.spectrum--light .spectrum-FieldButton.is-invalid:hover {
+      border-color: rgb(201, 37, 45);
+    }
+.spectrum--light .spectrum-FieldButton.is-invalid:active,
+.spectrum--light .spectrum-FieldButton.is-invalid.is-selected {
+      border-color: rgb(201, 37, 45);
+    }
+.spectrum--light .spectrum-FieldButton.is-invalid.focus-ring,
+.spectrum--light .spectrum-FieldButton.is-invalid.is-focused {
+      border-color: rgb(38, 128, 235);
+      box-shadow: 0 0 0 1px rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-FieldButton:disabled,
+.spectrum--light .spectrum-FieldButton.is-disabled {
+    background-color: rgb(234, 234, 234);
+    color: rgb(179, 179, 179);
+  }
+.spectrum--light .spectrum-FieldButton:disabled .spectrum-Icon,
+.spectrum--light .spectrum-FieldButton.is-disabled .spectrum-Icon {
+      color: rgb(202, 202, 202);
+    }
+.spectrum--light .spectrum-FieldButton--quiet {
+  color: rgb(40, 40, 40);
+  border-color: transparent;
+  background-color: transparent;
+}
+.spectrum--light .spectrum-FieldButton--quiet:hover {
+    background-color: transparent;
+    color: rgb(40, 40, 40);
+  }
+.spectrum--light .spectrum-FieldButton--quiet.focus-ring,
+.spectrum--light .spectrum-FieldButton--quiet.is-focused {
+    background-color: transparent;
+    box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+  }
+.spectrum--light .spectrum-FieldButton--quiet.focus-ring.is-placeholder,
+.spectrum--light .spectrum-FieldButton--quiet.is-focused.is-placeholder {
+      color: rgb(40, 40, 40);
+    }
+.spectrum--light .spectrum-FieldButton--quiet:active,
+.spectrum--light .spectrum-FieldButton--quiet.is-selected {
+    background-color: transparent;
+    border-color: transparent;
+  }
+.spectrum--light .spectrum-FieldButton--quiet:active.focus-ring,
+.spectrum--light .spectrum-FieldButton--quiet:active.is-focused,
+.spectrum--light .spectrum-FieldButton--quiet.is-selected.focus-ring,
+.spectrum--light .spectrum-FieldButton--quiet.is-selected.is-focused {
+      background-color: transparent;
+      box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-FieldButton--quiet.is-invalid.focus-ring,
+.spectrum--light .spectrum-FieldButton--quiet.is-invalid.is-focused {
+      box-shadow: 0 2px 0 0 rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-FieldButton--quiet:disabled,
+.spectrum--light .spectrum-FieldButton--quiet.is-disabled {
+    background-color: transparent;
+    color: rgb(179, 179, 179);
+  }

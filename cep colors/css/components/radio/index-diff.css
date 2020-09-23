@@ -1,0 +1,67 @@
+.spectrum--large [dir="ltr"] .spectrum-Radio {
+
+  margin-right: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Radio {
+
+  margin-left: 20px;
+}
+.spectrum--large .spectrum-Radio {
+
+  min-height: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Radio-input {
+  left: -10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Radio-input {
+  right: -10px;
+}
+.spectrum--large .spectrum-Radio-input {
+  width: calc(100% + 20px);
+}
+.spectrum--large .spectrum-Radio-input:checked + .spectrum-Radio-button:before {
+      border-width: 7px;
+    }
+.spectrum--large .spectrum-Radio-input.focus-ring + .spectrum-Radio-button:after {
+        margin: -2px;
+      }
+.spectrum--large [dir="ltr"] .spectrum-Radio-label {
+  margin-left: 13px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Radio-label {
+  margin-right: 13px;
+}
+.spectrum--large .spectrum-Radio-label {
+  margin-top: 6px;
+  font-size: 17px;
+  line-height: 1.49;
+  transition: color 130ms ease-in-out;
+}
+.spectrum--large .spectrum-Radio-button {
+  width: 18px;
+  height: 18px;
+  margin: 11px 0;
+}
+.spectrum--large .spectrum-Radio-button:before {
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 9px;
+    border-width: 2px;
+
+    transition: border 130ms ease-in-out,
+                box-shadow 130ms ease-in-out;
+  }
+.spectrum--large .spectrum-Radio-button:after {
+    margin: 2px;
+
+    transition: opacity 130ms ease-out,
+                margin 130ms ease-out;
+  }
+.spectrum--large .spectrum-Radio--labelBelow {
+  height: auto;
+}
+.spectrum--large .spectrum-Radio--labelBelow .spectrum-Radio-label {
+    margin: 4px 0 0 0;
+  }

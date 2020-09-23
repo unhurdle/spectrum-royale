@@ -1,0 +1,99 @@
+.spectrum--large [dir="ltr"] .spectrum-Steplist {
+  padding-left: 60px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist {
+  padding-right: 60px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist {
+  padding-right: 60px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist {
+  padding-left: 60px;
+}
+.spectrum--large .spectrum-Steplist {
+  padding-top: 22px;
+}
+.spectrum--large .spectrum-Steplist--small {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist-item {
+  padding-left: 0;
+  padding-right: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist-item {
+  padding-right: 0;
+  padding-left: 40px;
+}
+.spectrum--large .spectrum-Steplist-item {
+  width: 80px;
+}
+.spectrum--large .spectrum-Steplist-item.is-complete + .spectrum-Steplist-item .spectrum-Steplist-segment {
+      border-bottom-width: 2px;
+    }
+.spectrum--large .spectrum-Steplist-label {
+  bottom: 10px;
+  width: 120px;
+
+  font-size: 12px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist-markerContainer {
+
+  margin-left: -10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist-markerContainer {
+
+  margin-right: -10px;
+}
+.spectrum--large .spectrum-Steplist-markerContainer {
+
+  width: 20px;
+  height: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist-marker {
+  margin-left: -4px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist-marker {
+  margin-right: -4px;
+}
+.spectrum--large .spectrum-Steplist-marker {
+  margin-top: -4px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 8px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist-segment {
+  right: 68px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist-segment {
+  left: 68px;
+}
+.spectrum--large .spectrum-Steplist-segment {
+  width: 104px;
+  bottom: -1px;
+  border-bottom-width: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist-item:last-child .spectrum-Steplist-markerContainer {
+    margin-right: -10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist-item:last-child .spectrum-Steplist-markerContainer {
+    margin-left: -10px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist-item:last-child .spectrum-Steplist-segment {
+    right: 8px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist-item:last-child .spectrum-Steplist-segment {
+    left: 8px;
+}
+.spectrum--large .spectrum-Steplist-item:first-child,
+.spectrum--large .spectrum-Steplist-item:last-child {
+  width: 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Steplist-item:only-child .spectrum-Steplist-markerContainer {
+    margin-left: -10px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Steplist-item:only-child .spectrum-Steplist-markerContainer {
+    margin-right: -10px;
+}

@@ -1,0 +1,15 @@
+.spectrum--large [dir="ltr"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-left: 16px;
+}
+.spectrum--large [dir="rtl"] .spectrum-ButtonGroup .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 16px;
+}
+.spectrum--large [dir="ltr"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-left: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-right: 0;
+}
+.spectrum--large .spectrum-ButtonGroup--vertical .spectrum-ButtonGroup-item + .spectrum-ButtonGroup-item {
+    margin-top: 16px;
+  }

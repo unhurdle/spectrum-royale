@@ -1,0 +1,9 @@
+.spectrum--large .spectrum-Banner {
+  border-radius: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: 15px;
+  line-height: 1.3;
+}

@@ -1,0 +1,204 @@
+.spectrum--large .spectrum-Thumbnail {
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 2px;
+
+  background-size: 16px 16px;
+
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+.spectrum--large .spectrum-Thumbnail:before {
+    border-radius: 2px;
+  }
+.spectrum--large .spectrum-Thumbnail--S {
+  width: 30px;
+  height: 30px;
+}
+.spectrum--large .spectrum-Thumbnail--M {
+  width: 40px;
+  height: 40px;
+}
+.spectrum--large .spectrum-Thumbnail--L {
+  width: 50px;
+  height: 50px;
+}
+.spectrum--large .spectrum-Thumbnail--XL {
+  width: 60px;
+  height: 60px;
+}
+.spectrum--large .spectrum-Thumbnail--XXL {
+  width: 70px;
+  height: 70px;
+}
+.spectrum-Thumbnail {
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  display: -ms-flexbox;
+
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 2px;
+  vertical-align: top;
+
+  overflow: hidden;
+
+  background-size: 16px 16px;
+
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+.spectrum-Thumbnail:before {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 2px;
+  }
+.spectrum-Thumbnail--S {
+  width: 24px;
+  height: 24px;
+}
+.spectrum-Thumbnail--M {
+  width: 32px;
+  height: 32px;
+}
+.spectrum-Thumbnail--L {
+  width: 40px;
+  height: 40px;
+}
+.spectrum-Thumbnail--XL {
+  width: 48px;
+  height: 48px;
+}
+.spectrum-Thumbnail--XXL {
+  width: 56px;
+  height: 56px;
+}
+.spectrum-Thumbnail-image {
+  max-height: 100%;
+  max-width: 100%;
+  z-index: 1;
+}
+.spectrum-Thumbnail-background {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+.spectrum--dark .spectrum-Thumbnail {
+  background-color: rgb(255, 255, 255);
+  background-image:
+    linear-gradient(-45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(-45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%),
+    linear-gradient(45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%);
+}
+.spectrum--dark .spectrum-Thumbnail:before {
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.5);
+  }
+.spectrum--dark .spectrum-Thumbnail.is-selected {
+    box-shadow: 0 0 0 1px rgb(55, 142, 240);
+  }
+.spectrum--dark .spectrum-Thumbnail.is-selected:before {
+      box-shadow: inset 0 0 0 1px rgb(55, 142, 240);
+    }
+.spectrum--dark .spectrum-Thumbnail.is-focused,
+.spectrum--dark .spectrum-Thumbnail.focus-ring {
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+  }
+.spectrum--dark .spectrum-Thumbnail.is-focused:before,
+.spectrum--dark .spectrum-Thumbnail.focus-ring:before {
+      box-shadow: inset 0 0 0 1px rgb(55, 142, 240);
+    }
+.spectrum--darkest .spectrum-Thumbnail {
+  background-color: rgb(255, 255, 255);
+  background-image:
+    linear-gradient(-45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(-45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%),
+    linear-gradient(45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%);
+}
+.spectrum--darkest .spectrum-Thumbnail:before {
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.8);
+  }
+.spectrum--darkest .spectrum-Thumbnail.is-selected {
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+  }
+.spectrum--darkest .spectrum-Thumbnail.is-selected:before {
+      box-shadow: inset 0 0 0 1px rgb(38, 128, 235);
+    }
+.spectrum--darkest .spectrum-Thumbnail.is-focused,
+.spectrum--darkest .spectrum-Thumbnail.focus-ring {
+    box-shadow: 0 0 0 1px rgb(20, 115, 230);
+  }
+.spectrum--darkest .spectrum-Thumbnail.is-focused:before,
+.spectrum--darkest .spectrum-Thumbnail.focus-ring:before {
+      box-shadow: inset 0 0 0 1px rgb(38, 128, 235);
+    }
+.spectrum--light .spectrum-Thumbnail {
+  background-color: rgb(255, 255, 255);
+  background-image:
+    linear-gradient(-45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(-45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%),
+    linear-gradient(45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%);
+}
+.spectrum--light .spectrum-Thumbnail:before {
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  }
+.spectrum--light .spectrum-Thumbnail.is-selected {
+    box-shadow: 0 0 0 1px rgb(20, 115, 230);
+  }
+.spectrum--light .spectrum-Thumbnail.is-selected:before {
+      box-shadow: inset 0 0 0 1px rgb(20, 115, 230);
+    }
+.spectrum--light .spectrum-Thumbnail.is-focused,
+.spectrum--light .spectrum-Thumbnail.focus-ring {
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+  }
+.spectrum--light .spectrum-Thumbnail.is-focused:before,
+.spectrum--light .spectrum-Thumbnail.focus-ring:before {
+      box-shadow: inset 0 0 0 1px rgb(20, 115, 230);
+    }
+.spectrum--lightest .spectrum-Thumbnail {
+  background-color: rgb(255, 255, 255);
+  background-image:
+    linear-gradient(-45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(45deg, transparent 75.5%, rgb(188, 188, 188) 75.5%),
+    linear-gradient(-45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%),
+    linear-gradient(45deg, rgb(188, 188, 188) 25.5%, transparent 25.5%);
+}
+.spectrum--lightest .spectrum-Thumbnail:before {
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+  }
+.spectrum--lightest .spectrum-Thumbnail.is-selected {
+    box-shadow: 0 0 0 1px rgb(38, 128, 235);
+  }
+.spectrum--lightest .spectrum-Thumbnail.is-selected:before {
+      box-shadow: inset 0 0 0 1px rgb(38, 128, 235);
+    }
+.spectrum--lightest .spectrum-Thumbnail.is-focused,
+.spectrum--lightest .spectrum-Thumbnail.focus-ring {
+    box-shadow: 0 0 0 1px rgb(55, 142, 240);
+  }
+.spectrum--lightest .spectrum-Thumbnail.is-focused:before,
+.spectrum--lightest .spectrum-Thumbnail.focus-ring:before {
+      box-shadow: inset 0 0 0 1px rgb(38, 128, 235);
+    }

@@ -1,0 +1,213 @@
+.spectrum--large .spectrum-Site-header {
+  height: 60px;
+  padding: 10px;
+}
+.spectrum--large .spectrum-Site-sideBarHeader {
+
+  padding: 35px 30px;
+}
+.spectrum--large .spectrum-Site-search {
+  padding: 0 30px 30px 30px;
+}
+.spectrum--large .spectrum-Site-noSearchResults {
+  padding: 40px 40px 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Site-logo {
+  margin-right: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Site-logo {
+  margin-left: 20px;
+}
+.spectrum--large .spectrum-Site-nav {
+
+  padding: 0px 24px 40px;
+}
+.spectrum--large .spectrum-Site-bottomNav {
+  margin-top: 80px;
+}
+.spectrum--large .spectrum-Site-heroImage {
+  margin-top: 70px;
+  margin-bottom: 70px;
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-Site-footerContainer {
+  max-width: 1080px;
+  margin: 50px auto;
+  padding: 0 70px;
+}
+@media screen and (max-width: 960px) {
+
+  .spectrum--large .spectrum-Site-overlay {
+    transition: opacity 160ms ease-out 0ms,
+                visibility 0ms linear 160ms;
+  }
+
+  .spectrum--large .spectrum-Site-overlay.is-open {
+    transition: opacity 160ms ease-in 0ms;
+  }
+
+  .spectrum--large .spectrum-Site-sideBar {
+    transition: transform 160ms ease-in-out;
+  }
+
+  .spectrum--large [dir="ltr"] .spectrum-Site-page {
+    padding-left: 30px;
+  }
+
+  .spectrum--large [dir="rtl"] .spectrum-Site-page {
+    padding-right: 30px;
+  }
+
+  .spectrum--large [dir="ltr"] .spectrum-Site-page {
+    padding-right: 30px;
+  }
+
+  .spectrum--large [dir="rtl"] .spectrum-Site-page {
+    padding-left: 30px;
+  }
+
+  .spectrum--large .spectrum-Site-heroHeading h1.spectrum-Heading1--display {
+    font-size: 44px;
+  }
+}
+.spectrum--large .spectrum-CSSComponent {
+  max-width: 1080px;
+  margin: 50px auto;
+  padding: 0 70px;
+}
+.spectrum--large .spectrum-CSSComponent-heading {
+  margin-bottom: 50px;
+}
+.spectrum--large .spectrum-CSSComponent-statusContainer {
+  margin: 0 20px;
+}
+.spectrum--large [dir="ltr"] .spectrum-CSSComponent-detailsTable th {
+  padding-right: 30px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSSComponent-detailsTable th {
+  padding-left: 30px;
+}
+.spectrum--large .spectrum-CSSComponent-detailsTable th {
+  height: 35px;
+  font-weight: 400;
+}
+.spectrum--large .spectrum-CSSComponent-detailsTable {
+  margin-top: 50px;
+  margin-bottom: 45px;
+}
+.spectrum--large .spectrum-CSSComponent-sectionHeading {
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+.spectrum--large [dir="ltr"] .spectrum-CSSExample-status {
+  margin-left: 20px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSSExample-status {
+  margin-right: 20px;
+}
+.spectrum--large .spectrum-CSSComponent-description {
+  margin-top: 30px;
+  margin-bottom: 60px;
+}
+.spectrum--large .spectrum-CSSComponent-resources {
+  margin-bottom: 70px;
+}
+.spectrum--large [dir="ltr"] .spectrum-CSSComponent-resources .spectrum-Card {
+  margin-right: 30px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSSComponent-resources .spectrum-Card {
+  margin-left: 30px;
+}
+.spectrum--large .spectrum-CSSComponent-resources .spectrum-Card {
+  margin-bottom: 30px;
+}
+.spectrum--large [dir="ltr"] .spectrum-CSS-switcherContainer {
+  margin-left: 40px;
+}
+.spectrum--large [dir="rtl"] .spectrum-CSS-switcherContainer {
+  margin-right: 40px;
+}
+.spectrum--large .spectrum-CSSExample {
+  margin-bottom: 80px;
+}
+.spectrum--large .spectrum-CSSExample-container {
+
+  border-radius: 5px;
+}
+.spectrum--large .spectrum-CSSExample-heading {
+  margin-bottom: 10px !important;
+}
+.spectrum--large .spectrum-CSSExample-example {
+
+  min-height: 0;
+
+  padding: 40px 50px;
+
+  border-radius: 5px 5px 0 0;
+}
+.spectrum--large .spectrum-CSSExample-markup {
+  max-height: 240px;
+
+  padding: 13px 22px;
+
+  border-radius: 0 0 5px 5px;
+}
+.spectrum--large .spectrum-CSSExample-markup.is-open {
+
+  padding-bottom: 70px;
+}
+.spectrum--large .spectrum-CSSExample-markupToggle + pre {
+  padding-bottom: 10px;
+}
+.spectrum--large .spectrum-CSSExample-example--overlay {
+  min-height: 80px;
+}
+.spectrum--large .spectrum-CSSExample-markupToggle {
+  padding: 30px 30px;
+
+  font-size: 18px
+}
+@media screen and (max-width: 960px) {
+  .spectrum--large .spectrum-CSSComponent {
+    padding: 0 25px;
+    margin: 10px auto;
+  }
+
+  .spectrum--large .spectrum-CSSComponent-description {
+    margin-bottom: 15px;
+  }
+
+  .spectrum--large .spectrum-CSSExample {
+    margin-bottom: 20px;
+  }
+
+  .spectrum--large .spectrum-CSSExample-example {
+    padding: 20px 20px;
+  }
+
+  .spectrum--large .spectrum-CSSComponent-header {
+    margin-bottom: 15px;
+  }
+  .spectrum--large .spectrum-CSSComponent-title {
+    font-size: 34px;
+  }
+}
+.spectrum--large .spectrum-CodeBlock {
+  border-width: 1px;
+  border-radius: 5px;
+  padding: 18px 20px;
+
+  margin: 25px 0;
+}
+.spectrum--large .spectrum-HomeCards {
+  margin: 70px 0;
+}
+.spectrum--large .spectrum-HomeCard {
+
+  margin-bottom: 35px;
+  padding: 0 25px;
+}
+.spectrum--large .spectrum-HomeCard-image {
+  width: 125px;
+  margin-right: 25px;
+}

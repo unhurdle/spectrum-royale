@@ -1,0 +1,389 @@
+.spectrum--large {
+@-webkit-keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(-170px);
+  }
+  to {
+    transform: translate(240px);
+  }
+}
+@keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(-170px);
+  }
+  to {
+    transform: translate(240px);
+  }
+}
+@-webkit-keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(240px);
+  }
+  to {
+    transform: translate(-240px);
+  }
+}
+@keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(240px);
+  }
+  to {
+    transform: translate(-240px);
+  }
+}
+
+}
+.spectrum--large .spectrum-BarLoader {
+  width: 240px;
+}
+.spectrum--large .spectrum-BarLoader-track {
+  width: 240px;
+  height: 8px;
+  border-radius: 4px;
+}
+.spectrum--large .spectrum-BarLoader-fill {
+  height: 8px;
+}
+.spectrum--large .spectrum-BarLoader-label,
+.spectrum--large .spectrum-BarLoader-percentage {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 11px;
+}
+.spectrum--large [dir="ltr"] .spectrum-BarLoader-percentage {
+  margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-BarLoader-percentage {
+  margin-right: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-right: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-left: 15px;
+}
+.spectrum--large [dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-left: 15px;
+}
+.spectrum--large [dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-right: 15px;
+}
+.spectrum--large .spectrum-BarLoader--small {
+  min-width: 240px;
+}
+.spectrum--large .spectrum-BarLoader--small .spectrum-BarLoader-fill {
+    height: 5px;
+  }
+.spectrum--large .spectrum-BarLoader--small .spectrum-BarLoader-track {
+    height: 5px;
+    border-radius: 3px;
+  }
+.spectrum--large .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  width: 170px;
+  -webkit-animation-timing-function: cubic-bezier(.45, 0, .40, 1);
+          animation-timing-function: cubic-bezier(.45, 0, .40, 1);
+}
+.spectrum--large [dir='ltr'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  -webkit-animation: indeterminate-loop-ltr 1000ms infinite;
+          animation: indeterminate-loop-ltr 1000ms infinite;
+}
+.spectrum--large [dir='rtl'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  -webkit-animation: indeterminate-loop-rtl 1000ms infinite;
+          animation: indeterminate-loop-rtl 1000ms infinite;
+}
+.spectrum-BarLoader {
+  position: relative;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
+  width: 192px;
+  vertical-align: top;
+}
+.spectrum-BarLoader-track {
+  overflow: hidden;
+  width: 192px;
+  height: 6px;
+  border-radius: 3px;
+  z-index: 1;
+}
+.spectrum-BarLoader-fill {
+  border: none;
+  height: 6px;
+
+  transition: width 1s;
+}
+[dir="ltr"] .spectrum-BarLoader-label,[dir="ltr"] 
+.spectrum-BarLoader-percentage {
+  text-align: left;
+}
+[dir="rtl"] .spectrum-BarLoader-label,[dir="rtl"] 
+.spectrum-BarLoader-percentage {
+  text-align: right;
+}
+.spectrum-BarLoader-label,
+.spectrum-BarLoader-percentage {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.3;
+  margin-bottom: 9px;
+}
+.spectrum-BarLoader-label {
+  -ms-flex: 1 1 0%;
+      flex: 1 1 0%;
+}
+[dir="ltr"] .spectrum-BarLoader-percentage {
+  margin-left: 12px;
+}
+[dir="rtl"] .spectrum-BarLoader-percentage {
+  margin-right: 12px;
+}
+.spectrum-BarLoader-percentage {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+.spectrum-BarLoader--sideLabel {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-flow: row;
+      flex-flow: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  width: auto;
+}
+[dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-right: 12px;
+}
+[dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-left: 12px;
+}
+.spectrum-BarLoader--sideLabel .spectrum-BarLoader-label {
+    margin-bottom: 0;
+  }
+[dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    text-align: right;
+}
+[dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    text-align: left;
+}
+[dir="ltr"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-left: 12px;
+}
+[dir="rtl"] .spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    margin-right: 12px;
+}
+.spectrum-BarLoader--sideLabel .spectrum-BarLoader-percentage {
+    -ms-flex-order: 3;
+        order: 3;
+    margin-bottom: 0;
+  }
+.spectrum-BarLoader--small {
+  min-width: 192px;
+}
+.spectrum-BarLoader--small .spectrum-BarLoader-fill {
+    height: 4px;
+  }
+.spectrum-BarLoader--small .spectrum-BarLoader-track {
+    height: 4px;
+    border-radius: 2px;
+  }
+.spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  width: 136px;
+  position: relative;
+  -webkit-animation-timing-function: cubic-bezier(.45, 0, .40, 1);
+          animation-timing-function: cubic-bezier(.45, 0, .40, 1);
+  will-change: transform;
+}
+[dir='ltr'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  -webkit-animation: indeterminate-loop-ltr 1000ms infinite;
+          animation: indeterminate-loop-ltr 1000ms infinite;
+}
+[dir='rtl'] .spectrum-BarLoader--indeterminate .spectrum-BarLoader-fill {
+  -webkit-animation: indeterminate-loop-rtl 1000ms infinite;
+          animation: indeterminate-loop-rtl 1000ms infinite;
+}
+@-webkit-keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(-136px);
+  }
+  to {
+    transform: translate(192px);
+  }
+}
+@keyframes indeterminate-loop-ltr {
+  from {
+    transform: translate(-136px);
+  }
+  to {
+    transform: translate(192px);
+  }
+}
+@-webkit-keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(192px);
+  }
+  to {
+    transform: translate(-192px);
+  }
+}
+@keyframes indeterminate-loop-rtl {
+  from {
+    transform: translate(192px);
+  }
+  to {
+    transform: translate(-192px);
+  }
+}
+.spectrum--dark .spectrum-BarLoader .spectrum-BarLoader-fill {
+    background: rgb(55, 142, 240);
+  }
+.spectrum--dark .spectrum-BarLoader .spectrum-BarLoader-track {
+    background-color: rgb(74, 74, 74);
+  }
+.spectrum--dark .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-fill {
+      background: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-label,
+.spectrum--dark .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-percentage {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--dark .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-track {
+      background-color: rgba(255,255,255,0.2);
+    }
+.spectrum--dark .spectrum-BarLoader.is-positive .spectrum-BarLoader-fill {
+      background: rgb(45, 157, 120);
+    }
+.spectrum--dark .spectrum-BarLoader.is-warning .spectrum-BarLoader-fill {
+      background: rgb(230, 134, 25);
+    }
+.spectrum--dark .spectrum-BarLoader.is-critical .spectrum-BarLoader-fill {
+      background: rgb(227, 72, 80);
+    }
+.spectrum--dark .spectrum-BarLoader-label,
+.spectrum--dark .spectrum-BarLoader-percentage {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-BarLoader-label,
+.spectrum--dark .spectrum-BarLoader-percentage {
+  color: rgb(185, 185, 185);
+}
+.spectrum--dark .spectrum-BarLoader-label,
+.spectrum--dark .spectrum-BarLoader-percentage {
+  color: rgb(185, 185, 185);
+}
+.spectrum--darkest .spectrum-BarLoader .spectrum-BarLoader-fill {
+    background: rgb(38, 128, 235);
+  }
+.spectrum--darkest .spectrum-BarLoader .spectrum-BarLoader-track {
+    background-color: rgb(57, 57, 57);
+  }
+.spectrum--darkest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-fill {
+      background: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-label,
+.spectrum--darkest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-percentage {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--darkest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-track {
+      background-color: rgba(255,255,255,0.2);
+    }
+.spectrum--darkest .spectrum-BarLoader.is-positive .spectrum-BarLoader-fill {
+      background: rgb(38, 142, 108);
+    }
+.spectrum--darkest .spectrum-BarLoader.is-warning .spectrum-BarLoader-fill {
+      background: rgb(218, 123, 17);
+    }
+.spectrum--darkest .spectrum-BarLoader.is-critical .spectrum-BarLoader-fill {
+      background: rgb(215, 55, 63);
+    }
+.spectrum--darkest .spectrum-BarLoader-label,
+.spectrum--darkest .spectrum-BarLoader-percentage {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-BarLoader-label,
+.spectrum--darkest .spectrum-BarLoader-percentage {
+  color: rgb(162, 162, 162);
+}
+.spectrum--darkest .spectrum-BarLoader-label,
+.spectrum--darkest .spectrum-BarLoader-percentage {
+  color: rgb(162, 162, 162);
+}
+.spectrum--light .spectrum-BarLoader .spectrum-BarLoader-fill {
+    background: rgb(20, 115, 230);
+  }
+.spectrum--light .spectrum-BarLoader .spectrum-BarLoader-track {
+    background-color: rgb(225, 225, 225);
+  }
+.spectrum--light .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-fill {
+      background: rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-label,
+.spectrum--light .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-percentage {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--light .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-track {
+      background-color: rgba(255,255,255,0.2);
+    }
+.spectrum--light .spectrum-BarLoader.is-positive .spectrum-BarLoader-fill {
+      background: rgb(45, 157, 120);
+    }
+.spectrum--light .spectrum-BarLoader.is-warning .spectrum-BarLoader-fill {
+      background: rgb(230, 134, 25);
+    }
+.spectrum--light .spectrum-BarLoader.is-critical .spectrum-BarLoader-fill {
+      background: rgb(227, 72, 80);
+    }
+.spectrum--light .spectrum-BarLoader-label,
+.spectrum--light .spectrum-BarLoader-percentage {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-BarLoader-label,
+.spectrum--light .spectrum-BarLoader-percentage {
+  color: rgb(110, 110, 110);
+}
+.spectrum--light .spectrum-BarLoader-label,
+.spectrum--light .spectrum-BarLoader-percentage {
+  color: rgb(110, 110, 110);
+}
+.spectrum--lightest .spectrum-BarLoader .spectrum-BarLoader-fill {
+    background: rgb(38, 128, 235);
+  }
+.spectrum--lightest .spectrum-BarLoader .spectrum-BarLoader-track {
+    background-color: rgb(234, 234, 234);
+  }
+.spectrum--lightest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-fill {
+      background: rgb(255, 255, 255);
+    }
+.spectrum--lightest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-label,
+.spectrum--lightest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-percentage {
+      color: rgb(255, 255, 255);
+    }
+.spectrum--lightest .spectrum-BarLoader.spectrum-BarLoader--overBackground .spectrum-BarLoader-track {
+      background-color: rgba(255,255,255,0.2);
+    }
+.spectrum--lightest .spectrum-BarLoader.is-positive .spectrum-BarLoader-fill {
+      background: rgb(51, 171, 132);
+    }
+.spectrum--lightest .spectrum-BarLoader.is-warning .spectrum-BarLoader-fill {
+      background: rgb(242, 148, 35);
+    }
+.spectrum--lightest .spectrum-BarLoader.is-critical .spectrum-BarLoader-fill {
+      background: rgb(236, 91, 98);
+    }
+.spectrum--lightest .spectrum-BarLoader-label,
+.spectrum--lightest .spectrum-BarLoader-percentage {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-BarLoader-label,
+.spectrum--lightest .spectrum-BarLoader-percentage {
+  color: rgb(116, 116, 116);
+}
+.spectrum--lightest .spectrum-BarLoader-label,
+.spectrum--lightest .spectrum-BarLoader-percentage {
+  color: rgb(116, 116, 116);
+}

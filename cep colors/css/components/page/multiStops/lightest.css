@@ -1,0 +1,4 @@
+.spectrum--lightest  {
+  background-color: rgb(240, 240, 240);
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}

@@ -1,0 +1,31 @@
+.spectrum--large .spectrum-Divider {
+  border-width: 2px;
+  border-radius: 2px;
+}
+.spectrum--large .spectrum-Divider--large {
+  height: 4px;
+
+  border-radius: 2px;
+}
+.spectrum--large .spectrum-Divider--medium {
+  height: 2px;
+
+  border-radius: 1px;
+}
+.spectrum--large .spectrum-Divider--small {
+  height: 1px;
+
+  border-radius: 1px;
+}
+.spectrum--large .spectrum-Divider--vertical {
+  height: 100%;
+}
+.spectrum--large .spectrum-Divider--vertical.spectrum-Divider--large {
+    width: 4px;
+  }
+.spectrum--large .spectrum-Divider--vertical.spectrum-Divider--medium {
+    width: 2px;
+  }
+.spectrum--large .spectrum-Divider--vertical.spectrum-Divider--small {
+    width: 1px;
+  }

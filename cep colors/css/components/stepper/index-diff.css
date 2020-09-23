@@ -1,0 +1,136 @@
+.spectrum--large .spectrum-Stepper {
+
+  width: 90px;
+  border-radius: 5px;
+  transition: border-color 130ms ease-in-out, box-shadow 130ms ease-in-out;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-buttons {
+  border-top-right-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-buttons {
+  border-top-left-radius: 5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-buttons {
+  border-bottom-right-radius: 5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-buttons {
+  border-bottom-left-radius: 5px;
+}
+.spectrum--large .spectrum-Stepper-buttons {
+  transition: box-shadow 130ms ease-in-out;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-stepUp,.spectrum--large [dir="ltr"] 
+.spectrum-Stepper-stepDown {
+
+  padding-left: 7.5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-stepUp,.spectrum--large [dir="rtl"] 
+.spectrum-Stepper-stepDown {
+
+  padding-right: 7.5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-stepUp,.spectrum--large [dir="ltr"] 
+.spectrum-Stepper-stepDown {
+  padding-right: 7.5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-stepUp,.spectrum--large [dir="rtl"] 
+.spectrum-Stepper-stepDown {
+  padding-left: 7.5px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-stepUp,.spectrum--large [dir="ltr"] 
+.spectrum-Stepper-stepDown {
+  border-left-width: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-stepUp,.spectrum--large [dir="rtl"] 
+.spectrum-Stepper-stepDown {
+  border-right-width: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-stepUp,.spectrum--large [dir="ltr"] 
+.spectrum-Stepper-stepDown {
+
+  border-top-left-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-stepUp,.spectrum--large [dir="rtl"] 
+.spectrum-Stepper-stepDown {
+
+  border-top-right-radius: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-stepUp,.spectrum--large [dir="ltr"] 
+.spectrum-Stepper-stepDown {
+  border-bottom-left-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-stepUp,.spectrum--large [dir="rtl"] 
+.spectrum-Stepper-stepDown {
+  border-bottom-right-radius: 0;
+}
+.spectrum--large .spectrum-Stepper-stepUp,
+.spectrum--large .spectrum-Stepper-stepDown {
+
+  height: 20px;
+  width: 29px;
+
+  border-width: 1px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-stepUp {
+  border-bottom-right-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-stepUp {
+  border-bottom-left-radius: 0;
+}
+.spectrum--large .spectrum-Stepper-stepUp {
+
+  padding-top: 1px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-stepDown {
+  border-top-right-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-stepDown {
+  border-top-left-radius: 0;
+}
+.spectrum--large .spectrum-Stepper-stepDown {
+
+  padding-bottom: 2px;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-input {
+  border-top-right-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-input {
+  border-top-left-radius: 0;
+}
+.spectrum--large [dir="ltr"] .spectrum-Stepper-input {
+  border-bottom-right-radius: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper-input {
+  border-bottom-left-radius: 0;
+}
+.spectrum--large .spectrum-Stepper--quiet {
+  border-radius: 0;
+  width: 60px;
+}
+.spectrum--large .spectrum-Stepper--quiet .spectrum-Stepper-buttons {
+    border-radius: 0;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Stepper--quiet .spectrum-Stepper-stepUp,.spectrum--large [dir="ltr"] 
+  .spectrum-Stepper--quiet .spectrum-Stepper-stepDown {
+
+    border-right-width: 0;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper--quiet .spectrum-Stepper-stepUp,.spectrum--large [dir="rtl"] 
+  .spectrum-Stepper--quiet .spectrum-Stepper-stepDown {
+
+    border-left-width: 0;
+}
+.spectrum--large .spectrum-Stepper--quiet .spectrum-Stepper-stepUp,
+  .spectrum--large .spectrum-Stepper--quiet .spectrum-Stepper-stepDown {
+    width: 19.5px;
+    border-radius: 0;
+  }
+.spectrum--large [dir="ltr"] .spectrum-Stepper--quiet .spectrum-Stepper-stepUp:after,.spectrum--large [dir="ltr"]  .spectrum-Stepper--quiet .spectrum-Stepper-stepDown:after {
+      right: -9.5px;
+}
+.spectrum--large [dir="rtl"] .spectrum-Stepper--quiet .spectrum-Stepper-stepUp:after,.spectrum--large [dir="rtl"]  .spectrum-Stepper--quiet .spectrum-Stepper-stepDown:after {
+      left: -9.5px;
+}
+.spectrum--large .spectrum-Stepper--quiet .spectrum-Stepper-stepUp:after, .spectrum--large .spectrum-Stepper--quiet .spectrum-Stepper-stepDown:after {
+      width: 9.5px;
+    }

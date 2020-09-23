@@ -1,0 +1,166 @@
+.spectrum--large .spectrum-Link {
+  transition: color 130ms ease-in-out;
+}
+.spectrum-Link {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  text-decoration: underline;
+  transition: color 130ms ease-in-out;
+  outline: none;
+  cursor: pointer;
+}
+.spectrum-Link.focus-ring {
+    text-decoration: underline;
+    -webkit-text-decoration-style: double;
+            text-decoration-style: double;
+  }
+.spectrum-Link--quiet {
+  text-decoration: none;
+}
+.spectrum-Link--quiet:hover {
+    text-decoration: underline;
+  }
+.spectrum--dark .spectrum-Link {
+  color: rgb(75, 156, 245);
+}
+.spectrum--dark .spectrum-Link:hover {
+    color: rgb(75, 156, 245);
+  }
+.spectrum--dark .spectrum-Link:active {
+    color: rgb(90, 169, 250);
+  }
+.spectrum--dark .spectrum-Link.focus-ring {
+    color: rgb(75, 156, 245);
+  }
+.spectrum--dark .spectrum-Link--secondary{
+  color: inherit;
+}
+.spectrum--dark .spectrum-Link--secondary:hover {
+    color: inherit;
+  }
+.spectrum--dark .spectrum-Link--secondary:active {
+    color: inherit;
+  }
+.spectrum--dark .spectrum-Link--secondary:focus {
+    color: inherit;
+  }
+.spectrum--dark .spectrum-Link--overBackground {
+  color: rgb(255, 255, 255);
+}
+.spectrum--dark .spectrum-Link--overBackground:hover {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Link--overBackground:active {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--dark .spectrum-Link--overBackground:focus {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--darkest .spectrum-Link {
+  color: rgb(55, 142, 240);
+}
+.spectrum--darkest .spectrum-Link:hover {
+    color: rgb(55, 142, 240);
+  }
+.spectrum--darkest .spectrum-Link:active {
+    color: rgb(75, 156, 245);
+  }
+.spectrum--darkest .spectrum-Link.focus-ring {
+    color: rgb(55, 142, 240);
+  }
+.spectrum--darkest .spectrum-Link--secondary{
+  color: inherit;
+}
+.spectrum--darkest .spectrum-Link--secondary:hover {
+    color: inherit;
+  }
+.spectrum--darkest .spectrum-Link--secondary:active {
+    color: inherit;
+  }
+.spectrum--darkest .spectrum-Link--secondary:focus {
+    color: inherit;
+  }
+.spectrum--darkest .spectrum-Link--overBackground {
+  color: rgb(255, 255, 255);
+}
+.spectrum--darkest .spectrum-Link--overBackground:hover {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--darkest .spectrum-Link--overBackground:active {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--darkest .spectrum-Link--overBackground:focus {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Link {
+  color: rgb(13, 102, 208);
+}
+.spectrum--light .spectrum-Link:hover {
+    color: rgb(13, 102, 208);
+  }
+.spectrum--light .spectrum-Link:active {
+    color: rgb(9, 90, 186);
+  }
+.spectrum--light .spectrum-Link.focus-ring {
+    color: rgb(13, 102, 208);
+  }
+.spectrum--light .spectrum-Link--secondary{
+  color: inherit;
+}
+.spectrum--light .spectrum-Link--secondary:hover {
+    color: inherit;
+  }
+.spectrum--light .spectrum-Link--secondary:active {
+    color: inherit;
+  }
+.spectrum--light .spectrum-Link--secondary:focus {
+    color: inherit;
+  }
+.spectrum--light .spectrum-Link--overBackground {
+  color: rgb(255, 255, 255);
+}
+.spectrum--light .spectrum-Link--overBackground:hover {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Link--overBackground:active {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--light .spectrum-Link--overBackground:focus {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--lightest .spectrum-Link {
+  color: rgb(20, 115, 230);
+}
+.spectrum--lightest .spectrum-Link:hover {
+    color: rgb(20, 115, 230);
+  }
+.spectrum--lightest .spectrum-Link:active {
+    color: rgb(13, 102, 208);
+  }
+.spectrum--lightest .spectrum-Link.focus-ring {
+    color: rgb(20, 115, 230);
+  }
+.spectrum--lightest .spectrum-Link--secondary{
+  color: inherit;
+}
+.spectrum--lightest .spectrum-Link--secondary:hover {
+    color: inherit;
+  }
+.spectrum--lightest .spectrum-Link--secondary:active {
+    color: inherit;
+  }
+.spectrum--lightest .spectrum-Link--secondary:focus {
+    color: inherit;
+  }
+.spectrum--lightest .spectrum-Link--overBackground {
+  color: rgb(255, 255, 255);
+}
+.spectrum--lightest .spectrum-Link--overBackground:hover {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--lightest .spectrum-Link--overBackground:active {
+    color: rgb(255, 255, 255);
+  }
+.spectrum--lightest .spectrum-Link--overBackground:focus {
+    color: rgb(255, 255, 255);
+  }
