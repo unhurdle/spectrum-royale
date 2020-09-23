@@ -32,7 +32,7 @@
     <sp:Alert id="warningAlert" status="warning" showOverlay="true" header="Warning Alert Header" content="This is an alert"/>
     <sp:Alert id="helpAlert" status="help" showOverlay="true" header="Helpful Alert Header" content="This is an alert"/>
     <sp:Alert id="errorAlert" status="error" showOverlay="true" header="Error Alert - Oh no!" content="This is an alert"/>
-    <sp:Alert id="closableAlert" status="error" header="Error - this is really bad!" content="This is an alert" closeText="Close"/>
+    <sp:Alert id="closableAlert" status="error" showOverlay="true" header="Error - this is really bad!" content="This is an alert" closeText="Close"/>
   </fx:Declarations>
   <comp:Variant>
     <sp:ButtonGroup>

@@ -153,13 +153,13 @@ package com.unhurdle.spectrum
 
 			var percent:Number = (x / sliderOffsetWidth) * 100;
 		  if (handle === leftHandle) {
-          if (percent < parseFloat(rightHandle.style.left)) {
+          if (percent < parseFloat(rightHandle.style.left) - 2) {
             handle.style.left = percent + '%';
             leftTrack.style.width = percent + '%';
           }
         }
         else if (handle === rightHandle){
-          if (percent > parseFloat(leftHandle.style.left)) {
+          if (percent > parseFloat(leftHandle.style.left) + 2) {
             handle.style.left = percent + '%';
             rightTrack.style.width = (100 - percent) + '%';
           }
