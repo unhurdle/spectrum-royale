@@ -12,6 +12,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.geom.Rectangle;
   import org.apache.royale.utils.DisplayUtils;
   import org.apache.royale.html.elements.Div;
+  import org.apache.royale.events.MouseEvent;
 
   public class DatePicker extends SpectrumBase
   {
@@ -80,9 +81,16 @@ package com.unhurdle.spectrum
       // popover.percentWidth = 100;
       calendar = new Calendar();
       popover.addElement(calendar);
-      // window.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 
       return element;
+    }
+    protected function handleControlMouseDown(event:MouseEvent):void
+		{			
+			event.stopImmediatePropagation();
+		}
+    private function handleTopMostEventDispatcherMouseDown():void
+    {
+      closePopover();
     }
     private var calendar:Calendar;
     private var _quiet:Boolean;
@@ -144,16 +152,34 @@ package com.unhurdle.spectrum
     	_disabled = value;
     }
     private function toggleButton():void{
-      popover.open = !popover.open;
-      button.selected = popover.open;
-      if(popover.open){
-        var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
-        popover.y = componentBounds.bottom;
-        popover.x = componentBounds.left;
-        calendar.startDate = startDate;
-        calendar.endDate = endDate;
-        calendar.selectRange(startDate,endDate);
+      if(!popover.open){
+        openPopover()
+      } else{
+        closePopover();
       }
+      
+    }
+    private function openPopover():void
+    {
+      button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+      popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+      topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+      popover.open = true;
+      button.selected = true;
+      var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
+      popover.y = componentBounds.bottom;
+      popover.x = componentBounds.left;
+      calendar.startDate = startDate;
+      calendar.endDate = endDate;
+      calendar.selectRange(startDate,endDate);
+    }
+    private function closePopover():void
+    {
+      button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+      popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+      topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+      popover.open = false;
+      button.selected = false;
     }
     public function get placeHolder():String
     {
@@ -179,7 +205,7 @@ package com.unhurdle.spectrum
     //   popover.open = true;
     // }
     private function handleSelectedDay(ev:*):void{
-      popover.open = false;
+      closePopover();
       dispatchEvent(new Event("selectedDateChanged"));
       var date:Date = ev.target.selectedDate;
 
