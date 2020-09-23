@@ -10,6 +10,7 @@
       '<sp:TextArea placeholder="Enter your name" disabled="true"/>\n'+
       '<sp:TextArea placeholder="Enter your name" text="A valid input" required="true"/>\n'+
       '<sp:TextArea placeholder="Enter your name" text="A valid input" disabled="true" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" text="Read-only input" readonly="true"/>\n'+
       '<sp:TextArea placeholder="Enter your name" text="A valid input" minLength="5"/>\n'+
       '<sp:TextArea placeholder="Enter your name" text="Invalid input" minLength="20"/>\n'+
       '<sp:TextArea placeholder="Enter your name" text="Invalid input" maxLength="3"/>\n'+
@@ -19,6 +20,7 @@
       '<sp:TextArea placeholder="Enter your name" quiet="true" disabled="true"/>\n'+
       '<sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" required="true"/>\n'+
       '<sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" disabled="true" required="true"/>\n'+
+      '<sp:TextArea placeholder="Enter your name" quiet="true" text="Read-only input" readonly="true"/>\n'+
       '<sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" minLength="5"/>\n'+
       '<sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" minLength="20"/>\n'+
       '<sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" maxLength="3"/>\n'+
@@ -31,6 +33,7 @@
       <sp:TextArea placeholder="Enter your name" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" text="A valid input" required="true" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" text="A valid input" disabled="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" text="Read-only input" readonly="true" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" text="A valid input" minLength="5" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" text="Invalid input" minLength="20" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" text="Invalid input" maxLength="3" style="margin-right: 5px;margin-top: 5px;"/>
@@ -46,6 +49,7 @@
       <sp:TextArea placeholder="Enter your name" quiet="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" required="true" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" disabled="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
+      <sp:TextArea placeholder="Enter your name" quiet="true" text="Read-only input" readonly="true" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" quiet="true" text="A valid input" minLength="5" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" minLength="20" style="margin-right: 5px;margin-top: 5px;"/>
       <sp:TextArea placeholder="Enter your name" quiet="true" text="Invalid input" maxLength="3" style="margin-right: 5px;margin-top: 5px;"/>

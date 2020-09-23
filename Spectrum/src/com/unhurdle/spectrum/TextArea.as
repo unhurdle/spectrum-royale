@@ -18,6 +18,17 @@ package com.unhurdle.spectrum
         }
 
         private var textarea:HTMLTextAreaElement;
+
+            
+        public function get readonly():Boolean
+        {
+            return textarea.readOnly;
+        }
+
+        public function set readonly(value:Boolean):void
+        {
+            textarea.readOnly = value;
+        }
         
         public function get placeholder():String
         {

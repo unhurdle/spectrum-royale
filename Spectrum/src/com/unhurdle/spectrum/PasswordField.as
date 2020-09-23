@@ -8,16 +8,6 @@ package com.unhurdle.spectrum
       input.type = "password";
     }
 
-    public function get readonly():Boolean
-    {
-    	return input.readOnly;
-    }
-
-    public function set readonly(value:Boolean):void
-    {
-      input.readOnly = value;
-    }
-
      public function get minlength():Number
     {
       return Number(input.min);

@@ -13,6 +13,7 @@
         '<sp:TextField placeholder="Enter your name" disabled="true"/>\n'+
         '<sp:TextField placeholder="Enter your name" required="true"/>\n'+
         '<sp:TextField placeholder="Enter your name" required="true" disabled="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" readonly="true" text="Read-only input"/>\n'+
         '<sp:TextField placeholder="Enter your name" text="test@gmail.com" pattern="{nameRegex}"/>\n'+
         '<sp:TextField placeholder="Enter your name" text="Invalid input" pattern="{nameRegex}"/>';
         [Bindable]public var codeString2:String =
@@ -23,6 +24,7 @@
         '<sp:TextField placeholder="Enter your name" quiet="true" disabled="true"/>\n'+
         '<sp:TextField placeholder="Enter your name" quiet="true" required="true"/>\n'+
         '<sp:TextField placeholder="Enter your name" quiet="true" required="true" disabled="true"/>\n'+
+        '<sp:TextField placeholder="Enter your name" quiet="true" readonly="true" text="Read-only input"/>\n'+
         '<sp:TextField placeholder="Enter your name" quiet="true" text="test@gmail.com" pattern="{nameRegex}"/>\n'+
         '<sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" pattern="{nameRegex}"/>';
         [Bindable]public var nameRegex:String = "^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$";
@@ -34,6 +36,7 @@
         <sp:TextField placeholder="Enter your name" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" required="true" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" required="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" readonly="true" text="Read-only input" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" text="test@gmail.com" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" text="Invalid input" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
     </Div>
@@ -47,6 +50,7 @@
         <sp:TextField placeholder="Enter your name" quiet="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" quiet="true" required="true" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" quiet="true" required="true" disabled="true" style="margin-right: 5px;margin-top: 5px;"/>
+        <sp:TextField placeholder="Enter your name" quiet="true" readonly="true" text="Read-only input" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" quiet="true" text="test@gmail.com" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
         <sp:TextField placeholder="Enter your name" quiet="true" text="Invalid input" pattern="{nameRegex}" style="margin-right: 5px;margin-top: 5px;"/>
     </Div>

@@ -20,6 +20,16 @@ package com.unhurdle.spectrum
       _input.addEventListener(EventType.INPUT,checkValidation);
     }
 
+    public function get readonly():Boolean
+    {
+    	return input.readOnly;
+    }
+
+    public function set readonly(value:Boolean):void
+    {
+      input.readOnly = value;
+    }
+
     public function get placeholder():String
     {
     	return input.placeholder;
