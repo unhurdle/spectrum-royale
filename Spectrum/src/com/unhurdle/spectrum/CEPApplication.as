@@ -22,6 +22,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
 		override protected function initialize():void
 		{
+      super.initialize();
 			MXMLDataInterpreter.generateMXMLInstances(this, instanceParent, MXMLDescriptor);
 			
 			dispatchEvent('initialize');
