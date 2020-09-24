@@ -4,16 +4,75 @@
   title="Color Slider">
   <fx:Script>
     <![CDATA[
-    ]]>
-  </fx:Script>
-  <fx:Script>
-    <![CDATA[
+      [Bindable]public var provider:Array = ["red","yellow"];
+      [Bindable]public var provider1:Array = ["rgb(255,0,0)"," rgb(0,255,0)"," rgb(0,0,255)"];
     ]]>
   </fx:Script>
   <comp:Variant>
-  <sp:ColorSlider/>
+    <sp:ColorSlider/>
+    <Br/>
+    <sp:ColorSlider colorStop="{provider}"/>
+    <Br/>
+    <sp:ColorSlider colorStop="{provider1}"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:ColorSlider/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:ColorSlider colorStop="{provider}"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:ColorSlider colorStop="{provider1}"/&gt;'/>
   </comp:Markup>
+  
+  <comp:Variant header="Alpha">
+    <sp:AlphaColorSlider/>
+    <Br/>
+    <sp:AlphaColorSlider color="green"/>
+    <Br/>
+    <sp:AlphaColorSlider color="rgb(255,0,0)"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:AlphaColorSlider/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:AlphaColorSlider color="green"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:AlphaColorSlider color="rgb(255,0,0)"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Disabled">
+    <sp:ColorSlider disabled="true"/>
+    <Br/>
+    <sp:AlphaColorSlider disabled="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;sp:ColorSlider disabled="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;Br/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:AlphaColorSlider disabled="true"/&gt;'/>
+  </comp:Markup>
+  
+  <comp:Variant header="Vertical">
+    <Div>
+      <sp:ColorSlider vertical="true" style="margin-right: 10px;"/>
+      <sp:AlphaColorSlider vertical="true"/>
+    </Div>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='&lt;Div&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:ColorSlider vertical="true" style="margin-right: 10px;"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text=' &lt;sp:AlphaColorSlider vertical="true"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;/Div&gt;'/>
+  </comp:Markup>
+  
 </view:DemoPane>

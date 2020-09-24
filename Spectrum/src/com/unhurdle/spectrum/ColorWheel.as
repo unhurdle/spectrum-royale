@@ -1,20 +1,18 @@
 package com.unhurdle.spectrum
 {
-   COMPILE::JS{
-        import org.apache.royale.html.util.addElementToWrapper;
-        import org.apache.royale.core.WrappedHTMLElement;
-    }
-    import org.apache.royale.events.MouseEvent;
-    import org.apache.royale.utils.PointUtils;
-    import org.apache.royale.geom.Point;
-	[Event(name="change", type="org.apache.royale.events.Event")]
+  COMPILE::JS{
+    import org.apache.royale.core.WrappedHTMLElement;
+  }
+  import com.unhurdle.spectrum.utils.ColorUtil;
+  import org.apache.royale.events.ValueEvent;
+
+	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
 
   public class ColorWheel extends SpectrumBase
   {
     public function ColorWheel()
     {
       super();
-      // typeNames = getSelector() + " " + valueToSelector("color");
     }
     
     override protected function getSelector():String{
@@ -23,123 +21,131 @@ package com.unhurdle.spectrum
     private var handle:ColorHandle;
 		private var gradient:HTMLElement;
 		private var input:HTMLInputElement;
-    COMPILE::JS
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
         var elem:WrappedHTMLElement = super.createElement();
-        var checkerboardContainer:HTMLElement = newElement("svg",appendSelector("-wheel"));
-        checkerboardContainer.setAttribute("viewBox","0 0 160 160");
-        checkerboardContainer.setAttribute("aria-hidden","true");
-        var defs:HTMLElement = newElement("defs");
-        var mask:HTMLElement = newElement("mask");
-        mask.id = "mask";
-        gradient = newElement("div",appendSelector("-gradient"));
-        gradient.setAttribute("role","presentation");
-        // gradient.style = {"background":"linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%)"};
-        // gradient.style = "background:linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);";
-        gradient.style.background = "linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);";
-        checkerboardContainer.appendChild(gradient);
+        gradient = newElement("canvas",appendSelector("-gradient"));
+        elem.appendChild(gradient);
         handle = new ColorHandle();
-        // handle.style.left = "40%"
+        addElement(handle);
         input = newElement("input",appendSelector("-slider")) as HTMLInputElement;
         input.type = "range";
-        input.step = "1";
+        input.step = "`";
         input.min = "0";
-        input.max = "100";
-        // input.setAttribute("aria-valuetext","#2680eb");
-        handle.element.appendChild(input);
-        checkerboardContainer.appendChild(handle.element);
-        elem.appendChild(checkerboardContainer);
-        // element.addEventListener('mousedown', onMouseDown);
+        input.max = "360";
+        elem.appendChild(input);
         return elem;
     }
+
+    // private var _disabled:Boolean = false;
+
+    // public function get disabled():Boolean
+    // {
+    // 	return _disabled;
+    // }
+
+    // public function set disabled(value:Boolean):void
+    // {
+    //   if(value != _disabled){
+    //   	_disabled = value;
+    //     handle.disabled = value;
+    //     toggle("is-disabled",value);
+    //   }
+    // }
+
+    private var ringSize:Number = 57;
+    private var canvas:*;
     override public function addedToParent():void{
       super.addedToParent();
-      gradient.style.background = "linear-gradient(to right, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);";
+      canvas = document.querySelector('canvas.spectrum-ColorWheel-gradient');
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      var context:* = canvas.getContext('2d');
+      context.rect(0, 0, canvas.width, canvas.height);
+      var width:Number = canvas.width;
+      var height:Number = canvas.height;
+      var centerX:Number = width / 2;
+      var centerY:Number = height / 2;
+      for (var i:Number = 0; i < 360; i += Math.PI / 8) {
+        var rad:Number = i * (2 * Math.PI) / 360;
+        context.strokeStyle = "hsla("+ i +", 100%, 50%, 1.0)";
+        context.beginPath();
+        context.moveTo(centerX + ringSize * Math.cos(rad), centerY + ringSize * Math.sin(rad));
+        context.lineTo(centerX + centerX * Math.cos(rad), centerY + centerY * Math.sin(rad));
+        context.stroke();
+      }
+      // if(!disabled){
+      addEventListener('mousedown', onMouseDown);
+      handle.addEventListener("colorChanged",function(ev:ValueEvent):void{
+        dispatchEvent(new ValueEvent("colorChanged",ev));
+      });
+      // }
+      COMPILE::JS{
+        handle.element.style.left = (width - ((width/2 - ringSize)/2)) + "px";
+        handle.element.style.top = height/2 + "px";
+      }
     }
-    // protected function onMouseMove(e:MouseEvent):void {
-    //   if(disabled){
-    //     return;
-    //   }
-    //   var elem:HTMLElement = element as HTMLElement;
-		// 	var sliderOffsetWidth:Number = elem.offsetWidth;
-    //   var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
-		// 	var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
 
-		// 	var percent:Number = (x / sliderOffsetWidth) * 100;
-		// 	value = getValue();
-    //   handle.style.left = percent + "%";
-    // }
-    // public function get value():String
-    // {
-    // 	return String(input.value);
-    // }
-    //  override public function addedToParent():void{
-		// 	super.addedToParent();
-		// 	positionElements();
-    // }
+		// Element interaction
+		protected function onMouseDown(e:MouseEvent):void {
+			onMouseMove(e);
+			gradient.addEventListener('mouseup', onMouseUp);
+			gradient.addEventListener('mousemove', onMouseMove);
+		}
 
-    // override protected function positionElements():void{
-    //   super.positionElements();
-    //   displayValue = true;
-    // }
-    // public function set value(value:String):void
-    // {
-		// 	//TODO why is this a string?
-		// 	input.value = value;
-		// 	if(parent){
-		// 		positionElements();
-		// 	}
-		// 	if(valueNode){
-		// 		valueNode.text = value;
-		// 	}
-    // }
-    //  override protected function getValue():String{
-		// 	return input.getAttribute("aria-valuetext");
-		// }
-    // private function changeBackgroundColor():void{
-    //   if(!!color){
-    //     if(!!showingAlpha){
-    //       gradient.style.backgroundImage = "linear-gradient(to right, rgba(38, 128, 235, .5), rgb(9, 90, 186))";
-    //     }
-    //     else{
-    //       gradient.style.backgroundImage = "linear-gradient(to right, rgb(38, 128, 235), rgb(9, 90, 186))";
-    //     }
-    //   }
-    //   else{
-    //     if(!!showingAlpha){
-    //       gradient.style.backgroundImage = "linear-gradient(to right, rgba(128,128,128, .5), rgb(255, 255, 255))";
-    //     }
-    //     else{
-    //       gradient.style.backgroundImage = "linear-gradient(to right, rgb(128,128,128), rgb(255, 255, 255))";
-    //     }
-    //   }
-    //   positionElements();
-    // }
-    // private var _color:Boolean = true;
-    // public function get color():Boolean
-    // {
-    //     return _color;
-    // }
-    // public function set color(val:Boolean):void
-    // {
-    //     if(val != !!_color){
-    //         toggle(valueToSelector("color"),val);
-    //     }
-    //     _color = val;
-    //     changeBackgroundColor();
-    // }
+		protected function onMouseUp():void {
+			gradient.removeEventListener('mouseup', onMouseUp);
+			gradient.removeEventListener('mousemove', onMouseMove);
+		}
 
-    // private var _showingAlpha:Boolean;
-    // public function get showingAlpha():Boolean
-    // {
-    //     return _showingAlpha;
-    // }
-    // public function set showingAlpha(val:Boolean):void
-    // {
-    //     _showingAlpha = val;
-    //     changeBackgroundColor();
-    // }
+    private function getPosition(el:*):Object {
+      var xPos:Number = 0;
+      var yPos:Number = 0;
+    
+      while (el) {
+        if (el.tagName == "BODY") {
+          // deal with browser quirks with body/window/document and page scroll
+          var xScroll:Number = el.scrollLeft || document.documentElement.scrollLeft;
+          var yScroll:Number = el.scrollTop || document.documentElement.scrollTop;
+    
+          xPos += (el.offsetLeft - xScroll + el.clientLeft);
+          yPos += (el.offsetTop - yScroll + el.clientTop);
+        } else {
+          // for all other non-BODY elements
+          xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+          yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+        }
+    
+        el = el.offsetParent;
+      }
+      return {
+        x: xPos,
+        y: yPos
+      };
+    }
+    protected function onMouseMove(e:MouseEvent):void {
+      // if(disabled){
+      //   return;
+      // }
+      var elem:HTMLElement = element as HTMLElement;
+      var position:Object = getPosition(elem);
+      var gradWidth:Number = gradient.offsetWidth;
+      var gradHeight:Number = gradient.offsetHeight;
+      var x:Number = gradWidth/2 + position.x;
+      var y:Number = gradHeight/2 + position.y;
+      var a:Number = e.clientX;
+      var b:Number = e.clientY;
+      var radians:Number = Math.atan2(b-y,a-x);
+      COMPILE::JS{
+        var left:Number = (Math.cos(radians) * (gradWidth/2 - ((gradWidth/2 - ringSize)/2)) + gradWidth/2);
+        var top:Number = (Math.sin(radians) * (gradHeight/2 - ((gradHeight/2 - ringSize)/2)) + gradHeight/2);
+        handle.element.style.left = left + "px";
+        handle.element.style.top = top + "px";
+        var context:* = canvas.getContext('2d');
+        const imageDataData:Array = context.getImageData(left, top, 1, 1).data;
+        handle.backgroundStyleColor = ColorUtil.rgbStr(imageDataData);
+      }
+    }
   }
 }
