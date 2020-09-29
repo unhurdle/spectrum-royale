@@ -1,11 +1,8 @@
 package com.unhurdle.spectrum
 {
-  COMPILE::JS{
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-  }
-  import com.unhurdle.spectrum.const.IconType;
+  
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
+
   public class Thumbnail extends SpectrumBase implements IKeyboardFocusable
   {
     /**
@@ -34,40 +31,17 @@ package com.unhurdle.spectrum
       {
         selected = !selected;
       });
-      if(fill){
-        COMPILE::JS{
-          createBackground();
-        }
-        background.style.backgroundImage = "url(" + src + ")";
-        background.style.backgroundColor = "";
-        if(title){
-          background.title = title;
-        }
-      }else{
-        if(backgroundColor){
-          COMPILE::JS{
-          createBackground();
-        }
-          background.style.backgroundColor = backgroundColor;
-          background.style.backgroundImage = "";
-        }
-        COMPILE::JS{
-          createImage();
-        }
-        img.src = src;
-        if(title){
-          img.alt = title;
-        }
-      }
     }
 
     private var img:HTMLImageElement;
 
     COMPILE::JS
     private function createImage():void{
-      img = newElement("img") as HTMLImageElement;
-      img.className = appendSelector("-image");
-      element.appendChild(img);      
+      if(!img){
+        img = newElement("img") as HTMLImageElement;
+        img.className = appendSelector("-image");
+        element.appendChild(img);
+      }
     }
     private var _src:String;
 
@@ -78,7 +52,10 @@ package com.unhurdle.spectrum
 
     public function set src(value:String):void
     {
-    	_src = value;
+      if(value != _src){
+        _src = value;
+        setBackground();
+      }
     }
 
     private var _fill:String;
@@ -90,7 +67,10 @@ package com.unhurdle.spectrum
 
     public function set fill(value:String):void
     {
-    	_fill = value;
+      if(value != _fill){
+        _fill = value;
+        setBackground();
+      }
     }
 
     private var _title:String;
@@ -108,9 +88,11 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     private function createBackground():void{
-      background = newElement("div") as HTMLDivElement;
-      background.className = appendSelector("-background");
-      element.appendChild(background);      
+      if(!background){
+        background = newElement("div") as HTMLDivElement;
+        background.className = appendSelector("-background");
+        element.appendChild(background);
+      }
     }
 
     private var _backgroundColor:String;
@@ -122,7 +104,10 @@ package com.unhurdle.spectrum
 
     public function set backgroundColor(value:String):void
     {
-    	_backgroundColor = value;
+    	if(value != _backgroundColor){
+        _backgroundColor = value;
+        setBackground();
+      }
     }
 
     private var _selected:Boolean;
@@ -209,6 +194,53 @@ package com.unhurdle.spectrum
       }
     	_size = value;
       toggle(valueToSelector(value),true);
+    }
+
+    private function setBackground():void{
+      if(fill){
+        COMPILE::JS{
+          createBackground();
+        }
+        if(backgroundColor){
+          background.style.background = "url(" + src + ")," + backgroundColor;
+          setBackgroundStyle();
+        }else{
+          background.style.backgroundImage = "url(" + src + ")";
+          background.style.backgroundColor = "";
+        }
+        if(title){
+          background.title = title;
+        }
+      }else{
+        if(backgroundColor){
+            COMPILE::JS{
+            createBackground();
+          }
+          background.style.backgroundColor = backgroundColor;
+          background.style.backgroundImage = "";
+        }
+        if(src){
+          COMPILE::JS{
+            createImage();
+          }
+          img.src = src;
+          if(title){
+            img.alt = title;
+          }
+        }
+      }
+    }
+    private function setBackgroundStyle():void{
+      background.style.position = "absolute";
+      background.style.zIndex = "0";
+      background.style.left = "0";
+      background.style.top = "0";
+      background.style.right = "0";
+      background.style.bottom = "0";
+      background.style.height = "100%";
+      background.style.width = "100%";
+      background.style.backgroundSize = "cover";
+      background.style.backgroundPosition = "center center";
     }
   }
 }
