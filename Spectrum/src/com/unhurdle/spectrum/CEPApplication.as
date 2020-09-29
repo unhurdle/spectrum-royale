@@ -22,6 +22,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
 		override protected function initialize():void
 		{
+      dir = dir;
 			MXMLDataInterpreter.generateMXMLInstances(this, instanceParent, MXMLDescriptor);
 			
 			dispatchEvent('initialize');

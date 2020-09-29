@@ -9,48 +9,29 @@
   </fx:Script>
   <fx:Script>
     <![CDATA[
-      // import org.apache.royale.events.Event;
-      // import com.unhurdle.spectrum.colorarea.ColorWithAlphaModel;
-      // import com.unhurdle.spectrum.colorarea.ArrayColorSelectionWithAlphaModel;
-
-      // private function initCompleteHandler(e:Event):void
-      // {
-      //   var dp:Array = [];
-			// 	for (var i:int = 0; i < 30; i++)
-			// 	{
-			// 		var color:uint = uint(Math.random() * 0xFFFFFF);
-      //     var alpha:Number = Math.random();
-      //     var colorModel:ColorWithAlphaModel = new ColorWithAlphaModel();
-      //     colorModel.color = color;
-      //     colorModel.alpha = alpha;
-			// 		dp.push(colorModel);
-			// 	}
-      //   (myColorArea.model as ArrayColorSelectionWithAlphaModel).dataProvider = dp;
-      //   (myColorArea.model as ArrayColorSelectionWithAlphaModel).selectedIndex = 0;
-      // }
     ]]>
   </fx:Script>
   <comp:Variant>
     <Div>
-      <sp:ColorHandle/>
+      <sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" style="top:38%;left:50%"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
-    <comp:StyledCode text=' &lt;sp:ColorHandle/&gt;'/>
+    <comp:StyledCode text=' &lt;sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" style="top:38%;left:50%"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Div/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Disabled">
     <Div>
-      <sp:ColorHandle disabled="true"/>
+      <sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" disabled="true" style="top:66%;left:50%"/>
     </Div>
   <comp:Markup>
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
-    <comp:StyledCode text=' &lt;sp:ColorHandle disabled="true"/&gt;'/>
+    <comp:StyledCode text=' &lt;sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" disabled="true" style="top:66%;left:50%"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Div/&gt;'/>
   </comp:Markup>
@@ -58,12 +39,12 @@
 
   <comp:Variant header="Open">
     <Div>
-      <sp:ColorHandle open="true"/>
+      <sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" open="true" style="top:100%;left:50%"/>
     </Div>
   <comp:Markup>
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
-    <comp:StyledCode text=' &lt;sp:ColorHandle open="true"/&gt;'/>
+    <comp:StyledCode text=' &lt;sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" open="true" style="top:100%;left:50%"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Div/&gt;'/>
   </comp:Markup>

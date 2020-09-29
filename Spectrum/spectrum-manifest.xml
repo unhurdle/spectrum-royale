@@ -8,6 +8,7 @@
     <component id="ActionGroup" class="com.unhurdle.spectrum.ActionGroup"/>
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
+    <component id="AlphaColorSlider" class="com.unhurdle.spectrum.AlphaColorSlider"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="Article" class="com.unhurdle.spectrum.typography.Article"/>
     <component id="Asset" class="com.unhurdle.spectrum.Asset"/>
@@ -45,6 +46,7 @@
     <component id="ColorHandle" class="com.unhurdle.spectrum.ColorHandle"/>
     <component id="ColorLoupe" class="com.unhurdle.spectrum.ColorLoupe"/>
     <component id="ColorSlider" class="com.unhurdle.spectrum.ColorSlider"/>
+    <component id="ColorWheel" class="com.unhurdle.spectrum.ColorWheel"/>
     <component id="ComboBox" class="com.unhurdle.spectrum.ComboBox"/>
     <component id="ComboBoxController" class="com.unhurdle.spectrum.ComboBoxController"/>
     <component id="ComboBoxList" class="com.unhurdle.spectrum.ComboBoxList"/>

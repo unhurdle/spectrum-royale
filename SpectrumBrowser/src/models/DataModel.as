@@ -33,6 +33,7 @@ package models
         "Color Handle",
         "Color Loupe",
         "Color Slider",
+        "Color Wheel",
         "Combobox",
         "Cycle Button",
         "Date Picker",

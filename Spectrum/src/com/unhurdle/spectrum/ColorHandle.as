@@ -2,32 +2,50 @@ package com.unhurdle.spectrum
 {
     COMPILE::JS{
         import org.apache.royale.core.WrappedHTMLElement;
-        import org.apache.royale.html.util.addElementToWrapper;
     }
-    import com.unhurdle.spectrum.const.IconType;
-    import org.apache.royale.events.Event;
+    import org.apache.royale.events.ValueEvent;
 
+	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
     public class ColorHandle extends SpectrumBase
     {
         public function ColorHandle()
         {
             super();
+            backgroundStyleColor = "rgb(255, 0, 0)";
         }
+
         override protected function getSelector():String{
             return "spectrum-ColorHandle";
         }
         
 		private var colorLoupe:ColorLoupe;
+		private var colorDiv:HTMLElement;
+
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = super.createElement();
             elem.style.position = "absolute";
-			var colorDiv:HTMLElement = newElement("div",appendSelector("-color"));
+			colorDiv = newElement("div",appendSelector("-color"));
 			elem.appendChild(colorDiv);
-			// element.addEventListener('mousedown', onMouseDown);
 			return elem;
         }
-        
+
+        private var _backgroundStyleColor:String;
+
+        public function get backgroundStyleColor():String
+        {
+            return _backgroundStyleColor;
+        }
+
+        public function set backgroundStyleColor(value:String):void
+        {
+            if(value != _backgroundStyleColor){
+                colorDiv.style.backgroundColor = value? value:"";
+                dispatchEvent(new ValueEvent("colorChanged",value));
+            }
+            _backgroundStyleColor = value;
+        }
+
         private var _disabled:Boolean = false;
 
         public function get disabled():Boolean
@@ -57,6 +75,7 @@ package com.unhurdle.spectrum
                 if(value){
                     if(!colorLoupe){
                         colorLoupe = new ColorLoupe();
+                        colorLoupe.open = true;
                         addElement(colorLoupe);
                     }
                 }else{
