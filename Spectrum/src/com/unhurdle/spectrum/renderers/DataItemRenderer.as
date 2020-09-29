@@ -10,8 +10,9 @@ package com.unhurdle.spectrum.renderers
   }
   import org.apache.royale.utils.getSelectionRenderBead;
   import org.apache.royale.core.ISelectableItemRenderer;
+  import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
 
-  public class DataItemRenderer extends org.apache.royale.html.supportClasses.DataItemRenderer
+  public class DataItemRenderer extends org.apache.royale.html.supportClasses.DataItemRenderer implements IKeyboardFocusable
   {
 		public function DataItemRenderer()
 		{
@@ -106,6 +107,27 @@ package com.unhurdle.spectrum.renderers
       }
     }
     
+    public function get focusElement():HTMLElement{
+      return element;
+    }
+    
+    private var _keyboardFocused:Boolean;
+    public function get keyboardFocused():Boolean{
+    	return _keyboardFocused;
+    }
+    public function set keyboardFocused(value:Boolean):void{
+      toggle("focus-ring",value);
+    	_keyboardFocused = value;
+    }
+
+    private var _focused:Boolean;
+    public function get focused():Boolean{
+    	return _focused;
+    }
+    public function set focused(value:Boolean):void{
+      toggle("is-focused",value);
+    	_focused = value;
+    }
 
   }
 }

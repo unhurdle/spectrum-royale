@@ -5,10 +5,7 @@ package com.unhurdle.spectrum
     public function FieldButton()
     {
       super();
-      COMPILE::JS
-      {
-        element.setAttribute("type","button");
-      }
+      setAttribute("type","button");
     }
     override public function set flavor(value:String):void{
       // no flavors. do nothing...
