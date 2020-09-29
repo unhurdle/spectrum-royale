@@ -18,7 +18,7 @@
     <comp:StyledCode text='&lt;sp:Banner type="error" header="Purchase Soon" content="Trial Expires in 2 days"/&gt;'/>  </comp:Markup>
 
   <comp:Variant header="Info">
-    <sp:Banner header="Most Popular" content="Includes Illustrator CC"/>
+    <sp:Banner header="Most Popular" content="Includes Illustrator CC"/><Br/>
     <sp:Banner type="info" header="Most Popular" content="Includes Illustrator CC"/>
   </comp:Variant>
   <comp:Markup>

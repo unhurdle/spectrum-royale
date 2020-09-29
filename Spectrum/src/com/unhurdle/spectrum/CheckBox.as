@@ -74,6 +74,13 @@ package com.unhurdle.spectrum
                 if(!spanLabel){
                     spanLabel = new TextNode("span");
                     spanLabel.className = appendSelector("-label");
+                    /**
+                     * a temporary fix for https://github.com/adobe/spectrum-css/issues/1029 - 
+                     * Checkbox css no longer has ellipsis for overset label
+                     */
+                    spanLabel.element.style.textOverflow = "ellipsis";
+                    spanLabel.element.style.overflow = "hidden";
+                    spanLabel.element.style.whiteSpace = "nowrap";
                     element.appendChild(spanLabel.element);
                 }
                 spanLabel.text = value;

@@ -108,7 +108,10 @@ package com.unhurdle.spectrum.renderers
     }
     
     public function get focusElement():HTMLElement{
-      return element;
+      COMPILE::JS{
+        return element;
+      }
+      return null;
     }
     
     private var _keyboardFocused:Boolean;
