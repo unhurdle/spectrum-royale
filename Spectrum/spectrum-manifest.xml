@@ -88,6 +88,7 @@
     <component id="FormField" class="com.unhurdle.spectrum.FormField"/>
     <component id="FormItem" class="com.unhurdle.spectrum.FormItem"/>
     <component id="FormLabel" class="com.unhurdle.spectrum.FormLabel"/>
+    <component id="Group" class="com.unhurdle.spectrum.Group"/>
     <component id="Heading" class="com.unhurdle.spectrum.typography.Heading"/>
     <component id="HDivider" class="com.unhurdle.spectrum.HDivider"/>
     <component id="HSplitView" class="com.unhurdle.spectrum.HSplitView"/>
@@ -153,7 +154,6 @@
     <component id="TBodyContentArea" class="com.unhurdle.spectrum.TBodyContentArea"/>
     <component id="TFoot" class="com.unhurdle.spectrum.TFoot"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
-    <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>
