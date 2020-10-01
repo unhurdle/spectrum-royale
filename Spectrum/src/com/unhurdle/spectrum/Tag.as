@@ -33,6 +33,22 @@ package com.unhurdle.spectrum
       clearButton.addEventListener("click",removeTag);
       return elem;
     }
+     public function get small():Boolean
+    {
+      return _small;
+    }
+    private var _small:Boolean;
+    public function set small(value:Boolean):void
+    {
+      _small = value;
+      if(value){
+        height = 17;
+        span.element.style.lineHeight = 1.2;
+      } else{
+        span.element.style.lineHeight = '22px';
+        style.height = '100%';
+      }
+    }
     public function get text():String
     {
       return _text;

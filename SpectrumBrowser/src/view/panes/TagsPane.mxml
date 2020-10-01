@@ -17,13 +17,13 @@
       '    <sp:Tag text="Tag 2" invalid="true"/>\n'+
       '    <sp:Tag text="Tag 3" isDisabled="true"/>\n'+
       '</sp:TagGroup>\n'+
-      '<Br/><Br/>\n'+
+      '<Br/>\n'+
       '<sp:TagGroup>\n'+
       '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
       '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
       '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
       '</sp:TagGroup>\n'+
-      '<Br/><Br/>\n'+
+      '<Br/>\n'+
       '<sp:TagGroup>\n'+
       '    <sp:Tag text="Shantanu" icon="{iconSelector}"/>\n'+
       '    <sp:Tag text="Shantanu" icon="{iconSelector}" invalid="true"/>\n'+
@@ -38,18 +38,40 @@
       '    <sp:Tag text="Tag 2" deletable="true" invalid="true"/>\n'+
       '    <sp:Tag text="Tag 3" deletable="true" isDisabled="true"/>\n'+
       '</sp:TagGroup>\n'+
-      '<Br/><Br/>\n'+
+      '<Br/>\n'+
       '<sp:TagGroup>\n'+
       '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
       '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>\n'+
       '    <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>\n'+
       '</sp:TagGroup>\n'+
-      '<Br/><Br/>\n'+
+      '<Br/>\n'+
       '<sp:TagGroup>\n'+
       '    <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}"/>\n'+
       '    <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}" invalid="true"/>\n'+
       '    <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}" isDisabled="true"/>\n'+
       '</sp:TagGroup>';
+      [Bindable]public var codeString3:String =
+      '[Bindable]public var iconSelector:String = IconPrefix._24 + "SentimentPositive";\n'+
+      '\n'+
+      '\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Tag 1" small="true"/>\n'+
+      '    <sp:Tag text="Tag 2" invalid="true" small="true"/>\n'+
+      '    <sp:Tag text="Tag 3" isDisabled="true" small="true"/>\n'+
+      '</sp:TagGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" small="true"/>\n'+
+      '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true" small="true"/>\n'+
+      '    <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true" small="true"/>\n'+
+      '</sp:TagGroup>\n'+
+      '<Br/>\n'+
+      '<sp:TagGroup>\n'+
+      '    <sp:Tag text="Shantanu" icon="{iconSelector}" small="true"/>\n'+
+      '    <sp:Tag text="Shantanu" icon="{iconSelector}" invalid="true" small="true"/>\n'+
+      '    <sp:Tag text="Shantanu" icon="{iconSelector}" isDisabled="true" small="true"/>\n'+
+      '</sp:TagGroup>';
+      
   ]]>
   </fx:Script>
   <comp:Variant>
@@ -58,13 +80,13 @@
         <sp:Tag text="Tag 2" invalid="true"/>
         <sp:Tag text="Tag 3" isDisabled="true"/>
     </sp:TagGroup>
-    <Br/><Br/>
+    <Br/>
     <sp:TagGroup>
         <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>
         <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>
         <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>
     </sp:TagGroup>
-    <Br/><Br/>
+    <Br/>
     <sp:TagGroup>
         <sp:Tag text="Shantanu" icon="{iconSelector}"/>
         <sp:Tag text="Shantanu" icon="{iconSelector}" invalid="true"/>
@@ -80,13 +102,13 @@
         <sp:Tag text="Tag 2" deletable="true" invalid="true"/>
         <sp:Tag text="Tag 3" deletable="true" isDisabled="true"/>
     </sp:TagGroup>
-    <Br/><Br/>
+    <Br/>
     <sp:TagGroup>
         <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>
         <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true"/>
         <sp:Tag text="Shantanu" deletable="true" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true"/>
     </sp:TagGroup>
-    <Br/><Br/>
+    <Br/>
     <sp:TagGroup>
         <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}"/>
         <sp:Tag text="Shantanu" deletable="true" icon="{iconSelector}" invalid="true"/>
@@ -95,5 +117,27 @@
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{codeString2}'/>
+  </comp:Markup>
+  <comp:Variant header="Small">
+    <sp:TagGroup>
+        <sp:Tag text="Tag 1" small="true"/>
+        <sp:Tag text="Tag 2" invalid="true" small="true"/>
+        <sp:Tag text="Tag 3" isDisabled="true" small="true"/>
+    </sp:TagGroup>
+    <Br/>
+    <sp:TagGroup>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" small="true"/>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" invalid="true" small="true"/>
+        <sp:Tag text="Shantanu" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" isDisabled="true" small="true"/>
+    </sp:TagGroup>
+    <Br/>
+    <sp:TagGroup>
+        <sp:Tag text="Shantanu" icon="{iconSelector}" small="true"/>
+        <sp:Tag text="Shantanu" icon="{iconSelector}" invalid="true" small="true"/>
+        <sp:Tag text="Shantanu" icon="{iconSelector}" isDisabled="true" small="true"/>
+    </sp:TagGroup>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='{codeString1}'/>
   </comp:Markup>
 </view:DemoPane>
