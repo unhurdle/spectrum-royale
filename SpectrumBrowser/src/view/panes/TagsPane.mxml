@@ -138,6 +138,6 @@
     </sp:TagGroup>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='{codeString1}'/>
+    <comp:StyledCode text='{codeString3}'/>
   </comp:Markup>
 </view:DemoPane>
