@@ -53,13 +53,18 @@ package com.unhurdle.spectrum
       if(value == !!_required){
         return;
       }
-      if(!requiredIcon){
+      if(value && !requiredIcon){
+        COMPILE::JS{
+          if(!textNode){
+            createTextNode();
+          }
+        }
         var type:String = IconType.ASTERISK;
         requiredIcon = new Icon(Icon.getCSSTypeSelector(type));
         requiredIcon.type = type;
         requiredIcon.className = appendSelector("-requiredIcon");
         addElement(requiredIcon);
-      } else {
+      } else if(requiredIcon){
         requiredIcon.visible = value;
       }
     	_required = value;
