@@ -77,6 +77,8 @@ package com.unhurdle.spectrum
                     /**
                      * a temporary fix for https://github.com/adobe/spectrum-css/issues/1029 - 
                      * Checkbox css no longer has ellipsis for overset label
+                     * A better solution would be to make ellipsis (truncate) an option
+                     * Truncated labels are necessary for panels with limited space.
                      */
                     spanLabel.element.style.textOverflow = "ellipsis";
                     spanLabel.element.style.overflow = "hidden";
