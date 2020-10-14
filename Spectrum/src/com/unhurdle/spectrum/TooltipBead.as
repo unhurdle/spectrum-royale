@@ -78,10 +78,16 @@ package com.unhurdle.spectrum
 			tt.style = {"position": "absolute"};
 			tt.text = toolTip;
 			host.popUpParent.addElement(tt, false); // don't trigger a layout
+			var ttWidth:Number = tt.width;
 			var pt:Point = determinePosition(_strand as IUIBase, tt);
 			tt.x = pt.x;
 			tt.y = pt.y;
 			tt.isOpen = true;
+			if(ttWidth != tt.width){
+				pt = determinePosition(_strand as IUIBase, tt);
+				tt.x = pt.x;
+				tt.y = pt.y;
+			}
 		}
 
 		protected function determinePosition(comp:IUIBase, tooltip:Tooltip):Point

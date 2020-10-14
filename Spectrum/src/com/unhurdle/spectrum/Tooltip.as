@@ -30,6 +30,7 @@ package com.unhurdle.spectrum
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       super.createElement();
+      element.style.pointerEvents = "none";
       // direction = "top";
       span1 = new TextNode("");
       span1.element = newElement("span") as HTMLSpanElement;
