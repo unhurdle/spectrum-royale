@@ -9,6 +9,7 @@ package com.unhurdle.spectrum
   }
     import com.unhurdle.spectrum.const.IconType;
     import org.apache.royale.core.IChild;
+    import org.apache.royale.events.KeyboardEvent;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -30,6 +31,7 @@ package com.unhurdle.spectrum
       addBead(underlay);
       addEventListener("modalShown",handleModalShow);
       addEventListener("modalHidden",handleModalHidden);
+      window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = false;
     }
 
@@ -43,6 +45,12 @@ package com.unhurdle.spectrum
     private var underlay:Underlay;
     override protected function getSelector():String{
       return "spectrum-Dialog";
+    }
+
+    private function handleEscape(event:KeyboardEvent):void{
+      if(event.key == "Escape"){
+          hide();
+      }      
     }
 
     // COMPILE::JS
