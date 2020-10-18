@@ -70,25 +70,51 @@ package com.unhurdle.spectrum
         {
             COMPILE::JS
             {
-            if(_text != value){
-                if(!spanLabel){
-                    spanLabel = new TextNode("span");
-                    spanLabel.className = appendSelector("-label");
-                    /**
-                     * a temporary fix for https://github.com/adobe/spectrum-css/issues/1029 - 
-                     * Checkbox css no longer has ellipsis for overset label
-                     * A better solution would be to make ellipsis (truncate) an option
-                     * Truncated labels are necessary for panels with limited space.
-                     */
-                    spanLabel.element.style.textOverflow = "ellipsis";
-                    spanLabel.element.style.overflow = "hidden";
-                    spanLabel.element.style.whiteSpace = "nowrap";
-                    element.appendChild(spanLabel.element);
+                if(_text != value){
+                    if(!spanLabel){
+                        spanLabel = new TextNode("span");
+                        spanLabel.className = appendSelector("-label");
+                        /**
+                         * A fix for https://github.com/adobe/spectrum-css/issues/1029 - 
+                         * Checkbox css no longer has ellipsis for overset label
+                         * Truncated labels are necessary for panels with limited space.
+                         */
+                        if(truncate){
+                            spanLabel.element.style.textOverflow = "ellipsis";
+                            spanLabel.element.style.overflow = "hidden";
+                            spanLabel.element.style.whiteSpace = "nowrap";
+                        }
+                        element.appendChild(spanLabel.element);
+                    }
+                    spanLabel.text = value;
                 }
-                spanLabel.text = value;
-            }
             }
             _text = value;
+        }
+        private var _truncate:Boolean;
+
+        public function get truncate():Boolean
+        {
+        	return _truncate;
+        }
+
+        public function set truncate(value:Boolean):void
+        {
+            COMPILE::JS
+            {
+                if(spanLabel){
+                    if(value){
+                        spanLabel.element.style.textOverflow = "ellipsis";
+                        spanLabel.element.style.overflow = "hidden";
+                        spanLabel.element.style.whiteSpace = "nowrap";
+                    } else {
+                        spanLabel.element.style.removeProperty("text-overflow");
+                        spanLabel.element.style.removeProperty("overflow");
+                        spanLabel.element.style.removeProperty("white-space");
+                    }
+                }
+            }
+        	_truncate = value;
         }
         private var _invalid:Boolean;
 
