@@ -31,7 +31,6 @@ package com.unhurdle.spectrum
       addBead(underlay);
       addEventListener("modalShown",handleModalShow);
       addEventListener("modalHidden",handleModalHidden);
-      window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = false;
     }
 
@@ -250,6 +249,7 @@ package com.unhurdle.spectrum
     }
     private var attachedToApp:Boolean;
     public function show():void{
+      window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       Application.current.popUpParent.addElement(this);
       visible = true;
       COMPILE::JS
@@ -280,6 +280,7 @@ package com.unhurdle.spectrum
     }
     public function hide():void
     {
+      window.removeEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = false;
       toggle("is-open",false);
         // COMPILE::JS
