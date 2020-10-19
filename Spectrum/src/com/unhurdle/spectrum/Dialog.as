@@ -249,8 +249,29 @@ package com.unhurdle.spectrum
     }
     private var attachedToApp:Boolean;
     public function show():void{
-      window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       Application.current.popUpParent.addElement(this);
+      var hasFocus:Boolean = false;
+      var array:Array = element.children;
+      var len:int = array.length;
+      for(var index:int = 0;!hasFocus && index < len; index++){
+        var element:Object = array[index];
+        if(element.autofocus){
+          element.focused = true;
+          hasFocus = true;
+        }
+      }
+      if(!hasFocus){        
+        for(index = 0;!hasFocus && index < len; index++){
+          element = array[index];
+          if(element.tabDisabled){
+            continue;
+          }else{
+            element.focused = true;
+            hasFocus = true;
+          }
+        }
+      }
+      window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = true;
       COMPILE::JS
       {

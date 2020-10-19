@@ -53,6 +53,23 @@ package com.unhurdle.spectrum
       return addElementToWrapper(this,getTag());
     }
 
+    private var _focusable:Boolean = true;
+
+    public function get focusable():Boolean
+    {
+    	return _focusable;
+    }
+
+    public function set focusable(value:Boolean):void
+    {
+    	_focusable = value;
+      if(value){
+        setAttribute("tabindex",0);
+      } else {
+        setAttribute("tabindex",-1);
+      }
+    }
+
     private var _flexGrow:int = -1;
 
     public function get flexGrow():int

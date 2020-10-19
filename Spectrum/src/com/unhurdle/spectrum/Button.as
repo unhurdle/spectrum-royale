@@ -287,6 +287,7 @@ package com.unhurdle.spectrum
     }
     public function set focused(value:Boolean):void
     {
+      keyboardFocused = value;
     	// throw new Error("Method not implemented.");
     }
   }

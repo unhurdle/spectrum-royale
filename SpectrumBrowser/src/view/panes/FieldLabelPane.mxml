@@ -74,8 +74,6 @@
     <Br/>
     <comp:StyledCode text='&lt;sp:TextField id="lifestory6" placeholder="Enter your life story"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:TextField id="lifestory6" placeholder="Enter your life story"/&gt;'/>
-    <Br/>
     <comp:StyledCode text='&lt;Br/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Br/&gt;'/>
