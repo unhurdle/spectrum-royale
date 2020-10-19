@@ -75,7 +75,7 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
       input = new NumberField();
-      input.autoFocus = false;
+      input.focusable = false;
       input.className =  appendSelector("-textfield");
       input.input.classList.add(appendSelector("-input"));
       // default to any valid integer

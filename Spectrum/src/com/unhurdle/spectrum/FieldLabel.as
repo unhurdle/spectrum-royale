@@ -129,8 +129,10 @@ package com.unhurdle.spectrum
 
     override public function set focusable(value:Boolean):void{
       super.focusable = value;
-      if(!value){
-        style = {"user-select":"none"};
+      if(value){
+        element.style.userSelect = "";
+      } else {
+        element.style.userSelect = "none";
       }
     }
   }
