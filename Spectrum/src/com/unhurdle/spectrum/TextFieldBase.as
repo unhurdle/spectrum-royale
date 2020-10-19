@@ -252,23 +252,9 @@ package com.unhurdle.spectrum
       _iconElement.type = iconType;
       _iconElement.toggle(appendSelector("-icon"),true);
     }
-    private var _autoFocus:Boolean = true;
-    /**
-     * if autoFocus is true the component handles its own focus management
-     */
-    public function get autoFocus():Boolean
-    {
-    	return _autoFocus;
-    }
-
-    public function set autoFocus(value:Boolean):void
-    {
-    	_autoFocus = value;
-    }
-
     override public function addedToParent():void{
       super.addedToParent();
-      if(autoFocus){
+      if(focusable){
         addBead(new KeyboardFocusHandler());
       }
     }

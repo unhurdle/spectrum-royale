@@ -7,6 +7,8 @@ package com.unhurdle.spectrum
     function setAttribute(name:String,value:*):void;
     function getAttribute(name:String):*;
     function removeAttribute(name:String):void;
+    function get autofocus():Boolean;
+    function set autofocus(value:Boolean):void;
 
   }
   

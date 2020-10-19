@@ -90,7 +90,41 @@ package com.unhurdle.spectrum
 
       }
     }
+    COMPILE::SWF
+    private var _autofocus:Boolean;
 
+    public function get autofocus():Boolean
+    {
+      COMPILE::SWF{
+        return _autofocus;
+      }
+      COMPILE::JS
+      {
+        return element["autofocus"];
+      }
+    }
+
+    public function set autofocus(value:Boolean):void
+    {
+      COMPILE::SWF{
+    	_autofocus = value;
+      }
+      COMPILE::JS
+      {
+        element["autofocus"] = value;
+      }
+    }
+
+    COMPILE::JS
+    override public function addedToParent():void{
+      super.addedToParent();
+      if(autofocus){
+        requestAnimationFrame(function():*{
+          element.focus();
+        });
+      }
+    }
+    
     public function setStyle(property:String,value:Object):void
     {
       COMPILE::JS
