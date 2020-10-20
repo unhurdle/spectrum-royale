@@ -45,8 +45,8 @@ package com.unhurdle.spectrum
         height = 17;
         span.element.style.lineHeight = 1.2;
       } else{
-        span.element.style.lineHeight = '22px';
-        style.height = '100%';
+        span.element.style.lineHeight = '';
+        style.height = '';
       }
     }
     public function get text():String
