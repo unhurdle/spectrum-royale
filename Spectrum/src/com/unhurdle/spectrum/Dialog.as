@@ -3,11 +3,11 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.elements.Div;
   }
     import com.unhurdle.spectrum.const.IconType;
+    import com.unhurdle.spectrum.utils.hasAutoFocus;
+
     import org.apache.royale.core.IChild;
     import org.apache.royale.events.KeyboardEvent;
 
@@ -250,26 +250,10 @@ package com.unhurdle.spectrum
     private var attachedToApp:Boolean;
     public function show():void{
       Application.current.popUpParent.addElement(this);
-      var hasFocus:Boolean = false;
-      var array:Array = element.children;
-      var len:int = array.length;
-      for(var index:int = 0;!hasFocus && index < len; index++){
-        var element:Object = array[index];
-        if(element.autofocus){
-          element.focused = true;
-          hasFocus = true;
-        }
-      }
-      if(!hasFocus){        
-        for(index = 0;!hasFocus && index < len; index++){
-          element = array[index];
-          if(element.tabDisabled){
-            continue;
-          }else{
-            element.focused = true;
-            hasFocus = true;
-          }
-        }
+      var elements:Array = [];
+      var hasFocus:Boolean = hasAutoFocus(this,elements);
+      if(!hasFocus){
+        (elements[0] as ISpectrumElement).focus();
       }
       window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = true;

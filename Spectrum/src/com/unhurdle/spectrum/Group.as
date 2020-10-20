@@ -76,6 +76,27 @@ package com.unhurdle.spectrum
       }
     }
 
+    private var _focusable:Boolean = true;
+
+    public function get focusable():Boolean
+    {
+    	return _focusable;
+    }
+
+    public function set focusable(value:Boolean):void
+    {
+    	_focusable = value;
+      if(value){
+        setAttribute("tabindex",0);
+      } else {
+        setAttribute("tabindex",-1);
+      }
+    }
+    public function focus():void
+    {
+      this.focus();
+    }
+
     COMPILE::JS
     override public function addedToParent():void{
       super.addedToParent();

@@ -1,6 +1,8 @@
 package com.unhurdle.spectrum
 {
-  public interface ISpectrumElement
+  import org.apache.royale.core.IParentIUIBase;
+
+  public interface ISpectrumElement extends IParentIUIBase
   {
     function toggle(classNameVal:String,add:Boolean):void;
     function setStyle(property:String,value:Object):void;
@@ -9,6 +11,9 @@ package com.unhurdle.spectrum
     function removeAttribute(name:String):void;
     function get autofocus():Boolean;
     function set autofocus(value:Boolean):void;
+    function get focusable():Boolean;
+    function set focusable(value:Boolean):void;
+    function focus():void;
 
   }
   

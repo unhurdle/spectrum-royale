@@ -114,6 +114,10 @@ package com.unhurdle.spectrum
         element["autofocus"] = value;
       }
     }
+    public function focus():void
+    {
+      this.focus();
+    }
 
     COMPILE::JS
     override public function addedToParent():void{
