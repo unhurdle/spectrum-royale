@@ -249,23 +249,6 @@ package com.unhurdle.spectrum
       return element;
     }
 
-    private var _tabDisabled:Boolean;
-
-    public function get tabDisabled():Boolean
-    {
-    	return _tabDisabled;
-    }
-
-    public function set tabDisabled(value:Boolean):void
-    {
-      if(value){
-        setAttribute("tabindex","-1");
-      } else{
-        removeAttribute("tabindex");
-      }
-    	_tabDisabled = value;
-    }
-
     public function get focusElement():HTMLElement{
       assert(false,"Must override focusElement getter!");
       return null;

@@ -11,7 +11,7 @@ package com.unhurdle.spectrum
     public function ImageAsset()
     {
       super();
-      focusable = false;
+      tabFocusable = false;
     }
 
     private var _imageElement:HTMLImageElement;
@@ -67,8 +67,8 @@ package com.unhurdle.spectrum
       }      
     }
 
-    public function get tabDisabled():Boolean{
-    	return true;
+    override public function get tabFocusable():Boolean{
+    	return false;
     }
   }
 }

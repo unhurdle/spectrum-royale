@@ -254,7 +254,7 @@ package com.unhurdle.spectrum
     }
     override public function addedToParent():void{
       super.addedToParent();
-      if(focusable){
+      if(tabFocusable){
         addBead(new KeyboardFocusHandler());
       }
     }

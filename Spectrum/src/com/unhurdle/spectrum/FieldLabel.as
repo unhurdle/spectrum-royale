@@ -13,7 +13,7 @@ package com.unhurdle.spectrum
     public function FieldLabel()
     {
       super();
-      focusable = false;
+      tabFocusable = false;
     }
     override protected function getSelector():String{
       return FieldLabelInclude.getSelector();
@@ -40,10 +40,6 @@ package com.unhurdle.spectrum
         }
         _for = value;
       }
-    }
-
-    public function get tabDisabled():Boolean{
-    	return true;
     }
 
     private var requiredIcon:Icon;
@@ -127,8 +123,8 @@ package com.unhurdle.spectrum
       return "label";
     }
 
-    override public function set focusable(value:Boolean):void{
-      super.focusable = value;
+    override public function set tabFocusable(value:Boolean):void{
+      super.tabFocusable = value;
       if(value){
         setStyle("user-select","");
       } else {

@@ -11,8 +11,8 @@ package com.unhurdle.spectrum
     function removeAttribute(name:String):void;
     function get autofocus():Boolean;
     function set autofocus(value:Boolean):void;
-    function get focusable():Boolean;
-    function set focusable(value:Boolean):void;
+    function get tabFocusable():Boolean;
+    function set tabFocusable(value:Boolean):void;
     function focus():void;
 
   }

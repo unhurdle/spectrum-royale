@@ -21,7 +21,7 @@ package com.unhurdle.spectrum.utils
           }
           return true;
         }
-        if(childElem.focusable){
+        if(childElem.tabFocusable){
           elements.push(childElem);
         }
         if(hasAutoFocus(childElem,elements)){

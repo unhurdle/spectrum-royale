@@ -76,16 +76,16 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var _focusable:Boolean = true;
+    private var _tabFocusable:Boolean = true;
 
-    public function get focusable():Boolean
+    public function get tabFocusable():Boolean
     {
-    	return _focusable;
+    	return _tabFocusable;
     }
 
-    public function set focusable(value:Boolean):void
+    public function set tabFocusable(value:Boolean):void
     {
-    	_focusable = value;
+    	_tabFocusable = value;
       if(value){
         setAttribute("tabindex",0);
       } else {
