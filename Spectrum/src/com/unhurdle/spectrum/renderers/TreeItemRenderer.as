@@ -42,7 +42,7 @@ package com.unhurdle.spectrum.renderers
         if(icon){
           icon.toggle(appendSelector('-itemIcon'),true);
         }
-        if(children){
+        if(children && children.length){
           var type:String = "ChevronRightMedium";
           var chevronRightIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
           chevronRightIcon.type = type;
