@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
     public function TextBase()
     {
       super();
+      userSelect = true;
     }
 
     public function get text():String
@@ -44,5 +45,21 @@ package com.unhurdle.spectrum
       textNode.element = element;
     }
 
+    private var _userSelect:Boolean;
+
+    public function get userSelect():Boolean
+    {
+    	return _userSelect;
+    }
+
+    public function set userSelect(value:Boolean):void
+    {
+    	_userSelect = value;
+      if(value){
+        setAttribute("user-select","");
+      } else {
+        setAttribute("user-select","none");
+      }
+    }
   }
 }

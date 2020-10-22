@@ -247,13 +247,18 @@ package com.unhurdle.spectrum
       }
     	_success = value;
     }
+
     private var attachedToApp:Boolean;
     public function show():void{
       Application.current.popUpParent.addElement(this);
       var elements:Array = [];
       var hasFocus:Boolean = hasAutoFocus(this,elements);
       if(!hasFocus){
-        (elements[0] as ISpectrumElement).focus();
+        if(elements[0]){
+          (elements[0] as ISpectrumElement).focus();
+        }else{
+          this.focus();
+        }
       }
       window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = true;

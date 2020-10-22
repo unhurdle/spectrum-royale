@@ -14,6 +14,7 @@ package com.unhurdle.spectrum
     {
       super();
       tabFocusable = false;
+      userSelect = false;
     }
     override protected function getSelector():String{
       return FieldLabelInclude.getSelector();
@@ -121,15 +122,6 @@ package com.unhurdle.spectrum
 
     override protected function getTag():String{
       return "label";
-    }
-
-    override public function set tabFocusable(value:Boolean):void{
-      super.tabFocusable = value;
-      if(value){
-        setStyle("user-select","");
-      } else {
-        setStyle("user-select","none");
-      }
     }
   }
 }

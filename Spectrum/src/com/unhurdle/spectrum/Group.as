@@ -94,7 +94,10 @@ package com.unhurdle.spectrum
     }
     public function focus():void
     {
-      this.focus();
+      COMPILE::JS
+      {
+        element.focus();
+      }
     }
 
     COMPILE::JS

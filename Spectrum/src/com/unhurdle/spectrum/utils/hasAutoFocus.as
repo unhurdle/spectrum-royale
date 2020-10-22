@@ -9,9 +9,9 @@ package com.unhurdle.spectrum.utils
   public function hasAutoFocus(element:ISpectrumElement,elements:Array):Boolean{
     var numElements:Number = element.numElements;
     var i:int = 0;
-    while(i++ < numElements){
-      
+    while(i < numElements){
       var child:IChild = element.getElementAt(i);
+      i++;
       if(child is ISpectrumElement){
         var childElem:ISpectrumElement = child as ISpectrumElement;
         if(childElem.autofocus){
