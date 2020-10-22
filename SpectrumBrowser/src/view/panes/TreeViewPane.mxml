@@ -23,7 +23,9 @@
         arr1.push({label:'Layer 5'});
         arr1.push({label:'Group 2',children:[{label:'Group 3',children:[{label:'Group 4',children:[{label:'Layer 6'},{label:'Group 5',children:[]}]}]}]});
         var hierarchicalData1:HierarchicalData = new HierarchicalData({'children':arr1});
-        provider1 = new TreeData(hierarchicalData1);
+        var treeData:TreeData = new TreeData(hierarchicalData1);
+        treeData.openNode(arr1[1]);
+        provider1 = treeData;
 
         var arr3:Array = [];
         arr3.push({label:'Layer 1',icon:IconPrefix._18 + "Layers"});
