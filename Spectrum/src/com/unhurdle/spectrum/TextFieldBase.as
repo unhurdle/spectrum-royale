@@ -33,7 +33,10 @@ package com.unhurdle.spectrum
     private function handleEnter(event:KeyboardEvent):void{
       if(event.key == WhitespaceKeys.ENTER){
           dispatchEvent(new Event("onEnter"));
-      }      
+      }
+      if(event.key == "Backspace"){
+          dispatchEvent(new Event("onBackspace"));
+      }
     }
 
     override protected function getSelector():String{

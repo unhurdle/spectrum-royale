@@ -74,6 +74,7 @@ package models
         "Table",
         "Tabs",
         "Tags",
+        "Tag Field",
         "Text Area",
         "Text Field",
         "Thumbnail",
