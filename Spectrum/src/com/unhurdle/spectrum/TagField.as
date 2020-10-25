@@ -32,6 +32,15 @@ package com.unhurdle.spectrum
     
     private function addTag():void{
       if(input.text){
+        var len:int = tagGroup.numElements;
+        for(var index:int = 0; index < len; index++)
+        {
+          var element:Object = tagGroup.getElementAt(index);
+          if(element.text == input.text){
+            input.text = "";
+            return;
+          }
+        }
         var tag:Tag = new Tag();
         tag.text = input.text;
         input.text = "";
