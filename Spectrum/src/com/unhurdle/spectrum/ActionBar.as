@@ -23,15 +23,15 @@ package com.unhurdle.spectrum
     private var popover:Popover;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
-    var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
-    popover = new Popover();
-    popover.className = appendSelector("-popover");
-    popover.element.style.position = "relative";
-    checkBox = new CheckBox();
-    checkBox.indeterminate = true;
-    popover.addElement(checkBox);
-    elem.appendChild(popover.element);
-    return elem;
+      var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
+      popover = new Popover();
+      popover.className = appendSelector("-popover");
+      popover.element.style.position = "relative";
+      checkBox = new CheckBox();
+      checkBox.indeterminate = true;
+      popover.addElement(checkBox);
+      elem.appendChild(popover.element);
+      return elem;
     }
 
     override public function addElement(c:IChild, dispatchEvent:Boolean = true):void{
