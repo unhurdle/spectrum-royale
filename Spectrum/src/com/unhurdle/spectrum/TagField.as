@@ -37,7 +37,11 @@ package com.unhurdle.spectrum
         {
           var element:Object = tagGroup.getElementAt(index);
           if(element.text == input.text){
+            element.style = {"visibility":"hidden"};
             input.text = "";
+            setTimeout(function():void{
+              element.style = {"visibility":"visible"};
+            },500);
             return;
           }
         }
