@@ -69,6 +69,11 @@ package com.unhurdle.spectrum
     private function get menu():Menu{
       return popover.list;
     }
+    private function closeDropdown():void
+    {
+      toggle("is-open",false);
+      closePopup();
+     }
 
     private function toggleDropdown(ev:*):void{
       var minHeight:Number = _minMenuHeight + 6;
@@ -76,6 +81,7 @@ package com.unhurdle.spectrum
       var open:Boolean = !popover.open;
       toggle("is-open",open);
       if(open){
+        window.addEventListener(MouseEvent.CLICK,closeDropdown);
         // Figure out direction and max size
         var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
         var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
