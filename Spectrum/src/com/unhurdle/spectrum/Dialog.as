@@ -251,15 +251,6 @@ package com.unhurdle.spectrum
     private var attachedToApp:Boolean;
     public function show():void{
       Application.current.popUpParent.addElement(this);
-      var elements:Array = [];
-      var hasFocus:Boolean = hasAutoFocus(this,elements);
-      if(!hasFocus){
-        if(elements[0]){
-          (elements[0] as ISpectrumElement).focus();
-        }else{
-          this.focus();
-        }
-      }
       window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = true;
       COMPILE::JS
@@ -271,7 +262,19 @@ package com.unhurdle.spectrum
           requestAnimationFrame(delayShow);
         }
       }
-      
+    }
+
+    private function focusElement():void
+    {
+      var elements:Array = [];
+      var hasFocus:Boolean = hasAutoFocus(this,elements);
+      if(!hasFocus){
+        if(elements[0]){
+          (elements[0] as ISpectrumElement).focus();
+        }else{
+          this.focus();
+        }
+      }
     }
     COMPILE::JS
     private function delayShow():void{
@@ -280,6 +283,7 @@ package com.unhurdle.spectrum
     private var alreadyShown:Boolean = false;
     private function dispatchShown():void{
       dispatchEvent(new Event("modalShown"));
+      focusElement();
     }
     private function handleModalShow(ev:Event):void{
         // COMPILE::JS

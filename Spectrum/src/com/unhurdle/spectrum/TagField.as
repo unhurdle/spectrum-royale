@@ -41,7 +41,7 @@ package com.unhurdle.spectrum
             input.text = "";
             setTimeout(function():void{
               element.style = {"visibility":"visible"};
-            },500);
+            },100);
             return;
           }
         }
