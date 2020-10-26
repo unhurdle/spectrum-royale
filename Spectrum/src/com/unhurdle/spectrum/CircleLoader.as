@@ -26,7 +26,6 @@ package com.unhurdle.spectrum
         private var elem:Object;
         private var fillSubMask1:HTMLDivElement;
         private var fillSubMask2:HTMLDivElement;
-        private var input:HTMLInputElement;
 
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{

@@ -11,9 +11,28 @@ package com.unhurdle.spectrum
     public function TypographyGroup()
     {
       super();
+      tabFocusable = false;
+      userSelect = false;
     }
     override protected function getSelector():String{
       return "spectrum-Typography";
+    }
+
+    private var _userSelect:Boolean;
+
+    public function get userSelect():Boolean
+    {
+    	return _userSelect;
+    }
+
+    public function set userSelect(value:Boolean):void
+    {
+    	_userSelect = value;
+      if(value){
+        setAttribute("user-select","");
+      } else {
+        setAttribute("user-select","none");
+      }
     }
 
     private var _language:String;

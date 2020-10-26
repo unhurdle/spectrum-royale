@@ -13,6 +13,8 @@ package com.unhurdle.spectrum
     public function FieldLabel()
     {
       super();
+      tabFocusable = false;
+      userSelect = false;
     }
     override protected function getSelector():String{
       return FieldLabelInclude.getSelector();
@@ -40,6 +42,7 @@ package com.unhurdle.spectrum
         _for = value;
       }
     }
+
     private var requiredIcon:Icon;
     private var _required:Boolean;
 
@@ -120,6 +123,5 @@ package com.unhurdle.spectrum
     override protected function getTag():String{
       return "label";
     }
-
   }
 }

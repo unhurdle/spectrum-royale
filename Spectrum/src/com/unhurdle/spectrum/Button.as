@@ -5,9 +5,11 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
+  import org.apache.royale.debugging.assert;
 
 
-  public class Button extends SpectrumBase
+  public class Button extends SpectrumBase implements IKeyboardFocusable
   {
     /**
      * <inject_html>
@@ -247,21 +249,29 @@ package com.unhurdle.spectrum
       return element;
     }
 
-    private var _tabDisabled:Boolean;
-
-    public function get tabDisabled():Boolean
-    {
-    	return _tabDisabled;
+    public function get focusElement():HTMLElement{
+      assert(false,"Must override focusElement getter!");
+      return null;
     }
 
-    public function set tabDisabled(value:Boolean):void
+    private var _keyboardFocused:Boolean;
+
+    public function get keyboardFocused():Boolean
     {
-      if(value){
-        setAttribute("tabindex","-1");
-      } else{
-        removeAttribute("tabindex");
+    	return _keyboardFocused;
+    }
+
+    public function set keyboardFocused(value:Boolean):void
+    {
+      if(value != _keyboardFocused){
+        toggle("focus-ring",value);
       }
-    	_tabDisabled = value;
+    	_keyboardFocused = value;
+    }
+    public function set focused(value:Boolean):void
+    {
+      keyboardFocused = value;
+    	// throw new Error("Method not implemented.");
     }
   }
 }

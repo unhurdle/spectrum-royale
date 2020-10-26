@@ -15,6 +15,7 @@ package com.unhurdle.spectrum
       super();
       classList = new CSSClassList();
       typeNames = getSelector();
+      tabFocusable = true;
     }
 
     protected function getSelector():String{
@@ -53,6 +54,23 @@ package com.unhurdle.spectrum
       return addElementToWrapper(this,getTag());
     }
 
+    private var _tabFocusable:Boolean;
+
+    public function get tabFocusable():Boolean
+    {
+    	return _tabFocusable;
+    }
+
+    public function set tabFocusable(value:Boolean):void
+    {
+    	_tabFocusable = value;
+      if(value){
+        setAttribute("tabindex",0);
+      } else {
+        setAttribute("tabindex",-1);
+      }
+    }
+
     private var _flexGrow:int = -1;
 
     public function get flexGrow():int
@@ -71,6 +89,47 @@ package com.unhurdle.spectrum
           element.style.flexGrow = value;
         }
 
+      }
+    }
+    COMPILE::SWF
+    private var _autofocus:Boolean;
+
+    public function get autofocus():Boolean
+    {
+      COMPILE::SWF{
+        return _autofocus;
+      }
+      COMPILE::JS
+      {
+        return element["autofocus"];
+      }
+    }
+
+    public function set autofocus(value:Boolean):void
+    {
+      COMPILE::SWF{
+    	_autofocus = value;
+      }
+      COMPILE::JS
+      {
+        element["autofocus"] = value;
+      }
+    }
+    public function focus():void
+    {
+      COMPILE::JS
+      {
+        element.focus();
+      }
+    }
+
+    COMPILE::JS
+    override public function addedToParent():void{
+      super.addedToParent();
+      if(autofocus){
+        requestAnimationFrame(function():*{
+          element.focus();
+        });
       }
     }
 

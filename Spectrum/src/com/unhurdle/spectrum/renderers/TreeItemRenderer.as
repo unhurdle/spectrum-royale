@@ -26,16 +26,16 @@ package com.unhurdle.spectrum.renderers
     override protected function getSelector():String{
       return "spectrum-TreeView";
     }
+    private var treeListData:TreeListData;
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
       children = value.children;
       toggle(appendSelector("-item"),true);
       if(listData is TreeListData){
-        var treeListData:TreeListData = listData as TreeListData;
+        treeListData = listData as TreeListData;
         var indentVal:String = "";
         if(treeListData.depth != -1){
-          
           indentVal = (treeListData.depth - 1) * indent + "px";
         }
         element.style.paddingLeft = indentVal;
@@ -48,12 +48,13 @@ package com.unhurdle.spectrum.renderers
           chevronRightIcon.type = type;
           chevronRightIcon.toggle(appendSelector("-itemIndicator"),true);
           link.addElementAt(chevronRightIcon,0);
+          if(listData.isOpen){
+            isOpen = value.isOpen = true;
+          }
           chevronRightIcon.addEventListener(MouseEvent.CLICK,function (ev:Event):void
           {
             if(!disabled){
               isOpen = !isOpen;
-              toggle('is-open',isOpen);
-              treeListData.isOpen = isOpen;
               var expandEvent:ItemClickedEvent = new ItemClickedEvent("itemExpanded");
               expandEvent.data = data;
               expandEvent.index = index;
@@ -66,11 +67,23 @@ package com.unhurdle.spectrum.renderers
         }
       }
     }
-    private var isOpen:Boolean = false;
+    private var _isOpen:Boolean = false;
+
+    private function get isOpen():Boolean
+    {
+    	return _isOpen;
+    }
+
+    private function set isOpen(value:Boolean):void
+    {
+    	_isOpen = value;
+      toggle('is-open',value);
+      treeListData.isOpen = _isOpen;
+    }
     override protected function setText(value:String):void{
        textNode.text = value;
     }
-    private var link:A;
+    protected var link:A;
     override protected function get iconParent():IParent{
       return link;
     }

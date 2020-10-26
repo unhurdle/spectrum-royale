@@ -3,12 +3,13 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
     import org.apache.royale.html.elements.Div;
   }
     import com.unhurdle.spectrum.const.IconType;
+    import com.unhurdle.spectrum.utils.hasAutoFocus;
+
     import org.apache.royale.core.IChild;
+    import org.apache.royale.events.KeyboardEvent;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -43,6 +44,12 @@ package com.unhurdle.spectrum
     private var underlay:Underlay;
     override protected function getSelector():String{
       return "spectrum-Dialog";
+    }
+
+    private function handleEscape(event:KeyboardEvent):void{
+      if(event.key == "Escape"){
+          hide();
+      }      
     }
 
     // COMPILE::JS
@@ -240,9 +247,11 @@ package com.unhurdle.spectrum
       }
     	_success = value;
     }
+
     private var attachedToApp:Boolean;
     public function show():void{
       Application.current.popUpParent.addElement(this);
+      window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = true;
       COMPILE::JS
       {
@@ -253,7 +262,19 @@ package com.unhurdle.spectrum
           requestAnimationFrame(delayShow);
         }
       }
-      
+    }
+
+    private function focusElement():void
+    {
+      var elements:Array = [];
+      var hasFocus:Boolean = hasAutoFocus(this,elements);
+      if(!hasFocus){
+        if(elements[0]){
+          (elements[0] as ISpectrumElement).focus();
+        }else{
+          this.focus();
+        }
+      }
     }
     COMPILE::JS
     private function delayShow():void{
@@ -262,6 +283,7 @@ package com.unhurdle.spectrum
     private var alreadyShown:Boolean = false;
     private function dispatchShown():void{
       dispatchEvent(new Event("modalShown"));
+      focusElement();
     }
     private function handleModalShow(ev:Event):void{
         // COMPILE::JS
@@ -272,6 +294,7 @@ package com.unhurdle.spectrum
     }
     public function hide():void
     {
+      window.removeEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
       visible = false;
       toggle("is-open",false);
         // COMPILE::JS

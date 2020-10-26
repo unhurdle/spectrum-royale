@@ -5,6 +5,7 @@ package com.unhurdle.spectrum
     public function DialogContent()
     {
       super();
+      tabFocusable = false;
     }
     override protected function getSelector():String{
       return "spectrum-Dialog-content";

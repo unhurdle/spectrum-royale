@@ -46,7 +46,7 @@ package com.unhurdle.spectrum
       //TODO is this right?
       className = InputGroupInclude.getSelector();
       input = new TextField();
-      input.autoFocus = false;
+      input.tabFocusable = false;
       input.toggle(appendInputGroup("-textfield"),true);
       input.input.classList.add(appendInputGroup('-input'));
       // input.readOnly = true;

@@ -3,11 +3,15 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
   import org.apache.royale.debugging.assert;
   import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
+  import org.apache.royale.events.KeyboardEvent;
+  import org.apache.royale.events.utils.WhitespaceKeys;
+  import org.apache.royale.events.Event;
 
   COMPILE::JS
   {}
 
   [Event(name="change", type="org.apache.royale.events.Event")]
+  [Event(name="onEnter", type="org.apache.royale.events.Event")]
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
  * <input type="text" placeholder="Enter your name" name="field" value="A valid input" class="spectrum-Textfield spectrum-Textfield--quiet is-valid" pattern="[\w\s]+" required disabled>
@@ -23,7 +27,18 @@ package com.unhurdle.spectrum
     public function TextFieldBase()
     {
       super();
+      addEventListener(KeyboardEvent.KEY_DOWN,handleEnter);
     }
+
+    private function handleEnter(event:KeyboardEvent):void{
+      if(event.key == WhitespaceKeys.ENTER){
+          dispatchEvent(new Event("onEnter"));
+      }
+      if(event.key == "Backspace"){
+          dispatchEvent(new Event("onBackspace"));
+      }
+    }
+
     override protected function getSelector():String{
       return "spectrum-Textfield";
     }
@@ -240,23 +255,9 @@ package com.unhurdle.spectrum
       _iconElement.type = iconType;
       _iconElement.toggle(appendSelector("-icon"),true);
     }
-    private var _autoFocus:Boolean = true;
-    /**
-     * if autoFocus is true the component handles its own focus management
-     */
-    public function get autoFocus():Boolean
-    {
-    	return _autoFocus;
-    }
-
-    public function set autoFocus(value:Boolean):void
-    {
-    	_autoFocus = value;
-    }
-
     override public function addedToParent():void{
       super.addedToParent();
-      if(autoFocus){
+      if(tabFocusable){
         addBead(new KeyboardFocusHandler());
       }
     }

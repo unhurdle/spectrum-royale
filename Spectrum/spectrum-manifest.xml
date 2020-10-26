@@ -154,6 +154,7 @@
     <component id="TBodyContentArea" class="com.unhurdle.spectrum.TBodyContentArea"/>
     <component id="TFoot" class="com.unhurdle.spectrum.TFoot"/>
     <component id="Tag" class="com.unhurdle.spectrum.Tag"/>
+    <component id="TagField" class="com.unhurdle.spectrum.TagField"/>
     <component id="TagGroup" class="com.unhurdle.spectrum.TagGroup"/>
     <component id="TextArea" class="com.unhurdle.spectrum.TextArea"/>
     <component id="TextField" class="com.unhurdle.spectrum.TextField"/>

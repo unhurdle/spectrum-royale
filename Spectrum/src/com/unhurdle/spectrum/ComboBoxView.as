@@ -98,7 +98,7 @@ package com.unhurdle.spectrum{
 			comboHost = value as ComboBox;
 			
 			textfield = new TextField();
-			textfield.autoFocus = false;
+			textfield.tabFocusable = false;
       textfield.className = appendSelector("-textfield");
 			textfield.input.classList.add(appendSelector('-input'));
 			COMPILE::JS
