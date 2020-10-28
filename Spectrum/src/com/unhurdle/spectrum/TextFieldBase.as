@@ -6,12 +6,15 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.KeyboardEvent;
   import org.apache.royale.events.utils.WhitespaceKeys;
   import org.apache.royale.events.Event;
+  import org.apache.royale.events.ValueEvent;
 
   COMPILE::JS
   {}
 
   [Event(name="change", type="org.apache.royale.events.Event")]
   [Event(name="onEnter", type="org.apache.royale.events.Event")]
+  [Event(name="onBackspace", type="org.apache.royale.events.Event")]
+  [Event(name="onTab", type="org.apache.royale.events.ValueEvent")]
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
  * <input type="text" placeholder="Enter your name" name="field" value="A valid input" class="spectrum-Textfield spectrum-Textfield--quiet is-valid" pattern="[\w\s]+" required disabled>
@@ -27,15 +30,18 @@ package com.unhurdle.spectrum
     public function TextFieldBase()
     {
       super();
-      addEventListener(KeyboardEvent.KEY_DOWN,handleEnter);
+      addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
     }
 
-    private function handleEnter(event:KeyboardEvent):void{
+    private function handleKeyDown(event:KeyboardEvent):void{
       if(event.key == WhitespaceKeys.ENTER){
           dispatchEvent(new Event("onEnter"));
       }
       if(event.key == "Backspace"){
           dispatchEvent(new Event("onBackspace"));
+      }
+      if(event.key == "Tab"){
+          dispatchEvent(new ValueEvent("onTab",event));
       }
     }
 

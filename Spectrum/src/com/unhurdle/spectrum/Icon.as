@@ -14,6 +14,7 @@ package com.unhurdle.spectrum
       _selector = selector;
       super();
       size = "S";
+      tabFocusable = false;
     }
 
     public static function getCSSTypeSelector(type:String):String{

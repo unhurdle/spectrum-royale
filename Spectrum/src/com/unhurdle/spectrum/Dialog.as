@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
 
     import org.apache.royale.core.IChild;
     import org.apache.royale.events.KeyboardEvent;
+    import com.unhurdle.spectrum.utils.getFocusableElements;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -46,10 +47,14 @@ package com.unhurdle.spectrum
       return "spectrum-Dialog";
     }
 
-    private function handleEscape(event:KeyboardEvent):void{
+    private function handleKeyDown(event:KeyboardEvent):void{
       if(event.key == "Escape"){
           hide();
-      }      
+      }
+      if(event.key == "Tab"){
+          event.preventDefault();
+          whenKey(event.shiftKey);
+      }
     }
 
     // COMPILE::JS
@@ -251,7 +256,8 @@ package com.unhurdle.spectrum
     private var attachedToApp:Boolean;
     public function show():void{
       Application.current.popUpParent.addElement(this);
-      window.addEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
+      window.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      addEventListener("onTab",handleKeyDown);
       visible = true;
       COMPILE::JS
       {
@@ -264,9 +270,9 @@ package com.unhurdle.spectrum
       }
     }
 
+    private var elements:Array = [];
     private function focusElement():void
     {
-      var elements:Array = [];
       var hasFocus:Boolean = hasAutoFocus(this,elements);
       if(!hasFocus){
         if(elements[0]){
@@ -276,6 +282,40 @@ package com.unhurdle.spectrum
         }
       }
     }
+
+    private function whenKey(backward:Boolean):void{
+      if(!elements){
+        getFocusableElements(this,elements);
+      }
+      if(elements.length <= 1){
+        return;
+      }
+      var first:Object = elements[0];
+      var last:Object = elements[elements.length - 1];
+      var source:Object = backward ? first : last;
+      var target:Object = backward ? last : first;
+      if(document.activeElement == source.element){
+        (target as ISpectrumElement).focus();
+        return;
+      }
+      var currentIndex:Number;
+      var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
+        if (document.activeElement != e.element){
+          return false;
+        }
+        currentIndex = index;
+        return true;
+      });
+      if (!found) {
+        // redirect to first as we're not in our tabsequence
+        first.focus();
+        return;
+      }
+      // shift focus to previous/next element in the sequence
+      var offset:Number = backward ? -1 : 1;
+      elements[currentIndex + offset].focus();
+    }
+
     COMPILE::JS
     private function delayShow():void{
       requestAnimationFrame(dispatchShown);
@@ -294,7 +334,8 @@ package com.unhurdle.spectrum
     }
     public function hide():void
     {
-      window.removeEventListener(KeyboardEvent.KEY_DOWN,handleEscape);
+      window.removeEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      elements = [];
       visible = false;
       toggle("is-open",false);
         // COMPILE::JS
