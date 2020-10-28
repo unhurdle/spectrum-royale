@@ -56,6 +56,7 @@ package com.unhurdle.spectrum
       addElement(_button);
       popover = new ComboBoxList();
       popover.className = appendSelector("-popover");
+      popover.addEventListener("openChanged",handlePopoverChange);
       // popover.percentWidth = 100;
       // popover.style = {"z-index":100};//????
       // menu = new Menu();
@@ -69,19 +70,16 @@ package com.unhurdle.spectrum
     private function get menu():Menu{
       return popover.list;
     }
-    private function closeDropdown():void
-    {
-      toggle("is-open",false);
-      closePopup();
-     }
-
+    private function handlePopoverChange(ev:Event):void{
+      _button.selected = popover.open;
+      toggle("is-open",popover.open);
+    }
     private function toggleDropdown(ev:*):void{
       var minHeight:Number = _minMenuHeight + 6;
       ev.preventDefault();
       var open:Boolean = !popover.open;
       toggle("is-open",open);
       if(open){
-        window.addEventListener(MouseEvent.CLICK,closeDropdown);
         // Figure out direction and max size
         var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
         var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
@@ -126,7 +124,6 @@ package com.unhurdle.spectrum
       } else {
         closePopup();
       }
-      _button.selected = !open;
     }
     private function openPopup():void{
       popover.open = true;
@@ -297,7 +294,6 @@ package com.unhurdle.spectrum
     public function handleListChange():void{
       closePopup();
       setButtonText();
-      toggle("is-open",false);
       dispatchEvent(new Event("change"));
     }
     

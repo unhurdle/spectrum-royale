@@ -12,6 +12,7 @@ package com.unhurdle.spectrum
 
   [Event(name="change", type="org.apache.royale.events.Event")]
   [Event(name="onEnter", type="org.apache.royale.events.Event")]
+  [Event(name="onBackspace", type="org.apache.royale.events.Event")]
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
  * <input type="text" placeholder="Enter your name" name="field" value="A valid input" class="spectrum-Textfield spectrum-Textfield--quiet is-valid" pattern="[\w\s]+" required disabled>
