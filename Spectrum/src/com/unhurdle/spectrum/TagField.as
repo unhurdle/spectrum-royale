@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
     public function TagField()
     {
       super();
+      style = "background-color:rgb(255,255,255);border-style:solid;border-width:1px";
     }
     
     private var input:TextField;
@@ -20,12 +21,14 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       tagGroup = new TagGroup();
+      tagGroup.setStyle("display","inline");
       elem.appendChild(tagGroup.element);
       input = new TextField();
+      input.setStyle("display","inline-block");
       input.addEventListener("onBackspace",removeTag);
       input.addEventListener("onEnter",addTag);
       input.element.addEventListener(FocusEvent.FOCUS_OUT,addTag);
-      input.style = {"display":"none"};
+      input.input.style.borderStyle = "none";
       elem.appendChild(input.element);
       return elem;
     }
@@ -48,6 +51,7 @@ package com.unhurdle.spectrum
           }
         }
         var tag:Tag = new Tag();
+        tag.deletable = true;
         tag.text = input.text;
         input.text = "";
         tagGroup.addElement(tag);
