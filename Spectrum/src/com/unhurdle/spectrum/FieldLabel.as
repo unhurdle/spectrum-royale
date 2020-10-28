@@ -13,7 +13,6 @@ package com.unhurdle.spectrum
     public function FieldLabel()
     {
       super();
-      tabFocusable = false;
       userSelect = false;
     }
     override protected function getSelector():String{

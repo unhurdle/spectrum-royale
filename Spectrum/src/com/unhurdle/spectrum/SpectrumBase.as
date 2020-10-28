@@ -15,7 +15,6 @@ package com.unhurdle.spectrum
       super();
       classList = new CSSClassList();
       typeNames = getSelector();
-      tabFocusable = true;
     }
 
     protected function getSelector():String{

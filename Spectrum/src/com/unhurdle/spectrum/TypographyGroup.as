@@ -11,7 +11,6 @@ package com.unhurdle.spectrum
     public function TypographyGroup()
     {
       super();
-      tabFocusable = false;
       userSelect = false;
     }
     override protected function getSelector():String{

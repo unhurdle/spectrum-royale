@@ -29,18 +29,20 @@ package com.unhurdle.spectrum
       elem.appendChild(input.element);
       return elem;
     }
-    
+    /**
+     * @royaleignorecoercion com.unhurdle.spectrum.Tag
+     */
     private function addTag():void{
       if(input.text){
         var len:int = tagGroup.numElements;
         for(var index:int = 0; index < len; index++)
         {
-          var element:Object = tagGroup.getElementAt(index);
+          var element:Tag = tagGroup.getElementAt(index) as Tag;
           if(element.text == input.text){
-            element.style = {"visibility":"hidden"};
+            element.setStyle("visibility","hidden");
             input.text = "";
             setTimeout(function():void{
-              element.style = {"visibility":"visible"};
+              element.setStyle("visibility","visible");
             },100);
             return;
           }

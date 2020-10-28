@@ -7,7 +7,6 @@ package com.unhurdle.spectrum
     public function DialogHeader()
     {
       super();
-      tabFocusable = false;
     }
     override protected function getSelector():String{
       return "spectrum-Dialog-header";

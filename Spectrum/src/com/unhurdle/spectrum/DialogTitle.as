@@ -11,7 +11,6 @@ package com.unhurdle.spectrum
     public function DialogTitle()
     {
       super();
-      tabFocusable = false;
     }
     override protected function getSelector():String{
       return "spectrum-Dialog-title";

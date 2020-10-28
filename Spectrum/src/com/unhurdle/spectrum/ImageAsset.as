@@ -11,7 +11,6 @@ package com.unhurdle.spectrum
     public function ImageAsset()
     {
       super();
-      tabFocusable = false;
     }
 
     private var _imageElement:HTMLImageElement;
