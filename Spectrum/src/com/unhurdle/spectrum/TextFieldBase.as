@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.utils.WhitespaceKeys;
   import org.apache.royale.events.Event;
   import org.apache.royale.events.ValueEvent;
+  import org.apache.royale.events.utils.EditingKeys;
 
   COMPILE::JS
   {}
@@ -34,15 +35,20 @@ package com.unhurdle.spectrum
     }
 
     private function handleKeyDown(event:KeyboardEvent):void{
-      if(event.key == WhitespaceKeys.ENTER){
-          dispatchEvent(new Event("onEnter"));
+      var eventName:String;
+      var key:String = event.key;
+      switch(key)
+      {
+        case WhitespaceKeys.ENTER:
+        case EditingKeys.BACKSPACE:
+        case WhitespaceKeys.TAB:
+          eventName = "on" + key;
+          break;
+
+        default:
+          return;
       }
-      if(event.key == "Backspace"){
-          dispatchEvent(new Event("onBackspace"));
-      }
-      if(event.key == "Tab"){
-          dispatchEvent(new ValueEvent("onTab",event));
-      }
+      dispatchEvent(new Event(eventName));
     }
 
     override protected function getSelector():String{
