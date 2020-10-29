@@ -76,7 +76,7 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var _tabFocusable:Boolean;
+    protected var _tabFocusable:Boolean;
 
     public function get tabFocusable():Boolean
     {
