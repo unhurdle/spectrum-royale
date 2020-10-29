@@ -23,6 +23,7 @@ package com.unhurdle.spectrum
       super();
       flavor = "primary";
       _text = "";
+      _tabFocusable = true;
     }
 
     public static const CTA:String = "cta";

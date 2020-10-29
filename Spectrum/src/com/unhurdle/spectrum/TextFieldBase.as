@@ -32,6 +32,17 @@ package com.unhurdle.spectrum
     {
       super();
       addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      _tabFocusable = true;
+    }
+    
+    override public function set tabFocusable(value:Boolean):void
+    {
+    	_tabFocusable = value;
+      if(value){
+        removeAttribute("tabindex");
+      } else {
+        setAttribute("tabindex",-1);
+      }
     }
 
     private function handleKeyDown(event:KeyboardEvent):void{
