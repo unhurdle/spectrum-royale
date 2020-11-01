@@ -3,23 +3,22 @@ package com.unhurdle.spectrum.renderers
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
   }
-  import org.apache.royale.html.supportClasses.TreeListData;
-  import com.unhurdle.spectrum.TextNode;
-  import org.apache.royale.events.MouseEvent;    
   import com.unhurdle.spectrum.Icon;
-  import org.apache.royale.events.ItemClickedEvent;
-  import org.apache.royale.html.elements.A;
+  import com.unhurdle.spectrum.TextNode;
+
   import org.apache.royale.core.IParent;
   import org.apache.royale.events.Event;
+  import org.apache.royale.events.ItemClickedEvent;
+  import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.html.elements.A;
+  import org.apache.royale.html.supportClasses.TreeListData;
 
-  public class TreeItemRenderer extends ListItemRenderer
+  public class TreeItemRenderer extends TreeItemRendererBase
   {
     public function TreeItemRenderer()
     {
       super();
-      typeNames = '';
     }
     private var children:Array;
     public static var indent:Number = 10;
@@ -30,19 +29,9 @@ package com.unhurdle.spectrum.renderers
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
-      children = value.children;
-      toggle(appendSelector("-item"),true);
       if(listData is TreeListData){
         treeListData = listData as TreeListData;
-        var indentVal:String = "";
-        if(treeListData.depth != -1){
-          indentVal = (treeListData.depth - 1) * indent + "px";
-        }
-        element.style.paddingLeft = indentVal;
-        if(icon){
-          icon.toggle(appendSelector('-itemIcon'),true);
-        }
-        if(children){
+        if(listData.hasChildren){
           var type:String = "ChevronRightMedium";
           var chevronRightIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
           chevronRightIcon.type = type;
@@ -90,7 +79,7 @@ package com.unhurdle.spectrum.renderers
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
-      var elem:WrappedHTMLElement = addElementToWrapper(this,getTag());
+      var elem:WrappedHTMLElement = super.createElement();
       link = new A();
       link.className = appendSelector("-itemLink");
       addElement(link);
