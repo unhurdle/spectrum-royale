@@ -20,6 +20,11 @@ package com.unhurdle.spectrum
     
     private var input:TextField;
     private var tagGroup:TagGroup;
+
+    public function get tags():Array
+    {
+    	return tagGroup.tags;
+    }
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -121,7 +126,8 @@ package com.unhurdle.spectrum
 
     private function removeTag():void{
       if(!input.text && tagGroup.numElements){
-        tagGroup.removeElement(tagGroup.getElementAt(tagGroup.numElements-1));
+        var tag:Tag = tagGroup.getElementAt(tagGroup.numElements-1) as Tag;
+        tagGroup.removeElement(tag);
       }
     }
   }
