@@ -106,6 +106,7 @@ package com.unhurdle.spectrum
     private function getCloseButton():ActionButton{
       if(!_closeButton){
         _closeButton = new ActionButton();
+        _closeButton.tabFocusable = false;
         _closeButton.quiet = true;
         _closeButton.className = appendSelector("-closeButton");
         var type:String = IconType.CROSS_LARGE;

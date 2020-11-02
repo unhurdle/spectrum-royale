@@ -9,6 +9,7 @@ package com.unhurdle.spectrum.utils
   public function hasAutoFocus(element:ISpectrumElement,elements:Array):Boolean{
     var numElements:Number = element.numElements;
     var i:int = 0;
+    var haveAutoFocus:Boolean = false;
     while(i < numElements){
       var child:IChild = element.getElementAt(i);
       i++;
@@ -19,16 +20,16 @@ package com.unhurdle.spectrum.utils
           {
             childElem.element.focus()
           }
-          return true;
+          haveAutoFocus = true;
         }
         if(childElem.tabFocusable){
           elements.push(childElem);
         }
         if(hasAutoFocus(childElem,elements)){
-          return true;
+          haveAutoFocus = true;;
         }
       }
     }
-    return false;
+    return haveAutoFocus;
   }
 }

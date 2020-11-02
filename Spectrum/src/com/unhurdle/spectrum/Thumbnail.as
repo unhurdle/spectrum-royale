@@ -23,7 +23,9 @@ package com.unhurdle.spectrum
       COMPILE::JS{
         return element;
       }
-      return null;
+      COMPILE::SWF{
+        return null;
+      }
     }
     override public function addedToParent():void{
       super.addedToParent();

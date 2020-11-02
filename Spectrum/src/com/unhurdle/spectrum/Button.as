@@ -2,11 +2,10 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
+  import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
-  import org.apache.royale.debugging.assert;
 
 
   public class Button extends SpectrumBase implements IKeyboardFocusable
@@ -251,8 +250,13 @@ package com.unhurdle.spectrum
     }
 
     public function get focusElement():HTMLElement{
-      assert(false,"Must override focusElement getter!");
-      return null;
+      COMPILE::JS
+      {
+        return element;
+      }
+      COMPILE::SWF{
+        return null;
+      }
     }
 
     private var _keyboardFocused:Boolean;
@@ -269,10 +273,33 @@ package com.unhurdle.spectrum
       }
     	_keyboardFocused = value;
     }
+    private var _focused:Boolean;
+
+    public function get focused():Boolean
+    {
+      COMPILE::JS
+      {
+        return element == document.activeElement;
+      }
+      COMPILE::SWF
+      {
+        return false;
+      }
+    }
+
     public function set focused(value:Boolean):void
     {
-      keyboardFocused = value;
-    	// throw new Error("Method not implemented.");
+    	COMPILE::JS
+      {
+        value ? element.focus() : element.blur();
+      }
     }
+    override public function addedToParent():void{
+      super.addedToParent();
+      if(tabFocusable){
+        addBead(new KeyboardFocusHandler());
+      }
+    }
+
   }
 }
