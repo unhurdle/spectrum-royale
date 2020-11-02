@@ -108,6 +108,7 @@ package com.unhurdle.spectrum
           picker.popover.open = false;
         }
       }
+      calculatePosition();
     }
     protected function positionPopup():void{
       var origin:Point = new Point(input.x, height);
@@ -143,7 +144,11 @@ package com.unhurdle.spectrum
     }
 
     private function calculatePosition():void {
-      height = tagGroup.height + 30;
+      if(tagGroup.height > input.height){
+        height = tagGroup.height + 30;
+      }else{
+        height = input.height + 30;
+      }
     }
 
     private var _tagList:Array;
