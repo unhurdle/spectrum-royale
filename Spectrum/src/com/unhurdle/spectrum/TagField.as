@@ -15,7 +15,6 @@ package com.unhurdle.spectrum
     {
       super();
       typeNames = "spectrum-Textfield-input";
-      tagList = ["123","456","789","120","465","7890123456","89"];
     }
     
     private var input:TextField;
