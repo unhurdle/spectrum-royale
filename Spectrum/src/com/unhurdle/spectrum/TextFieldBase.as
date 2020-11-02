@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
   import org.apache.royale.events.ValueEvent;
   import org.apache.royale.events.utils.EditingKeys;
+  import org.apache.royale.events.utils.NavigationKeys;
 
   COMPILE::JS
   {}
@@ -15,6 +16,8 @@ package com.unhurdle.spectrum
   [Event(name="change", type="org.apache.royale.events.Event")]
   [Event(name="onEnter", type="org.apache.royale.events.Event")]
   [Event(name="onBackspace", type="org.apache.royale.events.Event")]
+  [Event(name="onArrowDown", type="org.apache.royale.events.Event")]
+  [Event(name="onArrowUp", type="org.apache.royale.events.Event")]
   [Event(name="onTab", type="org.apache.royale.events.ValueEvent")]
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
@@ -52,10 +55,11 @@ package com.unhurdle.spectrum
       {
         case WhitespaceKeys.ENTER:
         case EditingKeys.BACKSPACE:
+        case NavigationKeys.DOWN:
+        case NavigationKeys.UP:
         case WhitespaceKeys.TAB:
           eventName = "on" + key;
           break;
-
         default:
           return;
       }

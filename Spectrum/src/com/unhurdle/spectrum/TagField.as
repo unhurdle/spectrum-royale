@@ -14,7 +14,7 @@ package com.unhurdle.spectrum
     public function TagField()
     {
       super();
-      style = "border-style:solid;border-width:1px";
+      typeNames = "spectrum-Textfield-input";
       tagList = ["123","456","789","120","465","7890123456","89"];
     }
     
@@ -36,6 +36,8 @@ package com.unhurdle.spectrum
       input.setStyle("display","inline-block");
       input.addEventListener("onBackspace",removeTag);
       input.addEventListener("onEnter",addTag);
+      input.addEventListener("onArrowDown",selectValue);
+      input.addEventListener("onArrowUp",selectValue);
       input.element.addEventListener(FocusEvent.FOCUS_OUT,addTag);
       input.element.addEventListener("input",updateValue);
       input.input.style.borderStyle = "none";
@@ -43,19 +45,58 @@ package com.unhurdle.spectrum
       elem.appendChild(input.element);
       return elem;
     }
+
+    override public function addedToParent():void{
+      super.addedToParent();
+      calculatePosition();
+    }
+
     /**
      * @royaleignorecoercion com.unhurdle.spectrum.Tag
      */
     private var picker:Picker;
-    private function updateValue(ev:Event):void{
+    private var valuesArr:Array = [];
+    private var ind:Number = 0;
+    private function selectValue(ev:Event):void{
+      var type:String = ev.type;
+      if(valuesArr.length && valuesArr.length > 1){
+        var len:int = valuesArr.length;
+        for(var index:int = 0; index < len; index++)
+        {
+          var t:String = valuesArr[index];
+          if(t.indexOf(input.text) == 0){
+            switch(type)
+            {
+              case "onArrowDown":
+                ind = index + 1;
+                break;
+              case "onArrowUp":
+                ind = index - 1;
+                break;
+            }
+            break;
+          }
+        }
+        if(ind == -1){
+          ind = valuesArr.length - 1;
+        }else if(ind == valuesArr.length){
+          ind = 0;
+        }
+        input.text = valuesArr[ind];
+      }
+    }
+    private function updateValue():void{
       var arr:Array = [];
+      valuesArr = [];
       if(input.text){
+        valuesArr.push(input.text);
         var len:int = tagList.length;
         for(var index:int = 0; index < len; index++)
         {
           var t:String = tagList[index];
           if(t.indexOf(input.text) == 0){
             arr.push(t);
+            valuesArr.push(t);
           }
         }
       }
@@ -99,6 +140,11 @@ package com.unhurdle.spectrum
         input.text = "";
         tagGroup.addElement(tag);
       }
+      calculatePosition();
+    }
+
+    private function calculatePosition():void {
+      height = tagGroup.height + 30;
     }
 
     private var _tagList:Array;
@@ -129,6 +175,7 @@ package com.unhurdle.spectrum
         var tag:Tag = tagGroup.getElementAt(tagGroup.numElements-1) as Tag;
         tagGroup.removeElement(tag);
       }
+      calculatePosition();
     }
   }
 }
