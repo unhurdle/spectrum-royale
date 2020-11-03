@@ -86,7 +86,7 @@ package com.unhurdle.spectrum
       valuesArr = [];
       if(input.text){
         valuesArr.push(input.text);
-        var len:int = tagList ? tagList.length : 0;
+        var len:int = tagList.length;
         for(var index:int = 0; index < len; index++)
         {
           var t:String = tagList[index];
