@@ -35,10 +35,7 @@ package com.unhurdle.spectrum
       input.setStyle("display","inline-block");
       input.addEventListener("onBackspace",removeTag);
       input.addEventListener("onEnter",addTag);
-      input.addEventListener("onArrowDown",selectValue);
-      input.addEventListener("onArrowUp",selectValue);
       input.element.addEventListener(FocusEvent.FOCUS_OUT,addTag);
-      input.element.addEventListener("input",updateValue);
       input.input.style.borderStyle = "none";
       input.input.style.background = "none";
       elem.appendChild(input.element);
@@ -145,7 +142,11 @@ package com.unhurdle.spectrum
 
     private function calculatePosition():void {
       if(tagGroup.height > input.height){
-        height = tagGroup.height + 30;
+        if(width - tagGroup.width < input.width){
+          height = tagGroup.height + 50;
+        } else{
+          height = tagGroup.height + 30;
+        }
       }else{
         height = input.height + 30;
       }
@@ -165,11 +166,17 @@ package com.unhurdle.spectrum
         picker.width = 0;
         COMPILE::JS{
           addElement(picker);
+          input.addEventListener("onArrowDown",selectValue);
+          input.addEventListener("onArrowUp",selectValue);
+          input.element.addEventListener("input",updateValue);
         }
       }else{
         picker = null;
         COMPILE::JS{
           removeElement(picker);
+          input.removeEventListener("onArrowDown",selectValue);
+          input.removeEventListener("onArrowUp",selectValue);
+          input.element.removeEventListener("input",updateValue);
         }
       }
     }

@@ -5,6 +5,8 @@
   title="Tag Field">
   <fx:Script>
     <![CDATA[
+      [Bindable]public var provider:Array = ["123","456","789","101","120","469","0101"];
+      private const withList:String = '<sp:TagField tagList="{provider}"/>';
   ]]>
   </fx:Script>
   <comp:Variant>
@@ -12,5 +14,13 @@
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:TagField&gt;'/>
+  </comp:Markup>
+  <comp:Variant header="With list">
+    <sp:TagField tagList="{provider}"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var provider:Array = ["123","456","789","101","120","469","0101"];'/>
+    <Br/>
+    <comp:StyledCode text="{withList}"/>
   </comp:Markup>
 </view:DemoPane>
