@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
   }
   
   import com.unhurdle.spectrum.Icon;
+  import org.apache.royale.events.KeyboardEvent;
   
   public class Alert extends SpectrumBase
   {
@@ -30,6 +31,11 @@ package com.unhurdle.spectrum
       return "spectrum-Alert";
     }
 
+    private function handleKeyDown(event:KeyboardEvent):void{
+      if(event.key == "Escape"){
+          hide();
+      }
+    }
     private var _noDismiss:Boolean;
 
     public function get noDismiss():Boolean
@@ -191,10 +197,12 @@ package com.unhurdle.spectrum
     
     public function show():void{
       visible = true;
+      window.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
       modal.show(Application.current.popUpHost);
 		}
 
     public function hide():void{
+      window.removeEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
       modal.hide();
     }
     
