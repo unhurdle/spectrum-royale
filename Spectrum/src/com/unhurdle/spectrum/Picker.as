@@ -19,6 +19,7 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.data.IMenuItem;
 	import org.apache.royale.events.KeyboardEvent;
 	import org.apache.royale.events.utils.EditingKeys;
+	import org.apache.royale.events.utils.NavigationKeys;
   /**
    * TODO maybe add flexible with styling of min-width: 0;width:auto;
    */
@@ -145,13 +146,13 @@ package com.unhurdle.spectrum
           if(_button.text && t.indexOf(_button.text) == 0){
             switch(type)
             {
-              case "ArrowDown":
+              case NavigationKeys.DOWN:
                 ind = index + 1;
                 while(ind < len && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
                   ind++;
                 }
                 break;
-              case "ArrowUp":
+              case NavigationKeys.UP:
                 if(ind == -1){
                   ind = len;
                 }
@@ -183,8 +184,8 @@ package com.unhurdle.spectrum
       var key:String = event.key;
       switch(key)
       {
-        case "ArrowDown":
-        case "ArrowUp":
+        case NavigationKeys.DOWN:
+        case NavigationKeys.UP:
           event.preventDefault();
           selectValue(key);
           break;

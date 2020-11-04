@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.IChild;
     import org.apache.royale.events.KeyboardEvent;
     import com.unhurdle.spectrum.utils.getFocusableElements;
+    import org.apache.royale.events.utils.WhitespaceKeys;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -51,7 +52,7 @@ package com.unhurdle.spectrum
       if(event.key == "Escape"){
           hide();
       }
-      if(event.key == "Tab"){
+      if(event.key == WhitespaceKeys.TAB){
           event.preventDefault();
           whenKey(event.shiftKey);
       }

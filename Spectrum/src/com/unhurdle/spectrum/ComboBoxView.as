@@ -18,6 +18,8 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.events.KeyboardEvent;
 	import com.unhurdle.spectrum.data.MenuItem;
 	import org.apache.royale.events.utils.WhitespaceKeys;
+	import org.apache.royale.events.utils.EditingKeys;
+	import org.apache.royale.events.utils.NavigationKeys;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -188,9 +190,9 @@ package com.unhurdle.spectrum{
 			var item:MenuItem;
 			var advance:int = 0;
 			modifyingList = true;
-			if(event.key == "Down" || event.key == "ArrowDown"){
+			if(event.key == NavigationKeys.DOWN){
 				advance = 1;
-			} else if(event.key == "Up" || event.key == "ArrowUp"){
+			} else if(event.key == NavigationKeys.UP){
 				advance = -1;
 			}
 			while(advance != 0){
@@ -222,7 +224,7 @@ package com.unhurdle.spectrum{
 		}
 		private var handleInput:Boolean = true;
 		private function inputHandler(ev:KeyboardEvent):void{
-			if (ev.key.length > 1 && ev.key != "Backspace" && ev.key != "Delete") {// not a simple key (does this work for advanced input?)
+			if (ev.key.length > 1 && ev.key != EditingKeys.BACKSPACE && ev.key != EditingKeys.DELETE) {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
 			if(textfield.text){
