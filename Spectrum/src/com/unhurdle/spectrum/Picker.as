@@ -178,6 +178,7 @@ package com.unhurdle.spectrum
         selectedIndex = ind;
       }
     }
+
     private function changeValue(event:KeyboardEvent):void{
       var key:String = event.key;
       switch(key)
@@ -197,9 +198,11 @@ package com.unhurdle.spectrum
           break;
       }
     }
+
     private function validText(text:String):Boolean{
       return ((text >= "a" && text <= "z") || (text >= "A" && text <="Z") || (text >= "0" && text <= "9"));
     }
+
     private var provider:Object;
     private function updateValue(text:String):void{
       var arr:Array = [];
@@ -244,14 +247,12 @@ package com.unhurdle.spectrum
         dataProvider = provider;
       }
     }
+
     private function openPopup():void{
       popover.open = true;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
       popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-      // _button.addEventListener("onArrowDown",selectValue);
-      // _button.addEventListener("onArrowUp",selectValue);
-      // _button.addEventListener("input",updateValue);
       _button.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
     }
     private function closePopup():void{
@@ -261,9 +262,6 @@ package com.unhurdle.spectrum
 		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         popover.open = false;
         dataProvider = provider;
-        // _button.removeEventListener("onArrowDown",selectValue);
-        // _button.removeEventListener("onArrowUp",selectValue);
-        // _button.addEventListener("input",updateValue);
         _button.removeEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       }
 
