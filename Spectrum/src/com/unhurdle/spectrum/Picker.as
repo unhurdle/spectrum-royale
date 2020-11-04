@@ -17,6 +17,8 @@ package com.unhurdle.spectrum
 	// import com.unhurdle.spectrum.data.IMenuItem;
 	import com.unhurdle.spectrum.const.IconPrefix;
 	import com.unhurdle.spectrum.data.IMenuItem;
+	import org.apache.royale.events.KeyboardEvent;
+	import org.apache.royale.events.utils.EditingKeys;
   /**
    * TODO maybe add flexible with styling of min-width: 0;width:auto;
    */
@@ -74,55 +76,172 @@ package com.unhurdle.spectrum
       _button.selected = popover.open;
       toggle("is-open",popover.open);
     }
-    private function toggleDropdown(ev:*):void{
+    private function positionPopup():void{
       var minHeight:Number = _minMenuHeight + 6;
+      // Figure out direction and max size
+      var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
+      var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
+      var spaceToBottom:Number = appBounds.bottom - componentBounds.bottom;
+      var spaceToTop:Number = componentBounds.top - appBounds.top;
+      var spaceOnBottom:Boolean = spaceToBottom >= spaceToTop;
+      var pxStr:String = "px";
+      switch(_position)
+      {
+        case "top":
+          if(spaceToTop >= minHeight || !spaceOnBottom){
+            positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
+          } else {
+            positionPopoverBottom(componentBounds,spaceToBottom);
+
+          }
+          break;
+        default:
+          if(spaceToBottom >= minHeight || spaceOnBottom){
+            positionPopoverBottom(componentBounds,spaceToBottom);
+          } else {
+            positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
+          }
+          break;
+      }
+      var leftSpace:Number = componentBounds.x;
+      var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
+      if(rightSpace < leftSpace){
+        popover.setStyle("right",rightSpace + "px");
+        popover.setStyle("left",null);
+      } else {
+        popover.setStyle("right",null);
+        popover.setStyle("left",leftSpace + "px");
+      }
+      if(isNaN(_popupWidth)){
+        popover.setStyle("minWidth",width + "px");
+        // popover.width = width;
+      }
+    }
+
+    private function toggleDropdown(ev:*):void{
       ev.preventDefault();
       var open:Boolean = !popover.open;
       toggle("is-open",open);
       if(open){
-        // Figure out direction and max size
-        var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
-        var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
-        var spaceToBottom:Number = appBounds.bottom - componentBounds.bottom;
-        var spaceToTop:Number = componentBounds.top - appBounds.top;
-        var spaceOnBottom:Boolean = spaceToBottom >= spaceToTop;
-        var pxStr:String = "px";
-        switch(_position)
-        {
-          case "top":
-            if(spaceToTop >= minHeight || !spaceOnBottom){
-              positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
-            } else {
-              positionPopoverBottom(componentBounds,spaceToBottom);
-
-            }
-            break;
-        
-          default:
-            if(spaceToBottom >= minHeight || spaceOnBottom){
-              positionPopoverBottom(componentBounds,spaceToBottom);
-            } else {
-              positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
-            }
-            break;
-        }
-        var leftSpace:Number = componentBounds.x;
-        var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
-        if(rightSpace < leftSpace){
-          popover.setStyle("right",rightSpace + "px");
-          popover.setStyle("left",null);
-        } else {
-          popover.setStyle("right",null);
-          popover.setStyle("left",leftSpace + "px");
-        }
-        if(isNaN(_popupWidth)){
-          popover.setStyle("minWidth",width + "px");
-          // popover.width = width;
-        }
+        positionPopup();
         dispatchEvent(new Event("showMenu"));
 				callLater(openPopup)
       } else {
         closePopup();
+      }
+    }
+
+    private var valuesArr:Object;
+    private var ind:Number = 0;
+
+    private function selectValue(type:String):void{
+      if(valuesArr.length && valuesArr.length > 1){
+        var len:int = valuesArr.length;
+        for(var index:int = 0; index < len; index++){
+          if(valuesArr[index].disabled || valuesArr[index].isDivider){
+            continue;
+          }
+          var t:String = valuesArr[index].text;
+          if(_button.text && t.indexOf(_button.text) == 0){
+            switch(type)
+            {
+              case "ArrowDown":
+                ind = index + 1;
+                while(ind < len && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
+                  ind++;
+                }
+                break;
+              case "ArrowUp":
+                if(ind == -1){
+                  ind = len;
+                }
+                ind = index - 1;
+                while(ind >= 0 && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
+                  ind--;
+                }
+                break;
+            }
+            break;
+          }
+        }
+        if(ind == -1){
+          ind = valuesArr.length - 1;
+          while(ind >= 0 && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
+            ind--;
+          }
+        }else if(ind == valuesArr.length){
+          ind = 0;
+          while(ind < len && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
+            ind++;
+          }
+        }
+        selectedIndex = ind;
+      }
+    }
+    private function changeValue(event:KeyboardEvent):void{
+      var key:String = event.key;
+      switch(key)
+      {
+        case "ArrowDown":
+        case "ArrowUp":
+          event.preventDefault();
+          selectValue(key);
+          break;
+        default:
+          if (key.length > 1 && key != EditingKeys.BACKSPACE) {
+              return;// do nothing
+          }
+          if(validText(key)){
+            updateValue(key);
+          }
+          break;
+      }
+    }
+    private function validText(text:String):Boolean{
+      return ((text >= "a" && text <= "z") || (text >= "A" && text <="Z") || (text >= "0" && text <= "9"));
+    }
+    private var provider:Object;
+    private function updateValue(text:String):void{
+      var arr:Array = [];
+      if(!provider || dataProvider.length > provider.length){
+        provider = dataProvider;
+      }else{
+        dataProvider = provider;
+      }
+      valuesArr = [];
+      if(_button.text == "Select a Country with a very long label, too long in fact"){
+        if(text == EditingKeys.BACKSPACE){
+          text = "";
+        }
+        _button.text = text;
+      }else{
+        if(text == EditingKeys.BACKSPACE){
+          if(_button.text){
+            _button.text = _button.text.slice(0,_button.text.length - 1);
+          }
+          text = "";
+        }
+        _button.text += text;
+      }
+      if(!_button.text){
+        selectedIndex = -1;
+      }
+      valuesArr.push(_button.text);
+      var len:int = dataProvider.length;
+      for(var index:int = 0; index < len; index++){
+        var t:String = dataProvider[index].text;
+        if(t && t.toLowerCase().indexOf(_button.text.toLowerCase()) == 0){
+          arr.push(dataProvider[index]);
+          valuesArr.push(dataProvider[index]);
+        }
+      }
+      dataProvider = arr;
+      if(!!arr.length){
+        popover.open = true;
+        positionPopup();
+      }else{
+        popover.open = false;
+        dataProvider = provider;
       }
     }
     private function openPopup():void{
@@ -130,6 +249,10 @@ package com.unhurdle.spectrum
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
       popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+      // _button.addEventListener("onArrowDown",selectValue);
+      // _button.addEventListener("onArrowUp",selectValue);
+      // _button.addEventListener("input",updateValue);
+      _button.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
     }
     private function closePopup():void{
       if(popover && popover.open){
@@ -137,6 +260,11 @@ package com.unhurdle.spectrum
 	  		_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         popover.open = false;
+        dataProvider = provider;
+        // _button.removeEventListener("onArrowDown",selectValue);
+        // _button.removeEventListener("onArrowUp",selectValue);
+        // _button.addEventListener("input",updateValue);
+        _button.removeEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       }
 
     }
@@ -176,10 +304,13 @@ package com.unhurdle.spectrum
       return menu.dataProvider;
     }
     public function set dataProvider(value:Object):void{
+      valuesArr = [];
       if(value is Array){
         convertArray(value);
       } else if(value is IArrayList){
         convertArray(value.source);
+      }else{
+        valuesArr = value;
       }
       menu.dataProvider = value;
     }
@@ -248,14 +379,14 @@ package com.unhurdle.spectrum
       setButtonText();
     }
     private function convertArray(value:Object):void{
-      var newVal:Array;
-      newVal = new Array(value.length);
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
         if(value[i] is IMenuItem){
+            valuesArr.push(value[i]);
           continue;
         }
         var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
+        valuesArr.push(value[i]);
         if(value[i].isDivider){
           item.isDivider = value[i]["isDivider"];
         }
