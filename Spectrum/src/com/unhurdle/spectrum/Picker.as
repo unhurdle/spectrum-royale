@@ -18,7 +18,6 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.const.IconPrefix;
 	import com.unhurdle.spectrum.data.IMenuItem;
 	import org.apache.royale.events.KeyboardEvent;
-	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
   /**
    * TODO maybe add flexible with styling of min-width: 0;width:auto;
@@ -132,52 +131,49 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var valuesArr:Object;
     private var ind:Number = 0;
 
     private function selectValue(type:String):void{
-      if(valuesArr.length && valuesArr.length > 1){
-        var len:int = valuesArr.length;
-        for(var index:int = 0; index < len; index++){
-          if(valuesArr[index].disabled || valuesArr[index].isDivider){
-            continue;
-          }
-          var t:String = valuesArr[index].text;
-          if(_button.text && t.indexOf(_button.text) == 0){
-            switch(type)
-            {
-              case NavigationKeys.DOWN:
-                ind = index + 1;
-                while(ind < len && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
-                  ind++;
-                }
-                break;
-              case NavigationKeys.UP:
-                if(ind == -1){
-                  ind = len;
-                }
-                ind = index - 1;
-                while(ind >= 0 && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
-                  ind--;
-                }
-                break;
-            }
-            break;
-          }
+      var len:int = dataProvider.length;
+      for(var index:int = 0; index < len; index++){
+        if(dataProvider[index].disabled || dataProvider[index].isDivider){
+          continue;
         }
-        if(ind == -1){
-          ind = valuesArr.length - 1;
-          while(ind >= 0 && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
-            ind--;
+        var t:String = dataProvider[index].text;
+        if(t.indexOf(_button.text) == 0){
+          switch(type)
+          {
+            case NavigationKeys.DOWN:
+              ind = index + 1;
+              while(ind < len && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
+                ind++;
+              }
+              break;
+            case NavigationKeys.UP:
+              if(ind == -1){
+                ind = len;
+              }
+              ind = index - 1;
+              while(ind >= 0 && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
+                ind--;
+              }
+              break;
           }
-        }else if(ind == valuesArr.length){
-          ind = 0;
-          while(ind < len && (valuesArr[ind].disabled || valuesArr[ind].isDivider)){
-            ind++;
-          }
+          break;
         }
-        selectedIndex = ind;
       }
+      if(ind == -1){
+        ind = dataProvider.length - 1;
+        while(ind >= 0 && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
+          ind--;
+        }
+      }else if(ind == dataProvider.length){
+        ind = 0;
+        while(ind < len && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
+          ind++;
+        }
+      }
+      selectedIndex = ind;
     }
 
     private function changeValue(event:KeyboardEvent):void{
@@ -190,7 +186,7 @@ package com.unhurdle.spectrum
           selectValue(key);
           break;
         default:
-          if (key.length > 1 && key != EditingKeys.BACKSPACE) {
+          if (key.length > 1) {
               return;// do nothing
           }
           if(validText(key)){
@@ -204,48 +200,27 @@ package com.unhurdle.spectrum
       return ((text >= "a" && text <= "z") || (text >= "A" && text <="Z") || (text >= "0" && text <= "9"));
     }
 
-    private var provider:Object;
+		private var timeStamp:Number = 0;
+    private var valueToSelected:String = "";
+
     private function updateValue(text:String):void{
-      var arr:Array = [];
-      if(!provider || dataProvider.length > provider.length){
-        provider = dataProvider;
+      var current:Number = new Date().getTime();
+      if(!timeStamp){
+        timeStamp = current;
+      }
+      if(current - timeStamp  < 250){
+        valueToSelected += text;
       }else{
-        dataProvider = provider;
+        timeStamp = current;
+        valueToSelected = text;
       }
-      valuesArr = [];
-      if(_button.text == "Select a Country with a very long label, too long in fact"){
-        if(text == EditingKeys.BACKSPACE){
-          text = "";
-        }
-        _button.text = text;
-      }else{
-        if(text == EditingKeys.BACKSPACE){
-          if(_button.text){
-            _button.text = _button.text.slice(0,_button.text.length - 1);
-          }
-          text = "";
-        }
-        _button.text += text;
-      }
-      if(!_button.text){
-        selectedIndex = -1;
-      }
-      valuesArr.push(_button.text);
       var len:int = dataProvider.length;
       for(var index:int = 0; index < len; index++){
         var t:String = dataProvider[index].text;
-        if(t && t.toLowerCase().indexOf(_button.text.toLowerCase()) == 0){
-          arr.push(dataProvider[index]);
-          valuesArr.push(dataProvider[index]);
+        if(t && t.toLowerCase().indexOf(valueToSelected.toLowerCase()) == 0){
+          selectedIndex = index;
+          return;
         }
-      }
-      dataProvider = arr;
-      if(!!arr.length){
-        popover.open = true;
-        positionPopup();
-      }else{
-        popover.open = false;
-        dataProvider = provider;
       }
     }
 
@@ -262,7 +237,6 @@ package com.unhurdle.spectrum
 	  		_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         popover.open = false;
-        dataProvider = provider;
         _button.removeEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       }
 
@@ -303,13 +277,10 @@ package com.unhurdle.spectrum
       return menu.dataProvider;
     }
     public function set dataProvider(value:Object):void{
-      valuesArr = [];
       if(value is Array){
         convertArray(value);
       } else if(value is IArrayList){
         convertArray(value.source);
-      }else{
-        valuesArr = value;
       }
       menu.dataProvider = value;
     }
@@ -381,11 +352,9 @@ package com.unhurdle.spectrum
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
         if(value[i] is IMenuItem){
-            valuesArr.push(value[i]);
           continue;
         }
         var item:MenuItem = new MenuItem(getLabelFromData(this,value[i]));
-        valuesArr.push(value[i]);
         if(value[i].isDivider){
           item.isDivider = value[i]["isDivider"];
         }
