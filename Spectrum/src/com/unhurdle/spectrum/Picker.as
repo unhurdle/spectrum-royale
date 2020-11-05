@@ -211,15 +211,18 @@ package com.unhurdle.spectrum
       if(current - timeStamp  < 250){
         valueToSelected += text;
       }else{
-        timeStamp = current;
         valueToSelected = text;
       }
-      var len:int = dataProvider.length;
-      for(var index:int = 0; index < len; index++){
-        var t:String = dataProvider[index].text;
-        if(t && t.toLowerCase().indexOf(valueToSelected.toLowerCase()) == 0){
-          selectedIndex = index;
-          return;
+      timeStamp = current;
+      var txt:String = selectedItem ? selectedItem.text : '';
+      if(!txt || txt.toLowerCase().indexOf(valueToSelected.toLowerCase()) != 0){
+        var len:int = dataProvider.length;
+        for(var index:int = 0; index < len; index++){
+          var t:String = dataProvider[index].text;
+          if(t && t.toLowerCase().indexOf(valueToSelected.toLowerCase()) == 0){
+            selectedIndex = index;
+            return;
+          }
         }
       }
     }
