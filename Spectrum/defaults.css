@@ -4,9 +4,9 @@
 
 Menu
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.MenuModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("com.unhurdle.spectrum.MenuMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -19,9 +19,9 @@ Menu
 
 List
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.MenuModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -49,9 +49,9 @@ Tree
 
 Breadcrumbs
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.MenuModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -63,9 +63,9 @@ Breadcrumbs
 }
 AssetList
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.MenuModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -78,9 +78,9 @@ AssetList
 
 /* Tabs
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.MenuModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
@@ -90,9 +90,9 @@ AssetList
 } */
 /* MillerColumns
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ArraySelectionModel");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.MenuModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.ListSingleSelectionMouseController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");

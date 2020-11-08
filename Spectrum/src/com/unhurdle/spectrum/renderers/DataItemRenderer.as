@@ -11,8 +11,9 @@ package com.unhurdle.spectrum.renderers
   import org.apache.royale.utils.getSelectionRenderBead;
   import org.apache.royale.core.ISelectableItemRenderer;
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
+  import com.unhurdle.spectrum.ISpectrumElement;
 
-  public class DataItemRenderer extends org.apache.royale.html.supportClasses.DataItemRenderer implements IKeyboardFocusable
+  public class DataItemRenderer extends org.apache.royale.html.supportClasses.DataItemRenderer implements IKeyboardFocusable, ISpectrumElement
   {
 		public function DataItemRenderer()
 		{
@@ -132,5 +133,81 @@ package com.unhurdle.spectrum.renderers
     	_focused = value;
     }
 
+
+    COMPILE::SWF
+    private var _autofocus:Boolean;
+
+    public function get autofocus():Boolean
+    {
+      COMPILE::SWF{
+        return _autofocus;
+      }
+      COMPILE::JS
+      {
+        return element["autofocus"];
+      }
+    }
+
+    public function set autofocus(value:Boolean):void
+    {
+      COMPILE::SWF{
+    	_autofocus = value;
+      }
+      COMPILE::JS
+      {
+        element["autofocus"] = value;
+      }
+    }
+
+    protected var _tabFocusable:Boolean;
+
+    public function get tabFocusable():Boolean
+    {
+    	return _tabFocusable;
+    }
+
+    public function set tabFocusable(value:Boolean):void
+    {
+    	_tabFocusable = value;
+      if(value){
+        setAttribute("tabindex",0);
+      } else {
+        setAttribute("tabindex",-1);
+      }
+    }
+    public function focus():void
+    {
+      COMPILE::JS
+      {
+        element.focus();
+      }
+    }
+    public function setAttribute(name:String, value:*):void
+    {    	
+      COMPILE::JS
+      {
+        element.setAttribute(name,value);
+      } 
+    }
+
+    public function getAttribute(name:String):*
+    {
+      COMPILE::JS
+      {
+        return element.getAttribute(name);
+      }
+      COMPILE::SWF
+      {
+        return "";
+      }
+    }
+
+    public function removeAttribute(name:String):void
+    {
+      COMPILE::JS
+      {
+        element.removeAttribute(name);
+      }
+    }
   }
 }

@@ -5,6 +5,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
   import org.apache.royale.core.ISelectableItemRenderer;
   import org.apache.royale.core.IRollOverModel;
+  import com.unhurdle.spectrum.renderers.DataItemRenderer;
 
 	public class MenuView extends DataContainerView
 	{
@@ -13,9 +14,11 @@ package com.unhurdle.spectrum
 			super();
 		}
 
-		protected var listModel:ISelectionModel;
+		protected var listModel:MenuModel;
 
 		protected var lastSelectedIndex:int = -1;
+		protected var lastFocusedIndex:int = -1;
+		protected var lastKeyboardFocusedIndex:int = -1;
 
 		/**
 		 * @private
@@ -23,7 +26,9 @@ package com.unhurdle.spectrum
 		 */
 		override protected function handleInitComplete(event:Event):void
 		{
-			listModel = _strand.getBeadByType(ISelectionModel) as ISelectionModel;
+			listModel = _strand.getBeadByType(ISelectionModel) as MenuModel;
+			listModel.addEventListener("keyboardFocusedIndexChanged", keyboardFocusChangeHandler);
+			listModel.addEventListener("focusedIndexChanged", focusChangeHandler);
 			listModel.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			listModel.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 
@@ -44,6 +49,32 @@ package com.unhurdle.spectrum
 				ir.selected = true;
 
 			lastSelectedIndex = listModel.selectedIndex;
+		}
+
+		protected function focusChangeHandler(event:Event):void
+		{
+			var ir:DataItemRenderer = dataGroup.getItemRendererForIndex(lastFocusedIndex) as DataItemRenderer;
+			if(ir)
+				ir.focused = false;
+			ir = dataGroup.getItemRendererForIndex(listModel.focusedIndex) as DataItemRenderer;
+			if(ir){
+				ir.focused = true;
+				ir.keyboardFocused = false;
+			}
+			lastFocusedIndex = listModel.focusedIndex;
+		}
+
+		protected function keyboardFocusChangeHandler(event:Event):void
+		{
+			var ir:DataItemRenderer = dataGroup.getItemRendererForIndex(lastKeyboardFocusedIndex) as DataItemRenderer;
+			if(ir)
+				ir.keyboardFocused = false;
+			ir = dataGroup.getItemRendererForIndex(listModel.keyboardFocusedIndex) as DataItemRenderer;
+			if(ir){
+				ir.keyboardFocused = true;
+				ir.focused = false;
+			}
+			lastKeyboardFocusedIndex = listModel.keyboardFocusedIndex;
 		}
 
 		protected var lastRollOverIndex:int = -1;

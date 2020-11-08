@@ -19,6 +19,19 @@ package com.unhurdle.spectrum.data
     public function set selected(value:Boolean):void{
       _selected = value;
     }
-
+    private var _focused:Boolean;
+    public function get focused():Boolean{
+      return _focused;
+    }
+    public function set focused(value:Boolean):void{
+      _focused = value;
+    }
+    private var _keyboardFocused:Boolean;
+    public function get keyboardFocused():Boolean{
+      return _keyboardFocused;
+    }
+    public function set keyboardFocused(value:Boolean):void{
+      _keyboardFocused = value;
+    }
   }
 }
