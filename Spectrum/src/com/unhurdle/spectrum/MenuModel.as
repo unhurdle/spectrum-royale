@@ -31,7 +31,7 @@ package com.unhurdle.spectrum
 
 		public function set keyboardFocusedIndex(value:int):void
 		{
-      if (value == _keyboardFocusedIndex) return;            
+      if (value == _keyboardFocusedIndex || value == -1 || value >= dataProvider.length) return;            
 			_keyboardFocusedIndex = value;
 			_keyboardFocusedItem = (value == -1 || dataProvider == null) ? null : (value < dataProvider.length) ? dataProvider[value] : null;
 			dispatchEvent(new Event("keyboardFocusedIndexChanged"));			
@@ -70,7 +70,7 @@ package com.unhurdle.spectrum
 
 		public function set focusedIndex(value:int):void
 		{
-      if (value == _focusedIndex) return;            
+      if (value == _focusedIndex || value == -1 || value >= dataProvider.length) return;            
 			_focusedIndex = value;
 			_focusedItem = (value == -1 || dataProvider == null) ? null : (value < dataProvider.length) ? dataProvider[value] : null;
 			dispatchEvent(new Event("focusedIndexChanged"));			

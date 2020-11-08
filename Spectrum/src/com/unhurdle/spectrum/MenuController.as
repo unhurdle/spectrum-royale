@@ -62,7 +62,6 @@ package com.unhurdle.spectrum
 			(event.item as IEventDispatcher).addEventListener("itemRollOver", rolloverHandler);
 			(event.item as IEventDispatcher).addEventListener("itemRollOut", rolloutHandler);
 			(event.item as IEventDispatcher).addEventListener(KeyboardEvent.KEY_DOWN, keyboardEventHandler);
-			// (event.item as IEventDispatcher).addEventListener(KeyboardEvent.KEY_DOWN, focusedHandler);
 		}
 		
         /**

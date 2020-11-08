@@ -25,6 +25,9 @@ package com.unhurdle.spectrum.data
     }
     public function set focused(value:Boolean):void{
       _focused = value;
+      if(value){
+        keyboardFocused = !value;
+      }
     }
     private var _keyboardFocused:Boolean;
     public function get keyboardFocused():Boolean{
@@ -32,6 +35,9 @@ package com.unhurdle.spectrum.data
     }
     public function set keyboardFocused(value:Boolean):void{
       _keyboardFocused = value;
+      if(value){
+        focused = !value;
+      }
     }
   }
 }
