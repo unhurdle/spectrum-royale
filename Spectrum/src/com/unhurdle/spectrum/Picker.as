@@ -24,7 +24,7 @@ package com.unhurdle.spectrum
    */
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="showMenu", type="org.apache.royale.events.Event")]
-  public class Picker extends SpectrumBase
+  public class Picker extends SpectrumBase impl
   {
     /**
      * <inject_html>
@@ -189,20 +189,20 @@ package com.unhurdle.spectrum
           if (key.length > 1) {
               return;// do nothing
           }
-          if(validText(key)){
+          // if(validText(key)){
             updateValue(key);
-          }
+          // }
           break;
       }
     }
 
-    private function validText(text:String):Boolean{
-      return ((text >= "a" && text <= "z") || (text >= "A" && text <="Z") || (text >= "0" && text <= "9"));
-    }
+    // private function validText(text:String):Boolean{
+    //   return ((text >= "a" && text <= "z") || (text >= "A" && text <="Z") || (text >= "0" && text <= "9"));
+    // }
 
 		private var timeStamp:Number = 0;
     private var valueToSelected:String = "";
-
+    //bead
     private function updateValue(text:String):void{
       var current:Number = new Date().getTime();
       if(!timeStamp){
@@ -214,13 +214,13 @@ package com.unhurdle.spectrum
         valueToSelected = text;
       }
       timeStamp = current;
-      var txt:String = selectedItem ? selectedItem.text : '';
+      var txt:String = selectedItem ? getLabelFromData(this,selectedItem) : '';//change selectedItem to focusedItem
       if(!txt || txt.toLowerCase().indexOf(valueToSelected.toLowerCase()) != 0){
         var len:int = dataProvider.length;
         for(var index:int = 0; index < len; index++){
           var t:String = dataProvider[index].text;
           if(t && t.toLowerCase().indexOf(valueToSelected.toLowerCase()) == 0){
-            selectedIndex = index;
+            selectedIndex = index;//change this from selectedIndex to focusedIndex
             return;
           }
         }
@@ -232,7 +232,7 @@ package com.unhurdle.spectrum
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
       popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-      _button.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
+      _button.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);//bead
     }
     private function closePopup():void{
       if(popover && popover.open){

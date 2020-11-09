@@ -9,7 +9,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.includes.SideNavInclude;
   import org.apache.royale.core.CSSClassList;
 
-  public class List extends org.apache.royale.html.List
+  public class List extends org.apache.royale.html.List implements ISpectrumElement
   {
     /**
      * List is for basic selectable lists. The content of the list is provided by a dataProvider and the rendering is done by DataRendererers.
@@ -25,6 +25,7 @@ package com.unhurdle.spectrum
       super();
       classList = new CSSClassList();
       typeNames = getSelector();
+      tabFocusable = true;
     }
 
     protected function getSelector():String{
@@ -58,6 +59,88 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement
     {
       return addElementToWrapper(this,getTag());
+    }
+
+    public function setStyle(property:String,value:Object):void
+    {
+      COMPILE::JS
+      {
+        element.style[property] = value;
+      }
+    }
+
+    public function setAttribute(name:String,value:*):void
+    {
+      COMPILE::JS
+      {
+        element.setAttribute(name,value);
+      }            
+    }
+    public function getAttribute(name:String):*
+    {
+      COMPILE::JS
+      {
+        return element.getAttribute(name);
+      }
+      COMPILE::SWF
+      {
+        return "";
+      }
+    }
+    public function removeAttribute(name:String):void{
+      COMPILE::JS
+      {
+        element.removeAttribute(name);
+      }
+    }
+
+    protected var _tabFocusable:Boolean;
+
+    public function get tabFocusable():Boolean
+    {
+    	return _tabFocusable;
+    }
+
+    public function set tabFocusable(value:Boolean):void
+    {
+    	_tabFocusable = value;
+      if(value){
+        setAttribute("tabindex",0);
+      } else {
+        setAttribute("tabindex",-1);
+      }
+    }
+
+    COMPILE::SWF
+    private var _autofocus:Boolean;
+
+    public function get autofocus():Boolean
+    {
+      COMPILE::SWF{
+        return _autofocus;
+      }
+      COMPILE::JS
+      {
+        return element["autofocus"];
+      }
+    }
+
+    public function set autofocus(value:Boolean):void
+    {
+      COMPILE::SWF{
+    	_autofocus = value;
+      }
+      COMPILE::JS
+      {
+        element["autofocus"] = value;
+      }
+    }
+    public function focus():void
+    {
+      COMPILE::JS
+      {
+        element.focus();
+      }
     }
   }
 }
