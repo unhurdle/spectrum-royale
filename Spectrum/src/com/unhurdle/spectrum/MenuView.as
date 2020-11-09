@@ -60,6 +60,7 @@ package com.unhurdle.spectrum
 			if(ir){
 				ir.focused = true;
 				ir.keyboardFocused = false;
+				ir.focus();
 			}
 			lastFocusedIndex = listModel.focusedIndex;
 		}
@@ -73,6 +74,7 @@ package com.unhurdle.spectrum
 			if(ir){
 				ir.keyboardFocused = true;
 				ir.focused = false;
+				ir.focus();
 			}
 			lastKeyboardFocusedIndex = listModel.keyboardFocusedIndex;
 		}

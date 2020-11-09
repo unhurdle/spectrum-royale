@@ -68,6 +68,8 @@ package com.unhurdle.spectrum.renderers
       super.data = value;
       selected = getItemSelected();
       disabled = getItemDisabled();
+      focused = getItemFocused();
+      keyboardFocused = getItemKeyboardFocused();
     }
     private function getItemSelected():Boolean{
       if(data is IDataItem){
@@ -80,6 +82,18 @@ package com.unhurdle.spectrum.renderers
         return (data as IDataItem).disabled;
       }
       return data["disabled"];
+    }
+    private function getItemFocused():Boolean{
+      if(data is IDataItem){
+        return (data as IDataItem).focused;
+      }
+      return data["focused"];
+    }
+    private function getItemKeyboardFocused():Boolean{
+      if(data is IDataItem){
+        return (data as IDataItem).keyboardFocused;
+      }
+      return data["keyboardFocused"];
     }
     public function set selected(value:Boolean):void{
       var selectionBead:ISelectableItemRenderer = getSelectionRenderBead(this);
@@ -122,6 +136,12 @@ package com.unhurdle.spectrum.renderers
     public function set keyboardFocused(value:Boolean):void{
       toggle("focus-ring",value);
     	_keyboardFocused = value;
+      if(value){
+        focused = !value;
+        tabFocusable = true;
+      }else{
+        tabFocusable = false;
+      }
     }
 
     private var _focused:Boolean;
@@ -131,6 +151,9 @@ package com.unhurdle.spectrum.renderers
     public function set focused(value:Boolean):void{
       toggle("is-focused",value);
     	_focused = value;
+      if(value){
+        keyboardFocused = !value;
+      }
     }
 
 

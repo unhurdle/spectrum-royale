@@ -64,6 +64,8 @@ package com.unhurdle.spectrum.renderers
       // }
       addEventListener("click",openSubMenu);
       disabled = menuItem.disabled;
+      focused = menuItem.focused;
+      keyboardFocused = menuItem.keyboardFocused;
       if(menuItem.icon){
         if(!icon){
           icon = new Icon(menuItem.icon);
