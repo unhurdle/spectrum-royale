@@ -324,8 +324,10 @@ package com.unhurdle.spectrum
     }
     private var alreadyShown:Boolean = false;
     private function dispatchShown():void{
-      dispatchEvent(new Event("modalShown"));
-      focusElement();
+      if(visible){
+        dispatchEvent(new Event("modalShown"));
+        focusElement();
+      }
     }
     private function handleModalShow(ev:Event):void{
         // COMPILE::JS

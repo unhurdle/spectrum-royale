@@ -55,13 +55,13 @@ package com.unhurdle.spectrum
     }
     // Application and View are both possible parents,
     // but there's no single interface for both that will work.
-    private var hostParent:IParent;
+    // private var hostParent:IParent;
     /**
      *  @royaleignorecoercion Object
      */
     private function handleShown(ev:Event):void
     {
-      hostParent = host.parent;
+      var hostParent:IParent = host.parent;
       var index:int = hostParent.getElementIndex(host);
       hostParent.addElementAt(this,index);
       toggle("is-open",true);
@@ -82,7 +82,10 @@ package com.unhurdle.spectrum
     {
       //TODO enable hide animation
       toggle("is-open",false);
-      hostParent.removeElement(this);
+      var parentElem:IParent = parent;
+      if(parentElem){
+        parentElem.removeElement(this);
+      }
     }
 
     private var _hideOnClick:Boolean = true;
