@@ -14,8 +14,7 @@ package com.unhurdle.spectrum
 	
 	import org.apache.royale.events.ItemClickedEvent;
 	import org.apache.royale.core.ISelectableItemRenderer;
-	import org.apache.royale.events.KeyboardEvent;
-	import org.apache.royale.events.utils.NavigationKeys;
+	import com.unhurdle.spectrum.beads.KeyboardNavigateableHandler;
 
   public class MenuController implements IBeadController
   {
@@ -51,6 +50,7 @@ package com.unhurdle.spectrum
 			listView = value.getBeadByType(IListView) as IListView;
 			(_strand as IEventDispatcher).addEventListener("itemAdded", handleItemAdded);
 			(_strand as IEventDispatcher).addEventListener("itemRemoved", handleItemRemoved);
+			_strand.addBead(new KeyboardNavigateableHandler());
 		}
 		
     /**
@@ -61,7 +61,6 @@ package com.unhurdle.spectrum
 			(event.item as IEventDispatcher).addEventListener("itemMouseUp", selectedHandler);
 			(event.item as IEventDispatcher).addEventListener("itemRollOver", rolloverHandler);
 			(event.item as IEventDispatcher).addEventListener("itemRollOut", rolloutHandler);
-			(event.item as IEventDispatcher).addEventListener(KeyboardEvent.KEY_DOWN, keyboardEventHandler);
 		}
 		
         /**
@@ -72,7 +71,6 @@ package com.unhurdle.spectrum
 			(event.item as IEventDispatcher).removeEventListener("itemMouseUp", selectedHandler);
 			(event.item as IEventDispatcher).removeEventListener("itemRollOver", rolloverHandler);
 			(event.item as IEventDispatcher).removeEventListener("itemRollOut", rolloutHandler);
-			(event.item as IEventDispatcher).removeEventListener(KeyboardEvent.KEY_DOWN, keyboardEventHandler);
 		}
 		
 		protected function selectedHandler(event:ItemClickedEvent):void
@@ -80,34 +78,6 @@ package com.unhurdle.spectrum
       listModel.selectedIndex = event.index;
       listModel.selectedItem = event.data;
       listView.host.dispatchEvent(new Event("change"));
-    }
-		
-		protected function keyboardEventHandler(event:KeyboardEvent):void
-		{
-			
-      var key:String = event.key;
-      switch(key)
-      {
-        case NavigationKeys.DOWN:
-        case NavigationKeys.UP:
-          event.preventDefault();
-          selectValue(key);
-          break;
-        default:
-          break;
-      }
-    }
-
-    private function selectValue(type:String):void{
-			switch(type)
-			{
-				case NavigationKeys.DOWN:
-					listModel.keyboardFocusedIndex = listModel.keyboardFocusedIndex + 1;
-					break;
-				case NavigationKeys.UP:
-					listModel.keyboardFocusedIndex = listModel.keyboardFocusedIndex - 1;
-					break;
-			}
     }
 		
 		/**

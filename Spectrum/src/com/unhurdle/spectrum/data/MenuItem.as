@@ -53,6 +53,5 @@ package com.unhurdle.spectrum.data
     {
     	_subMenu = value;
     }
-
   }
 }

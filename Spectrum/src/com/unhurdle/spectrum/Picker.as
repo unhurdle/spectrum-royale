@@ -17,14 +17,13 @@ package com.unhurdle.spectrum
 	// import com.unhurdle.spectrum.data.IMenuItem;
 	import com.unhurdle.spectrum.const.IconPrefix;
 	import com.unhurdle.spectrum.data.IMenuItem;
-	import org.apache.royale.events.KeyboardEvent;
-	import org.apache.royale.events.utils.NavigationKeys;
+	import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
   /**
    * TODO maybe add flexible with styling of min-width: 0;width:auto;
    */
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="showMenu", type="org.apache.royale.events.Event")]
-  public class Picker extends SpectrumBase impl
+  public class Picker extends SpectrumBase implements IKeyboardNavigateable
   {
     /**
      * <inject_html>
@@ -131,108 +130,12 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var ind:Number = 0;
-
-    private function selectValue(type:String):void{
-      var len:int = dataProvider.length;
-      for(var index:int = 0; index < len; index++){
-        if(dataProvider[index].disabled || dataProvider[index].isDivider){
-          continue;
-        }
-        var t:String = dataProvider[index].text;
-        if(t.indexOf(_button.text) == 0){
-          switch(type)
-          {
-            case NavigationKeys.DOWN:
-              ind = index + 1;
-              while(ind < len && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
-                ind++;
-              }
-              break;
-            case NavigationKeys.UP:
-              if(ind == -1){
-                ind = len;
-              }
-              ind = index - 1;
-              while(ind >= 0 && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
-                ind--;
-              }
-              break;
-          }
-          break;
-        }
-      }
-      if(ind == -1){
-        ind = dataProvider.length - 1;
-        while(ind >= 0 && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
-          ind--;
-        }
-      }else if(ind == dataProvider.length){
-        ind = 0;
-        while(ind < len && (dataProvider[ind].disabled || dataProvider[ind].isDivider)){
-          ind++;
-        }
-      }
-      selectedIndex = ind;
-    }
-
-    private function changeValue(event:KeyboardEvent):void{
-      var key:String = event.key;
-      switch(key)
-      {
-        case NavigationKeys.DOWN:
-        case NavigationKeys.UP:
-          event.preventDefault();
-          selectValue(key);
-          break;
-        default:
-          if (key.length > 1) {
-              return;// do nothing
-          }
-          // if(validText(key)){
-            updateValue(key);
-          // }
-          break;
-      }
-    }
-
-    // private function validText(text:String):Boolean{
-    //   return ((text >= "a" && text <= "z") || (text >= "A" && text <="Z") || (text >= "0" && text <= "9"));
-    // }
-
-		private var timeStamp:Number = 0;
-    private var valueToSelected:String = "";
-    //bead
-    private function updateValue(text:String):void{
-      var current:Number = new Date().getTime();
-      if(!timeStamp){
-        timeStamp = current;
-      }
-      if(current - timeStamp  < 250){
-        valueToSelected += text;
-      }else{
-        valueToSelected = text;
-      }
-      timeStamp = current;
-      var txt:String = selectedItem ? getLabelFromData(this,selectedItem) : '';//change selectedItem to focusedItem
-      if(!txt || txt.toLowerCase().indexOf(valueToSelected.toLowerCase()) != 0){
-        var len:int = dataProvider.length;
-        for(var index:int = 0; index < len; index++){
-          var t:String = dataProvider[index].text;
-          if(t && t.toLowerCase().indexOf(valueToSelected.toLowerCase()) == 0){
-            selectedIndex = index;//change this from selectedIndex to focusedIndex
-            return;
-          }
-        }
-      }
-    }
-
     private function openPopup():void{
       popover.open = true;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
       popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-      _button.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);//bead
+      popover.list.focus();
     }
     private function closePopup():void{
       if(popover && popover.open){
@@ -240,10 +143,10 @@ package com.unhurdle.spectrum
 	  		_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         popover.open = false;
-        _button.removeEventListener(KeyboardEvent.KEY_DOWN,changeValue);
+        popover.list.blur();
       }
-
     }
+
     private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
       maxHeight -= 6;
       var pxStr:String;
@@ -299,6 +202,16 @@ package com.unhurdle.spectrum
       setButtonText();
     }
 
+    public function get keyboardFocusedIndex():int
+    {
+    	return menu.keyboardFocusedIndex;
+    }
+
+    public function set keyboardFocusedIndex(value:int):void
+    {
+    	menu.keyboardFocusedIndex = value;
+    }
+
     private function setButtonAsset(index:int,icon:Boolean):void{
       if(_button.getElementAt(0) is IAsset){
         _button.removeElement(_button.getElementAt(0));
@@ -338,7 +251,16 @@ package com.unhurdle.spectrum
           setButtonAsset(i,true);
         }
       }
+    }
 
+    public function get keyboardFocusedItem():Object
+    {
+    	return menu.keyboardFocusedItem;
+    }
+
+    public function set keyboardFocusedItem(value:Object):void
+    {
+    	menu.keyboardFocusedItem = value;
     }
 
     public function get selectedItem():Object
@@ -364,10 +286,7 @@ package com.unhurdle.spectrum
         if(value[i].disabled){
           item.disabled = value[i]["disabled"];
         }
-        if(value[i].focused){
-          item.focused = value[i]["focused"];
-        }
-        if(value[i].keyboardFocused){
+        if(value[i].keyboardFocused || i == keyboardFocusedIndex || value[i] == keyboardFocusedItem){
           item.keyboardFocused = value[i]["keyboardFocused"];
         }
         if(value[i].icon){
@@ -510,6 +429,11 @@ package com.unhurdle.spectrum
         popover.position = value;
       }
     	_position = value;
+    }
+
+    public function get focusParent():ISpectrumElement
+    {
+    	return popover.list;
     }
   }
 }

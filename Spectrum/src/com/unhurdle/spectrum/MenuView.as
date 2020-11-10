@@ -28,7 +28,6 @@ package com.unhurdle.spectrum
 		{
 			listModel = _strand.getBeadByType(ISelectionModel) as MenuModel;
 			listModel.addEventListener("keyboardFocusedIndexChanged", keyboardFocusChangeHandler);
-			listModel.addEventListener("focusedIndexChanged", focusChangeHandler);
 			listModel.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			listModel.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 
@@ -49,20 +48,6 @@ package com.unhurdle.spectrum
 				ir.selected = true;
 
 			lastSelectedIndex = listModel.selectedIndex;
-		}
-
-		protected function focusChangeHandler(event:Event):void
-		{
-			var ir:DataItemRenderer = dataGroup.getItemRendererForIndex(lastFocusedIndex) as DataItemRenderer;
-			if(ir)
-				ir.focused = false;
-			ir = dataGroup.getItemRendererForIndex(listModel.focusedIndex) as DataItemRenderer;
-			if(ir){
-				ir.focused = true;
-				ir.keyboardFocused = false;
-				ir.focus();
-			}
-			lastFocusedIndex = listModel.focusedIndex;
 		}
 
 		protected function keyboardFocusChangeHandler(event:Event):void

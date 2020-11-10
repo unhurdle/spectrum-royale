@@ -8,8 +8,9 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.List;
   import com.unhurdle.spectrum.includes.SideNavInclude;
   import org.apache.royale.core.CSSClassList;
+  import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
 
-  public class List extends org.apache.royale.html.List implements ISpectrumElement
+  public class List extends org.apache.royale.html.List implements ISpectrumElement, IKeyboardNavigateable
   {
     /**
      * List is for basic selectable lists. The content of the list is provided by a dataProvider and the rendering is done by DataRendererers.
@@ -111,6 +112,30 @@ package com.unhurdle.spectrum
       }
     }
 
+    protected var _keyboardFocusedItem:Object;
+
+    public function get keyboardFocusedItem():Object
+    {
+    	return _keyboardFocusedItem;
+    }
+
+    public function set keyboardFocusedItem(value:Object):void
+    {
+    	_keyboardFocusedItem = value;
+    }
+
+    protected var _keyboardFocusedIndex:int;
+
+    public function get keyboardFocusedIndex():int
+    {
+    	return _keyboardFocusedIndex;
+    }
+
+    public function set keyboardFocusedIndex(value:int):void
+    {
+    	_keyboardFocusedIndex = value;
+    }
+
     COMPILE::SWF
     private var _autofocus:Boolean;
 
@@ -141,6 +166,19 @@ package com.unhurdle.spectrum
       {
         element.focus();
       }
+    }
+
+    public function blur():void
+    {
+      COMPILE::JS
+      {
+        element.blur();
+      }
+    }
+
+    public function get focusParent():ISpectrumElement
+    {
+      return this;
     }
   }
 }

@@ -12,7 +12,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.collections.IArrayList;
   // import com.unhurdle.spectrum.data.IMenuItem;
 
-  public class Menu extends com.unhurdle.spectrum.List
+  public class Menu extends List
   {
     /**
      * <inject_html>
@@ -79,9 +79,6 @@ package com.unhurdle.spectrum
           }
           if(value[i].hasOwnProperty("subMenu")){
             item.subMenu = value[i]["subMenu"];
-          }
-          if(value[i].hasOwnProperty("focused")){
-            item.focused = value[i]["focused"];
           }
           if(value[i].hasOwnProperty("keyboardFocused")){
             item.keyboardFocused = value[i]["keyboardFocused"];

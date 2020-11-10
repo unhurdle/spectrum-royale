@@ -257,9 +257,6 @@ package com.unhurdle.spectrum
         if(value[i].disabled){
           item.disabled = value[i]["disabled"];
         }
-        if(value[i].focused){
-          item.focused = value[i]["focused"];
-        }
         if(value[i].keyboardFocused){
           item.keyboardFocused = value[i]["keyboardFocused"];
         }

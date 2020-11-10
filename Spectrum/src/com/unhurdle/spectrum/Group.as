@@ -92,6 +92,15 @@ package com.unhurdle.spectrum
         setAttribute("tabindex",-1);
       }
     }
+
+    public function blur():void
+    {
+      COMPILE::JS
+      {
+        element.blur();
+      }
+    }
+
     public function focus():void
     {
       COMPILE::JS
