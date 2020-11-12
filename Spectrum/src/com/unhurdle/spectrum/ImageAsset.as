@@ -13,13 +13,13 @@ package com.unhurdle.spectrum
       super();
     }
 
-    private var _imageElement:HTMLImageElement;
+    protected var _imageElement:HTMLImageElement;
 
     public function get imageElement():HTMLImageElement
     {
     	return _imageElement;
     }
-    private var _src:String;
+    protected var _src:String;
     public function get src():String
     {
     	return _src;
@@ -35,7 +35,7 @@ package com.unhurdle.spectrum
         _src = value;
       }
     }
-    private function createImageElement():void{
+    protected function createImageElement():void{
       _imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
       _imageElement.addEventListener('load', loadHandler);
       _imageElement.addEventListener('error', errorHandler);

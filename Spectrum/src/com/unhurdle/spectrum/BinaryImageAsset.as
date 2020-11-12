@@ -6,19 +6,13 @@ package com.unhurdle.spectrum
     import org.apache.royale.utils.URLUtils;
   }
 
-  public class BinaryImageAsset extends Asset
+  public class BinaryImageAsset extends ImageAsset
   {
     public function BinaryImageAsset()
     {
       super();
     }
 
-    private var _imageElement:HTMLImageElement;
-
-    public function get imageElement():HTMLImageElement
-    {
-    	return _imageElement;
-    }
     private var _objectURL:String;
     private var _binary:BinaryData;
     public function get binary():BinaryData
@@ -40,21 +34,14 @@ package com.unhurdle.spectrum
           var blob:Blob = new Blob([value.array]);
           _objectURL = URLUtils.createObjectURL(blob);
           _imageElement.src = _objectURL;
+          _src = "";
         }
       }
     }
-    private function createImageElement():void{
-      _imageElement = newElement("img",appendSelector("-image")) as HTMLImageElement;
-      (element as HTMLElement).appendChild(_imageElement);
-
+    override public function set src(value:String):void{
+      super.src = value;
+      _binary = null;
     }
 
-    public function get imageStyle():CSSStyleDeclaration
-    {
-      if(!_imageElement){
-        createImageElement();
-      }
-    	return _imageElement.style;
-    }
   }
 }
