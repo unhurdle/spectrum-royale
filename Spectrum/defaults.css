@@ -15,6 +15,7 @@ Menu
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
 	IViewportModel: ClassReference("org.apache.royale.html.beads.models.ViewportModel");
+	IKeyboardHandler: ClassReference("com.unhurdle.spectrum.beads.KeyboardNavigateableHandler");
 }
 
 List
@@ -30,12 +31,13 @@ List
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
 	IViewportModel: ClassReference("org.apache.royale.html.beads.models.ViewportModel");
+	IKeyboardHandler: ClassReference("com.unhurdle.spectrum.beads.KeyboardNavigateableHandler");
 }
 Tree
 {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.TreeModel");
-	IBeadView:  ClassReference("org.apache.royale.html.beads.ListView");
-	IBeadController: ClassReference("org.apache.royale.html.beads.controllers.TreeSingleSelectionMouseController");
+	IBeadModel: ClassReference("com.unhurdle.spectrum.TreeModel");
+	IBeadView:  ClassReference("com.unhurdle.spectrum.MenuView");			
+	IBeadController: ClassReference("com.unhurdle.spectrum.TreeController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForHierarchicalData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -44,6 +46,7 @@ Tree
 	ISelectableItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.SelectableItemRenderer");
 	IViewport: ClassReference("org.apache.royale.html.supportClasses.ScrollingViewport");
 	IViewportModel: ClassReference("org.apache.royale.html.beads.models.ViewportModel");
+	IKeyboardHandler: ClassReference("com.unhurdle.spectrum.beads.KeyboardNavigateableForTreeHandler");
 	border: 1px solid #222222;
 }
 

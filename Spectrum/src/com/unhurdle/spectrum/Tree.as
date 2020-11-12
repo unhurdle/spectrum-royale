@@ -6,8 +6,9 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
     import org.apache.royale.core.CSSClassList;
+    import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
 
-  public class Tree extends org.apache.royale.html.Tree implements ISpectrumElement
+  public class Tree extends org.apache.royale.html.Tree implements ISpectrumElement, IKeyboardNavigateable
   {
     /**
      * <inject_html>
@@ -20,6 +21,7 @@ package com.unhurdle.spectrum
       super();
       classList = new CSSClassList();
       typeNames = getSelector();
+      tabFocusable = true;
     }
 
     protected function getSelector():String{
@@ -118,6 +120,30 @@ package com.unhurdle.spectrum
       }
     }
 
+    protected var _keyboardFocusedItem:Object;
+
+    public function get keyboardFocusedItem():Object
+    {
+    	return _keyboardFocusedItem;
+    }
+
+    public function set keyboardFocusedItem(value:Object):void
+    {
+    	_keyboardFocusedItem = value;
+    }
+
+    protected var _keyboardFocusedIndex:int;
+
+    public function get keyboardFocusedIndex():int
+    {
+    	return _keyboardFocusedIndex;
+    }
+
+    public function set keyboardFocusedIndex(value:int):void
+    {
+    	_keyboardFocusedIndex = value;
+    }
+
     protected var _tabFocusable:Boolean;
 
     public function get tabFocusable():Boolean
@@ -165,6 +191,11 @@ package com.unhurdle.spectrum
       {
         element.focus();
       }
+    }
+
+    public function get focusParent():ISpectrumElement
+    {
+    	return this;
     }
   }
 }

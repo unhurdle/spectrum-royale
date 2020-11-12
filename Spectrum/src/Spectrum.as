@@ -25,5 +25,7 @@ package {
 		import com.unhurdle.spectrum.TBodyContentArea; TBodyContentArea;
 	
 		import com.unhurdle.spectrum.ThemeManager;ThemeManager;
+		import com.unhurdle.spectrum.beads.KeyboardNavigateableHandler; KeyboardNavigateableHandler;
+		import com.unhurdle.spectrum.beads.KeyboardNavigateableForTreeHandler; KeyboardNavigateableForTreeHandler;
 	}
 }

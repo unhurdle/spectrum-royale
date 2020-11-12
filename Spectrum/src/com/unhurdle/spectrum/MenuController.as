@@ -14,7 +14,8 @@ package com.unhurdle.spectrum
 	
 	import org.apache.royale.events.ItemClickedEvent;
 	import org.apache.royale.core.ISelectableItemRenderer;
-	import com.unhurdle.spectrum.beads.KeyboardNavigateableHandler;
+	import org.apache.royale.utils.loadBeadFromValuesManager;
+	import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
 
   public class MenuController implements IBeadController
   {
@@ -50,7 +51,7 @@ package com.unhurdle.spectrum
 			listView = value.getBeadByType(IListView) as IListView;
 			(_strand as IEventDispatcher).addEventListener("itemAdded", handleItemAdded);
 			(_strand as IEventDispatcher).addEventListener("itemRemoved", handleItemRemoved);
-			_strand.addBead(new KeyboardNavigateableHandler());
+			loadBeadFromValuesManager(IKeyboardHandler, "iKeyboardHandler", _strand);
 		}
 		
     /**

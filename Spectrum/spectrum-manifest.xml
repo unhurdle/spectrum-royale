@@ -173,6 +173,8 @@
     <component id="VDivider" class="com.unhurdle.spectrum.VDivider"/>
     <component id="VSplitView" class="com.unhurdle.spectrum.VSplitView"/>
 	<component id="Well" class="com.unhurdle.spectrum.Well"/>
+    <component id="TreeModel" class="com.unhurdle.spectrum.TreeModel"/>
+    <component id="TreeController" class="com.unhurdle.spectrum.TreeController"/>
 
     <component id="AddTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.AddTableRowForArrayListData" />
     <component id="RemoveTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.RemoveTableRowForArrayListData" />
