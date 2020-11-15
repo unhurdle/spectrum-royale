@@ -47,10 +47,8 @@ package com.unhurdle.spectrum.beads
       switch(key)
       {
         case WhitespaceKeys.ENTER:
-          if(listModel.selectedIndex != listModel.keyboardFocusedIndex){
-            listModel.selectedIndex = listModel.keyboardFocusedIndex;
-            sendStrandEvent(_strand,"change");
-          }
+          listModel.selectedIndex = listModel.keyboardFocusedIndex;
+          sendStrandEvent(_strand,"change");
           break;
         case NavigationKeys.RIGHT:
           if(listModel.keyboardFocusedIndex == -1){
