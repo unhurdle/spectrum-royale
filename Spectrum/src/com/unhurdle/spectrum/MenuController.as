@@ -16,6 +16,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.core.ISelectableItemRenderer;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
+	import org.apache.royale.utils.sendStrandEvent;
 
   public class MenuController implements IBeadController
   {
@@ -78,7 +79,7 @@ package com.unhurdle.spectrum
     {
       listModel.selectedIndex = event.index;
       listModel.selectedItem = event.data;
-      listView.host.dispatchEvent(new Event("change"));
+			sendStrandEvent(_strand,"change");
     }
 		
 		/**

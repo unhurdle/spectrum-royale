@@ -46,6 +46,7 @@ package com.unhurdle.spectrum.beads
       host.focusParent.addEventListener("click",clickHandler);
       listenOnStrand("itemsCreated",handleItemsCreated);
       listenOnStrand("focusIn",focusItem);
+      listenOnStrand("change",handleChange);
 			// listenOnStrand("itemAdded", handleItemAdded);
 			// listenOnStrand("itemRemoved", handleItemRemoved);
 
@@ -133,6 +134,20 @@ package com.unhurdle.spectrum.beads
           updateValue(key);
           break;
       }
+    }
+    protected function handleChange(event:Event):void{
+      var ir:DataItemRenderer = getRendererForIndex(listModel.selectedIndex);
+      if(ir != focusableItemRenderer){
+        if(focusableItemRenderer){
+          focusableItemRenderer.keyboardFocused = false;
+          focusableItemRenderer.tabFocusable = false;
+        }
+        if(ir){
+          ir.tabFocusable = true;
+        }
+        focusableItemRenderer = ir;
+      } 
+      focusItem();
     }
     protected function focusItem():void{
       if(focusableItemRenderer){
