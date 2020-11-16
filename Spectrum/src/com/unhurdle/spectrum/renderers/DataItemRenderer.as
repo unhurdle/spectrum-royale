@@ -12,6 +12,8 @@ package com.unhurdle.spectrum.renderers
   import org.apache.royale.core.ISelectableItemRenderer;
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
   import com.unhurdle.spectrum.ISpectrumElement;
+  import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
+  import org.apache.royale.utils.sendStrandEvent;
 
   public class DataItemRenderer extends org.apache.royale.html.supportClasses.DataItemRenderer implements IKeyboardFocusable, ISpectrumElement
   {
@@ -20,6 +22,9 @@ package com.unhurdle.spectrum.renderers
 			super();
       classList = new CSSClassList();
       typeNames = getSelector();
+      addBead(new KeyboardFocusHandler());
+      focusElement.addEventListener("focus",handleFocus);
+      focusElement.addEventListener("blur",handleBlur);
 		}
 
     protected function getSelector():String{
@@ -68,7 +73,6 @@ package com.unhurdle.spectrum.renderers
       super.data = value;
       selected = getItemSelected();
       disabled = getItemDisabled();
-      keyboardFocused = getItemKeyboardFocused();
     }
     private function getItemSelected():Boolean{
       if(data is IDataItem){
@@ -81,12 +85,6 @@ package com.unhurdle.spectrum.renderers
         return (data as IDataItem).disabled;
       }
       return data["disabled"];
-    }
-    private function getItemKeyboardFocused():Boolean{
-      if(data is IDataItem){
-        return (data as IDataItem).keyboardFocused;
-      }
-      return data["keyboardFocused"];
     }
     public function set selected(value:Boolean):void{
       var selectionBead:ISelectableItemRenderer = getSelectionRenderBead(this);
@@ -132,9 +130,8 @@ package com.unhurdle.spectrum.renderers
       if(value){
         focused = !value;
         tabFocusable = true;
-      }else{
-        tabFocusable = false;
-      }
+        focus();
+      }    
     }
 
     private var _focused:Boolean;
@@ -146,6 +143,7 @@ package com.unhurdle.spectrum.renderers
     	_focused = value;
       if(value){
         keyboardFocused = !value;
+        focus();
       }
     }
 
@@ -184,11 +182,14 @@ package com.unhurdle.spectrum.renderers
 
     public function set tabFocusable(value:Boolean):void
     {
+      if(_tabFocusable == value){
+        return;
+      }
     	_tabFocusable = value;
       if(value){
         setAttribute("tabindex",0);
       } else {
-        setAttribute("tabindex",-1);
+        removeAttribute("tabindex");
       }
     }
     public function focus():void
@@ -225,5 +226,15 @@ package com.unhurdle.spectrum.renderers
         element.removeAttribute(name);
       }
     }
+
+		private function handleFocus(event:Event):void
+		{
+      sendStrandEvent(this,"focusIn")
+		}
+
+		private function handleBlur(event:Event):void
+		{
+      sendStrandEvent(this,"focusOut")
+		}
   }
 }

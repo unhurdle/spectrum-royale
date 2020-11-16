@@ -114,5 +114,6 @@ package com.unhurdle.spectrum
 				(listModel as IRollOverModel).rollOverIndex = -1;
 			}
 		}	
+
 	}
 }

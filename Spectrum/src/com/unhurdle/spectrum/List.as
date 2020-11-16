@@ -9,6 +9,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.includes.SideNavInclude;
   import org.apache.royale.core.CSSClassList;
   import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
+  import org.apache.royale.utils.sendStrandEvent;
 
   public class List extends org.apache.royale.html.List implements ISpectrumElement, IKeyboardNavigateable
   {
@@ -26,7 +27,6 @@ package com.unhurdle.spectrum
       super();
       classList = new CSSClassList();
       typeNames = getSelector();
-      tabFocusable = true;
     }
 
     protected function getSelector():String{
@@ -108,32 +108,8 @@ package com.unhurdle.spectrum
       if(value){
         setAttribute("tabindex",0);
       } else {
-        setAttribute("tabindex",-1);
+        removeAttribute("tabindex");
       }
-    }
-
-    protected var _keyboardFocusedItem:Object;
-
-    public function get keyboardFocusedItem():Object
-    {
-    	return _keyboardFocusedItem;
-    }
-
-    public function set keyboardFocusedItem(value:Object):void
-    {
-    	_keyboardFocusedItem = value;
-    }
-
-    protected var _keyboardFocusedIndex:int;
-
-    public function get keyboardFocusedIndex():int
-    {
-    	return _keyboardFocusedIndex;
-    }
-
-    public function set keyboardFocusedIndex(value:int):void
-    {
-    	_keyboardFocusedIndex = value;
     }
 
     COMPILE::SWF
@@ -162,18 +138,12 @@ package com.unhurdle.spectrum
     }
     public function focus():void
     {
-      COMPILE::JS
-      {
-        element.focus();
-      }
+      sendStrandEvent(this,"focusIn");
     }
 
     public function blur():void
     {
-      COMPILE::JS
-      {
-        element.blur();
-      }
+      sendStrandEvent(this,"focusOut");
     }
 
     public function get focusParent():ISpectrumElement

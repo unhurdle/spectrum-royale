@@ -120,30 +120,6 @@ package com.unhurdle.spectrum
       }
     }
 
-    protected var _keyboardFocusedItem:Object;
-
-    public function get keyboardFocusedItem():Object
-    {
-    	return _keyboardFocusedItem;
-    }
-
-    public function set keyboardFocusedItem(value:Object):void
-    {
-    	_keyboardFocusedItem = value;
-    }
-
-    protected var _keyboardFocusedIndex:int;
-
-    public function get keyboardFocusedIndex():int
-    {
-    	return _keyboardFocusedIndex;
-    }
-
-    public function set keyboardFocusedIndex(value:int):void
-    {
-    	_keyboardFocusedIndex = value;
-    }
-
     protected var _tabFocusable:Boolean;
 
     public function get tabFocusable():Boolean
@@ -157,7 +133,7 @@ package com.unhurdle.spectrum
       if(value){
         setAttribute("tabindex",0);
       } else {
-        setAttribute("tabindex",-1);
+        removeAttribute("tabindex");
       }
     }
 

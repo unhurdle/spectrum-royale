@@ -286,6 +286,15 @@ package com.unhurdle.spectrum
         return false;
       }
     }
+    override public function set tabFocusable(value:Boolean):void
+    {
+    	_tabFocusable = value;
+      if(value){
+        removeAttribute("tabindex");
+      } else {
+        setAttribute("tabindex",-1);
+      }
+    }
 
     public function set focused(value:Boolean):void
     {

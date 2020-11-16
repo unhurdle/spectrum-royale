@@ -164,52 +164,6 @@ package com.unhurdle.spectrum
     }
     private var _keyboardFocusedIndex:int;
 
-    public function get keyboardFocusedIndex():int
-    {
-      if(menu){
-        return menu.keyboardFocusedIndex;
-      }
-    	return _keyboardFocusedIndex;
-    }
-
-    public function set keyboardFocusedIndex(value:int):void
-    {
-      if(menu){
-        menu.keyboardFocusedIndex = value;
-      }
-    	_keyboardFocusedIndex = value;
-    }
-
-    private var _keyboardFocusedItem:Object;
-
-    public function get keyboardFocusedItem():Object
-    {
-      if(menu){
-        return menu.keyboardFocusedItem;
-      }
-      if(_keyboardFocusedIndex >=0 && dataProvider && _keyboardFocusedIndex < dataProvider["length"]){
-        if(dataProvider is Array){
-          return dataProvider[_keyboardFocusedIndex];
-        }
-        return dataProvider["source"][_keyboardFocusedIndex];
-      }
-    	return null;
-    }
-
-    public function set keyboardFocusedItem(value:Object):void
-    {
-      if(menu){
-        menu.keyboardFocusedItem = value;
-      }
-      if(dataProvider is Array){
-        _keyboardFocusedIndex = (dataProvider as Array).indexOf(value);
-      }
-      if(dataProvider.hasOwnProperty("source")){
-        _keyboardFocusedIndex = dataProvider["source"]["indexOf"](value);
-      }
-    	_keyboardFocusedIndex = -1;
-    }
-
     private var _dataProvider:Object;
 
     public function get dataProvider():Object

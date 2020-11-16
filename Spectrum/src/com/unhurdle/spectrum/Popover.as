@@ -51,6 +51,7 @@ package com.unhurdle.spectrum
         toggle("is-open",value);
         if(floating){
           var host:IPopUpHostParent = Application.current.popUpParent;
+          setAttribute("dir", Application.current.dir);
           if(value){
             host.addElement(this);
           } else {

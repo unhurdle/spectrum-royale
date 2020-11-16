@@ -66,7 +66,7 @@ package com.unhurdle.spectrum
       if(value){
         setAttribute("tabindex",0);
       } else {
-        setAttribute("tabindex",-1);
+        removeAttribute("tabindex");
       }
     }
 

@@ -327,6 +327,7 @@ package com.unhurdle.spectrum
                     var cell:Td = new Td();  
                     cell.setAttribute("role", "gridcell");
                     cell.className = appendSelector("-tableCell");
+                    //TODO is this correct?
                     cell.tabIndex = -1;
                     var span:CalendarDay = new CalendarDay();
                     if(j == 0){

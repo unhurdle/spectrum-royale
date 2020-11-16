@@ -9,12 +9,12 @@ package com.unhurdle.spectrum
       super();
     }
 		
-		override protected function selectedHandler(event:ItemClickedEvent):void
-    {
-			super.selectedHandler(event);
-			if(event.index == listModel.keyboardFocusedIndex){
-				listModel.keyboardFocusedIndex = -1;
-			}
-    }
+		// override protected function selectedHandler(event:ItemClickedEvent):void
+    // {
+		// 	super.selectedHandler(event);
+		// 	if(event.index == listModel.keyboardFocusedIndex){
+		// 		listModel.keyboardFocusedIndex = -1;
+		// 	}
+    // }
 	}
 }

@@ -66,8 +66,5 @@ package com.unhurdle.spectrum
       }      
     }
 
-    override public function get tabFocusable():Boolean{
-    	return false;
-    }
   }
 }

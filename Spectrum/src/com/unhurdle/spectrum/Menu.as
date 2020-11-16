@@ -80,9 +80,6 @@ package com.unhurdle.spectrum
           if(value[i].hasOwnProperty("subMenu")){
             item.subMenu = value[i]["subMenu"];
           }
-          if(value[i].hasOwnProperty("keyboardFocused")){
-            item.keyboardFocused = value[i]["keyboardFocused"];
-          }
           value[i] = item;
         }
       }

@@ -6,6 +6,8 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.ISelectableItemRenderer;
   import org.apache.royale.core.IRollOverModel;
   import com.unhurdle.spectrum.renderers.DataItemRenderer;
+  import org.apache.royale.core.IParent;
+  import org.apache.royale.createjs.core.UIBase;
 
 	public class MenuView extends DataContainerView
 	{
@@ -18,7 +20,7 @@ package com.unhurdle.spectrum
 
 		protected var lastSelectedIndex:int = -1;
 		protected var lastFocusedIndex:int = -1;
-		protected var lastKeyboardFocusedIndex:int = -1;
+		// protected var lastKeyboardFocusedIndex:int = -1;
 
 		/**
 		 * @private
@@ -26,14 +28,30 @@ package com.unhurdle.spectrum
 		 */
 		override protected function handleInitComplete(event:Event):void
 		{
-			listModel = _strand.getBeadByType(ISelectionModel) as MenuModel;
-			listModel.addEventListener("keyboardFocusedIndexChanged", keyboardFocusChangeHandler);
+			listModel = dataModel as MenuModel;
 			listModel.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			listModel.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 
 			super.handleInitComplete(event);
 		}
+		private var focusableItemRenderer:DataItemRenderer;
+		override protected function itemsCreatedHandler(event:Event):void{
+			// set focus on item renderers
+			
+			if(focusableItemRenderer){
 
+				if((contentView as IParent).getElementIndex(focusableItemRenderer) == -1){
+					focusableItemRenderer.focused = focusableItemRenderer.keyboardFocused = false;
+					focusableItemRenderer = null;
+				}
+			}
+			if(!focusableItemRenderer && dataGroup.numItemRenderers > 0){
+				focusableItemRenderer = dataGroup.getItemRendererAt(0) as DataItemRenderer;
+				focusableItemRenderer.tabFocusable = true;
+			}
+			super.itemsCreatedHandler(event);
+
+		}
 		/**
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.core.ISelectableItemRenderer
@@ -48,20 +66,6 @@ package com.unhurdle.spectrum
 				ir.selected = true;
 
 			lastSelectedIndex = listModel.selectedIndex;
-		}
-
-		protected function keyboardFocusChangeHandler(event:Event):void
-		{
-			var ir:DataItemRenderer = dataGroup.getItemRendererForIndex(lastKeyboardFocusedIndex) as DataItemRenderer;
-			if(ir)
-				ir.keyboardFocused = false;
-			ir = dataGroup.getItemRendererForIndex(listModel.keyboardFocusedIndex) as DataItemRenderer;
-			if(ir){
-				ir.keyboardFocused = true;
-				ir.focused = false;
-				ir.focus();
-			}
-			lastKeyboardFocusedIndex = listModel.keyboardFocusedIndex;
 		}
 
 		protected var lastRollOverIndex:int = -1;

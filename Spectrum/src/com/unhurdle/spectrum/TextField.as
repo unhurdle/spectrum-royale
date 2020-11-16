@@ -118,7 +118,7 @@ package com.unhurdle.spectrum
 
     override public function set disabled(value:Boolean):void
     {
-      if(!!value != !!super.disabled){
+      if(value != super.disabled){
         input.disabled = value;
       }
       super.disabled = value;

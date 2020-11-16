@@ -14,6 +14,7 @@ package com.unhurdle.spectrum
   {}
 
   [Event(name="change", type="org.apache.royale.events.Event")]
+  // These event names are generating programmatically
   [Event(name="onEnter", type="org.apache.royale.events.Event")]
   [Event(name="onBackspace", type="org.apache.royale.events.Event")]
   [Event(name="onArrowDown", type="org.apache.royale.events.Event")]
@@ -143,7 +144,7 @@ package com.unhurdle.spectrum
 
     public function set disabled(value:Boolean):void
     {
-      if(!!value != !!_disabled){
+      if(value != !!_disabled){
         toggle("is-disabled",value);
       }
       _disabled = value;

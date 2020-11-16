@@ -15,6 +15,14 @@ package com.unhurdle.spectrum.beads
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.utils.sendStrandEvent;
   import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
+  import com.unhurdle.spectrum.data.IMenuItem;
+  import com.unhurdle.spectrum.data.IDataItem;
+  import org.apache.royale.events.Event;
+  import com.unhurdle.spectrum.renderers.DataItemRenderer;
+  import org.apache.royale.core.IParent;
+  import org.apache.royale.html.beads.DataContainerView;
+  import org.apache.royale.events.ItemAddedEvent;
+  import org.apache.royale.events.ItemRemovedEvent;
 
   public class KeyboardNavigateableHandler extends Bead implements IBead, IKeyboardHandler
   {
@@ -36,36 +44,87 @@ package com.unhurdle.spectrum.beads
 			listView = value.getBeadByType(IListView) as IListView;
       host.focusParent.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       host.focusParent.addEventListener("click",clickHandler);
-    }
+      listenOnStrand("itemsCreated",handleItemsCreated);
+      listenOnStrand("focusIn",focusItem);
+			// listenOnStrand("itemAdded", handleItemAdded);
+			// listenOnStrand("itemRemoved", handleItemRemoved);
 
+    }
+    /**
+     * @royaleignorecoercion org.apache.royale.events.IEventDispatcher
+     */
+		// protected function handleItemAdded(event:ItemAddedEvent):void
+		// {
+		// 	(event.item as IEventDispatcher).addEventListener("focusIn", focusInHandler);
+		// }
+		
+        /**
+         * @royaleignorecoercion org.apache.royale.events.IEventDispatcher
+         */
+		// protected function handleItemRemoved(event:ItemRemovedEvent):void
+		// {
+		// 	(event.item as IEventDispatcher).removeEventListener("focusIn", focusInHandler);
+		// }
+
+    private function getRendererIndex(renderer:DataItemRenderer):int{
+      // ugly, but there's no interface for this at the moment
+      return ((listView as DataContainerView).contentView as IParent).getElementIndex(renderer);
+    }
+    private function getRendererForIndex(index:int):DataItemRenderer{
+      return listView.dataGroup.getItemRendererForIndex(index) as DataItemRenderer;
+    }
+    protected var focusableItemRenderer:DataItemRenderer;
+    protected function handleItemsCreated(event:Event):void{
+      if(focusableItemRenderer){
+        focusableItemRenderer.keyboardFocused = false;
+        focusableItemRenderer.tabFocusable = false;
+      }
+       var ir:DataItemRenderer = focusableItemRenderer;
+       if(!ir){
+         ir = findFirstFocusable();
+       }
+       if(ir){
+         ir.tabFocusable = true;
+         focusableItemRenderer = ir;
+       } else {
+         focusableItemRenderer = null;
+       }
+    }
     protected function clickHandler(ev:Event):void{
-      listModel.keyboardFocusedIndex = -1;
+      //TODO what was this for?
+      // listModel.keyboardFocusedIndex = -1;
     }
 
     private function changeValue(event:KeyboardEvent):void{
       var key:String = event.key;
+      var index:int;
       switch(key)
       {
-        case WhitespaceKeys.ENTER:
-          listModel.selectedIndex = listModel.keyboardFocusedIndex;
+        case WhitespaceKeys.ENTER:// enter should always trigger "change" even if it's not changing to ensure that popups are closed
+          listModel.selectedIndex = getRendererIndex(focusableItemRenderer);
           sendStrandEvent(_strand,"change");
           break;
         case NavigationKeys.RIGHT:
-          if(listModel.keyboardFocusedIndex == -1){
-            listModel.keyboardFocusedIndex = listModel.selectedIndex;
-          }
-          changeMenu();
+        //TODO what does this do?
+          // if(listModel.keyboardFocusedIndex == -1){
+          //   listModel.keyboardFocusedIndex = listModel.selectedIndex;
+          // }
+          // changeMenu();
           break;
         case NavigationKeys.LEFT:
-          if(listModel.keyboardFocusedIndex == -1){
-            listModel.keyboardFocusedIndex = listModel.selectedIndex;
-          }
+        //TODO what does this do?
+          // if(listModel.keyboardFocusedIndex == -1){
+          //   listModel.keyboardFocusedIndex = listModel.selectedIndex;
+          // }
           // changeMenu();
           break;
         case NavigationKeys.DOWN:
+          event.preventDefault();
+          focusNext();
+          break;
         case NavigationKeys.UP:
           event.preventDefault();
-          focusValue(key);
+          focusPrevious();
           break;
         default:
           if (key.length > 1) {
@@ -75,8 +134,29 @@ package com.unhurdle.spectrum.beads
           break;
       }
     }
+    protected function focusItem():void{
+      if(focusableItemRenderer){
+        focusableItemRenderer.focus();
+			}else if(listModel.selectedIndex >= 0){
+        focusableItemRenderer = getRendererForIndex(listModel.selectedIndex);
+        if(focusableItemRenderer){
+          focusableItemRenderer.tabFocusable = true;
+          focusableItemRenderer.focus();
+        }
+      } else {
+
+      }
+    }
     protected function focusNext():void{
-      var startIndex:int = listModel.keyboardFocusedIndex;
+      var startIndex:int = -1;
+      if(focusableItemRenderer){
+        startIndex = getRendererIndex(focusableItemRenderer);
+        if(!focusableItemRenderer.keyboardFocused){
+          startIndex--;
+        }
+      } else if(listModel.selectedIndex > -1){
+        startIndex = listModel.selectedIndex-1;
+      }
       var index:int = startIndex + 1;
       while(index < listView.dataGroup.numItemRenderers && !canGetFocus(index)){
         index++;
@@ -88,12 +168,20 @@ package com.unhurdle.spectrum.beads
         }
       }
       if(index != startIndex){
-        listModel.keyboardFocusedIndex = index;
+        changeFocus(index);
       }
     }
 
     protected function focusPrevious():void{
-      var startIndex:int = listModel.keyboardFocusedIndex;
+      var startIndex:int = -1;
+      if(focusableItemRenderer){
+        startIndex = getRendererIndex(focusableItemRenderer);
+        if(!focusableItemRenderer.keyboardFocused){
+          startIndex--;
+        }
+      } else if(listModel.selectedIndex > -1){
+        startIndex = listModel.selectedIndex+1;
+      }
       var index:int = startIndex - 1;
       while(index > -1 && !canGetFocus(index)){
         index--;
@@ -105,16 +193,56 @@ package com.unhurdle.spectrum.beads
         }
       }
       if(index != startIndex){
-        listModel.keyboardFocusedIndex = index;
+        changeFocus(index);
       }
+    }
+    protected function changeFocus(index:int):void{
+      var ir:DataItemRenderer = getRendererForIndex(index);
+      if(ir && ir == focusableItemRenderer){
+        focusableItemRenderer.keyboardFocused = true;
+        return;// done
+      }
+    	if(focusableItemRenderer){
+				focusableItemRenderer.keyboardFocused = false;
+        focusableItemRenderer.tabFocusable = false;
+      }
+			if(ir){
+				ir.keyboardFocused = true;
+        focusableItemRenderer = ir;
+			} else {
+        focusableItemRenderer = findFirstFocusable();
+        if(focusableItemRenderer){
+          focusableItemRenderer.tabFocusable = true;
+        }
+      }
+		}
+    private function findFirstFocusable():DataItemRenderer{
+      var idx:int = 0;
+      while(idx < listView.dataGroup.numItemRenderers){
+        if(canGetFocus(idx)){
+          return getRendererForIndex(idx);
+        }
+        idx++;
+      }
+      return null;
     }
 
     protected function canGetFocus(index:int):Boolean{
-      return !(!listModel.dataProvider[index] || listModel.dataProvider[index].disabled || listModel.dataProvider[index].isDivider || listModel.dataProvider[index].isHeading);
+      var item:Object = getRendererForIndex(index).data;
+      if(!item){
+        return false;
+      }
+      if(item is IDataItem && (item as IDataItem).disabled){
+        return false;
+      }
+      if(item is IMenuItem){
+        return !(item as IMenuItem).isDivider && !(item as IMenuItem).isHeading;
+      }
+      return true;
     }
 
 		protected var timeStamp:Number = 0;
-    protected var valueToFocused:String = "";
+    protected var valueToFocus:String = "";
 
     protected function updateValue(text:String):void{
       var current:Number = new Date().getTime();
@@ -122,18 +250,18 @@ package com.unhurdle.spectrum.beads
         timeStamp = current;
       }
       if(current - timeStamp  < 250){
-        valueToFocused += text;
+        valueToFocus += text;
       }else{
-        valueToFocused = text;
+        valueToFocus = text;
       }
       timeStamp = current;
-      var txt:String = listModel.keyboardFocusedItem ? getLabelFromData(this,listModel.keyboardFocusedItem) : '';
-      if(!txt || txt.toLowerCase().indexOf(valueToFocused.toLowerCase()) != 0){
+      var txt:String = listModel.getLabelForIndex(getRendererIndex(focusableItemRenderer));
+      if(!txt || txt.toLowerCase().indexOf(valueToFocus.toLowerCase()) != 0){
         var len:int = listModel.dataProvider.length;
         for(var index:int = 0; index < len; index++){
-          var t:String = listModel.dataProvider[index].text;
-          if(t && t.toLowerCase().indexOf(valueToFocused.toLowerCase()) == 0){
-            listModel.keyboardFocusedIndex = index;
+          var t:String = listModel.getLabelForIndex(index);
+          if(t && t.toLowerCase().indexOf(valueToFocus.toLowerCase()) == 0){
+            changeFocus(index);
             return;
           }
         }
@@ -141,37 +269,47 @@ package com.unhurdle.spectrum.beads
     }
 
     private function changeMenu():void{
-      if(listModel.keyboardFocusedItem.subMenu){
-        listModel.keyboardFocusedItem.isOpen = true;
-        listModel.keyboardFocusedItem.subMenu[0].keyboardFocused = true;
+      if(!focusableItemRenderer){
+        return;
+      }
+      var data:Object = focusableItemRenderer.data;
+      if(!(data is IMenuItem)){
+        return;
+      }
+      var menu:IMenuItem = data as IMenuItem;
+      if(menu.subMenu){
+        menu.isOpen = true;
+        menu.subMenu[0].keyboardFocused = true;
       }
     }
 
     private var ind:Number = 0;
 
-    protected function focusValue(type:String):void{
-      var len:int = listModel.dataProvider.length;
-      if(listModel.keyboardFocusedIndex == -1){
-        listModel.keyboardFocusedIndex = (listModel.selectedIndex && listModel.selectedIndex != -1)? listModel.selectedIndex:0;
-      }
-      for(var index:int = 0; index < len; index++){
-        if(!canGetFocus(index)){
-          continue;
-        }
-        var t:String = listModel.dataProvider[index].text;
-        if(t.indexOf(listModel.keyboardFocusedItem.text) == 0){
-          switch(type)
-          {
-            case NavigationKeys.DOWN:
-              focusNext();
-              break;
-            case NavigationKeys.UP:
-              focusPrevious();
-              break;
-          }
-          break;
-        }
-      }
-    }
+    // protected function focusValue(type:String):void{
+    //   var len:int = listModel.dataProvider.length;
+
+    //   if(listModel.keyboardFocusedIndex == -1){
+    //     listModel.keyboardFocusedIndex = (listModel.selectedIndex && listModel.selectedIndex != -1)? listModel.selectedIndex:0;
+    //   }
+    //   for(var index:int = 0; index < len; index++){
+    //     if(!canGetFocus(index)){
+    //       continue;
+    //     }
+    //     var t:String = listModel.dataProvider[index].text;
+    //     if(t.indexOf(listModel.keyboardFocusedItem.text) == 0){
+    //       switch(type)
+    //       {
+    //         case NavigationKeys.DOWN:
+    //           focusNext();
+    //           break;
+    //         case NavigationKeys.UP:
+    //           focusPrevious();
+    //           break;
+    //       }
+    //       break;
+    //     }
+    //   }
+    // }
+
   }
 }

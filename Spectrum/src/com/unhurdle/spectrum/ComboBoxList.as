@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
     {
       _list = new Menu();
       floating = true;
+      tabFocusable = false;
     }
     private var _list:Menu;
 
@@ -25,5 +26,23 @@ package com.unhurdle.spectrum
     {
     	_list = value;
     }
+    override public function set tabFocusable(value:Boolean):void
+    {
+    	_tabFocusable = value;
+      if(value){
+        setAttribute("tabindex",0);
+      } else {
+        setAttribute("tabindex",-1);
+      }
+    }
+    override public function set open(value:Boolean):void{
+      super.open = value;
+      if(value){
+        _list.focus();
+      } else {
+        _list.blur();
+      }
+    }
+
   }
 }

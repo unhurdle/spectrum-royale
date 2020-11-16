@@ -135,7 +135,6 @@ package com.unhurdle.spectrum
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
       popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-      popover.list.focus();
     }
     private function closePopup():void{
       if(popover && popover.open){
@@ -143,7 +142,6 @@ package com.unhurdle.spectrum
 	  		_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         popover.open = false;
-        popover.list.blur();
       }
     }
 
@@ -202,16 +200,6 @@ package com.unhurdle.spectrum
       setButtonText();
     }
 
-    public function get keyboardFocusedIndex():int
-    {
-    	return menu.keyboardFocusedIndex;
-    }
-
-    public function set keyboardFocusedIndex(value:int):void
-    {
-    	menu.keyboardFocusedIndex = value;
-    }
-
     private function setButtonAsset(index:int,icon:Boolean):void{
       if(_button.getElementAt(0) is IAsset){
         _button.removeElement(_button.getElementAt(0));
@@ -253,16 +241,6 @@ package com.unhurdle.spectrum
       }
     }
 
-    public function get keyboardFocusedItem():Object
-    {
-    	return menu.keyboardFocusedItem;
-    }
-
-    public function set keyboardFocusedItem(value:Object):void
-    {
-    	menu.keyboardFocusedItem = value;
-    }
-
     public function get selectedItem():Object
     {
     	return menu.selectedItem;
@@ -285,9 +263,6 @@ package com.unhurdle.spectrum
         }
         if(value[i].disabled){
           item.disabled = value[i]["disabled"];
-        }
-        if(value[i].keyboardFocused || i == keyboardFocusedIndex || value[i] == keyboardFocusedItem){
-          item.keyboardFocused = value[i]["keyboardFocused"];
         }
         if(value[i].icon){
           item.icon = value[i]["icon"];
@@ -433,7 +408,7 @@ package com.unhurdle.spectrum
 
     public function get focusParent():ISpectrumElement
     {
-    	return popover.list;
+    	return popover;
     }
   }
 }
