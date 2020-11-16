@@ -13,10 +13,11 @@ package com.unhurdle.spectrum
   import org.apache.royale.utils.callLater;
   import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.includes.ActionButtonInclude;
+  import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="selectionChanged", type="org.apache.royale.events.Event")]
-  public class ActionButton extends Button
+  public class ActionButton extends Button implements IKeyboardNavigateable
   {
     public function ActionButton()
     {
@@ -161,6 +162,53 @@ package com.unhurdle.spectrum
       }
     	_selectedIndex = -1;
     }
+    private var _keyboardFocusedIndex:int;
+
+    public function get keyboardFocusedIndex():int
+    {
+      if(menu){
+        return menu.keyboardFocusedIndex;
+      }
+    	return _keyboardFocusedIndex;
+    }
+
+    public function set keyboardFocusedIndex(value:int):void
+    {
+      if(menu){
+        menu.keyboardFocusedIndex = value;
+      }
+    	_keyboardFocusedIndex = value;
+    }
+
+    private var _keyboardFocusedItem:Object;
+
+    public function get keyboardFocusedItem():Object
+    {
+      if(menu){
+        return menu.keyboardFocusedItem;
+      }
+      if(_keyboardFocusedIndex >=0 && dataProvider && _keyboardFocusedIndex < dataProvider["length"]){
+        if(dataProvider is Array){
+          return dataProvider[_keyboardFocusedIndex];
+        }
+        return dataProvider["source"][_keyboardFocusedIndex];
+      }
+    	return null;
+    }
+
+    public function set keyboardFocusedItem(value:Object):void
+    {
+      if(menu){
+        menu.keyboardFocusedItem = value;
+      }
+      if(dataProvider is Array){
+        _keyboardFocusedIndex = (dataProvider as Array).indexOf(value);
+      }
+      if(dataProvider.hasOwnProperty("source")){
+        _keyboardFocusedIndex = dataProvider["source"]["indexOf"](value);
+      }
+    	_keyboardFocusedIndex = -1;
+    }
 
     private var _dataProvider:Object;
 
@@ -218,6 +266,7 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("beforeShow"));
 			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
       popover.open = true;
+      popover.list.focus();
       positionPopup();
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			this.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
@@ -254,8 +303,12 @@ package com.unhurdle.spectrum
 	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	popover.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         popover.open = false;
+        popover.list.blur();
       }
     }
-		
+
+    public function get focusParent():ISpectrumElement{
+    	return popover.list;
+    }
   }
 }

@@ -70,6 +70,7 @@ package com.unhurdle.spectrum
     }
 
     private function toggleMenu(event:Event):void{
+      event.preventDefault();
       if(!dataProvider || !dataProvider.length){
         return;
       }
