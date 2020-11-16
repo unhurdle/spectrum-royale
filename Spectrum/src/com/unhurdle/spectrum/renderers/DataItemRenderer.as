@@ -119,12 +119,19 @@ package com.unhurdle.spectrum.renderers
       }
       return null;
     }
+    /**
+     * A property to prevent focus styling from being changed by programatic changes to focus
+     */
+    public var pauseFocusEvents:Boolean;
     
     private var _keyboardFocused:Boolean;
     public function get keyboardFocused():Boolean{
     	return _keyboardFocused;
     }
     public function set keyboardFocused(value:Boolean):void{
+      if(pauseFocusEvents){
+        return;
+      }
       toggle("focus-ring",value);
     	_keyboardFocused = value;
       if(value){
@@ -139,7 +146,10 @@ package com.unhurdle.spectrum.renderers
     	return _focused;
     }
     public function set focused(value:Boolean):void{
-      toggle("is-focused",value);
+      if(pauseFocusEvents){
+        return;
+      }
+      // toggle("is-focused",value);
     	_focused = value;
       if(value){
         keyboardFocused = !value;

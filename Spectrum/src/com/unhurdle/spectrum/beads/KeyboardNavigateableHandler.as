@@ -136,12 +136,16 @@ package com.unhurdle.spectrum.beads
     }
     protected function focusItem():void{
       if(focusableItemRenderer){
+        focusableItemRenderer.pauseFocusEvents = true;
         focusableItemRenderer.focus();
+        focusableItemRenderer.pauseFocusEvents = false;
 			}else if(listModel.selectedIndex >= 0){
         focusableItemRenderer = getRendererForIndex(listModel.selectedIndex);
         if(focusableItemRenderer){
           focusableItemRenderer.tabFocusable = true;
+          focusableItemRenderer.pauseFocusEvents = true;
           focusableItemRenderer.focus();
+          focusableItemRenderer.pauseFocusEvents = false;
         }
       } else {
 
