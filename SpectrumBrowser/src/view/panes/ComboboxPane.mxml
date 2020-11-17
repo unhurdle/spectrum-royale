@@ -17,8 +17,34 @@
         '  </sp:dataProvider>\n'+
         '</sp:ComboBox>';
 
+      [Bindable]public var invalidMarkup:String = 
+        '<sp:ComboBox placeholder="Type here" invalid="true">\n'+
+        '  <sp:dataProvider>\n'+
+        '  <fx:Array>\n'+
+        '    <sp:MenuItem text="Ballard"/>\n'+
+        '    <sp:MenuItem text="Freemont"/>\n'+
+        '    <sp:MenuItem text="Greenwood"/>\n'+
+        '    <sp:MenuItem isDivider="true"/>\n'+
+        '    <sp:MenuItem text="United States of America" disabled="true"/>\n'+
+        '  </fx:Array>\n'+
+        '  </sp:dataProvider>\n'+
+        '</sp:ComboBox>';
+
       [Bindable]public var quietMarkup:String = 
         '<sp:ComboBox placeholder="Type here" quiet="true">\n'+
+        '  <sp:dataProvider>\n'+
+        '  <fx:Array>\n'+
+        '    <sp:MenuItem text="Ballard"/>\n'+
+        '    <sp:MenuItem text="Freemont"/>\n'+
+        '    <sp:MenuItem text="Greenwood"/>\n'+
+        '    <sp:MenuItem isDivider="true"/>\n'+
+        '    <sp:MenuItem text="United States of America" disabled="true"/>\n'+
+        '  </fx:Array>\n'+
+        '  </sp:dataProvider>\n'+
+        '</sp:ComboBox>';
+
+      [Bindable]public var quietInvalidMarkup:String = 
+        '<sp:ComboBox placeholder="Type here" invalid="true" quiet="true">\n'+
         '  <sp:dataProvider>\n'+
         '  <fx:Array>\n'+
         '    <sp:MenuItem text="Ballard"/>\n'+
@@ -53,14 +79,24 @@
   <Br/>
   <sp:Heading size="XS" text="Invalid"/>
   <sp:Body size="XS" text="You would normally set the validity using a validation bead"/>
-  <sp:ComboBox placeholder="Type here" invalid="true"/>
+  <sp:ComboBox placeholder="Type here" invalid="true">
+    <sp:dataProvider>
+    <fx:Array>
+      <sp:MenuItem text="Ballard"/>
+      <sp:MenuItem text="Freemont"/>
+      <sp:MenuItem text="Greenwood"/>
+      <sp:MenuItem isDivider="true"/>
+      <sp:MenuItem text="United States of America" disabled="true"/>
+    </fx:Array>
+    </sp:dataProvider>
+  </sp:ComboBox>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{defaultMarkup}'/>
     <Br/>
     <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" disabled="true"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" invalid="true"/&gt;'/>
+    <comp:StyledCode text='{invalidMarkup}'/>
   </comp:Markup>
 
   <comp:Variant header="Quiet">
@@ -84,14 +120,24 @@
   <Br/>
   <sp:Heading size="XS" text="Invalid"/>
   <sp:Body size="XS" text="You would normally set the validity using a validation bead"/>
-  <sp:ComboBox placeholder="Type here" invalid="true" quiet="true"/>
+  <sp:ComboBox placeholder="Type here" invalid="true" quiet="true">
+    <sp:dataProvider>
+    <fx:Array>
+      <sp:MenuItem text="Ballard"/>
+      <sp:MenuItem text="Freemont"/>
+      <sp:MenuItem text="Greenwood"/>
+      <sp:MenuItem isDivider="true"/>
+      <sp:MenuItem text="United States of America" disabled="true"/>
+    </fx:Array>
+    </sp:dataProvider>
+  </sp:ComboBox>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='{quietMarkup}'/>
     <Br/>
     <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" disabled="true" quiet="true"/&gt;'/>
     <Br/>
-    <comp:StyledCode text='&lt;sp:ComboBox placeholder="Type here" invalid="true" quiet="true"/&gt;'/>
+    <comp:StyledCode text='{quietInvalidMarkup}'/>
   </comp:Markup>
 
 </view:DemoPane>
