@@ -36,7 +36,7 @@ package com.unhurdle.spectrum
 				viewBead = _strand.getBeadByType(IComboBoxView) as IComboBoxView;
 			}
 			viewBead.popupButton.addEventListener("click", handleButtonClick);
-			viewBead.textInputField.addEventListener("click", handleButtonClick);
+			viewBead.textInputField.addEventListener("click", handleInputClick);
 			viewBead.popUp.addEventListener("change", handleListChange);
 		}
 		
@@ -45,11 +45,17 @@ package com.unhurdle.spectrum
 			viewBead.popUpVisible = !viewBead.popUpVisible;
 		}
 		
+		private function handleInputClick(event:MouseEvent):void{
+			if(!viewBead.popUpVisible){
+				viewBead.popUpVisible = true;
+			}
+		}
 		private function handleListChange(event:Event):void
 		{
 			viewBead.popUpVisible = false;
 			
 			(_strand as IEventDispatcher).dispatchEvent(new Event("change"));
 		}
+
 	}
 }

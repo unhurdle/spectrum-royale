@@ -20,6 +20,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.events.utils.WhitespaceKeys;
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
+	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -180,46 +181,68 @@ package com.unhurdle.spectrum{
 		private var modifyingList:Boolean;
 		private function handleKeyDown(event:KeyboardEvent):void
 		{
-			if(event.key == WhitespaceKeys.ENTER){
-				popUpVisible = !popUpVisible;
-				return;
-			}
-			var currIndex:int = list.model.selectedIndex;
-			//assuming the provider is always an array
-			var provider:Array = list.dataProvider as Array;
-			var item:MenuItem;
-			var advance:int = 0;
-			modifyingList = true;
-			if(event.key == NavigationKeys.DOWN){
-				advance = 1;
-			} else if(event.key == NavigationKeys.UP){
-				advance = -1;
-			}
-			while(advance != 0){
-				if(currIndex + advance < 0){//went up too far
-					advance = 0;
-					break;
-				}
-				item = provider[currIndex + advance];
-				if(!item){// went down too far
-					advance = 0;
-				} else {
-					if(item.disabled || item.isDivider || item.isHeading){
-						if(advance < 0){// moving up
-							advance--;
-						} else {//moving down
-							advance++;
-						}
-						continue;
-					} else {
-						break;
+			// forward relevent keys to the list
+			switch(event.key){
+				case WhitespaceKeys.ENTER:
+				case NavigationKeys.DOWN:
+				case NavigationKeys.UP:
+					COMPILE::JS
+					{
+						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
+						list.focusParent.element["dispatchEvent"](newEvent);
 					}
-				}
+					break;
+
+					/**
+					 * 
+					 * event = document.createEvent('KeyboardEvent') as KeyboardEvent;
+    event.initKeyboardEvent(options.type, options.cancelable, options.bubbles, window, key, 0, 0, 0, 0);
+  } else {
+    event = new KeyboardEvent(options.type, eventInitDict)
+
+
+					 */
 			}
-			if(advance){
-				list.model.selectedIndex = currIndex + advance;
-			}
-			modifyingList = false;
+			// if(event.key == WhitespaceKeys.ENTER){
+			// 	popUpVisible = false;
+			// 	return;
+			// }
+			// var currIndex:int = list.model.selectedIndex;
+			// //assuming the provider is always an array
+			// var provider:Array = list.dataProvider as Array;
+			// var item:MenuItem;
+			// var advance:int = 0;
+			// modifyingList = true;
+			// if(event.key == NavigationKeys.DOWN){
+			// 	advance = 1;
+			// } else if(event.key == NavigationKeys.UP){
+			// 	advance = -1;
+			// }
+			// while(advance != 0){
+			// 	if(currIndex + advance < 0){//went up too far
+			// 		advance = 0;
+			// 		break;
+			// 	}
+			// 	item = provider[currIndex + advance];
+			// 	if(!item){// went down too far
+			// 		advance = 0;
+			// 	} else {
+			// 		if(item.disabled || item.isDivider || item.isHeading){
+			// 			if(advance < 0){// moving up
+			// 				advance--;
+			// 			} else {//moving down
+			// 				advance++;
+			// 			}
+			// 			continue;
+			// 		} else {
+			// 			break;
+			// 		}
+			// 	}
+			// }
+			// if(advance){
+			// 	list.model.selectedIndex = currIndex + advance;
+			// }
+			// modifyingList = false;
 
 		}
 		private var handleInput:Boolean = true;
@@ -279,6 +302,8 @@ package com.unhurdle.spectrum{
 		private function openPopup():void{
 			list.dataProvider = model.dataProvider;
 			_popup.open = true;
+			//TODO how to handle keyboard and mouse focus?
+			textfield.focus();
 		}
 		protected function handleControlMouseDown(event:MouseEvent):void
 		{			
@@ -311,6 +336,11 @@ package com.unhurdle.spectrum{
 		 */
 		protected function handleItemChange(event:Event):void
 		{
+			if(event.target == list.model){
+				model.selectedItem = list.selectedItem;
+			} else {
+				list.selectedItem = model.selectedItem;
+			}
 			itemChangeAction();
 		}
     protected function dataProviderChangeHandler(event:Event):void{

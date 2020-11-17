@@ -149,6 +149,10 @@ package com.unhurdle.spectrum
       }
       _disabled = value;
     }
+    COMPILE::JS
+    override public function focus():void{
+      focusElement.focus();
+    }
 
     private var _focused:Boolean;
 
@@ -162,6 +166,7 @@ package com.unhurdle.spectrum
       if(value != _focused){
         toggle("is-focused",value);
         if(value){
+          focus();
           toggle("is-keyboardFocused",false);
         }
       }
@@ -180,6 +185,7 @@ package com.unhurdle.spectrum
       if(value != _keyboardFocused){
         toggle("is-keyboardFocused",value);
         if(value){
+          focus();
           toggle("is-focused",false);
         }
       }
