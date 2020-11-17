@@ -69,6 +69,9 @@ package com.unhurdle.spectrum.beads
 
     private function getRendererIndex(renderer:DataItemRenderer):int{
       // ugly, but there's no interface for this at the moment
+      if(!renderer){
+        return -1;
+      }
       return ((listView as DataContainerView).contentView as IParent).getElementIndex(renderer);
     }
     private function getRendererForIndex(index:int):DataItemRenderer{
@@ -167,9 +170,8 @@ package com.unhurdle.spectrum.beads
       }
     }
     protected function focusNext():void{
-      var startIndex:int = -1;
-      if(focusableItemRenderer){
-        startIndex = getRendererIndex(focusableItemRenderer);
+      var startIndex:int = getRendererIndex(focusableItemRenderer);
+      if(startIndex > -1){// we have a valid renderer
         if(!focusableItemRenderer.keyboardFocused){
           startIndex--;
         }
@@ -192,9 +194,8 @@ package com.unhurdle.spectrum.beads
     }
 
     protected function focusPrevious():void{
-      var startIndex:int = -1;
-      if(focusableItemRenderer){
-        startIndex = getRendererIndex(focusableItemRenderer);
+      var startIndex:int = getRendererIndex(focusableItemRenderer);
+      if(startIndex > -1){// we have a valid renderer
         if(!focusableItemRenderer.keyboardFocused){
           startIndex--;
         }
