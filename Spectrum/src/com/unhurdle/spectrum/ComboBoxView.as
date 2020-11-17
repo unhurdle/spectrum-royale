@@ -250,6 +250,10 @@ package com.unhurdle.spectrum{
 			if (ev.key.length > 1 && ev.key != EditingKeys.BACKSPACE && ev.key != EditingKeys.DELETE) {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
+			// show the popup while typing
+			if(!popUpVisible){
+				popUpVisible = true;
+			}
 			if(textfield.text){
 				list.dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
 			} else {
@@ -322,6 +326,7 @@ package com.unhurdle.spectrum{
 		  	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         _popup.open = false;
       }
+			textfield.focus();
 		}
 		/**
 		 * @private
