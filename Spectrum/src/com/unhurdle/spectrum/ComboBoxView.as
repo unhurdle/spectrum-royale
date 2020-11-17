@@ -254,7 +254,7 @@ package com.unhurdle.spectrum{
 			if(!popUpVisible){
 				popUpVisible = true;
 			}
-			if(textfield.text){
+			if(textfield.text && model.dataProvider){
 				list.dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
 			} else {
 				list.dataProvider = model.dataProvider;
@@ -305,7 +305,9 @@ package com.unhurdle.spectrum{
 		}
 		private function openPopup():void{
 			list.dataProvider = model.dataProvider;
-			_popup.open = true;
+			if(list.dataProvider){
+				_popup.open = true;
+			}
 			//TODO how to handle keyboard and mouse focus?
 			textfield.focus();
 		}
