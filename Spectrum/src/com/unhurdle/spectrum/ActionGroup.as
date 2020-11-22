@@ -92,23 +92,26 @@ package com.unhurdle.spectrum
     // button group children need item selectors
     override public function addElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.addElement(c,dispatchEvent);
-      (c as ISpectrumElement).toggle(appendSelector("-item"),true);
-      if(quiet){
-        (c as ISpectrumElement).toggle(ActionButtonInclude.getSelector() + "--quiet",true)
-      }
+      appendItemSelector(c);
     }
     override public function addElementAt(c:org.apache.royale.core.IChild, index:int, dispatchEvent:Boolean = true):void{
       super.addElementAt(c,index,dispatchEvent);
-      (c as ISpectrumElement).toggle(appendSelector("-item"),true);
-      if(quiet){
-        (c as ISpectrumElement).toggle(ActionButtonInclude.getSelector() + "--quiet",true)
-      }
+      appendItemSelector(c);
     }
     override public function removeElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.removeElement(c,dispatchEvent);
-      (c as ISpectrumElement).toggle(appendSelector("-item"),false);
-      if(quiet){
-        (c as ISpectrumElement).toggle(ActionButtonInclude.getSelector() + "--quiet",false)
+      appendItemSelector(c);
+    }
+    /**
+     * @royaleemitcoercion com.unhurdle.spectrum.ISpectrumElement
+     */
+    private function appendItemSelector(c:org.apache.royale.core.IChild):void{
+      var spectrumItem:ISpectrumElement = c as ISpectrumElement;
+      if(spectrumItem){
+        spectrumItem.toggle(appendSelector("-item"),false);
+        if(quiet){
+          spectrumItem.toggle(ActionButtonInclude.getSelector() + "--quiet",false);
+        }
       }
     }
   }
