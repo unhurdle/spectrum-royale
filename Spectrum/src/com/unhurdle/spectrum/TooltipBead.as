@@ -58,7 +58,7 @@ package com.unhurdle.spectrum
 		{
 			_strand = value;
 
-			IEventDispatcher(_strand).addEventListener(MouseEvent.MOUSE_OVER, rollOverHandler, false);
+			(_strand as IEventDispatcher).addEventListener(MouseEvent.MOUSE_OVER, rollOverHandler, false);
 		}
 
 		protected function rollOverHandler(event:MouseEvent):void
@@ -66,7 +66,7 @@ package com.unhurdle.spectrum
 			if (!toolTip || tt)
 				return;
 
-			IEventDispatcher(_strand).addEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
+			(_strand as IEventDispatcher).addEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
 
 			var comp:IUIBase = _strand as IUIBase
 			host = UIUtils.findPopUpHost(comp);
@@ -114,7 +114,7 @@ package com.unhurdle.spectrum
 
 		protected function rollOutHandler(event:MouseEvent):void
 		{
-			IEventDispatcher(_strand).removeEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
+			(_strand as IEventDispatcher).removeEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
 
 			var comp:IUIBase = _strand as IUIBase;
 			if (tt) {

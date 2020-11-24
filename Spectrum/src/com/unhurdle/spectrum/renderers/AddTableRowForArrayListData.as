@@ -48,7 +48,7 @@ package com.unhurdle.spectrum.renderers
 	
 		protected function initComplete(event:Event):void
 		{
-			IEventDispatcher(_strand).removeEventListener("initComplete", initComplete);
+			(_strand as IEventDispatcher).removeEventListener("initComplete", initComplete);
 			
 			model = _strand.getBeadByType(ISelectionModel) as TableModel;
 			

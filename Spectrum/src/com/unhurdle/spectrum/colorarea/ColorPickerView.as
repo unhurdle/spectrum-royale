@@ -76,7 +76,7 @@ package com.unhurdle.spectrum.colorarea
 			(list as IColorPickerPopUp).model = model;
 			model.addEventListener("change", handleColorChange);
 			
-			IEventDispatcher(_strand).addEventListener("sizeChanged", handleSizeChange);
+			(_strand as IEventDispatcher).addEventListener("sizeChanged", handleSizeChange);
 			
 			// set initial value and positions using default sizes
 			colorChangeAction();

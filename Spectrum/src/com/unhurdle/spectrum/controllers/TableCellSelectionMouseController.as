@@ -39,8 +39,8 @@ package com.unhurdle.spectrum.controllers
 			_strand = value;
 			model = value.getBeadByType(ISelectionModel) as ISelectionModel;
 			view = value.getBeadByType(IBeadView) as TableView;
-			IEventDispatcher(_strand).addEventListener("itemAdded", handleItemAdded);
-			IEventDispatcher(_strand).addEventListener("itemRemoved", handleItemRemoved);
+			(_strand as IEventDispatcher).addEventListener("itemAdded", handleItemAdded);
+			(_strand as IEventDispatcher).addEventListener("itemRemoved", handleItemRemoved);
 		}
 		
     protected function handleItemAdded(event:ItemAddedEvent):void

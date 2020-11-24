@@ -31,7 +31,7 @@ package com.unhurdle.spectrum
 			model = _strand.getBeadByType(TableModel) as TableModel;
 			model.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			model.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
-			IEventDispatcher(_strand).addEventListener("itemsCreated", itemsCreatedHandler);
+			(_strand as IEventDispatcher).addEventListener("itemsCreated", itemsCreatedHandler);
 			super.handleInitComplete(event);
 		}
 
