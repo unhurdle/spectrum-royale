@@ -69,23 +69,30 @@ package com.unhurdle.spectrum
       }
     }
 
-    private function toggleMenu(event:Event):void{
-      event.preventDefault();
-      if(!dataProvider || !dataProvider.length){
-        return;
-      }
-      if(_openMenu && _openMenu != this){
-        _openMenu.closePopup();
-      }
-      event.stopImmediatePropagation();
-      var shown:Boolean = popover && popover.open;
-      if(shown){// close it
-        closePopup();
+    private function toggleMenu(event:MouseEvent):void{
+      if(event.button != 2){
+        event.preventDefault();
+        //mouseEvent
+        if(!dataProvider || !dataProvider.length){
+          return;
+        }
+        if(_openMenu && _openMenu != this){
+          _openMenu.closePopup();
+        }
+        event.stopImmediatePropagation();
+        var shown:Boolean = popover && popover.open;
+        if(shown){// close it
+          closePopup();
 
-      } else {//open it
-        showMenu();
+        } else {//open it
+          showMenu();
+        }
+      }
+      else{
+        //do nothing
       }
     }
+
     override public function showMenu():void{
       super.showMenu();
       selected = true;
