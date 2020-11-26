@@ -70,26 +70,26 @@ package com.unhurdle.spectrum
     }
 
     private function toggleMenu(event:MouseEvent):void{
-      if(event.button != 2){
-        event.preventDefault();
-        //mouseEvent
-        if(!dataProvider || !dataProvider.length){
-          return;
-        }
-        if(_openMenu && _openMenu != this){
-          _openMenu.closePopup();
-        }
-        event.stopImmediatePropagation();
-        var shown:Boolean = popover && popover.open;
-        if(shown){// close it
-          closePopup();
-
-        } else {//open it
-          showMenu();
-        }
+      
+      if(event.button != 0){
+        //only handle left click
+        return;
       }
-      else{
-        //do nothing
+      event.preventDefault();
+      //mouseEvent
+      if(!dataProvider || !dataProvider.length){
+        return;
+      }
+      if(_openMenu && _openMenu != this){
+        _openMenu.closePopup();
+      }
+      event.stopImmediatePropagation();
+      var shown:Boolean = popover && popover.open;
+      if(shown){// close it
+        closePopup();
+
+      } else {//open it
+        showMenu();
       }
     }
 
