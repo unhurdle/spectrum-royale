@@ -70,10 +70,13 @@ package com.unhurdle.spectrum
     }
 
     private function toggleMenu(event:MouseEvent):void{
-      
-      if(event.button != 0){
-        //only handle left click
-        return;
+      // For now button is only available in the JS version
+      COMPILE::JS
+      {
+        if(event.button != 0){
+          //only handle left click
+          return;
+        }
       }
       event.preventDefault();
       //mouseEvent
