@@ -81,17 +81,18 @@ package com.unhurdle.spectrum
     // percentWidth needed to allow the container copmponent to be sized
     input.percentWidth = 100;
     (input.element as HTMLInputElement).type = "search";
-    input.placeholder = "Search"
+    input.placeholder = "Search";
     //TODO forward events
     addElement(input);
     var type:String = IconType.MAGNIFIER;
     input.icon = IconPrefix.SPECTRUM_CSS_ICON + type;
     input.iconType = type;
 
+    input.input.style.paddingRight = "25px";
     button = new ClearButton();
     button.className = appendSelector("-clearButton");
     button.addEventListener("clear" , clear);
-    addElement(button);
+    input.addElement(button);
     element.addEventListener("submit", handleSubmit);
     return element; 
     }

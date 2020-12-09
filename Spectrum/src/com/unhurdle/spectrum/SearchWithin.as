@@ -54,13 +54,14 @@ package com.unhurdle.spectrum
       input = new TextField();
       input.placeholder = "Search";
       input.inputClass = appendSelector("-input");
+      input.input.style.paddingRight = "25px";
       button = new ClearButton();
       button.className = appendSelector("-clearButton");
       button.addEventListener("clear" , clear);
       element.addEventListener("submit", handleSubmit);
       addElement(_dropdown);
       addElement(input);
-      addElement(button);
+      input.addElement(button);
       _dropdown.addEventListener("change",handleChange);
       _dropdown.addEventListener("showMenu",handleShowMenu);
       // input.element.addEventListener("change",cancelChange);
