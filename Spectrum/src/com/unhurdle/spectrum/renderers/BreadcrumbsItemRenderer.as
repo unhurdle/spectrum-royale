@@ -29,6 +29,10 @@ package com.unhurdle.spectrum.renderers
       return "spectrum-Breadcrumbs";
     }
 
+    override public function set tabFocusable(value:Boolean):void{
+          
+    }
+
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value
