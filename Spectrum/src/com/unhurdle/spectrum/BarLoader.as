@@ -34,6 +34,7 @@ package com.unhurdle.spectrum
         public function set label(value:String):void
         {
         	_label = value;
+            labelNode.element.style.display = "inherit";
             labelNode.text = value;
         }
 
@@ -139,6 +140,7 @@ package com.unhurdle.spectrum
             var baseSelector:String = getSelector();
             labelNode = new TextNode("div");
             labelNode.className = baseSelector + "-label";
+            labelNode.element.style.display = "none";
             elem.appendChild(labelNode.element);
             valueNode = new TextNode("div");
             valueNode.className = baseSelector + "-percentage";
@@ -146,6 +148,7 @@ package com.unhurdle.spectrum
 
             var track:HTMLElement = newElement("div");
             track.className = baseSelector + "-track";
+            track.style.flexGrow = 1;
             fill = newElement("div");
             fill.className = baseSelector + "-fill";
             fill.style.width = value;
