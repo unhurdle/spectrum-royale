@@ -137,16 +137,18 @@ package com.unhurdle.spectrum
         var newIndicator:TabIndicator = new TabIndicator();
         var styleStr:String;
         if(tabBar.vertical){
-        styleStr = "height: 46px; top: 0px;";
+          newIndicator.height = 46;
+          // styleStr = "height: 46px; top: 0px;";
+        } else {
+          newIndicator.width = width;
         }
-          else{
-            if(iconElement && text){
-              styleStr = "width: 45px; left: 0px;";              
-            }else{
-              styleStr = "width: 27px; left: 0px;";
-            }
-          }
-        newIndicator.setAttribute("style",styleStr);
+
+        //     if(iconElement && text){
+        //       styleStr = "width: 45px; left: 0px;";              
+        //     }else{
+        //       styleStr = "width: 27px; left: 0px;";
+        //     }
+        // newIndicator.setAttribute("style",styleStr);
         addElement(newIndicator);
       }
     }
