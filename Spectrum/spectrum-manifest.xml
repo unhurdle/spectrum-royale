@@ -55,6 +55,7 @@
     <component id="Container" class="com.unhurdle.spectrum.Container"/>
     <component id="CycleButton" class="com.unhurdle.spectrum.CycleButton"/>
     <component id="DataItemRenderer" class="com.unhurdle.spectrum.renderers.DataItemRenderer"/>
+    <component id="DateField" class="com.unhurdle.spectrum.DateField"/>
     <component id="DatePicker" class="com.unhurdle.spectrum.DatePicker"/>
     <component id="Detail" class="com.unhurdle.spectrum.typography.Detail"/>
     <component id="DetailSpan" class="com.unhurdle.spectrum.typography.DetailSpan"/>
@@ -111,6 +112,7 @@
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>
     <component id="PageTitle" class="com.unhurdle.spectrum.typography.PageTitle"/>
     <component id="PagePagination" class="com.unhurdle.spectrum.PagePagination"/>
+    <component id="PasswordField" class="com.unhurdle.spectrum.PasswordField"/>
     <component id="Picker" class="com.unhurdle.spectrum.Picker"/>
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="QuickActions" class="com.unhurdle.spectrum.QuickActions"/>
