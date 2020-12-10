@@ -40,7 +40,7 @@ package com.unhurdle.spectrum
        */
       protected var dataGroup:IItemRendererOwnerView;
 
-    private var _strand:IStrand;
+    protected var _strand:IStrand;
 		
     /**
      *  @copy org.apache.royale.core.IBead#strand

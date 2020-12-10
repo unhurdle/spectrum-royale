@@ -58,12 +58,12 @@ package com.unhurdle.spectrum.renderers
     }
     private var _isOpen:Boolean = false;
 
-    private function get isOpen():Boolean
+    public function get isOpen():Boolean
     {
     	return _isOpen;
     }
 
-    private function set isOpen(value:Boolean):void
+    public function set isOpen(value:Boolean):void
     {
     	_isOpen = value;
       toggle('is-open',value);

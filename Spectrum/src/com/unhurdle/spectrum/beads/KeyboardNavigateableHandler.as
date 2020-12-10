@@ -1,28 +1,24 @@
 package com.unhurdle.spectrum.beads
 {
   import com.unhurdle.spectrum.MenuModel;
+  import com.unhurdle.spectrum.data.IMenuItem;
+  import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
   import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
+  import com.unhurdle.spectrum.renderers.DataItemRenderer;
 
   import org.apache.royale.core.Bead;
   import org.apache.royale.core.IBead;
+  import org.apache.royale.core.IParent;
   import org.apache.royale.core.ISelectionModel;
   import org.apache.royale.core.IStrand;
   import org.apache.royale.debugging.assert;
+  import org.apache.royale.events.Event;
   import org.apache.royale.events.KeyboardEvent;
   import org.apache.royale.events.utils.NavigationKeys;
   import org.apache.royale.events.utils.WhitespaceKeys;
-  import org.apache.royale.html.beads.IListView;
-  import org.apache.royale.html.util.getLabelFromData;
-  import org.apache.royale.utils.sendStrandEvent;
-  import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
-  import com.unhurdle.spectrum.data.IMenuItem;
-  import com.unhurdle.spectrum.data.IDataItem;
-  import org.apache.royale.events.Event;
-  import com.unhurdle.spectrum.renderers.DataItemRenderer;
-  import org.apache.royale.core.IParent;
   import org.apache.royale.html.beads.DataContainerView;
-  import org.apache.royale.events.ItemAddedEvent;
-  import org.apache.royale.events.ItemRemovedEvent;
+  import org.apache.royale.html.beads.IListView;
+  import org.apache.royale.utils.sendStrandEvent;
 
   public class KeyboardNavigateableHandler extends Bead implements IBead, IKeyboardHandler
   {
@@ -67,7 +63,7 @@ package com.unhurdle.spectrum.beads
 		// 	(event.item as IEventDispatcher).removeEventListener("focusIn", focusInHandler);
 		// }
 
-    private function getRendererIndex(renderer:DataItemRenderer):int{
+    protected function getRendererIndex(renderer:DataItemRenderer):int{
       // ugly, but there's no interface for this at the moment
       if(!renderer){
         return -1;
@@ -99,7 +95,7 @@ package com.unhurdle.spectrum.beads
       // listModel.keyboardFocusedIndex = -1;
     }
 
-    private function changeValue(event:KeyboardEvent):void{
+    protected function changeValue(event:KeyboardEvent):void{
       var key:String = event.key;
       var index:int;
       switch(key)
@@ -252,7 +248,7 @@ package com.unhurdle.spectrum.beads
       if(!item){
         return false;
       }
-      if(item is IDataItem && (item as IDataItem).disabled){
+      if(item.disabled){
         return false;
       }
       if(item is IMenuItem){
