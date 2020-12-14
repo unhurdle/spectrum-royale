@@ -49,24 +49,24 @@ package com.unhurdle.spectrum
     // button group children need item selectors
     override public function addElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.addElement(c,dispatchEvent);
-      appendItemSelector(c);
+      appendItemSelector(c,true);
     }
     override public function addElementAt(c:org.apache.royale.core.IChild, index:int, dispatchEvent:Boolean = true):void{
       super.addElementAt(c,index,dispatchEvent);
-      appendItemSelector(c);
+      appendItemSelector(c,true);
     }
     override public function removeElement(c:org.apache.royale.core.IChild, dispatchEvent:Boolean = true):void{
       super.removeElement(c,dispatchEvent);
-      appendItemSelector(c);
+      appendItemSelector(c,false);
     }
     /**
      * @royaleemitcoercion com.unhurdle.spectrum.ISpectrumElement
      */
-    private function appendItemSelector(c:org.apache.royale.core.IChild):void{
+    private function appendItemSelector(c:org.apache.royale.core.IChild,add:Boolean):void{
       if(!compact){
         var spectrumItem:ISpectrumElement = c as ISpectrumElement;
         if(spectrumItem){
-          spectrumItem.toggle(appendSelector("-item"),false);
+          spectrumItem.toggle(appendSelector("-item"),add);
         }
       }
     }
