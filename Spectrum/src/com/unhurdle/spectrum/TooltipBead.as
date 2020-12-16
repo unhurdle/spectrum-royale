@@ -23,11 +23,27 @@ package com.unhurdle.spectrum
 		public static const BOTTOM:String = "bottom";
 		public static const TOP:String = "top";
 
-		private var _toolTip:String;
 		protected var tt:Tooltip;
 		protected var host:IPopUpHost;
-		private var _direction:String = TOP;
 
+		private var _autoClose:Number = 2000;
+
+		/**
+		 * Number of milliseconds to auto-close the tooltip
+		 * 0 means it stays open
+		 * Default is 2000
+		 */
+		public function get autoClose():Number
+		{
+			return _autoClose;
+		}
+
+		public function set autoClose(value:Number):void
+		{
+			_autoClose = value;
+		}
+
+		private var _toolTip:String;
 		public function get toolTip():String
 		{
 			return _toolTip;
@@ -37,6 +53,7 @@ package com.unhurdle.spectrum
 			_toolTip = value;
 		}
 
+		private var _direction:String = TOP;
     [Inspectable(category="General", enumeration="left,right,bottom,top", defaultValue="top")]
 		public function set direction(value:String):void
 		{
@@ -88,7 +105,11 @@ package com.unhurdle.spectrum
 				tt.x = pt.x;
 				tt.y = pt.y;
 			}
+			if(_autoClose > 0){
+				timeoutId = setTimeout(closeTooltip,_autoClose);
+			}
 		}
+		private var timeoutId:Number = 0;
 
 		protected function determinePosition(comp:IUIBase, tooltip:Tooltip):Point
 		{
@@ -112,8 +133,13 @@ package com.unhurdle.spectrum
 			return pt;
 		}
 
-		protected function rollOutHandler(event:MouseEvent):void
-		{
+		protected function rollOutHandler(event:MouseEvent):void{
+			if(timeoutId > 0){
+				clearTimeout(timeoutId);
+			}
+			closeTooltip();
+		}
+		protected function closeTooltip():void{
 			(_strand as IEventDispatcher).removeEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
 
 			var comp:IUIBase = _strand as IUIBase;
@@ -121,6 +147,8 @@ package com.unhurdle.spectrum
 				host.popUpParent.removeElement(tt);
 				tt = null;
 			}
+			timeoutId = 0;
+
 		}
 	}
 }
