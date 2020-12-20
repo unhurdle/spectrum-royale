@@ -271,13 +271,23 @@ package com.unhurdle.spectrum
         }
       }
     }
+    private var _focusFirst:Boolean = true;
+    /**
+     * If true, the first element is focused when the dialog is opened.
+     */
+    public function get focusFirst():Boolean{
+    	return _focusFirst;
+    }
+    public function set focusFirst(value:Boolean):void{
+    	_focusFirst = value;
+    }
 
     private var elements:Array = [];
     private function focusElement():void
     {
       var hasFocus:Boolean = hasAutoFocus(this,elements);
       if(!hasFocus){
-        if(elements[0]){
+        if(focusFirst && elements[0]){
           (elements[0] as ISpectrumElement).focus();
         }else{
           this.focus();
