@@ -34,6 +34,11 @@ package com.unhurdle.spectrum
 			if(!_splitter){
 				_splitter = newElement('div') as HTMLDivElement;
 				_splitter.className = appendSelector("-splitter");
+				if(direction == "horizontal"){
+					_splitter.style.cursor = "col-resize";
+				} else{
+					_splitter.style.cursor = "row-resize";
+				}
 			}
 			return _splitter;
 		}
