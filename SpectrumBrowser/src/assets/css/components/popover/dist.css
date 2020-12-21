@@ -161,6 +161,11 @@
   -webkit-clip-path: inset(-30px -30px);
           clip-path: inset(-30px -30px);
 }
+.spectrum--dark .spectrum-Popover .spectrum-Dialog-header,
+.spectrum--dark .spectrum-Popover .spectrum-Dialog-footer,
+.spectrum--dark .spectrum-Popover .spectrum-Dialog-wrapper {
+    background-color: transparent;
+  }
 .spectrum--dark .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
       fill: rgb(37, 37, 37);
       stroke: rgb(90, 90, 90);
@@ -174,6 +179,11 @@
   -webkit-clip-path: inset(-30px -30px);
           clip-path: inset(-30px -30px);
 }
+.spectrum--darkest .spectrum-Popover .spectrum-Dialog-header,
+.spectrum--darkest .spectrum-Popover .spectrum-Dialog-footer,
+.spectrum--darkest .spectrum-Popover .spectrum-Dialog-wrapper {
+    background-color: transparent;
+  }
 .spectrum--darkest .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
       fill: rgb(8, 8, 8);
       stroke: rgb(73, 73, 73);
@@ -187,6 +197,11 @@
   -webkit-clip-path: inset(-30px -30px);
           clip-path: inset(-30px -30px);
 }
+.spectrum--light .spectrum-Popover .spectrum-Dialog-header,
+.spectrum--light .spectrum-Popover .spectrum-Dialog-footer,
+.spectrum--light .spectrum-Popover .spectrum-Dialog-wrapper {
+    background-color: transparent;
+  }
 .spectrum--light .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
       fill: rgb(255, 255, 255);
       stroke: rgb(202, 202, 202);
@@ -200,6 +215,11 @@
   -webkit-clip-path: inset(-30px -30px);
           clip-path: inset(-30px -30px);
 }
+.spectrum--lightest .spectrum-Popover .spectrum-Dialog-header,
+.spectrum--lightest .spectrum-Popover .spectrum-Dialog-footer,
+.spectrum--lightest .spectrum-Popover .spectrum-Dialog-wrapper {
+    background-color: transparent;
+  }
 .spectrum--lightest .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
       fill: rgb(255, 255, 255);
       stroke: rgb(211, 211, 211);

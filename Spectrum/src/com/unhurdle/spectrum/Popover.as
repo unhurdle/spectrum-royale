@@ -108,18 +108,111 @@ package com.unhurdle.spectrum
       if(value != !!_dialog){
       	_dialog = value;
         toggle(valueToSelector("dialog"),value);
-        COMPILE::JS
-        {
-          if(value){          
-            var tip:HTMLDivElement = newElement("div",appendSelector("-tip")) as HTMLDivElement;
-            element.appendChild(tip);
-          }else{
-            if(element.contains(tip)){
-              element.removeChild(tip);
-            }
+        toggle(valueToSelector("withTip"),value);
+      }
+    }
+    override public function addedToParent():void{
+      super.addedToParent();
+      COMPILE::JS
+      {
+        if(dialog){
+          if(!tipElement){
+            tipElement = newSVGElement("svg",appendSelector("-tip"));
+            // <path class="spectrum-Popover-tip-triangle" d="M 0 0.7071067811865476 L 10.707106781186548 11.414213562373096 L 0 22.121320343559645"></path>
+            tipPath = newSVGElement("path", appendSelector("-tip-triangle")) as SVGPathElement;
+            // setTipPath();
+            tipElement.appendChild(tipPath);
+          }
+          element.appendChild(tipElement);
+          requestAnimationFrame(positionTip);
+  //      var svg:SVGElement = newSVGElement("svg",appendSelector("-folder"));
+
+        } else {
+          if(tipElement){
+            element.removeChild(tipElement);
+            tipElement = null;
           }
         }
       }
+    }
+    COMPILE::JS
+    protected var tipElement:SVGElement;
+    COMPILE::JS
+    protected var tipPath:SVGPathElement;
+    
+    COMPILE::JS
+    protected function setTipPath():void{
+      var pathString:String;
+      switch(position){
+        case "top":
+        case "bottom":
+          pathString = "M 0.7071067811865476 0 L 11.414213562373096 10.707106781186548 L 22.121320343559645 0";
+          break;
+        default:
+          pathString = "M 0 0.7071067811865476 L 10.707106781186548 11.414213562373096 L 0 22.121320343559645";
+          break;
+      }
+      tipPath.setAttribute("d",pathString);
+    }
+    
+    COMPILE::JS
+    protected function positionTip():void{
+      setTipPath();
+      if(tipPosition == 50){
+        tipElement.style.top = "";
+        tipElement.style.left = "";
+        return;
+      }
+      var percentSize:Number;
+      var actualPosition:Number;
+      switch(position){
+        case "top":
+        case "bottom":
+          tipElement.style.top = "";
+          var width:Number = this.width;
+          percentSize = width/100;
+          actualPosition = tipPosition * percentSize;
+          if(actualPosition < 13){
+            tipElement.style.left = "13px";
+            return;
+          }
+          if(width - actualPosition < 13){
+            tipElement.style.left = (width-13) + "px";
+            return;
+          }
+          tipElement.style.left = tipPosition + "%";
+          break;
+        default:
+          tipElement.style.left = "";
+          var height:Number = this.height;
+          percentSize = height/100;
+          actualPosition = tipPosition * percentSize;
+          if(actualPosition < 13){
+            tipElement.style.top = "13px";
+            return;
+          }
+          if(height - actualPosition < 13){
+            tipElement.style.top = (height-13) + "px";
+            return;
+          }
+          tipElement.style.top = tipPosition + "%";
+
+          break;
+
+      }
+    }
+    private var _tipPosition:Number = 50;
+    /**
+     * The tip position in percentage of the width/height.
+     */
+    public function get tipPosition():Number
+    {
+    	return _tipPosition;
+    }
+
+    public function set tipPosition(value:Number):void
+    {
+    	_tipPosition = value;
     }
 
     // private var _tip:Boolean;

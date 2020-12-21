@@ -56,7 +56,11 @@ package com.unhurdle.spectrum.colorarea
 			if (!innerElement)
 			{
 				innerBg = new Div();
-				innerBg.className = "CheckeredBackground";
+				COMPILE::JS
+				{
+					applyCheckeredBackground(innerBg.element.style);
+				}
+				// innerBg.className = "CheckeredBackground";
 				innerElement = new Div();
 				innerBg.width = innerElement.width = Math.max(0, width - 2 * padding);
 				innerBg.height = innerElement.height = Math.max(0, height - 2 * padding);

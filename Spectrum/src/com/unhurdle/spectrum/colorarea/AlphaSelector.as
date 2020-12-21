@@ -7,7 +7,11 @@ package com.unhurdle.spectrum.colorarea
 		public function AlphaSelector()
 		{
 			super();
-			typeNames = "AlphaSelector CheckeredBackground";
+			typeNames = "AlphaSelector";
+			COMPILE::JS
+			{
+				applyCheckeredBackground(element.style);
+			}
 			minimum = 0;
 			maximum = 100;
 		}

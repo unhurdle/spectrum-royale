@@ -53,7 +53,11 @@ package com.unhurdle.spectrum.colorarea
 			selectedColorDisplay = new Div();
 			selectedColorDisplay.percentWidth = 100;
 			selectedColorDisplay.percentHeight = 100;
-			(host as IStyleableObject).className = "CheckeredBackground";
+			COMPILE::JS
+			{
+				applyCheckeredBackground(host.element.style);
+			}
+			// (host as IStyleableObject).className = "CheckeredBackground";
 			(selectedColorDisplay as IStyleableObject).className = "ColorPickerDisplayedColor";			
 			
 			if (isNaN(host.width)) selectedColorDisplay.width = 44;
@@ -68,7 +72,7 @@ package com.unhurdle.spectrum.colorarea
 			}
 			host.addElement(selectedColorDisplay);
 			
-            loadBeadFromValuesManager(IPopUp, "iPopUp", _strand);
+			loadBeadFromValuesManager(IPopUp, "iPopUp", _strand);
 			list = _strand.getBeadByType(IColorPickerPopUp) as IUIBase;
 			list.visible = false;
 			
@@ -191,6 +195,6 @@ package com.unhurdle.spectrum.colorarea
 			if (host.isWidthSizedToContent()) {
 				host.width = selectedColorDisplay.width;
 			}
-        }
-    }
+		}
+	}
 }
