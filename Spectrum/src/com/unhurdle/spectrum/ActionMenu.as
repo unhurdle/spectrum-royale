@@ -80,7 +80,7 @@ package com.unhurdle.spectrum
       }
       event.preventDefault();
       //mouseEvent
-      if(!dataProvider || !dataProvider.length){
+      if(!showEmptyMenu && (!dataProvider || !dataProvider.length)){
         return;
       }
       if(_openMenu && _openMenu != this){

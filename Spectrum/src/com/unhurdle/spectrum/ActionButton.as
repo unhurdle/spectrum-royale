@@ -209,8 +209,9 @@ package com.unhurdle.spectrum
       menu.dataProvider = dataProvider;
       menu.addEventListener("change",handleMenuChange);
     }
+    public var showEmptyMenu:Boolean;
     public function showMenu():void{
-      if(!dataProvider || !dataProvider.length){
+      if(!showEmptyMenu && (!dataProvider || !dataProvider.length)){
         return;
       }
       // construct if necessary and show the menu.
