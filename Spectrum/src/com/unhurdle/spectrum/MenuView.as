@@ -50,6 +50,7 @@ package com.unhurdle.spectrum
 				focusableItemRenderer.tabFocusable = true;
 			}
 			super.itemsCreatedHandler(event);
+			selectionChangeHandler(null);
 
 		}
 		/**

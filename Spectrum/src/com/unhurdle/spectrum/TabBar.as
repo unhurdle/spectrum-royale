@@ -6,7 +6,14 @@ package com.unhurdle.spectrum
 		import org.apache.royale.html.util.addElementToWrapper;
 	}
 	import org.apache.royale.events.ValueEvent;
-		
+	import org.apache.royale.utils.sendStrandEvent;
+	import org.apache.royale.events.Event;
+	import org.apache.royale.utils.BrowserInfo;
+	
+	/**
+	 * The change event is dispatched when the selected tab changes.
+	 */
+	[Event(name="change", type="org.apache.royale.events.Event")]
 
 	[DefaultProperty("tabs")]
 	public class TabBar extends Group
@@ -20,7 +27,7 @@ package com.unhurdle.spectrum
 		public function TabBar()
 		{ 
 			super();
-			window.addEventListener("resize",resized,false);
+			tabOverflow = new TabOverflow();
 		}
 
 		private var _quiet:Boolean;
@@ -30,11 +37,10 @@ package com.unhurdle.spectrum
 		private var tabWidth:Number;
 		private var hasDropdown:Boolean;
 		private var _tabs:Array;
-		private var indicator:TabIndicator;
+		protected var indicator:TabIndicator;
 		private var count:int = 0;
 
-		override protected function getSelector():String
-		{
+		override protected function getSelector():String{
 			return getTabsSelector(); 
 		}
 
@@ -42,45 +48,33 @@ package com.unhurdle.spectrum
 			return getSelector() + value;
 		}
 
-		// COMPILE::JS
-		// override protected function computeFinalClassNames():String
-		// {
-		//   return element.className as String;
-		// }
-		
-		public function get quiet():Boolean
-		{
+		public function get quiet():Boolean{
 			return _quiet;
 		}
 
-		public function set quiet(value:Boolean):void
-		{
+		public function set quiet(value:Boolean):void{
 			if(value != !!_quiet){
 				toggle(valueToSelector("quiet"),value);
 			}
 			_quiet = value;
 		}
 
-		public function get compact():Boolean
-		{
+		public function get compact():Boolean{
 			return _compact;
 		}
 		
-		public function set compact(value:Boolean):void 
-		{
+		public function set compact(value:Boolean):void {
 			
 			if(value != !!_compact){
 				toggle(valueToSelector("compact"),value);
 			}
 			_compact = value;
 		}
-		public function get vertical():Boolean
-		{
+		public function get vertical():Boolean{
 			return _vertical;
 		}
 
-		public function set vertical(value:Boolean):void 
-		{
+		public function set vertical(value:Boolean):void {
 			if(value != _vertical){
 				toggle(valueToSelector("horizontal"),!value);
 				toggle(valueToSelector("vertical"),value);
@@ -88,134 +82,228 @@ package com.unhurdle.spectrum
 			_vertical = value;
 		}
 		
-		private function resized():void{
-		if(!vertical == true){
-		var elem:HTMLElement = element as HTMLElement;
-		var barWidth:Number = elem.getBoundingClientRect().width;  
-		var barPadding:Number = elem.style.padding as Number; //doesnt HAVE padding.
-		if(barPadding){
-			var barResult:Number = (barWidth - barPadding);
-			barWidth = barResult;
+		override protected function loadBeads():void{
+			super.loadBeads();
+			addBead(tabOverflow);
 		}
-		if(isNaN(tabWidth)){
-			tabWidth = 0;
-			for(var i:Number=0;i<tabs.length;i++){
-				var child:HTMLElement = tabs[i].element;
-				tabWidth += child.getBoundingClientRect().width; 
-				if(child.style.marginLeft && child.style.marginRight){ 
-					tabWidth += (child.style.marginLeft as Number);
-					tabWidth += (child.style.marginRight as Number);
-				}
-			}
-		}
-		if(tabWidth > barWidth){
-			collapseTabs();
-		} 
-			else {
-				reAddTabs();
-			}
-		}
-	}                                                                                                                                                 
-
-	override public function addedToParent():void
-	{
-			super.addedToParent();
-			toggle(valueToSelector("horizontal"),!_vertical);
-			toggle(valueToSelector("vertical"),_vertical);
-	}
-
-		public function removeAllTabs():void
-		{
-			for(var i:Number= 0;i<tabs.length;i++){
-				//TODO better way?
-				COMPILE::JS
-				{
-					element.removeChild(tabs[i].element);
-				}
-			}
-		}
-
-		public function collapseTabs():void
-		{
-			if(hasDropdown){
-				return;
-			}
-			removeAllTabs();
-			tabOverflow = new TabOverflow();
-			addElement(tabOverflow);
-			removeIndicator();
-			hasDropdown = true;
-			tabOverflow.dispatchEvent(new ValueEvent("tabs", tabs));
-		}
-		
-		public function get tabs():Array
-		{
-			return _tabs;
-		}
-		
-		public function set tabs(value:Array):void
-		{
-			_tabs = value;
-			for(var i:int=0;i<value.length;i++){
-				addElement(value[i] as Tab);
-			}
-		}
-
-		
-
-		private function reAddTabs():void
-		{
-			if(hasDropdown){
-				removeElement(tabOverflow);
-				hasDropdown = false;
-			for(var i:int=0;i<tabs.length;i++){
-				addElement(tabs[i]);
-			}
-		}
-	}
-
-	private function checkForIndicator(tab:Tab):void
-	{
-		if(!tab.selected){
-			count++;
-		}
-		else{
-			if(tab.selected){
-				//TODO so many places?
-				indicator = new TabIndicator();
-				var styleStr:String = "width: 27px; left: 0px;";
-				indicator.setAttribute("style",styleStr);
-				tab.addElement(indicator);
-					
-			}
-		}
-	}
-
-
-
-		private function removeIndicator():void
-		{
-			COMPILE::JS
-			{
-				var elementsChildren:Object = element.children;
-				for (var i:int = 0;i<elementsChildren.length;i++){
-					//TODO better way to do this?
-					if(elementsChildren[i].classList.contains("spectrum-Tabs-selectionIndicator")){
-						elementsChildren[i].remove();
+		override public function addedToParent():void{
+				super.addedToParent();
+				toggle(valueToSelector("horizontal"),!_vertical);
+				toggle(valueToSelector("vertical"),_vertical);
+				if(!_collapsed){
+					COMPILE::JS
+					{
+						requestAnimationFrame(positionIndicator);
 					}
 				}
+		}
+		private var _autoCollapse:Boolean;
+		/**
+		 * Automatically collapse the tabs to a dropdown if there's no room for the tabs
+		 */
+		public function get autoCollapse():Boolean{
+			return _autoCollapse;
+		}
+		public function set autoCollapse(value:Boolean):void{
+			if(_autoCollapse != value){
+				dispatchEvent(new Event("autoCollapseChanged"));
+			}
+			_autoCollapse = value;
+		}
+
+		private var _collapsed:Boolean;
+		/**
+		 * collapsed TabBars display the tabs as a dropdown.
+		 */
+		public function get collapsed():Boolean{
+			return _collapsed;
+		}
+		public function set collapsed(value:Boolean):void{
+			if(_collapsed == value){
+				return;
+			}
+			_collapsed = value;
+			if(value){
+				collapseTabs();
+			} else {
+				reAddTabs();
+			}
+			dispatchEvent(new Event("collapsed"));
+		}
+
+		public function collapseTabs():void{
+			removeAllTabs();
+			removeIndicator();
+		}
+		protected function reAddTabs():void{
+			if(!tabs){
+				return;
+			}
+			for(var i:int=0;i<tabs.length;i++){
+				var tab:Tab = tabs[i];
+				if(i == _selectedIndex){
+					tab.selected = true;
+				} else {
+					tab.selected = false;
+				}
+				addElement(tab);
+				tab.addEventListener("itemClicked",itemClicked);
+			}
+			positionIndicator();
+		}
+		public function get tabs():Array{
+			return _tabs;
+		}
+		public function set tabs(value:Array):void{
+			removeAllTabs();
+			_tabs = value;
+			if(!collapsed){
+				for(var i:int=0;i<value.length;i++){
+					addElement(value[i] as Tab);
+					value[i].addEventListener("itemClicked",itemClicked);
+				}
+			}
+			sendStrandEvent(this,"tabsChanged");
+		}
+
+		private function removeAllTabs():void{
+			if(!_tabs){
+				return;
+			}
+			for(var i:int=0;i<_tabs.length;i++){
+				if(getElementIndex(_tabs[i]) != -1){
+					removeElement(_tabs[i]);
+					tabs[i].removeEventListener("itemClicked",itemClicked);
+				}
 			}
 		}
-
-		private function addIndicator():void
-		{ 
-			var indicator:TabIndicator = new TabIndicator();
-			//TODO why is this hard coded?
-			var styleStr:String = "width: 27px; left: 0px;";
-			indicator.setAttribute("style",styleStr);
-			addElement(indicator);
-		
+		public var animateChange:Boolean;
+		private function itemClicked(ev:Event):void{
+			var tab:Tab = ev.target as Tab;
+			// IE does not support animate
+			animateChange = BrowserInfo.current().browser != "IE";
+			selectedTab = tab;
+			animateChange = false;
+		}
+		private function removeIndicator():void
+		{
+			if(!indicator){
+				return;
+			}
+			if(getElementIndex(indicator) < 0){
+				return;
+			}
+			removeElement(indicator);
 		}
 
+		private var _selectedIndex:int;
+
+		public function get selectedIndex():int
+		{
+			return _selectedIndex;
+		}
+
+		public function set selectedIndex(value:int):void
+		{
+			if(_selectedIndex != value){
+				var tab:Tab = selectedTab;
+				if(tab){
+					tab.selected = false;
+				}
+				_selectedIndex = value;
+				tab = selectedTab;
+				if(tab){
+					tab.selected = true;
+				}
+				positionIndicator(animateChange);
+				dispatchEvent(new Event("change"));
+			}
+		}
+		protected function positionIndicator(animate:Boolean = false):void{
+			var tab:Tab = selectedTab;
+			if(!tab){
+				removeIndicator();
+				return;
+			}
+			if(!indicator){
+				indicator = new TabIndicator();
+			}
+			addElement(indicator);
+			COMPILE::JS
+			{
+				if(animate){
+					var keyframes:Array = getKeyframes(tab);
+					var animation:Animation = indicator.element.animate(keyframes,{duration:150,easing:"ease"});
+					animation.onfinish = function():void{
+						setIndicatorStyle(tab);
+					}
+				} else {
+					setIndicatorStyle(tab);
+				}
+			}
+
+		}
+		private function setIndicatorStyle(tab:Tab):void{
+			if(vertical){
+				indicator.setStyle("left","");
+				indicator.setStyle("width","");
+				indicator.y = tab.y;
+				indicator.height = tab.height;
+			} else {
+				indicator.setStyle("top","");
+				indicator.setStyle("height","");
+				indicator.x = tab.x;
+				indicator.width = tab.width;
+			}
+
+		}
+
+		COMPILE::JS
+		private function getKeyframes(tab:Tab):Array{
+			var startStyle:CSSStyleDeclaration = getComputedStyle(indicator.element);
+			var keyframes:Array = [
+				{
+						"left": startStyle.left,
+						"width": startStyle.width,
+						"top": startStyle.top,
+						"height": startStyle.height
+				}
+			];
+			if(vertical){
+				keyframes.push({
+						"left": "",
+						"width": "",
+						"top": tab.y + "px",
+						"height": tab.height + "px"
+				});
+			} else {
+				keyframes.push({
+						"left": tab.x + "px",
+						"width": tab.width + "px",
+						"top": "",
+						"height": ""
+				});
+			}
+				return keyframes;
+		}
+		private var _selectedTab:Tab;
+		public function get selectedTab():Tab{
+			if(tabs && tabs.length){
+				if(selectedIndex < 0 || selectedIndex >= tabs.length){
+					return null;
+				}
+				return tabs[selectedIndex];
+			}
+			return null;
+		}
+		public function set selectedTab(value:Tab):void{
+			if(!tabs){
+				return;
+			}
+			var index:int = tabs.indexOf(value)
+			if(index != -1){
+				selectedIndex = index;
+			}
+		}
 	}
 }

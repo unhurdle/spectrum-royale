@@ -1,220 +1,137 @@
 package com.unhurdle.spectrum
 {
-  COMPILE::JS
-  {
-  import org.apache.royale.core.WrappedHTMLElement;
-  import org.apache.royale.events.ValueEvent;
-  import org.apache.royale.html.util.addElementToWrapper;
-  }
-  import com.unhurdle.spectrum.data.DropdownItem;
-  import org.apache.royale.events.ValueEvent;
-  import com.unhurdle.spectrum.renderers.MenuItemRenderer;
-  import com.unhurdle.spectrum.utils.getDataProviderItem;
-  
+	import com.unhurdle.spectrum.data.MenuItem;
 
-  [Event(name="children", type="org.apache.royale.events.Event")]
-  public class TabOverflow extends Group
-  {
-    public function TabOverflow()
-    {
-      super();
-      COMPILE::JS
-      {
-        addEventListener("tabs",tabsArray);
-      }
-      typeNames = getSelector() + " " + valueToSelector("horizontal");
+	import org.apache.royale.core.Bead;
+	import org.apache.royale.core.IStrand;
+	import org.apache.royale.events.Event;
 
-    }
-    override protected function getSelector():String
-    {
-      return getTabsSelector(); 
-    }
-    private var direction:String;
-    private var dropDown:Picker;
+	public class TabOverflow extends Bead
+	{
+		public function TabOverflow()
+		{
+			super();
+		}
+		private var direction:String;
+		private var dropDown:Picker;
 
-    COMPILE::JS
-    override protected function createElement():WrappedHTMLElement 
-    { 
-      super.createElement();
-      //TODO why is this hard coded?
-      width = 409;
-      // var elemStyle:String = "width: 409px";
-      // element.setAttribute("style",elemStyle);
-      dropDown = new Picker();
-      dropDown.quiet = true;
-      addElement(dropDown);
-      element.appendChild(dummySpacing());
-      addIndicator();
-      return element;
-    }
-    private var _dataProvider:Object;
 
-    public function get dataProvider():Object
-    {
-    	return _dataProvider;
-    }
+		private function attachElements():void{
+			var tabBar:TabBar = getHost();
+			dropDown.selectedIndex = tabBar.selectedIndex;
+			tabBar.addElement(dropDown);
+			positionIndicator();
+		}
+		private function detachElements():void{
+			var tabBar:TabBar = getHost();
+			if(dropDown && tabBar.getElementIndex(dropDown) != -1){
+				tabBar.removeElement(dropDown);
+			}
+			if(indicator && tabBar.getElementIndex(indicator) != -1){
+				tabBar.removeElement(indicator);
+			}
+		}
 
-    public function set dataProvider(value:Object):void{
-       if(!value || _selectedIndex > value.length){
-          _selectedIndex = -1;
-        }
-        dropDown.dataProvider = value;
-        if(value && value.length){
-          dropDown.visible = true;
-          if(_selectedIndex > -1){
-            selectedItem = getDataProviderItem(value,_selectedIndex);
-          } else {
-            selectedItem = getDataProviderItem(dropDown.dataProvider,0);
-          }
-        }
-        else{
-          dropDown.visible = false;
-        }
-    }
+		// private var dpProvider:Array;
+		private function get tabs():Array{
+			return getHost().tabs;
+		}
+		public function setTabs():void{
+			if(tabs){
+				var provider:Array = [];
+				for(var i:int=0;i<tabs.length;i++){
+					var tab:Tab = tabs[i];
+					var item:MenuItem = new MenuItem(tab.text);
+					if(tab.icon){
+						item.icon = tab.icon;
+					}
+					//TODO imageIcon
+					provider.push(item);
+				}
+				dropDown.dataProvider = provider;
+			}
+			dropDown.selectedIndex = getHost().selectedIndex;
+		}
+		private function handleDDChange(ev:Event):void{
+			getHost().selectedIndex = dropDown.selectedIndex;
+		}
 
-    private var _selectedIndex:int;
-
-    public function get selectedIndex():int{
-    	return _selectedIndex;
-    }
-
-    public function set selectedIndex(value:int):void{
-      if(value == -1)
-        selectedItem = null;
-    	_selectedIndex = value;
-      if(_selectedIndex > -1 && dataProvider)
-      {
-        selectedItem = getDataProviderItem(dropDown.dataProvider,0);
-      }
-    }
-
-    public function get selectedItem():Object{
-    	return dropDown.selectedItem;
-    }
-
-    public function set selectedItem(value:Object):void{
-      if(dropDown.selectedItem != value){        
-        dropDown.selectedItem = value;
-        dropDown.handleListChange();
-      }
-    }    
-    private function addIndicator():void
-    { 
-      COMPILE::JS
-      {
-      var indicator:TabIndicator = new TabIndicator();
-      var styleStr:String = "width: 50px; left: 8px;";
-      indicator.setAttribute("style",styleStr);
-      addElement(indicator);
-      }
-    }
-
-    private var _compact:Boolean;
-    public function get compact():Boolean
-    {
-      return _compact;
-    }
-    
-    public function set compact(value:Boolean):void 
-    {
-      if(value != !!_compact){
-        COMPILE::JS{
-          element.classList.add("spectrum-Tabs--compact");
-        }
-        _compact = value;
-      }
-    }
-
-    COMPILE::JS
-    private function dummySpacing():HTMLElement //what is this
-    {
-      var dummySpace:HTMLElement = newElement('div');
-      dummySpace.className= "dummy-spacing";
-      return dummySpace;
-    }
-
-    private var dpArray:Array = [];
-    private var tabsForDp:Array = [];
-    COMPILE::JS
-    private function tabsArray(ev:ValueEvent):void
-    {
-      for(var i:int = 0;i<ev.value.length;i++){
-        tabsForDp.push(ev.value[i]);
-        var dpTab:Object = tabsForDp[i];
-        placeHolder(dpTab);
-        if(!dropDown.placeholder){
-          dropDown.placeholder = (tabsForDp[0] as Object ).text;
-          checkForDuplicateSelected(tabsForDp); 
-          dpTab.selected = true;
-        }
-        dpTab = new DropdownItem(dpTab.text);
-        addEventListener('click',checkForSelected);
-        dpArray.push(dpTab); 
-      }
-      dropDown.dataProvider = dpArray;
-    }
-
-    private function placeHolder(tab:Object):void
-    { 
-      if(tab.selected){
-        dropDown.placeholder = tab.text;
-      }
-    }
-    private function checkForSelected(ev:Event):void
-    {
-      if((ev.target as MenuItemRenderer).selected){
-
-        for(var i:int = 0;i<tabsForDp.length;i++){
-          var tab:Object = tabsForDp[i];
-          COMPILE::JS
-          {
-            if(tab.text == (ev.target as MenuItemRenderer).element.textContent){
-              checkForDuplicateSelected(tabsForDp); 
-              tab.selected = true;
-            }
-          }
-        }
-      }
-    }
-  
-
-    private function checkForDuplicateSelected(tabsArray:Array):void
-    {
-      for(var i:int=0;i<tabsArray.length;i++){
-        if(tabsArray[i].selected){
-          tabsArray[i].selected = false;
-          dpArray[i].selected = false;
-          removeIndicator(tabsArray[i]);
-          setIndicatorSpot(tabsArray[i]);
-        }
-      }
-    }
-
-    private function removeIndicator(tab:Tab):void
-    {
-      COMPILE::JS
-      {
-        for(var i:int = 0;i<tab.element.children.length;i++){
-          if(tab.element.children[i].classList.contains("spectrum-Tabs-selectionIndicator")){
-            tab.element.children[i].remove();
-          }
-        }
-      }
-    }
-    private function setIndicatorSpot(tabBar:TabBar):void
-    {
-      COMPILE::JS
-      {
-        var newIndicator:TabIndicator = new TabIndicator();
-        var styleStr:String;
-        if(tabBar.vertical){
-        styleStr = "height: 46px; top: 0px;";
-        }else{
-            styleStr = "width: 27px; left: 0px;";
-        }
-        newIndicator.setAttribute("style",styleStr);
-        addElement(newIndicator);
-      }
-    }
-  }
+		private var indicator:TabIndicator;
+		private function positionIndicator():void{
+			if(!indicator){
+				indicator = new TabIndicator();
+			}
+			indicator.x = 8;
+			indicator.width = dropDown.width;
+			getHost().addElement(indicator);
+		}
+		protected function getHost():TabBar{
+			return _strand as TabBar;
+		}
+		override public function set strand(value:IStrand):void{
+			_strand = value;
+			dropDown = new Picker();
+			dropDown.addEventListener("change",handleDDChange);
+			dropDown.quiet = true;
+			setTabs();
+			listenOnStrand("tabsChanged",handleTabsChanged);
+			listenOnStrand("autoCollapseChanged",handleAutoCollapseChanged);
+			listenOnStrand("collapsed",handleCollapseChange);
+			var tabBar:TabBar = getHost();
+			if(tabBar.autoCollapse){
+				window.addEventListener("resize",handleResize,false);
+			}
+			if(tabBar.collapsed){
+				attachElements();
+			}
+		}
+		private function handleResize(ev:Event):void{
+			if(!tabs || !tabs.length){
+				return;
+			}
+			var bar:TabBar = getHost();
+			if(bar.vertical){
+				// don't collapse vertical bars.
+				return;
+			}
+			var totalWidth:Number = bar.width;
+			COMPILE::JS
+			{
+				var padding:Number = parseFloat(getComputedStyle(bar.element).paddingRight);
+				totalWidth -= padding;
+			}
+			//TODO handle right-to-left
+			var lastTab:Tab = tabs[tabs.length-1];
+			var tabWidth:Number = lastTab.x + lastTab.width;
+			var collapsed:Boolean = bar.collapsed;
+			if(tabWidth > totalWidth){
+				if(!collapsed){
+					bar.collapsed = true;
+					attachElements();
+				}
+			} else if(collapsed){
+				detachElements();
+				bar.collapsed = false;
+			}
+		}
+		private function handleTabsChanged(ev:Event):void{
+			setTabs();
+		}
+		private function handleAutoCollapseChanged(ev:Event):void{
+			if(getHost().autoCollapse){
+				//add the listener
+				window.addEventListener("resize",handleResize,false);
+			} else {
+				// remove it
+				window.removeEventListener("resize",handleResize,false);
+			}
+		}
+		private function handleCollapseChange(ev:Event):void{
+			if(getHost().collapsed){
+				attachElements();
+			} else {
+				detachElements();
+			}
+		}
+	}
 }
