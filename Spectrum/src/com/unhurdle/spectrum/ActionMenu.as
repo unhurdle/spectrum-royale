@@ -102,7 +102,7 @@ package com.unhurdle.spectrum
       _openMenu = this;
     }
     override protected function positionPopup():void{
-
+        var popoverWidth:Number = popover.width + 1;//added +1 cuz the browser was rounding it down
   			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
         var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
 				var origin:Point = new Point(0, height - 6);
@@ -111,8 +111,8 @@ package com.unhurdle.spectrum
         relocated.y -= offset.y;
 				popover.y = determinePosition(relocated.y);
         popover.x = relocated.x;
-        if(_alignRight && popover.width>width){
-          popover.x -= popover.width-width;
+        if(_alignRight && popoverWidth>width){
+          popover.x -= popoverWidth-width;
         }
 
     }

@@ -219,10 +219,13 @@ package com.unhurdle.spectrum
         createPopover();
       }
       dispatchEvent(new Event("beforeShow"));
-			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
+      popover.x = popover.y = 0;
       popover.open = true;
       popover.list.focus();
-      positionPopup();
+      COMPILE::JS
+      {
+        requestAnimationFrame(positionPopup);
+      }
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			this.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			callLater(function():void {
