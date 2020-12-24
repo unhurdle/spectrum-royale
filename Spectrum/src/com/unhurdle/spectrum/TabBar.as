@@ -97,7 +97,7 @@ package com.unhurdle.spectrum
 					}
 				}
 		}
-		private var _autoCollapse:Boolean;
+		private var _autoCollapse:Boolean = true;
 		/**
 		 * Automatically collapse the tabs to a dropdown if there's no room for the tabs
 		 */
@@ -196,7 +196,7 @@ package com.unhurdle.spectrum
 			removeElement(indicator);
 		}
 
-		private var _selectedIndex:int;
+		private var _selectedIndex:int = -1;
 
 		public function get selectedIndex():int
 		{

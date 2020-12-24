@@ -85,6 +85,10 @@ package com.unhurdle.spectrum
 				attachElements();
 			}
 		}
+		/**
+		 * Keep track of the last measured widths to know when to un-collapse the bar
+		 */
+		private var openTabWidth:Number;
 		private function handleResize(ev:Event):void{
 			if(!tabs || !tabs.length){
 				return;
@@ -94,16 +98,24 @@ package com.unhurdle.spectrum
 				// don't collapse vertical bars.
 				return;
 			}
+			var collapsed:Boolean = bar.collapsed;
 			var totalWidth:Number = bar.width;
 			COMPILE::JS
 			{
 				var padding:Number = parseFloat(getComputedStyle(bar.element).paddingRight);
 				totalWidth -= padding;
 			}
+			if(collapsed && !isNaN(openTabWidth)){
+				if(totalWidth >= openTabWidth){
+					detachElements();
+					bar.collapsed = false;
+				}// else do nothing
+				return;
+			}
 			//TODO handle right-to-left
 			var lastTab:Tab = tabs[tabs.length-1];
 			var tabWidth:Number = lastTab.x + lastTab.width;
-			var collapsed:Boolean = bar.collapsed;
+			openTabWidth = tabWidth;
 			if(tabWidth > totalWidth){
 				if(!collapsed){
 					bar.collapsed = true;
