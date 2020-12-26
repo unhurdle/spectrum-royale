@@ -5,6 +5,8 @@
   title="Color Area">
   <fx:Script>
     <![CDATA[
+      [Bindable] public var colorArea:String = 
+        '<sp:ColorArea dataProvider="{dp}" selectedIndex="0"/>';
     ]]>
   </fx:Script>
   <fx:Script>
@@ -32,11 +34,7 @@
   </fx:Script>
   <sp:ColorArea id="myColorArea"/>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:CoachMark&gt;'/>
-    <Br/>
-    <comp:StyledCode text='&lt;sp:CoachMark flavor="dark"&gt;'/>
-    <Br/>
-    <comp:StyledCode text='&lt;sp:CoachMark flavor="light"&gt;'/>
+    <comp:StyledCode text="{colorArea}"/>
   </comp:Markup>
 
 </view:DemoPane>
