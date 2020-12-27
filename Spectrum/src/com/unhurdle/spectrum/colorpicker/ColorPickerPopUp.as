@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
 	import org.apache.royale.core.IColorModel;
 	import org.apache.royale.core.IColorSpectrumModel;
@@ -22,8 +22,16 @@ package com.unhurdle.spectrum.colorarea
 		protected var hueSelector:HueSelector;
 		protected var alphaSelector:AlphaSelector;
 		protected var host:IStrand;
-		protected var colorTextField:ColorTextField;
-		protected var alphaTextField:AlphaTextField;
+		
+		private var _colorTextField:ColorTextField;
+		public function get colorTextField():ColorTextField{
+			return _colorTextField;
+		}
+
+		private var _alphaTextField:AlphaTextField;
+		public function get alphaTextField():AlphaTextField{
+			return _alphaTextField;
+		}
 		protected var fixedSizeContainer:Div;
 		protected var padding:Number = 18;
 
@@ -37,18 +45,18 @@ package com.unhurdle.spectrum.colorarea
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
 			alphaSelector = new AlphaSelector();
 			alphaSelector.addEventListener("valueChange", alphaSelectorChangeHandler);
-			colorTextField = new ColorTextField();
-			alphaTextField = new AlphaTextField();
-			colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
-			alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
-			colorTextField.addEventListener("change", stopChangePropagation);
-			alphaTextField.addEventListener("change", stopChangePropagation);
+			_colorTextField = new ColorTextField();
+			_alphaTextField = new AlphaTextField();
+			_colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
+			_alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
+			_colorTextField.addEventListener("change", stopChangePropagation);
+			_alphaTextField.addEventListener("change", stopChangePropagation);
 
 			COMPILE::JS 
 			{
 				hueSelector.element.style.position = "absolute";
-				colorTextField.element.style.position = "absolute";
-				alphaTextField.element.style.position = "absolute";
+				_colorTextField.element.style.position = "absolute";
+				_alphaTextField.element.style.position = "absolute";
 				colorSpectrum.element.style.position = "absolute";
 				alphaSelector.element.style.position = "absolute";
 				fixedSizeContainer.element.style.position = "absolute";
@@ -56,8 +64,8 @@ package com.unhurdle.spectrum.colorarea
 			fixedSizeContainer.addElement(colorSpectrum);
 			fixedSizeContainer.addElement(hueSelector);
 			fixedSizeContainer.addElement(alphaSelector);
-			fixedSizeContainer.addElement(colorTextField);
-			fixedSizeContainer.addElement(alphaTextField);
+			fixedSizeContainer.addElement(_colorTextField);
+			fixedSizeContainer.addElement(_alphaTextField);
 			addElement(fixedSizeContainer);
 		}
 
@@ -77,14 +85,14 @@ package com.unhurdle.spectrum.colorarea
 			alphaSelector.height = squareDim;
 			alphaSelector.x = hueSelector.x + sliderWidth + padding;
             alphaSelector.y = padding;
-			colorTextField.x = padding;
-			colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
-			colorTextField.width = 132;
-			alphaTextField.x = colorTextField.width + colorTextField.x + padding;
-			alphaTextField.y = colorTextField.y;
-			alphaTextField.width = 66;
+			_colorTextField.x = padding;
+			_colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
+			_colorTextField.width = 132;
+			_alphaTextField.x = _colorTextField.width + _colorTextField.x + padding;
+			_alphaTextField.y = _colorTextField.y;
+			_alphaTextField.width = 66;
 			fixedSizeContainer.width = alphaSelector.x + alphaSelector.width + padding;
-			fixedSizeContainer.height = colorTextField.y + 32 + padding;
+			fixedSizeContainer.height = _colorTextField.y + 32 + padding;
 			width = fixedSizeContainer.width;
 			height = fixedSizeContainer.height;
 		}
@@ -120,9 +128,9 @@ package com.unhurdle.spectrum.colorarea
 			(model as IEventDispatcher).addEventListener("change", colorModelChangeHandler)
 			var colorSpectrumModel:IColorSpectrumModel = loadBeadFromValuesManager(IColorSpectrumModel, "iColorSpectrumModel", colorSpectrum) as IColorSpectrumModel;
 			colorSpectrumModel.baseColor = (value as IColorModel).color;
-			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", colorTextField) as IColorModel;
+			var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", _colorTextField) as IColorModel;
 			textFieldModel.color = (value as IColorModel).color;
-			var alphaTextFieldModel:IRangeModel = loadBeadFromValuesManager(IRangeModel, "iRangeModel", alphaTextField) as IRangeModel;
+			var alphaTextFieldModel:IRangeModel = loadBeadFromValuesManager(IRangeModel, "iRangeModel", _alphaTextField) as IRangeModel;
 			alphaSelector.value = int((1- (value as ArrayColorSelectionWithAlphaModel).alpha) * 100);
 			alphaTextFieldModel.maximum = alphaSelector.maximum;
 			alphaTextFieldModel.minimum = alphaSelector.minimum;
@@ -144,8 +152,8 @@ package com.unhurdle.spectrum.colorarea
 		private function colorModelChangeHandler(event:Event):void
 		{
 			var colorValue:uint = (event.target as IColorModel).color;
-			(colorTextField.model as IColorModel).color = colorValue;
-			(alphaTextField.model as IRangeModel).value = int((1 - (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
+			(_colorTextField.model as IColorModel).color = colorValue;
+			(_alphaTextField.model as IRangeModel).value = int((1 - (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
 			if (fromSpectrum)
 			{
 				fromSpectrum = false;
@@ -185,12 +193,12 @@ package com.unhurdle.spectrum.colorarea
 		
 		private function colorTextFieldChangeHandler(event:Event):void
 		{
-            (model as IColorModel).color = (colorTextField.model as IColorModel).color;
+            (model as IColorModel).color = (_colorTextField.model as IColorModel).color;
 		}
 
 		private function alphaTextFieldChangeHandler(event:Event):void
 		{
-            (model as ArrayColorSelectionWithAlphaModel).alpha = (100 - (alphaTextField.model as IRangeModel).value) / 100;
+            (model as ArrayColorSelectionWithAlphaModel).alpha = (100 - (_alphaTextField.model as IRangeModel).value) / 100;
 		}
 	}
 }

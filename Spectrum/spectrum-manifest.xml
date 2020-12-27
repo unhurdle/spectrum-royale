@@ -42,7 +42,7 @@
     <component id="CoachMark" class="com.unhurdle.spectrum.CoachMark"/>
     <component id="CoachMarkPopover" class="com.unhurdle.spectrum.CoachMarkPopover"/>
     <component id="Code" class="com.unhurdle.spectrum.typography.Code"/>
-    <component id="ColorItemRenderer" class="com.unhurdle.spectrum.colorarea.ColorItemRenderer"/>
+    <component id="ColorItemRenderer" class="com.unhurdle.spectrum.colorpicker.ColorItemRenderer"/>
     <component id="ColorHandle" class="com.unhurdle.spectrum.ColorHandle"/>
     <component id="ColorLoupe" class="com.unhurdle.spectrum.ColorLoupe"/>
     <component id="ColorSlider" class="com.unhurdle.spectrum.ColorSlider"/>
@@ -185,24 +185,24 @@
     <component id="TableItemRendererFactoryForCollectionView" class="com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView" />
     <component id="TableItemRenderer" class="com.unhurdle.spectrum.renderers.TableItemRenderer" />
 	    <!-- color area -->
-    <component id="AlphaTextFieldController" class="com.unhurdle.spectrum.colorarea.AlphaTextFieldController"/>
-    <component id="ArrayColorSelectionWithAlphaModel" class="com.unhurdle.spectrum.colorarea.ArrayColorSelectionWithAlphaModel"/>
-    <component id="ColorArea" class="com.unhurdle.spectrum.colorarea.ColorArea"/>
-    <component id="ColorTextFieldController" class="com.unhurdle.spectrum.colorarea.ColorTextFieldController"/>
-    <component id="ColorWithAlphaModel" class="com.unhurdle.spectrum.colorarea.ColorWithAlphaModel"/>
-    <component id="AlphaSelector" class="com.unhurdle.spectrum.colorarea.AlphaSelector"/>
-    <component id="AlphaSelectorModel" class="com.unhurdle.spectrum.colorarea.AlphaSelectorModel"/>
-    <component id="AlphaSelectorView" class="com.unhurdle.spectrum.colorarea.AlphaSelectorView"/>
-    <component id="AlphaTextField" class="com.unhurdle.spectrum.colorarea.AlphaTextField"/>
-    <component id="ColorItemRenderer" class="com.unhurdle.spectrum.colorarea.ColorItemRenderer"/>
-    <component id="ColorPickerPopUp" class="com.unhurdle.spectrum.colorarea.ColorPickerPopUp"/>
-    <component id="ColorPickerPopUpWithPalette" class="com.unhurdle.spectrum.colorarea.ColorPickerPopUpWithPalette"/>
-    <component id="ColorPickerView" class="com.unhurdle.spectrum.colorarea.ColorPickerView"/>
-    <component id="ColorSpectrumView" class="com.unhurdle.spectrum.colorarea.ColorSpectrumView"/>
-    <component id="ColorTextField" class="com.unhurdle.spectrum.colorarea.ColorTextField"/>
-    <component id="ColorAreaSliderView" class="com.unhurdle.spectrum.colorarea.ColorAreaSliderView"/>
-    <component id="VerticalSliderLayout" class="com.unhurdle.spectrum.colorarea.VerticalSliderLayout"/>
-    <component id="VSliderMouseController" class="com.unhurdle.spectrum.colorarea.VSliderMouseController"/>
+    <component id="AlphaTextFieldController" class="com.unhurdle.spectrum.colorpicker.AlphaTextFieldController"/>
+    <component id="ArrayColorSelectionWithAlphaModel" class="com.unhurdle.spectrum.colorpicker.ArrayColorSelectionWithAlphaModel"/>
+    <component id="ColorPicker" class="com.unhurdle.spectrum.colorpicker.ColorPicker"/>
+    <component id="ColorTextFieldController" class="com.unhurdle.spectrum.colorpicker.ColorTextFieldController"/>
+    <component id="ColorWithAlphaModel" class="com.unhurdle.spectrum.colorpicker.ColorWithAlphaModel"/>
+    <component id="AlphaSelector" class="com.unhurdle.spectrum.colorpicker.AlphaSelector"/>
+    <component id="AlphaSelectorModel" class="com.unhurdle.spectrum.colorpicker.AlphaSelectorModel"/>
+    <component id="AlphaSelectorView" class="com.unhurdle.spectrum.colorpicker.AlphaSelectorView"/>
+    <component id="AlphaTextField" class="com.unhurdle.spectrum.colorpicker.AlphaTextField"/>
+    <component id="ColorItemRenderer" class="com.unhurdle.spectrum.colorpicker.ColorItemRenderer"/>
+    <component id="ColorPickerPopUp" class="com.unhurdle.spectrum.colorpicker.ColorPickerPopUp"/>
+    <component id="ColorPickerPopUpWithPalette" class="com.unhurdle.spectrum.colorpicker.ColorPickerPopUpWithPalette"/>
+    <component id="ColorPickerView" class="com.unhurdle.spectrum.colorpicker.ColorPickerView"/>
+    <component id="ColorSpectrumView" class="com.unhurdle.spectrum.colorpicker.ColorSpectrumView"/>
+    <component id="ColorTextField" class="com.unhurdle.spectrum.colorpicker.ColorTextField"/>
+    <component id="ColorPickerSliderView" class="com.unhurdle.spectrum.colorpicker.ColorPickerSliderView"/>
+    <component id="VerticalSliderLayout" class="com.unhurdle.spectrum.colorpicker.VerticalSliderLayout"/>
+    <component id="VSliderMouseController" class="com.unhurdle.spectrum.colorpicker.VSliderMouseController"/>
     <component id="SelectableItemRenderer" class="com.unhurdle.spectrum.renderers.SelectableItemRenderer"/>
     <component id="TreeItemRendererInitializer" class="com.unhurdle.spectrum.controllers.TreeItemRendererInitializer"/>
     

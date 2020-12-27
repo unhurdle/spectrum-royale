@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.core.IStyleableObject;
@@ -101,7 +101,7 @@ package com.unhurdle.spectrum.colorarea
 				var model:IColorModel = _strand.getBeadByType(IColorModel) as IColorModel;
 				(list as IColorPickerPopUp).model = model;
 				list.visible = true;
-				var position:String = (_strand as ColorArea).position;
+				var position:String = (_strand as ColorPicker).position;
 				var myX:Number;
 				var myY:Number;
 				var gap:Number = 0;

@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
 	import org.apache.royale.core.IBead;
 	import org.apache.royale.core.IStrand;

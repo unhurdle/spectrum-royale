@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.core.IStrandWithModel;
@@ -12,7 +12,7 @@ package com.unhurdle.spectrum.colorarea
 		import org.apache.royale.utils.html.getStyle;
 	}
 	
-	public class AlphaSelectorView extends ColorAreaSliderView
+	public class AlphaSelectorView extends ColorPickerSliderView
 	{
 		private var _model:IColorModel;
 		private var _drawingLayer:Div;

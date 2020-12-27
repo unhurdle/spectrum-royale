@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
     public function applyCheckeredBackground(style:CSSStyleDeclaration):void{
       style.background = "linear-gradient(-45deg, transparent 75.5%, rgb(188,188,188) 75.5%), linear-gradient(45deg, transparent 75.5%, rgb(188,188,188) 75.5%), linear-gradient(-45deg, rgb(188,188,188) 25.5%, transparent 25.5%), linear-gradient(45deg, rgb(188,188,188) 25.5%, transparent 25.5%)";

@@ -5,15 +5,15 @@
   title="Color Area">
   <fx:Script>
     <![CDATA[
-      [Bindable] public var colorArea:String = 
-        '<sp:ColorArea dataProvider="{dp}" selectedIndex="0"/>';
+      [Bindable] public var colorPicker:String = 
+        '<sp:ColorPicker dataProvider="{dp}" selectedIndex="0"/>';
     ]]>
   </fx:Script>
   <fx:Script>
     <![CDATA[
       import org.apache.royale.events.Event;
-      import com.unhurdle.spectrum.colorarea.ColorWithAlphaModel;
-      import com.unhurdle.spectrum.colorarea.ArrayColorSelectionWithAlphaModel;
+      import com.unhurdle.spectrum.colorpicker.ColorWithAlphaModel;
+      import com.unhurdle.spectrum.colorpicker.ArrayColorSelectionWithAlphaModel;
 
       private function initCompleteHandler(e:Event):void
       {
@@ -27,14 +27,14 @@
           colorModel.alpha = alpha;
 					dp.push(colorModel);
 				}
-        (myColorArea.model as ArrayColorSelectionWithAlphaModel).dataProvider = dp;
-        (myColorArea.model as ArrayColorSelectionWithAlphaModel).selectedIndex = 0;
+        (myColorPicker.model as ArrayColorSelectionWithAlphaModel).dataProvider = dp;
+        (myColorPicker.model as ArrayColorSelectionWithAlphaModel).selectedIndex = 0;
       }
     ]]>
   </fx:Script>
-  <sp:ColorArea id="myColorArea"/>
+  <sp:ColorPicker id="myColorPicker"/>
   <comp:Markup>
-    <comp:StyledCode text="{colorArea}"/>
+    <comp:StyledCode text="{colorPicker}"/>
   </comp:Markup>
 
 </view:DemoPane>

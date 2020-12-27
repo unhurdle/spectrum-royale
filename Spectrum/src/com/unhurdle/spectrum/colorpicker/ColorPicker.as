@@ -1,9 +1,9 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
 
 	import org.apache.royale.html.ColorPicker;
 
-	public class ColorArea extends ColorPicker
+	public class ColorPicker extends org.apache.royale.html.ColorPicker
 	{
 		private var _position:String = "bottom";
 
@@ -17,7 +17,7 @@ package com.unhurdle.spectrum.colorarea
 			_position = value;
 		}
 
-		public function ColorArea()
+		public function ColorPicker()
 		{
 		}
 

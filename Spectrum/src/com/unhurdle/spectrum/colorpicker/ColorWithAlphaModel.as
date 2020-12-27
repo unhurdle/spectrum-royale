@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
 	import org.apache.royale.html.beads.models.ColorModel;
 	import org.apache.royale.events.Event;

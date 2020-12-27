@@ -1,4 +1,4 @@
-package com.unhurdle.spectrum.colorarea
+package com.unhurdle.spectrum.colorpicker
 {
 	import com.unhurdle.spectrum.TextField;
 	import org.apache.royale.core.IBeadController;
