@@ -6,7 +6,6 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.const.IconType;
-  import goog.events.EventType;
 
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
@@ -17,7 +16,7 @@ package com.unhurdle.spectrum
     public function TextField()
     {
       super();
-      _input.addEventListener(EventType.INPUT,checkValidation);
+      _input.addEventListener("input",checkValidation);
     }
 
     public function get readonly():Boolean

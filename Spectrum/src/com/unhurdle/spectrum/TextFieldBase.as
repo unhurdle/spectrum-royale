@@ -43,9 +43,9 @@ package com.unhurdle.spectrum
     {
     	_tabFocusable = value;
       if(value){
-        removeAttribute("tabindex");
+        focusElement.removeAttribute("tabindex");
       } else {
-        setAttribute("tabindex",-1);
+        focusElement.setAttribute("tabindex",-1);
       }
     }
 

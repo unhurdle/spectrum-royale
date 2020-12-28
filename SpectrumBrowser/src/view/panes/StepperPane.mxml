@@ -28,4 +28,26 @@ title="Stepper">
     <comp:StyledCode text='&lt;sp:Stepper quiet="true" disabled="true" placeholder="0" min="-2" max="2" step="0.5"/&gt;'/>
         <Br/>
 </comp:Markup>
+<comp:Variant header="Percent">
+    <sp:Stepper placeholder="0" min="0" max="100" step="1" suffix="%"/>
+    <sp:Stepper quiet="true" placeholder="0" min="0" max="100" step="1" suffix="%"/>
+</comp:Variant>
+
+<comp:Markup>
+    <comp:StyledCode text='&lt;sp:Stepper placeholder="0" min="0" max="100" step="1" suffix="%"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet="true" placeholder="0" min="0" max="100" step="1" suffix="%"/&gt;'/>
+    <Br/>
+</comp:Markup>
+<comp:Variant header="px">
+    <sp:Stepper placeholder="0" min="0" max="100" step="1" suffix=" px"/>
+    <sp:Stepper quiet="true" placeholder="0" min="0" max="100" step="1" suffix=" px"/>
+</comp:Variant>
+
+<comp:Markup>
+    <comp:StyledCode text='&lt;sp:Stepper placeholder="0" min="0" max="100" step="1" suffix=" px"/&gt;'/>
+    <Br/>
+    <comp:StyledCode text='&lt;sp:Stepper quiet="true" placeholder="0" min="0" max="100" step="1" suffix=" px"/&gt;'/>
+    <Br/>
+</comp:Markup>
 </view:DemoPane>

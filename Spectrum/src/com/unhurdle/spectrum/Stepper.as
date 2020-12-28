@@ -75,7 +75,6 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
       input = new NumberField();
-      input.tabFocusable = false;
       input.className =  appendSelector("-textfield");
       input.input.classList.add(appendSelector("-input"));
       // default to any valid integer
@@ -149,6 +148,16 @@ package com.unhurdle.spectrum
     public function set step(value:Number):void
     {
       input.step = value;
+    }
+    /**
+     * A suffix is some text attached to the value such as px or %
+     */
+    public function get suffix():String{
+    	return input.suffix;
+    }
+
+    public function set suffix(value:String):void{
+    	input.suffix = value;
     }
     private var _focused:Boolean;
 
