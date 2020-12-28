@@ -129,13 +129,6 @@ TableItemRenderer{
   IBeadController: ClassReference("com.unhurdle.spectrum.controllers.ItemRendererMouseController");
 }
 
-js|HueSelector {
-	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorpicker.VerticalSliderLayout");
-	IBeadView: ClassReference("com.unhurdle.spectrum.colorpicker.ColorPickerSliderView");
-	IBeadController: ClassReference("com.unhurdle.spectrum.colorpicker.VSliderMouseController");
-	border-radius: 4px;
-}
-
 js|ColorSpectrum {
 	IBeadView:  ClassReference("com.unhurdle.spectrum.colorpicker.ColorSpectrumView");
 }
@@ -170,4 +163,8 @@ colorpicker|ColorTextField {
 
 .ColorSpectrum {
 	border-radius: 4px;
+}
+/* Applying a square class can remove the rounded corners for the checkerboards */
+.square.spectrum-ColorSlider-checkerboard:before {
+	border-radius: 0px;
 }

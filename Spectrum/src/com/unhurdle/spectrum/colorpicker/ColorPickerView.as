@@ -141,7 +141,22 @@ package com.unhurdle.spectrum.colorpicker
 				list.visible = false;
 			}
 		}
-		
+/*
+		private function openPopup():void{
+			popover.open = true;
+			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+		}
+		private function closePopup():void{
+			if(popover && popover.open){
+				popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+				popover.open = false;
+			}
+		}
+*/
 		protected function handleSizeChange(event:Event):void
 		{
 			sizeChangeAction();

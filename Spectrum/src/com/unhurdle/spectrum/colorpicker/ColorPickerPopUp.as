@@ -5,7 +5,6 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.IEventDispatcher;
-	import org.apache.royale.html.HueSelector;
 	import org.apache.royale.utils.hsvToHex;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import org.apache.royale.core.IBead;
@@ -15,11 +14,14 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.Popover;
 	import org.apache.royale.core.IRangeModel;
 	import org.apache.royale.html.elements.Div;
+	import com.unhurdle.spectrum.ISpectrumElement;
+	import com.unhurdle.spectrum.Group;
+	import com.unhurdle.spectrum.ColorSlider;
 
 	public class ColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
 		protected var colorSpectrum:ColorSpectrum;
-		protected var hueSelector:HueSelector;
+		protected var hueSelector:ColorSlider;
 		protected var alphaSelector:AlphaSelector;
 		protected var host:IStrand;
 		
@@ -32,16 +34,17 @@ package com.unhurdle.spectrum.colorpicker
 		public function get alphaTextField():AlphaTextField{
 			return _alphaTextField;
 		}
-		protected var fixedSizeContainer:Div;
+		protected var fixedSizeContainer:Group;
 		protected var padding:Number = 18;
 
 		public function ColorPickerPopUp()
 		{
 			super();
 			dialog=true;
-			fixedSizeContainer = new Div();
+			fixedSizeContainer = new Group();
 			colorSpectrum = new ColorSpectrum();
-			hueSelector = new HueSelector();
+			hueSelector = new ColorSlider();
+			hueSelector.vertical = true;
 			hueSelector.addEventListener("valueChange", hueChangeHandler);
 			alphaSelector = new AlphaSelector();
 			alphaSelector.addEventListener("valueChange", alphaSelectorChangeHandler);
@@ -49,18 +52,19 @@ package com.unhurdle.spectrum.colorpicker
 			_alphaTextField = new AlphaTextField();
 			_colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
 			_alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
-			_colorTextField.addEventListener("change", stopChangePropagation);
-			_alphaTextField.addEventListener("change", stopChangePropagation);
+			preventPropogation(_colorTextField);
+			preventPropogation(_alphaTextField);
 
-			COMPILE::JS 
-			{
-				hueSelector.element.style.position = "absolute";
-				_colorTextField.element.style.position = "absolute";
-				_alphaTextField.element.style.position = "absolute";
-				colorSpectrum.element.style.position = "absolute";
-				alphaSelector.element.style.position = "absolute";
-				fixedSizeContainer.element.style.position = "absolute";
-			}
+			// COMPILE::JS 
+			// {
+			// 	hueSelector.element.style.position = "absolute";
+			// 	_colorTextField.element.style.position = "absolute";
+			// 	_alphaTextField.element.style.position = "absolute";
+			// 	colorSpectrum.element.style.position = "absolute";
+			// 	alphaSelector.element.style.position = "absolute";
+			// 	fixedSizeContainer.element.style.position = "absolute";
+			// }
+
 			fixedSizeContainer.addElement(colorSpectrum);
 			fixedSizeContainer.addElement(hueSelector);
 			fixedSizeContainer.addElement(alphaSelector);
@@ -80,11 +84,11 @@ package com.unhurdle.spectrum.colorpicker
 			hueSelector.width = sliderWidth;
 			hueSelector.height = squareDim;
 			hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
-            hueSelector.y = padding;
+			hueSelector.y = padding;
 			alphaSelector.width = sliderWidth;
 			alphaSelector.height = squareDim;
 			alphaSelector.x = hueSelector.x + sliderWidth + padding;
-            alphaSelector.y = padding;
+			alphaSelector.y = padding;
 			_colorTextField.x = padding;
 			_colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
 			_colorTextField.width = 132;
@@ -96,21 +100,21 @@ package com.unhurdle.spectrum.colorpicker
 			width = fixedSizeContainer.width;
 			height = fixedSizeContainer.height;
 		}
-
-		private function stopChangePropagation(e:Event):void
-		{
-			e.stopImmediatePropagation();
+		private function preventPropogation(element:ISpectrumElement):void{
+			element.addEventListener("change", function(e:Event):void{
+				e.stopImmediatePropagation();
+			});
 		}
 
-		override public function set visible(value:Boolean):void
-		{
-			open = value;
-			super.visible = value;
-			if (value)
-			{
-				layout();
-			}
-		}
+		// override public function set visible(value:Boolean):void
+		// {
+		// 	open = value;
+		// 	super.visible = value;
+		// 	if (value)
+		// 	{
+		// 		layout();
+		// 	}
+		// }
 		
 		private function hueChangeHandler(event:Event):void
 		{
