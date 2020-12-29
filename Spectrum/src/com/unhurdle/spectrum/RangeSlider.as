@@ -128,12 +128,11 @@ package com.unhurdle.spectrum
       middleTrack.style.right = (100 - endPercent) + '%';
       rightTrack.style.width = (100 - endPercent) + '%';
 		}
-    private var handle:Object;
 
     COMPILE::JS
     override protected function onMouseDown(e:MouseEvent):void{
       super.onMouseDown(e);
-      handle = e.target;
+      handle = e.target as HTMLElement;
     }
     
     override protected function onMouseUp():void{

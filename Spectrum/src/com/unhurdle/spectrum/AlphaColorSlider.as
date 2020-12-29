@@ -4,7 +4,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.PointUtils;
 	import org.apache.royale.geom.Point;
   import org.apache.royale.events.MouseEvent;
-  import com.unhurdle.spectrum.utils.ColorUtil;
+  import com.unhurdle.spectrum.interfaces.IRGBA;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
@@ -14,23 +14,16 @@ package com.unhurdle.spectrum
     public function AlphaColorSlider()
     {
       super();
-      color = "rgb(0, 0, 0)";
+      colorStops = ["rgb(0, 0, 0)"];
+      changeBackgroundColor()
     }
 
-    override public function get colorStop():Array{
-      return null;
+    public function get color():String{
+        return colorStops[0];
     }
-    override public function set colorStop(value:Array):void{
-    }
-    private var _color:String;
-    public function get color():String
-    {
-        return _color;
-    }
-    public function set color(val:String):void
-    {
-        if(val != !!_color){
-          _color = val;
+    public function set color(val:String):void{
+        if(val != colorStops[0]){
+          colorStops[0] = val;
           changeBackgroundColor();
         }
     }
@@ -45,7 +38,7 @@ package com.unhurdle.spectrum
       }
       startStr += color;
       gradient.style.background = startStr + endStr;
-      handle.backgroundStyleColor = color;
+      handle.appliedColor = colorToRGBA(color);
     }
     override protected function onMouseMove(e:MouseEvent):void {
       if(disabled){
@@ -64,9 +57,9 @@ package com.unhurdle.spectrum
         var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
         percent = (x / sliderOffsetWidth) * 100;
       }
-      var arr:Array = pickHex([255,255,255],colorToRGBA(color),percent/100);
-      arr.push(percent);
-      handle.backgroundStyleColor = ColorUtil.rgbStr(arr);
+      var rgbColor:IRGBA = appliedColor;
+      rgbColor.alpha = percent/100;
+      handle.appliedColor = rgbColor;
       COMPILE::JS{
         if(vertical){
           handle.element.style.top = percent + "%";

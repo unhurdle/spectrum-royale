@@ -137,13 +137,6 @@ js|ColorPalette {
 	IItemRenderer: ClassReference("com.unhurdle.spectrum.colorpicker.ColorItemRenderer");
 }
 
-colorpicker|AlphaSelector {
-	IBeadLayout: ClassReference("com.unhurdle.spectrum.colorpicker.VerticalSliderLayout");
-	IBeadModel: ClassReference("com.unhurdle.spectrum.colorpicker.AlphaSelectorModel");
-	IBeadView: ClassReference("com.unhurdle.spectrum.colorpicker.AlphaSelectorView");
-	IBeadController: ClassReference("com.unhurdle.spectrum.colorpicker.VSliderMouseController");
-	border-radius: 4px;
-}
 
 colorpicker|ColorPicker {
 	IPopUp: ClassReference("com.unhurdle.spectrum.colorpicker.ColorPickerPopUpWithPalette");

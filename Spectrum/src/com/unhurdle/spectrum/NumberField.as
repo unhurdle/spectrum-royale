@@ -108,7 +108,7 @@ package com.unhurdle.spectrum
     private static function getTextWidth(text:String, font:String):Number{
       // re-use canvas object for better performance
       if(!canvas){
-        canvas = document.createElement("canvas") as HTMLCanvasElement;
+        canvas = newElement('canvas') as HTMLCanvasElement;
       }
       var context:CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
       context.font = font;

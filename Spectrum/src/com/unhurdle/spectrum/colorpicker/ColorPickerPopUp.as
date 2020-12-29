@@ -13,16 +13,16 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.html.beads.ISliderView;
 	import com.unhurdle.spectrum.Popover;
 	import org.apache.royale.core.IRangeModel;
-	import org.apache.royale.html.elements.Div;
 	import com.unhurdle.spectrum.ISpectrumElement;
 	import com.unhurdle.spectrum.Group;
 	import com.unhurdle.spectrum.ColorSlider;
+	import com.unhurdle.spectrum.AlphaColorSlider;
 
 	public class ColorPickerPopUp extends Popover implements IColorPickerPopUp, IBead
 	{
 		protected var colorSpectrum:ColorSpectrum;
 		protected var hueSelector:ColorSlider;
-		protected var alphaSelector:AlphaSelector;
+		protected var alphaSelector:AlphaColorSlider;
 		protected var host:IStrand;
 		
 		private var _colorTextField:ColorTextField;
@@ -37,17 +37,17 @@ package com.unhurdle.spectrum.colorpicker
 		protected var fixedSizeContainer:Group;
 		protected var padding:Number = 18;
 
-		public function ColorPickerPopUp()
-		{
+		public function ColorPickerPopUp(){
 			super();
 			dialog=true;
 			fixedSizeContainer = new Group();
 			colorSpectrum = new ColorSpectrum();
 			hueSelector = new ColorSlider();
 			hueSelector.vertical = true;
-			hueSelector.addEventListener("valueChange", hueChangeHandler);
-			alphaSelector = new AlphaSelector();
-			alphaSelector.addEventListener("valueChange", alphaSelectorChangeHandler);
+			hueSelector.addEventListener("colorChanged", hueChangeHandler);
+			alphaSelector = new AlphaColorSlider();
+			alphaSelector.vertical = true;
+			alphaSelector.addEventListener("colorChanged", alphaSelectorChangeHandler);
 			_colorTextField = new ColorTextField();
 			_alphaTextField = new AlphaTextField();
 			_colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
@@ -73,8 +73,7 @@ package com.unhurdle.spectrum.colorpicker
 			addElement(fixedSizeContainer);
 		}
 
-		protected function layout():void
-		{
+		protected function layout():void{
 			var squareDim:Number = 225;
 			var sliderWidth:Number = 30;
 			colorSpectrum.height =  squareDim;
@@ -116,18 +115,15 @@ package com.unhurdle.spectrum.colorpicker
 		// 	}
 		// }
 		
-		private function hueChangeHandler(event:Event):void
-		{
+		private function hueChangeHandler(event:Event):void{
 			(model as IColorModel).color = hsvToHex(hueSelector.value, 100, 100);
 		}
 
-		private function alphaSelectorChangeHandler(event:Event):void
-		{
+		private function alphaSelectorChangeHandler(event:Event):void{
 			(model as ArrayColorSelectionWithAlphaModel).alpha = (100 - alphaSelector.value) / 100;
 		}
 
-		override public function set model(value:Object):void
-		{
+		override public function set model(value:Object):void{
 			super.model = value;
 			(model as IEventDispatcher).addEventListener("change", colorModelChangeHandler)
 			var colorSpectrumModel:IColorSpectrumModel = loadBeadFromValuesManager(IColorSpectrumModel, "iColorSpectrumModel", colorSpectrum) as IColorSpectrumModel;
@@ -140,61 +136,52 @@ package com.unhurdle.spectrum.colorpicker
 			alphaTextFieldModel.minimum = alphaSelector.minimum;
 			alphaTextFieldModel.value = alphaSelector.value;
 			(colorSpectrum as IEventDispatcher).addEventListener("change", colorSpectrumChangeHandler);
-            (colorSpectrum as IEventDispatcher).addEventListener("thumbDown", colorSpectrumThumbDownHandler);
-            (colorSpectrum as IEventDispatcher).addEventListener("thumbUp", colorSpectrumThumbUpHandler);
+			(colorSpectrum as IEventDispatcher).addEventListener("thumbDown", colorSpectrumThumbDownHandler);
+			(colorSpectrum as IEventDispatcher).addEventListener("thumbUp", colorSpectrumThumbUpHandler);
 		}
 		
-        private var draggingThumb:Boolean;
-        private var fromSpectrum:Boolean;
+		private var draggingThumb:Boolean;
+		private var fromSpectrum:Boolean;
         
-		protected function colorSpectrumChangeHandler(event:Event):void
-		{
+		protected function colorSpectrumChangeHandler(event:Event):void{
 			fromSpectrum = true;
 			(model as IColorModel).color = colorSpectrum.hsvModifiedColor;
 		}
         
-		private function colorModelChangeHandler(event:Event):void
-		{
+		private function colorModelChangeHandler(event:Event):void{
 			var colorValue:uint = (event.target as IColorModel).color;
 			(_colorTextField.model as IColorModel).color = colorValue;
 			(_alphaTextField.model as IRangeModel).value = int((1 - (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
-			if (fromSpectrum)
-			{
+			if (fromSpectrum){
 				fromSpectrum = false;
-			} else
-			{
+			} else {
 				colorSpectrum.baseColor = colorValue;
 			}
 			alphaSelector.value = int((1- (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
 			(alphaSelector.model as IColorModel).color = colorValue;
-			if (open)
-			{
+			if (open){
 				(host as IEventDispatcher).dispatchEvent(new Event(Event.CHANGE));
 			}
 		}
 
-        protected function colorSpectrumThumbDownHandler(event:Event):void
-        {
-            draggingThumb = true;
-        }
-        
-        protected function colorSpectrumThumbUpHandler(event:Event):void
-        {
-            draggingThumb = false;
-        }
+		protected function colorSpectrumThumbDownHandler(event:Event):void{
+			draggingThumb = true;
+		}
 		
-		public function set strand(value:IStrand):void
-		{
+		protected function colorSpectrumThumbUpHandler(event:Event):void{
+			draggingThumb = false;
+		}
+		
+		public function set strand(value:IStrand):void{
 			host = value;
 		}
 
-        override public function addedToParent():void
-        {
-            super.addedToParent();
-            var hueSelectorView:ISliderView = hueSelector.getBeadByType(ISliderView) as ISliderView;
-            hueSelectorView.track.alpha = 0;
-        }
-		
+		override public function addedToParent():void{
+			super.addedToParent();
+			var hueSelectorView:ISliderView = hueSelector.getBeadByType(ISliderView) as ISliderView;
+			hueSelectorView.track.alpha = 0;
+		}
+
 		private function colorTextFieldChangeHandler(event:Event):void
 		{
             (model as IColorModel).color = (_colorTextField.model as IColorModel).color;

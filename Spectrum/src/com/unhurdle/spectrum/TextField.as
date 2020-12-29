@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.const.IconType;
+  import org.apache.royale.html.accessories.RestrictTextInputBead;
 
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
@@ -95,6 +96,32 @@ package com.unhurdle.spectrum
         checkValidation();
       }
     }
+    private var _restrict:String;
+    /**
+     * Accepts a list of allowed characters.
+     * The different between `pattern` and `restrict` is that restrict prevents other characters
+     * from being typed while pattern validates the typed contents against an expression
+     * and gives visual feedback.
+     */
+    public function get restrict():String{
+    	return _restrict;
+    }
+    private var restrictBead:RestrictTextInputBead;
+
+    public function set restrict(value:String):void{
+    	if(_restrict == value){
+        return;
+      }
+      if(value && !restrictBead){
+        restrictBead = new RestrictTextInputBead();
+        addBead(restrictBead);
+      }
+      if(restrictBead){
+        restrictBead.restrict = value;
+      }
+      _restrict = value;
+    }
+
     private var _required:Boolean;
     public function get required():Boolean
     {

@@ -28,6 +28,7 @@ package com.unhurdle.spectrum
 		protected var labelContainer:HTMLElement;
 		protected var controlsContainer:HTMLElement;
 		protected var labelNode:TextNode;
+		protected var handle:HTMLElement;
 		
 		protected var valueNode:TextNode;
 
@@ -151,12 +152,20 @@ package com.unhurdle.spectrum
 
 
 		// Element interaction
+		COMPILE::JS
 		protected function onMouseDown(e:MouseEvent):void {
+			if(handle){
+				handle.classList.add("is-dragged");
+			}
 			onMouseMove(e);
 			window.addEventListener('mouseup', onMouseUp);
 			window.addEventListener('mousemove', onMouseMove);
 		}
+		COMPILE::JS
 		protected function onMouseUp():void {
+			if(handle){
+				handle.classList.remove("is-dragged");
+			}
 			window.removeEventListener('mouseup', onMouseUp);
 			window.removeEventListener('mousemove', onMouseMove);
 		}

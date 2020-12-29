@@ -55,7 +55,7 @@ package com.unhurdle.spectrum.colorpicker
 			selectedColorDisplay.percentHeight = 100;
 			COMPILE::JS
 			{
-				applyCheckeredBackground(host.element.style);
+				// applyCheckeredBackground(host.element.style);
 			}
 			// (host as IStyleableObject).className = "CheckeredBackground";
 			(selectedColorDisplay as IStyleableObject).className = "ColorPickerDisplayedColor";			

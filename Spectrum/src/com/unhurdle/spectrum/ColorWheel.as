@@ -3,8 +3,8 @@ package com.unhurdle.spectrum
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import com.unhurdle.spectrum.utils.ColorUtil;
   import org.apache.royale.events.ValueEvent;
+  import com.unhurdle.spectrum.data.RGBColor;
 
 	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
 
@@ -143,8 +143,8 @@ package com.unhurdle.spectrum
         handle.element.style.left = left + "px";
         handle.element.style.top = top + "px";
         var context:* = canvas.getContext('2d');
-        const imageDataData:Array = context.getImageData(left, top, 1, 1).data;
-        handle.backgroundStyleColor = ColorUtil.rgbStr(imageDataData);
+        //TODO optimize this to get all the image data at once. See ColorArea.
+        handle.appliedColor = new RGBColor(context.getImageData(left, top, 1, 1).data);
       }
     }
   }
