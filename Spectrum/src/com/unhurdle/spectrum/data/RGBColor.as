@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum.data
 {
   import com.unhurdle.spectrum.interfaces.IRGBA;
+  import org.apache.royale.utils.HSV;
 
   public class RGBColor implements IRGBA
   {
@@ -71,6 +72,29 @@ package com.unhurdle.spectrum.data
 		}
 		public function clone():RGBColor{
 			return new RGBColor([r,g,b,alpha]);
+		}
+		public static function fromHSV(hsv:HSV):RGBColor{
+			var h:Number = hsv.h == 360 ? 1 : hsv.h / 360 * 6;
+			var s:Number = hsv.s == 100 ? 1 : hsv.s / 100;
+			var v:Number = hsv.v == 100 ? 1 : hsv.v / 100;
+
+			var i:Number = Math.floor(h);
+			var f:Number = h - i;
+			var p:Number = v * (1 - s);
+			var q:Number = v * (1 - f * s);
+			var t:Number = v * (1 - (1 - f) * s);
+			var r:Number;
+			var g:Number;
+			var b:Number;
+			switch(i % 6){
+					case 0: r = v, g = t, b = p; break;
+					case 1: r = q, g = v, b = p; break;
+					case 2: r = p, g = v, b = t; break;
+					case 3: r = p, g = q, b = v; break;
+					case 4: r = t, g = p, b = v; break;
+					case 5: r = v, g = p, b = q; break;
+			}
+			return new RGBColor([r*255,g*255,b*255]);
 		}
 	}
 }

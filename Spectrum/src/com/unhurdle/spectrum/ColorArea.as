@@ -41,18 +41,38 @@ package com.unhurdle.spectrum
 
 		public function set appliedColor(value:IRGBA):void{
 			handle.appliedColor = value;
+			_hsv = rgbToHsv(value.r,value.g,value.b);
+			positionHandle();
 		}
 
-		private var _baseColor:IRGBA;
-		public function get baseColor():IRGBA{
-			return _baseColor;
+		private var _hsv:HSV;
+
+		public function get hsv():HSV
+		{
+			return _hsv;
 		}
-		public function set baseColor(value:IRGBA):void{
-			_baseColor = value;
-			if(drawCanvas()){
-				calculateColor(new Point(handle.x,handle.y));
-				imageData = null;
+
+		public function set hsv(value:HSV):void
+		{
+			_hsv = value;
+			handle.appliedColor = RGBColor.fromHSV(value);
+			positionHandle();
+		}
+
+		public function get hue():Number
+		{
+			return hsv ? hsv.h : 0;
+		}
+
+		public function set hue(value:Number):void
+		{
+			if(!hsv){
+				hsv = new HSV();
+				hsv.s = 100;
+				hsv.v = 100;
 			}
+			hsv.h = value;
+			positionHandle();
 		}
 
 		private var handle:ColorHandle;
@@ -66,7 +86,6 @@ package com.unhurdle.spectrum
 			if(!addedOnce){
 				addEventListener('mousedown', onMouseDown);
 				handle.addEventListener("colorChanged",function(ev:ValueEvent):void{
-					positionHandle();
 					dispatchEvent(new ValueEvent("colorChanged",ev));
 				});
 			}
@@ -75,16 +94,15 @@ package com.unhurdle.spectrum
 
 		}
 		private function positionHandle():void{
-			var color:IRGBA = handle.appliedColor;
-			var hsv:HSV = rgbToHsv(color.r,color.g,color.b);
 			handle.x = (hsv.s / 100) * width;
 			handle.y = height - hsv.v * height / 100;
+			setHandleColor();
 		}
-		private var imageData:ImageData;
-		private function getImageData():void{
-			var ctx:CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
-  		imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);			
-		}
+		// private var imageData:ImageData;
+		// private function getImageData():void{
+		// 	var ctx:CanvasRenderingContext2D = canvas.getContext("2d") as CanvasRenderingContext2D;
+  	// 	imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);			
+		// }
 
 		COMPILE::JS
 		protected function onMouseDown(e:MouseEvent):void {
@@ -99,7 +117,6 @@ package com.unhurdle.spectrum
 			handle.toggle("is-dragged",false);
 			window.removeEventListener('mouseup', onMouseUp);
 			canvas.removeEventListener('mousemove', onMouseMove);
-			imageData = null;
 		}
 
 		COMPILE::JS
@@ -111,15 +128,26 @@ package com.unhurdle.spectrum
 			calculateColor(getClientOffset(e));
 		}
 		private function calculateColor(point:Point):void{
-			if(!imageData){
-				getImageData();
-			}
+			// if(!imageData){
+			// 	getImageData();
+			// }
     // locate index of current pixel
-    	var i:int = (point.y * imageData.width + point.x) * 4;
-			var data:Uint8ClampedArray = imageData.data;
-			handle.appliedColor = new RGBColor([data[i],data[i+1],data[i+2],data[i+3]]);
-			handle.x = point.x;
-			handle.y = point.y;
+    	// var i:int = (point.y * imageData.width + point.x) * 4;
+			// var data:Uint8ClampedArray = imageData.data;
+			// handle.appliedColor = new RGBColor([data[i],data[i+1],data[i+2],data[i+3]]);
+			var x:Number = (width / point.x) * 100;
+			x = Math.min(x,100);
+			x = Math.max(x,0);
+			var y:Number = (height / point.y) * 100;
+			y = Math.min(y,100);
+			y = Math.max(y,0);
+			hsv.s = x;
+			hsv.v = 100 - y;
+			setHandleColor();
+			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
+		}
+		private function setHandleColor():void{
+			handle.appliedColor = RGBColor.fromHSV(hsv);
 		}
 		private function getClientOffset(event:MouseEvent):Point{
 			if(event["touches"]){
@@ -144,7 +172,10 @@ package com.unhurdle.spectrum
 			var gradB:CanvasGradient = context.createLinearGradient(0, 0, 0, canvas.height);
 			gradB.addColorStop(0, 'white');
 			gradB.addColorStop(1, 'black');
-			var colorToApply:IRGBA = baseColor.clone();
+			var hueColor:HSV = new HSV();
+			hueColor.s = 100;
+			hueColor.v = 100;
+			var colorToApply:IRGBA = RGBColor.fromHSV(hueColor);
 			var gradC:CanvasGradient = context.createLinearGradient(0, 0, canvas.width, 0);
 			colorToApply.alpha = 0;
 			gradC.addColorStop(0, colorToApply.styleString);
