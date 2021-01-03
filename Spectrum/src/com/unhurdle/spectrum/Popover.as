@@ -2,8 +2,10 @@ package com.unhurdle.spectrum
 {
 	import org.apache.royale.core.IPopUp;
 	import org.apache.royale.events.Event;
-	import org.apache.royale.core.IParent;
 	import org.apache.royale.core.IPopUpHostParent;
+	import org.apache.royale.geom.Rectangle;
+	import org.apache.royale.utils.DisplayUtils;
+	import org.apache.royale.geom.Point;
 
 	public class Popover extends Group implements IPopUp
 	{
@@ -37,6 +39,19 @@ package com.unhurdle.spectrum
 		{
 			_floating = value;
 		}
+
+		private var _anchor:Rectangle;
+		/**
+		 * The anchor is a rectangle in global units
+		 * If the anchor is set, the popover will position itself and its tip relative to that.
+		 */
+		public function get anchor():Rectangle{
+			return _anchor;
+		}
+		public function set anchor(value:Rectangle):void{
+			_anchor = value;
+		}
+
 		private var _open:Boolean;
 
 		public function get open():Boolean
@@ -115,6 +130,7 @@ package com.unhurdle.spectrum
 			super.addedToParent();
 			COMPILE::JS
 			{
+				positionDialog();
 				if(dialog){
 					if(!tipElement){
 						tipElement = newSVGElement("svg",appendSelector("-tip"));
@@ -135,6 +151,96 @@ package com.unhurdle.spectrum
 				}
 			}
 		}
+		protected function positionDialog():void{
+			if(!dialog || !anchor){
+				return;
+			}
+			// Figure out direction and max size
+			var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
+			var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
+
+			var pxStr:String = "px";
+
+			switch(position)
+			{
+				case "top":
+					positionTop(appBounds,componentBounds);
+					break;
+				case "bottom":
+					positionBottom(appBounds,componentBounds);
+					break;
+				case "left":
+					positionLeft(appBounds,componentBounds);
+					break;
+				case "right":
+					positionRight(appBounds,componentBounds);
+					break;
+				default:
+					break;
+			}
+		}
+		private function positionTop(appBounds:Rectangle,componentBounds:Rectangle):void{
+				var anchorCenter:Point = new Point((anchor.left + (anchor.width/2)),anchor.top);
+				anchorCenter.y -= componentBounds.height;
+				anchorCenter.y -= 5;//give some space between anchor and dialog
+				positionHorizontally(anchorCenter,appBounds,componentBounds);
+		}
+		private function positionBottom(appBounds:Rectangle,componentBounds:Rectangle):void{
+				var anchorCenter:Point = new Point((anchor.left + (anchor.width/2)),anchor.bottom);
+				anchorCenter.y += 5;//give some space between anchor and dialog
+				positionHorizontally(anchorCenter,appBounds,componentBounds);
+		}
+		private function positionHorizontally(point:Point,appBounds:Rectangle,componentBounds:Rectangle):void{
+				var top:Number = point.y
+				var left:Number = point.x - (componentBounds.width/2);
+				var right:Number = point.x + (componentBounds.width/2);
+				y = top;
+				var pointPercent:Number = componentBounds.width / 100;
+				if(left < appBounds.left + 2){
+					var diff:Number = left - appBounds.left + 2;
+					left += diff;
+					tipPosition = 50 - (diff/pointPercent);
+				} else if(right > appBounds.right - 2){
+					diff = (right - appBounds.right + 2);
+					left -= diff;
+					tipPosition = 50 + (diff/pointPercent);
+				} else {
+					tipPosition = 50;
+				}
+				x = left;
+		}
+
+		private function positionLeft(appBounds:Rectangle,componentBounds:Rectangle):void{
+				var anchorCenter:Point = new Point(anchor.left,anchor.top - (anchor.height/2));
+				anchorCenter.x -= componentBounds.width;
+				anchorCenter.x -= 5;//give some space between anchor and dialog
+				positionHorizontally(anchorCenter,appBounds,componentBounds);
+		}
+		private function positionRight(appBounds:Rectangle,componentBounds:Rectangle):void{
+				var anchorCenter:Point = new Point(anchor.right,anchor.top - (anchor.height/2));
+				anchorCenter.x += 5;//give some space between anchor and dialog
+				positionHorizontally(anchorCenter,appBounds,componentBounds);
+		}
+		private function positionVertically(point:Point,appBounds:Rectangle,componentBounds:Rectangle):void{
+				var left:Number = point.y
+				var top:Number = point.y - (componentBounds.height/2);
+				var bottom:Number = point.y + (componentBounds.height/2);
+				x = left;
+				var pointPercent:Number = componentBounds.height / 100;
+				if(top < appBounds.top + 2){
+					var diff:Number = left - appBounds.left + 2;
+					top += diff;
+					tipPosition = 50 - (diff/pointPercent);
+				} else if(bottom > appBounds.bottom - 2){
+					diff = (bottom - appBounds.bottom + 2);
+					top -= diff;
+					tipPosition = 50 + (diff/pointPercent);
+				} else {
+					tipPosition = 50;
+				}
+				y = top;
+		}
+
 		COMPILE::JS
 		protected var tipElement:SVGElement;
 		COMPILE::JS

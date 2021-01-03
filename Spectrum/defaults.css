@@ -114,6 +114,9 @@ DatePicker {
 	IBeadModel:  ClassReference("com.unhurdle.spectrum.model.DatePickerModel");
 	IFormatter: ClassReference("org.apache.royale.html.accessories.DateFormatYYYYMMDD");
 }
+ColorPicker {
+	IColorPopover: ClassReference("com.unhurdle.spectrum.colorpicker.ColorPickerPopUp");
+}
 
 Table {
 
@@ -138,11 +141,6 @@ js|ColorPalette {
 }
 
 
-colorpicker|ColorPicker {
-	IPopUp: ClassReference("com.unhurdle.spectrum.colorpicker.ColorPickerPopUpWithPalette");
-	IBeadView: ClassReference("com.unhurdle.spectrum.colorpicker.ColorPickerView");
-	IBeadModel: ClassReference("com.unhurdle.spectrum.colorpicker.ArrayColorSelectionWithAlphaModel");
-}
 
 colorpicker|AlphaTextField {
 	IBeadModel: ClassReference("org.apache.royale.html.beads.models.RangeModel");

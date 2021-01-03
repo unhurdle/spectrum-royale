@@ -178,6 +178,9 @@
     <component id="TreeModel" class="com.unhurdle.spectrum.TreeModel"/>
     <component id="TreeController" class="com.unhurdle.spectrum.TreeController"/>
 
+    <component id="FlexLayout" class="com.unhurdle.spectrum.beads.FlexLayout"/>
+    <component id="TileLayout" class="com.unhurdle.spectrum.beads.TileLayout"/>
+
     <component id="AddTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.AddTableRowForArrayListData" />
     <component id="RemoveTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.RemoveTableRowForArrayListData" />
     <component id="UpdateTableRowForArrayListData" class="com.unhurdle.spectrum.renderers.UpdateTableRowForArrayListData" />
@@ -201,6 +204,8 @@
     <component id="ColorSpectrumView" class="com.unhurdle.spectrum.colorpicker.ColorSpectrumView"/>
     <component id="ColorTextField" class="com.unhurdle.spectrum.colorpicker.ColorTextField"/>
     <component id="ColorPickerSliderView" class="com.unhurdle.spectrum.colorpicker.ColorPickerSliderView"/>
+    <component id="ColorSwatch" class="com.unhurdle.spectrum.ColorSwatch"/>
+    <component id="ColorSwatchRenderer" class="com.unhurdle.spectrum.renderers.ColorSwatchRenderer"/>
     <component id="VerticalSliderLayout" class="com.unhurdle.spectrum.colorpicker.VerticalSliderLayout"/>
     <component id="VSliderMouseController" class="com.unhurdle.spectrum.colorpicker.VSliderMouseController"/>
     <component id="SelectableItemRenderer" class="com.unhurdle.spectrum.renderers.SelectableItemRenderer"/>
