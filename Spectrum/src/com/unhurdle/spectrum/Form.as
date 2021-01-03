@@ -1,10 +1,5 @@
 package com.unhurdle.spectrum
 {
-  COMPILE::JS
-  {
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-  }
   import com.unhurdle.spectrum.includes.FieldLabelInclude;
   public class Form extends Group
   {

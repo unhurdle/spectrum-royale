@@ -1,10 +1,6 @@
 package com.unhurdle.spectrum
 {
-  COMPILE::JS
-  {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
-  }
+
   [Event(name="itemClicked", type="org.apache.royale.events.ValueEvent")]
   public class Breadcrumbs extends List
   {

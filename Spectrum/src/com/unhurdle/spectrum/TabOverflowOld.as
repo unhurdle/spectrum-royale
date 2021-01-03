@@ -2,9 +2,7 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS
   {
-  import org.apache.royale.core.WrappedHTMLElement;
-  import org.apache.royale.events.ValueEvent;
-  import org.apache.royale.html.util.addElementToWrapper;
+    import org.apache.royale.core.WrappedHTMLElement;
   }
   import org.apache.royale.events.ValueEvent;
   [Event(name="children", type="org.apache.royale.events.Event")]

@@ -2,7 +2,6 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.const.IconType;
   public class Tooltip extends SpectrumBase

@@ -1,23 +1,22 @@
 package com.unhurdle.spectrum.renderers
 {
 
-  import com.unhurdle.spectrum.TextNode;
-  import com.unhurdle.spectrum.Icon;
-  import org.apache.royale.html.util.getLabelFromData;
-  import com.unhurdle.spectrum.data.BreadcrumbsItem;
-
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import com.unhurdle.spectrum.newElement;
+  import org.apache.royale.html.util.getLabelFromData;
+  import org.apache.royale.events.MouseEvent;
   import org.apache.royale.events.ValueEvent;
   import org.apache.royale.events.IEventDispatcher;
+
+  import com.unhurdle.spectrum.TextNode;
+  import com.unhurdle.spectrum.Icon;
+  import com.unhurdle.spectrum.newElement;
   import com.unhurdle.spectrum.const.IconType;
-  import org.apache.royale.events.MouseEvent;
   import com.unhurdle.spectrum.ActionButton;
   import com.unhurdle.spectrum.const.IconPrefix;
+  import com.unhurdle.spectrum.data.BreadcrumbsItem;
   
   public class BreadcrumbsItemRenderer extends DataItemRenderer
   {

@@ -2,9 +2,8 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS{
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.events.Event;
   }
+  import org.apache.royale.events.Event;
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Switch extends SpectrumBase
   {

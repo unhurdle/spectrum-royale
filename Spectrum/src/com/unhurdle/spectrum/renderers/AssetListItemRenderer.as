@@ -3,16 +3,14 @@ package com.unhurdle.spectrum.renderers
   COMPILE::JS
   {
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
   }
   import com.unhurdle.spectrum.CheckBox;
   import com.unhurdle.spectrum.Icon;
   import com.unhurdle.spectrum.TextNode;
+  import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.data.AssetListItem;
- 
 
   import org.apache.royale.events.Event;
-  import com.unhurdle.spectrum.const.IconType;
   
   public class AssetListItemRenderer extends ListItemRenderer
   {

@@ -2,13 +2,9 @@ package com.unhurdle.spectrum
 {
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-    import com.unhurdle.spectrum.const.IconPrefix;
-    import org.apache.royale.events.Event;
-    import com.unhurdle.spectrum.const.IconSize;
-  
+  import org.apache.royale.events.Event;
 
   public class Tab extends SpectrumBase
   {

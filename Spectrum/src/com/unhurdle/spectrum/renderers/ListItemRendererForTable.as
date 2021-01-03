@@ -1,18 +1,12 @@
 package com.unhurdle.spectrum.renderers
 {
+	COMPILE::JS
+	{
+		import org.apache.royale.core.WrappedHTMLElement;
+	}
 	import org.apache.royale.events.Event;
-
 	import org.apache.royale.html.util.getLabelFromData;
-	
-
-    COMPILE::JS
-    {
-    import org.apache.royale.core.WrappedHTMLElement;
-		import org.apache.royale.html.util.addElementToWrapper;
-		import com.unhurdle.spectrum.TextNode;
-		
-    }
-	
+	import com.unhurdle.spectrum.TextNode;
 
 	public class ListItemRendererForTable extends DataItemRenderer 
 	{

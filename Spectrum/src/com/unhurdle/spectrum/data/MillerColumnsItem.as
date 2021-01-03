@@ -1,14 +1,8 @@
 package com.unhurdle.spectrum.data
 {
-  COMPILE::JS
-  {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
-  }
   import com.unhurdle.spectrum.AssetList;
   import com.unhurdle.spectrum.SpectrumBase;
   import org.apache.royale.events.ValueEvent;
-  import org.apache.royale.core.IChild;
 
   public class MillerColumnsItem extends SpectrumBase
   {

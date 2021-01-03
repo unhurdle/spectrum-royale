@@ -1,15 +1,10 @@
 package com.unhurdle.spectrum
 {
   COMPILE::JS{
-  import org.apache.royale.html.util.addElementToWrapper;
-  import org.apache.royale.core.WrappedHTMLElement;
- 
-  
+    import org.apache.royale.core.WrappedHTMLElement;
   }
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.typography.PageTitle;
-  
-
 
   public class IllustratedMessage extends SpectrumBase
   {
@@ -25,7 +20,6 @@ package com.unhurdle.spectrum
       if(!type){
          type = "default";
       }
-     
     }
 
     override protected function getSelector():String{

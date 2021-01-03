@@ -2,10 +2,7 @@ package com.unhurdle.spectrum
 {
     COMPILE::JS {
     import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-  
     }
-    import com.unhurdle.spectrum.model.DatePickerModel;
 
     import org.apache.royale.events.Event;
     import org.apache.royale.events.MouseEvent;
@@ -15,6 +12,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.elements.Table;
     import org.apache.royale.html.elements.Tbody;
     import org.apache.royale.html.elements.Div;
+    import com.unhurdle.spectrum.model.DatePickerModel;
     import com.unhurdle.spectrum.utils.DateUtil;
  
 

@@ -10,7 +10,6 @@ package com.unhurdle.spectrum.renderers
 
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
   // [Event(name="itemSelected", type="org.apache.royale.events.Event")]

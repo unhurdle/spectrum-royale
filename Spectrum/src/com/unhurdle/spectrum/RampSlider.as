@@ -1,12 +1,11 @@
 package com.unhurdle.spectrum
 {
-   COMPILE::JS{
-        import org.apache.royale.html.util.addElementToWrapper;
-        import org.apache.royale.core.WrappedHTMLElement;
-    }
-    import org.apache.royale.utils.PointUtils;
-    import org.apache.royale.geom.Point;
-    import org.apache.royale.events.MouseEvent;
+  COMPILE::JS{
+    import org.apache.royale.core.WrappedHTMLElement;
+  }
+  import org.apache.royale.utils.PointUtils;
+  import org.apache.royale.geom.Point;
+  import org.apache.royale.events.MouseEvent;
   public class RampSlider extends SliderBase
   {
     public function RampSlider()

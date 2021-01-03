@@ -1,16 +1,8 @@
 package com.unhurdle.spectrum
 {
-
-  COMPILE::JS
-  {
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-  }
-
   import com.unhurdle.spectrum.data.MenuItem;
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.collections.IArrayList;
-  // import com.unhurdle.spectrum.data.IMenuItem;
 
   public class Menu extends List
   {

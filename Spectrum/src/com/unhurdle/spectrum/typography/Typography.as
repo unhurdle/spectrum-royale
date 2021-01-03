@@ -1,13 +1,5 @@
 package com.unhurdle.spectrum.typography
 {
-  COMPILE::JS
-  {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
-  }
-  import com.unhurdle.spectrum.Group;
-  import com.unhurdle.spectrum.TextNode;
-
   public class Typography extends TypographyBase
   {
     public static const STRONG:String = "strong;"

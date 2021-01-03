@@ -1,16 +1,12 @@
 package com.unhurdle.spectrum
 {
-
-  import org.apache.royale.html.beads.plugin.ModalDisplay;
-  
-
   COMPILE::JS {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
   
-  import com.unhurdle.spectrum.Icon;
   import org.apache.royale.events.KeyboardEvent;
+  import org.apache.royale.html.beads.plugin.ModalDisplay;
+  import com.unhurdle.spectrum.Icon;
   
   public class Alert extends SpectrumBase
   {

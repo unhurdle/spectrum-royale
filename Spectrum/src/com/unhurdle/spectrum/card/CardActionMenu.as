@@ -4,12 +4,6 @@ package com.unhurdle.spectrum.card
   import com.unhurdle.spectrum.Group;
   import org.apache.royale.events.Event;
   import com.unhurdle.spectrum.Popover;
-  COMPILE::JS
-  {
-    import org.apache.royale.core.WrappedHTMLElement;
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
-  }
 
   [Event(name="change", type="org.apache.royale.events.Event")]
   [Event(name="beforeShow", type="org.apache.royale.events.Event")]

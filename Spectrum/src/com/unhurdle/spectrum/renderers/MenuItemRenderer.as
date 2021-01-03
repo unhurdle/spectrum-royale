@@ -1,21 +1,20 @@
 package com.unhurdle.spectrum.renderers
 {
+  COMPILE::JS
+  {
+    import org.apache.royale.core.WrappedHTMLElement;
+  }
   import com.unhurdle.spectrum.data.MenuItem;
   import com.unhurdle.spectrum.TextNode;
   import com.unhurdle.spectrum.Icon;
 
-  COMPILE::JS
-  {
-    import org.apache.royale.html.util.addElementToWrapper;
-    import org.apache.royale.core.WrappedHTMLElement;
-  }
   import com.unhurdle.spectrum.const.IconType;
   import com.unhurdle.spectrum.const.IconPrefix;
   import org.apache.royale.html.util.getLabelFromData;
   // import com.unhurdle.spectrum.data.IMenuItem;
   import com.unhurdle.spectrum.ImageIcon;
   import com.unhurdle.spectrum.Menu;
-  import goog.events.Event;
+  import org.apache.royale.events.Event;
 
   public class MenuItemRenderer extends DataItemRenderer
   {

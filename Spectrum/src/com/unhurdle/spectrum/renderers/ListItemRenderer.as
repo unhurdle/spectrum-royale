@@ -1,18 +1,17 @@
 package com.unhurdle.spectrum.renderers
 {
-  import org.apache.royale.html.util.getLabelFromData;
-  import com.unhurdle.spectrum.TextNode;
-  import com.unhurdle.spectrum.Icon;
-
   COMPILE::JS
   {
-    import org.apache.royale.html.util.addElementToWrapper;
     import org.apache.royale.core.WrappedHTMLElement;
   }
-  import com.unhurdle.spectrum.ImageIcon;
-  import com.unhurdle.spectrum.data.IListItem;
   import org.apache.royale.core.IListDataItemRenderer;
   import org.apache.royale.core.IParent;
+  import org.apache.royale.html.util.getLabelFromData;
+
+  import com.unhurdle.spectrum.Icon;
+  import com.unhurdle.spectrum.ImageIcon;
+  import com.unhurdle.spectrum.TextNode;
+  import com.unhurdle.spectrum.data.IListItem;
 
   public class ListItemRenderer extends DataItemRenderer implements IListDataItemRenderer
   {
