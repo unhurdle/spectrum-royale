@@ -12,12 +12,17 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.interfaces.IRGBA;
 	import com.unhurdle.spectrum.data.RGBColor;
 	import com.unhurdle.spectrum.interfaces.IColorPopover;
+	import org.apache.royale.utils.DisplayUtils;
 
+	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
+	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
+	[Event(name="cancel", type="org.apache.royale.events.Event")]
 	public class ColorPicker extends SpectrumBase
 	{
 
 		public function ColorPicker()
 		{
+			super();
 		}
 
 		private var _position:String = "bottom";
@@ -177,6 +182,7 @@ package com.unhurdle.spectrum.colorpicker
 		}
 
 		protected function openPopup():void{
+			popover.anchor = DisplayUtils.getScreenBoundingRect(this);
 			popover.open = true;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);

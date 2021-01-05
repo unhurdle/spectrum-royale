@@ -7,6 +7,8 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.PointUtils;
 	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.geom.Point;
+	import org.apache.royale.utils.number.pinValue;
+	import org.apache.royale.utils.number.getPercent;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
@@ -234,8 +236,9 @@ package com.unhurdle.spectrum
 			var elem:HTMLElement = element as HTMLElement;
 			var sliderOffsetWidth:Number = elem.offsetWidth;
 			var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
-			var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
-			var percent:Number = (x / sliderOffsetWidth) * 100;
+			var x:Number = pinValue(localX,0,sliderOffsetWidth);
+			var percent:Number = getPercent(x,sliderOffsetWidth);
+
 			var val:Number = (max-min) / (100/percent) + min;
 			var stepVal:Number = step;
 			var rem:Number = val % stepVal;

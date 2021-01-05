@@ -1,6 +1,8 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.core.IChild;
+  import org.apache.royale.utils.number.pinValue;
+  import org.apache.royale.utils.number.getPercent;
 
 	[Event(name="resizeStart", type="org.apache.royale.events.Event")]
   [Event(name="resizeFinish", type="org.apache.royale.events.Event")]
@@ -171,13 +173,13 @@ package com.unhurdle.spectrum
 				if(direction == "horizontal"){
 					var sliderLeft:Number = clientRect.left;
 					var sliderWidth:Number = clientRect.width;
-					var x:Number = Math.max(Math.min(e.clientX - sliderLeft, sliderWidth), 0);
-					percent = (x / sliderWidth) * 100;
+					var x:Number = pinValue(e.clientX - sliderLeft,0,sliderWidth);
+					percent = getPercent(x,sliderWidth);
 				} else{
 					var sliderTop:Number = clientRect.top;
 					var sliderHeight:Number = clientRect.height;
-					var y:Number = Math.max(Math.min(e.clientY - sliderTop, sliderHeight), 0);
-					percent = (y / sliderHeight) * 100;
+					var y:Number = pinValue(e.clientY - sliderTop,0,sliderHeight);
+					percent = getPercent(y,sliderHeight);
 				}
 				_position = percent;
 				positionElements(percent);

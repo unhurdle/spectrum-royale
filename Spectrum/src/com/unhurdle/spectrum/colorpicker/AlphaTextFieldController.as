@@ -8,6 +8,7 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.html.beads.DispatchInputFinishedBead;
 	import org.apache.royale.core.IRangeModel;
 	import org.apache.royale.events.ValueChangeEvent;
+	import org.apache.royale.utils.number.pinValue;
 
 	public class AlphaTextFieldController implements IBeadController
 	{
@@ -43,7 +44,7 @@ package com.unhurdle.spectrum.colorpicker
             var str:String = (event.target as TextField).text;
             str.replace("%", "");
             var num:Number = parseInt(str);
-            num = Math.min(_model.maximum, Math.max(_model.minimum, num));
+            num = pinValue(num,_model.minimum,_model.maximum);
             _model.value = 100 - num;
             (_strand as IEventDispatcher).dispatchEvent(new Event("alphaChange"));
         }

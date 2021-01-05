@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.data.RGBColor;
 	import org.apache.royale.utils.HSV;
 	import org.apache.royale.utils.rgbToHsv;
+	import org.apache.royale.utils.number.getPercent;
 
 	public class ColorArea extends SpectrumBase
 	{
@@ -135,14 +136,9 @@ package com.unhurdle.spectrum
     	// var i:int = (point.y * imageData.width + point.x) * 4;
 			// var data:Uint8ClampedArray = imageData.data;
 			// handle.appliedColor = new RGBColor([data[i],data[i+1],data[i+2],data[i+3]]);
-			var x:Number = (width / point.x) * 100;
-			x = Math.min(x,100);
-			x = Math.max(x,0);
-			var y:Number = (height / point.y) * 100;
-			y = Math.min(y,100);
-			y = Math.max(y,0);
-			hsv.s = x;
-			hsv.v = 100 - y;
+			hsv.s = getPercent(width,point.x);
+			// The v scale goes bottom to top so we need to inverse the value.
+			hsv.v = 100 - getPercent(height,point.y);
 			setHandleColor();
 			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 		}

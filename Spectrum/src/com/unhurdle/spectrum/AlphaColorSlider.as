@@ -5,6 +5,8 @@ package com.unhurdle.spectrum
 	import org.apache.royale.geom.Point;
   import org.apache.royale.events.MouseEvent;
   import com.unhurdle.spectrum.interfaces.IRGBA;
+  import org.apache.royale.utils.number.pinValue;
+  import org.apache.royale.utils.number.getPercent;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
@@ -15,6 +17,7 @@ package com.unhurdle.spectrum
     {
       super();
       colorStops = ["rgb(0, 0, 0)"];
+      
       changeBackgroundColor()
     }
 
@@ -49,13 +52,13 @@ package com.unhurdle.spectrum
       if(vertical){
         var sliderOffsetHeight:Number = elem.offsetHeight;
         var localY:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).y;
-        var y:Number = Math.max(Math.min(localY, sliderOffsetHeight), 0);
-        percent = (y / sliderOffsetHeight) * 100;
+				var y:Number = pinValue(localY,0,sliderOffsetHeight);
+				percent = getPercent(y,sliderOffsetHeight);
       }else{
         var sliderOffsetWidth:Number = elem.offsetWidth;
         var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
-        var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
-        percent = (x / sliderOffsetWidth) * 100;
+				var x:Number = pinValue(localX,0,sliderOffsetWidth);
+				percent = getPercent(x,sliderOffsetWidth);
       }
       var rgbColor:IRGBA = appliedColor;
       rgbColor.alpha = percent/100;
@@ -68,5 +71,13 @@ package com.unhurdle.spectrum
         }
       }
     }
+    override protected function calculateHandlePosition():void{
+      if(appliedColor && !isNaN(appliedColor.alpha)){
+        setHandlePosition(appliedColor.alpha * 100);
+      } else {
+        setHandlePosition(0);
+      }
+    }
+
   }
 }

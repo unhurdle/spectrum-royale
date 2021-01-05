@@ -9,6 +9,9 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.ValueEvent;
 	import com.unhurdle.spectrum.data.RGBColor;
 	import com.unhurdle.spectrum.interfaces.IRGBA;
+	import org.apache.royale.utils.rgbToHsv;
+	import org.apache.royale.utils.number.pinValue;
+	import org.apache.royale.utils.number.getPercent;
 
 	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
 
@@ -17,6 +20,7 @@ package com.unhurdle.spectrum
 		public function ColorSlider(){
 			super();
 			colorStops = ["rgb(255, 0, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)", "rgb(0, 255, 255)", "rgb(0, 0, 255)", "rgb(255, 0, 255)", "rgb(255, 0, 0)"];
+      hueSlider = true;
 		}
 		
 		override protected function getSelector():String{
@@ -88,8 +92,11 @@ package com.unhurdle.spectrum
 
 		public function set appliedColor(value:IRGBA):void{
 			handle.appliedColor = value;
+      if(addedOnce){
+        calculateHandlePosition();
+      }
 		}
-
+    private var hueSlider:Boolean;
 		private var _colorStops:Array;
 
 		public function get colorStops():Array{
@@ -97,23 +104,64 @@ package com.unhurdle.spectrum
 		}
 
 		public function set colorStops(value:Array):void{
+      hueSlider = false;
 			_colorStops = value;
 			changeBackgroundColor();
-			handle.appliedColor = colorToRGBA(colorStops[0]);
+			if(addedOnce){
+				getRGBColors();
+				if(!handle.appliedColor){
+					handle.appliedColor = rgbColors[0];
+				}
+        calculateHandlePosition();
+			}
 		}
-
+		private function getRGBColors():void{
+			rgbColors = [];
+			for(var i:int=0;i<colorStops.length;i++){
+				rgbColors[i] = colorToRGBA(colorStops[i]);
+			}
+		}
+		private var rgbColors:Array;
+    protected function calculateHandlePosition():void{
+      if(hueSlider){
+        var c:IRGBA = appliedColor;
+        var hue:Number = rgbToHsv(c.r,c.g,c.b).h;
+        //reverse the number because 360 is top and 0 is bottom
+        setHandlePosition(100 - (hue / 3.6));
+      } else {
+        //TODO figure out the placement based on colorstops and h,s and v values
+      }
+    }
+    protected function setHandlePosition(percent:Number):void{
+      //make sure it's between 0 and 100
+      var percentVal:String = percent + "%"
+      if(vertical){
+        handle.setStyle("top",percentVal);
+      }else{
+        handle.setStyle("left",percentVal);
+      }
+    }
+		private var addedOnce:Boolean;
 		override public function addedToParent():void{
 			super.addedToParent();
-			if(!disabled){
+			if(!addedOnce){
 				addEventListener('mousedown', onMouseDown);
+				handle.addEventListener("colorChanged",function(ev:ValueEvent):void{
+					if(duringMove){
+						dispatchEvent(new ValueEvent("colorChanged",ev));
+					}
+				});
 			}
-			handle.addEventListener("colorChanged",function(ev:ValueEvent):void{
-				dispatchEvent(new ValueEvent("colorChanged",ev));
-			});
+			getRGBColors();
+      calculateHandlePosition();
+			addedOnce = true;
 		}
 
 		// Element interaction
 		protected function onMouseDown(e:MouseEvent):void {
+			if(disabled){
+				return;
+			}
 			handle.toggle("is-dragged",true);
 			onMouseMove(e);
 			window.addEventListener('mouseup', onMouseUp);
@@ -125,23 +173,24 @@ package com.unhurdle.spectrum
 			window.removeEventListener('mouseup', onMouseUp);
 			window.removeEventListener('mousemove', onMouseMove);
 		}
-
+		private var duringMove:Boolean;
 		protected function onMouseMove(e:MouseEvent):void {
 			if(disabled){
 				return;
 			}
+			duringMove = true;
 			var elem:HTMLElement = element as HTMLElement;
 			var percent:Number;
 			if(vertical){
 				var sliderOffsetHeight:Number = elem.offsetHeight;
 				var localY:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).y;
-				var y:Number = Math.max(Math.min(localY, sliderOffsetHeight), 0);
-				percent = (y / sliderOffsetHeight) * 100;
+				var y:Number = pinValue(localY,0,sliderOffsetHeight);
+				percent = getPercent(y,sliderOffsetHeight);
 			}else{
 				var sliderOffsetWidth:Number = elem.offsetWidth;
 				var localX:Number = PointUtils.globalToLocal(new Point(e.clientX,e.clientY),this).x;
-				var x:Number = Math.max(Math.min(localX, sliderOffsetWidth), 0);
-				percent = (x / sliderOffsetWidth) * 100;
+				var x:Number = pinValue(localX,0,sliderOffsetWidth);
+				percent = getPercent(x,sliderOffsetWidth);
 			}
 			var num:Number = percent/(100/(colorStops.length - 1));
 			if(isInt(num)){
@@ -152,16 +201,12 @@ package com.unhurdle.spectrum
 				var color2:String = colorStops[ind + 1];
 				var rgb1:RGBColor = colorToRGBA(color1);
 				var rgb2:RGBColor = colorToRGBA(color2);
-				handle.appliedColor = pickHex(rgb1,rgb2,getWeightColor(ind+1,ind,percent));
+				handle.appliedColor = findColor(rgb1,rgb2,getWeightColor(ind+1,ind,percent));
 
 			}
-			COMPILE::JS{
-				if(vertical){
-					handle.element.style.top = percent + "%";
-				}else{
-					handle.element.style.left = percent + "%";
-				}
-			}
+      setHandlePosition(percent);
+			
+			duringMove = false;
 		}
 
 		private function isInt(n:Number):Boolean{
@@ -175,7 +220,7 @@ package com.unhurdle.spectrum
 			return weight;
 		}
 
-		protected function pickHex(color1:RGBColor, color2:RGBColor, weight:Number):RGBColor {
+		protected function findColor(color1:RGBColor, color2:RGBColor, weight:Number):RGBColor {
 			var w1:Number = weight;
 			var w2:Number = 1 - w1;
 			var rgb:Array = [Math.round(color1.r * w1 + color2.r * w2),

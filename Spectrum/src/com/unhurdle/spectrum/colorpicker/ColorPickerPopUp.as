@@ -1,13 +1,10 @@
 package com.unhurdle.spectrum.colorpicker
 {
 	import org.apache.royale.core.IColorModel;
-	import org.apache.royale.core.IColorSpectrumModel;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.utils.hsvToHex;
-	import org.apache.royale.utils.loadBeadFromValuesManager;
-	import org.apache.royale.html.supportClasses.ColorSpectrum;
 	import org.apache.royale.html.beads.ISliderView;
 	import com.unhurdle.spectrum.Popover;
 	import org.apache.royale.core.IRangeModel;
@@ -23,7 +20,12 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.beads.TileLayout;
 	import org.apache.royale.collections.IArrayList;
 	import org.apache.royale.collections.ICollectionView;
+	import org.apache.royale.events.ValueEvent;
+	import org.apache.royale.utils.rgbToHsv;
 
+	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
+	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
+	[Event(name="cancel", type="org.apache.royale.events.Event")]
 	public class ColorPickerPopUp extends Popover implements IColorPopover
 	{
 		public function ColorPickerPopUp(){
@@ -32,6 +34,7 @@ package com.unhurdle.spectrum.colorpicker
 			floating = true;
 			mainContainer = new FlexContainer();
 			mainContainer.vertical = true;
+			// mainContainer.alignItems  = "stretch";
 			addElement(mainContainer);
 			// fixedSizeContainer = new Group();
 			// colorArea = new ColorArea();
@@ -155,11 +158,11 @@ package com.unhurdle.spectrum.colorpicker
 					}
 				}
 				swatchList.selectedIndex = colorIndex;
-
 			}
 		}
 		private function onSwatchChange(ev:Event):void{
-
+			trace('onSwatchChange');
+			trace(ev);
 		}
 		protected var controlSection:FlexContainer;
 		private function setupControls():void{
@@ -167,17 +170,38 @@ package com.unhurdle.spectrum.colorpicker
 				if(!controlSection){
 					controlSection = new FlexContainer();
 					controlSection.vertical = false;
+					controlSection.alignItems = "stretch";
 					mainContainer.addElement(controlSection);
 				}
+				// first color area
 				if(!colorArea){
 					colorArea = new ColorArea();
+					colorArea.size = areaSize;
+					colorArea.addEventListener("colorChanged",handleColorAreaChange);
 					// add event listener -- which?
 					controlSection.addElement(colorArea);
 				}
 				// set the colorArea color
+				colorArea.appliedColor = appliedColor;
+				// then hue slider
+				if(!hueSelector){
+					hueSelector = new ColorSlider();
+					hueSelector.vertical = true;
+					hueSelector.addEventListener("colorChanged",handleHueChange);
+				}
+				hueSelector.appliedColor = 
 
 			}
 			setupAlpha();
+		}
+		private function handleColorAreaChange(ev:ValueEvent):void{
+			trace('handleColorAreaChange');
+			trace(ev);
+		}
+		private function handleHueChange(ev:ValueEvent):void{
+			var c:IRGBA = hueSelector.appliedColor;
+			colorArea.hue = rgbToHsv(c.r,c.g,c.b).h;
+			dispatchEvent(new ValueEvent("colorChanged",colorArea.appliedColor));
 		}
 		private function setupAlpha():void{
 			if(showColorControls && showAlphaControls){
@@ -367,7 +391,7 @@ package com.unhurdle.spectrum.colorpicker
 			_showApplyButtons = value;
 		}
 
-		private var _areaSize:Number = 92;// technically the default should be 240 on mobile
+		private var _areaSize:Number = 192;// technically the default should be 240 on mobile
 		public function get areaSize():Number{
 			return _areaSize;
 		}

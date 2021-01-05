@@ -11,12 +11,25 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.PointUtils;
 	import org.apache.royale.utils.UIUtils;
 	import com.unhurdle.spectrum.Tooltip;
-
+	
 	public class TooltipBead implements IBead
 	{
 		public function TooltipBead()
 		{
 		}
+		/**
+		 * TODO:
+		 * warmup/cooldown
+		 * start/end
+		 * delay
+		 * offset
+		 * touch and hold on mobile
+		 * (shouldflip is handled in AdaptiveTooltipBead)
+		 * prevent multiple tooltips being shown (keep static reference to active tooltip)
+		 * References:
+		 * https://react-spectrum.adobe.com/react-spectrum/Tooltip.html
+		 * https://spectrum.adobe.com/page/tooltip/
+		 */
 
 		public static const LEFT:String = "left";
 		public static const RIGHT:String = "right";

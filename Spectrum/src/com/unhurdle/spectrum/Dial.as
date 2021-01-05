@@ -6,6 +6,8 @@ package com.unhurdle.spectrum
 	}
 	import org.apache.royale.events.Event;
 	import com.unhurdle.spectrum.includes.SliderInclude;
+	import org.apache.royale.utils.number.pinValue;
+	import org.apache.royale.utils.number.getPercent;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	public class Dial extends SpectrumBase
@@ -211,8 +213,8 @@ package com.unhurdle.spectrum
 			var elem:HTMLElement = element as HTMLElement;
 			var dialOffsetWidth:Number = elem.offsetWidth;
 			var dialOffsetLeft:Number = elem.offsetLeft + (elem.offsetParent as HTMLElement).offsetLeft;
-			var x:Number = Math.max(Math.min(e.x - dialOffsetLeft, dialOffsetWidth), 0);
-			var percent:Number = (x / dialOffsetWidth) * 100;
+			var x:Number = pinValue(e.x - dialOffsetLeft,0,dialOffsetWidth);
+			var percent:Number = getPercent(x,dialOffsetWidth);
 			var val:Number = (max-min) / (100/percent);
 			value = val;
 			dispatchEvent(new Event("change"));

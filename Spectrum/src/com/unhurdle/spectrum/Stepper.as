@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.elements.Span;
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
   import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
+  import org.apache.royale.utils.number.pinValue;
   
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Stepper extends SpectrumBase implements IKeyboardFocusable
@@ -52,18 +53,11 @@ package com.unhurdle.spectrum
       var newVal:Number = value + stepVal;
 			var rem:Number = newVal % stepVal;
       rem = isNaN(rem) ? 0 : rem;
-			newVal = newVal - rem;
-      newVal = Math.min(newVal,max);
-      newVal = Math.max(newVal,min);
-			value = newVal;
+			value = pinValue(newVal - rem, min, max);
       dispatchEvent(new Event("change"));
     }
-    private function inputChanged():void
-    {
-      var val:Number = value;
-      val = Math.min(val,max);
-      val = Math.max(val,min);
-      value = val;
+    private function inputChanged():void{
+      value = pinValue(value,min,max);
     }
     
     private var input:NumberField;
