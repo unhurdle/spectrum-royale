@@ -188,8 +188,9 @@ package com.unhurdle.spectrum.colorpicker
 					hueSelector = new ColorSlider();
 					hueSelector.vertical = true;
 					hueSelector.addEventListener("colorChanged",handleHueChange);
+					controlSection.addElement(hueSelector);
 				}
-				hueSelector.appliedColor = 
+				hueSelector.appliedColor = appliedColor;
 
 			}
 			setupAlpha();
@@ -205,8 +206,18 @@ package com.unhurdle.spectrum.colorpicker
 		}
 		private function setupAlpha():void{
 			if(showColorControls && showAlphaControls){
-
+				if(!alphaSelector){
+					alphaSelector = new AlphaColorSlider();
+					alphaSelector.vertical = true;
+					alphaSelector.addEventListener("colorChanged",handleAlphaChange)
+					controlSection.addElement(alphaSelector);
+				}
+				alphaSelector.appliedColor = appliedColor;
 			}
+		}
+		private function handleAlphaChange(ev:ValueEvent):void{
+			trace("handleAlphaChange");
+			trace(ev);
 		}
 		protected var fieldContainer:FlexContainer;
 		private function setupFields():void{

@@ -14,7 +14,7 @@ package com.unhurdle.spectrum
 
 	public class ColorArea extends SpectrumBase
 	{
-		public static var DEFAULT_SIZE:Number = 192;
+		public static const DEFAULT_SIZE:Number = 192;
 		public function ColorArea()
 		{
 			super();
