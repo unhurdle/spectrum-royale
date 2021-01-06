@@ -2,6 +2,7 @@ package com.unhurdle.spectrum.data
 {
   import com.unhurdle.spectrum.interfaces.IRGBA;
   import org.apache.royale.utils.HSV;
+  import org.apache.royale.utils.number.pinValue;
 
   public class RGBColor implements IRGBA
   {
@@ -56,7 +57,22 @@ package com.unhurdle.spectrum.data
 		}
 
 		public function get colorValue():uint{
-			throw new Error("Method not implemented.");
+			var r:uint = r & 0xFF;
+			var g:uint = g & 0xFF;
+			var b:uint = b & 0xFF;
+			if(isNaN(alpha || alpha == 1)){
+				return (r << 16) | (g << 8) | (b << 0);
+			}
+			var a:uint = (alpha * 255) & 0xFF;
+			return (a << 24) | (r << 16) | (g << 8) | (b << 0);
+		}
+		public function set colorValue(value:uint):void{
+			if(value > 16777215){
+				alpha = pinValue((value >> 24 & 255)/255,0,1);
+			}
+			r = value >> 16 & 255;
+			g = value >> 8 & 255;
+			b = value >> 0 & 255;
 		}
 		public function get styleString():String{
 			if(isNaN(r) || isNaN(g) || isNaN(b)){
@@ -69,6 +85,9 @@ package com.unhurdle.spectrum.data
         return str + "," + alpha + ")";
       }
       return str + ")";
+		}
+		public function get hexString():String{
+			return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 		}
 		public function clone():RGBColor{
 			return new RGBColor([r,g,b,alpha]);

@@ -36,29 +36,18 @@ package com.unhurdle.spectrum.colorpicker
 		{
 			_position = value;
 		}
-		private var _color:uint;
 
-		public function get color():uint{
-			var c:IRGBA = appliedColor;
-			if(!c){
+		public function get colorValue():uint{
+			if(!appliedColor){
 				return 0;
 			}
-			var r:uint = c.r & 0xFF;
-			var g:uint = c.g & 0xFF;
-			var b:uint = c.b & 0xFF;
-			if(c.alpha){
-				var a:uint = c.alpha & 0xFF;
-				return (a << 24) | (r << 16) | (g << 8) | (b << 0);
-			}
-			return (r << 16) | (g << 8) | (b << 0);
+			return appliedColor.colorValue;
 		}
 
-		public function set color(value:uint):void{
-			var a:uint = value >> 24 & 255;
-			var r:uint = value >> 16 & 255;
-			var g:uint = value >> 8 & 255;
-			var b:uint = value >> 0 & 255;
-			appliedColor = new RGBColor([r,g,b,a]);
+		public function set colorValue(value:uint):void{
+			var color:RGBColor = new RGBColor();
+			color.colorValue = value;
+			appliedColor = color;
 		}
 		
 		private var _button:ColorSwatch;

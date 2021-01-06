@@ -1,13 +1,8 @@
 package com.unhurdle.spectrum.colorpicker
 {
-	import org.apache.royale.core.IColorModel;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.events.Event;
-	import org.apache.royale.events.IEventDispatcher;
-	import org.apache.royale.utils.hsvToHex;
-	import org.apache.royale.html.beads.ISliderView;
 	import com.unhurdle.spectrum.Popover;
-	import org.apache.royale.core.IRangeModel;
 	import com.unhurdle.spectrum.ISpectrumElement;
 	import com.unhurdle.spectrum.Group;
 	import com.unhurdle.spectrum.ColorSlider;
@@ -22,6 +17,7 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.collections.ICollectionView;
 	import org.apache.royale.events.ValueEvent;
 	import org.apache.royale.utils.rgbToHsv;
+	import com.unhurdle.spectrum.ColorSwatch;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -36,37 +32,6 @@ package com.unhurdle.spectrum.colorpicker
 			mainContainer.vertical = true;
 			// mainContainer.alignItems  = "stretch";
 			addElement(mainContainer);
-			// fixedSizeContainer = new Group();
-			// colorArea = new ColorArea();
-			// hueSelector = new ColorSlider();
-			// hueSelector.vertical = true;
-			// hueSelector.addEventListener("colorChanged", hueChangeHandler);
-			// alphaSelector = new AlphaColorSlider();
-			// alphaSelector.vertical = true;
-			// alphaSelector.addEventListener("colorChanged", alphaSelectorChangeHandler);
-			// _colorTextField = new ColorTextField();
-			// _alphaTextField = new AlphaTextField();
-			// _colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
-			// _alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
-			// preventPropogation(_colorTextField);
-			// preventPropogation(_alphaTextField);
-
-			// COMPILE::JS 
-			// {
-			// 	hueSelector.element.style.position = "absolute";
-			// 	_colorTextField.element.style.position = "absolute";
-			// 	_alphaTextField.element.style.position = "absolute";
-			// 	colorSpectrum.element.style.position = "absolute";
-			// 	alphaSelector.element.style.position = "absolute";
-			// 	fixedSizeContainer.element.style.position = "absolute";
-			// }
-
-			// fixedSizeContainer.addElement(colorSpectrum);
-			// fixedSizeContainer.addElement(hueSelector);
-			// fixedSizeContainer.addElement(alphaSelector);
-			// fixedSizeContainer.addElement(_colorTextField);
-			// fixedSizeContainer.addElement(_alphaTextField);
-			// addElement(fixedSizeContainer);
 		}
 		protected var mainContainer:FlexContainer;
 		protected var colorArea:ColorArea;
@@ -86,34 +51,6 @@ package com.unhurdle.spectrum.colorpicker
 		}
 		protected var fixedSizeContainer:Group;
 		protected var padding:Number = 18;
-
-
-		// protected function layout():void{
-		// 	var squareDim:Number = 225;
-		// 	var sliderWidth:Number = 30;
-		// 	colorSpectrum.height =  squareDim;
-		// 	colorSpectrum.width =  squareDim;
-		// 	colorSpectrum.y = padding;
-		// 	colorSpectrum.x = padding;
-		// 	hueSelector.width = sliderWidth;
-		// 	hueSelector.height = squareDim;
-		// 	hueSelector.x = colorSpectrum.x + colorSpectrum.width + padding;
-		// 	hueSelector.y = padding;
-		// 	alphaSelector.width = sliderWidth;
-		// 	alphaSelector.height = squareDim;
-		// 	alphaSelector.x = hueSelector.x + sliderWidth + padding;
-		// 	alphaSelector.y = padding;
-		// 	_colorTextField.x = padding;
-		// 	_colorTextField.y = colorSpectrum.y + colorSpectrum.height + padding;
-		// 	_colorTextField.width = 132;
-		// 	_alphaTextField.x = _colorTextField.width + _colorTextField.x + padding;
-		// 	_alphaTextField.y = _colorTextField.y;
-		// 	_alphaTextField.width = 66;
-		// 	fixedSizeContainer.width = alphaSelector.x + alphaSelector.width + padding;
-		// 	fixedSizeContainer.height = _colorTextField.y + 32 + padding;
-		// 	width = fixedSizeContainer.width;
-		// 	height = fixedSizeContainer.height;
-		// }
 
 		private function preventPropogation(element:ISpectrumElement):void{
 			element.addEventListener("change", function(e:Event):void{
@@ -229,20 +166,37 @@ package com.unhurdle.spectrum.colorpicker
 				}
 				if(!_colorTextField){
 					_colorTextField = new ColorTextField();
-					_colorTextField.addEventListener("colorChange", colorTextFieldChangeHandler);
+					if(hexEditable){
+						_colorTextField.addEventListener("inputFinished", colorTextFieldChangeHandler);
+					} else {
+						_colorTextField.readonly = true;
+					}
 					preventPropogation(_colorTextField);
+					fieldContainer.addElement(_colorTextField);
 				}
+				_colorTextField.text = appliedColor.hexString;
 				if(showAlphaControls){
 					if(!_alphaTextField){
 						_alphaTextField = new AlphaTextField();
-						_alphaTextField.addEventListener("alphaChange", alphaTextFieldChangeHandler);
+						_alphaTextField.addEventListener("inputFinished", alphaTextFieldChangeHandler);
 						preventPropogation(_alphaTextField);
 					}
 				}
 			}
 
 		}
+		private var originalColor:IRGBA;
+		private var startSwatch:ColorSwatch;
+		private var currentSwatch:ColorSwatch;
+		private var swatchContainer:FlexContainer;
 		private function setupSwatch():void{
+			if(!showSelectionSwatch){
+				return;
+			}
+			if(!swatchContainer){
+				swatchContainer = new FlexContainer();
+				swatchContainer.vertical = false;
+			}
 
 		}
 		private function setupButtons():void{
@@ -250,89 +204,19 @@ package com.unhurdle.spectrum.colorpicker
 
 			}
 		}
-		// override public function set visible(value:Boolean):void
-		// {
-		// 	open = value;
-		// 	super.visible = value;
-		// 	if (value)
-		// 	{
-		// 		layout();
-		// 	}
-		// }
-		
-		private function hueChangeHandler(event:Event):void{
-			(model as IColorModel).color = hsvToHex(hueSelector.value, 100, 100);
-		}
-
-		private function alphaSelectorChangeHandler(event:Event):void{
-			(model as ArrayColorSelectionWithAlphaModel).alpha = (100 - alphaSelector.value) / 100;
-		}
-
-		// override public function set model(value:Object):void{
-		// 	super.model = value;
-		// 	(model as IEventDispatcher).addEventListener("change", colorModelChangeHandler)
-		// 	var colorSpectrumModel:IColorSpectrumModel = loadBeadFromValuesManager(IColorSpectrumModel, "iColorSpectrumModel", colorSpectrum) as IColorSpectrumModel;
-		// 	colorSpectrumModel.baseColor = (value as IColorModel).color;
-		// 	var textFieldModel:IColorModel = loadBeadFromValuesManager(IColorModel, "iColorModel", _colorTextField) as IColorModel;
-		// 	textFieldModel.color = (value as IColorModel).color;
-		// 	var alphaTextFieldModel:IRangeModel = loadBeadFromValuesManager(IRangeModel, "iRangeModel", _alphaTextField) as IRangeModel;
-		// 	alphaSelector.value = int((1- (value as ArrayColorSelectionWithAlphaModel).alpha) * 100);
-		// 	alphaTextFieldModel.maximum = alphaSelector.maximum;
-		// 	alphaTextFieldModel.minimum = alphaSelector.minimum;
-		// 	alphaTextFieldModel.value = alphaSelector.value;
-		// 	(colorSpectrum as IEventDispatcher).addEventListener("change", colorSpectrumChangeHandler);
-		// 	(colorSpectrum as IEventDispatcher).addEventListener("thumbDown", colorSpectrumThumbDownHandler);
-		// 	(colorSpectrum as IEventDispatcher).addEventListener("thumbUp", colorSpectrumThumbUpHandler);
-		// }
-		
-		private var draggingThumb:Boolean;
-		private var fromSpectrum:Boolean;
-        
-		protected function colorSpectrumChangeHandler(event:Event):void{
-			fromSpectrum = true;
-			(model as IColorModel).color = colorSpectrum.hsvModifiedColor;
-		}
-        
-		private function colorModelChangeHandler(event:Event):void{
-			var colorValue:uint = (event.target as IColorModel).color;
-			(_colorTextField.model as IColorModel).color = colorValue;
-			(_alphaTextField.model as IRangeModel).value = int((1 - (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
-			if (fromSpectrum){
-				fromSpectrum = false;
-			} else {
-				colorSpectrum.baseColor = colorValue;
-			}
-			alphaSelector.value = int((1- (event.target as ArrayColorSelectionWithAlphaModel).alpha) * 100);
-			(alphaSelector.model as IColorModel).color = colorValue;
-			if (open){
-				(host as IEventDispatcher).dispatchEvent(new Event(Event.CHANGE));
-			}
-		}
-
-		protected function colorSpectrumThumbDownHandler(event:Event):void{
-			draggingThumb = true;
-		}
-		
-		protected function colorSpectrumThumbUpHandler(event:Event):void{
-			draggingThumb = false;
-		}
-		
-		public function set strand(value:IStrand):void{
-			host = value;
-		}
-
-		override public function addedToParent():void{
-			super.addedToParent();
-			var hueSelectorView:ISliderView = hueSelector.getBeadByType(ISliderView) as ISliderView;
-			hueSelectorView.track.alpha = 0;
-		}
 
 		private function colorTextFieldChangeHandler(event:Event):void{
-            (model as IColorModel).color = (_colorTextField.model as IColorModel).color;
+			trace('colorTextFieldChangeHandler');
+			trace(event);
+			//TODO figure out if the color changed
+      // (model as IColorModel).color = (_colorTextField.model as IColorModel).color;
 		}
 
 		private function alphaTextFieldChangeHandler(event:Event):void{
-            (model as ArrayColorSelectionWithAlphaModel).alpha = (100 - (_alphaTextField.model as IRangeModel).value) / 100;
+			trace('alphaTextFieldChangeHandler');
+			trace(event);
+			//TODO figure out if the alpha changed
+			//(model as ArrayColorSelectionWithAlphaModel).alpha = (100 - (_alphaTextField.model as IRangeModel).value) / 100;
 		}
 		private var _appliedColor:IRGBA;
 		public function get appliedColor():IRGBA{
@@ -373,7 +257,16 @@ package com.unhurdle.spectrum.colorpicker
 		public function set showColorControls(value:Boolean):void{
 			_showColorControls = value;
 		}
-
+		private var _hexEditable:Boolean;
+		/**
+		 * Whether the hex value is editable
+		 */
+		public function get hexEditable():Boolean{
+			return _hexEditable;
+		}
+		public function set hexEditable(value:Boolean):void{
+			_hexEditable = value;
+		}
 		private var _dataProvider:Object;
 		public function get dataProvider():Object{
 			return _dataProvider;
