@@ -1,6 +1,10 @@
 package com.unhurdle.spectrum.renderers
 {
-  import org.apache.royale.core.WrappedHTMLElement;
+  COMPILE::JS
+  {
+    import org.apache.royale.core.WrappedHTMLElement;
+  }
+
   import com.unhurdle.spectrum.ColorSwatch;
   import com.unhurdle.spectrum.interfaces.IRGBA;
 

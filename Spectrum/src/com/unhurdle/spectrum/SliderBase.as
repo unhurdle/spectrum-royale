@@ -149,7 +149,8 @@ package com.unhurdle.spectrum
 			return "";
 		}		
 
-
+		COMPILE::SWF
+		protected function onMouseDown():void {}
 
 		// Element interaction
 		COMPILE::JS
@@ -161,6 +162,9 @@ package com.unhurdle.spectrum
 			window.addEventListener('mouseup', onMouseUp);
 			window.addEventListener('mousemove', onMouseMove);
 		}
+		COMPILE::SWF
+		protected function onMouseUp():void {}
+
 		COMPILE::JS
 		protected function onMouseUp():void {
 			if(handle){

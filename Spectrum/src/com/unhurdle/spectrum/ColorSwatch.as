@@ -3,8 +3,8 @@ package com.unhurdle.spectrum
 	COMPILE::JS
 	{
 		import org.apache.royale.core.WrappedHTMLElement;
-		import com.unhurdle.spectrum.interfaces.IRGBA;
 	}
+	import com.unhurdle.spectrum.interfaces.IRGBA;
 
 	public class ColorSwatch extends SpectrumBase
 	{

@@ -18,6 +18,10 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.events.ValueEvent;
 	import org.apache.royale.utils.rgbToHsv;
 	import com.unhurdle.spectrum.ColorSwatch;
+	import com.unhurdle.spectrum.data.RGBColor;
+	import com.unhurdle.spectrum.Button;
+	import com.unhurdle.spectrum.DialogFooter;
+	import com.unhurdle.spectrum.ButtonGroup;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -197,19 +201,75 @@ package com.unhurdle.spectrum.colorpicker
 				swatchContainer = new FlexContainer();
 				swatchContainer.vertical = false;
 			}
-
-		}
-		private function setupButtons():void{
-			if(showApplyButtons){
-
+			if(!startSwatch){
+				startSwatch = new ColorSwatch();
+				swatchContainer.addElement(startSwatch);
 			}
+			startSwatch.color = appliedColor.clone();
+			if(!currentSwatch){
+				currentSwatch = new ColorSwatch();
+				swatchContainer.addElement(currentSwatch);
+			}
+			currentSwatch.color = appliedColor.clone();
 		}
 
 		private function colorTextFieldChangeHandler(event:Event):void{
 			trace('colorTextFieldChangeHandler');
 			trace(event);
-			//TODO figure out if the color changed
+			var value:String = _colorTextField.text.replace(/#/g,"");
+			var textColor:RGBColor = new RGBColor();			
+			textColor.colorValue = parseInt("0x"+value,16);
+			var thisColor:IRGBA = appliedColor;
+			if(textColor.r != thisColor.r || textColor.g != thisColor.g || textColor.b != thisColor.b){
+				//TODO figure out if the color changed
+				//The color changed
+				textColor.alpha = thisColor.alpha;
+				this.appliedColor = textColor;
+				//TODO what to dispatch?
+			}
       // (model as IColorModel).color = (_colorTextField.model as IColorModel).color;
+		}
+
+		private var applyButton:Button;
+		private var cancelButton:Button;
+		private var footer:DialogFooter;
+		private var footerGroup:ButtonGroup;
+		private function setupButtons():void{
+			if(showApplyButtons){
+				if(!footer){
+					footer = new DialogFooter();
+					this.addElement(footer);
+				}
+				if(!footerGroup){
+					footerGroup = new ButtonGroup();
+					footerGroup.vertical = false;
+					footer.addElement(footerGroup);
+				}
+				if(!applyButton){
+					applyButton = new Button();
+					applyButton.flavor = "cta";
+					applyButton.addEventListener("click",applyClicked);
+				}
+				applyButton.text = applyText;
+				
+				if(!cancelButton){
+					cancelButton = new Button();
+					cancelButton.addEventListener("click",cancelClicked);
+				}
+				cancelButton.text = cancelText;
+			}
+		}
+
+		private function applyClicked(ev:Event):void{
+			//TODO
+			trace("applyClicked");
+			trace(ev);
+		}
+
+		private function cancelClicked(ev:Event):void{
+			//TODO
+			trace("cancelClicked");
+			trace(ev);
 		}
 
 		private function alphaTextFieldChangeHandler(event:Event):void{

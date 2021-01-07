@@ -60,7 +60,8 @@ package com.unhurdle.spectrum
 			}
 			appliedColor.alpha = pinValue(value/100,0,1);
 		}
-
+		
+		COMPILE::JS
 		override protected function changeBackgroundColor():void{
 			var gradientDir:String;
 			if(vertical){

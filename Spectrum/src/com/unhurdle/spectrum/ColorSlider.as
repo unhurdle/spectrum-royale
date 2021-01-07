@@ -190,18 +190,19 @@ package com.unhurdle.spectrum
       setHandlePosition(percent);
 			dispatchEvent(new ValueEvent("colorChanged",appliedColor));			
 		}
+		COMPILE::SWF
+		protected function getMousePercentagePosition(event:MouseEvent):Number{return 0;}
+		COMPILE::JS
 		protected function getMousePercentagePosition(event:MouseEvent):Number{
-			COMPILE::JS{
-				var localPoint:Point = PointUtils.globalToLocal(new Point(event.clientX,event.clientY),this);
-				if(vertical){
-					var sliderOffsetHeight:Number = element.offsetHeight;
-					var y:Number = pinValue(localPoint.y,0,sliderOffsetHeight);
-					return getPercent(y,sliderOffsetHeight);
-				}else{
-					var sliderOffsetWidth:Number = element.offsetWidth;
-					var x:Number = pinValue(localPoint.x,0,sliderOffsetWidth);
-					return getPercent(x,sliderOffsetWidth);
-				}
+			var localPoint:Point = PointUtils.globalToLocal(new Point(event.clientX,event.clientY),this);
+			if(vertical){
+				var sliderOffsetHeight:Number = element.offsetHeight;
+				var y:Number = pinValue(localPoint.y,0,sliderOffsetHeight);
+				return getPercent(y,sliderOffsetHeight);
+			}else{
+				var sliderOffsetWidth:Number = element.offsetWidth;
+				var x:Number = pinValue(localPoint.x,0,sliderOffsetWidth);
+				return getPercent(x,sliderOffsetWidth);
 			}
 		}
 

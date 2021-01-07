@@ -128,6 +128,8 @@ package com.unhurdle.spectrum
 			// }
 			calculateColor(getClientOffset(e));
 		}
+
+		COMPILE::JS
 		private function calculateColor(point:Point):void{
 			// if(!imageData){
 			// 	getImageData();
@@ -145,6 +147,8 @@ package com.unhurdle.spectrum
 		private function setHandleColor():void{
 			handle.appliedColor = RGBColor.fromHSV(hsv);
 		}
+		
+		COMPILE::JS
 		private function getClientOffset(event:MouseEvent):Point{
 			if(event["touches"]){
 				event = event["touches"][0];
@@ -155,6 +159,10 @@ package com.unhurdle.spectrum
 			return point;
 		}
 
+		COMPILE::SWF
+		private function drawCanvas():Boolean{return true}
+
+		COMPILE::JS
 		private function drawCanvas():Boolean{
 			//only draw if added
 			if(!addedOnce){

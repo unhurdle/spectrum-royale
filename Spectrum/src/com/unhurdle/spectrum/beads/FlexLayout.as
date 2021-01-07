@@ -114,6 +114,12 @@ package com.unhurdle.spectrum.beads
 			}
 			super.handleChildrenAdded(event);
 		}
+
+		COMPILE::SWF
+		private function styleChild(child:IChild):void{
+		}
+
+		COMPILE::JS
 		private function styleChild(child:IChild):void{
 			var style:CSSStyleDeclaration = child.element.style;
 			if(!isNaN(rowGap)){
