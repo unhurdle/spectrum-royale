@@ -1,0 +1,33 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  initComplete="initCompleteHandler(event)"
+  title="Color Picker">
+  <fx:Script>
+    <![CDATA[
+      import org.apache.royale.events.Event;
+      import com.unhurdle.spectrum.data.RGBColor;
+      [Bindable] public var colorPicker:String = 
+        '<sp:ColorPicker dataProvider="{dp}" selectedIndex="0"/>';
+
+      private function initCompleteHandler(e:Event):void{
+        var dp:Array = [];
+				for (var i:int = 0; i < 30; i++)
+				{
+          var colorObj:RGBColor = new RGBColor();
+          colorObj.colorValue = uint(Math.random() * 0xFFFFFF);
+          colorObj.alpha = Math.random();
+          // colorModel.color = color;
+          // colorModel.alpha = alpha;
+					dp.push(colorObj);
+				}
+        myColorPicker.dataProvider = dp;
+      }
+    ]]>
+  </fx:Script>
+  <sp:ColorPicker id="myColorPicker"/>
+  <comp:Markup>
+    <comp:StyledCode text="{colorPicker}"/>
+  </comp:Markup>
+
+</view:DemoPane>

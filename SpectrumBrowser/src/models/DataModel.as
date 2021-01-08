@@ -29,7 +29,7 @@ package models
         "Circle Loader",
         "Clear Button",
         "Coach Mark",
-        "Color Area",
+        "Color Picker",
         "Color Handle",
         "Color Loupe",
         "Color Slider",

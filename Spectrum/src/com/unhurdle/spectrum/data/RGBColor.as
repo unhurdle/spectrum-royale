@@ -8,16 +8,16 @@ package com.unhurdle.spectrum.data
   {
 		public function RGBColor(initialValue:Object=null){
 			if(initialValue && initialValue.length){
-				if(initialValue[0]){
+				if(!isNaN(initialValue[0])){
 					r = initialValue[0];
 				}
-				if(initialValue[1]){
+				if(!isNaN(initialValue[1])){
 					g = initialValue[1];
 				}
-				if(initialValue[2]){
+				if(!isNaN(initialValue[2])){
 					b = initialValue[2];
 				}
-				if(initialValue[3]){
+				if(!isNaN(initialValue[3])){
 					alpha = initialValue[3];
 				}
 			}

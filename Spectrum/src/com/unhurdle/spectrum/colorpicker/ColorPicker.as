@@ -13,6 +13,7 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.data.RGBColor;
 	import com.unhurdle.spectrum.interfaces.IColorPopover;
 	import org.apache.royale.utils.DisplayUtils;
+	import com.unhurdle.spectrum.utils.getDataProviderItem;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -26,14 +27,11 @@ package com.unhurdle.spectrum.colorpicker
 		}
 
 		private var _position:String = "bottom";
-
-		public function get position():String
-		{
+		public function get position():String{
 			return _position;
 		}
 
-		public function set position(value:String):void
-		{
+		public function set position(value:String):void{
 			_position = value;
 		}
 
@@ -57,63 +55,68 @@ package com.unhurdle.spectrum.colorpicker
 
 		public function set appliedColor(value:IRGBA):void{
 			_button.color = value;
-			popover.appliedColor = value;
 		}
-
+		private var _dataProvider:Object;
 		public function get dataProvider():Object{
-			return popover.dataProvider;
+			return _dataProvider;
 		}
 		public function set dataProvider(value:Object):void{
-			popover.dataProvider = value;
+			_dataProvider = value;
 		}
-
+		private var _applyText:String = "Apply";
 		public function get applyText():String{
-			return popover.applyText;
+			return _applyText;
 		}
 		public function set applyText(value:String):void{
-			popover.applyText = value;
+			_applyText = value;
 		}
 
+		private var _cancelText:String = "Cancel";
 		public function get cancelText():String{
-			return popover.cancelText;
+			return _cancelText;
 		}
 		public function set cancelText(value:String):void{
-			popover.cancelText = value;
+			_cancelText = value;
 		}
 
+		private var _showApplyButtons:Boolean;
 		public function get showApplyButtons():Boolean{
-			return popover.showApplyButtons;
+			return _showApplyButtons;
 		}
 		public function set showApplyButtons(value:Boolean):void{
-			popover.showApplyButtons = value;
+			_showApplyButtons = value;
 		}
 
+		private var _showColorControls:Boolean = true;
 		public function get showColorControls():Boolean{
-			return popover.showColorControls;
+			return _showColorControls;
 		}
 		public function set showColorControls(value:Boolean):void{
-			popover.showColorControls = value;
+			_showColorControls = value;
 		}
 
+		private var _showAlphaControls:Boolean = true;
 		public function get showAlphaControls():Boolean{
-			return popover.showAlphaControls;
+			return _showAlphaControls;
 		}
 		public function set showAlphaControls(value:Boolean):void{
-			popover.showAlphaControls = value;
+			_showAlphaControls = value;
 		}
 
+		private var _showSelectionSwatch:Boolean = true;
 		public function get showSelectionSwatch():Boolean{
-			return popover.showSelectionSwatch;
+			return _showSelectionSwatch;
 		}
 		public function set showSelectionSwatch(value:Boolean):void{
-			popover.showSelectionSwatch = value;
+			_showSelectionSwatch = value;
 		}
 		
+		private var _areaSize:Number = 192;// technically the default should be 240 on mobile
 		public function get areaSize():Number{
-			return popover.areaSize;
+			return _areaSize;
 		}
 		public function set areaSize(value:Number):void{
-			popover.areaSize = value;
+			_areaSize = value;
 		}
 		
 		private function createButton():ColorSwatch{
@@ -140,6 +143,13 @@ package com.unhurdle.spectrum.colorpicker
 			// popover.style = {"z-index": "2"};
 			return elem;
 		}
+
+		override public function addedToParent():void{
+			if(!appliedColor && dataProvider){
+				appliedColor = getDataProviderItem(dataProvider,0) as IRGBA;
+			}
+			super.addedToParent();
+		}
 		private var _popover:IColorPopover;
 
 		public function set popover(value:IColorPopover):void
@@ -149,7 +159,7 @@ package com.unhurdle.spectrum.colorpicker
 
 		public function get popover():IColorPopover{
 			if(!_popover){            
-				var c:Class = ValuesManager.valuesImpl.getValue(this, "iPopup") as Class;
+				var c:Class = ValuesManager.valuesImpl.getValue(this, "iColorPopover") as Class;
 				if(c){
 					_popover = new c() as IColorPopover;
 				}
@@ -169,9 +179,22 @@ package com.unhurdle.spectrum.colorpicker
 				closePopup();
 			}
 		}
-
+		protected function setPopupProperties():void{
+			popover.position = position;
+			popover.position = position;
+			popover.appliedColor = appliedColor;
+			popover.dataProvider = dataProvider;
+			popover.applyText = applyText;
+			popover.cancelText = cancelText;
+			popover.showApplyButtons = showApplyButtons;
+			popover.showColorControls = showColorControls;
+			popover.showAlphaControls = showAlphaControls;
+			popover.showSelectionSwatch = showSelectionSwatch;
+			popover.areaSize = areaSize;			
+		}
 		protected function openPopup():void{
 			popover.anchor = DisplayUtils.getScreenBoundingRect(this);
+			setPopupProperties();
 			popover.open = true;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);

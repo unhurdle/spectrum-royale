@@ -5,33 +5,35 @@
   <!-- initComplete="initCompleteHandler(event)" -->
   <fx:Script>
     <![CDATA[
-    ]]>
-  </fx:Script>
-  <fx:Script>
-    <![CDATA[
+      import com.unhurdle.spectrum.interfaces.IRGBA;
+      import com.unhurdle.spectrum.data.RGBColor;
+
+      private function getColor():IRGBA{
+        return new RGBColor([255, 0, 0, 0.5]);
+      }
     ]]>
   </fx:Script>
   <comp:Variant>
     <Div>
-      <sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" style="top:38%;left:50%"/>
+      <sp:ColorHandle appliedColor="{getColor()}" style="top:38%;left:50%"/>
     </Div>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
-    <comp:StyledCode text=' &lt;sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" style="top:38%;left:50%"/&gt;'/>
+    <comp:StyledCode text=' &lt;sp:ColorHandle appliedColor="{getColor()}" style="top:38%;left:50%"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Div/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Disabled">
     <Div>
-      <sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" disabled="true" style="top:66%;left:50%"/>
+      <sp:ColorHandle appliedColor="{getColor()}" disabled="true" style="top:66%;left:50%"/>
     </Div>
   <comp:Markup>
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
-    <comp:StyledCode text=' &lt;sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" disabled="true" style="top:66%;left:50%"/&gt;'/>
+    <comp:StyledCode text=' &lt;sp:ColorHandle appliedColor="{getColor()}" disabled="true" style="top:66%;left:50%"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Div/&gt;'/>
   </comp:Markup>
@@ -39,12 +41,12 @@
 
   <comp:Variant header="Open">
     <Div>
-      <sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" open="true" style="top:100%;left:50%"/>
+      <sp:ColorHandle appliedColor="{getColor()}" open="true" style="top:100%;left:50%"/>
     </Div>
   <comp:Markup>
     <comp:StyledCode text='&lt;Div&gt;'/>
     <Br/>
-    <comp:StyledCode text=' &lt;sp:ColorHandle backgroundStyleColor="rgba(255, 0, 0, 0.5)" open="true" style="top:100%;left:50%"/&gt;'/>
+    <comp:StyledCode text=' &lt;sp:ColorHandle appliedColor="{getColor()}" open="true" style="top:100%;left:50%"/&gt;'/>
     <Br/>
     <comp:StyledCode text='&lt;Div/&gt;'/>
   </comp:Markup>

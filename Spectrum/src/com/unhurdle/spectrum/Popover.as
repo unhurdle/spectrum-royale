@@ -166,16 +166,15 @@ package com.unhurdle.spectrum
 				case "top":
 					positionTop(appBounds,componentBounds);
 					break;
-				case "bottom":
-					positionBottom(appBounds,componentBounds);
-					break;
 				case "left":
 					positionLeft(appBounds,componentBounds);
 					break;
 				case "right":
 					positionRight(appBounds,componentBounds);
 					break;
+				case "bottom":
 				default:
+					positionBottom(appBounds,componentBounds);
 					break;
 			}
 		}

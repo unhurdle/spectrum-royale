@@ -93,6 +93,9 @@ package com.unhurdle.spectrum
 		}
 
 		public function set appliedColor(value:IRGBA):void{
+			if(!value){
+				return;
+			}
 			handle.appliedColor = value.clone();
       if(addedOnce){
         calculateHandlePosition();
@@ -125,6 +128,10 @@ package com.unhurdle.spectrum
 		}
 		private var rgbColors:Array;
     protected function calculateHandlePosition():void{
+			if(!appliedColor){// if no set color just put the handle at zero
+					setHandlePosition(0);
+					return;
+			}
       if(hueSlider){
         var c:IRGBA = appliedColor;
         var hue:Number = rgbToHsv(c.r,c.g,c.b).h;

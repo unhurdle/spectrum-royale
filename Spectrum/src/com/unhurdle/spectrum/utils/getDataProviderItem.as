@@ -4,6 +4,9 @@ package com.unhurdle.spectrum.utils
 
   public function getDataProviderItem(provider:Object,index:int):Object
   {
+    if(!provider){
+      return null;
+    }
     if(provider is Array)
       return provider[index];
       

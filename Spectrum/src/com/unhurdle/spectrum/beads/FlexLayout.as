@@ -116,8 +116,7 @@ package com.unhurdle.spectrum.beads
 		}
 
 		COMPILE::SWF
-		private function styleChild(child:IChild):void{
-		}
+		private function styleChild(child:IChild):void{}
 
 		COMPILE::JS
 		private function styleChild(child:IChild):void{

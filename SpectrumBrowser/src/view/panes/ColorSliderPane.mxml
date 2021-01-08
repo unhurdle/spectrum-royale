@@ -11,9 +11,9 @@
   <comp:Variant>
     <sp:ColorSlider/>
     <Br/>
-    <sp:ColorSlider colorStop="{provider}"/>
+    <sp:ColorSlider colorStops="{provider}"/>
     <Br/>
-    <sp:ColorSlider colorStop="{provider1}"/>
+    <sp:ColorSlider colorStops="{provider1}"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:ColorSlider/&gt;'/>
@@ -30,9 +30,9 @@
   <comp:Variant header="Alpha">
     <sp:AlphaColorSlider/>
     <Br/>
-    <sp:AlphaColorSlider color="green"/>
+    <sp:AlphaColorSlider colorStyle="green"/>
     <Br/>
-    <sp:AlphaColorSlider color="rgb(255,0,0)"/>
+    <sp:AlphaColorSlider colorStyle="rgb(255,0,0)"/>
   </comp:Variant>
   <comp:Markup>
     <comp:StyledCode text='&lt;sp:AlphaColorSlider/&gt;'/>

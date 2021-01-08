@@ -43,7 +43,7 @@
     <js:ComponentRoute title="Circle Loader" component="view.panes.CircleLoaderPane" baseName="circle_loader"/>
     <js:ComponentRoute title="Clear Button" component="view.panes.ClearButtonPane" baseName="clear_button"/>
     <js:ComponentRoute title="Coach Mark" component="view.panes.CoachMarkPane" baseName="coach_mark"/>
-    <js:ComponentRoute title="Color Area" component="view.panes.ColorAreaPane" baseName="color_area"/>
+    <js:ComponentRoute title="Color Picker" component="view.panes.ColorPickerPane" baseName="color_picker"/>
     <js:ComponentRoute title="Color Handle" component="view.panes.ColorHandlePane" baseName="color_handle"/>
     <js:ComponentRoute title="Color Loupe" component="view.panes.ColorLoupePane" baseName="color_loupe"/>
     <js:ComponentRoute title="Color Slider" component="view.panes.ColorSliderPane" baseName="color_slider"/>

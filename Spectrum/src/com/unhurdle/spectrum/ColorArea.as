@@ -41,6 +41,9 @@ package com.unhurdle.spectrum
 		}
 
 		public function set appliedColor(value:IRGBA):void{
+			if(!value){
+				return;
+			}
 			handle.appliedColor = value;
 			_hsv = rgbToHsv(value.r,value.g,value.b);
 			positionHandle();
@@ -147,7 +150,7 @@ package com.unhurdle.spectrum
 		private function setHandleColor():void{
 			handle.appliedColor = RGBColor.fromHSV(hsv);
 		}
-		
+
 		COMPILE::JS
 		private function getClientOffset(event:MouseEvent):Point{
 			if(event["touches"]){
@@ -177,6 +180,7 @@ package com.unhurdle.spectrum
 			gradB.addColorStop(0, 'white');
 			gradB.addColorStop(1, 'black');
 			var hueColor:HSV = new HSV();
+			hueColor.h = hue;
 			hueColor.s = 100;
 			hueColor.v = 100;
 			var colorToApply:IRGBA = RGBColor.fromHSV(hueColor);
