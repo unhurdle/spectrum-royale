@@ -157,8 +157,9 @@ package com.unhurdle.spectrum
 				addEventListener('mousedown', onMouseDown);
 			}
 			getRGBColors();
-      calculateHandlePosition();
 			addedOnce = true;
+			changeBackgroundColor();
+      calculateHandlePosition();
 		}
 
 		// Element interaction
@@ -260,6 +261,9 @@ package com.unhurdle.spectrum
 		}
 
 		protected function changeBackgroundColor():void{
+			if(!addedOnce){
+				return;
+			}
 			var gradientDir:String;
 			if(!!vertical){
 				gradientDir = "bottom";

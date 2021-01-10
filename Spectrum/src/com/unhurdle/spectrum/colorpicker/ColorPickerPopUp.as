@@ -61,7 +61,7 @@ package com.unhurdle.spectrum.colorpicker
 			return _alphaTextField;
 		}
 		protected var fixedSizeContainer:Group;
-		protected var padding:Number = 18;
+		protected var padding:Number = 16;
 
 		private function preventPropogation(element:ISpectrumElement):void{
 			element.addEventListener("change", function(e:Event):void{
@@ -158,7 +158,7 @@ package com.unhurdle.spectrum.colorpicker
 					hueSelector = new ColorSlider();
 					hueSelector.vertical = true;
 					hueSelector.addEventListener("colorChanged",handleHueChange);
-					hueSelector.setStyle("margin-left","18px");
+					hueSelector.setStyle("margin-left",padding+"px");
 					controlSection.addElement(hueSelector);
 				}
 				hueSelector.appliedColor = appliedColor;
@@ -181,7 +181,7 @@ package com.unhurdle.spectrum.colorpicker
 					alphaSelector = new AlphaColorSlider();
 					alphaSelector.vertical = true;
 					alphaSelector.addEventListener("colorChanged",handleAlphaChange);
-					alphaSelector.setStyle("margin-left","18px");
+					alphaSelector.setStyle("margin-left",padding+"px");
 					controlSection.addElement(alphaSelector);
 				}
 				alphaSelector.appliedColor = appliedColor;
@@ -387,7 +387,7 @@ package com.unhurdle.spectrum.colorpicker
 			_showApplyButtons = value;
 		}
 
-		private var _areaSize:Number = 192;// technically the default should be 240 on mobile
+		private var _areaSize:Number = 196;// technically the default should be 240 on mobile
 		public function get areaSize():Number{
 			return _areaSize;
 		}

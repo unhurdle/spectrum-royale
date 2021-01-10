@@ -110,8 +110,10 @@ package com.unhurdle.spectrum.colorpicker
 		public function set showSelectionSwatch(value:Boolean):void{
 			_showSelectionSwatch = value;
 		}
-		
-		private var _areaSize:Number = 192;// technically the default should be 240 on mobile
+		/**
+		 * technically the default be 192 and should be 240 on mobile, but we're setting it to 196 to fit the swatch list
+		 */
+		private var _areaSize:Number = 196;
 		public function get areaSize():Number{
 			return _areaSize;
 		}
@@ -195,7 +197,7 @@ package com.unhurdle.spectrum.colorpicker
 			popover.areaSize = areaSize;			
 		}
 		protected function openPopup():void{
-			popover.anchor = DisplayUtils.getScreenBoundingRect(this);
+			popover.anchor = DisplayUtils.getScreenBoundingRect(_button);
 			setPopupProperties();
 			popover.open = true;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);

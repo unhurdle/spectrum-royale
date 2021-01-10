@@ -181,12 +181,12 @@ package com.unhurdle.spectrum
 		private function positionTop(appBounds:Rectangle,componentBounds:Rectangle):void{
 				var anchorCenter:Point = new Point((anchor.left + (anchor.width/2)),anchor.top);
 				anchorCenter.y -= componentBounds.height;
-				anchorCenter.y -= 5;//give some space between anchor and dialog
+				// anchorCenter.y -= 5;//give some space between anchor and dialog
 				positionHorizontally(anchorCenter,appBounds,componentBounds);
 		}
 		private function positionBottom(appBounds:Rectangle,componentBounds:Rectangle):void{
 				var anchorCenter:Point = new Point((anchor.left + (anchor.width/2)),anchor.bottom);
-				anchorCenter.y += 5;//give some space between anchor and dialog
+				// anchorCenter.y += 5;//give some space between anchor and dialog
 				positionHorizontally(anchorCenter,appBounds,componentBounds);
 		}
 		private function positionHorizontally(point:Point,appBounds:Rectangle,componentBounds:Rectangle):void{
@@ -212,12 +212,12 @@ package com.unhurdle.spectrum
 		private function positionLeft(appBounds:Rectangle,componentBounds:Rectangle):void{
 				var anchorCenter:Point = new Point(anchor.left,anchor.top - (anchor.height/2));
 				anchorCenter.x -= componentBounds.width;
-				anchorCenter.x -= 5;//give some space between anchor and dialog
+				// anchorCenter.x -= 5;//give some space between anchor and dialog
 				positionHorizontally(anchorCenter,appBounds,componentBounds);
 		}
 		private function positionRight(appBounds:Rectangle,componentBounds:Rectangle):void{
 				var anchorCenter:Point = new Point(anchor.right,anchor.top - (anchor.height/2));
-				anchorCenter.x += 5;//give some space between anchor and dialog
+				// anchorCenter.x += 5;//give some space between anchor and dialog
 				positionHorizontally(anchorCenter,appBounds,componentBounds);
 		}
 		private function positionVertically(point:Point,appBounds:Rectangle,componentBounds:Rectangle):void{

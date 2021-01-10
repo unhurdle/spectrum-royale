@@ -46,6 +46,7 @@ package com.unhurdle.spectrum
 			}
 			handle.appliedColor = value;
 			_hsv = rgbToHsv(value.r,value.g,value.b);
+			drawCanvas();
 			positionHandle();
 		}
 

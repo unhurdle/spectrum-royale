@@ -18,8 +18,6 @@ package com.unhurdle.spectrum
 		{
 			super();
 			colorStops = ["rgb(0, 0, 0)"];
-			
-			changeBackgroundColor();
 		}
 
 		public function get colorStyle():String{
@@ -45,6 +43,13 @@ package com.unhurdle.spectrum
 			colorStyle = appliedColor.styleString;
 		}
 
+		override public function set appliedColor(value:IRGBA):void{
+			super.appliedColor = value;
+			var base:IRGBA = value.clone();
+			base.alpha = 1;
+			colorStyle = base.styleString;
+		}
+
 		private var _opacity:Number;
 
 		public function get opacity():Number{
@@ -63,6 +68,9 @@ package com.unhurdle.spectrum
 		
 		COMPILE::JS
 		override protected function changeBackgroundColor():void{
+			if(!addedOnce){
+				return;
+			}
 			var gradientDir:String;
 			if(vertical){
 				gradientDir = "bottom";
