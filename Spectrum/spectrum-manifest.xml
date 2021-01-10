@@ -99,13 +99,15 @@
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
     <component id="List" class="com.unhurdle.spectrum.List"/>
+    <component id="ListController" class="com.unhurdle.spectrum.ListController"/>
+    <component id="ListModel" class="com.unhurdle.spectrum.ListModel"/>
+    <component id="ListView" class="com.unhurdle.spectrum.ListView"/>
+    <component id="SwatchList" class="com.unhurdle.spectrum.SwatchList"/>
+    <component id="SwatchListView" class="com.unhurdle.spectrum.beads.SwatchListView"/>
     <component id="ListViewForTable" class="com.unhurdle.spectrum.ListViewForTable"/>
     <component id="LogicButton" class="com.unhurdle.spectrum.LogicButton"/>
     <component id="Menu" class="com.unhurdle.spectrum.Menu"/>
     <component id="MenuItem" class="com.unhurdle.spectrum.data.MenuItem"/>
-    <component id="MenuController" class="com.unhurdle.spectrum.MenuController"/>
-    <component id="ListModel" class="com.unhurdle.spectrum.ListModel"/>
-    <component id="ListView" class="com.unhurdle.spectrum.ListView"/>
     <component id="MillerColumns" class="com.unhurdle.spectrum.MillerColumns"/>
     <component id="MillerColumnsItem" class="com.unhurdle.spectrum.data.MillerColumnsItem"/>
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>

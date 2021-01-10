@@ -4,6 +4,7 @@ package com.unhurdle.spectrum.beads
 	import org.apache.royale.events.ValueEvent;
 	import org.apache.royale.core.IChild;
 	import org.apache.royale.core.IParent;
+	import org.apache.royale.core.IStrand;
 
 	public class FlexLayout extends LayoutBase
 	{
@@ -87,6 +88,7 @@ package com.unhurdle.spectrum.beads
 			COMPILE::JS
 			{
 				var style:CSSStyleDeclaration = host.element.style;
+				style.display = "flex";
 				style.flexDirection = flexDirection;
 				style.flexWrap = flexWrap;
 				style.justifyContent = justifyContent;
@@ -94,6 +96,10 @@ package com.unhurdle.spectrum.beads
 				style.alignContent = alignContent;
 			}
 			return true;
+		}
+		override public function set strand(value:IStrand):void{
+			super.strand = value;
+			listenOnStrand("itemsCreated",handleChildrenAdded);
 		}
 		COMPILE::JS
 		override protected function handleChildrenAdded(event:ValueEvent):void{

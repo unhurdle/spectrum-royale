@@ -23,6 +23,10 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.DialogFooter;
 	import com.unhurdle.spectrum.ButtonGroup;
 	import org.apache.royale.html.elements.Div;
+	import com.unhurdle.spectrum.SwatchList;
+	import org.apache.royale.core.IFactory;
+	import org.apache.royale.utils.DisplayUtils;
+	import org.apache.royale.geom.Rectangle;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -35,6 +39,8 @@ package com.unhurdle.spectrum.colorpicker
 			floating = true;
 			mainContainer = new FlexContainer();
 			mainContainer.vertical = true;
+			//TODO make the max width user definable
+			mainContainer.setStyle("max-width","300px");
 			// mainContainer.alignItems  = "stretch";
 			addElement(mainContainer);
 		}
@@ -42,7 +48,7 @@ package com.unhurdle.spectrum.colorpicker
 		protected var colorArea:ColorArea;
 		protected var hueSelector:ColorSlider;
 		protected var alphaSelector:AlphaColorSlider;
-		protected var swatchList:List;
+		protected var swatchList:SwatchList;
 		protected var host:IStrand;
 		
 		private var _colorTextField:ColorTextField;
@@ -71,15 +77,35 @@ package com.unhurdle.spectrum.colorpicker
 			setupButtons();
 			super.open = value;
 		}
+		override public function addedToParent():void{
+			// Set the width of main container
+			if(showColorControls){
+				var controlBounds:Rectangle = DisplayUtils.getScreenBoundingRect(controlSection);
+				var sliderBounds:Rectangle;
+				if(alphaSelector){
+					sliderBounds = DisplayUtils.getScreenBoundingRect(alphaSelector);
+				} else {
+					sliderBounds = DisplayUtils.getScreenBoundingRect(hueSelector);
+				}
+					mainContainer.width = sliderBounds.right - controlBounds.left;
+			}
+			// now position it, etc.
+			super.addedToParent();
+		}
+		private var _itemRenderer:IFactory;
+		public function get itemRenderer():IFactory{
+			return _itemRenderer;
+		}
+		public function set itemRenderer(value:IFactory):void{
+			_itemRenderer = value;
+		}
 		private function setupList():void{
 			if(dataProvider){
 				if(!swatchList){
-					swatchList = new List();
-					var layout:TileLayout = new TileLayout();
-					layout.columnGap = 4;
-					layout.rowGap = 4;
+					swatchList = new SwatchList();
+					swatchList.columnGap = 4;
+					swatchList.rowGap = 4;
 					swatchList.dataProvider = dataProvider;
-					swatchList.addBead(layout);
 					swatchList.addEventListener("change",onSwatchChange);
 					mainContainer.addElement(swatchList);
 				}

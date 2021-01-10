@@ -81,7 +81,7 @@ package com.unhurdle.spectrum
 				toggle(valueToSelector("vertical"),value);
 				changeBackgroundColor();
 				COMPILE::JS{
-					handle.element.style.left = "40%";
+					handle.element.style.left = "50%";
 				}
 			}
 		}

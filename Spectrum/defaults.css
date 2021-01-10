@@ -1,12 +1,11 @@
 @namespace "library://ns.unhurdle.com/spectrum";
 @namespace js "library://ns.apache.org/royale/basic";
-@namespace colorpicker "com.unhurdle.spectrum.colorpicker.*";
 
 Menu
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ListModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.ListView");			
-	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.ListController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -22,7 +21,7 @@ List
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ListModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.ListView");			
-	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.ListController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -54,7 +53,7 @@ Breadcrumbs
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ListModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.ListView");			
-	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.ListController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -68,7 +67,7 @@ AssetList
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ListModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.ListView");			
-	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.ListController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.OverridableSelectableItemRendererClassFactory");
@@ -83,7 +82,7 @@ AssetList
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ListModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.ListView");			
-	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.ListController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
@@ -95,7 +94,7 @@ AssetList
 {
 	IBeadModel: ClassReference("com.unhurdle.spectrum.ListModel");
 	IBeadView:  ClassReference("com.unhurdle.spectrum.ListView");			
-	IBeadController: ClassReference("com.unhurdle.spectrum.MenuController");
+	IBeadController: ClassReference("com.unhurdle.spectrum.ListController");
 	IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout");
 	IDataProviderItemRendererMapper: ClassReference("org.apache.royale.html.beads.DataItemRendererFactoryForArrayData");
 	IItemRendererClassFactory: ClassReference("org.apache.royale.core.ItemRendererClassFactory");
@@ -119,9 +118,14 @@ ColorPicker {
 }
 
 ColorPickerPopUp {
-	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.ColorSwatchRenderer");
+
 }
 
+SwatchList {
+	IBeadView:  ClassReference("com.unhurdle.spectrum.beads.SwatchListView");
+	IItemRenderer: ClassReference("com.unhurdle.spectrum.renderers.ColorSwatchRenderer");
+	IBeadLayout: ClassReference("com.unhurdle.spectrum.beads.TileLayout");
+}
 Table {
 
 	/* IBeadLayout: ClassReference("org.apache.royale.html.beads.layouts.NoLayout"); */

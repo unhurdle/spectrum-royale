@@ -13,6 +13,7 @@ package com.unhurdle.spectrum.renderers
     public function ColorSwatchRenderer()
     {
       super();
+      setStyle("display","inline-block");
     }
     protected var swatch:ColorSwatch;
 

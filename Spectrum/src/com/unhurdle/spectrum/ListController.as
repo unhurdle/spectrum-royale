@@ -18,9 +18,9 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
 	import org.apache.royale.utils.sendStrandEvent;
 
-  public class MenuController implements IBeadController
+  public class ListController implements IBeadController
   {
-    public function MenuController()
+    public function ListController()
     {
       
     }

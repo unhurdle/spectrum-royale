@@ -87,7 +87,7 @@ package com.unhurdle.spectrum
 		}
 		override protected function calculateHandlePosition():void{
 			if(appliedColor && !isNaN(appliedColor.alpha)){
-				setHandlePosition(appliedColor.alpha * 100);
+				setHandlePosition(100 - (appliedColor.alpha * 100));
 			} else {
 				setHandlePosition(0);
 			}
