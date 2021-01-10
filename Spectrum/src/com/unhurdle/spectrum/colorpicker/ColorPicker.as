@@ -181,7 +181,9 @@ package com.unhurdle.spectrum.colorpicker
 		}
 		protected function setPopupProperties():void{
 			popover.position = position;
-			popover.position = position;
+			if(!appliedColor){
+				appliedColor = new RGBColor([0,0,0,1]);
+			}
 			popover.appliedColor = appliedColor;
 			popover.dataProvider = dataProvider;
 			popover.applyText = applyText;

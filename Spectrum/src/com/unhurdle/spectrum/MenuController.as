@@ -27,7 +27,7 @@ package com.unhurdle.spectrum
     /**
      *  The model.
      */
-		protected var listModel:MenuModel;
+		protected var listModel:ListModel;
 
     /**
      *  The view.
@@ -48,7 +48,7 @@ package com.unhurdle.spectrum
     public function set strand(value:IStrand):void
 		{
 			_strand = value;
-			listModel = value.getBeadByType(ISelectionModel) as MenuModel;
+			listModel = value.getBeadByType(ISelectionModel) as ListModel;
 			listView = value.getBeadByType(IListView) as IListView;
 			(_strand as IEventDispatcher).addEventListener("itemAdded", handleItemAdded);
 			(_strand as IEventDispatcher).addEventListener("itemRemoved", handleItemRemoved);

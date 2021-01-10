@@ -76,6 +76,8 @@ package com.unhurdle.spectrum
 			var elem:WrappedHTMLElement = super.createElement();
 			checkerboard = newElement("div","spectrum-ColorSlider-checkerboard");
 			checkerboard.setAttribute("role","presentation");
+			// withought this, the checkboard gets all the mouse interaction on the screen. Not sure why.
+			checkerboard.style.pointerEvents = "none";
 			var div2:HTMLElement = newElement("div","spectrum-ColorSlider-gradient");
 			div2.setAttribute("role","presentation");
 			backgroundStyle = div2.style;

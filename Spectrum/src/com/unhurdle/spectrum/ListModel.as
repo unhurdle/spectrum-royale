@@ -1,7 +1,5 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.html.beads.models.ArraySelectionModel;
-  import org.apache.royale.core.IBead;
   import org.apache.royale.events.Event;
   import org.apache.royale.core.DispatcherBead;
   import org.apache.royale.core.ISelectionModel;
@@ -9,9 +7,9 @@ package com.unhurdle.spectrum
   import org.apache.royale.collections.IArrayList;
   import org.apache.royale.html.util.getLabelFromData;
 
-  public class MenuModel extends DispatcherBead implements ISelectionModel, IRollOverModel
+  public class ListModel extends DispatcherBead implements ISelectionModel, IRollOverModel
   {
-    public function MenuModel()
+    public function ListModel()
     {
       
     }

@@ -104,8 +104,8 @@
     <component id="Menu" class="com.unhurdle.spectrum.Menu"/>
     <component id="MenuItem" class="com.unhurdle.spectrum.data.MenuItem"/>
     <component id="MenuController" class="com.unhurdle.spectrum.MenuController"/>
-    <component id="MenuModel" class="com.unhurdle.spectrum.MenuModel"/>
-    <component id="MenuView" class="com.unhurdle.spectrum.MenuView"/>
+    <component id="ListModel" class="com.unhurdle.spectrum.ListModel"/>
+    <component id="ListView" class="com.unhurdle.spectrum.ListView"/>
     <component id="MillerColumns" class="com.unhurdle.spectrum.MillerColumns"/>
     <component id="MillerColumnsItem" class="com.unhurdle.spectrum.data.MillerColumnsItem"/>
     <component id="NumberField" class="com.unhurdle.spectrum.NumberField"/>

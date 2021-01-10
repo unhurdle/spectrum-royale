@@ -22,6 +22,7 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.Button;
 	import com.unhurdle.spectrum.DialogFooter;
 	import com.unhurdle.spectrum.ButtonGroup;
+	import org.apache.royale.html.elements.Div;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -129,6 +130,7 @@ package com.unhurdle.spectrum.colorpicker
 					hueSelector = new ColorSlider();
 					hueSelector.vertical = true;
 					hueSelector.addEventListener("colorChanged",handleHueChange);
+					hueSelector.setStyle("margin-left","16px");
 					controlSection.addElement(hueSelector);
 				}
 				hueSelector.appliedColor = appliedColor;
@@ -150,7 +152,8 @@ package com.unhurdle.spectrum.colorpicker
 				if(!alphaSelector){
 					alphaSelector = new AlphaColorSlider();
 					alphaSelector.vertical = true;
-					alphaSelector.addEventListener("colorChanged",handleAlphaChange)
+					alphaSelector.addEventListener("colorChanged",handleAlphaChange);
+					alphaSelector.setStyle("margin-left","16px");
 					controlSection.addElement(alphaSelector);
 				}
 				alphaSelector.appliedColor = appliedColor;
@@ -184,6 +187,7 @@ package com.unhurdle.spectrum.colorpicker
 						_alphaTextField = new AlphaTextField();
 						_alphaTextField.addEventListener("inputFinished", alphaTextFieldChangeHandler);
 						preventPropogation(_alphaTextField);
+						fieldContainer.addElement(_alphaTextField);
 					}
 				}
 			}

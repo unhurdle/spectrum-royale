@@ -1,6 +1,6 @@
 package com.unhurdle.spectrum.beads
 {
-  import com.unhurdle.spectrum.MenuModel;
+  import com.unhurdle.spectrum.ListModel;
   import com.unhurdle.spectrum.data.IMenuItem;
   import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
   import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
@@ -31,12 +31,12 @@ package com.unhurdle.spectrum.beads
       return _strand as IKeyboardNavigateable;
     }
 		
-    protected var listModel:MenuModel;
+    protected var listModel:ListModel;
     protected var listView:IListView;
     
     override public function set strand(value:IStrand):void{
       super.strand = value;
-			listModel = value.getBeadByType(ISelectionModel) as MenuModel;
+			listModel = value.getBeadByType(ISelectionModel) as ListModel;
 			listView = value.getBeadByType(IListView) as IListView;
       host.focusParent.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       host.focusParent.addEventListener("click",clickHandler);

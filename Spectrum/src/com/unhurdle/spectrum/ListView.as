@@ -1,22 +1,20 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.html.beads.DataContainerView;
-  import org.apache.royale.core.ISelectionModel;
   import org.apache.royale.events.Event;
   import org.apache.royale.core.ISelectableItemRenderer;
   import org.apache.royale.core.IRollOverModel;
   import com.unhurdle.spectrum.renderers.DataItemRenderer;
   import org.apache.royale.core.IParent;
-  import org.apache.royale.createjs.core.UIBase;
 
-	public class MenuView extends DataContainerView
+	public class ListView extends DataContainerView
 	{
-		public function MenuView()
+		public function ListView()
 		{
 			super();
 		}
 
-		protected var listModel:MenuModel;
+		protected var listModel:ListModel;
 
 		protected var lastSelectedIndex:int = -1;
 		protected var lastFocusedIndex:int = -1;
@@ -28,7 +26,7 @@ package com.unhurdle.spectrum
 		 */
 		override protected function handleInitComplete(event:Event):void
 		{
-			listModel = dataModel as MenuModel;
+			listModel = dataModel as ListModel;
 			listModel.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			listModel.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 
