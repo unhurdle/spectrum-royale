@@ -9,6 +9,9 @@ package com.unhurdle.spectrum
 		{
 			super();
 		}
+		override protected function getSelector():String{
+			return "";
+		}
 		private var _columnGap:Number;
 
 		public function get columnGap():Number

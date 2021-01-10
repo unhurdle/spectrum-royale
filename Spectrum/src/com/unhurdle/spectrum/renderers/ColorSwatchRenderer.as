@@ -13,7 +13,9 @@ package com.unhurdle.spectrum.renderers
     public function ColorSwatchRenderer()
     {
       super();
-      setStyle("display","inline-block");
+    }
+    override protected function getSelector():String{
+      return "spectrum-ColorSlider";
     }
     protected var swatch:ColorSwatch;
 

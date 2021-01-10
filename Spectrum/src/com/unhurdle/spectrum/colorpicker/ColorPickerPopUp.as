@@ -105,6 +105,8 @@ package com.unhurdle.spectrum.colorpicker
 					swatchList = new SwatchList();
 					swatchList.columnGap = 4;
 					swatchList.rowGap = 4;
+					swatchList.setStyle("margin","-2px");
+					swatchList.setStyle("margin-bottom","14px");
 					swatchList.dataProvider = dataProvider;
 					swatchList.addEventListener("change",onSwatchChange);
 					mainContainer.addElement(swatchList);
@@ -156,7 +158,7 @@ package com.unhurdle.spectrum.colorpicker
 					hueSelector = new ColorSlider();
 					hueSelector.vertical = true;
 					hueSelector.addEventListener("colorChanged",handleHueChange);
-					hueSelector.setStyle("margin-left","16px");
+					hueSelector.setStyle("margin-left","18px");
 					controlSection.addElement(hueSelector);
 				}
 				hueSelector.appliedColor = appliedColor;
@@ -179,7 +181,7 @@ package com.unhurdle.spectrum.colorpicker
 					alphaSelector = new AlphaColorSlider();
 					alphaSelector.vertical = true;
 					alphaSelector.addEventListener("colorChanged",handleAlphaChange);
-					alphaSelector.setStyle("margin-left","16px");
+					alphaSelector.setStyle("margin-left","18px");
 					controlSection.addElement(alphaSelector);
 				}
 				alphaSelector.appliedColor = appliedColor;
