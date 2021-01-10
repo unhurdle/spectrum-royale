@@ -227,6 +227,7 @@ package com.unhurdle.spectrum.colorpicker
 					if(!_alphaTextField){
 						_alphaTextField = new AlphaTextField();
 						_alphaTextField.width = 50;
+						_alphaTextField.setStyle("margin-left","20px");
 						_alphaTextField.addEventListener("inputFinished", alphaTextFieldChangeHandler);
 						preventPropogation(_alphaTextField);
 						fieldContainer.addElement(_alphaTextField);
