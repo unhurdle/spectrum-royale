@@ -15,7 +15,7 @@ package com.unhurdle.spectrum.renderers
       super();
     }
     override protected function getSelector():String{
-      return "spectrum-ColorSlider";
+      return "spectrum-ColorSwatch";
     }
     protected var swatch:ColorSwatch;
 
@@ -28,6 +28,7 @@ package com.unhurdle.spectrum.renderers
       swatch = new ColorSwatch();
       swatch.square = true;
       var elem:WrappedHTMLElement = element = swatch.element;
+      elem.style.outline = "none";
       return elem;
     }
   }

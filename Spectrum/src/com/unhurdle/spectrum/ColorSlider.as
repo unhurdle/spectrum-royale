@@ -96,7 +96,13 @@ package com.unhurdle.spectrum
 			if(!value){
 				return;
 			}
-			handle.appliedColor = value.clone();
+			if(hueSlider){
+				var hueVal:IRGBA = value.clone();
+				hueVal.alpha = 1;
+				handle.appliedColor = hueVal;
+			} else {
+				handle.appliedColor = value.clone();
+			}
       if(addedOnce){
         calculateHandlePosition();
       }
@@ -135,8 +141,7 @@ package com.unhurdle.spectrum
       if(hueSlider){
         var c:IRGBA = appliedColor;
         var hue:Number = rgbToHsv(c.r,c.g,c.b).h;
-        //reverse the number because 360 is top and 0 is bottom
-        setHandlePosition(100 - (hue / 3.6));
+        setHandlePosition(hue / 3.6);
       } else {
         //TODO figure out the placement based on colorstops and h,s and v values
       }

@@ -60,8 +60,10 @@ package com.unhurdle.spectrum
 			{
 				if(value){
 					checkerboard.classList.add("square");
+					backgroundStyle.borderRadius = 0;
 				} else {
 					checkerboard.classList.remove("square");
+					backgroundStyle.borderRadius = "";
 				}
 			}
 		}

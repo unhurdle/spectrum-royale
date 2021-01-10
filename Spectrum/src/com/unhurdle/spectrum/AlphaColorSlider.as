@@ -40,7 +40,6 @@ package com.unhurdle.spectrum
 			//trigger a handle redraw
 			var alpha:Number = appliedColor ? appliedColor.alpha : 1;
 			appliedColor = new RGBColor([value.r,value.g,value.b,alpha]);
-			colorStyle = appliedColor.styleString;
 		}
 
 		override public function set appliedColor(value:IRGBA):void{
@@ -83,7 +82,6 @@ package com.unhurdle.spectrum
 			startStr += colorStyle;
 			var endStr:String =" 0%, rgba(0, 0, 0, 0) 100%)";
 			gradient.style.background = startStr + endStr;
-			handle.appliedColor = colorToRGBA(colorStyle);
 		}
 		override protected function onMouseMove(e:MouseEvent):void {
 			if(disabled){
