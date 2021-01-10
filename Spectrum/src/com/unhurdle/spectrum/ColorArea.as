@@ -44,10 +44,8 @@ package com.unhurdle.spectrum
 			if(!value){
 				return;
 			}
-			handle.appliedColor = value;
-			_hsv = rgbToHsv(value.r,value.g,value.b);
+			hsv = rgbToHsv(value.r,value.g,value.b);
 			drawCanvas();
-			positionHandle();
 		}
 
 		private var _hsv:HSV;
@@ -60,7 +58,6 @@ package com.unhurdle.spectrum
 		public function set hsv(value:HSV):void
 		{
 			_hsv = value;
-			handle.appliedColor = RGBColor.fromHSV(value);
 			positionHandle();
 		}
 
@@ -78,6 +75,7 @@ package com.unhurdle.spectrum
 			}
 			hsv.h = value;
 			positionHandle();
+			drawCanvas();
 		}
 
 		private var handle:ColorHandle;
@@ -90,9 +88,6 @@ package com.unhurdle.spectrum
 			//TODO disabled?
 			if(!addedOnce){
 				addEventListener('mousedown', onMouseDown);
-				handle.addEventListener("colorChanged",function(ev:ValueEvent):void{
-					dispatchEvent(new ValueEvent("colorChanged",ev));
-				});
 			}
 			addedOnce = true;
 			drawCanvas();
@@ -142,10 +137,11 @@ package com.unhurdle.spectrum
     	// var i:int = (point.y * imageData.width + point.x) * 4;
 			// var data:Uint8ClampedArray = imageData.data;
 			// handle.appliedColor = new RGBColor([data[i],data[i+1],data[i+2],data[i+3]]);
-			hsv.s = getPercent(width,point.x);
+			hsv.s = getPercent(point.x,width);
 			// The v scale goes bottom to top so we need to inverse the value.
-			hsv.v = 100 - getPercent(height,point.y);
-			setHandleColor();
+			hsv.v = 100 - getPercent(point.y,height);
+			positionHandle();
+			// setHandleColor();
 			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 		}
 		private function setHandleColor():void{
@@ -157,9 +153,10 @@ package com.unhurdle.spectrum
 			if(event["touches"]){
 				event = event["touches"][0];
 			}
-			var point:Point = new Point(event.pageX,event.pageY);
-			point.x -= canvas.offsetLeft;
-			point.y -= canvas.offsetTop;
+			var clientRect:ClientRect = canvas.getBoundingClientRect();
+			var point:Point = new Point(event.clientX,event.clientY);
+			point.x -= clientRect.left;;
+			point.y -= clientRect.top;
 			return point;
 		}
 

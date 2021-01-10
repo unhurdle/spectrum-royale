@@ -27,6 +27,7 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.core.IFactory;
 	import org.apache.royale.utils.DisplayUtils;
 	import org.apache.royale.geom.Rectangle;
+	import com.unhurdle.spectrum.utils.getDataProviderItem;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -75,6 +76,7 @@ package com.unhurdle.spectrum.colorpicker
 			setupFields();
 			setupSwatch()
 			setupButtons();
+			updateValues(appliedColor,false,false);
 			super.open = value;
 		}
 		override public function addedToParent():void{
@@ -173,7 +175,11 @@ package com.unhurdle.spectrum.colorpicker
 		private function handleHueChange(ev:ValueEvent):void{
 			var c:IRGBA = hueSelector.appliedColor;
 			colorArea.hue = rgbToHsv(c.r,c.g,c.b).h;
-			dispatchEvent(new ValueEvent("colorChanged",colorArea.appliedColor));
+			var modifiedColor:RGBColor = RGBColor.fromHSV(colorArea.hsv);
+			modifiedColor.alpha = appliedColor.alpha;
+			updateValues(modifiedColor);
+			appliedColor = modifiedColor;
+			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 		}
 		private function setupAlpha():void{
 			if(showColorControls && showAlphaControls){
@@ -188,6 +194,12 @@ package com.unhurdle.spectrum.colorpicker
 			}
 		}
 		private function handleAlphaChange(ev:ValueEvent):void{
+			//TODO, do we keep the color selection in the list? Assuming not.
+			var newColor:IRGBA = appliedColor.clone();
+			newColor.alpha = alphaSelector.appliedColor.alpha;
+			appliedColor = newColor;
+			updateValues(newColor);
+			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 			trace("handleAlphaChange");
 			trace(ev);
 		}
@@ -201,6 +213,7 @@ package com.unhurdle.spectrum.colorpicker
 				}
 				if(!_colorTextField){
 					_colorTextField = new ColorTextField();
+					_colorTextField.width = 75;
 					if(hexEditable){
 						_colorTextField.addEventListener("inputFinished", colorTextFieldChangeHandler);
 					} else {
@@ -213,6 +226,7 @@ package com.unhurdle.spectrum.colorpicker
 				if(showAlphaControls){
 					if(!_alphaTextField){
 						_alphaTextField = new AlphaTextField();
+						_alphaTextField.width = 50;
 						_alphaTextField.addEventListener("inputFinished", alphaTextFieldChangeHandler);
 						preventPropogation(_alphaTextField);
 						fieldContainer.addElement(_alphaTextField);
@@ -221,6 +235,42 @@ package com.unhurdle.spectrum.colorpicker
 			}
 
 		}
+		protected function updateValues(color:IRGBA,findListSelection:Boolean=true,resetListSelection:Boolean=true):void{
+			colorTextField.text = color.hexString;
+			if(alphaTextField){
+				alphaTextField.text = isNaN(color.alpha) ? "100%" : Math.round(color.alpha * 100) + "%";
+			}
+			// all the controls clone the color before applying
+			if(colorArea){
+				colorArea.appliedColor = color;
+			}
+			if(hueSelector){
+				hueSelector.appliedColor = color;
+			}
+			if(alphaSelector){
+				alphaSelector.appliedColor = color;
+			}
+			if(colorArea){
+				colorArea.appliedColor = color;
+			}
+			if(currentSwatch){
+				currentSwatch.color = color;
+			}
+			if(swatchList && findListSelection){
+				var len:int = dataProvider.length;
+				for(var i:int=0;i<len;i++){
+					var item:IRGBA = getDataProviderItem(dataProvider,i) as IRGBA;
+					if(color.styleString == item.styleString){
+						swatchList.selectedIndex = i;
+						break;
+					}
+				}
+
+			} else if(swatchList && resetListSelection){
+				swatchList.selectedIndex = -1;
+			}
+		}
+
 		private var originalColor:IRGBA;
 		private var startSwatch:ColorSwatch;
 		private var currentSwatch:ColorSwatch;
