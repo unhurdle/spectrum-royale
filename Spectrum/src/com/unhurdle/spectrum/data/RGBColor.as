@@ -87,6 +87,9 @@ package com.unhurdle.spectrum.data
       return str + ")";
 		}
 		public function get hexString():String{
+			if(!isValid){
+				return "";
+			}
 			return "#" + ((1 << 24) + ((r >> 0) << 16) + ((g >> 0) << 8) + (b >> 0)).toString(16).slice(1);
 		}
 		public function clone():RGBColor{
@@ -114,6 +117,12 @@ package com.unhurdle.spectrum.data
 					case 5: r = v, g = p, b = q; break;
 			}
 			return new RGBColor([r*255,g*255,b*255]);
+		}
+		public function get isValid():Boolean{
+			if(isNaN(r) || isNaN(g) || isNaN(b)){
+				return false;
+			}
+			return true;
 		}
 	}
 }

@@ -96,6 +96,7 @@ package com.unhurdle.spectrum
 			if(!value){
 				return;
 			}
+			handle.visible = value.isValid;
 			if(hueSlider){
 				var hueVal:IRGBA = value.clone();
 				hueVal.alpha = 1;
@@ -187,6 +188,7 @@ package com.unhurdle.spectrum
 			if(disabled){
 				return;
 			}
+			handle.visible = true;
 			var percent:Number = getMousePercentagePosition(e);
 			var num:Number = percent/(100/(colorStops.length - 1));
 			if(isInt(num)){

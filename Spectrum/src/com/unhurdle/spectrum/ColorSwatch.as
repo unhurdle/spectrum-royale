@@ -5,6 +5,7 @@ package com.unhurdle.spectrum
 		import org.apache.royale.core.WrappedHTMLElement;
 	}
 	import com.unhurdle.spectrum.interfaces.IRGBA;
+	import com.unhurdle.spectrum.data.RGBColor;
 
 	public class ColorSwatch extends SpectrumBase
 	{
@@ -37,6 +38,9 @@ package com.unhurdle.spectrum
 		public function set color(value:IRGBA):void
 		{
 			_color = value;
+			if(!value.isValid){
+				value = new RGBColor([0,0,0,0]);
+			}
 			COMPILE::JS
 			{
 				if(value){

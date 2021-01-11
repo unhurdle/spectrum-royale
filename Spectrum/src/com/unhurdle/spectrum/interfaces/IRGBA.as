@@ -14,6 +14,7 @@ package com.unhurdle.spectrum.interfaces
     function set colorValue(value:uint):void;
     function get styleString():String;
     function get hexString():String;
+    function get isValid():Boolean;
     function clone():IRGBA;
     {
       

@@ -45,8 +45,11 @@ package com.unhurdle.spectrum
 			if(!value){
 				return;
 			}
-			hsv = rgbToHsv(value.r,value.g,value.b);
-			drawCanvas();
+			handle.visible = value.isValid;
+			if(value.isValid){
+				hsv = rgbToHsv(value.r,value.g,value.b);
+				drawCanvas();
+			}
 		}
 
 		private var _hsv:HSV;
@@ -95,6 +98,7 @@ package com.unhurdle.spectrum
 
 		}
 		private function positionHandle():void{
+			handle.visible = true;
 			handle.x = (hsv.s / 100) * width;
 			handle.y = height - hsv.v * height / 100;
 			setHandleColor();
@@ -185,6 +189,10 @@ package com.unhurdle.spectrum
 			hueColor.s = 100;
 			hueColor.v = 100;
 			var colorToApply:IRGBA = RGBColor.fromHSV(hueColor);
+			if(!hsv){
+				hsv = hueColor;
+				hsv.v = 0;
+			}
 			var gradC:CanvasGradient = context.createLinearGradient(0, 0, canvas.width, 0);
 			colorToApply.alpha = 0;
 			gradC.addColorStop(0, colorToApply.styleString);

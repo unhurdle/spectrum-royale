@@ -14,7 +14,7 @@
         '<sp:ColorPicker dataProvider="{dp}" selectedIndex="0"/>';
 
       private function initCompleteHandler(e:Event):void{
-        var dp:Array = [];
+        var dp:Array = [new RGBColor()];
 				for (var i:int = 0; i < 30; i++)
 				{
           var colorObj:RGBColor = new RGBColor();

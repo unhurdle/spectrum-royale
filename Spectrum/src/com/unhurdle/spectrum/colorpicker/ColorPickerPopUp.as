@@ -242,7 +242,7 @@ package com.unhurdle.spectrum.colorpicker
 					preventPropogation(_colorTextField);
 					fieldContainer.addElement(_colorTextField);
 				}
-				_colorTextField.text = appliedColor.hexString;
+				_colorTextField.text =  appliedColor.hexString;
 				if(showAlphaControls){
 					if(!_alphaTextField){
 						_alphaTextField = new AlphaTextField();
@@ -259,7 +259,11 @@ package com.unhurdle.spectrum.colorpicker
 		protected function updateValues(color:IRGBA,findListSelection:Boolean=true,resetListSelection:Boolean=true):void{
 			colorTextField.text = color.hexString;
 			if(alphaTextField){
-				alphaTextField.text = isNaN(color.alpha) ? "100%" : Math.round(color.alpha * 100) + "%";
+				if(color.isValid){
+					alphaTextField.text = isNaN(color.alpha) ? "100%" : Math.round(color.alpha * 100) + "%";
+				} else {
+					alphaTextField.text = "";
+				}
 			}
 			// all the controls clone the color before applying
 			if(colorArea){
