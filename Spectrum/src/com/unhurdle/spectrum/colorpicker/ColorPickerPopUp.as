@@ -142,6 +142,7 @@ package com.unhurdle.spectrum.colorpicker
 				if(!controlSection){
 					controlSection = new FlexContainer();
 					controlSection.vertical = false;
+					controlSection.setStyle("margin-bottom","16px");
 					controlSection.alignItems = "stretch";
 					mainContainer.addElement(controlSection);
 				}
@@ -159,6 +160,7 @@ package com.unhurdle.spectrum.colorpicker
 				if(!hueSelector){
 					hueSelector = new ColorSlider();
 					hueSelector.vertical = true;
+					hueSelector.height = areaSize;
 					hueSelector.addEventListener("colorChanged",handleHueChange);
 					hueSelector.setStyle("margin-left",padding+"px");
 					controlSection.addElement(hueSelector);
@@ -169,6 +171,11 @@ package com.unhurdle.spectrum.colorpicker
 			setupAlpha();
 		}
 		private function handleColorAreaChange(ev:ValueEvent):void{
+			var color:IRGBA = (ev.value as IRGBA).clone();
+			color.alpha = appliedColor.alpha;
+			updateValues(color);
+			appliedColor = color;
+			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 			trace('handleColorAreaChange');
 			trace(ev);
 		}
@@ -186,6 +193,7 @@ package com.unhurdle.spectrum.colorpicker
 				if(!alphaSelector){
 					alphaSelector = new AlphaColorSlider();
 					alphaSelector.vertical = true;
+					alphaSelector.height = areaSize;
 					alphaSelector.addEventListener("colorChanged",handleAlphaChange);
 					alphaSelector.setStyle("margin-left",padding+"px");
 					controlSection.addElement(alphaSelector);
@@ -204,13 +212,17 @@ package com.unhurdle.spectrum.colorpicker
 			trace(ev);
 		}
 		protected var fieldContainer:FlexContainer;
+		private function getFieldContainer():FlexContainer{
+			if(!fieldContainer){
+				fieldContainer = new FlexContainer();
+				fieldContainer.vertical = false;
+				mainContainer.addElement(fieldContainer);
+			}
+			return fieldContainer;
+		}
 		private function setupFields():void{
 			if(showColorControls){
-				if(!fieldContainer){
-					fieldContainer = new FlexContainer();
-					fieldContainer.vertical = false;
-					mainContainer.addElement(fieldContainer);
-				}
+				getFieldContainer();
 				if(!_colorTextField){
 					_colorTextField = new ColorTextField();
 					_colorTextField.width = 75;
@@ -283,16 +295,27 @@ package com.unhurdle.spectrum.colorpicker
 			if(!swatchContainer){
 				swatchContainer = new FlexContainer();
 				swatchContainer.vertical = false;
+				// fill the remaining space and align the swatches right
+				swatchContainer.flexGrow = 1;
+				swatchContainer.justifyContent = "flex-end";
+				getFieldContainer().addElement(swatchContainer);
 			}
 			if(!startSwatch){
 				startSwatch = new ColorSwatch();
+				startSwatch.size = 40;
+				startSwatch.width = 32;
+				startSwatch.squareRight = true;
 				swatchContainer.addElement(startSwatch);
 			}
 			startSwatch.color = appliedColor.clone();
 			if(!currentSwatch){
 				currentSwatch = new ColorSwatch();
+				currentSwatch.size = 40;
+				currentSwatch.width = 32;
+				currentSwatch.squareLeft = true;
 				swatchContainer.addElement(currentSwatch);
 			}
+
 			currentSwatch.color = appliedColor.clone();
 		}
 

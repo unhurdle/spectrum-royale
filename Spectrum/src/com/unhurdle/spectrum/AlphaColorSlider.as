@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.number.pinValue;
 	import org.apache.royale.utils.number.getPercent;
 	import com.unhurdle.spectrum.data.RGBColor;
+	import org.apache.royale.events.ValueEvent;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
@@ -87,9 +88,13 @@ package com.unhurdle.spectrum
 			if(disabled){
 				return;
 			}
-			var percent:Number = getMousePercentagePosition(e);
-			appliedColor.alpha = percent/100;
-			setHandlePosition(percent);
+			//opaque at beginning
+			var percent:Number = 100 - getMousePercentagePosition(e);
+			var color:IRGBA = handle.appliedColor.clone();
+			color.alpha = percent/100;
+			handle.appliedColor = color;
+			calculateHandlePosition();
+			dispatchEvent(new ValueEvent("colorChanged",appliedColor));			
 		}
 		override protected function calculateHandlePosition():void{
 			if(appliedColor && !isNaN(appliedColor.alpha)){

@@ -13,6 +13,9 @@ package com.unhurdle.spectrum
 			super();
 			size = 24;
 		}
+    override protected function getSelector():String{
+      return "spectrum-ColorSwatch";
+    }
 
 		private var _size:Number;
 
@@ -64,6 +67,50 @@ package com.unhurdle.spectrum
 				} else {
 					checkerboard.classList.remove("square");
 					backgroundStyle.borderRadius = "";
+				}
+			}
+		}
+
+		private var _squareRight:Boolean;
+
+		public function get squareRight():Boolean{
+			return _squareRight;
+		}
+
+		public function set squareRight(value:Boolean):void{
+			_squareRight = value;
+			COMPILE::JS
+			{
+				if(value){
+					checkerboard.classList.add("square-right");
+					backgroundStyle.borderTopRightRadius = 0;
+					backgroundStyle.borderBottomRightRadius = 0;
+				} else {
+					checkerboard.classList.remove("square-right");
+					backgroundStyle.borderTopRightRadius = "";
+					backgroundStyle.borderBottomRightRadius = "";
+				}
+			}
+		}
+
+		private var _squareLeft:Boolean;
+
+		public function get squareLeft():Boolean{
+			return _squareLeft;
+		}
+
+		public function set squareLeft(value:Boolean):void{
+			_squareLeft = value;
+			COMPILE::JS
+			{
+				if(value){
+					checkerboard.classList.add("square-left");
+					backgroundStyle.borderTopLeftRadius = 0;
+					backgroundStyle.borderBottomLeftRadius = 0;
+				} else {
+					checkerboard.classList.remove("square-left");
+					backgroundStyle.borderTopLeftRadius = "";
+					backgroundStyle.borderBottomLeftRadius = "";
 				}
 			}
 		}

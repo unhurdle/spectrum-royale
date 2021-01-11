@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.HSV;
 	import org.apache.royale.utils.rgbToHsv;
 	import org.apache.royale.utils.number.getPercent;
+	import org.apache.royale.utils.number.pinValue;
 
 	public class ColorArea extends SpectrumBase
 	{
@@ -109,14 +110,14 @@ package com.unhurdle.spectrum
 			handle.toggle("is-dragged",true);
 			onMouseMove(e);
 			window.addEventListener('mouseup', onMouseUp);
-			canvas.addEventListener('mousemove', onMouseMove);
+			window.addEventListener('mousemove', onMouseMove);
 		}
 		
 		COMPILE::JS
 		protected function onMouseUp():void {
 			handle.toggle("is-dragged",false);
 			window.removeEventListener('mouseup', onMouseUp);
-			canvas.removeEventListener('mousemove', onMouseMove);
+			window.removeEventListener('mousemove', onMouseMove);
 		}
 
 		COMPILE::JS
@@ -155,8 +156,10 @@ package com.unhurdle.spectrum
 			}
 			var clientRect:ClientRect = canvas.getBoundingClientRect();
 			var point:Point = new Point(event.clientX,event.clientY);
-			point.x -= clientRect.left;;
+			point.x -= clientRect.left;
+			point.x = pinValue(point.x,0,width);
 			point.y -= clientRect.top;
+			point.y = pinValue(point.y,0,height);
 			return point;
 		}
 
