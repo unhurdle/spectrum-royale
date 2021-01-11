@@ -80,7 +80,7 @@ package com.unhurdle.spectrum.colorpicker
 			_cancelText = value;
 		}
 
-		private var _showApplyButtons:Boolean;
+		private var _showApplyButtons:Boolean = true;
 		public function get showApplyButtons():Boolean{
 			return _showApplyButtons;
 		}
@@ -179,10 +179,12 @@ package com.unhurdle.spectrum.colorpicker
 			dispatchEvent(ev);
 		}
 		protected function handleColorCommit(ev:ValueEvent):void{
+			closePopup();
 			dispatchEvent(ev);
 		}
 		protected function handleCancel(ev:ValueEvent):void{
 			dispatchEvent(ev);
+			closePopup();
 		}
 		protected function togglePopover(ev:Event):void{
 			ev.preventDefault();

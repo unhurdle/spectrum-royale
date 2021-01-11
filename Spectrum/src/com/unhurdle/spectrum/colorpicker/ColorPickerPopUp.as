@@ -133,6 +133,13 @@ package com.unhurdle.spectrum.colorpicker
 			}
 		}
 		private function onSwatchChange(ev:Event):void{
+			var color:IRGBA = swatchList.selectedItem as IRGBA;
+			if(appliedColor != color){
+				appliedColor = color;
+				updateValues(color,false,false);
+				dispatchEvent(new ValueEvent("colorChanged",appliedColor));
+			}
+
 			trace('onSwatchChange');
 			trace(ev);
 		}
@@ -269,18 +276,22 @@ package com.unhurdle.spectrum.colorpicker
 			if(currentSwatch){
 				currentSwatch.color = color;
 			}
-			if(swatchList && findListSelection){
-				var len:int = dataProvider.length;
-				for(var i:int=0;i<len;i++){
-					var item:IRGBA = getDataProviderItem(dataProvider,i) as IRGBA;
-					if(color.styleString == item.styleString){
-						swatchList.selectedIndex = i;
-						break;
+			if(swatchList){
+				var selectedIndex:int = -1;
+				if(findListSelection){
+					var len:int = dataProvider.length;
+					var styleString:String = color.styleString;
+					for(var i:int=0;i<len;i++){
+						var item:IRGBA = getDataProviderItem(dataProvider,i) as IRGBA;
+						if(styleString == item.styleString){
+							selectedIndex = i;
+							break;
+						}
 					}
 				}
-
-			} else if(swatchList && resetListSelection){
-				swatchList.selectedIndex = -1;
+				if(selectedIndex >= 0 || resetListSelection){
+					swatchList.selectedIndex = selectedIndex;
+				}
 			}
 		}
 
@@ -355,12 +366,14 @@ package com.unhurdle.spectrum.colorpicker
 					applyButton = new Button();
 					applyButton.flavor = "cta";
 					applyButton.addEventListener("click",applyClicked);
+					footerGroup.addElement(applyButton);
 				}
 				applyButton.text = applyText;
 				
 				if(!cancelButton){
 					cancelButton = new Button();
 					cancelButton.addEventListener("click",cancelClicked);
+					footerGroup.addElement(cancelButton);
 				}
 				cancelButton.text = cancelText;
 			}
@@ -368,12 +381,14 @@ package com.unhurdle.spectrum.colorpicker
 
 		private function applyClicked(ev:Event):void{
 			//TODO
+			dispatchEvent(new ValueEvent("colorCommit",appliedColor));
 			trace("applyClicked");
 			trace(ev);
 		}
 
 		private function cancelClicked(ev:Event):void{
 			//TODO
+			dispatchEvent(new Event("cancel"));
 			trace("cancelClicked");
 			trace(ev);
 		}

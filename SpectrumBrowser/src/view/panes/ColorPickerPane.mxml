@@ -7,6 +7,9 @@
     <![CDATA[
       import org.apache.royale.events.Event;
       import com.unhurdle.spectrum.data.RGBColor;
+      import com.unhurdle.spectrum.Toast;
+      import org.apache.royale.events.ValueEvent;
+      import com.unhurdle.spectrum.interfaces.IRGBA;
       [Bindable] public var colorPicker:String = 
         '<sp:ColorPicker dataProvider="{dp}" selectedIndex="0"/>';
 
@@ -24,9 +27,16 @@
         myColorPicker.dataProvider = dp;
         myColorPicker.appliedColor = dp[0];
       }
+      private function onCancel():void{
+        new Toast("canceled",2000).show();
+      }
+      private function onApply(ev:ValueEvent):void{
+        var color:IRGBA = ev.value as IRGBA;
+        new Toast("Color: " + color.styleString + " applied.",2000).show();
+      }
     ]]>
   </fx:Script>
-  <sp:ColorPicker id="myColorPicker"/>
+  <sp:ColorPicker id="myColorPicker" cancel="onCancel()" colorCommit="onApply(event)"/>
   <comp:Markup>
     <comp:StyledCode text="{colorPicker}"/>
   </comp:Markup>

@@ -80,9 +80,9 @@ package com.unhurdle.spectrum.data
 			}
 			var hasAlpha:Boolean = !isNaN(alpha);
       var prefix:String = hasAlpha ? "rgba(" : "rgb(";
-      var str:String = prefix + r + "," + g + "," + b;
+      var str:String = prefix + Math.round(r) + "," + Math.round(g) + "," + Math.round(b);
       if(hasAlpha){
-        return str + "," + alpha + ")";
+        return str + "," + (Math.round(alpha * 100)/100) + ")";
       }
       return str + ")";
 		}
