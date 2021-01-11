@@ -18,34 +18,33 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
 	import org.apache.royale.utils.sendStrandEvent;
 
-  public class ListController implements IBeadController
-  {
-    public function ListController()
-    {
-      
-    }
-    /**
-     *  The model.
-     */
+	public class ListController implements IBeadController
+	{
+		public function ListController()
+		{			
+		}
+		/**
+		 *  The model.
+		 */
 		protected var listModel:ListModel;
 
-    /**
-     *  The view.
-     *  
-     */
-    protected var listView:IListView;
+		/**
+		 *  The view.
+		 *  
+		 */
+		protected var listView:IListView;
 
-      /**
-       *  The parent of the item renderers.
-       */
-      protected var dataGroup:IItemRendererOwnerView;
+		/**
+		 *  The parent of the item renderers.
+		 */
+		protected var dataGroup:IItemRendererOwnerView;
 
-    protected var _strand:IStrand;
+		protected var _strand:IStrand;
 		
-    /**
-     *  @copy org.apache.royale.core.IBead#strand
-     */
-    public function set strand(value:IStrand):void
+		/**
+		 *  @copy org.apache.royale.core.IBead#strand
+		 */
+		public function set strand(value:IStrand):void
 		{
 			_strand = value;
 			listModel = value.getBeadByType(ISelectionModel) as ListModel;
@@ -60,7 +59,7 @@ package com.unhurdle.spectrum
      */
 		protected function handleItemAdded(event:ItemAddedEvent):void
 		{
-			(event.item as IEventDispatcher).addEventListener("itemMouseUp", selectedHandler);
+			(event.item as IEventDispatcher).addEventListener("itemClicked", selectedHandler);
 			(event.item as IEventDispatcher).addEventListener("itemRollOver", rolloverHandler);
 			(event.item as IEventDispatcher).addEventListener("itemRollOut", rolloutHandler);
 		}
@@ -70,21 +69,21 @@ package com.unhurdle.spectrum
          */
 		protected function handleItemRemoved(event:ItemRemovedEvent):void
 		{
-			(event.item as IEventDispatcher).removeEventListener("itemMouseUp", selectedHandler);
+			(event.item as IEventDispatcher).removeEventListener("itemClicked", selectedHandler);
 			(event.item as IEventDispatcher).removeEventListener("itemRollOver", rolloverHandler);
 			(event.item as IEventDispatcher).removeEventListener("itemRollOut", rolloutHandler);
 		}
 		
 		protected function selectedHandler(event:ItemClickedEvent):void
-    {
-      listModel.selectedIndex = event.index;
-      listModel.selectedItem = event.data;
+		{
+			listModel.selectedIndex = event.index;
+			listModel.selectedItem = event.data;
 			sendStrandEvent(_strand,"change");
-    }
+		}
 		
 		/**
 		 * @royaleemitcoercion org.apache.royale.core.IIndexedItemRenderer
-     * @royaleignorecoercion org.apache.royale.core.IRollOverModel
+		 * @royaleignorecoercion org.apache.royale.core.IRollOverModel
 		 */
 		protected function rolloverHandler(event:Event):void
 		{
@@ -95,10 +94,10 @@ package com.unhurdle.spectrum
 		}
 		
 		/**
-		  * @royaleemitcoercion org.apache.royale.core.IIndexedItemRenderer
-      * @royaleignorecoercion org.apache.royale.core.IRollOverModel
-      * @royaleignorecoercion org.apache.royale.core.ISelectableItemRenderer
-		 */
+			* @royaleemitcoercion org.apache.royale.core.IIndexedItemRenderer
+			* @royaleignorecoercion org.apache.royale.core.IRollOverModel
+			* @royaleignorecoercion org.apache.royale.core.ISelectableItemRenderer
+			*/
 		protected function rolloutHandler(event:Event):void
 		{
 			var renderer:IIndexedItemRenderer = event.currentTarget as IIndexedItemRenderer;
@@ -114,7 +113,7 @@ package com.unhurdle.spectrum
 				}
 				(listModel as IRollOverModel).rollOverIndex = -1;
 			}
-		}	
+		}
 
 	}
 }

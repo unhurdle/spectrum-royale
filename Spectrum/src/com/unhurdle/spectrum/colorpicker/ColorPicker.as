@@ -14,6 +14,7 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.interfaces.IColorPopover;
 	import org.apache.royale.utils.DisplayUtils;
 	import com.unhurdle.spectrum.utils.getDataProviderItem;
+	import org.apache.royale.events.ValueEvent;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -165,8 +166,23 @@ package com.unhurdle.spectrum.colorpicker
 				if(c){
 					_popover = new c() as IColorPopover;
 				}
+				if(_popover){
+					_popover.addEventListener("colorChanged",handleColorChange);
+					_popover.addEventListener("colorCommit",handleColorCommit);
+					_popover.addEventListener("cancel",handleCancel);
+				}
 			}
 			return _popover;
+		}
+		protected function handleColorChange(ev:ValueEvent):void{
+			_button.color = ev.value;
+			dispatchEvent(ev);
+		}
+		protected function handleColorCommit(ev:ValueEvent):void{
+			dispatchEvent(ev);
+		}
+		protected function handleCancel(ev:ValueEvent):void{
+			dispatchEvent(ev);
 		}
 		protected function togglePopover(ev:Event):void{
 			ev.preventDefault();

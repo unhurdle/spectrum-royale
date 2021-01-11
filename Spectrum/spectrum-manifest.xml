@@ -100,6 +100,7 @@
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
     <component id="List" class="com.unhurdle.spectrum.List"/>
     <component id="ListController" class="com.unhurdle.spectrum.ListController"/>
+    <component id="MenuController" class="com.unhurdle.spectrum.MenuController"/>
     <component id="ListModel" class="com.unhurdle.spectrum.ListModel"/>
     <component id="ListView" class="com.unhurdle.spectrum.ListView"/>
     <component id="SwatchList" class="com.unhurdle.spectrum.SwatchList"/>
