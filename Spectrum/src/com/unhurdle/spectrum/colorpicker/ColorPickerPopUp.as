@@ -37,6 +37,7 @@ package com.unhurdle.spectrum.colorpicker
 		public function ColorPickerPopUp(){
 			super();
 			dialog=true;
+			tipDialog=true;
 			floating = true;
 			mainContainer = new FlexContainer();
 			mainContainer.vertical = true;

@@ -123,17 +123,30 @@ package com.unhurdle.spectrum
 			if(value != !!_dialog){
 				_dialog = value;
 				toggle(valueToSelector("dialog"),value);
-				toggle(valueToSelector("withTip"),value);
 			}
 		}
+		private var _tipDialog:Boolean = true;
+		/**
+		 * Whether the dialog is relative to another element.
+		 */
+		public function get tipDialog():Boolean{
+			return _tipDialog;
+		}
+		public function set tipDialog(value:Boolean):void{
+			_tipDialog = value;
+			toggle(valueToSelector("withTip"),value);
+		}
+
 		override public function addedToParent():void{
 			super.addedToParent();
 			COMPILE::JS
 			{
 				positionDialog();
-				if(dialog){
+				if(dialog && tipDialog){
 					if(!tipElement){
 						tipElement = newSVGElement("svg",appendSelector("-tip"));
+						tipElement.style.width = "22px";
+						tipElement.style.height = "22px";
 						// <path class="spectrum-Popover-tip-triangle" d="M 0 0.7071067811865476 L 10.707106781186548 11.414213562373096 L 0 22.121320343559645"></path>
 						tipPath = newSVGElement("path", appendSelector("-tip-triangle")) as SVGPathElement;
 						// setTipPath();
@@ -155,9 +168,15 @@ package com.unhurdle.spectrum
 			if(!dialog || !anchor){
 				return;
 			}
-			// Figure out direction and max size
 			var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
 			var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
+			// if there's no anchor, position the dialog centered on the screen.
+			if(!anchor){
+				x = (appBounds.width - componentBounds.width) / 2;
+				y = (appBounds.height - componentBounds.height) / 2;
+				return;
+			}
+			// Figure out direction and max size
 
 			var pxStr:String = "px";
 
