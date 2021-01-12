@@ -183,11 +183,11 @@ package com.unhurdle.spectrum.colorpicker
 		}
 		protected function handleColorCommit(ev:ValueEvent):void{
 			dispatchEvent(ev);
-			closePopup();
+			closePopover();
 		}
 		protected function handleCancel(ev:ValueEvent):void{
 			dispatchEvent(ev);
-			closePopup();
+			closePopover();
 		}
 		protected function handleOpenChanged(ev:Event):void{
 			dispatchEvent(ev);
@@ -202,7 +202,7 @@ package com.unhurdle.spectrum.colorpicker
 					requestAnimationFrame(openPopup);
 				}
 			} else {
-				closePopup();
+				closePopover();
 			}
 		}
 		protected function setPopupProperties():void{
@@ -230,7 +230,7 @@ package com.unhurdle.spectrum.colorpicker
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 		}
-		protected function closePopup():void{
+		public function closePopover():void{
 			if(popover && popover.open){
 				popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
@@ -248,7 +248,9 @@ package com.unhurdle.spectrum.colorpicker
 			event.stopImmediatePropagation();
 		}
 		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void{
-			closePopup();
+			// If the user clicked outside the popover, we're considering that a cancel.
+			dispatchEvent(new Event("cancel"));
+			closePopover();
 		}
 
 	}
