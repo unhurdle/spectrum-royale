@@ -22,10 +22,15 @@ package com.unhurdle.spectrum.renderers
     protected var swatch:ColorSwatch;
 
     override public function set data(value:Object):void{
-      super.data = value;
+      if(data is IRGBA){
+        var color:IRGBA = data as IRGBA;
+      } else {
+        color = new RGBColor();
+        color.colorValue = data as uint;
+      }
+      super.data = color;
       COMPILE::JS
       {
-        var color:IRGBA = data as IRGBA;
         if(lineDiv){
           element.removeChild(lineDiv);
           lineDiv = null;
