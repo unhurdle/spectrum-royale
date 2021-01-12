@@ -230,7 +230,7 @@ package com.unhurdle.spectrum.colorpicker
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 		}
-		public function closePopover():void{
+		protected function closePopover():void{
 			if(popover && popover.open){
 				popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
@@ -249,6 +249,9 @@ package com.unhurdle.spectrum.colorpicker
 		}
 		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void{
 			// If the user clicked outside the popover, we're considering that a cancel.
+			cancelPopover();
+		}
+		public function cancelPopover():void{
 			dispatchEvent(new Event("cancel"));
 			closePopover();
 		}
