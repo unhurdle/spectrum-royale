@@ -49,13 +49,13 @@ package com.unhurdle.spectrum.colorpicker
 			appliedColor = color;
 		}
 		
-		private var _button:ColorSwatch;
+		protected var button:ColorSwatch;
 		public function get appliedColor():IRGBA{
-			return _button.color;
+			return button.color;
 		}
 
 		public function set appliedColor(value:IRGBA):void{
-			_button.color = value;
+			button.color = value;
 		}
 		private var _dataProvider:Object;
 		public function get dataProvider():Object{
@@ -132,8 +132,8 @@ package com.unhurdle.spectrum.colorpicker
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = super.createElement();
-			_button = createButton();
-			addElement(_button);
+			button = createButton();
+			addElement(button);
 			// popover = new ComboBoxList();
 			// popover.className = appendSelector("-popover");
 			// popover.addEventListener("openChanged",handlePopoverChange);
@@ -175,7 +175,7 @@ package com.unhurdle.spectrum.colorpicker
 			return _popover;
 		}
 		protected function handleColorChange(ev:ValueEvent):void{
-			_button.color = ev.value;
+			button.color = ev.value;
 			dispatchEvent(ev);
 		}
 		protected function handleColorCommit(ev:ValueEvent):void{
@@ -215,17 +215,17 @@ package com.unhurdle.spectrum.colorpicker
 			popover.areaSize = areaSize;			
 		}
 		protected function openPopup():void{
-			popover.anchor = DisplayUtils.getScreenBoundingRect(_button);
+			popover.anchor = DisplayUtils.getScreenBoundingRect(button);
 			setPopupProperties();
 			popover.open = true;
-			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 		}
 		protected function closePopup():void{
 			if(popover && popover.open){
 				popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				popover.open = false;
 			}
