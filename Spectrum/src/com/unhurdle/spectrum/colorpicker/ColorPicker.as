@@ -15,10 +15,12 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.utils.DisplayUtils;
 	import com.unhurdle.spectrum.utils.getDataProviderItem;
 	import org.apache.royale.events.ValueEvent;
+	import org.apache.royale.events.Event;
 
 	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
 	[Event(name="cancel", type="org.apache.royale.events.Event")]
+	[Event(name="openChanged", type="org.apache.royale.events.Event")]
 	public class ColorPicker extends SpectrumBase
 	{
 
@@ -31,7 +33,7 @@ package com.unhurdle.spectrum.colorpicker
 		public function get position():String{
 			return _position;
 		}
-
+		[Inspectable(category="General", enumeration="bottom,top,right,left" defaultValue="bottom")]
 		public function set position(value:String):void{
 			_position = value;
 		}
@@ -170,6 +172,7 @@ package com.unhurdle.spectrum.colorpicker
 					_popover.addEventListener("colorChanged",handleColorChange);
 					_popover.addEventListener("colorCommit",handleColorCommit);
 					_popover.addEventListener("cancel",handleCancel);
+					_popover.addEventListener("openChanged",handleOpenChanged);
 				}
 			}
 			return _popover;
@@ -179,12 +182,15 @@ package com.unhurdle.spectrum.colorpicker
 			dispatchEvent(ev);
 		}
 		protected function handleColorCommit(ev:ValueEvent):void{
-			closePopup();
 			dispatchEvent(ev);
+			closePopup();
 		}
 		protected function handleCancel(ev:ValueEvent):void{
 			dispatchEvent(ev);
 			closePopup();
+		}
+		protected function handleOpenChanged(ev:Event):void{
+			dispatchEvent(ev);
 		}
 		protected function togglePopover(ev:Event):void{
 			ev.preventDefault();
@@ -214,7 +220,9 @@ package com.unhurdle.spectrum.colorpicker
 			popover.showSelectionSwatch = showSelectionSwatch;
 			popover.areaSize = areaSize;			
 		}
+		public var initialColor:IRGBA;
 		protected function openPopup():void{
+			initialColor = appliedColor;
 			popover.anchor = DisplayUtils.getScreenBoundingRect(button);
 			setPopupProperties();
 			popover.open = true;
@@ -228,6 +236,12 @@ package com.unhurdle.spectrum.colorpicker
 				button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				popover.open = false;
+				COMPILE::JS
+				{
+					requestAnimationFrame(function():*{
+						initialColor = null;
+					});
+				}
 			}
 		}
 		protected function handleControlMouseDown(event:MouseEvent):void{

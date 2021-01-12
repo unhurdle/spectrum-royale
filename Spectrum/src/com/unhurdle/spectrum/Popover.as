@@ -7,6 +7,8 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.DisplayUtils;
 	import org.apache.royale.geom.Point;
 
+	[Event(name="openChanged", type="org.apache.royale.events.Event")]
+	
 	public class Popover extends Group implements IPopUp
 	{
 		/**
