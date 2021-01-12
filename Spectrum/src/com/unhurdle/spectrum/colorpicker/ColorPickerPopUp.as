@@ -110,10 +110,10 @@ package com.unhurdle.spectrum.colorpicker
 					swatchList.rowGap = 4;
 					swatchList.setStyle("margin","-2px");
 					swatchList.setStyle("margin-bottom","14px");
-					swatchList.dataProvider = dataProvider;
 					swatchList.addEventListener("change",onSwatchChange);
 					mainContainer.addElement(swatchList);
 				}
+				swatchList.dataProvider = dataProvider;
 				// set the selected swatch if any.
 				var color:IRGBA = appliedColor;
 				var colorIndex:int = -1;
