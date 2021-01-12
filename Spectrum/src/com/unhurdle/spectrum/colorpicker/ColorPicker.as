@@ -252,8 +252,10 @@ package com.unhurdle.spectrum.colorpicker
 			cancelPopover();
 		}
 		public function cancelPopover():void{
-			dispatchEvent(new Event("cancel"));
-			closePopover();
+			if(popover.open){
+				dispatchEvent(new Event("cancel"));
+				closePopover();
+			}
 		}
 
 	}
