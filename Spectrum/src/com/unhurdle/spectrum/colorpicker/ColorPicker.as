@@ -17,7 +17,7 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.events.ValueEvent;
 	import org.apache.royale.events.Event;
 
-	[Event(name="colorChanged", type="com.unhurdle.spectrum.events.ColorChangeEvent")]
+	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
 	[Event(name="cancel", type="org.apache.royale.events.Event")]
 	[Event(name="openChanged", type="org.apache.royale.events.Event")]

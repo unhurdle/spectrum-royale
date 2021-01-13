@@ -22,11 +22,11 @@ package com.unhurdle.spectrum.renderers
     protected var swatch:ColorSwatch;
 
     override public function set data(value:Object):void{
-      if(data is IRGBA){
-        var color:IRGBA = data as IRGBA;
+      if(value is IRGBA){
+        var color:IRGBA = value as IRGBA;
       } else {
         color = new RGBColor();
-        color.colorValue = data as uint;
+        color.colorValue = value as uint;
       }
       super.data = color;
       COMPILE::JS
