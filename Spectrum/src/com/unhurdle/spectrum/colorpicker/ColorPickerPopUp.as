@@ -257,7 +257,9 @@ package com.unhurdle.spectrum.colorpicker
 
 		}
 		protected function updateValues(color:IRGBA,findListSelection:Boolean=true,resetListSelection:Boolean=true):void{
-			colorTextField.text = color.hexString;
+			if(colorTextField){
+				colorTextField.text = color.hexString;
+			}
 			if(alphaTextField){
 				if(color.isValid){
 					alphaTextField.text = isNaN(color.alpha) ? "100%" : Math.round(color.alpha * 100) + "%";
