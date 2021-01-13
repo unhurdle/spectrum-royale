@@ -38,6 +38,12 @@ package com.unhurdle.spectrum
 
 		private static var activeBead:TooltipBead;
 
+		public static function closeTips():void{
+			if(activeBead){
+				activeBead.closeTooltip();
+			}
+		}
+
 		protected var tt:Tooltip;
 		protected var host:IPopUpHost;
 
@@ -97,7 +103,6 @@ package com.unhurdle.spectrum
 		{
 			if(activeBead && activeBead != this){
 				activeBead.closeTooltip();
-				activeBead = null;
 			}
 			if (!toolTip || tt){
 				return;
@@ -162,6 +167,7 @@ package com.unhurdle.spectrum
 			closeTooltip();
 		}
 		protected function closeTooltip():void{
+			activeBead = null;
 			(_strand as IEventDispatcher).removeEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
 
 			var comp:IUIBase = _strand as IUIBase;
