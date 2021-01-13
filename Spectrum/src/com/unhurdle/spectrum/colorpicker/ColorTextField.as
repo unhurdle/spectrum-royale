@@ -19,6 +19,10 @@ package com.unhurdle.spectrum.colorpicker
 			COMPILE::JS
 			{
 				input.style.textTransform = "uppercase";
+				//TODO move this into a bead
+				input.addEventListener("focus",function():*{
+						input.setSelectionRange(0,text.length);
+				});
 			}
 		}
 	}

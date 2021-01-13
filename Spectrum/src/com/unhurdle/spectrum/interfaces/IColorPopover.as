@@ -46,5 +46,8 @@ package com.unhurdle.spectrum.interfaces
 		function get preferredColumns():int;
 		function set preferredColumns(value:int):void;
 
+		function get hexEditable():Boolean;
+		function set hexEditable(value:Boolean):void;
+		
 	}
 }

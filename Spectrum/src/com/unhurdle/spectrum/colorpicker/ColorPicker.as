@@ -132,6 +132,15 @@ package com.unhurdle.spectrum.colorpicker
 		public function set preferredColumns(value:int):void{
 			_preferredColumns = value;
 		}
+		private var _hexEditable:Boolean = true;
+		public function get hexEditable():Boolean{
+			return _hexEditable;
+		}
+
+		public function set hexEditable(value:Boolean):void{
+			_hexEditable = value;
+		}
+
 		private function createButton():ColorSwatch{
 			var button:ColorSwatch = new ColorSwatch();
 			button.size = 24;
@@ -228,6 +237,7 @@ package com.unhurdle.spectrum.colorpicker
 			popover.showSelectionSwatch = showSelectionSwatch;
 			popover.areaSize = areaSize;
 			popover.preferredColumns = preferredColumns;
+			popover.hexEditable = hexEditable;
 		}
 		public var initialColor:IRGBA;
 		protected function openPopup():void{

@@ -362,6 +362,7 @@ package com.unhurdle.spectrum.colorpicker
 				//The color changed
 				textColor.alpha = thisColor.alpha;
 				this.appliedColor = textColor;
+				updateValues(textColor);
 				//TODO what to dispatch?
 			}
       // (model as IColorModel).color = (_colorTextField.model as IColorModel).color;
@@ -414,6 +415,13 @@ package com.unhurdle.spectrum.colorpicker
 		}
 
 		private function alphaTextFieldChangeHandler(event:Event):void{
+			var value:Number = parseFloat(_alphaTextField.text);
+			if(!isNaN(value)){
+				var color:IRGBA = appliedColor.clone();
+				color.alpha = value / 100;
+				appliedColor = color;
+				updateValues(color);
+			}
 			trace('alphaTextFieldChangeHandler');
 			trace(event);
 			//TODO figure out if the alpha changed
