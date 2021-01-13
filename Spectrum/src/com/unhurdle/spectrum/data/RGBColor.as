@@ -29,7 +29,11 @@ package com.unhurdle.spectrum.data
 			return _r;
 		}
 		public function set r(value:Number):void{
-			_r = value;
+			if(isNaN(value)){
+				_r = value;
+			} else {
+				_r = pinValue(Math.round(value),0,255);
+			}
 		}
 
 		private var _g:Number;
@@ -37,7 +41,11 @@ package com.unhurdle.spectrum.data
 			return _g;
 		}
 		public function set g(value:Number):void{
-			_g = value;
+			if(isNaN(value)){
+				_g = value;
+			} else {
+				_g = pinValue(Math.round(value),0,255);
+			}
 		}
 
 		private var _b:Number;
@@ -45,7 +53,11 @@ package com.unhurdle.spectrum.data
 			return _b;
 		}
 		public function set b(value:Number):void{
-			_b = value;
+			if(isNaN(value)){
+				_b = value;
+			} else {
+				_b = pinValue(Math.round(value),0,255);
+			}
 		}
 
 		private var _alpha:Number;
@@ -57,9 +69,6 @@ package com.unhurdle.spectrum.data
 		}
 
 		public function get colorValue():uint{
-			var r:uint = r & 0xFF;
-			var g:uint = g & 0xFF;
-			var b:uint = b & 0xFF;
 			if(isNaN(alpha || alpha == 1)){
 				return (r << 16) | (g << 8) | (b << 0);
 			}
