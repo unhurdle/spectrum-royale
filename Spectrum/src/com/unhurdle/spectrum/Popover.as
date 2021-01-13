@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.geom.Point;
 
 	[Event(name="openChanged", type="org.apache.royale.events.Event")]
-	
+
 	public class Popover extends Group implements IPopUp
 	{
 		/**
@@ -67,6 +67,10 @@ package com.unhurdle.spectrum
 				_open = value;
 				toggle("is-open",value);
 				if(floating){
+					if(dialog){
+						// first set it to 0,0 to make sure that measuring is accurate
+						x = y = 0;
+					}
 					var host:IPopUpHostParent = Application.current.popUpParent;
 					setAttribute("dir", Application.current.dir);
 					if(value){
@@ -167,7 +171,7 @@ package com.unhurdle.spectrum
 			}
 		}
 		protected function positionDialog():void{
-			if(!dialog || !anchor){
+			if(!dialog){
 				return;
 			}
 			var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
@@ -231,18 +235,18 @@ package com.unhurdle.spectrum
 		}
 
 		private function positionLeft(appBounds:Rectangle,componentBounds:Rectangle):void{
-				var anchorCenter:Point = new Point(anchor.left,anchor.top - (anchor.height/2));
+				var anchorCenter:Point = new Point(anchor.left,anchor.top + (anchor.height/2));
 				anchorCenter.x -= componentBounds.width;
-				// anchorCenter.x -= 5;//give some space between anchor and dialog
-				positionHorizontally(anchorCenter,appBounds,componentBounds);
+				anchorCenter.x -= 14;//give some space between anchor and dialog due to the margin
+				positionVertically(anchorCenter,appBounds,componentBounds);
 		}
 		private function positionRight(appBounds:Rectangle,componentBounds:Rectangle):void{
-				var anchorCenter:Point = new Point(anchor.right,anchor.top - (anchor.height/2));
+				var anchorCenter:Point = new Point(anchor.right,anchor.top + (anchor.height/2));
 				// anchorCenter.x += 5;//give some space between anchor and dialog
-				positionHorizontally(anchorCenter,appBounds,componentBounds);
+				positionVertically(anchorCenter,appBounds,componentBounds);
 		}
 		private function positionVertically(point:Point,appBounds:Rectangle,componentBounds:Rectangle):void{
-				var left:Number = point.y
+				var left:Number = point.x;
 				var top:Number = point.y - (componentBounds.height/2);
 				var bottom:Number = point.y + (componentBounds.height/2);
 				x = left;
