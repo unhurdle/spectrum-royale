@@ -39,10 +39,12 @@ package com.unhurdle.spectrum.colorpicker
 			dialog=true;
 			tipDialog=true;
 			floating = true;
+			// The css min size should not be necessary
+			setStyle("min-width","32px");
 			mainContainer = new FlexContainer();
 			mainContainer.vertical = true;
-			//TODO make the max width user definable
-			mainContainer.setStyle("max-width","300px");
+			//TODO don't hard-code these values
+			mainContainer.setStyle("max-width","304px");
 			// mainContainer.alignItems  = "stretch";
 			addElement(mainContainer);
 		}
@@ -93,6 +95,10 @@ package com.unhurdle.spectrum.colorpicker
 					sliderBounds = DisplayUtils.getScreenBoundingRect(hueSelector);
 				}
 					mainContainer.width = sliderBounds.right - controlBounds.left;
+			} else if(preferredColumns != 0){
+				var requestedWidth:Number = -4 + (preferredColumns * 28);
+				requestedWidth = Math.max(requestedWidth,24);
+				mainContainer.setStyle("max-width", requestedWidth + "px");
 			}
 			// now position it, etc.
 			super.addedToParent();
@@ -111,7 +117,12 @@ package com.unhurdle.spectrum.colorpicker
 					swatchList.columnGap = 4;
 					swatchList.rowGap = 4;
 					swatchList.setStyle("margin","-2px");
-					swatchList.setStyle("margin-bottom","14px");
+					if(showColorControls || showSelectionSwatch){
+						swatchList.setStyle("margin-bottom","14px");
+					} else {
+						// default to -2
+						swatchList.setStyle("margin-bottom","");
+					}
 					swatchList.addEventListener("change",onSwatchChange);
 					mainContainer.addElement(swatchList);
 				}
@@ -491,6 +502,13 @@ package com.unhurdle.spectrum.colorpicker
 		}
 		public function set areaSize(value:Number):void{
 			_areaSize = value;
+		}
+		private var _preferredColumns:int
+		public function get preferredColumns():int{
+			return _preferredColumns;
+		}
+		public function set preferredColumns(value:int):void{
+			_preferredColumns = value;
 		}
 	}
 }

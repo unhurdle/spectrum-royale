@@ -43,5 +43,8 @@ package com.unhurdle.spectrum.interfaces
 		function get areaSize():Number;
 		function set areaSize(value:Number):void;
 
+		function get preferredColumns():int;
+		function set preferredColumns(value:int):void;
+
 	}
 }
