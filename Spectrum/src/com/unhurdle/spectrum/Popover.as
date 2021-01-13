@@ -221,7 +221,7 @@ package com.unhurdle.spectrum
 				y = top;
 				var pointPercent:Number = componentBounds.width / 100;
 				if(left < appBounds.left + 2){
-					var diff:Number = left - appBounds.left + 2;
+					var diff:Number = appBounds.left - left + 2;
 					left += diff;
 					tipPosition = 50 - (diff/pointPercent);
 				} else if(right > appBounds.right - 2){
@@ -252,7 +252,7 @@ package com.unhurdle.spectrum
 				x = left;
 				var pointPercent:Number = componentBounds.height / 100;
 				if(top < appBounds.top + 2){
-					var diff:Number = left - appBounds.left + 2;
+					var diff:Number = appBounds.top - top + 2;
 					top += diff;
 					tipPosition = 50 - (diff/pointPercent);
 				} else if(bottom > appBounds.bottom - 2){
