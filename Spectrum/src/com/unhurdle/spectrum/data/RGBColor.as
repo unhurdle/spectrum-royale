@@ -65,7 +65,7 @@ package com.unhurdle.spectrum.data
 			return _alpha;
 		}
 		public function set alpha(value:Number):void{
-			_alpha = value;
+			_alpha = isNaN(value) ? value : pinValue(value,0,1);
 		}
 
 		public function get colorValue():uint{
