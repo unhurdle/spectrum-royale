@@ -71,13 +71,15 @@ package com.unhurdle.spectrum.colorpicker
 			});
 		}
 		override public function set open(value:Boolean):void{
-			// Setup the contents
-			setupList();
-			setupControls();
-			setupFields();
-			setupSwatch()
-			setupButtons();
-			updateValues(appliedColor,false,false);
+			if(value){
+				// Setup the contents
+				setupList();
+				setupControls();
+				setupFields();
+				setupSwatch()
+				setupButtons();
+				updateValues(appliedColor,false,false);
+			}
 			super.open = value;
 		}
 		override public function addedToParent():void{
