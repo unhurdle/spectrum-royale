@@ -22,7 +22,7 @@ package com.unhurdle.spectrum
 			super();
 			COMPILE::JS
 			{
-				element.style.zIndex = 500;// very high number to make sure it's above everything else
+				element.style.zIndex = 3;// above everything else (except tooltips)
 				element.style.position = "absolute";
 			}
 

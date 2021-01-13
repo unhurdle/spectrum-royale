@@ -30,6 +30,8 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement{
       super.createElement();
       element.style.pointerEvents = "none";
+      // higher than popovers
+      element.style.zIndex = 4;
       // direction = "top";
       span1 = new TextNode("");
       span1.element = newElement("span") as HTMLSpanElement;

@@ -47,6 +47,7 @@ package com.unhurdle.spectrum.renderers
           lineDiv.style.borderTop = "2px solid red";
           lineDiv.style.transform = "rotate(-45deg)";
           lineDiv.style.position = "absolute";
+          lineDiv.style.pointerEvents = "none";
           element.appendChild(lineDiv);
 
         }

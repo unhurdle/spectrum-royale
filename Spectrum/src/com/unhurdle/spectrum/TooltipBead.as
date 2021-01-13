@@ -36,6 +36,8 @@ package com.unhurdle.spectrum
 		public static const BOTTOM:String = "bottom";
 		public static const TOP:String = "top";
 
+		private static var activeBead:TooltipBead;
+
 		protected var tt:Tooltip;
 		protected var host:IPopUpHost;
 
@@ -93,8 +95,15 @@ package com.unhurdle.spectrum
 
 		protected function rollOverHandler(event:MouseEvent):void
 		{
-			if (!toolTip || tt)
+			if(activeBead && activeBead != this){
+				activeBead.closeTooltip();
+				activeBead = null;
+			}
+			if (!toolTip || tt){
 				return;
+			}
+
+			activeBead = this;
 
 			(_strand as IEventDispatcher).addEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
 
@@ -105,7 +114,7 @@ package com.unhurdle.spectrum
 
 			tt = new Tooltip();
 			tt.direction = _direction;
-			tt.style = {"position": "absolute"};
+			tt.setStyle("position","absolute");
 			tt.text = toolTip;
 			host.popUpParent.addElement(tt, false); // don't trigger a layout
 			var ttWidth:Number = tt.width;
