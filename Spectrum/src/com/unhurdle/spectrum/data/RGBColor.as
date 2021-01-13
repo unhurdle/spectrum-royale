@@ -69,7 +69,7 @@ package com.unhurdle.spectrum.data
 		}
 
 		public function get colorValue():uint{
-			if(isNaN(alpha || alpha == 1)){
+			if(isNaN(alpha) || alpha == 1){
 				return (r << 16) | (g << 8) | (b << 0);
 			}
 			var a:uint = (alpha * 255) & 0xFF;
