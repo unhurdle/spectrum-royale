@@ -124,6 +124,7 @@
     <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
     <component id="Rule" class="com.unhurdle.spectrum.Rule"/>
     <component id="Search" class="com.unhurdle.spectrum.Search"/>
+    <component id="ExpandSearch" class="com.unhurdle.spectrum.ExpandSearch"/>
     <component id="SearchWithin" class="com.unhurdle.spectrum.SearchWithin"/>
     <component id="SerifTypography" class="com.unhurdle.spectrum.SerifTypography"/>
     <component id="SideNav" class="com.unhurdle.spectrum.SideNav"/>

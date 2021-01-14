@@ -30,4 +30,16 @@
         <Br/>
         <comp:StyledCode text='&lt;sp:Search disabled="true" quiet="true"/&gt;'/>
     </comp:Markup>
+    <comp:Variant header="ExpandSearch">
+        <Div>
+            <sp:ExpandSearch style="margin-right: 5px;" expandedWidth="300px"/>
+            <sp:ExpandSearch disabled="true" style="margin-right: 5px;"/>
+        </Div>
+    </comp:Variant>
+    <comp:Markup>
+        <comp:StyledCode text='&lt;sp:ExpandSearch expandedWidth="300px"/&gt;'/>
+        <Br/>
+        <comp:StyledCode text='&lt;sp:ExpandSearch disabled="true"/&gt;'/>
+    </comp:Markup>
+
 </view:DemoPane>

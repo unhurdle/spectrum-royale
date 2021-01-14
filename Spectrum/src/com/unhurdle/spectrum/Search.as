@@ -25,8 +25,8 @@ package com.unhurdle.spectrum
 		override protected function getSelector():String{
 			return "spectrum-Search";
 		}
-		private var input:TextField;
-		private var button:ClearButton;
+		protected var input:TextField;
+		protected var button:ClearButton;
 
 		public function get text():String
 		{
@@ -100,7 +100,7 @@ package com.unhurdle.spectrum
 			input.text = "";
 			dispatchEvent(new Event("search"));
 		}
-		private function handleSubmit(ev:Event):Boolean{
+		protected function handleSubmit(ev:Event):Boolean{
 			ev.preventDefault();
 			dispatchEvent(new Event("search"));
 			return false;
