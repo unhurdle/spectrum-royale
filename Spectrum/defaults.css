@@ -141,16 +141,6 @@ TableItemRenderer{
 }
 
 
-/* colorpicker|AlphaTextField {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.RangeModel");
-	IBeadController: ClassReference("com.unhurdle.spectrum.colorpicker.AlphaTextFieldController");
-}
-
-colorpicker|ColorTextField {
-	IBeadModel: ClassReference("org.apache.royale.html.beads.models.ColorModel");
-	IBeadController: ClassReference("com.unhurdle.spectrum.colorpicker.ColorTextFieldController");
-} */
-
 /* .ColorSpectrum {
 	border-radius: 4px;
 } */

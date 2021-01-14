@@ -190,9 +190,7 @@
     <component id="TableItemRendererFactoryForCollectionView" class="com.unhurdle.spectrum.renderers.TableItemRendererFactoryForCollectionView" />
     <component id="TableItemRenderer" class="com.unhurdle.spectrum.renderers.TableItemRenderer" />
 	    <!-- color area -->
-    <!-- <component id="AlphaTextFieldController" class="com.unhurdle.spectrum.colorpicker.AlphaTextFieldController"/> -->
     <component id="ColorPicker" class="com.unhurdle.spectrum.colorpicker.ColorPicker"/>
-    <!-- <component id="ColorTextFieldController" class="com.unhurdle.spectrum.colorpicker.ColorTextFieldController"/> -->
     <component id="AlphaTextField" class="com.unhurdle.spectrum.colorpicker.AlphaTextField"/>
     <component id="ColorPickerPopUp" class="com.unhurdle.spectrum.colorpicker.ColorPickerPopUp"/>
     <component id="ColorTextField" class="com.unhurdle.spectrum.colorpicker.ColorTextField"/>
