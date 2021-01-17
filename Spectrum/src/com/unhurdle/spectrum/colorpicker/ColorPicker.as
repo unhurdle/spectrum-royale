@@ -203,6 +203,7 @@ package com.unhurdle.spectrum.colorpicker
 			closePopover();
 		}
 		protected function handleCancel(ev:ValueEvent):void{
+			appliedColor = initialColor;
 			dispatchEvent(ev);
 			closePopover();
 		}
