@@ -26,6 +26,7 @@ package com.unhurdle.spectrum.renderers
       return "spectrum-TreeView";
     }
     private var treeListData:TreeListData;
+    private var chevronRightIcon:Icon
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
@@ -33,26 +34,28 @@ package com.unhurdle.spectrum.renderers
         treeListData = listData as TreeListData;
         if(listData.hasChildren){
           var type:String = "ChevronRightMedium";
-          var chevronRightIcon:Icon = new Icon(Icon.getCSSTypeSelector(type));
-          chevronRightIcon.type = type;
-          chevronRightIcon.toggle(appendSelector("-itemIndicator"),true);
-          link.addElementAt(chevronRightIcon,0);
+          if(!chevronRightIcon){
+            chevronRightIcon = new Icon(Icon.getCSSTypeSelector(type));
+            chevronRightIcon.type = type;
+            chevronRightIcon.toggle(appendSelector("-itemIndicator"),true);
+            link.addElementAt(chevronRightIcon,0);
+            chevronRightIcon.addEventListener(MouseEvent.CLICK,function (ev:Event):void
+            {
+              if(!disabled){
+                isOpen = !isOpen;
+                var expandEvent:ItemClickedEvent = new ItemClickedEvent("itemExpanded");
+                expandEvent.data = data;
+                expandEvent.index = index;
+                //wait until all the intem renderers are updated to modify the list 
+                setTimeout(function():void{
+                  dispatchEvent(expandEvent);
+                })
+              }
+            });
+          }
           if(listData.isOpen){
             isOpen = value.isOpen = true;
           }
-          chevronRightIcon.addEventListener(MouseEvent.CLICK,function (ev:Event):void
-          {
-            if(!disabled){
-              isOpen = !isOpen;
-              var expandEvent:ItemClickedEvent = new ItemClickedEvent("itemExpanded");
-              expandEvent.data = data;
-              expandEvent.index = index;
-              //wait until all the intem renderers are updated to modify the list 
-              setTimeout(function():void{
-                dispatchEvent(expandEvent);
-              })
-            }
-          });
         }
       }
     }
