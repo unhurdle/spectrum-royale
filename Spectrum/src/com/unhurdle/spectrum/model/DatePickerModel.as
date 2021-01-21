@@ -1,19 +1,19 @@
 package com.unhurdle.spectrum.model
 {
-  import org.apache.royale.events.EventDispatcher;
-  import org.apache.royale.core.IDateChooserModel;
-  import org.apache.royale.core.IStrand;
-  import org.apache.royale.events.Event;
-  import com.unhurdle.spectrum.utils.DateUtil;
+	import org.apache.royale.events.EventDispatcher;
+	import org.apache.royale.core.IDateChooserModel;
+	import org.apache.royale.core.IStrand;
+	import org.apache.royale.events.Event;
+	import com.unhurdle.spectrum.utils.DateUtil;
 
-  public class DatePickerModel extends EventDispatcher implements IDateChooserModel
+	public class DatePickerModel extends EventDispatcher implements IDateChooserModel
 	{
 		public function DatePickerModel()
 		{
 			// default displayed year and month to "today"
-//			var today:Date = new Date();
-//			displayedYear = today.getFullYear();
-//			displayedMonth = today.getMonth();
+	//			var today:Date = new Date();
+	//			displayedYear = today.getFullYear();
+	//			displayedMonth = today.getMonth();
 		}
 		
 		private var _strand:IStrand;
@@ -33,7 +33,7 @@ package com.unhurdle.spectrum.model
 		
 		private var _dayNames:Array = DateUtil.getLongWeekdays();
 		private var _monthNames:Array = DateUtil.getMonths();
-    private var _days:Array;
+		private var _days:Array;
 		private var _displayedYear:Number;
 		private var _displayedMonth:Number;
 		private var _firstDayOfWeek:Number = 0;
@@ -105,7 +105,7 @@ package com.unhurdle.spectrum.model
 		{
 			if (value != _displayedYear) {
 				_displayedYear = value;
-                updateCalendar();
+				updateCalendar();
 				dispatchEvent( new Event("displayedYearChanged") );
 			}
 		}
@@ -126,7 +126,7 @@ package com.unhurdle.spectrum.model
 		{
 			if (_displayedMonth != value) {
 				_displayedMonth = value;
-                updateCalendar();
+				updateCalendar();
 				dispatchEvent( new Event("displayedMonthChanged") );
 			}
 		}
@@ -151,17 +151,17 @@ package com.unhurdle.spectrum.model
 			}
 		}
 		
-        public function get days():Array
-        {
-            return _days;
-        }
-        public function set days(value:Array):void
-        {
-            if (value != _days) {
-                _days = value;
-                dispatchEvent( new Event("daysChanged") );
-            }
-        }
+		public function get days():Array
+		{
+			return _days;
+		}
+		public function set days(value:Array):void
+		{
+			if (value != _days) {
+				_days = value;
+				dispatchEvent( new Event("daysChanged") );
+			}
+		}
 
 		/**
 		 *  The currently selected date or null if no date has been selected.
@@ -180,85 +180,85 @@ package com.unhurdle.spectrum.model
 			if (value != _selectedDate) {
 				_selectedDate = value;
 				
-                if (value != null) {
-                    var needsUpdate:Boolean = false;
-                    if (value.getMonth() != _displayedMonth) {
-                        needsUpdate = true;
-                        _displayedMonth = value.getMonth();
-                    }
-                    if (value.getFullYear() != _displayedYear) {
-                        needsUpdate = true;
-                        _displayedYear  = value.getFullYear();
-                    }
-                    if (needsUpdate) updateCalendar();
-                }
-                
-                dispatchEvent( new Event("selectedDateChanged") );
-            }
-        }
-        
-        // Utilities
-        
-        
-        /**
-         * @private
-         */
-        public function updateCalendar():void
-        {       
-            var firstDay:Date = new Date(displayedYear,displayedMonth,1);
-            
-            _days = new Array(42);
-            
-            // skip to the first day and renumber to the last day of the month
+				if (value != null) {
+					var needsUpdate:Boolean = false;
+					if (value.getMonth() != _displayedMonth) {
+						needsUpdate = true;
+						_displayedMonth = value.getMonth();
+					}
+					if (value.getFullYear() != _displayedYear) {
+						needsUpdate = true;
+						_displayedYear  = value.getFullYear();
+					}
+					if (needsUpdate) updateCalendar();
+				}
+				
+				dispatchEvent( new Event("selectedDateChanged") );
+			}
+		}
+		
+		// Utilities
+		
+		
+		/**
+		 * @private
+		 */
+		public function updateCalendar():void
+		{       
+			var firstDay:Date = new Date(displayedYear,displayedMonth,1);
+			
+			_days = new Array(42);
+			
+			// skip to the first day and renumber to the last day of the month
 			var i:int = firstDay.getDay();
-            var dayNumber:int = 1;
-            var numDays:Number = numberOfDaysInMonth(displayedMonth, displayedYear);
-            
-            while(dayNumber <= numDays) {
-                _days[i++] = new Date(displayedYear, displayedMonth, dayNumber++);
-            }
-            
-        }
-        
-        /**
-         * @private
-         */
-        private function numberOfDaysInMonth(month:Number, year:Number):Number
-        {
-            var n:int;
-            
-            if (month == 1) // Feb
-            {
-                if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) // leap year
-                    n = 29;
-                else
-                    n = 28;
-            }
-                
-            else if (month == 3 || month == 5 || month == 8 || month == 10)
-                n = 30;
-                
-            else
-                n = 31;
-            
-            return n;
-        }
-        
-        /**
-         * @private
-         */
-        public function getIndexForSelectedDate():Number
-        {
-            if (!_selectedDate) return -1;
+			var dayNumber:int = 1;
+			var numDays:Number = numberOfDaysInMonth(displayedMonth, displayedYear);
+			
+			while(dayNumber <= numDays) {
+				_days[i++] = new Date(displayedYear, displayedMonth, dayNumber++);
+			}
+			
+		}
+		
+		/**
+		 * @private
+		 */
+		private function numberOfDaysInMonth(month:Number, year:Number):Number
+		{
+			var n:int;
+			
+			if (month == 1) // Feb
+			{
+				if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) // leap year
+					n = 29;
+				else
+					n = 28;
+			}
+				
+			else if (month == 3 || month == 5 || month == 8 || month == 10)
+				n = 30;
+				
+			else
+				n = 31;
+			
+			return n;
+		}
+		
+		/**
+		 * @private
+		 */
+		public function getIndexForSelectedDate():Number
+		{
+			if (!_selectedDate) return -1;
 
-            var str:String = _selectedDate.toDateString();
+			var str:String = _selectedDate.toDateString();
 
-            for(var i:int=0; i < _days.length; i++) {
-              var test:Date = _days[i] as Date;
-              if (test && test.toDateString() == str)
-                return i;
-            }
-            return -1;
+			for(var i:int=0; i < _days.length; i++) {
+				var test:Date = _days[i] as Date;
+				if (test && test.toDateString() == str)
+				return i;
+			}
+			return -1;
 		}
 	}
 }

@@ -14,19 +14,18 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.elements.Div;
     import com.unhurdle.spectrum.model.DatePickerModel;
     import com.unhurdle.spectrum.utils.DateUtil;
+    import org.apache.royale.events.ValueEvent;
  
 
-    [Event(name="dayNamesChanged ", type="org.apache.royale.events.Event")]
-    [Event(name="monthNames ", type="org.apache.royale.events.Event")]
-    [Event(name="displayedYearChanged ", type="org.apache.royale.events.Event")]
-    [Event(name="displayedMonthChanged ", type="org.apache.royale.events.Event")]
-    [Event(name="firstDayOfWeekChanged ", type="org.apache.royale.events.Event")]
-    [Event(name="daysChanged ", type="org.apache.royale.events.Event")]
-    [Event(name="selectedDateChanged ", type="org.apache.royale.events.Event")]
+    // [Event(name="dayNamesChanged ", type="org.apache.royale.events.Event")]
+    // [Event(name="monthNames ", type="org.apache.royale.events.Event")]
+    // [Event(name="displayedYearChanged ", type="org.apache.royale.events.Event")]
+    // [Event(name="displayedMonthChanged ", type="org.apache.royale.events.Event")]
+    // [Event(name="firstDayOfWeekChanged ", type="org.apache.royale.events.Event")]
+    // [Event(name="daysChanged ", type="org.apache.royale.events.Event")]
     [Event(name="change", type="org.apache.royale.events.Event")]
-
-    
-    public class Calendar extends SpectrumBase
+	[Event(name="selectedDateChanged", type="org.apache.royale.events.ValueEvent")]
+    public class Calendar extends Group
     {
     /**
      * <inject_html>
@@ -39,6 +38,11 @@ package com.unhurdle.spectrum
         {
             super();
             model = datePickerModel = new DatePickerModel();
+            model.addEventListener("selectedDateChanged",function(ev:Event):void{
+                dispatchEvent(new ValueEvent("selectedDateChanged",selectedDate));
+                dispatchEvent(new Event("change"));
+            });
+            addEventListener("displayedMonthChanged",handleModelChange);
         }
 
         override protected function getSelector():String{
@@ -46,8 +50,6 @@ package com.unhurdle.spectrum
         }
         
         private var datePickerModel:DatePickerModel;
-
-        [Bindable("selectedDateChanged")]
         
         private var title:TextNode;
         private var _text:String;
@@ -140,6 +142,10 @@ package com.unhurdle.spectrum
         {
             return datePickerModel.selectedDate;
         }
+		public function set selectedDate(value:Date):void
+		{
+			datePickerModel.selectedDate = value;
+		}
         
 
         public function get startDate():Date
@@ -263,7 +269,6 @@ package com.unhurdle.spectrum
             element.appendChild(body);
             
             updateCalendar();
-            addEventListener("displayedMonthChanged",handleModelChange);
         }
         COMPILE::JS
         override protected function createElement():WrappedHTMLElement{

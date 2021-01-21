@@ -4,6 +4,10 @@
   title="Calendar" initComplete="onComplete()">
   <fx:Script>
     <![CDATA[
+        import org.apache.royale.events.Event;
+        import org.apache.royale.events.ValueEvent;
+        import com.unhurdle.spectrum.Toast;
+
         [Bindable]public var firstDate:Date;
         [Bindable]public var lastDate:Date;
         [Bindable]public var rangeText:String = '<sp:Calendar startDate="{firstDate}" endDate="{lastDate}"/>';
@@ -18,14 +22,18 @@
           last.setDate(now.getDate()+3);
           lastDate = last;
         }
+        private function onDateChange(ev:ValueEvent):void
+        {
+          new Toast((ev.value as Date).toDateString(),1000).show()
+        }
 
     ]]>
   </fx:Script>
   <comp:Variant>
-    <sp:Calendar/>
+    <sp:Calendar id="calendar1" selectedDateChanged="onDateChange(event)"/>
   </comp:Variant>
   <comp:Markup>
-    <comp:StyledCode text='&lt;sp:Calendar/&gt;'/>
+    <comp:StyledCode text='&lt;sp:Calendar selectedDateChanged="onDateChange(event)"/&gt;'/>
   </comp:Markup>
 
   <comp:Variant header="Narrow Headers">
