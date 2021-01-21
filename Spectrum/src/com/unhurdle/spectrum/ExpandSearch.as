@@ -18,6 +18,7 @@ package com.unhurdle.spectrum
 		}
 
 		public var expandedWidth:String;
+		public var collapsedSize:Number = 32;
 
 		private function onFocus(ev:Event):void{
 			expand();
@@ -72,12 +73,14 @@ package com.unhurdle.spectrum
 				savedWidth = element.style.width;
 				element.style.position = savedPosition;
 				element.style.left = savedLeft;
-				element.style.width = "32px";
+				element.style.height = collapsedSize + "px";
+				element.style.width = collapsedSize + "px";
 				element.style.zIndex = "";
 				input.setStyle("min-width",0);
 				input.input.style.padding = 0;
 				input.input.style.borderStyle = "none";
 				input.input.style.backgroundColor = "transparent";
+				input.input.style.cursor = "pointer";
 				input.iconElement.setStyle("left","8px");
 			}
 		}
@@ -100,11 +103,13 @@ package com.unhurdle.spectrum
 				element.style.position = "absolute";
 				element.style.left = left + "px";
 				element.style.width = expandedWidth ? expandedWidth : savedWidth;
+				element.style.height = "";
 				element.style.zIndex = 5;
 				input.setStyle("min-width","");
 				input.input.style.padding = "";
 				input.input.style.borderStyle = "";
 				input.input.style.backgroundColor = "";
+				input.input.style.cursor = "";
 				input.iconElement.setStyle("left","");
 			}
 
