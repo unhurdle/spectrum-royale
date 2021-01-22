@@ -16,13 +16,6 @@ package com.unhurdle.spectrum
     import com.unhurdle.spectrum.utils.DateUtil;
     import org.apache.royale.events.ValueEvent;
  
-
-    // [Event(name="dayNamesChanged ", type="org.apache.royale.events.Event")]
-    // [Event(name="monthNames ", type="org.apache.royale.events.Event")]
-    // [Event(name="displayedYearChanged ", type="org.apache.royale.events.Event")]
-    // [Event(name="displayedMonthChanged ", type="org.apache.royale.events.Event")]
-    // [Event(name="firstDayOfWeekChanged ", type="org.apache.royale.events.Event")]
-    // [Event(name="daysChanged ", type="org.apache.royale.events.Event")]
     [Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="selectedDateChanged", type="org.apache.royale.events.ValueEvent")]
     public class Calendar extends Group
@@ -352,8 +345,6 @@ package com.unhurdle.spectrum
                     displayedDates.push(span);
                     if(days[k+l]){
                         span.isToday = days[k+l].toDateString() == today.toDateString();
-                        var styleStr:String = "width:40px;height:40px;";
-                        cell.setAttribute("style",styleStr);
                         cell.element.title = DateUtil.getDateString(days[k + l]);
                         span.date = days[k+l] as Date;
                         
