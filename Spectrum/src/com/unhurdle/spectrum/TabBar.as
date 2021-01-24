@@ -229,7 +229,8 @@ package com.unhurdle.spectrum
 					var keyframes:Array = getKeyframes(tab);
 					//TODO animate was getting mangled when the code was minimized. Figure out why...
 					var animation:Animation = indicator.element["animate"](keyframes,{duration:150,easing:"ease"});
-					animation.onfinish = function():void{
+					//TODO onfinish is also being mangled
+					animation["onfinish"] = function():void{
 						setIndicatorStyle(tab);
 					}
 				} else {
