@@ -203,7 +203,7 @@ package com.unhurdle.spectrum.colorpicker
 		private function handleHueChange(ev:ValueEvent):void{
 			var c:IRGBA = hueSelector.appliedColor;
 			colorArea.hue = rgbToHsv(c.r,c.g,c.b).h;
-			var modifiedColor:RGBColor = RGBColor.fromHSV(colorArea.hsv);
+			var modifiedColor:IRGBA = colorArea.appliedColor;
 			modifiedColor.alpha = appliedColor.alpha;
 			updateValues(modifiedColor);
 			appliedColor = modifiedColor;

@@ -77,6 +77,13 @@ package com.unhurdle.spectrum
 				hsv.s = 100;
 				hsv.v = 100;
 			}
+			// If there's no visible hue, we assume that should be reset
+			if(hsv.s == 0){
+				hsv.s = 100;
+			}
+			if(hsv.v == 0){
+				hsv.v = 100;
+			}
 			hsv.h = value;
 			positionHandle();
 			drawCanvas();
