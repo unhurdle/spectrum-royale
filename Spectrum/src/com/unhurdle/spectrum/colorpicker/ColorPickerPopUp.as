@@ -154,8 +154,8 @@ package com.unhurdle.spectrum.colorpicker
 				dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 			}
 
-			trace('onSwatchChange');
-			trace(ev);
+			// trace('onSwatchChange');
+			// trace(ev);
 		}
 		protected var controlSection:FlexContainer;
 		private function setupControls():void{
@@ -197,8 +197,8 @@ package com.unhurdle.spectrum.colorpicker
 			updateValues(color);
 			appliedColor = color;
 			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
-			trace('handleColorAreaChange');
-			trace(ev);
+			// trace('handleColorAreaChange');
+			// trace(ev);
 		}
 		private function handleHueChange(ev:ValueEvent):void{
 			var c:IRGBA = hueSelector.appliedColor;
@@ -229,8 +229,8 @@ package com.unhurdle.spectrum.colorpicker
 			appliedColor = newColor;
 			updateValues(newColor);
 			dispatchEvent(new ValueEvent("colorChanged",appliedColor));
-			trace("handleAlphaChange");
-			trace(ev);
+			// trace("handleAlphaChange");
+			// trace(ev);
 		}
 		protected var fieldContainer:FlexContainer;
 		private function getFieldContainer():FlexContainer{
@@ -351,8 +351,8 @@ package com.unhurdle.spectrum.colorpicker
 		}
 
 		private function colorTextFieldChangeHandler(event:Event):void{
-			trace('colorTextFieldChangeHandler');
-			trace(event);
+			// trace('colorTextFieldChangeHandler');
+			// trace(event);
 			var value:String = _colorTextField.text.replace(/#/g,"");
 			var textColor:RGBColor = new RGBColor();			
 			textColor.colorValue = parseInt("0x"+value,16);
@@ -363,7 +363,7 @@ package com.unhurdle.spectrum.colorpicker
 				textColor.alpha = thisColor.alpha;
 				this.appliedColor = textColor;
 				updateValues(textColor);
-				//TODO what to dispatch?
+				dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 			}
       // (model as IColorModel).color = (_colorTextField.model as IColorModel).color;
 		}
@@ -403,15 +403,15 @@ package com.unhurdle.spectrum.colorpicker
 		private function applyClicked(ev:Event):void{
 			//TODO
 			dispatchEvent(new ValueEvent("colorCommit",appliedColor));
-			trace("applyClicked");
-			trace(ev);
+			// trace("applyClicked");
+			// trace(ev);
 		}
 
 		private function cancelClicked(ev:Event):void{
 			//TODO
 			dispatchEvent(new Event("cancel"));
-			trace("cancelClicked");
-			trace(ev);
+			// trace("cancelClicked");
+			// trace(ev);
 		}
 
 		private function alphaTextFieldChangeHandler(event:Event):void{
@@ -421,9 +421,10 @@ package com.unhurdle.spectrum.colorpicker
 				color.alpha = value / 100;
 				appliedColor = color;
 				updateValues(color);
+				dispatchEvent(new ValueEvent("colorChanged",appliedColor));
 			}
-			trace('alphaTextFieldChangeHandler');
-			trace(event);
+			// trace('alphaTextFieldChangeHandler');
+			// trace(event);
 			//TODO figure out if the alpha changed
 			//(model as ArrayColorSelectionWithAlphaModel).alpha = (100 - (_alphaTextField.model as IRangeModel).value) / 100;
 		}
