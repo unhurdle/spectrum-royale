@@ -25,9 +25,15 @@ package com.unhurdle.spectrum.renderers
       super();
     }
     override protected function getSelector():String{
+      return getBaseSelector() + "-item";
+    }
+    private function getBaseSelector():String{
       return "spectrum-Breadcrumbs";
     }
 
+    override protected function appendSelector(value:String):String{
+      return getBaseSelector() + value;
+    }
     override public function set tabFocusable(value:Boolean):void{
           
     }
@@ -38,7 +44,6 @@ package com.unhurdle.spectrum.renderers
       var breadCrumbsItem:BreadcrumbsItem;
       breadCrumbsItem = value as BreadcrumbsItem;
       textNode.text = getLabelFromData(this,value);
-      element.className = appendSelector("-item");
       if(breadCrumbsItem){
         if(breadCrumbsItem.isTitle){
           //TODO Use Typography classes
