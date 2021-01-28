@@ -38,6 +38,7 @@ package com.unhurdle.spectrum.renderers
             chevronRightIcon = new Icon(Icon.getCSSTypeSelector(type));
             chevronRightIcon.type = type;
             chevronRightIcon.toggle(appendSelector("-itemIndicator"),true);
+            chevronRightIcon.setStyle("flex-shrink",0);
             link.addElementAt(chevronRightIcon,0);
             chevronRightIcon.addEventListener(MouseEvent.CLICK,function (ev:Event):void
             {
@@ -89,7 +90,7 @@ package com.unhurdle.spectrum.renderers
       textNode = new TextNode("span");
       textNode.className = appendSelector("-itemLabel");
       textNode.element.style.userSelect = "none";
-      textNode.element.style.display = "inline-flex";
+      textNode.element.style.display = "inline";
       link.element.appendChild(textNode.element)
       // setStyle("cursor","default");
       return elem;
