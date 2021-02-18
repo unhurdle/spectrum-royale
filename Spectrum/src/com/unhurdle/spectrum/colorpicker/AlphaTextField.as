@@ -6,6 +6,7 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.utils.number.pinValue;
 	import org.apache.royale.utils.sendStrandEvent;
 
+	[Event(name="inputFinished", type="org.apache.royale.events.Event")]
 	public class AlphaTextField extends TextField
 	{
 
