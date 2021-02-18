@@ -117,11 +117,12 @@ package com.unhurdle.spectrum.colorpicker
 					swatchList.columnGap = 4;
 					swatchList.rowGap = 4;
 					swatchList.setStyle("margin","-2px");
+					swatchList.setStyle("margin-top",0);
 					if(showColorControls || showSelectionSwatch){
-						swatchList.setStyle("margin-bottom","14px");
+						swatchList.setStyle("margin-bottom","12px");// 16 minus the columnGap
 					} else {
-						// default to -2
-						swatchList.setStyle("margin-bottom","");
+						// default to offsewt the columnGap
+						swatchList.setStyle("margin-bottom","-4px");
 					}
 					swatchList.addEventListener("change",onSwatchChange);
 					mainContainer.addElement(swatchList);

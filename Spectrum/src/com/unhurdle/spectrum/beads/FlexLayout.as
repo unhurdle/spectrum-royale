@@ -131,7 +131,7 @@ package com.unhurdle.spectrum.beads
 				style.marginLeft = style.marginRight = (rowGap/2) + "px";
 			}
 			if(!isNaN(columnGap)){
-				style.marginTop = style.marginBottom = (columnGap/2) + "px";
+				style.marginBottom = columnGap + "px";
 			}
 		}
 	}
