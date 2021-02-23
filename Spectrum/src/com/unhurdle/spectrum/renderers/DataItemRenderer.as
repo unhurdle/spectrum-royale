@@ -70,8 +70,11 @@ package com.unhurdle.spectrum.renderers
       }
     }
     override public function set data(value:Object):void{
+      var hasData:Boolean = data ? true : false;
       super.data = value;
-      selected = getItemSelected();
+      if(!hasData || !getSelectionRenderBead(this).selected){
+        selected = getItemSelected();
+      }
       disabled = getItemDisabled();
     }
     private function getItemSelected():Boolean{
