@@ -196,6 +196,7 @@
     <component id="ColorPickerPopUp" class="com.unhurdle.spectrum.colorpicker.ColorPickerPopUp"/>
     <component id="ColorTextField" class="com.unhurdle.spectrum.colorpicker.ColorTextField"/>
     <component id="ColorSwatch" class="com.unhurdle.spectrum.ColorSwatch"/>
+    <component id="ColorArea" class="com.unhurdle.spectrum.ColorArea"/>
     <component id="ColorSwatchRenderer" class="com.unhurdle.spectrum.renderers.ColorSwatchRenderer"/>
     <component id="SelectableItemRenderer" class="com.unhurdle.spectrum.renderers.SelectableItemRenderer"/>
     <component id="TreeItemRendererInitializer" class="com.unhurdle.spectrum.controllers.TreeItemRendererInitializer"/>

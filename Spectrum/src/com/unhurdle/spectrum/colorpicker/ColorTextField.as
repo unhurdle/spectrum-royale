@@ -3,7 +3,8 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.TextField;
 	import org.apache.royale.html.accessories.RestrictTextInputBead;
 	import org.apache.royale.html.beads.DispatchInputFinishedBead;
-
+	
+	[Event(name="inputFinished", type="org.apache.royale.events.Event")]
 	public class ColorTextField extends TextField
 	{
 

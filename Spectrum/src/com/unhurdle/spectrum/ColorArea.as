@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.number.getPercent;
 	import org.apache.royale.utils.number.pinValue;
 
+	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
 	public class ColorArea extends SpectrumBase
 	{
 		public static const DEFAULT_SIZE:Number = 192;
