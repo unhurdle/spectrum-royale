@@ -227,8 +227,6 @@ package com.unhurdle.spectrum
 			{
 				if(animate){
 					try{
-						setIndicatorStyle(tab);
-					}catch(err:Error){
 						var keyframes:Array = getKeyframes(tab);
 						//TODO animate was getting mangled when the code was minimized. Figure out why...
 						var animation:Animation = indicator.element["animate"](keyframes,{duration:150,easing:"ease"});
@@ -236,6 +234,8 @@ package com.unhurdle.spectrum
 						animation["onfinish"] = function():void{
 							setIndicatorStyle(tab);
 						}
+					}catch(err:Error){
+						setIndicatorStyle(tab);
 					}
 				} else {
 					setIndicatorStyle(tab);
