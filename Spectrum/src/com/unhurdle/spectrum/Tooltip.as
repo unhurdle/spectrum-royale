@@ -27,6 +27,9 @@ package com.unhurdle.spectrum
       return "span";
     }
     COMPILE::JS
+    private var tipSpan:HTMLSpanElement;
+
+    COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       super.createElement();
       element.style.pointerEvents = "none";
@@ -37,10 +40,9 @@ package com.unhurdle.spectrum
       span1.element = newElement("span") as HTMLSpanElement;
       span1.className = appendSelector("-label");
       element.appendChild(span1.element);
-      var span2:HTMLSpanElement;
-      span2 = newElement("span") as HTMLSpanElement;
-      span2.className = appendSelector("-tip");
-      element.appendChild(span2);
+      tipSpan = newElement("span") as HTMLSpanElement;
+      tipSpan.className = appendSelector("-tip");
+      element.appendChild(tipSpan);
       return element;
     }
     private var _text:String;
@@ -174,6 +176,62 @@ package com.unhurdle.spectrum
       }
     	_direction = value;
     }
+
+    private var _tipPosition:String = "center";
+    /**
+     * The position of the tip within the tooltip
+     */
+    public function get tipPosition():String{
+    	return _tipPosition;
+    }
+
+    [Inspectable(category="General", enumeration="start,end,center" defaultValue="center")]
+    public function set tipPosition(value:String):void{
+      if(value == _tipPosition){
+        return;
+      }
+      switch(value){
+        case "start":
+          _tipPosition = value;
+          break;
+        case "end":
+          _tipPosition = value;
+          break;
+        default:
+          _tipPosition = "center";
+          break;
+      }
+      positionTip();
+    }
+
+    private function positionTip():void{
+      COMPILE::JS
+      {
+        if(_tipPosition == "center"){
+          tipSpan.style.left = "";
+          tipSpan.style.top = "";
+          return;
+        }
+        if(_tipPosition == "start"){
+          var stylStr:String = "calc(0% + 7px)";
+        } else {
+          stylStr = "calc(100% - 7px)";
+        }
+        switch(_direction){
+          case "left":
+          case "right":
+            tipSpan.style.left = "";
+            tipSpan.style.top = stylStr;
+            break;
+          case "bottom":
+          default://top
+            tipSpan.style.left = stylStr;
+            tipSpan.style.top = "";
+            break;
+        }
+      }
+    }
+
     private var _isOpen:Boolean;
 
     public function get isOpen():Boolean
