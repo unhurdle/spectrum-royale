@@ -90,6 +90,24 @@ package com.unhurdle.spectrum
 			return _direction;
 		}
 
+		private var _tipPosition:String;
+
+    /**
+     * The position of the tip within the tooltip
+     */
+		public function get tipPosition():String{
+			return _tipPosition;
+		}
+
+    [Inspectable(category="General", enumeration="start,end,center" defaultValue="center")]
+		public function set tipPosition(value:String):void{
+			_tipPosition = value;
+			if (tt)
+			{
+				tt.tipPosition = value;
+			}
+		}
+
 		protected var _strand:IStrand;
 
 		public function set strand(value:IStrand):void
@@ -119,6 +137,9 @@ package com.unhurdle.spectrum
 
 			tt = new Tooltip();
 			tt.direction = _direction;
+			if(tipPosition){
+				tt.tipPosition = tipPosition;
+			}
 			tt.setStyle("position","absolute");
 			tt.text = toolTip;
 			host.popUpParent.addElement(tt, false); // don't trigger a layout

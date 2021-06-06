@@ -13,7 +13,7 @@ package com.unhurdle.spectrum.colorpicker
 			super();
 			quiet = true;
 			var restrictBead:RestrictTextInputBead = new RestrictTextInputBead();
-			restrictBead.restrict = "#0123456790ABCDEFabcdef";
+			restrictBead.restrict = "#01234567890ABCDEFabcdef";
 			var inputFinishedBead:DispatchInputFinishedBead = new DispatchInputFinishedBead();
 			addBead(restrictBead);
 			addBead(inputFinishedBead);

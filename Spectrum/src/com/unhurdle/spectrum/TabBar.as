@@ -226,11 +226,15 @@ package com.unhurdle.spectrum
 			COMPILE::JS
 			{
 				if(animate){
-					var keyframes:Array = getKeyframes(tab);
-					//TODO animate was getting mangled when the code was minimized. Figure out why...
-					var animation:Animation = indicator.element["animate"](keyframes,{duration:150,easing:"ease"});
-					//TODO onfinish is also being mangled
-					animation["onfinish"] = function():void{
+					try{
+						var keyframes:Array = getKeyframes(tab);
+						//TODO animate was getting mangled when the code was minimized. Figure out why...
+						var animation:Animation = indicator.element["animate"](keyframes,{duration:150,easing:"ease"});
+						//TODO onfinish is also being mangled
+						animation["onfinish"] = function():void{
+							setIndicatorStyle(tab);
+						}
+					}catch(err:Error){
 						setIndicatorStyle(tab);
 					}
 				} else {
