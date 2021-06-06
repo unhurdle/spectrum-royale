@@ -13,12 +13,12 @@ package com.unhurdle.spectrum
   COMPILE::JS
   {}
 
-  [Event(name="change", type="org.apache.royale.events.Event")]
+  [Event(name="change", type="org.apache.royale.events.ValueEvent")]
   // These event names are generating programmatically
-  [Event(name="onEnter", type="org.apache.royale.events.Event")]
-  [Event(name="onBackspace", type="org.apache.royale.events.Event")]
-  [Event(name="onArrowDown", type="org.apache.royale.events.Event")]
-  [Event(name="onArrowUp", type="org.apache.royale.events.Event")]
+  [Event(name="onEnter", type="org.apache.royale.events.ValueEvent")]
+  [Event(name="onBackspace", type="org.apache.royale.events.ValueEvent")]
+  [Event(name="onArrowDown", type="org.apache.royale.events.ValueEvent")]
+  [Event(name="onArrowUp", type="org.apache.royale.events.ValueEvent")]
   [Event(name="onTab", type="org.apache.royale.events.ValueEvent")]
 /**
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
@@ -64,7 +64,7 @@ package com.unhurdle.spectrum
         default:
           return;
       }
-      dispatchEvent(new Event(eventName));
+      dispatchEvent(new ValueEvent(eventName,event));
     }
 
     override protected function getSelector():String{
