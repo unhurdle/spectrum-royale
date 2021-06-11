@@ -3,6 +3,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IChild;
   import org.apache.royale.utils.number.pinValue;
   import org.apache.royale.utils.number.getPercent;
+  import org.apache.royale.core.ILayoutChild;
 
 	[Event(name="resizeStart", type="org.apache.royale.events.Event")]
   [Event(name="resizeFinish", type="org.apache.royale.events.Event")]
@@ -26,15 +27,13 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
         return "spectrum-SplitView";
     }
-		private var _splitter:HTMLDivElement;
-		protected function get splitter():HTMLDivElement{
+		private var _splitter:Splitter;
+		protected function get splitter():Splitter{
 			if(!_splitter){
-				_splitter = newElement('div') as HTMLDivElement;
-				_splitter.className = appendSelector("-splitter");
-				if(direction == "horizontal"){
-					_splitter.style.cursor = "col-resize";
-				} else{
-					_splitter.style.cursor = "row-resize";
+				_splitter = new Splitter();
+				_splitter.addEventListener("mousedown",onMouseDown);
+				COMPILE::JS{
+					splitter.cursor = direction == "horizontal" ? "col-resize" : "row-resize";
 				}
 			}
 			return _splitter;
@@ -49,37 +48,26 @@ package com.unhurdle.spectrum
 
 		public function set isDraggable(value:Boolean):void
 		{
-				value? splitter.classList.add("is-draggable"): splitter.classList.remove("is-draggable");
-				_isDraggable = value;
-				COMPILE::JS{
-					if(!!_isDraggable){
-						if(!splitter.children.length){
-							splitter.appendChild(newElement("div",appendSelector("-gripper")));
-							splitter.addEventListener("mousedown",onMouseDown);
-						}
-					}
-					if(!_isDraggable){
-						if(!!splitter.children.length){
-							splitter.removeChild(splitter.children[0]);
-						}
-							splitter.removeEventListener("mousedown",onMouseDown);
-					}
-				}
+			if(_isDraggable == value){
+				return;
+			}
+			splitter.toggle("is-draggable",value);
+				// value? splitter.classList.add("is-draggable"): splitter.classList.remove("is-draggable");
+			_isDraggable = value;
+			splitter.draggable = value;
 		}
 		protected function positionElements(val:Number):void{
 			positionCollapsed = val;
 			var percent:Number = val;
-			COMPILE::JS{
-				if(element.children && element.children[2]){
-					if(direction === "horizontal"){
-						element.children[0].style.width = percent + "%";
-						splitter.style.left = "0";
-						element.children[2].style.width = (100 - percent) + "%";
-					}else{
-						element.children[0].style.height = percent + "%";
-						splitter.style.top = "0";
-						element.children[2].style.height = (100 - percent) + "%";
-					}
+			if(numElements > 2){
+				if(direction === "horizontal"){
+					(getElementAt(0) as ILayoutChild).percentWidth = percent;
+					splitter.setStyle("left","0");
+					(getElementAt(2) as ILayoutChild).percentWidth = 100 - percent;
+				} else {
+					(getElementAt(0) as ILayoutChild).percentHeight = percent;
+					splitter.setStyle("top","0");
+					(getElementAt(2) as ILayoutChild).percentHeight = 100 - percent;
 				}
 			}
 		}
@@ -110,10 +98,12 @@ package com.unhurdle.spectrum
 				var oldpositionCollapsed:String;
 				if(_positionCollapsed < 1){
 					oldpositionCollapsed = "is-collapsed-start";
-					splitter.classList.remove(oldpositionCollapsed);
+					splitter.toggle(oldpositionCollapsed,false);
+					// splitter.classList.remove(oldpositionCollapsed);
 				} else if(_positionCollapsed > 99){
 					oldpositionCollapsed = "is-collapsed-end";
-					splitter.classList.remove(oldpositionCollapsed);
+					splitter.toggle(oldpositionCollapsed,false);
+					// splitter.classList.remove(oldpositionCollapsed);
 				}
 				if(value < 1 || value > 99){
 					var newpositionCollapsed:String;
@@ -122,7 +112,8 @@ package com.unhurdle.spectrum
 					} else{
 						newpositionCollapsed = "is-collapsed-end";
 					}
-					splitter.classList.add(newpositionCollapsed);
+					splitter.toggle(newpositionCollapsed,true);
+					// splitter.classList.add(newpositionCollapsed);
 					_positionCollapsed = value;
 				}
 			}
@@ -188,12 +179,12 @@ package com.unhurdle.spectrum
 		
 		COMPILE::JS
 		public override function addElement(c:IChild, dispatchEvent:Boolean = true):void{
-			super.addElement(c,dispatchEvent);
-			c.element.classList.add(appendSelector("-pane"));
-			positionElements(position);
-			if(element.children.length == 1){
-				element.appendChild(splitter);
+			if(numElements == 1){
+				super.addElement(splitter);
 			}
+			super.addElement(c,dispatchEvent);
+			(c as ISpectrumElement).toggle(appendSelector("-pane"),true);
+			positionElements(position);
 		}
   }
 }

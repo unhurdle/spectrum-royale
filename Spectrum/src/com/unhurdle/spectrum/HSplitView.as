@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.core.IChild;
+  import org.apache.royale.core.IUIBase;
 
   public class HSplitView extends SplitView
   {
@@ -24,21 +25,14 @@ package com.unhurdle.spectrum
         if(!value && !_leftVisible){
           leftVisible = true;
         }
-        if(value){
-          if(leftVisible){
-            splitter.style.visibility = "unset";
-          }
-          if(element.children && element.children[2]){
-            element.children[2].style.visibility = "unset";
-          }
-        } else{
-          
-          if(element.children && element.children[2]){
-            position = 100;
-            element.children[2].style.visibility = "hidden";
-            splitter.style.visibility = "hidden";
-          }
+        splitter.visible = value && leftVisible;
+        if(!value){
+          position = 100;
         }
+        if(numElements > 2){
+          (getElementAt(2) as IUIBase).visible = value;
+        }
+
       }
     }
     private var _leftVisible:Boolean = true;
@@ -55,21 +49,14 @@ package com.unhurdle.spectrum
         if(!value && !_rightVisible){
           rightVisible = true;
         }
-        if(value){
-          if(rightVisible){
-            splitter.style.visibility = "unset";
-          }
-          if(element.children && element.children[0]){
-            element.children[0].style.visibility = "unset";
-          }
-        } else{
-          
-          if(element.children && element.children[0]){
-            position = 0;
-            element.children[0].style.visibility = "hidden";
-            splitter.style.visibility = "hidden";
-          }
+        splitter.visible = value && rightVisible;
+        if(!value){          
+          position = 0;
         }
+        if(numElements){
+          (getElementAt(0) as IUIBase).visible = value;
+        }
+
       }
     }
 		override public function addElement(c:IChild, dispatchEvent:Boolean = true):void{

@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum
 {
   import org.apache.royale.core.IChild;
+  import org.apache.royale.core.IUIBase;
 
   public class VSplitView extends SplitView
   {
@@ -24,19 +25,12 @@ package com.unhurdle.spectrum
         if(!value && !_topVisible){
           topVisible = true;
         }
-        if(value){
-          if(topVisible){
-            splitter.style.visibility = "unset";
-          }
-          if(element.children && element.children[2]){
-            element.children[2].style.visibility = "unset";
-          }
-        } else{
-          splitter.style.visibility = "hidden";
-          if(element.children && element.children[2]){
+        splitter.visible = value && topVisible;
+        if(!value){
             position = 100;
-            element.children[2].style.visibility = "hidden";
-          }
+        }
+        if(numElements > 2){
+          (getElementAt(2) as IUIBase).visible = value;
         }
       }
     }
@@ -54,19 +48,12 @@ package com.unhurdle.spectrum
         if(!value && !_bottomVisible){
           bottomVisible = true;
         }
-        if(value){
-          if(bottomVisible){
-            splitter.style.visibility = "unset";
-          }
-          if(element.children && element.children[0]){
-            element.children[0].style.visibility = "unset";
-          }
-        } else{
-          splitter.style.visibility = "hidden";
-          if(element.children && element.children[0]){
-            position = 0;
-            element.children[0].style.visibility = "hidden";
-          }
+        splitter.visible = value && bottomVisible;
+        if(!value){
+          position = 0;
+        }
+        if(numElements){
+          (getElementAt(0) as IUIBase).visible = value;
         }
       }
     }
