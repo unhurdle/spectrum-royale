@@ -147,14 +147,14 @@ package com.unhurdle.spectrum
 				e.preventDefault();
 				e.stopImmediatePropagation();
     		window.addEventListener('mouseup', onMouseUp);
-    		element.addEventListener('mousemove', onMouseMove);	
+    		window.addEventListener('mousemove', onMouseMove);	
 			}
 		}
 		private function onMouseUp(e: MouseEvent):void{
 			COMPILE::JS{
 				dispatchEvent(new Event("resizeFinish"));
 				window.removeEventListener('mouseup', onMouseUp);
-				element.removeEventListener('mousemove', onMouseMove);		
+				window.removeEventListener('mousemove', onMouseMove);		
 			}
 		}
 		private function onMouseMove(e: MouseEvent):void{
