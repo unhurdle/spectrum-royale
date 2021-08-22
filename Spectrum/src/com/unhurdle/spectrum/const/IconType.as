@@ -9,6 +9,8 @@ package com.unhurdle.spectrum.const
     public static const ASTERISK:String = "Asterisk"
     public static const CHECKMARK_MEDIUM:String = "CheckmarkMedium"
     public static const CHECKMARK_SMALL:String = "CheckmarkSmall"
+    public static const CHECKMARK_CIRCLE_MEDIUM:String = "CheckmarkCircleMedium"
+    public static const CHECKMARK_CIRCLE_SMALL:String = "CheckmarkCircleSmall"
     public static const CHEVRON_DOWN_MEDIUM:String = "ChevronDownMedium"
     public static const CHEVRON_DOWN_SMALL:String = "ChevronDownSmall"
     public static const CHEVRON_LEFT_LARGE:String = "ChevronLeftLarge"
