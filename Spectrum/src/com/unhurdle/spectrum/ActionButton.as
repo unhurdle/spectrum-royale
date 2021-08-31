@@ -24,6 +24,7 @@ package com.unhurdle.spectrum
       super()
       toggle(valueToSelector("primary"),false);
       addEventListener('click',elementClickedForMenu,true);
+      addEventListener('click',elementClicked);
       addEventListener(MouseEvent.MOUSE_DOWN,handleMouseDown);
     }
     override protected function getSelector():String{
@@ -78,10 +79,6 @@ package com.unhurdle.spectrum
     }
     override public function addedToParent():void{
       super.addedToParent();
-      if(selectable){
-        addEventListener('click',elementClicked);
-        // element.onclick = elementClicked;
-      }
       addEventListener(MouseEvent.MOUSE_DOWN,elementMouseDown);
       if(dataProvider){
         createFlyoutIcon();
@@ -104,8 +101,10 @@ package com.unhurdle.spectrum
     // }
 
     private function elementClicked(ev:Event):void{
-      selected = !selected;
-      dispatchEvent(new Event("selectionChanged"));
+      if(selectable){
+        selected = !selected;
+        dispatchEvent(new Event("selectionChanged"));
+      }
     }
     private function elementClickedForMenu(ev:Event):void{
       if(popover && popover.open){
