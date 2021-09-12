@@ -153,7 +153,7 @@ package com.unhurdle.spectrum
 		{
 			_strand = value;
 
-			(_strand as IEventDispatcher).addEventListener("mouseenter", rollOverHandler, false);
+			(_strand as IEventDispatcher).addEventListener("mouseover", rollOverHandler, false);
 		}
 
 		protected function rollOverHandler(event:MouseEvent):void
@@ -161,7 +161,7 @@ package com.unhurdle.spectrum
 			if (!toolTip || tt){
 				return;
 			}
-			(_strand as IEventDispatcher).addEventListener("mouseleave", rollOutHandler, false);
+			(_strand as IEventDispatcher).addEventListener("mouseout", rollOutHandler, false);
 			
 			// Already open. Just make sure it stays open and closes when it should.
 			if(activeBead == this && tt && tt.isOpen){
@@ -254,7 +254,7 @@ package com.unhurdle.spectrum
 		}
 
 		protected function rollOutHandler(event:MouseEvent):void{
-			(_strand as IEventDispatcher).removeEventListener("mouseleave", rollOutHandler, false);
+			(_strand as IEventDispatcher).removeEventListener("mouseout", rollOutHandler, false);
 			clearTimeouts();
 			if(stayOpen > 0){
 				stayOpenTimeoutId = setTimeout(closeTooltip,stayOpen);
