@@ -64,6 +64,45 @@ package com.unhurdle.spectrum
 			_autoClose = value;
 		}
 
+		private var _delay:Number = 0;
+		/**
+		 * Delay (in ms) until tooltip shows
+		 */
+		public function get delay():Number{
+			return _delay;
+		}
+
+		public function set delay(value:Number):void{
+			_delay = value;
+		}
+
+		private var _stayOpen:Number = 0;
+		/**
+		 * How long  (in ms) for the tooltip to stay open after mouse leaves.
+		 */
+		public function get stayOpen():Number
+		{
+			return _stayOpen;
+		}
+
+		public function set stayOpen(value:Number):void
+		{
+			_stayOpen = value;
+		}
+
+		private var _coolDown:Number = 0;
+		/**
+		 * ms since last closed tooltip to ignore delay value
+		 * See https://spectrum.adobe.com/page/tooltip/#Warmup-and-cooldown
+		 */
+		public function get coolDown():Number{
+			return _coolDown;
+		}
+
+		public function set coolDown(value:Number):void{
+			_coolDown = value;
+		}
+
 		private var _toolTip:String;
 		public function get toolTip():String
 		{
@@ -114,21 +153,55 @@ package com.unhurdle.spectrum
 		{
 			_strand = value;
 
-			(_strand as IEventDispatcher).addEventListener(MouseEvent.MOUSE_OVER, rollOverHandler, false);
+			(_strand as IEventDispatcher).addEventListener("mouseenter", rollOverHandler, false);
 		}
 
 		protected function rollOverHandler(event:MouseEvent):void
 		{
-			if(activeBead && activeBead != this){
-				activeBead.closeTooltip();
-			}
 			if (!toolTip || tt){
 				return;
 			}
+			(_strand as IEventDispatcher).addEventListener("mouseleave", rollOutHandler, false);
+			
+			// Already open. Just make sure it stays open and closes when it should.
+			if(activeBead == this && tt && tt.isOpen){
+				clearTimeouts();
+				if(_autoClose > 0){
+					closeTimeoutId = setTimeout(closeTooltip,_autoClose);
+				}
+			}
+			else if(delay == 0 || new Date().getTime() - lastShownTS < coolDown){
+				showTooltip();
+			} else {
+				showTimeoutId = setTimeout(showTooltip,delay);
+			}
 
+		}
+		private var showTimeoutId:Number = 0;
+		private var closeTimeoutId:Number = 0;
+		private var stayOpenTimeoutId:Number = 0;
+		private function clearTimeouts():void{
+			if(showTimeoutId > 0){
+				clearTimeout(showTimeoutId);
+				showTimeoutId = 0;
+			}
+			if(closeTimeoutId > 0){
+				clearTimeout(closeTimeoutId);
+				closeTimeoutId = 0;
+			}
+			if(stayOpenTimeoutId > 0){
+				clearTimeout(stayOpenTimeoutId);
+				stayOpenTimeoutId = 0;
+			}
+
+		}
+
+		protected function showTooltip():void{
+			if(activeBead && activeBead != this){
+				activeBead.closeTooltip();
+			}
 			activeBead = this;
 
-			(_strand as IEventDispatcher).addEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
 
 			var comp:IUIBase = _strand as IUIBase
 			host = UIUtils.findPopUpHost(comp);
@@ -154,10 +227,9 @@ package com.unhurdle.spectrum
 				tt.y = pt.y;
 			}
 			if(_autoClose > 0){
-				timeoutId = setTimeout(closeTooltip,_autoClose);
+				closeTimeoutId = setTimeout(closeTooltip,_autoClose);
 			}
 		}
-		private var timeoutId:Number = 0;
 
 		protected function determinePosition(comp:IUIBase, tooltip:Tooltip):Point
 		{
@@ -182,23 +254,28 @@ package com.unhurdle.spectrum
 		}
 
 		protected function rollOutHandler(event:MouseEvent):void{
-			if(timeoutId > 0){
-				clearTimeout(timeoutId);
+			(_strand as IEventDispatcher).removeEventListener("mouseleave", rollOutHandler, false);
+			clearTimeouts();
+			if(stayOpen > 0){
+				stayOpenTimeoutId = setTimeout(closeTooltip,stayOpen);
+			} else {
+				closeTooltip();
 			}
-			closeTooltip();
 		}
 		protected function closeTooltip():void{
+			clearTimeouts();
 			activeBead = null;
-			(_strand as IEventDispatcher).removeEventListener(MouseEvent.MOUSE_OUT, rollOutHandler, false);
 
 			var comp:IUIBase = _strand as IUIBase;
 			if (tt) {
 				host.popUpParent.removeElement(tt);
 				tt = null;
 			}
-			timeoutId = 0;
-
+			closeTimeoutId = 0;
+			showTimeoutId = 0;
+			lastShownTS = new Date().getTime();
 		}
+		public static var lastShownTS:Number = 0;
 	}
 }
 
