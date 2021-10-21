@@ -29,9 +29,9 @@ package com.unhurdle.spectrum
       }
       return retVal;
     }
-    public function addTag(tag:Tag):void
+    public function addTag(tag:Tag,addTagsBeforeElements:Boolean = true):void
     {
-      if(numElements){
+      if(numElements && addTagsBeforeElements){
         var idx:int = numElements;
         while(idx > 0){
           if(getElementAt(idx-1) is Tag){
