@@ -88,36 +88,32 @@ package com.unhurdle.spectrum
     }
 
     public function set dataProvider(value:Object):void{
-        if(!value || _selectedIndex > value.length){
-          _selectedIndex = -1;
-        }
+        // if(!value || _selectedIndex > value.length){
+        //   _selectedIndex = -1;
+        // }
       _dropdown.dataProvider = value;
       if(value && value.length){
         _dropdown.visible = true;
-        if(_selectedIndex > -1){
-          selectedItem = getDataProviderItem(value,_selectedIndex);
-        } else {
-          selectedItem = null;
-        }
+        // if(_selectedIndex > -1){
+        //   selectedItem = getDataProviderItem(value,_selectedIndex);
+        // } else {
+        //   selectedItem = null;
+        // }
       }
       else{
         _dropdown.visible = false;
       }
     }
 
-    private var _selectedIndex:int;
 
     public function get selectedIndex():int{
-    	return _selectedIndex;
+    	return _dropdown.selectedIndex;
     }
 
     public function set selectedIndex(value:int):void{
-      if(value == -1)
-        selectedItem = null;
-    	_selectedIndex = value;
-      if(_selectedIndex > -1 && dataProvider)
-      {
-        selectedItem = getDataProviderItem(_dropdown.dataProvider,0);
+      if(_dropdown.selectedIndex != value){
+        _dropdown.selectedIndex = value;
+        dropdown.handleListChange();
       }
     }
 
