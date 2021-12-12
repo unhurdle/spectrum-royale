@@ -7,6 +7,11 @@
   -webkit-clip-path: inset(-30px -30px);
           clip-path: inset(-30px -30px);
 }
+.spectrum--lightest .spectrum-Popover .spectrum-Dialog-header,
+.spectrum--lightest .spectrum-Popover .spectrum-Dialog-footer,
+.spectrum--lightest .spectrum-Popover .spectrum-Dialog-wrapper {
+    background-color: transparent;
+  }
 .spectrum--lightest .spectrum-Popover .spectrum-Popover-tip .spectrum-Popover-tip-triangle {
       fill: rgb(255, 255, 255);
       stroke: rgb(211, 211, 211);
