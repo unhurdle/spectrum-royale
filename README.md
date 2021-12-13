@@ -89,3 +89,12 @@ Theming can be set and changed by simply changing the `colorstop` and `appScale`
 The full gamut of spectrum components can be declared and wired up with very little effort. Have fun playing!
 
 Make sure to include the full CSS folder and adjust the html template file as done in the SpectrumBrowser project.
+
+Include the following:
+1. Copy https://github.com/unhurdle/spectrum-royale/blob/master/SpectrumBrowser/asconfig.json and modify `js-library-path`. You will probably want to place Spectrum.swc in your `libs` folder and remove the reference to `../Spectrum/target`.
+2. Copy https://github.com/unhurdle/spectrum-royale/blob/master/SpectrumBrowser/index-template.html to the root of your project.
+3. Copy the full folder at https://github.com/unhurdle/spectrum-royale/tree/master/SpectrumBrowser/src/assets to your `src` folder. You should change the favicon to your own.
+
+Those should be the only steps you need to use Spectrum.
+
+You can remove references to Spectrum CSS that you are not using from the template file to reduce the number of CSS dependencies.
