@@ -120,7 +120,9 @@ package com.unhurdle.spectrum.renderers
       COMPILE::JS{
         return element;
       }
-      return null;
+      COMPILE::SWF{
+        return null;
+      }
     }
     /**
      * A property to prevent focus styling from being changed by programatic changes to focus
