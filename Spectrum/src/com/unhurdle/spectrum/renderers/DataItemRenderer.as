@@ -72,7 +72,7 @@ package com.unhurdle.spectrum.renderers
     override public function set data(value:Object):void{
       var hasData:Boolean = data ? true : false;
       super.data = value;
-      if(!hasData || !getSelectionRenderBead(this).selected){
+      if(!hasData || (getSelectionRenderBead(this) && !getSelectionRenderBead(this).selected)){
         selected = getItemSelected();
       }
       disabled = getItemDisabled();
