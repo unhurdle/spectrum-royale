@@ -22,7 +22,7 @@ package com.unhurdle.spectrum.renderers
     override protected function getSelector():String{
       return "spectrum-AssetList";
     }
-
+    COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
       // var elem:HTMLElement = element as HTMLElement;

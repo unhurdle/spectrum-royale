@@ -21,6 +21,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
+	import org.apache.royale.utils.loadBeadFromValuesManager;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -133,11 +134,9 @@ package com.unhurdle.spectrum{
 				// 	host.element.style.position = "relative";
 				// }
 			// }
-			model = _strand.getBeadByType(IComboBoxModel) as IComboBoxModel;
+			model = comboHost.model as IComboBoxModel;
 			
-			var popUpClass:Class = ValuesManager.valuesImpl.getValue(_strand, "iPopUp") as Class;
-
-			_popup = (new popUpClass() as ComboBoxList);
+			_popup = loadBeadFromValuesManager(ComboBoxList,"iPopUp",_strand) as ComboBoxList;
 			_popup.position = "bottom";
       list = _popup.list;
       // list.dataProvider = model.dataProvider;

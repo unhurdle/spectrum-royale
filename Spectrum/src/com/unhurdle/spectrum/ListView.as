@@ -29,8 +29,8 @@ package com.unhurdle.spectrum
 			listModel = dataModel as ListModel;
 			listModel.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			listModel.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
-
-			super.handleInitComplete(event);
+			// Don't call super because we don't need the overhead of layout
+			// super.handleInitComplete(event);
 		}
 		private var focusableItemRenderer:DataItemRenderer;
 		override protected function itemsCreatedHandler(event:Event):void{

@@ -17,6 +17,7 @@ package com.unhurdle.spectrum.controllers
   import com.unhurdle.spectrum.TableView;
   import com.unhurdle.spectrum.model.TableModel;
   import org.apache.royale.core.IIndexedItemRenderer;
+  import org.apache.royale.core.IStrandWithModelView;
 
 
   
@@ -37,8 +38,9 @@ package com.unhurdle.spectrum.controllers
     public function set strand(value:IStrand):void
 		{
 			_strand = value;
-			model = value.getBeadByType(ISelectionModel) as ISelectionModel;
-			view = value.getBeadByType(IBeadView) as TableView;
+			var strandType:IStrandWithModelView = value as IStrandWithModelView;
+      model = strandType.model as ISelectionModel;
+			view = strandType.view as TableView;
 			(_strand as IEventDispatcher).addEventListener("itemAdded", handleItemAdded);
 			(_strand as IEventDispatcher).addEventListener("itemRemoved", handleItemRemoved);
 		}

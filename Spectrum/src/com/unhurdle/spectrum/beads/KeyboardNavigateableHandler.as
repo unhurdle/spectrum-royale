@@ -19,6 +19,7 @@ package com.unhurdle.spectrum.beads
   import org.apache.royale.html.beads.DataContainerView;
   import org.apache.royale.html.beads.IListView;
   import org.apache.royale.utils.sendStrandEvent;
+  import org.apache.royale.core.UIBase;
 
   public class KeyboardNavigateableHandler extends Bead implements IBead, IKeyboardHandler
   {
@@ -36,8 +37,9 @@ package com.unhurdle.spectrum.beads
     
     override public function set strand(value:IStrand):void{
       super.strand = value;
-			listModel = value.getBeadByType(ISelectionModel) as ListModel;
-			listView = value.getBeadByType(IListView) as IListView;
+      var listHost:UIBase = value as UIBase;
+			listModel = listHost.model as ListModel;
+			listView = listHost.view as IListView;
       host.focusParent.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       host.focusParent.addEventListener("click",clickHandler);
       listenOnStrand("itemsCreated",handleItemsCreated);

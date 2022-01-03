@@ -50,7 +50,7 @@ package com.unhurdle.spectrum.renderers
 		{
 			(_strand as IEventDispatcher).removeEventListener("initComplete", initComplete);
 			
-			model = _strand.getBeadByType(ISelectionModel) as TableModel;
+			model = table.model as TableModel;
 			
 			labelField = model.labelField;
 

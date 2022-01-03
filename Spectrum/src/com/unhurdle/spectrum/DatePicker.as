@@ -252,21 +252,15 @@ package com.unhurdle.spectrum
         focusRing.setAttribute("role","presentation");
         addElement(focusRing);
       }
+
 			// loadBeadFromValuesManager(IFormatter, "IFormatter", this);
-
 			// var formatter:IFormatter = getBeadByType(IFormatter) as IFormatter;
-
-
 			// formatter.addEventListener("formatChanged",handleFormatChanged);
-      // var model:IBeadModel = _strand.getBeadByType(IBeadModel) as IBeadModel;
-			// IEventDispatcher(model).addEventListener("selectedDateChanged", selectionChangeHandler);
     }
 		private function handleFormatChanged(event:Event):void{
 
 
 			// var formatter:IFormatter = event.target as IFormatter;
-
-
 			// input.value = formatter.formattedString;
 		}
 

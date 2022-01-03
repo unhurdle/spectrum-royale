@@ -17,6 +17,8 @@ package com.unhurdle.spectrum
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import com.unhurdle.spectrum.interfaces.IKeyboardHandler;
 	import org.apache.royale.utils.sendStrandEvent;
+	import org.apache.royale.core.IStrandWithModelView;
+	import org.apache.royale.utils.getSelectionRenderBead;
 
 	public class ListController implements IBeadController
 	{
@@ -47,8 +49,9 @@ package com.unhurdle.spectrum
 		public function set strand(value:IStrand):void
 		{
 			_strand = value;
-			listModel = value.getBeadByType(ISelectionModel) as ListModel;
-			listView = value.getBeadByType(IListView) as IListView;
+			var strandType:IStrandWithModelView = value as IStrandWithModelView;
+      listModel = strandType.model as ListModel;
+			listView = strandType.view as IListView;
 			(_strand as IEventDispatcher).addEventListener("itemAdded", handleItemAdded);
 			(_strand as IEventDispatcher).addEventListener("itemRemoved", handleItemRemoved);
 			loadBeadFromValuesManager(IKeyboardHandler, "iKeyboardHandler", _strand);
@@ -104,7 +107,7 @@ package com.unhurdle.spectrum
 			if (renderer) {
 				if (renderer is IStrand)
 				{
-					var selectionBead:ISelectableItemRenderer = (renderer as IStrand).getBeadByType(ISelectableItemRenderer) as ISelectableItemRenderer;
+					var selectionBead:ISelectableItemRenderer = getSelectionRenderBead(renderer);
 					if (selectionBead)
 					{
 						selectionBead.hovered = false;

@@ -9,6 +9,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.html.beads.DataContainerView;
+	import org.apache.royale.html.util.getModelByType;
 
 	COMPILE::JS
 	public class ListViewForTable extends DataContainerView
@@ -45,7 +46,7 @@ package com.unhurdle.spectrum
 
 		override protected function handleInitComplete(event:Event):void
 		{
-			listModel = _strand.getBeadByType(ISelectionModel) as ISelectionModel;
+      listModel = getModelByType(_strand,ISelectionModel) as ISelectionModel;
 			listModel.addEventListener("selectionChanged", selectionChangeHandler);
 			listModel.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 			(_strand as IEventDispatcher).addEventListener("itemsCreated", itemsCreatedHandler);
@@ -119,7 +120,7 @@ package com.unhurdle.spectrum
 		{
 			super.handleInitComplete(event);
 
-			listModel = _strand.getBeadByType(ISelectionModel) as ISelectionModel;
+			listModel = getModelByType(_strand,ISelectionModel) as ISelectionModel;
 			listModel.addEventListener("selectionChanged", selectionChangeHandler);
 			listModel.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 		}

@@ -14,6 +14,8 @@ package com.unhurdle.spectrum.renderers
   import org.apache.royale.events.Event;
   import org.apache.royale.events.IEventDispatcher;
   import org.apache.royale.html.beads.IListView;
+  import org.apache.royale.core.IStrandWithModel;
+  import org.apache.royale.core.IStrandWithModelView;
 	
   public class UpdateTableRowForArrayListData implements IBead
   {
@@ -37,7 +39,7 @@ package com.unhurdle.spectrum.renderers
 		{
 			(_strand as IEventDispatcher).removeEventListener("initComplete", initComplete);
 			
-			model = _strand.getBeadByType(ISelectionModel) as TableModel;
+			model = (_strand as IStrandWithModel).model as TableModel;
 			labelField = model.labelField;
 
 			model.addEventListener("dataProviderChanged", dataProviderChangeHandler);
@@ -83,7 +85,7 @@ package com.unhurdle.spectrum.renderers
 		public function get itemRendererParent():IItemRendererOwnerView
 		{
 			if (_itemRendererParent == null) {
-				var listView:IListView = _strand.getBeadByType(IListView) as IListView;
+				var listView:IListView = (_strand as IStrandWithModelView).view as IListView;
 				_itemRendererParent = listView.dataGroup;
 			}
 			return _itemRendererParent;

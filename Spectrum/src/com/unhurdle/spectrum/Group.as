@@ -16,6 +16,16 @@ package com.unhurdle.spectrum
       classList = new CSSClassList();
       typeNames = getSelector();
     }
+    override protected function requiresView():Boolean{
+      return false;
+    }
+    override protected function requiresController():Boolean{
+      return false;
+    }
+    override protected function requiresLayout():Boolean{
+      return false;
+    }
+
     protected function getSelector():String{
       return "";
     }

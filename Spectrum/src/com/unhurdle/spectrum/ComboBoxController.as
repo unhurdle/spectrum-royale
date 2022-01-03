@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.html.beads.IComboBoxView;
+	import org.apache.royale.core.UIBase;
 
   public class ComboBoxController implements IBeadController
   {
@@ -15,25 +16,25 @@ package com.unhurdle.spectrum
     }
 		
 		private var _strand:IStrand;
-		
+		private var host:UIBase;
 		protected var viewBead:IComboBoxView;
 		
 		public function set strand(value:IStrand):void
 		{
 			_strand = value;
-			
-			viewBead = _strand.getBeadByType(IComboBoxView) as IComboBoxView;
+			host = value as UIBase;
+			viewBead = host.view as IComboBoxView;
 			if (viewBead) {
 				finishSetup(null);
 			} else {
-				(_strand as IEventDispatcher).addEventListener("viewChanged", finishSetup);
+				host.addEventListener("viewChanged", finishSetup);
 			}
 		}
 		
 		protected function finishSetup(event:Event):void
 		{
 			if (viewBead == null) {
-				viewBead = _strand.getBeadByType(IComboBoxView) as IComboBoxView;
+				viewBead = host.view as IComboBoxView;
 			}
 			viewBead.popupButton.addEventListener("click", handleButtonClick);
 			viewBead.textInputField.addEventListener("click", handleInputClick);
@@ -54,7 +55,7 @@ package com.unhurdle.spectrum
 		{
 			viewBead.popUpVisible = false;
 			
-			(_strand as IEventDispatcher).dispatchEvent(new Event("change"));
+			host.dispatchEvent(new Event("change"));
 		}
 
 	}

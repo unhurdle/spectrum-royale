@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.IEventDispatcher;
 	import com.unhurdle.spectrum.model.TableModel;
 	import com.unhurdle.spectrum.THead;
+	import org.apache.royale.core.IStrandWithModel;
 	
 
 	public class TableView extends ListViewForTable
@@ -28,7 +29,7 @@ package com.unhurdle.spectrum
 	
 		override protected function handleInitComplete(event:Event):void
 		{
-			model = _strand.getBeadByType(TableModel) as TableModel;
+			model = (_strand as IStrandWithModel).model as TableModel;
 			model.addEventListener("selectedIndexChanged", selectionChangeHandler);
 			model.addEventListener("rollOverIndexChanged", rollOverIndexChangeHandler);
 			(_strand as IEventDispatcher).addEventListener("itemsCreated", itemsCreatedHandler);

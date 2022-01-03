@@ -53,7 +53,7 @@ package com.unhurdle.spectrum.renderers
 		{
 			(_strand as IEventDispatcher).removeEventListener("initComplete", initComplete);
 		
-			view = _strand.getBeadByType(IListView) as TableView;
+			view = table.view as TableView;
 			tbody = view.dataGroup as TBodyContentArea;
 		
 		
