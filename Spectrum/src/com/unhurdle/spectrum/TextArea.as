@@ -51,16 +51,16 @@ package com.unhurdle.spectrum
 		//     _multiline = value;
 		// }
 
-		COMPILE::SWF
-		override public function get name():String
-		{
-			return super.name;
-		}
-		COMPILE::SWF
-		override public function set name(value:String):void
-		{
-			super.name = value;
-		}
+		// COMPILE::SWF
+		// override public function get name():String
+		// {
+		// 	return super.name;
+		// }
+		// COMPILE::SWF
+		// override public function set name(value:String):void
+		// {
+		// 	super.name = value;
+		// }
 
 		COMPILE::JS
 		public function get name():String

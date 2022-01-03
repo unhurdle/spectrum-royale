@@ -2,21 +2,11 @@
     "config": "royale",
     "type": "lib",
     "compilerOptions": {
-        // Enable the definitions below to enable code completion in JS blocks while working
-        // The SWF target also needs to be commented out
-        "define": [
-            {
-                "name": "COMPILE::JS",
-                "value": true
-            },
-            {
-                "name": "COMPILE::SWF",
-                "value": false
-            }
-        ],
-        "debug": true,
+        // To enable code completion in JS blocks while working,
+        // the SWF target needs to be commented out
+        "debug": false,
         "targets": [
-            // "SWF",
+            "SWF",
             "JSRoyale"
         ],
         "external-library-path": [
@@ -32,6 +22,9 @@
         "load-config": [
             "compile-config.xml"
         ],
+        "js-load-config": [
+            "js-compile-config.xml"
+        ],
         "warn-public-vars": false,
         "include-classes": [
             "Spectrum"
@@ -44,5 +37,12 @@
         ],
         "output": "target/Spectrum.swc"
     },
-    "additionalOptions": "-js-output-optimization=skipAsCoercions -js-dynamic-access-unknown-members=true -allow-private-constructors=true -js-complex-implicit-coercions=false -js-vector-index-checks=false"
+    "additionalOptions": [
+        "-js-output-optimization=skipAsCoercions",
+        "-js-dynamic-access-unknown-members=true",
+        "-allow-private-constructors=true",
+        "-js-complex-implicit-coercions=false",
+        "-js-vector-emulation-class=Array",
+        "-js-vector-index-checks=false"
+    ]
 }
