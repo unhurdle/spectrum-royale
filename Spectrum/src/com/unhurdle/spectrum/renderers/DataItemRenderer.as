@@ -26,7 +26,10 @@ package com.unhurdle.spectrum.renderers
       focusElement.addEventListener("focus",handleFocus);
       focusElement.addEventListener("blur",handleBlur);
 		}
-
+    // no view but yes controller
+    override protected function requiresView():Boolean{
+      return false;
+    }
     protected function getSelector():String{
       return "";
     }
