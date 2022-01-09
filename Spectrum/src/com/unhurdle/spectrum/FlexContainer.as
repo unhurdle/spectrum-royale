@@ -1,11 +1,14 @@
 package com.unhurdle.spectrum
 {
+  import org.apache.royale.binding.ContainerDataBinding;
+
   public class FlexContainer extends Group
   {
     public function FlexContainer()
     {
       super();
       setStyle("display","flex");
+			addBead(new ContainerDataBinding());
     }
 
     public function get alignContent():String{
