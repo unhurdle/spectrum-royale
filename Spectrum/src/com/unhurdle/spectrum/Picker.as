@@ -67,7 +67,7 @@ package com.unhurdle.spectrum
 			return elem;
 		}
 		public var popover:ComboBoxList;
-		private function get menu():Menu{
+		public function get menu():Menu{
 			return popover.list;
 		}
 		private function handlePopoverChange(ev:Event):void{
