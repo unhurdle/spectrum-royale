@@ -36,8 +36,8 @@ package com.unhurdle.spectrum
       // higher than popovers
       element.style.zIndex = 4;
       // direction = "top";
-      span1 = new TextNode("");
-      span1.element = newElement("span") as HTMLSpanElement;
+      span1 = new TextNode("span");
+      span1.element.style.whiteSpace = "pre-wrap";
       span1.className = appendSelector("-label");
       element.appendChild(span1.element);
       tipSpan = newElement("span") as HTMLSpanElement;
