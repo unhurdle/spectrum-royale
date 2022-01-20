@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import org.apache.royale.events.Event;
+  import org.apache.royale.functional.decorator.debounceShort;
   [Event(name="change", type="org.apache.royale.events.Event")]
   public class Switch extends SpectrumBase
   {
@@ -16,6 +17,7 @@ package com.unhurdle.spectrum
     public function Switch()
     {
       super();
+      debouncedSetInput = debounceShort(handleInputChange,0);
     }
     override protected function getSelector():String{
       return "spectrum-ToggleSwitch";
@@ -23,6 +25,9 @@ package com.unhurdle.spectrum
     private var _rightLabelElem:TextNode;
     private var _leftLabelElem:TextNode;
     private var input:HTMLInputElement;
+
+    // only set label once even if called multiple times while creating element
+    private var debouncedSetInput:Function;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -53,7 +58,7 @@ package com.unhurdle.spectrum
           _rightLabelElem.text = _rightLabel;
           element.appendChild(_rightLabelElem.element);
         }
-        handleInputChange(null);
+        debouncedSetInput();
       }
     }
     private function handleInputChange(ev:Event):void{
@@ -74,8 +79,29 @@ package com.unhurdle.spectrum
         }
       }
     }
-    public var onLabel:String;
-    public var offLabel:String;
+    private var _onLabel:String;
+    /**
+     * Label when switch is on
+     */
+    public function get onLabel():String{
+    	return _onLabel;
+    }
+    public function set onLabel(value:String):void{
+    	_onLabel = value;
+      debouncedSetInput();
+    }
+    private var _offLabel:String;
+    /**
+     * Label when switch is off
+     */
+    public function get offLabel():String{
+    	return _offLabel;
+    }
+    public function set offLabel(value:String):void{
+    	_offLabel = value;
+      debouncedSetInput();
+    }
+
     private var _rightLabel:String = "";
     public function get rightLabel():String
     {
