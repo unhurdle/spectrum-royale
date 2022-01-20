@@ -19,6 +19,16 @@ package com.unhurdle.spectrum
     }
     private var _themeManager:ThemeManager;
 
+    private var _needsLayout:Boolean = false;
+
+    public function get needsLayout():Boolean{
+    	return _needsLayout;
+    }
+
+    public function set needsLayout(value:Boolean):void{
+    	_needsLayout = value;
+    }
+
     COMPILE::JS
 		override protected function initialize():void
 		{
@@ -33,11 +43,18 @@ package com.unhurdle.spectrum
         addElement(initialView);
                 
 				var baseView:UIBase = initialView as UIBase;
-				if (!isNaN(baseView.percentWidth) || !isNaN(baseView.percentHeight)) {
-					this.element.style.height = baseView.percentHeight + 'vh';
+        var setSize:Boolean = false;
+        if (!isNaN(baseView.percentWidth)){
+          setSize = true;
 					this.element.style.width = baseView.percentWidth + 'vw';
-					this.initialView.dispatchEvent(new Event("sizeChanged")); // kick off layout if % sizes
+        }
+				if (!isNaN(baseView.percentHeight)) {
+          setSize = true;
+					this.element.style.height = baseView.percentHeight + 'vh';
 				}
+        if(setSize && needsLayout){
+					this.initialView.dispatchEvent(new Event("sizeChanged")); // kick off layout if % sizes
+        }
 				
 				dispatchEvent(new Event("viewChanged"));
 			}
