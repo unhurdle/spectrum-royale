@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
 		{
 			super();
 			size = 24;
+			this.setStyle("margin-top","2px");
 		}
     override protected function getSelector():String{
       return "spectrum-ColorSwatch";
