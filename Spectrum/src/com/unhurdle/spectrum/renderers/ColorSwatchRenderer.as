@@ -15,6 +15,7 @@ package com.unhurdle.spectrum.renderers
     public function ColorSwatchRenderer()
     {
       super();
+			this.setStyle("margin-top","2px");
     }
     override protected function getSelector():String{
       return "spectrum-ColorSwatch";
