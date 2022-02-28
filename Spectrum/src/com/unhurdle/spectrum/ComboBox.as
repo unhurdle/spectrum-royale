@@ -6,6 +6,8 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
   import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
 
+	[Event(name="change", type="org.apache.royale.events.Event")]
+
   public class ComboBox extends SpectrumBase implements IKeyboardFocusable
   {
     public function ComboBox()
@@ -49,7 +51,7 @@ package com.unhurdle.spectrum
 			getModel().dataProvider = value;
 		}
 		
-        [Bindable("change")]
+		[Bindable("change")]
 		/**
 		 *  The index of the currently selected item. Changing this item changes
 		 *  the selectedItem value.
@@ -64,7 +66,7 @@ package com.unhurdle.spectrum
 			getModel().selectedIndex = value;
 		}
 		
-        [Bindable("change")]
+		[Bindable("change")]
 		/**
 		 *  The item that is currently selected. Changing this item changes
 		 *  the selectedIndex.
