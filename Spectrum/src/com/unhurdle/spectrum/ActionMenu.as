@@ -102,6 +102,7 @@ package com.unhurdle.spectrum
       _openMenu = this;
     }
     override protected function positionPopup():void{
+        popover.setStyle("pointer-events","");
         var popoverWidth:Number = popover.width + 1;//added +1 cuz the browser was rounding it down
   			var popupHost:IPopUpHost = UIUtils.findPopUpHost(this);
         var offset:Point = PointUtils.localToGlobal(new Point(),popupHost);
