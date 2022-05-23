@@ -1,11 +1,8 @@
 {
-  "config": "lib",
+  "config": "royale",
   "compilerOptions": {
       "debug": false,
-      "targets": [
-          "SWF",
-          "JSRoyale"
-        ],
+      "targets": ["JSRoyale"],
       "source-map": false,
       "js-library-path": [
           "../Spectrum/target",
@@ -18,26 +15,10 @@
       "html-template": "index-template.html",
       "js-compiler-option": [
           "--skip_type_inference"
-      ],
-      "include-sources": [
-        "src"
-    ],
-    "output": "target/Spectrum.swc"
+      ]
   },
   "copySourcePathAssets": true,
-  "additionalOptions": [
-      "-js-output-optimization=skipAsCoercions",
-      "-warn-public-vars=false",
-      "-js-vector-emulation-class=Array",
-      "-js-vector-index-checks=false",
-      "-js-complex-implicit-coercions=false",
-      "-js-dynamic-access-unknown-members=true",
-      "-export-public-symbols=false",
-      "-prevent-rename-protected-symbols=false",
-      "-prevent-rename-public-symbols=false",
-      "-prevent-rename-internal-symbols=false",
-      "-watch=true"
-  ],
+  "additionalOptions": "-js-output-optimization=skipAsCoercions  -warn-public-vars=false",
   "files":
   [
       "src/SpectrumBrowser.mxml"
