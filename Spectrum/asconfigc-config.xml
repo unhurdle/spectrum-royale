@@ -2,9 +2,9 @@
     <compiler>
         <accessible>false</accessible>
         
-        <external-library-path>
+        <!-- <external-library-path>
             <path-element>playerglobal.swc</path-element>
-        </external-library-path>
+        </external-library-path> -->
         <allow-subclass-overrides>true</allow-subclass-overrides>
         
 		<mxml>
@@ -16,11 +16,11 @@
 
         <define>
             <name>COMPILE::SWF</name>
-            <value>true</value>
+            <value>false</value>
         </define>
         <define>
             <name>COMPILE::JS</name>
-            <value>false</value>
+            <value>true</value>
         </define>
 
         <keep-as3-metadata>
