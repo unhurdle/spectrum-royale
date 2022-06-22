@@ -80,7 +80,9 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("menuChange"));
     }
     private function handleShowMenu(ev:Event):void{
-      _dropdown.popupWidth = width;
+      if(_sizeDropdownToHost){
+        _dropdown.popupWidth = width;
+      }
     }
     public function get dataProvider():Object
     {
@@ -175,6 +177,18 @@ package com.unhurdle.spectrum
     public function set text(value:String):void
     {
     	input.text = value;
+    }
+
+    private var _sizeDropdownToHost:Boolean = true;
+
+    public function get sizeDropdownToHost():Boolean
+    {
+    	return _sizeDropdownToHost;
+    }
+
+    public function set sizeDropdownToHost(value:Boolean):void
+    {
+    	_sizeDropdownToHost = value;
     }
   }
 }
