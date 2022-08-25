@@ -113,8 +113,9 @@ package com.unhurdle.spectrum
     }
 
     public function set selectedIndex(value:int):void{
-      if(_dropdown.selectedIndex != value){
-        _dropdown.selectedIndex = value;
+      var changed:Boolean = _dropdown.selectedIndex != value;
+      _dropdown.selectedIndex = value;
+      if(changed){
         dropdown.handleListChange();
       }
     }
@@ -124,8 +125,9 @@ package com.unhurdle.spectrum
     }
 
     public function set selectedItem(value:Object):void{
-      if(_dropdown.selectedItem != value){        
-        _dropdown.selectedItem = value;
+      var changed:Boolean = _dropdown.selectedItem != value;
+      _dropdown.selectedItem = value;
+      if(changed){ 
         dropdown.handleListChange();
       }
     }
