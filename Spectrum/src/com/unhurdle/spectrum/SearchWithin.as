@@ -80,7 +80,9 @@ package com.unhurdle.spectrum
       dispatchEvent(new Event("menuChange"));
     }
     private function handleShowMenu(ev:Event):void{
-      _dropdown.popupWidth = width;
+      if(_sizeDropdownToHost){
+        _dropdown.popupWidth = width;
+      }
     }
     public function get dataProvider():Object
     {
@@ -111,8 +113,9 @@ package com.unhurdle.spectrum
     }
 
     public function set selectedIndex(value:int):void{
-      if(_dropdown.selectedIndex != value){
-        _dropdown.selectedIndex = value;
+      var changed:Boolean = _dropdown.selectedIndex != value;
+      _dropdown.selectedIndex = value;
+      if(changed){
         dropdown.handleListChange();
       }
     }
@@ -122,8 +125,9 @@ package com.unhurdle.spectrum
     }
 
     public function set selectedItem(value:Object):void{
-      if(_dropdown.selectedItem != value){        
-        _dropdown.selectedItem = value;
+      var changed:Boolean = _dropdown.selectedItem != value;
+      _dropdown.selectedItem = value;
+      if(changed){ 
         dropdown.handleListChange();
       }
     }
@@ -175,6 +179,18 @@ package com.unhurdle.spectrum
     public function set text(value:String):void
     {
     	input.text = value;
+    }
+
+    private var _sizeDropdownToHost:Boolean = true;
+
+    public function get sizeDropdownToHost():Boolean
+    {
+    	return _sizeDropdownToHost;
+    }
+
+    public function set sizeDropdownToHost(value:Boolean):void
+    {
+    	_sizeDropdownToHost = value;
     }
   }
 }

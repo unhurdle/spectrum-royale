@@ -10,17 +10,17 @@
             "JSRoyale"
         ],
         "external-library-path": [
-            "${royalelib}/libs",
+            "${royalelib}/js/libs",
             "${royalelib}/../js/libs",
             "libs"
-        ],
-        "js-external-library-path": [
+         ],
+         "js-external-library-path": [
             "${royalelib}/../js/libs",
             "${royalelib}/js/libs",
             "libs"
-        ],
+         ],
         "load-config": [
-            "compile-config.xml"
+            "asconfigc-config.xml"
         ],
         "js-load-config": [
             "js-compile-config.xml"

@@ -210,8 +210,10 @@
     </sp:Dialog>
     <sp:Dialog id="fullScreenTakeover" size="{Dialog.FULLSCREEN_TAKEOVER}">
       <sp:DialogHeader title="Fullscreen Takeover">
+      <sp:ButtonGroup vertical="false">
         <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="fullScreenTakeover.hide()"/>
         <sp:Button text="Save" click="fullScreenTakeover.hide()"/>
+      </sp:ButtonGroup>
       </sp:DialogHeader>
       <sp:DialogContent text="{longLoremIpsum}"/>
       <sp:DialogFooter>

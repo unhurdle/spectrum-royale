@@ -199,6 +199,7 @@ package com.unhurdle.spectrum
 
     public function hide():void{
       window.removeEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      visible = false;
       modal.hide();
     }
     

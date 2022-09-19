@@ -3,6 +3,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.data.MenuItem;
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.collections.IArrayList;
+  import com.unhurdle.spectrum.data.IMenuItem;
 
   public class Menu extends List
   {
@@ -44,9 +45,8 @@ package com.unhurdle.spectrum
       var newVal:Array
       var len:int = value.length;
       for(var i:int = 0;i<len;i++){
-        // if(value[i] is IMenuItem){
-        if(value[i] is MenuItem){
-          /////
+        if(value[i] is IMenuItem){
+          // keep the existing object
         }else if(value[i] is Menu){
           // do nothing
         }else{

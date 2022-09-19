@@ -78,18 +78,26 @@ package com.unhurdle.spectrum
 			updateTheme();
 		}
 		private var appSkinInfo:AppSkinInfo;
+		private var _isLight:Boolean;
 
+		public function get isLight():Boolean
+		{
+			return _isLight;
+		}
 		private function updateTheme():void
 		{
+			_isLight = false;
 			appSkinInfo = new AppSkinInfo(CSInterface.getHostEnvironment().appSkinInfo);
 			_backgroundColor = "#" + toHex(appSkinInfo.panelBackgroundColor.color as CepColor)
 			// Using the red value to infer the darkness
 			var redShade:Number = appSkinInfo.panelBackgroundColor.color.red;
 			if (redShade > 200) { // exact: 214 (#D6D6D6)
 				app.colorstop = "lightest";
+				_isLight = true;
 			} 
 				else if (redShade > 180) { // exact: 184 (#B8B8B8)
 					app.colorstop = "light";
+					_isLight = true;
 			} 
 				else if (redShade > 75) { // exact: 83 (#535353)
 					app.colorstop = "dark";

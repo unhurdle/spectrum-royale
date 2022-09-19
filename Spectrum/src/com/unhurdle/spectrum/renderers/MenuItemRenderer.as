@@ -204,9 +204,9 @@ package com.unhurdle.spectrum.renderers
     //     } 
     //   }
     // }
-    private var icon:Icon;
-    private var imageIcon:ImageIcon;
-    private var textNode:TextNode;
+    protected var icon:Icon;
+    protected var imageIcon:ImageIcon;
+    protected var textNode:TextNode;
     private var indicator:Icon;
     private var type:String;
     private var checkIcon:Icon;
