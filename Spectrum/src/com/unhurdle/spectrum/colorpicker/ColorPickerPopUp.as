@@ -28,6 +28,7 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.utils.DisplayUtils;
 	import org.apache.royale.geom.Rectangle;
 	import com.unhurdle.spectrum.utils.getDataProviderItem;
+	import com.unhurdle.spectrum.Container;
 
 	[Event(name="colorChanged", type="comorg.apache.royale.events.ValueEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -117,6 +118,11 @@ package com.unhurdle.spectrum.colorpicker
 					swatchList.columnGap = 4;
 					swatchList.rowGap = 4;
 					swatchList.setStyle("margin","-2px");
+					swatchList.setStyle("max-height","200px");
+					swatchList.setStyle("overflow-y","auto");
+					// only swatchContainer will scroll
+					var swatchContainer:Container = new Container();
+					swatchContainer.addElement(swatchList);
 					if(showColorControls || showSelectionSwatch){
 						swatchList.setStyle("margin-bottom","12px");// 16 minus the columnGap
 					} else {
@@ -124,7 +130,7 @@ package com.unhurdle.spectrum.colorpicker
 						swatchList.setStyle("margin-bottom","-4px");
 					}
 					swatchList.addEventListener("change",onSwatchChange);
-					mainContainer.addElement(swatchList);
+					mainContainer.addElement(swatchContainer);
 				}
 				swatchList.dataProvider = dataProvider;
 				// set the selected swatch if any.
