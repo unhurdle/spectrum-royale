@@ -28,6 +28,7 @@ package com.unhurdle.spectrum.colorpicker
 	import org.apache.royale.utils.DisplayUtils;
 	import org.apache.royale.geom.Rectangle;
 	import com.unhurdle.spectrum.utils.getDataProviderItem;
+	import org.apache.royale.html.supportClasses.VScrollViewport;
 
 	[Event(name="colorChanged", type="comorg.apache.royale.events.ValueEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -118,6 +119,12 @@ package com.unhurdle.spectrum.colorpicker
 					swatchList.rowGap = 4;
 					swatchList.setStyle("margin","-2px");
 					swatchList.setStyle("margin-top",0);
+					swatchList.addBead(new VScrollViewport())
+					if(preferredRows != 0){
+						var requestedHeight:Number = -4 + (preferredRows * 28);
+						requestedHeight = Math.max(requestedHeight,24);
+						swatchList.setStyle("max-height", requestedHeight + "px");
+					}
 					if(showColorControls || showSelectionSwatch){
 						swatchList.setStyle("margin-bottom","12px");// 16 minus the columnGap
 					} else {
@@ -519,6 +526,14 @@ package com.unhurdle.spectrum.colorpicker
 		}
 		public function set preferredColumns(value:int):void{
 			_preferredColumns = value;
+		}
+
+		private var _preferredRows:int
+		public function get preferredRows():int{
+			return _preferredRows;
+		}
+		public function set preferredRows(value:int):void{
+			_preferredRows = value;
 		}
 	}
 }
