@@ -132,6 +132,16 @@ package com.unhurdle.spectrum.colorpicker
 		public function set preferredColumns(value:int):void{
 			_preferredColumns = value;
 		}
+
+		private var _preferredRows:int;
+		public function get preferredRows():int{
+			return _preferredRows;
+		}
+
+		public function set preferredRows(value:int):void{
+			_preferredRows = value;
+		}
+
 		private var _hexEditable:Boolean = true;
 		public function get hexEditable():Boolean{
 			return _hexEditable;
@@ -238,6 +248,7 @@ package com.unhurdle.spectrum.colorpicker
 			popover.showSelectionSwatch = showSelectionSwatch;
 			popover.areaSize = areaSize;
 			popover.preferredColumns = preferredColumns;
+			popover.preferredRows = preferredRows;
 			popover.hexEditable = hexEditable;
 		}
 		public var initialColor:IRGBA;
