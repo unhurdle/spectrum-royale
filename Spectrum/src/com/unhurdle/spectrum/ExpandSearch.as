@@ -20,10 +20,16 @@ package com.unhurdle.spectrum
 		public var expandedWidth:String;
 		public var collapsedSize:Number = 32;
 
+		COMPILE::JS
 		private function onFocus(ev:Event):void{
 			expand();
 		}
-		private function onBlur(ev:Event):void{
+		
+		COMPILE::JS
+		private function onBlur(ev:FocusEvent):void{
+			if(element.contains(ev.relatedTarget as Node)){
+				return;
+			}
 			collapse();
 		}
 		override public function get placeholder():String{
@@ -120,6 +126,10 @@ package com.unhurdle.spectrum
 				input.input.blur();
 			}
 			return super.handleSubmit(ev);
+		}
+		override protected function clear(ev:Event):void{
+			super.clear(ev);
+			collapse();
 		}
 
 

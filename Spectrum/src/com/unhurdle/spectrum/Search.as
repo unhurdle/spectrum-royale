@@ -95,8 +95,7 @@ package com.unhurdle.spectrum
 		element.addEventListener("submit", handleSubmit);
 		return element; 
 		}
-		private function clear(ev:Event):void
-		{
+		protected function clear(ev:Event):void{
 			input.text = "";
 			dispatchEvent(new Event("search"));
 		}
