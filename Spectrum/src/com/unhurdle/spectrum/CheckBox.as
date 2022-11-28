@@ -33,7 +33,6 @@ package com.unhurdle.spectrum
 		private function elementClicked():void{
 			indeterminate = false;
 			checked = !checked;
-			dispatchEvent(new Event("change"));
 		}
 		private var spanLabel:TextNode;
 		COMPILE::JS
