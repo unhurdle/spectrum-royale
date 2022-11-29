@@ -63,7 +63,7 @@ package com.unhurdle.spectrum
         for(var index:int = 0; index < len; index++)
         {
           var t:String = valuesArr[index];
-          if(t.indexOf(input.text) == 0){
+          if(t.toLowerCase().indexOf(input.text.toLowerCase()) == 0){
             switch(type)
             {
               case "onArrowDown":
@@ -94,7 +94,7 @@ package com.unhurdle.spectrum
         for(var i:int = 0; i < len; i++)
         {
           var t:String = _labelList[i];
-          if(labels[i].indexOf(input.text) == 0){
+          if(labels[i].toLowerCase().indexOf(input.text.toLowerCase()) == 0){
             arr.push(t);
             valuesArr.push(t);
           }
