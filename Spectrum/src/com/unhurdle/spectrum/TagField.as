@@ -6,7 +6,6 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.core.IHasLabelField;
   import org.apache.royale.events.Event;
-  import org.apache.royale.events.FocusEvent;
   import org.apache.royale.geom.Point;
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.utils.PointUtils;
@@ -36,8 +35,7 @@ package com.unhurdle.spectrum
       input = new TextField();
       input.setStyle("display","inline-block");
       input.addEventListener("onBackspace",removeTag);
-      input.addEventListener("onEnter",addTag);
-      input.element.addEventListener(FocusEvent.FOCUS_OUT,addTag);
+      input.addEventListener("onEnter",inputChanged);
       input.input.style.borderStyle = "none";
       input.input.style.background = "none";
       input.tabFocusable = false;
@@ -117,8 +115,16 @@ package com.unhurdle.spectrum
       picker.popover.x = relocated.x
       picker.popover.y = relocated.y;
     }
-    private function addTag():void{
-      if(input.text){
+    private function itemSelected(ev:Event):void{
+      if(picker.selectedItem){
+        addTag(picker.selectedItem.text);
+      }
+    }
+    private function inputChanged():void{
+      addTag(input.text);
+    }
+    private function addTag(text:String):void{
+      if(text){
         if(picker){
           picker.popover.open = false;
         }
@@ -126,7 +132,7 @@ package com.unhurdle.spectrum
         var len:int = tags.length;
         for(var index:int = 0; index < len; index++){
           var element:Tag = tags[index];
-          if(element.text == input.text){
+          if(element.text == text){
             element.setStyle("visibility","hidden");
             input.text = "";
             setTimeout(function():void{
@@ -138,7 +144,7 @@ package com.unhurdle.spectrum
         var foundInList:Boolean = false;
         if(_limitToList){
           for each(var t:* in tagList){
-            if(getLabelFromData(this,t) == input.text){
+            if(getLabelFromData(this,t) == text){
               foundInList = true;
               break;
             }
@@ -147,7 +153,7 @@ package com.unhurdle.spectrum
         if(!_limitToList || foundInList){
           var tag:Tag = new Tag();
           tag.deletable = true;
-          tag.text = input.text;
+          tag.text = text;
           input.text = "";
           tagGroup.addTag(tag);
         }
@@ -178,6 +184,7 @@ package com.unhurdle.spectrum
       _labelList = null;
       if(value){
         picker = new Picker();
+        picker.addEventListener('change',itemSelected);
         picker.button.visible = false;
         picker.width = 0;
         COMPILE::JS{
@@ -187,6 +194,9 @@ package com.unhurdle.spectrum
           input.element.addEventListener("input",updateValue);
         }
       }else{
+        if(picker){
+          picker.removeEventListener('change',itemSelected);
+        }
         picker = null;
         COMPILE::JS{
           removeElement(picker);
