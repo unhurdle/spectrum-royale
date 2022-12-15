@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.core.IHasLabelField;
   import org.apache.royale.events.Event;
+  import org.apache.royale.events.MouseEvent;
   import org.apache.royale.geom.Point;
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.utils.PointUtils;
@@ -109,6 +110,9 @@ package com.unhurdle.spectrum
       }
       calculatePosition();
     }
+    protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void{
+			picker.popover.open = false;
+		}
     protected function positionPopup():void{
       var origin:Point = new Point(input.x, height);
       var relocated:Point = PointUtils.localToGlobal(origin,this);
@@ -183,15 +187,18 @@ package com.unhurdle.spectrum
     	_tagList = value;
       _labelList = null;
       if(value){
-        picker = new Picker();
-        picker.addEventListener('change',itemSelected);
-        picker.button.visible = false;
-        picker.width = 0;
-        COMPILE::JS{
-          addElement(picker);
-          input.addEventListener("onArrowDown",selectValue);
-          input.addEventListener("onArrowUp",selectValue);
-          input.element.addEventListener("input",updateValue);
+        if(!picker){
+          picker = new Picker();
+          picker.addEventListener('change',itemSelected);
+          picker.button.visible = false;
+          picker.width = 0;
+          COMPILE::JS{
+            addElement(picker);
+            input.addEventListener("onArrowDown",selectValue);
+            input.addEventListener("onArrowUp",selectValue);
+            input.element.addEventListener("input",updateValue);
+            topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+          }
         }
       }else{
         if(picker){
@@ -203,6 +210,7 @@ package com.unhurdle.spectrum
           input.removeEventListener("onArrowDown",selectValue);
           input.removeEventListener("onArrowUp",selectValue);
           input.element.removeEventListener("input",updateValue);
+          topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         }
       }
     }
