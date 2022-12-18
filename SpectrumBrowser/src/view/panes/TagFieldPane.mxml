@@ -7,6 +7,7 @@
     <![CDATA[
       [Bindable]public var provider:Array = ["123","456","789","101","120","469","0101"];
       private const withList:String = '<sp:TagField tagList="{provider}"/>';
+      private const limitToList:String = '<sp:TagField tagList="{provider}" limitToList="true"/>';
   ]]>
   </fx:Script>
   <comp:Variant>
@@ -22,5 +23,13 @@
     <comp:StyledCode text='[Bindable]public var provider:Array = ["123","456","789","101","120","469","0101"];'/>
     <Br/>
     <comp:StyledCode text="{withList}"/>
+  </comp:Markup>
+  <comp:Variant header="Limit To List">
+    <sp:TagField tagList="{provider}" limitToList="true"/>
+  </comp:Variant>
+  <comp:Markup>
+    <comp:StyledCode text='[Bindable]public var provider:Array = ["123","456","789","101","120","469","0101"];'/>
+    <Br/>
+    <comp:StyledCode text="{limitToList}"/>
   </comp:Markup>
 </view:DemoPane>

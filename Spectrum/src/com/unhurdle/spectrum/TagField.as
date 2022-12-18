@@ -6,7 +6,9 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.core.IHasLabelField;
   import org.apache.royale.events.Event;
+  import org.apache.royale.events.KeyboardEvent;
   import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.events.ValueEvent;
   import org.apache.royale.geom.Point;
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.utils.PointUtils;
@@ -49,64 +51,64 @@ package com.unhurdle.spectrum
       calculatePosition();
     }
 
-    /**
-     * @royaleignorecoercion com.unhurdle.spectrum.Tag
-     */
+    //TODO: Get rid of Picker and use ComboBoxList instead.
     private var picker:Picker;
     private var valuesArr:Array = [];
     private var ind:Number = 0;
-    private function selectValue(ev:Event):void{
-      var type:String = ev.type;
-      if(valuesArr.length && valuesArr.length > 1){
-        var len:int = valuesArr.length;
-        for(var index:int = 0; index < len; index++)
-        {
-          var t:String = valuesArr[index];
-          if(t.toLowerCase().indexOf(input.text.toLowerCase()) == 0){
-            switch(type)
-            {
-              case "onArrowDown":
-                ind = index + 1;
-                break;
-              case "onArrowUp":
-                ind = index - 1;
-                break;
-            }
-            break;
-          }
-        }
-        if(ind == -1){
-          ind = valuesArr.length - 1;
-        }else if(ind == valuesArr.length){
-          ind = 0;
-        }
-        input.text = valuesArr[ind];
+    private function selectValue(ev:ValueEvent):void{
+      if(input.text == ""){
+        updateValue();
       }
+      if(!valuesArr.length){
+        return;
+      }
+      var type:String = ev.type;
+      switch(type){
+        case "onArrowUp":
+        case "onArrowDown":
+          break;
+        default:
+          return;
+      }
+      ev.value.preventDefault();
+      var move:int = type == "onArrowDown" ? 1 : -1;
+      var index:int = picker.selectedIndex + move;
+      var dataLength:int = valuesArr.length;
+      if(index == dataLength){
+        index = 0;
+      }
+      if(index == -1){
+        index = dataLength - 1;
+      }
+      picker.selectedIndex = index;
+      input.text = valuesArr[index];
     }
     private function updateValue():void{
-      var arr:Array = [];
       valuesArr = [];
-      if(input.text){
-        valuesArr.push(input.text);
-        var len:int = tagList.length;
-        var labels:Array = labelList;
-        for(var i:int = 0; i < len; i++)
-        {
-          var t:String = _labelList[i];
-          if(labels[i].toLowerCase().indexOf(input.text.toLowerCase()) == 0){
-            arr.push(t);
+      var len:int = tagList.length;
+      var labels:Array = labelList;
+      var text:String = input.text;
+      if(!text){
+        valuesArr = labels.slice();
+      } else {
+        for each( var t:String in labels){
+          if(t.toLowerCase().indexOf(input.text.toLowerCase()) == 0){
             valuesArr.push(t);
           }
         }
       }
       if(picker){
-        picker.dataProvider = arr;
-        if(!!arr.length){
+        picker.selectedIndex = -1;
+        picker.dataProvider = valuesArr.slice();
+        if(valuesArr.length){
           picker.popover.open = true;
           positionPopup();
         }else{
           picker.popover.open = false;
         }
+      }
+      COMPILE::JS{
+        input.input.focus();
       }
       calculatePosition();
     }

@@ -144,6 +144,7 @@ package com.unhurdle.spectrum
 			}
 		}
 
+		//TODO:Move this to ComboBoxList
 		private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
 			maxHeight -= 6;
 			var pxStr:String;
@@ -156,6 +157,7 @@ package com.unhurdle.spectrum
 				popover.position = "bottom";
 			}
 		}
+		//TODO:Move this to ComboBoxList
 		private function positionPopoverTop(bottom:Number,maxHeight:Number):void{
 			maxHeight -= 6;
 			var pxStr:String;
