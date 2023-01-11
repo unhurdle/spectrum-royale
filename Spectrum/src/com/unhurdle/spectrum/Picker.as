@@ -75,45 +75,8 @@ package com.unhurdle.spectrum
 			toggle("is-open",popover.open);
 		}
 		private function positionPopup():void{
-			var minHeight:Number = _minMenuHeight + 6;
-			// Figure out direction and max size
-			var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
 			var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
-			var spaceToBottom:Number = appBounds.bottom - componentBounds.bottom;
-			var spaceToTop:Number = componentBounds.top - appBounds.top;
-			var spaceOnBottom:Boolean = spaceToBottom >= spaceToTop;
-			var pxStr:String = "px";
-			switch(_position)
-			{
-				case "top":
-					if(spaceToTop >= minHeight || !spaceOnBottom){
-						positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
-					} else {
-						positionPopoverBottom(componentBounds,spaceToBottom);
-
-					}
-					break;
-				default:
-					if(spaceToBottom >= minHeight || spaceOnBottom){
-						positionPopoverBottom(componentBounds,spaceToBottom);
-					} else {
-						positionPopoverTop(appBounds.bottom - componentBounds.top,spaceToTop);
-					}
-					break;
-			}
-			var leftSpace:Number = componentBounds.x;
-			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
-			if(rightSpace < leftSpace){
-				popover.setStyle("right",rightSpace + "px");
-				popover.setStyle("left",null);
-			} else {
-				popover.setStyle("right",null);
-				popover.setStyle("left",leftSpace + "px");
-			}
-			if(isNaN(_popupWidth)){
-				popover.setStyle("minWidth",width + "px");
-				// popover.width = width;
-			}
+			popover.positionPopup(componentBounds,width);
 		}
 
 		private function toggleDropdown(ev:*):void{
@@ -132,51 +95,17 @@ package com.unhurdle.spectrum
 		private function openPopup():void{
 			popover.open = true;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-			topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 		}
 		private function closePopup():void{
 			if(popover && popover.open){
-				popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				popover.open = false;
 			}
 		}
-
-		//TODO:Move this to ComboBoxList
-		private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
-			maxHeight -= 6;
-			var pxStr:String;
-			popover.setStyle("bottom","");
-			pxStr = componentBounds.bottom + "px";
-			popover.setStyle("top",pxStr);
-			pxStr = maxHeight + "px";
-			popover.setStyle("max-height",pxStr);
-			if(popover.position == "top"){
-				popover.position = "bottom";
-			}
-		}
-		//TODO:Move this to ComboBoxList
-		private function positionPopoverTop(bottom:Number,maxHeight:Number):void{
-			maxHeight -= 6;
-			var pxStr:String;
-			pxStr = bottom + "px";
-			popover.setStyle("top","");
-			popover.setStyle("bottom",pxStr);
-			pxStr = maxHeight + "px";
-			popover.setStyle("max-height",pxStr);
-			if(popover.position == "bottom"){
-				popover.position = "top";
-			}
-		}
+		
 		protected function handleControlMouseDown(event:MouseEvent):void
 		{			
 			event.stopImmediatePropagation();
-		}
-		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void
-		{
-			closePopup();
 		}
 		public function get dataProvider():Object{
 			return menu.dataProvider;
@@ -373,16 +302,14 @@ package com.unhurdle.spectrum
 			return _position;
 		}
 
-		private var _minMenuHeight:Number = 60;
-
 		public function get minMenuHeight():Number
 		{
-			return _minMenuHeight;
+			return popover.minMenuHeight;
 		}
 
 		public function set minMenuHeight(value:Number):void
 		{
-			_minMenuHeight = value;
+			popover.minMenuHeight = value;
 		}
 
 		[Inspectable(category="General", enumeration="bottom,top,right,left")]
