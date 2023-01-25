@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.Event;
 
 	[Event(name="search", type="org.apache.royale.events.Event")]
+	[Event(name="input", type="org.apache.royale.events.Event")]
 	public class Search extends SpectrumBase
 	{
 		/**
@@ -92,6 +93,9 @@ package com.unhurdle.spectrum
 		button.className = appendSelector("-clearButton");
 		button.addEventListener("clear" , clear);
 		input.addElement(button);
+		input.input.addEventListener("input", function(ev:Event):void{
+			dispatchEvent(new Event("input"));
+		});
 		element.addEventListener("submit", handleSubmit);
 		return element; 
 		}

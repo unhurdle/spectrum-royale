@@ -83,11 +83,11 @@ package com.unhurdle.spectrum
       return "spectrum-Accordion-item";
     }
 
-    private var headerElem:H3;
+    protected var headerElem:H3;
     
-    private var headerButton:TextNode;
+    protected var headerButton:TextNode;
 
-    private var headerIcon:Icon;
+    protected var headerIcon:Icon;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
