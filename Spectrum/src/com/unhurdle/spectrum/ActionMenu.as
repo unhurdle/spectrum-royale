@@ -143,18 +143,21 @@ package com.unhurdle.spectrum
 			var h:Number = popover.height;
 			if(ptY + h <= screenHeight){
 				popover.position = "bottom";
-				return ptY + 5;
+				return ptY;
 			}
 			
-			var topSpace:Number = ptY - this.height -7;
-			var bottomSpace:Number = screenHeight - ptY;
+			var topSpace:Number = ptY - this.height + 7;
+			var bottomSpace:Number = screenHeight - ptY - 7;
 			var avaliableSpace:Number;
 			if(topSpace > bottomSpace){
-				ptY -= (h + this.height-7);
+				if(ptY -  h > 0){
+					ptY -= h + 20;
+				} else {
+					ptY = 5;
+				}
 				popover.position = "top";
 				avaliableSpace = topSpace;
 			} else {
-				ptY += 5;
 				popover.position = "bottom";
 				avaliableSpace = bottomSpace;
 			}
