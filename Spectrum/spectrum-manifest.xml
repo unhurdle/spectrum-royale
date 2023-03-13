@@ -99,6 +99,7 @@
     <component id="Label" class="com.unhurdle.spectrum.Label"/>
     <component id="Link" class="com.unhurdle.spectrum.Link"/>
     <component id="List" class="com.unhurdle.spectrum.List"/>
+    <component id="MultiSelectionList" class="com.unhurdle.spectrum.MultiSelectionList"/>
     <component id="ListController" class="com.unhurdle.spectrum.ListController"/>
     <component id="MenuController" class="com.unhurdle.spectrum.MenuController"/>
     <component id="ListModel" class="com.unhurdle.spectrum.ListModel"/>
