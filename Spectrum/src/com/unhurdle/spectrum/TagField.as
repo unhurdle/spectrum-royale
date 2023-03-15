@@ -81,7 +81,7 @@ package com.unhurdle.spectrum
       comboBoxList.list.selectedIndex = index;
       input.text = valuesArr[index];
     }
-    private function updateValue():void{
+    private function updateValue(ev:InputEvent = null):void{
       valuesArr = [];
       var len:int = tagList.length;
       var labels:Array = labelList;
@@ -93,6 +93,10 @@ package com.unhurdle.spectrum
           if(t.toLowerCase().indexOf(input.text.toLowerCase()) == 0){
             valuesArr.push(t);
           }
+        }
+        if(_limitToList && !valuesArr.length && ev && ev.data){
+          input.text = text.substring(0, text.length - ev.data.length);
+          return updateValue();
         }
       }
       if(comboBoxList){
@@ -192,6 +196,7 @@ package com.unhurdle.spectrum
             input.addEventListener("onArrowDown",selectValue);
             input.addEventListener("onArrowUp",selectValue);
             input.element.addEventListener("input",updateValue);
+            input.element.addEventListener("focus",updateValue,true);
             input.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
           }
         }
@@ -204,6 +209,7 @@ package com.unhurdle.spectrum
           input.removeEventListener("onArrowDown",selectValue);
           input.removeEventListener("onArrowUp",selectValue);
           input.element.removeEventListener("input",updateValue);
+          input.element.removeEventListener("focus",updateValue,true);
           input.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
         }
       }
