@@ -5,9 +5,11 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.MouseEvent;
   import org.apache.royale.geom.Rectangle;
   import org.apache.royale.utils.DisplayUtils;
+  import org.apache.royale.core.IBead;
+  import org.apache.royale.core.IStrand;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
-  public class ComboBoxList extends Popover implements IPopUp
+  public class ComboBoxList extends Popover implements IPopUp, IBead
   {
     public function ComboBoxList()
     {
@@ -135,6 +137,11 @@ package com.unhurdle.spectrum
 			if(position == "bottom"){
 				position = "top";
 			}
+		}
+
+		public function set strand(value:IStrand):void
+		{
+			// TODO this stub is purely for interface compatibility
 		}
   }
 }
