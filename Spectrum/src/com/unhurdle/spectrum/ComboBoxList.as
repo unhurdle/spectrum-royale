@@ -1,12 +1,16 @@
 package com.unhurdle.spectrum
 {
+  import com.unhurdle.spectrum.renderers.MenuItemRenderer;
+
+  import org.apache.royale.core.IBead;
   import org.apache.royale.core.IPopUp;
+  import org.apache.royale.core.IStrand;
   import org.apache.royale.events.Event;
   import org.apache.royale.events.MouseEvent;
+  import org.apache.royale.functional.decorator.debounceLong;
   import org.apache.royale.geom.Rectangle;
+  import org.apache.royale.html.beads.DataContainerView;
   import org.apache.royale.utils.DisplayUtils;
-  import org.apache.royale.core.IBead;
-  import org.apache.royale.core.IStrand;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
   public class ComboBoxList extends Popover implements IPopUp, IBead
@@ -34,6 +38,43 @@ package com.unhurdle.spectrum
     {
     	_list = value;
     }
+		private var search:Search;
+		private var _searchable:Boolean;
+
+		public function get searchable():Boolean
+		{
+			return _searchable;
+		}
+
+		public function set searchable(value:Boolean):void
+		{
+			_searchable = value;
+			if(!_searchable){
+				if(search){
+					removeElement(search);
+				}
+			} else {
+				if(!search){
+					search = new Search();
+					search.addEventListener("input",debounceLong(handleSearch,150));
+					search.addEventListener("search",handleSearch);
+					search.tabFocusable = true;
+					addElement(search);
+				}
+			}
+		}
+		private function handleSearch():void{
+			var dataView:DataContainerView = list.view as DataContainerView;
+			var len:int = dataView.numItemRenderers;
+			for(var i:int=0;i<len;i++){
+				var renderer:MenuItemRenderer = dataView.getItemRendererAt(i) as MenuItemRenderer;
+				if(!search.text || (renderer.data.label && renderer.data.label.toLowerCase().includes(search.text.toLowerCase()))){
+						renderer.visible = true;
+					} else {
+						renderer.visible = false;
+					}
+			}
+		}
     override public function set tabFocusable(value:Boolean):void
     {
     	_tabFocusable = value;

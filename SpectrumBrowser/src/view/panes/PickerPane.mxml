@@ -53,6 +53,8 @@
         '</sp:Picker>\n\n'+
         '<H4 text="Disabled"/>\n'+
         '<sp:Picker placeholder="Select a Country" dataProvider="{provider}" disabled="true"/>\n\n'+
+         '<H4 text="Searchable"/>\n'+
+        '<sp:Picker placeholder="Select a Country" dataProvider="{provider}" searchable="true"/>\n\n'+
         '<H4 text="Closed"/>\n'+
         '<sp:Picker invalid="true" placeholder="Select a Country with a very long label, too long in fact" dataProvider="{provider}"/>\n\n'+
         '<H4 text="Selected Item"/>\n'+
@@ -147,6 +149,9 @@
 
     <H4 text="Disabled"/>
     <sp:Picker placeholder="Select a Country" dataProvider="{provider}" disabled="true"/>
+
+    <H4 text="Searchable"/>
+    <sp:Picker placeholder="Select a Country" dataProvider="{provider}" searchable="true"/>
 
     <H4 text="Closed"/>
     <sp:Picker invalid="true" placeholder="Select a Country with a very long label, too long in fact" dataProvider="{provider}"/>

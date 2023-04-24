@@ -312,6 +312,16 @@ package com.unhurdle.spectrum
 			popover.minMenuHeight = value;
 		}
 
+		public function get searchable():Boolean
+		{
+			return popover.searchable;
+		}
+
+		public function set searchable(value:Boolean):void 
+		{
+			popover.searchable = value;
+		}
+
 		[Inspectable(category="General", enumeration="bottom,top,right,left")]
 		public function set position(value:String):void
 		{
