@@ -63,7 +63,7 @@ package com.unhurdle.spectrum
 			// popover.addElement(menu);
 			menu.addEventListener("change", handleListChange);
 			menu.percentWidth = 100;
-			popover.style = {"z-index": "2"};
+			// popover.style = {"z-index": "2"};
 			return elem;
 		}
 		public var popover:ComboBoxList;
