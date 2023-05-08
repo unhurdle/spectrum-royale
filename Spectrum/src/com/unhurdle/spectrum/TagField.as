@@ -18,6 +18,7 @@ package com.unhurdle.spectrum
     {
       super();
       typeNames = "spectrum-Textfield-input";
+      window.addEventListener('resize', calculatePosition);
     }
     
     private var input:TextField;
@@ -33,6 +34,8 @@ package com.unhurdle.spectrum
       var elem:WrappedHTMLElement = addElementToWrapper(this,'div');
       tagGroup = new TagGroup();
       tagGroup.setStyle("display","inline");
+      tagGroup.setStyle('flex-grow','1');
+      tagGroup.setStyle('flex-shrink','1');
       elem.appendChild(tagGroup.element);
       input = new TextField();
       input.setStyle("display","inline-block");
