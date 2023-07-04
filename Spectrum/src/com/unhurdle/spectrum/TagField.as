@@ -202,6 +202,8 @@ package com.unhurdle.spectrum
             input.element.addEventListener("focus",updateValue,true);
             input.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
           }
+        } else if(comboBoxList.open){
+          updateValue();
         }
       }else{
         if(comboBoxList){
