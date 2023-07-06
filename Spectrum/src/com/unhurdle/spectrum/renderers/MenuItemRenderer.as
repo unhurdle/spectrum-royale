@@ -173,10 +173,20 @@ package com.unhurdle.spectrum.renderers
     override public function set selected(value:Boolean):void{
       super.selected = value;
       if(value){
+        if(!checkIcon){
+          var type:String = IconType.CHECKMARK_MEDIUM;
+          checkIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
+          checkIcon.type = type;
+          checkIcon.className = appendSelector("-checkmark");
+          checkIcon.setStyle("display","none");
+          addElement(checkIcon);
+        }
         checkIcon.setStyle("display",null);
         //set the color of the text to the color of the checkmark ? rgb(20, 115, 230) #1473e6
       }else{
-        checkIcon.setStyle("display","none");
+        if(checkIcon){
+          checkIcon.setStyle("display","none");
+        }
       }
 
     }
@@ -223,12 +233,6 @@ package com.unhurdle.spectrum.renderers
       textNode.className = appendSelector("-itemLabel");
       textNode.element.style.userSelect = "none";
       elem.appendChild(textNode.element);
-      var type:String = IconType.CHECKMARK_MEDIUM;
-      checkIcon = new Icon(IconPrefix.SPECTRUM_CSS_ICON + type);
-      checkIcon.type = type;
-      checkIcon.className = appendSelector("-checkmark");
-      checkIcon.setStyle("display","none");
-      addElement(checkIcon);
 
 
       return elem;
