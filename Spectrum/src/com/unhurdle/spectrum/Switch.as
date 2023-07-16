@@ -137,6 +137,7 @@ package com.unhurdle.spectrum
     {
       if(value != input.checked){
         input.checked = value;
+        debouncedSetInput();
       }
     }
     private var _disabled:Boolean;
