@@ -58,7 +58,7 @@ package com.unhurdle.spectrum
 			popover.className = appendSelector("-popover");
 			popover.addEventListener("openChanged",handlePopoverChange);
 			// popover.percentWidth = 100;
-			// popover.style = {"z-index":100};//????
+			// popover.setStyle("z-index",100);//????
 			// menu = new Menu();
 			// popover.addElement(menu);
 			menu.addEventListener("change", handleListChange);
@@ -141,7 +141,8 @@ package com.unhurdle.spectrum
 			} else
 			{
 				var asset:ImageAsset = new ImageAsset();
-				asset.style = "width:18px;margin-right:8px;";      
+				asset.width = 18;
+				asset.setStyle("margin-right","8px");      
 				asset.src = icon? dataProvider[index].icon: dataProvider[index].imageIcon;
 				_button.addElementAt(asset,0);
 			}
@@ -330,7 +331,7 @@ package com.unhurdle.spectrum
 				// break;
 					case "top":
 							// (element as HTMLElement).insertBefore((element as HTMLElement).removeChild(popover.element as HTMLElement),button.element as HTMLElement);
-						// popover.style = {"bottom":"30px"};
+						// popover.setStyle("bottom","30px");
 						// break;
 					case "right":
 					case "left":

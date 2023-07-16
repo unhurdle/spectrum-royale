@@ -49,7 +49,7 @@ package com.unhurdle.spectrum
       _dropdown.visible = false;
       //TODO this should really be fixed in the spectrum css
       // https://github.com/adobe/spectrum-css/issues/880
-      _dropdown.style = {"max-width": "calc(100% - 96px)"};
+      _dropdown.setStyle("max-width", "calc(100% - 96px)");
       input = new TextField();
       input.placeholder = "Search";
       input.inputClass = appendSelector("-input");

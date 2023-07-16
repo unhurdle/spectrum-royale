@@ -167,12 +167,12 @@ package com.unhurdle.spectrum.colorpicker
 			// popover.className = appendSelector("-popover");
 			// popover.addEventListener("openChanged",handlePopoverChange);
 			// // popover.percentWidth = 100;
-			// // popover.style = {"z-index":100};//????
+			// // popover.setStyle("z-index",100);//????
 			// // menu = new Menu();
 			// // popover.addElement(menu);
 			// menu.addEventListener("change", handleListChange);
 			// menu.percentWidth = 100;
-			// popover.style = {"z-index": "2"};
+			// popover.setStyle("z-index", "2");
 			return elem;
 		}
 

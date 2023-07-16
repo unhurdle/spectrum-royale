@@ -165,11 +165,11 @@ package com.unhurdle.spectrum
 					COMPILE::JS
 					{
 						if(absolutePositioned){
-							coachMark.style = {'position': "absolute"};
+							coachMark.setStyle("position","absolute");
 							popover.style.marginLeft = "34px";
 						}
 						else{
-							coachMark.style = {'position': "relative"};
+							coachMark.setStyle("position","relative");
 							popover.style.position = "0px";
 						}
 						if(!footer.children.length){
