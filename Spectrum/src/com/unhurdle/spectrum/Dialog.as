@@ -102,7 +102,7 @@ package com.unhurdle.spectrum
           addElementAt(headerElem,position);
         }
       }
-      return headerElem
+      return headerElem;
     }
     private var _closeButton:ActionButton;
     private function getCloseButton():ActionButton{
@@ -259,7 +259,7 @@ package com.unhurdle.spectrum
     private var attachedToApp:Boolean;
     public function show():void{
       Application.current.popUpParent.addElement(this);
-      this.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
       visible = true;
       COMPILE::JS
       {
@@ -290,7 +290,7 @@ package com.unhurdle.spectrum
         if(focusFirst && elements[0]){
           (elements[0] as ISpectrumElement).focus();
         }else{
-          this.focus();
+          focus();
         }
       }
     }
@@ -351,7 +351,7 @@ package com.unhurdle.spectrum
     }
     public function hide():void
     {
-      this.removeEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      removeEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
       elements = [];
       visible = false;
       toggle("is-open",false);
@@ -359,7 +359,7 @@ package com.unhurdle.spectrum
         // {
         //   outerElement.classList.remove("is-open");
         // }
-      if (prevFocus) prevFocus.focus()
+      if (prevFocus) prevFocus.focus();
       parent.removeElement(this);
       dispatchEvent(new Event("modalHidden"));
       dispatchEvent(new Event("hide"));
