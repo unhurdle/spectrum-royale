@@ -109,6 +109,15 @@
         '  <sp:DialogFooter>\n'+
         '    <TextNode text="Anything in the footer is sticky and aligned right."/>\n'+
         '  </sp:DialogFooter>\n'+
+        '</sp:Dialog>\n'+
+        '<sp:Dialog id="dialogOnTopOfDialogBack" size="{Dialog.FULLSCREEN}">\n'+
+        '  <sp:DialogHeader title="Dialog on top of dialog">\n'+
+        '    <sp:ButtonGroup vertical="false">\n'+
+        '      <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="dialogOnTopOfDialogBack.hide()"/>\n'+
+        '      <sp:Button text="Open Front Dialog" click="alertConfirm.show()"/>\n'+
+        '    </sp:ButtonGroup>\n'+
+        '  </sp:DialogHeader>\n'+
+        '  <sp:DialogContent text="{longLoremIpsum}"/>\n'+
         '</sp:Dialog>';
       [Bindable] public var labelMarkup:String = 
         '<sp:FieldGroup vertical="true">\n'+
@@ -220,6 +229,15 @@
         <TextNode text="Anything in the footer is sticky and aligned right."/>      
       </sp:DialogFooter>
     </sp:Dialog>
+    <sp:Dialog id="dialogOnTopOfDialogBack" size="{Dialog.FULLSCREEN}">
+      <sp:DialogHeader title="Dialog on top of dialog">
+        <sp:ButtonGroup vertical="false">
+          <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="dialogOnTopOfDialogBack.hide()"/>
+          <sp:Button text="Open Front Dialog" click="alertConfirm.show()"/>
+        </sp:ButtonGroup>
+      </sp:DialogHeader>
+      <sp:DialogContent text="{longLoremIpsum}"/>
+    </sp:Dialog>
   </fx:Declarations>
   <comp:Variant>
     <sp:ButtonGroup vertical="true">
@@ -238,6 +256,7 @@
       <sp:Button text="Open Long Dialog" click="{longDialog.show()}"/>
       <sp:Button text="Open Full Screen" click="{fullScreen.show()}"/>
       <sp:Button text="Open Full Screen Takeover" click="{fullScreenTakeover.show()}"/>
+      <sp:Button text="Open Dialog on top of Dialog" click="{dialogOnTopOfDialogBack.show()}"/>
 
     </sp:ButtonGroup>
   </comp:Variant>

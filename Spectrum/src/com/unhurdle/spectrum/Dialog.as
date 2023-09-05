@@ -44,6 +44,7 @@ package com.unhurdle.spectrum
     public static const MEDIUM:int = 6;
     public static const LARGE:int = 7;
     private var underlay:Underlay;
+    private var prevFocus:Element;
     override protected function getSelector():String{
       return "spectrum-Dialog";
     }
@@ -258,8 +259,7 @@ package com.unhurdle.spectrum
     private var attachedToApp:Boolean;
     public function show():void{
       Application.current.popUpParent.addElement(this);
-      window.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
-      addEventListener("onTab",handleKeyDown);
+      this.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
       visible = true;
       COMPILE::JS
       {
@@ -335,6 +335,9 @@ package com.unhurdle.spectrum
     private var alreadyShown:Boolean = false;
     private function dispatchShown():void{
       if(visible){
+        //capture the element that had the focus before we open the dialog
+        prevFocus = document.activeElement;
+
         dispatchEvent(new Event("modalShown"));
         focusElement();
       }
@@ -348,7 +351,7 @@ package com.unhurdle.spectrum
     }
     public function hide():void
     {
-      window.removeEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      this.removeEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
       elements = [];
       visible = false;
       toggle("is-open",false);
@@ -356,6 +359,7 @@ package com.unhurdle.spectrum
         // {
         //   outerElement.classList.remove("is-open");
         // }
+      if (prevFocus) prevFocus.focus()
       parent.removeElement(this);
       dispatchEvent(new Event("modalHidden"));
       dispatchEvent(new Event("hide"));
