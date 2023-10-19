@@ -16,6 +16,7 @@ package com.unhurdle.spectrum
 	// import com.unhurdle.spectrum.data.IMenuItem;
 	import com.unhurdle.spectrum.const.IconPrefix;
 	import com.unhurdle.spectrum.data.IMenuItem;
+	import com.unhurdle.spectrum.utils.getExplicitZIndex;
   /**
    * TODO maybe add flexible with styling of min-width: 0;width:auto;
    */
@@ -120,6 +121,10 @@ package com.unhurdle.spectrum
       button.selected = !open;
     }
     private function openPopup():void{
+      var zIndex:Number = getExplicitZIndex(this);
+      if(zIndex > 2){
+        popover.setStyle("z-index",zIndex);
+      }
       popover.open = true;
 			button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
       popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);

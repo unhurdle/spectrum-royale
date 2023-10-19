@@ -16,6 +16,7 @@ package com.unhurdle.spectrum.colorpicker
 	import com.unhurdle.spectrum.utils.getDataProviderItem;
 	import org.apache.royale.events.ValueEvent;
 	import org.apache.royale.events.Event;
+	import com.unhurdle.spectrum.utils.getExplicitZIndex;
 
 	[Event(name="colorChanged", type="org.apache.royale.events.ValueEvent")]
 	[Event(name="colorCommit", type="org.apache.royale.events.ValueEvent")]
@@ -252,9 +253,17 @@ package com.unhurdle.spectrum.colorpicker
 			popover.hexEditable = hexEditable;
 		}
 		public var initialColor:IRGBA;
+		private var zIndexSet:Boolean = false;
 		protected function openPopup():void{
 			initialColor = appliedColor;
 			popover.anchor = DisplayUtils.getScreenBoundingRect(button);
+			if(!zIndexSet){
+				var zIndex:Number = getExplicitZIndex(this);
+				if(zIndex > 2){
+					popover.setStyle("z-index",zIndex);
+				}
+				zIndexSet = true;
+			}
 			setPopupProperties();
 			popover.open = true;
 			button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);

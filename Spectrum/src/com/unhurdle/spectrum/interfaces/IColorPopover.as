@@ -3,8 +3,9 @@ package com.unhurdle.spectrum.interfaces
 	import org.apache.royale.core.IPopUp;
 	import org.apache.royale.geom.Rectangle;
 	import org.apache.royale.events.IEventDispatcher;
+	import com.unhurdle.spectrum.ISpectrumElement;
 
-	public interface IColorPopover extends IPopUp, IEventDispatcher
+	public interface IColorPopover extends IPopUp, IEventDispatcher, ISpectrumElement
 	{
 		
 		function get dataProvider():Object;

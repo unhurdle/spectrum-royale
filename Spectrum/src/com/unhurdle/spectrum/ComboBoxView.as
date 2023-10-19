@@ -22,6 +22,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.events.utils.NavigationKeys;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
+	import com.unhurdle.spectrum.utils.getExplicitZIndex;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -302,9 +303,17 @@ package com.unhurdle.spectrum{
 			}
       // _popup.open = value;
 		}
+		private var indexSet:Boolean = false;
 		private function openPopup():void{
 			list.dataProvider = model.dataProvider;
 			if(list.dataProvider){
+				if(!indexSet){
+					var zIndex:Number = getExplicitZIndex(comboHost);
+					if(zIndex > 2){
+						_popup.setStyle("z-index",zIndex);
+					}
+					indexSet = true;
+				}
 				_popup.open = true;
 			}
 			//TODO how to handle keyboard and mouse focus?
