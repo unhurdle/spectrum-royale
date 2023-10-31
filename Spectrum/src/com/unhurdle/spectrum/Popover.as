@@ -272,6 +272,9 @@ package com.unhurdle.spectrum
 		
 		COMPILE::JS
 		protected function setTipPath():void{
+			if(!_tipNeedsPath){
+				return;
+			}
 			var pathString:String;
 			switch(position){
 				case "top":
@@ -283,52 +286,54 @@ package com.unhurdle.spectrum
 					break;
 			}
 			tipPath.setAttribute("d",pathString);
+			_tipNeedsPath = false;
 		}
 		
-		COMPILE::JS
 		protected function positionTip():void{
-			setTipPath();
-			if(tipPosition == 50){
-				tipElement.style.top = "";
-				tipElement.style.left = "";
-				return;
-			}
-			var percentSize:Number;
-			var actualPosition:Number;
-			switch(position){
-				case "top":
-				case "bottom":
+			COMPILE::JS{
+				setTipPath();
+				if(tipPosition == 50){
 					tipElement.style.top = "";
-					var width:Number = this.width;
-					percentSize = width/100;
-					actualPosition = tipPosition * percentSize;
-					if(actualPosition < 13){
-						tipElement.style.left = "13px";
-						return;
-					}
-					if(width - actualPosition < 13){
-						tipElement.style.left = (width-13) + "px";
-						return;
-					}
-					tipElement.style.left = tipPosition + "%";
-					break;
-				default:
 					tipElement.style.left = "";
-					var height:Number = this.height;
-					percentSize = height/100;
-					actualPosition = tipPosition * percentSize;
-					if(actualPosition < 13){
-						tipElement.style.top = "13px";
-						return;
-					}
-					if(height - actualPosition < 13){
-						tipElement.style.top = (height-13) + "px";
-						return;
-					}
-					tipElement.style.top = tipPosition + "%";
+					return;
+				}
+				var percentSize:Number;
+				var actualPosition:Number;
+				switch(position){
+					case "top":
+					case "bottom":
+						tipElement.style.top = "";
+						var width:Number = this.width;
+						percentSize = width/100;
+						actualPosition = tipPosition * percentSize;
+						if(actualPosition < 13){
+							tipElement.style.left = "13px";
+							return;
+						}
+						if(width - actualPosition < 13){
+							tipElement.style.left = (width-13) + "px";
+							return;
+						}
+						tipElement.style.left = tipPosition + "%";
+						break;
+					default:
+						tipElement.style.left = "";
+						var height:Number = this.height;
+						percentSize = height/100;
+						actualPosition = tipPosition * percentSize;
+						if(actualPosition < 13){
+							tipElement.style.top = "13px";
+							return;
+						}
+						if(height - actualPosition < 13){
+							tipElement.style.top = (height-13) + "px";
+							return;
+						}
+						tipElement.style.top = tipPosition + "%";
 
-					break;
+						break;
 
+				}
 			}
 		}
 		private var _tipPosition:Number = 50;
@@ -421,32 +426,34 @@ package com.unhurdle.spectrum
 		{
 			return _position;
 		}
-
+		protected var _tipNeedsPath:Boolean = true;
 		[Inspectable(category="General", enumeration="bottom,top,right,left" defaultValue="bottom")]
 		public function set position(value:String):void
 		{
-			if(value != _position){
-				if(!value){
-					value = "bottom";
-				}
-				switch(value)
-				{
-					case "bottom":
-					case "top":
-					case "right":
-					case "left":
-						break;
-				
-					default:
-						throw new Error("invalid position: " + value);
-						
-				}
-				if(_position){
-					toggle(valueToSelector(_position),false);
-				}
-				toggle(valueToSelector(value),true);
-				_position = value;
+			if(value == _position){
+				return;
 			}
+			_tipNeedsPath = true;
+			if(!value){
+				value = "bottom";
+			}
+			switch(value)
+			{
+				case "bottom":
+				case "top":
+				case "right":
+				case "left":
+					break;
+			
+				default:
+					throw new Error("invalid position: " + value);
+					
+			}
+			if(_position){
+				toggle(valueToSelector(_position),false);
+			}
+			toggle(valueToSelector(value),true);
+			_position = value;
 		}
 
 	}
