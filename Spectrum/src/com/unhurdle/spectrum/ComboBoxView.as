@@ -101,7 +101,7 @@ package com.unhurdle.spectrum{
 			super.strand = value;
 			
 			comboHost = value as ComboBox;
-			
+			var text:String = comboHost.text;
 			textfield = new TextField();
 			textfield.tabFocusable = false;
       textfield.className = appendSelector("-textfield");
@@ -118,6 +118,10 @@ package com.unhurdle.spectrum{
 			}
 			textfield.addEventListener(KeyboardEvent.KEY_UP,inputHandler);
 			textfield.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+			if(text)
+			{
+				textfield.text = text;
+			}
 			button = new FieldButton();
       button.className = appendSelector("-button");
 			var type:String = IconType.CHEVRON_DOWN_MEDIUM;

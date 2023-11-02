@@ -85,6 +85,24 @@ package com.unhurdle.spectrum
 			getModel().selectedItem = value;
 		}
 
+		private var _text:String;
+		public function get text():String{
+			var field:TextField = getView().textInputField;
+			if(field){
+				return field.text;
+			}
+			return _text;
+		}
+
+		public function set text(value:String):void
+		{
+			var field:TextField = getView().textInputField;
+			if(field){
+				field.text = value;
+			}
+			_text = value;
+		}
+
     public function get placeholder():String
     {
     	return getModel().placeholder;
