@@ -210,6 +210,7 @@ package com.unhurdle.spectrum.colorpicker
 			dispatchEvent(ev);
 		}
 		protected function handleColorCommit(ev:ValueEvent):void{
+			button.color = ev.value;
 			dispatchEvent(ev);
 			closePopover();
 		}
