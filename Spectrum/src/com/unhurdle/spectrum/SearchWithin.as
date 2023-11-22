@@ -192,5 +192,13 @@ package com.unhurdle.spectrum
     {
     	_sizeDropdownToHost = value;
     }
+    public function get searchablePicker():Boolean
+    {
+      return _dropdown.searchable;
+    }
+    public function set searchablePicker(value:Boolean):void
+    {
+      _dropdown.searchable = value;
+    }
   }
 }
