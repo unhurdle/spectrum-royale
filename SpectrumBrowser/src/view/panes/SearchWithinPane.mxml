@@ -17,6 +17,9 @@
             '<sp:Heading size="XS" text="Default (Changed Selection)"/>\n'+
             '<sp:SearchWithin dataProvider="{provider}" selectedItem="{provider[1]}"/>\n'+
             '<Br/>\n'+
+            '<sp:Heading size="XS" text="Searchable"/>\n'+
+            '<sp:SearchWithin dataProvider="{provider}" searchablePicker="true"/>\n'+
+            '<Br/>\n'+
             '<sp:Heading size="XS" text="Disabled"/>\n'+
             '<sp:SearchWithin dataProvider="{provider}" disabled="true"/>';
         ]]>
@@ -27,6 +30,9 @@
         <Br/>
         <sp:Heading size="XS" text="Default (Changed Selection)"/>
         <sp:SearchWithin dataProvider="{provider}" selectedItem="{provider[1]}"/>
+        <Br/>
+        <sp:Heading size="XS" text="Searchable"/>
+        <sp:SearchWithin searchablePicker="true" dataProvider="{provider}"/>
         <Br/>
         <sp:Heading size="XS" text="Disabled"/>
         <sp:SearchWithin dataProvider="{provider}" disabled="true"/>
