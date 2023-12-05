@@ -23,6 +23,7 @@ package com.unhurdle.spectrum{
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import com.unhurdle.spectrum.utils.getExplicitZIndex;
+	import org.apache.royale.collections.ICollectionView;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -157,6 +158,7 @@ package com.unhurdle.spectrum{
       // host.addElement(_popup);
 			list.model.addEventListener("selectedIndexChanged", handleItemChange);
 			list.model.addEventListener("selectedItemChanged", handleItemChange);
+			list.model.addEventListener("dataProviderChanged", listDataProviderChanged);
 
 			model.addEventListener("selectedIndexChanged", handleItemChange);
 			model.addEventListener("selectedItemChanged", handleItemChange);
@@ -365,6 +367,23 @@ package com.unhurdle.spectrum{
     protected function dataProviderChangeHandler(event:Event):void{
       list.dataProvider = model.dataProvider;
     }
+
+    protected function listDataProviderChanged(event:Event):void
+    {
+	var itemsLength:int = -1;
+	if (list.dataProvider is Array)
+	{
+		itemsLength = (list.dataProvider as Array).length;
+	} else if (list.dataProvider is ICollectionView)
+	{
+		itemsLength = (list.dataProvider as ICollectionView).length;
+	}
+	if (itemsLength == 0)
+	{
+		popUpVisible = false;
+	}
+    }
+
     protected function handlePlaceholderChange(event:Event):void{
       textfield.placeholder = model.placeholder;
     }
