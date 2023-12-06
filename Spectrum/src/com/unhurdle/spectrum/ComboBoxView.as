@@ -1,7 +1,6 @@
 package com.unhurdle.spectrum{
 	import org.apache.royale.core.BeadViewBase;
 	import org.apache.royale.core.IStrand;
-	import org.apache.royale.core.ValuesManager;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.utils.UIUtils;
@@ -16,7 +15,6 @@ package com.unhurdle.spectrum{
 	import com.unhurdle.spectrum.const.IconType;
 	import com.unhurdle.spectrum.includes.InputGroupInclude;
 	import org.apache.royale.events.KeyboardEvent;
-	import com.unhurdle.spectrum.data.MenuItem;
 	import org.apache.royale.events.utils.WhitespaceKeys;
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
@@ -158,7 +156,6 @@ package com.unhurdle.spectrum{
       // host.addElement(_popup);
 			list.model.addEventListener("selectedIndexChanged", handleItemChange);
 			list.model.addEventListener("selectedItemChanged", handleItemChange);
-			list.model.addEventListener("dataProviderChanged", listDataProviderChanged);
 
 			model.addEventListener("selectedIndexChanged", handleItemChange);
 			model.addEventListener("selectedItemChanged", handleItemChange);
@@ -256,14 +253,18 @@ package com.unhurdle.spectrum{
 			if (ev.key.length > 1 && ev.key != EditingKeys.BACKSPACE && ev.key != EditingKeys.DELETE) {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
-			// show the popup while typing
-			if(!popUpVisible){
-				popUpVisible = true;
-			}
 			if(textfield.text && model.dataProvider){
 				list.dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
 			} else {
 				list.dataProvider = model.dataProvider;
+			}
+			// show the popup while typing
+			var storedIsListEmpty:Boolean = isListEmpty;
+			if(!popUpVisible && !storedIsListEmpty){
+				popUpVisible = true;
+			} else if (storedIsListEmpty)
+			{
+				popUpVisible = false;
 			}
 			handleInput = false;
 			list.selectedItem = model.selectedItem;
@@ -368,7 +369,7 @@ package com.unhurdle.spectrum{
       list.dataProvider = model.dataProvider;
     }
 
-    protected function listDataProviderChanged(event:Event):void
+    protected function get isListEmpty():Boolean
     {
 	var itemsLength:int = -1;
 	if (list.dataProvider is Array)
@@ -378,10 +379,7 @@ package com.unhurdle.spectrum{
 	{
 		itemsLength = (list.dataProvider as ICollectionView).length;
 	}
-	if (itemsLength == 0)
-	{
-		popUpVisible = false;
-	}
+	return itemsLength == 0;
     }
 
     protected function handlePlaceholderChange(event:Event):void{
