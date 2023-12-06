@@ -10,7 +10,7 @@ package com.unhurdle.spectrum
 	 * <inject_html>
 	 * <link rel="stylesheet" href="assets/css/components/radio/dist.css">
 	 * </inject_html>
-	 * 
+	 *
 	 */
 		public function Radio()
 		{
@@ -36,19 +36,18 @@ package com.unhurdle.spectrum
 			elem.appendChild(label.element);
 			return elem;
 		}
-		private var _checked:Boolean;
+
 
 		public function get checked():Boolean
 		{
-			return _checked;
+			return !!input.checked ;
 		}
 
 		public function set checked(value:Boolean):void
 		{
-			if(value != !!_checked){
+			if(value != !!input.checked){
 				input.checked = value;
 			}
-			_checked = value;
 		}
 		private var _labelBelow:Boolean;
 
@@ -65,19 +64,17 @@ package com.unhurdle.spectrum
 			_labelBelow = value;
 		}
 
-		private var _disabled:Boolean;
 
 		public function get disabled():Boolean
 		{
-			return _disabled;
+			return !!input.disabled;
 		}
 
 		public function set disabled(value:Boolean):void
 		{
-			if(value != !!_disabled){
+			if(value != !!input.disabled){
 				input.disabled = value;
 			}
-			_disabled = value;
 		}
 		private var _invalid:Boolean;
 		public function get invalid():Boolean
@@ -116,11 +113,11 @@ package com.unhurdle.spectrum
 			}
 			_quiet = value
 		}
-			public function get radioName():String
+		public function get radioName():String
 		{
 			return input.name;
 		}
-		
+
 		public function set radioName(value:String):void
 		{
 			input.name = value;
