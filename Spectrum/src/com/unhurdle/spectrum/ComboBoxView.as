@@ -1,7 +1,6 @@
 package com.unhurdle.spectrum{
 	import org.apache.royale.core.BeadViewBase;
 	import org.apache.royale.core.IStrand;
-	import org.apache.royale.core.ValuesManager;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.utils.UIUtils;
@@ -16,13 +15,13 @@ package com.unhurdle.spectrum{
 	import com.unhurdle.spectrum.const.IconType;
 	import com.unhurdle.spectrum.includes.InputGroupInclude;
 	import org.apache.royale.events.KeyboardEvent;
-	import com.unhurdle.spectrum.data.MenuItem;
 	import org.apache.royale.events.utils.WhitespaceKeys;
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
 	import com.unhurdle.spectrum.utils.getExplicitZIndex;
+	import org.apache.royale.collections.ICollectionView;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -254,14 +253,18 @@ package com.unhurdle.spectrum{
 			if (ev.key.length > 1 && ev.key != EditingKeys.BACKSPACE && ev.key != EditingKeys.DELETE) {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
-			// show the popup while typing
-			if(!popUpVisible){
-				popUpVisible = true;
-			}
 			if(textfield.text && model.dataProvider){
 				list.dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
 			} else {
 				list.dataProvider = model.dataProvider;
+			}
+			// show the popup while typing
+			var storedIsListEmpty:Boolean = isListEmpty;
+			if(!popUpVisible && !storedIsListEmpty){
+				popUpVisible = true;
+			} else if (storedIsListEmpty)
+			{
+				popUpVisible = false;
 			}
 			handleInput = false;
 			list.selectedItem = model.selectedItem;
@@ -365,6 +368,20 @@ package com.unhurdle.spectrum{
     protected function dataProviderChangeHandler(event:Event):void{
       list.dataProvider = model.dataProvider;
     }
+
+    protected function get isListEmpty():Boolean
+    {
+	var itemsLength:int = -1;
+	if (list.dataProvider is Array)
+	{
+		itemsLength = (list.dataProvider as Array).length;
+	} else if (list.dataProvider is ICollectionView)
+	{
+		itemsLength = (list.dataProvider as ICollectionView).length;
+	}
+	return itemsLength == 0;
+    }
+
     protected function handlePlaceholderChange(event:Event):void{
       textfield.placeholder = model.placeholder;
     }

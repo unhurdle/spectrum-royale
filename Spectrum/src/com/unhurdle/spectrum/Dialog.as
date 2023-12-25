@@ -312,7 +312,7 @@ package com.unhurdle.spectrum
       }
       var currentIndex:Number;
       var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
-        if (document.activeElement != e.element){
+        if (document.activeElement != e.focusElement){
           return false;
         }
         currentIndex = index;
@@ -321,6 +321,9 @@ package com.unhurdle.spectrum
       if (!found) {
         // redirect to first as we're not in our tabsequence
         first.focus();
+        return;
+      }
+      if (currentIndex == 0 && backward) {
         return;
       }
       // shift focus to previous/next element in the sequence

@@ -102,6 +102,7 @@ package com.unhurdle.spectrum
 				zIndexSet = true;
 			}
 			popover.open = true;
+			popover.filterFunction = filterFunction;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		}
 		private function closePopup():void{
@@ -136,6 +137,16 @@ package com.unhurdle.spectrum
 		{
 			menu.selectedIndex = value;
 			setButtonText();
+		}
+
+		private var _filterFunction:Function;
+		public function set filterFunction(func:Function):void {
+			_filterFunction = func;
+		}
+
+		public function get filterFunction():Function
+		{
+			return _filterFunction;
 		}
 
 		private function setButtonAsset(index:int,icon:Boolean):void{

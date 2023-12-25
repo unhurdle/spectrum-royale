@@ -1,6 +1,5 @@
 package com.unhurdle.spectrum
 {
-  import com.unhurdle.spectrum.renderers.MenuItemRenderer;
 
   import org.apache.royale.core.IBead;
   import org.apache.royale.core.IPopUp;
@@ -11,6 +10,8 @@ package com.unhurdle.spectrum
   import org.apache.royale.geom.Rectangle;
   import org.apache.royale.html.beads.DataContainerView;
   import org.apache.royale.utils.DisplayUtils;
+  import org.apache.royale.core.IItemRenderer;
+  import org.apache.royale.core.IUIBase;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
   public class ComboBoxList extends Popover implements IPopUp, IBead
@@ -63,17 +64,23 @@ package com.unhurdle.spectrum
 				addElement(search);
 			}
 		}
-		private function handleSearch():void{
+		protected function handleSearch():void {
 			var dataView:DataContainerView = list.view as DataContainerView;
 			var len:int = dataView.numItemRenderers;
-			for(var i:int=0;i<len;i++){
-				var renderer:MenuItemRenderer = dataView.getItemRendererAt(i) as MenuItemRenderer;
-				if(!search.text || (renderer.data.label && renderer.data.label.toLowerCase().includes(search.text.toLowerCase()))){
-						renderer.visible = true;
-					} else {
-						renderer.visible = false;
-					}
+			var appliedFilterFunction:Function = _filterFunction != null ? _filterFunction : defaultFilterFunction;
+			for (var i:int = 0; i < len; i++) {
+				var renderer:IItemRenderer = dataView.getItemRendererAt(i) as IItemRenderer;
+				if (!search.text || (appliedFilterFunction(renderer.data, search.text))) {
+					(renderer as IUIBase).visible = true;
+				}
+				else {
+					(renderer as IUIBase).visible = false;
+				}
 			}
+		}
+
+		protected function defaultFilterFunction(data:Object, searchText:String):Boolean {
+			return data.label && data.label.toLowerCase().includes(searchText.toLowerCase());
 		}
     override public function set tabFocusable(value:Boolean):void
     {
@@ -96,6 +103,21 @@ package com.unhurdle.spectrum
 				topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
       }
     }
+
+
+
+
+	private var _filterFunction:Function;
+	public function set filterFunction(func:Function):void {
+		_filterFunction = func;
+	}
+
+	public function get filterFunction():Function
+	{
+		return _filterFunction;
+	}
+
+
     public function handleListChange():void{
 			open = false;
 			dispatchEvent(new Event("change"));
