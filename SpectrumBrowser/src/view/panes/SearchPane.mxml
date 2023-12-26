@@ -32,12 +32,15 @@
     </comp:Markup>
     <comp:Variant header="ExpandSearch">
         <Div>
-            <sp:ExpandSearch style="margin-right: 5px;" expandedWidth="300px"/>
+            <sp:ExpandSearch style="margin-right: 5px;" expandedWidth="300"/>
+            <sp:ExpandSearch style="margin-right: 5px;" expandLeft="true" expandedWidth="300"/>
             <sp:ExpandSearch disabled="true" style="margin-right: 5px;"/>
         </Div>
     </comp:Variant>
     <comp:Markup>
-        <comp:StyledCode text='&lt;sp:ExpandSearch expandedWidth="300px"/&gt;'/>
+        <comp:StyledCode text='&lt;sp:ExpandSearch expandedWidth="300"/&gt;'/>
+        <Br/>
+        <comp:StyledCode text='&lt;sp:ExpandSearch expandLeft="true" expandedWidth="300"/&gt;'/>
         <Br/>
         <comp:StyledCode text='&lt;sp:ExpandSearch disabled="true"/&gt;'/>
     </comp:Markup>

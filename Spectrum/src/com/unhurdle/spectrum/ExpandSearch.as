@@ -7,8 +7,11 @@ package com.unhurdle.spectrum
 		public function ExpandSearch()
 		{
 			super();
-			COMPILE::JS
-			{
+		}
+
+		override public function addedToParent():void{
+			super.addedToParent();
+			COMPILE::JS{
 				element.addEventListener("focusin",onFocus);
 				element.addEventListener("focusout",onBlur);
 				savedPosition = element.style.position;
@@ -17,7 +20,7 @@ package com.unhurdle.spectrum
 			collapse();
 		}
 
-		public var expandedWidth:String;
+		public var expandedWidth:Number;
 		public var collapsedSize:Number = 32;
 
 		COMPILE::JS
@@ -65,6 +68,8 @@ package com.unhurdle.spectrum
 		private var savedPosition:String;
 		private var savedLeft:String;
 		private var savedValue:String;
+		public var expandLeft:Boolean;
+		
 		private function collapse():void{
 			collapsed = true;
 			if(!savedPlacehold){
@@ -97,18 +102,24 @@ package com.unhurdle.spectrum
  * 
  */
 		private function expand():void{
+			if(!collapsed){
+				return;
+			}
 			collapsed = false;
 			input.placeholder = savedPlacehold;
 			button.visible = true;
 			input.text = savedValue ? savedValue : "";
-			var left:Number = this.x;
 			COMPILE::JS
 			{
+				var left:Number = element.offsetLeft;
+				if(expandLeft){
+					left = (left - expandedWidth) + collapsedSize;
+				}
 				savedPosition = element.style.position;
 				savedLeft = element.style.left;
 				element.style.position = "absolute";
-				element.style.left = left + "px";
-				element.style.width = expandedWidth ? expandedWidth : savedWidth;
+				setStyle("left",left + "px");
+				element.style.width = expandedWidth > 0 ? expandedWidth + "px" : savedWidth;
 				element.style.height = "";
 				element.style.zIndex = 5;
 				input.setStyle("min-width","");
