@@ -299,12 +299,7 @@ package com.unhurdle.spectrum{
 				list.selectedIndex = -1;
 
 				var popupHost:IPopUpHost = UIUtils.findPopUpHost(comboHost);
-				callLater(openPopup)
-				_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				comboHost.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				callLater(function():void {
-					_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-				});
+				callLater(openPopup);
 			} else {
 				closePopup();
 			}
@@ -321,6 +316,9 @@ package com.unhurdle.spectrum{
 					}
 					indexSet = true;
 				}
+				_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				comboHost.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				_popup.open = true;
 			}
 			//TODO how to handle keyboard and mouse focus?
@@ -339,7 +337,7 @@ package com.unhurdle.spectrum{
     private function closePopup():void{
       if(_popup && _popup.open){
   			_popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-	  		this.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+	  		comboHost.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         _popup.open = false;
       }
