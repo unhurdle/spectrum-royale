@@ -127,6 +127,13 @@ package com.unhurdle.spectrum
     protected function handleControlMouseDown(event:MouseEvent):void{			
 			event.stopImmediatePropagation();
 		}
+    public function get minMenuHeight():Number{
+			return comboBoxList.minMenuHeight;
+		}
+
+		public function set minMenuHeight(value:Number):void{
+			comboBoxList.minMenuHeight = value;
+		}
     protected function positionPopup():void{
       var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(input);
 			comboBoxList.positionPopup(componentBounds);
