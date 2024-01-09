@@ -128,7 +128,8 @@ package com.unhurdle.spectrum
     protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void{
 			open = false;
 		}
-    private var _minMenuHeight:Number = 60;
+		public static const MIN_MENU_DEFAULT_HEIGHT:Number = 60;
+    private var _minMenuHeight:Number = MIN_MENU_DEFAULT_HEIGHT;
 
 		public function get minMenuHeight():Number{
 			return _minMenuHeight;

@@ -128,10 +128,16 @@ package com.unhurdle.spectrum
 			event.stopImmediatePropagation();
 		}
     public function get minMenuHeight():Number{
+      if(!comboBoxList){
+        return ComboBoxList.MIN_MENU_DEFAULT_HEIGHT;
+      }
 			return comboBoxList.minMenuHeight;
 		}
 
 		public function set minMenuHeight(value:Number):void{
+      if(!comboBoxList){
+        return;
+      }
 			comboBoxList.minMenuHeight = value;
 		}
     protected function positionPopup():void{
