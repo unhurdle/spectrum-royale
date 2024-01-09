@@ -324,6 +324,11 @@ package com.unhurdle.spectrum
         return;
       }
       if (currentIndex == 0 && backward) {
+        last.focus();
+        return;
+      } else if ((currentIndex == elements.length - 1) && !backward)
+      {
+        first.focus();
         return;
       }
       // shift focus to previous/next element in the sequence
