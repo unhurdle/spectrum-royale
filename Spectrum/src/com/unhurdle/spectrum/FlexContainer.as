@@ -18,7 +18,7 @@ package com.unhurdle.spectrum
 		
 		private var _bindingsInited:Boolean
 		protected function initBindings():void{
-				_bindingsInited = true;
+			_bindingsInited = true;
 			if ('_bindings' in this) {
 				if (getBeadByType(DataBindingBase) == null) {
 					addBead(new ContainerDataBinding());
