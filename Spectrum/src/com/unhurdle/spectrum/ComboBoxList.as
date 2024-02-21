@@ -52,6 +52,7 @@ package com.unhurdle.spectrum
 			_searchable = value;
 			if(!_searchable){
 				if(search && search.parent == this){
+					search.text = "";
 					removeElement(search);
 				}
 			} else {
