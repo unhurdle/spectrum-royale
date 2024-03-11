@@ -181,7 +181,19 @@ package com.unhurdle.spectrum
     {
     	return super.invalid;
     }
+    private var _invalidText:String;
 
+    public function get invalidText():String
+    {
+      return _invalidText;
+    }
+
+    public function set invalidText(value:String):void
+    {
+      _invalidText = value;
+      applyInvalidToolTip();
+    }
+    private var invalidTooltip:AdaptiveTooltipBead;
     override public function set invalid(value:Boolean):void
     {
       super.invalid = value;
@@ -196,13 +208,29 @@ package com.unhurdle.spectrum
         if(getElementIndex(invalidIcon) == -1){
           addElementAt(invalidIcon,0);
         }
+        applyInvalidToolTip();
       } else{
         if(invalidIcon && getElementIndex(invalidIcon) != -1){
           removeElement(invalidIcon);
         }
       }
     }
-
+    public function applyInvalidToolTip():void {
+      if (!invalidIcon) {
+        return;
+      }
+      if (invalidTooltip) {
+        invalidTooltip.toolTip = invalidText;
+        return;
+      }
+      if (!invalidText || !invalidIcon) {
+        return;
+      }
+      invalidTooltip = new AdaptiveTooltipBead();
+      invalidTooltip.flavor = "negative";
+      addBead(invalidTooltip);
+      invalidTooltip.toolTip = invalidText;
+    };
     private function checkValidation():void
     {
       if(pattern){
