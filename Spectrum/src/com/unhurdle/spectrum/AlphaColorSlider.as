@@ -46,7 +46,6 @@ package com.unhurdle.spectrum
 		override public function set appliedColor(value:IRGBA):void{
 			super.appliedColor = value;
 			var base:IRGBA = value.clone();
-			base.alpha = 1;
 			colorStyle = base.styleString;
 		}
 
