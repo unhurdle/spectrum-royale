@@ -47,7 +47,7 @@ package com.unhurdle.spectrum
 		protected var tt:Tooltip;
 		protected var host:IPopUpHost;
 
-		private var _autoClose:Number = 2000;
+		private var _autoClose:Number = 0;
 
 		/**
 		 * Number of milliseconds to auto-close the tooltip
