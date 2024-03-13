@@ -189,7 +189,6 @@ package com.unhurdle.spectrum
 		public function set popupWidth(value:Number):void
 		{
 			_popupWidth = value;
-			getView().popUp.width = value;
 		}
 		public var filterFunction:Function = function(input:String,dataProvider:Object):Array{
 			var inArray:Array;
