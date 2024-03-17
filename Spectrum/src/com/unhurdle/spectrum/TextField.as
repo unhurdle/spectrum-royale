@@ -204,6 +204,7 @@ package com.unhurdle.spectrum
           invalidIcon.className = appendSelector("-validationIcon");
           invalidIcon.type = type;
           invalidIcon.setStyle('box-sizing', 'content-box');
+          invalidIcon.width = invalidIcon.height = 18;
         }
         if(getElementIndex(invalidIcon) == -1){
           addElementAt(invalidIcon,0);
@@ -228,7 +229,8 @@ package com.unhurdle.spectrum
       }
       invalidTooltip = new AdaptiveTooltipBead();
       invalidTooltip.flavor = "negative";
-      addBead(invalidTooltip);
+      invalidIcon.addBead(invalidTooltip);
+      invalidIcon.setStyle("pointer-events","all");
       invalidTooltip.toolTip = invalidText;
     };
     private function checkValidation():void
