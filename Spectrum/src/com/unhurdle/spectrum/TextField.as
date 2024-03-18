@@ -228,7 +228,11 @@ package com.unhurdle.spectrum
       }
       invalidTooltip = new AdaptiveTooltipBead();
       invalidTooltip.flavor = "negative";
-      addBead(invalidTooltip);
+      invalidIcon.addBead(invalidTooltip);
+      invalidIcon.setStyle("pointer-events","auto");
+      COMPILE::JS{
+            invalidIcon.width = invalidIcon.element.clientWidth;
+      }
       invalidTooltip.toolTip = invalidText;
     };
     private function checkValidation():void
