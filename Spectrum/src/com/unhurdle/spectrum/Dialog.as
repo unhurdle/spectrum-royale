@@ -302,15 +302,15 @@ package com.unhurdle.spectrum
       if(elements.length <= 1){
         return;
       }
-      var focuseElement:Object;
+      var focusElement:Object;
       var first:Object = elements[0];
       var last:Object = elements[elements.length - 1];
       var source:Object = backward ? first : last;
       var target:Object = backward ? last : first;
       if(document.activeElement == source.element){
-        focuseElement = target;
+        focusElement = target;
       }
-      if(!focuseElement) {
+      if(!focusElement) {
         var currentIndex:Number;
         var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
           if (document.activeElement != e.focusElement){
@@ -321,23 +321,23 @@ package com.unhurdle.spectrum
         });
         if (!found) {
           // redirect to first as we're not in our tabsequence
-          focuseElement = first;
+          focusElement = first;
         }
         else if (currentIndex == 0 && backward) {
-          focuseElement = last;
+          focusElement = last;
         } else if ((currentIndex == elements.length - 1) && !backward)
         {
-          focuseElement = first;
+          focusElement = first;
         }
         // shift focus to previous/next element in the sequence
-        if(!focuseElement) {
+        if(!focusElement) {
           var offset:Number = backward ? -1 : 1;
-          focuseElement = elements[currentIndex + offset];
+          focusElement = elements[currentIndex + offset];
         }
       }
-      focuseElement.focus();
-      if(focuseElement is TextField) {
-        (focuseElement as TextField).input.select();
+      focusElement.focus();
+      if(focusElement is TextField) {
+        (focusElement as TextField).input.select();
       }
 
     }
