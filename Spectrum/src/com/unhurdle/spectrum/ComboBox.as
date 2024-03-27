@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
-  public class ComboBox extends SpectrumBase implements IKeyboardFocusable
+  public class ComboBox extends SpectrumBase implements IKeyboardFocusable, ITextContent
   {
     public function ComboBox()
     {

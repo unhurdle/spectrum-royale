@@ -9,7 +9,7 @@ package com.unhurdle.spectrum
 
   [Event(name="search", type="org.apache.royale.events.Event")]
   [Event(name="menuChange", type="org.apache.royale.events.Event")]
-  public class SearchWithin extends SpectrumBase
+  public class SearchWithin extends SpectrumBase implements ITextContent
   {
     
     /**

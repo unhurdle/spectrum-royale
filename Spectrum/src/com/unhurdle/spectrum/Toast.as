@@ -13,7 +13,7 @@ package com.unhurdle.spectrum
   [Event(name="accept", type="org.apache.royale.events.Event")]
   [Event(name="close", type="org.apache.royale.events.Event")]
   
-  public class Toast extends SpectrumBase
+  public class Toast extends SpectrumBase implements ITextContent
   {
     /**
      * <inject_html>

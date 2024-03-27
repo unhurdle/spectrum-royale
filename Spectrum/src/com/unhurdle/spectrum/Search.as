@@ -12,7 +12,7 @@ package com.unhurdle.spectrum
 
 	[Event(name="search", type="org.apache.royale.events.Event")]
 	[Event(name="input", type="org.apache.royale.events.Event")]
-	public class Search extends SpectrumBase
+	public class Search extends SpectrumBase implements ITextContent
 	{
 		/**
 		 * <inject_html>

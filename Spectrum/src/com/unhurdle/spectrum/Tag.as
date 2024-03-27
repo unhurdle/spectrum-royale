@@ -6,7 +6,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.events.Event;
 
   [Event(name="change", type="org.apache.royale.events.Event")]
-  public class Tag extends SpectrumBase
+  public class Tag extends SpectrumBase implements ITextContent
   {
     public function Tag()
     {

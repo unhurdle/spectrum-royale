@@ -7,8 +7,9 @@ package com.unhurdle.spectrum.renderers
 	import org.apache.royale.events.Event;
 	import org.apache.royale.html.util.getLabelFromData;
 	import com.unhurdle.spectrum.TextNode;
+	import com.unhurdle.spectrum.ITextContent;
 
-	public class ListItemRendererForTable extends DataItemRenderer 
+	public class ListItemRendererForTable extends DataItemRenderer implements ITextContent
 	{
 		// implements ITextItemRenderer
 		public function ListItemRendererForTable()

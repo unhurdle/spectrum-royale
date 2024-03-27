@@ -66,12 +66,12 @@ package com.unhurdle.spectrum
         input.name = name;
     }
 
-    public function get text():String
+    override public function get text():String
     {
       return input.value;
     }
 
-    public function set text(value:String):void
+    override public function set text(value:String):void
     {
       if(value){
       	input.value = value;

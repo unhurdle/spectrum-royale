@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
 
 
-  public class Button extends SpectrumBase implements IKeyboardFocusable
+  public class Button extends SpectrumBase implements IKeyboardFocusable, ITextContent
   {
     /**
      * <inject_html>
