@@ -302,38 +302,44 @@ package com.unhurdle.spectrum
       if(elements.length <= 1){
         return;
       }
+      var focusElement:Object;
       var first:Object = elements[0];
       var last:Object = elements[elements.length - 1];
       var source:Object = backward ? first : last;
       var target:Object = backward ? last : first;
       if(document.activeElement == source.element){
-        (target as ISpectrumElement).focus();
-        return;
+        focusElement = target;
       }
-      var currentIndex:Number;
-      var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
-        if (document.activeElement != e.focusElement){
-          return false;
+      if(!focusElement) {
+        var currentIndex:Number;
+        var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
+          if (document.activeElement != e.focusElement){
+            return false;
+          }
+          currentIndex = index;
+          return true;
+        });
+        if (!found) {
+          // redirect to first as we're not in our tabsequence
+          focusElement = first;
         }
-        currentIndex = index;
-        return true;
-      });
-      if (!found) {
-        // redirect to first as we're not in our tabsequence
-        first.focus();
-        return;
+        else if (currentIndex == 0 && backward) {
+          focusElement = last;
+        } else if ((currentIndex == elements.length - 1) && !backward)
+        {
+          focusElement = first;
+        }
+        // shift focus to previous/next element in the sequence
+        if(!focusElement) {
+          var offset:Number = backward ? -1 : 1;
+          focusElement = elements[currentIndex + offset];
+        }
       }
-      if (currentIndex == 0 && backward) {
-        last.focus();
-        return;
-      } else if ((currentIndex == elements.length - 1) && !backward)
-      {
-        first.focus();
-        return;
+      focusElement.focus();
+      if(focusElement is TextField) {
+        (focusElement as TextField).input.select();
       }
-      // shift focus to previous/next element in the sequence
-      var offset:Number = backward ? -1 : 1;
-      elements[currentIndex + offset].focus();
+
     }
 
     COMPILE::JS
