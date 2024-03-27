@@ -158,7 +158,7 @@ package com.unhurdle.spectrum
     private function inputChanged():void{
       addTag(input.text);
     }
-    private function addTag(text:String):void{
+    protected function addTag(text:String):void{
       if(text){
         if(comboBoxList){
           comboBoxList.open = false;
