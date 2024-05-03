@@ -131,12 +131,12 @@ package com.unhurdle.spectrum
 			}
 
 		}
-		override protected function handleSubmit(ev:Event):Boolean{
+		override protected function dispatchSearch(ev:Event):void{
 			COMPILE::JS
 			{
 				input.input.blur();
 			}
-			return super.handleSubmit(ev);
+			super.dispatchSearch(ev);
 		}
 		override protected function clear(ev:Event):void{
 			super.clear(ev);

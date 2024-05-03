@@ -70,10 +70,6 @@ package com.unhurdle.spectrum
 			_disabled = value;
 		}
 
-		override protected function getTag():String{
-			return "form";
-		}
-
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 		super.createElement();
@@ -96,18 +92,27 @@ package com.unhurdle.spectrum
 		input.input.addEventListener("input", function(ev:Event):void{
 			dispatchEvent(new Event("input"));
 		});
-		element.addEventListener("submit", handleSubmit);
+		input.addEventListener("onEnter", dispatchSearch);
+		//TODO: Do we want to search on tab?
+		input.addEventListener("onTab", function(ev:Event):void{
+			dispatchEvent(new Event("search"));
+		});
+
+		// element.addEventListener("submit", handleSubmit);
 		return element; 
+		}
+		protected function dispatchSearch(ev:Event):void{
+			dispatchEvent(new Event("search"));
 		}
 		protected function clear(ev:Event):void{
 			input.text = "";
 			dispatchEvent(new Event("search"));
 		}
-		protected function handleSubmit(ev:Event):Boolean{
-			ev.preventDefault();
-			dispatchEvent(new Event("search"));
-			return false;
-		}
+		// protected function handleSubmit(ev:Event):Boolean{
+		// 	ev.preventDefault();
+		// 	dispatchEvent(new Event("search"));
+		// 	return false;
+		// }
 		// COMPILE::JS
 		// public function set searchIcon(value:Boolean):void
 		// {
