@@ -1,27 +1,30 @@
 package com.unhurdle.spectrum{
-	import org.apache.royale.core.BeadViewBase;
-	import org.apache.royale.core.IStrand;
-	import org.apache.royale.events.IEventDispatcher;
-	import org.apache.royale.events.Event;
-	import org.apache.royale.utils.UIUtils;
-	import org.apache.royale.utils.PointUtils;
-	import org.apache.royale.core.IPopUpHost;
-	import org.apache.royale.geom.Point;
-	import org.apache.royale.html.beads.IComboBoxView;
-	import org.apache.royale.html.util.getLabelFromData;
-	import org.apache.royale.core.IChild;
-	import org.apache.royale.utils.callLater;
-	import org.apache.royale.events.MouseEvent;
 	import com.unhurdle.spectrum.const.IconType;
 	import com.unhurdle.spectrum.includes.InputGroupInclude;
+	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
+	import com.unhurdle.spectrum.utils.getExplicitZIndex;
+
+	import org.apache.royale.collections.ICollectionView;
+	import org.apache.royale.core.BeadViewBase;
+	import org.apache.royale.core.IChild;
+	import org.apache.royale.core.IPopUpHost;
+	import org.apache.royale.core.IStrand;
+	import org.apache.royale.events.Event;
+	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.KeyboardEvent;
-	import org.apache.royale.events.utils.WhitespaceKeys;
+	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
-	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
+	import org.apache.royale.events.utils.WhitespaceKeys;
+	import org.apache.royale.geom.Point;
+	import org.apache.royale.geom.Rectangle;
+	import org.apache.royale.html.beads.IComboBoxView;
+	import org.apache.royale.html.util.getLabelFromData;
+	import org.apache.royale.utils.DisplayUtils;
+	import org.apache.royale.utils.PointUtils;
+	import org.apache.royale.utils.UIUtils;
+	import org.apache.royale.utils.callLater;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
-	import com.unhurdle.spectrum.utils.getExplicitZIndex;
-	import org.apache.royale.collections.ICollectionView;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -320,9 +323,14 @@ package com.unhurdle.spectrum{
 				comboHost.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				_popup.open = true;
+				positionPopup();
 			}
 			//TODO how to handle keyboard and mouse focus?
 			textfield.focus();
+		}
+		private function positionPopup():void{
+			var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(comboHost);
+			_popup.positionPopup(componentBounds,comboHost.width);
 		}
 		protected function handleControlMouseDown(event:MouseEvent):void
 		{			
