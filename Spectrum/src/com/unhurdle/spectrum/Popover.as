@@ -153,6 +153,7 @@ package com.unhurdle.spectrum
 						tipElement = newSVGElement("svg",appendSelector("-tip"));
 						tipElement.style.width = "22px";
 						tipElement.style.height = "22px";
+						tipElement.style.pointerEvents = "none";
 						// <path class="spectrum-Popover-tip-triangle" d="M 0 0.7071067811865476 L 10.707106781186548 11.414213562373096 L 0 22.121320343559645"></path>
 						tipPath = newSVGElement("path", appendSelector("-tip-triangle")) as SVGPathElement;
 						// setTipPath();
