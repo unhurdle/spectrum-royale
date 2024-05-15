@@ -379,5 +379,14 @@ package com.unhurdle.spectrum
         //   outerElement.classList.remove("is-open");
         // }
     }
+    public function bringToTop():void{
+      if(!parent){
+        return;
+      }
+      if(underlay && underlay.parent) {
+        parent.addElement(underlay);
+      }
+      parent.addElement(this);
+    }
   }
 }
