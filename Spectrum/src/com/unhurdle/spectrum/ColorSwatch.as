@@ -123,8 +123,8 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		private var checkerboard:HTMLElement;
 
-		COMPILE::JS
-		private var backgroundStyle:CSSStyleDeclaration;
+		
+		protected var backgroundStyle:CSSStyleDeclaration;
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = super.createElement();

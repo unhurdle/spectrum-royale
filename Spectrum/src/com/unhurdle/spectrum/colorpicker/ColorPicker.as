@@ -152,7 +152,7 @@ package com.unhurdle.spectrum.colorpicker
 			_hexEditable = value;
 		}
 
-		private function createButton():ColorSwatch{
+		protected function createButton():ColorSwatch{
 			var button:ColorSwatch = new ColorSwatch();
 			button.size = 24;
 			button.setStyle("cursor","pointer");
