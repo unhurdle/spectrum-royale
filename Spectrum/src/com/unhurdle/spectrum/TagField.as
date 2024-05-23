@@ -12,6 +12,9 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.util.getLabelFromData;
   import org.apache.royale.utils.DisplayUtils;
   [Event(name="inputChanged", type="org.apache.royale.events.Event")]
+  [Event(name="change", type="org.apache.royale.events.Event")]
+  [Event(name="tagAdded", type="org.apache.royale.events.ValueEvent")]
+  [Event(name="tagRemoved", type="org.apache.royale.events.ValueEvent")]
   public class TagField extends Group implements IHasLabelField
   {
     public function TagField()
@@ -191,6 +194,8 @@ package com.unhurdle.spectrum
           tag.text = text;
           input.text = "";
           tagGroup.addTag(tag);
+          dispatchEvent(new ValueEvent("tagAdded",tag));
+          dispatchEvent(new Event("change"));
         }
       }
       calculatePosition();
@@ -267,7 +272,10 @@ package com.unhurdle.spectrum
     private function removeTag():void{
       var tags:Array = tagGroup.tags;
       if(!input.text && tags.length){
-        tagGroup.removeElement(tags[tags.length-1]);
+        var tag:Tag = tags[tags.length-1];
+        tagGroup.removeElement(tag);
+        dispatchEvent(new ValueEvent("tagRemoved",tag));
+        dispatchEvent(new Event("change"));
       }
       calculatePosition();
     }

@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.elements.Span;
   import org.apache.royale.core.UIBase;
 
+  [Event(name="change", type="org.apache.royale.events.Event")]
   public class Rating extends SpectrumBase
   {
     /**
@@ -130,7 +131,7 @@ package com.unhurdle.spectrum
           (element.children[i] as Element).classList.add("is-currentValue");
         }
       }
-      
+      dispatchEvent(new Event("change"));
     }
     private var _disabled:Boolean;
 
