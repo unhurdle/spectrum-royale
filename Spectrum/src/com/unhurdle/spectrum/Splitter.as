@@ -31,7 +31,7 @@ package com.unhurdle.spectrum
 				setStyle("cursor",value);
 			}
 		}
-
+		public var gripper:HTMLDivElement;
 		public function set draggable(value:Boolean):void
 		{
 			_draggable = value;
@@ -42,7 +42,8 @@ package com.unhurdle.spectrum
 						setStyle("cursor",_cursor);
 					}
 					if(!element.children.length){
-							element.appendChild(newElement("div","spectrum-SplitView-gripper"));
+							gripper = newElement("div","spectrum-SplitView-gripper") as HTMLDivElement;
+							element.appendChild(gripper);
 					}
 				} else {
 					setStyle("cursor","");
