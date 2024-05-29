@@ -193,6 +193,10 @@ package com.unhurdle.spectrum
           tag.deletable = true;
           tag.text = text;
           input.text = "";
+          tag.addEventListener("change",function (ev:Event):void{
+            dispatchEvent(new ValueEvent("tagRemoved",ev.currentTarget));
+            dispatchEvent(new Event("change"));
+          });
           tagGroup.addTag(tag);
           dispatchEvent(new ValueEvent("tagAdded",tag));
           dispatchEvent(new Event("change"));
