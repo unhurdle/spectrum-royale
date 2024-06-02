@@ -102,6 +102,12 @@ package com.unhurdle.spectrum
 			}
 			_text = value;
 		}
+		public function get limitToList():Boolean{
+			return getModel().limitToList;
+		}
+		public function set limitToList(value:Boolean):void{
+			getModel().limitToList = value;
+		}
 
     public function get placeholder():String
     {

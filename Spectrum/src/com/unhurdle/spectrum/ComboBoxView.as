@@ -1,5 +1,6 @@
 package com.unhurdle.spectrum{
 	import com.unhurdle.spectrum.const.IconType;
+	import com.unhurdle.spectrum.data.MenuItem;
 	import com.unhurdle.spectrum.includes.InputGroupInclude;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	import com.unhurdle.spectrum.utils.getExplicitZIndex;
@@ -413,6 +414,19 @@ package com.unhurdle.spectrum{
 		private function focusChangeHandler(event:Event):void{
 			comboHost.toggle("is-keyboardFocused",model.keyboardFocused);
 			comboHost.toggle("is-focused",model.focused);
+			if(model.limitToList && !model.focused && textfield?.text){
+				var exist:Boolean = false;
+				for each(var item:MenuItem in model.dataProvider){
+					if(item.text && item.text.toLowerCase() == textfield.text.toLowerCase()){
+						exist = true;
+						textfield.text = item.text;
+						break;
+					}
+				}
+				if(!exist){
+					textfield.text = "";
+				}
+			}
 		}
 		/**
 		 * @private

@@ -51,6 +51,9 @@ package com.unhurdle.spectrum
 		function get selectedItem():Object;
 		function set selectedItem(value:Object):void;
 
+		function get limitToList():Boolean;
+		function set limitToList(value:Boolean):void;
+
 		function get placeholder():String;
 		function set placeholder(value:String):void;
 
