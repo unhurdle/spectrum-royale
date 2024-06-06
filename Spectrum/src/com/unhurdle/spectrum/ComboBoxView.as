@@ -311,6 +311,9 @@ package com.unhurdle.spectrum{
 		}
 		private var indexSet:Boolean = false;
 		private function openPopup():void{
+			if(_popup.open){
+				return;
+			}
 			list.dataProvider = model.dataProvider;
 			if(list.dataProvider){
 				if(!indexSet){
@@ -322,7 +325,7 @@ package com.unhurdle.spectrum{
 				}
 				_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				comboHost.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+				comboHost.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				_popup.open = true;
 				positionPopup();
 			}
@@ -344,10 +347,10 @@ package com.unhurdle.spectrum{
 		}
 
     private function closePopup():void{
-      if(_popup && _popup.open){
+      if(_popup){
   			_popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 	  		comboHost.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-		  	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+		  	comboHost.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         _popup.open = false;
       }
 			textfield.focus();
