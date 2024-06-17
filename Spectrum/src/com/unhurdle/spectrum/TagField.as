@@ -90,7 +90,7 @@ package com.unhurdle.spectrum
     }
     private var updating:Boolean;
     //TODO just show and hide rather than add and remove from dom
-    private function updateValue(ev:InputEvent = null):void{
+    protected function updateValue(ev:InputEvent = null):void{
       if(!tagList){
         return;
       }
