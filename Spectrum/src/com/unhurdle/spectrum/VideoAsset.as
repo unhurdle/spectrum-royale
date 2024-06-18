@@ -38,7 +38,7 @@ package com.unhurdle.spectrum
     protected function createVideoElement():void{
       _videoElement = newElement("video",appendSelector("-image")) as HTMLVideoElement;
       _videoElement.setAttribute("controls","true");
-      _videoElement.addEventListener('load', loadHandler);
+      _videoElement.addEventListener('loadedmetadata', loadHandler);
       _videoElement.addEventListener('error', errorHandler);
       (element as HTMLElement).appendChild(_videoElement);
 
