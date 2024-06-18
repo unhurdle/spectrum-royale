@@ -12,7 +12,7 @@ package com.unhurdle.spectrum
 	 */
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
-	public class CheckBox extends SpectrumBase
+	public class CheckBox extends SpectrumBase implements ITextContent
 	{
 	/**
 	 * <inject_html>

@@ -1,27 +1,31 @@
 package com.unhurdle.spectrum{
-	import org.apache.royale.core.BeadViewBase;
-	import org.apache.royale.core.IStrand;
-	import org.apache.royale.events.IEventDispatcher;
-	import org.apache.royale.events.Event;
-	import org.apache.royale.utils.UIUtils;
-	import org.apache.royale.utils.PointUtils;
-	import org.apache.royale.core.IPopUpHost;
-	import org.apache.royale.geom.Point;
-	import org.apache.royale.html.beads.IComboBoxView;
-	import org.apache.royale.html.util.getLabelFromData;
-	import org.apache.royale.core.IChild;
-	import org.apache.royale.utils.callLater;
-	import org.apache.royale.events.MouseEvent;
 	import com.unhurdle.spectrum.const.IconType;
+	import com.unhurdle.spectrum.data.MenuItem;
 	import com.unhurdle.spectrum.includes.InputGroupInclude;
+	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
+	import com.unhurdle.spectrum.utils.getExplicitZIndex;
+
+	import org.apache.royale.collections.ICollectionView;
+	import org.apache.royale.core.BeadViewBase;
+	import org.apache.royale.core.IChild;
+	import org.apache.royale.core.IPopUpHost;
+	import org.apache.royale.core.IStrand;
+	import org.apache.royale.events.Event;
+	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.KeyboardEvent;
-	import org.apache.royale.events.utils.WhitespaceKeys;
+	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
-	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
+	import org.apache.royale.events.utils.WhitespaceKeys;
+	import org.apache.royale.geom.Point;
+	import org.apache.royale.geom.Rectangle;
+	import org.apache.royale.html.beads.IComboBoxView;
+	import org.apache.royale.html.util.getLabelFromData;
+	import org.apache.royale.utils.DisplayUtils;
+	import org.apache.royale.utils.PointUtils;
+	import org.apache.royale.utils.UIUtils;
+	import org.apache.royale.utils.callLater;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
-	import com.unhurdle.spectrum.utils.getExplicitZIndex;
-	import org.apache.royale.collections.ICollectionView;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -295,7 +299,7 @@ package com.unhurdle.spectrum{
 				var relocated:Point = PointUtils.localToGlobal(origin,comboHost);
 				_popup.x = relocated.x
 				_popup.y = relocated.y;
-				_popup.width = comboHost.width;
+				_popup.width = comboHost.popupWidth > 0 ? comboHost.popupWidth : comboHost.width;
 				list.selectedIndex = -1;
 
 				var popupHost:IPopUpHost = UIUtils.findPopUpHost(comboHost);
@@ -307,6 +311,9 @@ package com.unhurdle.spectrum{
 		}
 		private var indexSet:Boolean = false;
 		private function openPopup():void{
+			if(_popup.open){
+				return;
+			}
 			list.dataProvider = model.dataProvider;
 			if(list.dataProvider){
 				if(!indexSet){
@@ -318,11 +325,16 @@ package com.unhurdle.spectrum{
 				}
 				_popup.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				comboHost.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				_popup.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+				comboHost.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				_popup.open = true;
+				positionPopup();
 			}
 			//TODO how to handle keyboard and mouse focus?
 			textfield.focus();
+		}
+		private function positionPopup():void{
+			var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(comboHost);
+			_popup.positionPopup(componentBounds,comboHost.width);
 		}
 		protected function handleControlMouseDown(event:MouseEvent):void
 		{			
@@ -335,10 +347,10 @@ package com.unhurdle.spectrum{
 		}
 
     private function closePopup():void{
-      if(_popup && _popup.open){
+      if(_popup){
   			_popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 	  		comboHost.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-		  	_popup.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+		  	comboHost.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
         _popup.open = false;
       }
 			textfield.focus();
@@ -405,6 +417,19 @@ package com.unhurdle.spectrum{
 		private function focusChangeHandler(event:Event):void{
 			comboHost.toggle("is-keyboardFocused",model.keyboardFocused);
 			comboHost.toggle("is-focused",model.focused);
+			if(model.limitToList && !model.focused && textfield?.text){
+				var exist:Boolean = false;
+				for each(var item:MenuItem in model.dataProvider){
+					if(item.text && item.text.toLowerCase() == textfield.text.toLowerCase()){
+						exist = true;
+						textfield.text = item.text;
+						break;
+					}
+				}
+				if(!exist){
+					textfield.text = "";
+				}
+			}
 		}
 		/**
 		 * @private

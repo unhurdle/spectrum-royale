@@ -9,7 +9,7 @@ package com.unhurdle.spectrum
 
   [Event(name="search", type="org.apache.royale.events.Event")]
   [Event(name="menuChange", type="org.apache.royale.events.Event")]
-  public class SearchWithin extends SpectrumBase
+  public class SearchWithin extends SpectrumBase implements ITextContent
   {
     
     /**
@@ -36,9 +36,7 @@ package com.unhurdle.spectrum
     private var _dropdown:Picker;
     private var input:TextField;
     private var button:ClearButton;
-    override protected function getTag():String{
-      return "form";
-    }
+
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
       var elem:WrappedHTMLElement = super.createElement();
@@ -57,7 +55,15 @@ package com.unhurdle.spectrum
       button = new ClearButton();
       button.className = appendSelector("-clearButton");
       button.addEventListener("clear" , clear);
-      element.addEventListener("submit", handleSubmit);
+      // element.addEventListener("submit", handleSubmit);
+      input.addEventListener("onEnter", function(ev:Event):void{
+        dispatchEvent(new Event("search"));
+      });
+      //TODO: Do we want to search on tab?
+      input.addEventListener("onTab", function(ev:Event):void{
+        dispatchEvent(new Event("search"));
+      });
+
       addElement(_dropdown);
       addElement(input);
       input.addElement(button);
@@ -71,11 +77,11 @@ package com.unhurdle.spectrum
       input.text = "";
       dispatchEvent(new Event("search"));
     }
-    private function handleSubmit(ev:Event):Boolean{
-      ev.preventDefault();
-      dispatchEvent(new Event("search"));
-      return false;
-    }
+    // private function handleSubmit(ev:Event):Boolean{
+    //   ev.preventDefault();
+    //   dispatchEvent(new Event("search"));
+    //   return false;
+    // }
     private function handleChange(ev:Event):void{
       dispatchEvent(new Event("menuChange"));
     }

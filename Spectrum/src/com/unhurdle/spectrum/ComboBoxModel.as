@@ -34,6 +34,13 @@ package com.unhurdle.spectrum
 				dispatchEvent(new Event("textChange"));
 			}
 		}
+    private var _limitToList:Boolean;
+    public function get limitToList():Boolean{
+      return _limitToList;
+    }
+    public function set limitToList(value:Boolean):void{
+      _limitToList = value;
+    }
     private var _placeholder:String = "";
 		public function get placeholder():String{
       return _placeholder;

@@ -207,7 +207,9 @@ package com.unhurdle.spectrum
       closePopover();
       dispatchEvent(new Event("selectedDateChanged"));
       var date:Date = ev.target.selectedDate;
-
+      selectedDate = date;
+    }
+    private function set selectedDate(date:Date):void{
       var year:String = date.getFullYear().toString();
 
       var month:String = (1 + date.getMonth()).toString();
@@ -217,6 +219,11 @@ package com.unhurdle.spectrum
       day = day.length > 1 ? day : '0' + day;
       //TODO international formatting
       input.text = month + '/' + day + '/' +  year;
+    }
+    public function selectDate(date:Date):void{
+      model = calendar.model;
+      (model as DatePickerModel).selectedDate = date;
+      selectedDate = date;
     }
     override public function addedToParent():void{
       super.addedToParent();

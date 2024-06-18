@@ -1,7 +1,7 @@
 package com.unhurdle.spectrum
 {
 
-  public class TextBase extends SpectrumBase
+  public class TextBase extends SpectrumBase implements ITextContent
   {
     public function TextBase()
     {

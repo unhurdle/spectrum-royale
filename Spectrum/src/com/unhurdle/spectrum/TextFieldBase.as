@@ -24,7 +24,7 @@ package com.unhurdle.spectrum
  * <input type="text" placeholder="Enter your name" name="field" value="Not a valid input" class="spectrum-Textfield" pattern="[\d]+" required>
  * <input type="text" placeholder="Enter your name" name="field" value="A valid input" class="spectrum-Textfield spectrum-Textfield--quiet is-valid" pattern="[\w\s]+" required disabled>
  */
-  public class TextFieldBase extends SpectrumBase implements IKeyboardFocusable
+  abstract public class TextFieldBase extends SpectrumBase implements IKeyboardFocusable, ITextContent
   {
     /**
      * <inject_html>
@@ -38,7 +38,13 @@ package com.unhurdle.spectrum
       addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
       _tabFocusable = true;
     }
-    
+    public function get text():String{
+      throw new Error("Must override text getter!");
+    }
+    public function set text(value:String):void{
+      // override in subclass
+    }
+
     override public function set tabFocusable(value:Boolean):void
     {
     	_tabFocusable = value;

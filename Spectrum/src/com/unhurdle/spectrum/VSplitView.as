@@ -9,7 +9,21 @@ package com.unhurdle.spectrum
     {
       super();
       direction = "vertical";
+      splitter.style = {'height': '2px','width': '100%'};
 			position = 50;
+    }
+    override public function set isDraggable(value:Boolean):void{
+      super.isDraggable = value;
+      if(splitter.gripper){
+        splitter.gripper.style.top = '-4px';
+        splitter.gripper.style.transform = 'translate(-50%, 0)';
+        splitter.gripper.style.width = '16px';
+        splitter.gripper.style.height = '4px';
+        splitter.gripper.style.borderTopWidth = '3px';
+        splitter.gripper.style.borderBottomWidth = '3px';
+        splitter.gripper.style.borderLeftWidth = '4px';
+        splitter.gripper.style.borderRightWidth = '4px';
+      }
     }
     private var _bottomVisible:Boolean = true;
 

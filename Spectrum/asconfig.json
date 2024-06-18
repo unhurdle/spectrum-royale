@@ -13,18 +13,19 @@
             "${royalelib}/js/libs",
             "${royalelib}/../js/libs",
             "libs"
-         ],
-         "js-external-library-path": [
+        ],
+        "js-external-library-path": [
             "${royalelib}/../js/libs",
             "${royalelib}/js/libs",
             "libs"
-         ],
+        ],
         "load-config": [
             "asconfigc-config.xml"
         ],
         "js-load-config": [
             "js-compile-config.xml"
         ],
+        "allow-abstract-classes": true,
         "warn-public-vars": false,
         "include-classes": [
             "Spectrum"

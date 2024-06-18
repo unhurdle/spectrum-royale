@@ -8,6 +8,15 @@ package com.unhurdle.spectrum
 
   public class BinaryImageAsset extends ImageAsset
   {
+    COMPILE::JS
+    private static function revokeObjURL(inst:BinaryImageAsset):void{
+      if(inst._objectURL) {
+        URLUtils.revokeObjectURL(inst._objectURL);
+        inst._objectURL = null;
+      }
+    }
+    
+    
     public function BinaryImageAsset()
     {
       super();
@@ -29,11 +38,14 @@ package com.unhurdle.spectrum
         }
         COMPILE::JS
         {
-          if(_objectURL)
-            URLUtils.revokeObjectURL(_objectURL);
-          var blob:Blob = new Blob([value.array]);
-          _objectURL = URLUtils.createObjectURL(blob);
-          _imageElement.src = _objectURL;
+          revokeObjURL(this);
+          if (value) {
+            var blob:Blob = new Blob([value.array]);
+            _objectURL = URLUtils.createObjectURL(blob);
+            _imageElement.src = _objectURL;
+          } else {
+            _imageElement.src = "";
+          }
           _src = "";
         }
       }
@@ -41,6 +53,10 @@ package com.unhurdle.spectrum
     override public function set src(value:String):void{
       super.src = value;
       _binary = null;
+      COMPILE::JS
+      {
+        revokeObjURL(this);
+      }
     }
 
   }

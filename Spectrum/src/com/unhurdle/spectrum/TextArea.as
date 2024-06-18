@@ -74,12 +74,12 @@ package com.unhurdle.spectrum
 			textarea.name = value;
 		}
 
-		public function get text():String
+		override public function get text():String
 		{
 			return textarea.value;
 		}
 		
-		public function set text(value:String):void
+		override public function set text(value:String):void
 		{
 			textarea.value = value;
 			checkValidation();

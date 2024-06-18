@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
 		{
 			super();
 			size = 24;
+			setStyle("overflow", "hidden");
 		}
     override protected function getSelector():String{
       return "spectrum-ColorSwatch";
@@ -122,8 +123,8 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		private var checkerboard:HTMLElement;
 
-		COMPILE::JS
-		private var backgroundStyle:CSSStyleDeclaration;
+		
+		protected var backgroundStyle:CSSStyleDeclaration;
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = super.createElement();

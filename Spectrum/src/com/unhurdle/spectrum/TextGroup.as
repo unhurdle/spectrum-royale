@@ -1,7 +1,7 @@
 package com.unhurdle.spectrum
 {
 
-  public class TextGroup extends Group
+  public class TextGroup extends Group implements ITextContent
   {
     public function TextGroup()
     {

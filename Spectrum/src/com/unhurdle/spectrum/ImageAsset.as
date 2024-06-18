@@ -4,7 +4,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IValuesImpl;
   import org.apache.royale.events.Event;
 
-	[Event(name="error", type="org.apache.royale.events.Event")]
+  [Event(name="error", type="org.apache.royale.events.Event")]
   [Event(name="load", type="org.apache.royale.events.Event")]
   public class ImageAsset extends Asset
   {
@@ -31,6 +31,7 @@ package com.unhurdle.spectrum
         if(!_imageElement){
           createImageElement();
         }
+        if (value == null) value = ''; //null does not convert well
         _imageElement.src = value;
         _src = value;
       }

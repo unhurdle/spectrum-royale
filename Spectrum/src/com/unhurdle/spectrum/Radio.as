@@ -4,7 +4,7 @@ package com.unhurdle.spectrum
 		import org.apache.royale.core.WrappedHTMLElement;
 	}
 
-	public class Radio extends SpectrumBase
+	public class Radio extends SpectrumBase implements ITextContent
 	{
 	/**
 	 * <inject_html>

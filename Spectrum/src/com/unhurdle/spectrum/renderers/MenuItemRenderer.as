@@ -219,7 +219,7 @@ package com.unhurdle.spectrum.renderers
     protected var textNode:TextNode;
     private var indicator:Icon;
     private var type:String;
-    private var checkIcon:Icon;
+    protected var checkIcon:Icon;
 
     override protected function getTag():String{
       return "li";

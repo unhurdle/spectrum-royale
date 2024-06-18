@@ -8,7 +8,7 @@ package com.unhurdle.spectrum
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
-  public class ComboBox extends SpectrumBase implements IKeyboardFocusable
+  public class ComboBox extends SpectrumBase implements IKeyboardFocusable, ITextContent
   {
     public function ComboBox()
     {
@@ -102,6 +102,12 @@ package com.unhurdle.spectrum
 			}
 			_text = value;
 		}
+		public function get limitToList():Boolean{
+			return getModel().limitToList;
+		}
+		public function set limitToList(value:Boolean):void{
+			getModel().limitToList = value;
+		}
 
     public function get placeholder():String
     {
@@ -180,6 +186,16 @@ package com.unhurdle.spectrum
 			getModel().keyboardFocused = value;
 		}
 
+		private var _popupWidth:Number;
+		public function get popupWidth():Number
+		{
+			return _popupWidth;
+		}
+
+		public function set popupWidth(value:Number):void
+		{
+			_popupWidth = value;
+		}
 		public var filterFunction:Function = function(input:String,dataProvider:Object):Array{
 			var inArray:Array;
 			if(dataProvider is IArrayList){

@@ -40,7 +40,7 @@ package com.unhurdle.spectrum.renderers
         } else {
           swatch.color = new RGBColor([255,255,255]);
           lineDiv = newElement("div") as HTMLDivElement;
-          lineDiv.style.top = "6px";
+          lineDiv.style.top = "6.6px";
           lineDiv.style.left = "6px";
           lineDiv.style.width = "34px";
           lineDiv.style.height = "34px";

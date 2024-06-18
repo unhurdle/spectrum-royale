@@ -4,7 +4,7 @@ package com.unhurdle.spectrum
   {}
   import com.unhurdle.spectrum.includes.SideNavInclude;
 
-  public class SideNavHeading extends SideNav
+  public class SideNavHeading extends SideNav implements ITextContent
   {
     public function SideNavHeading(text:String = "")
     {
