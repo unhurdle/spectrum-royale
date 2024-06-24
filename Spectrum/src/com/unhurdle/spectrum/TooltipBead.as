@@ -237,6 +237,14 @@ package com.unhurdle.spectrum
 			}
 			tt.setStyle("position","absolute");
 			tt.text = toolTip;
+			if(_autoClose > 0){
+				closeTimeoutId = setTimeout(closeTooltip,_autoClose);
+			}
+		}
+
+		protected function showTooltip():void {
+			createTooltip();
+			host.popUpParent.addElement(tt, false); // don't trigger a layout
 			var ttWidth:Number = tt.width;
 			var pt:Point = determinePosition(_strand as IUIBase, tt);
 			tt.x = pt.x;
@@ -247,14 +255,6 @@ package com.unhurdle.spectrum
 				tt.x = pt.x;
 				tt.y = pt.y;
 			}
-			if(_autoClose > 0){
-				closeTimeoutId = setTimeout(closeTooltip,_autoClose);
-			}
-		}
-
-		protected function showTooltip():void {
-			createTooltip();
-			host.popUpParent.addElement(tt, false); // don't trigger a layout
 		}
 
 		protected function determinePosition(comp:IUIBase, tooltip:Tooltip):Point
