@@ -149,8 +149,9 @@ package com.unhurdle.spectrum
       _shown = false;
       toggle("show", false);
       toggle("hide",true);
-      setTimeout(removeMe,500);
+      // setTimeout(removeMe,500);
       dispatchEvent(new Event("close"));
+      removeMe();
     }
 
     private function removeMe():void{
