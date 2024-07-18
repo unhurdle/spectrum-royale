@@ -104,7 +104,7 @@ package com.unhurdle.spectrum
       actionButton.text = value;
     	_action = value;
     }
-    protected function onAction(ev:Event):void{
+    private function onAction(ev:Event):void{
       if(_shown){
         dispatchEvent(new Event("accept"));
       }
@@ -268,7 +268,7 @@ package com.unhurdle.spectrum
       return elem;
     }
 
-    protected var body:HTMLElement;
+    private var body:HTMLElement;
 
   }
 }
