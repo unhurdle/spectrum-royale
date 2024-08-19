@@ -111,6 +111,8 @@ package com.unhurdle.spectrum
 		public function set toolTip(value:String):void
 		{
 			_toolTip = value;
+			if (tt)
+				tt.text = value;
 		}
 
 		private var _direction:String = TOP;

@@ -174,6 +174,7 @@ package com.unhurdle.spectrum
 
       contentNode = new TextNode("div");
       contentNode.className = appendSelector("-content");
+      contentNode.element.style.whiteSpace = "pre-wrap";
       elem.appendChild(contentNode.element);
 
       return elem;

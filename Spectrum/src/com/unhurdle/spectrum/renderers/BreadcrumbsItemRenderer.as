@@ -103,8 +103,8 @@ package com.unhurdle.spectrum.renderers
     override public function set selected(value:Boolean):void{
       //do nothing
     }
-    private var icon:Icon;
-    private var textNode:TextNode;
+    protected var icon:Icon;
+    protected var textNode:TextNode;
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
     {
