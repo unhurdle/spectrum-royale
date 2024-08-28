@@ -193,6 +193,21 @@ package com.unhurdle.spectrum
       _invalidText = value;
       applyInvalidToolTip();
     }
+
+    private var _invalidAutoClose:Number = 0;
+    public function get invalidAutoClose():Number
+    {
+    	return _invalidAutoClose;
+    }
+
+    public function set invalidAutoClose(value:Number):void
+    {
+    	_invalidAutoClose = value;
+      if(invalidTooltip) {
+        invalidTooltip.autoClose = value;
+      }
+    }
+
     private var invalidTooltip:AdaptiveTooltipBead;
     override public function set invalid(value:Boolean):void
     {
@@ -230,6 +245,7 @@ package com.unhurdle.spectrum
       invalidTooltip.flavor = "negative";
       invalidIcon.addBead(invalidTooltip);
       invalidIcon.setStyle("pointer-events","auto");
+      invalidTooltip.autoClose = invalidAutoClose;
       COMPILE::JS{
             invalidIcon.width = invalidIcon.element.clientWidth;
       }
