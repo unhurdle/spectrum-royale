@@ -3,6 +3,8 @@ package com.unhurdle.spectrum
   
   import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
 
+  import org.apache.royale.debugging.assert;
+
   public class Thumbnail extends SpectrumBase implements IKeyboardFocusable
   {
     /**
@@ -203,11 +205,12 @@ package com.unhurdle.spectrum
         COMPILE::JS{
           createBackground();
         }
+        assert(src.indexOf('"') == -1, "Double quotes should be url-encoded in the thumbnail src string");
         if(backgroundColor){
-          background.style.background = "url(" + src + ")," + backgroundColor;
+          background.style.background = 'url("' + src +'"),' + backgroundColor;
           setBackgroundStyle();
         }else{
-          background.style.backgroundImage = "url(" + src + ")";
+          background.style.backgroundImage = 'url("' + src +'")';
           background.style.backgroundColor = "";
         }
         if(title){
