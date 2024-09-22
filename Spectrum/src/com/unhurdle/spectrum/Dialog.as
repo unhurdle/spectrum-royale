@@ -169,7 +169,7 @@ package com.unhurdle.spectrum
               heroDiv.className = appendSelector("-hero");
               addElementAt(heroDiv,0);
             }
-            assert(value.indexOf('"') == -1, "Double quotes should be url-encoded in the here image src string");
+            assert(value.indexOf('"') == -1, "Double quotes should be url-encoded in the hero image src string");
             heroDiv.element.style.backgroundImage = 'url("' + value +'")';
           }else{
             removeElement(heroDiv);
