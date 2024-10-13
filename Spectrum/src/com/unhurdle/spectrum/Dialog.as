@@ -372,7 +372,6 @@ package com.unhurdle.spectrum
       if (prevFocus) prevFocus.focus();
       parent.removeElement(this);
       dispatchEvent(new Event("modalHidden"));
-      dispatchEvent(new Event("hide"));
     }
     private function handleModalHidden(ev:Event):void{
       toggle("is-open",false);
