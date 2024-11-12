@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.core.IRollOverModel;
   import com.unhurdle.spectrum.renderers.DataItemRenderer;
   import org.apache.royale.core.IParent;
+  import org.apache.royale.functional.decorator.debounceLong;
 
 	public class ListView extends DataContainerView
 	{
@@ -48,8 +49,10 @@ package com.unhurdle.spectrum
 				focusableItemRenderer.tabFocusable = true;
 			}
 			super.itemsCreatedHandler(event);
+			debounceLong(runChangeHandler,0);
+		}
+		private function runChangeHandler():void{
 			selectionChangeHandler(null);
-
 		}
 		/**
 		 * @private
