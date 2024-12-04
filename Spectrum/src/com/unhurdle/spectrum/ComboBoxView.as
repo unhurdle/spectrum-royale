@@ -193,6 +193,7 @@ package com.unhurdle.spectrum{
 				case WhitespaceKeys.ENTER:
 				case NavigationKeys.DOWN:
 				case NavigationKeys.UP:
+				case "Escape":
 					COMPILE::JS
 					{
 						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
