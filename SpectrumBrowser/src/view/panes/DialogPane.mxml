@@ -38,7 +38,7 @@
         '  <sp:DialogContent text="{loremIpsum}"/>\n'+
         '</sp:Dialog>\n'+
         '<sp:Dialog id="heroDialog" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true"\n'+
-        '  hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">\n'+
+        '  hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.png">\n'+
         '  <sp:DialogHeader title="Disclaimer"/>\n'+
         '  <sp:DialogContent text="{loremIpsum}"/>\n'+
         '</sp:Dialog>\n'+
@@ -155,7 +155,7 @@
       <sp:DialogContent text="{loremIpsum}"/>
     </sp:Dialog>
     <sp:Dialog id="heroDialog" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true"
-      hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">
+      hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.png">
       <sp:DialogHeader title="Disclaimer"/>
       <sp:DialogContent text="{loremIpsum}"/>
     </sp:Dialog>

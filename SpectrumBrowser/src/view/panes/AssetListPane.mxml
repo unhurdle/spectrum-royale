@@ -9,8 +9,8 @@
 
       private function onComplete():void{
         var arr:Array = [];
-        var item:AssetListItem = new AssetListItem("Shantanu.jpg");
-        item.imageIcon = "https://opensource.adobe.com/spectrum-css/img/example-ava.jpg";
+        var item:AssetListItem = new AssetListItem("Shantanu.png");
+        item.imageIcon = "https://opensource.adobe.com/spectrum-css/example-ava.png";
         item.selectable = true;
         arr.push(item);
         item = new AssetListItem("Resource Allocation.csv");
