@@ -29,7 +29,7 @@ package com.unhurdle.spectrum
 
 		public function get overBackground():Boolean
 		{
-			return overBackground;
+			return _overBackground;
 		}
 
 		public function set overBackground(value:Boolean):void
