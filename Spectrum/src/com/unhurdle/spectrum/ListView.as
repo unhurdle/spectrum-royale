@@ -7,6 +7,7 @@ package com.unhurdle.spectrum
   import com.unhurdle.spectrum.renderers.DataItemRenderer;
   import org.apache.royale.core.IParent;
   import org.apache.royale.functional.decorator.debounceLong;
+  import com.unhurdle.spectrum.utils.canItemGetFocus;
 
 	public class ListView extends DataContainerView
 	{
@@ -44,9 +45,17 @@ package com.unhurdle.spectrum
 					focusableItemRenderer = null;
 				}
 			}
-			if(!focusableItemRenderer && dataGroup.numItemRenderers > 0){
-				focusableItemRenderer = dataGroup.getItemRendererAt(0) as DataItemRenderer;
-				focusableItemRenderer.tabFocusable = true;
+			var currentInxex:int = 0;
+			while(!focusableItemRenderer && dataGroup.numItemRenderers > currentInxex){
+				focusableItemRenderer = dataGroup.getItemRendererAt(currentInxex) as DataItemRenderer;
+				if (canItemGetFocus(focusableItemRenderer))
+				{
+					focusableItemRenderer.tabFocusable = true;
+				} else
+				{
+					focusableItemRenderer = null;
+					currentInxex++;
+				}
 			}
 			super.itemsCreatedHandler(event);
 			debounceLong(runChangeHandler,0);
