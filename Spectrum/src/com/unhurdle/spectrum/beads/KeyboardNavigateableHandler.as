@@ -77,9 +77,7 @@ package com.unhurdle.spectrum.beads
     }
     protected var focusableItemRenderer:DataItemRenderer;
     protected function handleItemsCreated(event:Event):void{
-      var wasKeyboardFocused:Boolean;
       if(focusableItemRenderer){
-        wasKeyboardFocused = focusableItemRenderer.keyboardFocused;
         focusableItemRenderer.keyboardFocused = false;
         focusableItemRenderer.tabFocusable = false;
         focusableItemRenderer = null;
@@ -90,7 +88,7 @@ package com.unhurdle.spectrum.beads
        }
        if(ir){
          ir.tabFocusable = true;
-         ir.keyboardFocused = wasKeyboardFocused;
+         ir.keyboardFocused = _focusableFocused;
          focusableItemRenderer = ir;
        } else {
          focusableItemRenderer = null;
@@ -146,6 +144,7 @@ package com.unhurdle.spectrum.beads
         if(focusableItemRenderer){
           focusableItemRenderer.keyboardFocused = false;
           focusableItemRenderer.tabFocusable = false;
+          _focusableFocused = false;
         }
         if(ir){
           ir.tabFocusable = true;
@@ -154,9 +153,11 @@ package com.unhurdle.spectrum.beads
       } 
       focusItem();
     }
+    private var _focusableFocused:Boolean;
     protected function focusItem():void{
       if(focusableItemRenderer){
         focusableItemRenderer.pauseFocusEvents = true;
+        _focusableFocused = true;
         focusableItemRenderer.focus();
         focusableItemRenderer.pauseFocusEvents = false;
 			}else if(listModel.selectedIndex >= 0){
@@ -164,6 +165,7 @@ package com.unhurdle.spectrum.beads
         if(focusableItemRenderer){
           focusableItemRenderer.tabFocusable = true;
           focusableItemRenderer.pauseFocusEvents = true;
+          _focusableFocused = true;
           focusableItemRenderer.focus();
           focusableItemRenderer.pauseFocusEvents = false;
         }
@@ -222,14 +224,17 @@ package com.unhurdle.spectrum.beads
       var ir:DataItemRenderer = getRendererForIndex(index);
       if(ir && ir == focusableItemRenderer){
         focusableItemRenderer.keyboardFocused = true;
+        _focusableFocused = true;
         return;// done
       }
     	if(focusableItemRenderer){
+        _focusableFocused = false;
 				focusableItemRenderer.keyboardFocused = false;
         focusableItemRenderer.tabFocusable = false;
       }
 			if(ir){
 				ir.keyboardFocused = true;
+        _focusableFocused = true;
         focusableItemRenderer = ir;
 			} else {
         focusableItemRenderer = findFirstFocusable();
