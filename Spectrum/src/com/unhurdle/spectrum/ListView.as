@@ -14,6 +14,9 @@ package com.unhurdle.spectrum
 		public function ListView()
 		{
 			super();
+			runChangeHandler = debounceLong(function():void{
+				selectionChangeHandler(null);
+			},0);
 		}
 
 		protected var listModel:ListModel;
@@ -58,11 +61,9 @@ package com.unhurdle.spectrum
 				}
 			}
 			super.itemsCreatedHandler(event);
-			debounceLong(runChangeHandler,0);
+			runChangeHandler();
 		}
-		private function runChangeHandler():void{
-			selectionChangeHandler(null);
-		}
+		private var runChangeHandler:Function;
 		/**
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.core.ISelectableItemRenderer
