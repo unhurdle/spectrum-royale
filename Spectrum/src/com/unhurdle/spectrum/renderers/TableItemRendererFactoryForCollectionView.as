@@ -34,7 +34,7 @@ package com.unhurdle.spectrum.renderers
   
   public class TableItemRendererFactoryForCollectionView extends EventDispatcher implements IBead, IDataProviderItemRendererMapper
 	{
-		public function TableItemRendererFactoryForCollectionView(target:Object = null)
+		public function TableItemRendererFactoryForCollectionView(target:IEventDispatcher = null)
 		{
 			super(target);
 		}
