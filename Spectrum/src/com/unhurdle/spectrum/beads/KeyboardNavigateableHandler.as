@@ -44,6 +44,7 @@ package com.unhurdle.spectrum.beads
       host.focusParent.addEventListener("click",clickHandler);
       listenOnStrand("itemsCreated",handleItemsCreated);
       listenOnStrand("focusIn",focusItem);
+      listenOnStrand("focusOut",handleFocusOut);
       listenOnStrand("change",handleChange);
 			// listenOnStrand("itemAdded", handleItemAdded);
 			// listenOnStrand("itemRemoved", handleItemRemoved);
@@ -173,6 +174,13 @@ package com.unhurdle.spectrum.beads
 
       }
     }
+
+    private function handleFocusOut(event:Event):void
+    {
+      // if blur() is being called on list we don't want to remain focused
+      _focusableFocused = false;
+    }
+
     protected function focusNext():void{
       var startIndex:int = getRendererIndex(focusableItemRenderer);
       if(startIndex > -1){// we have a valid renderer

@@ -145,6 +145,7 @@ package com.unhurdle.spectrum{
 			model = comboHost.model as IComboBoxModel;
 			
 			_popup = loadBeadFromValuesManager(ComboBoxList,"iPopUp",_strand) as ComboBoxList;
+			_popup.autoFocusList = false;
 			_popup.position = "bottom";
       list = _popup.list;
       // list.dataProvider = model.dataProvider;
