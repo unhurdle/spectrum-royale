@@ -92,10 +92,20 @@ package com.unhurdle.spectrum
         setAttribute("tabindex",-1);
       }
     }
+
+    private var _autoFocusList:Boolean = true;
+    public function set autoFocusList(value:Boolean):void
+    {
+	_autoFocusList = value;
+    }
+
     override public function set open(value:Boolean):void{
       super.open = value;
       if(value){
-        _list.focus();
+	if (_autoFocusList)
+	{
+		_list.focus();
+	}
         addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
         topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
       } else {
