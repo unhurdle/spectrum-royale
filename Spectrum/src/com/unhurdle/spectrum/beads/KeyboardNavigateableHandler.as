@@ -9,7 +9,6 @@ package com.unhurdle.spectrum.beads
   import org.apache.royale.core.Bead;
   import org.apache.royale.core.IBead;
   import org.apache.royale.core.IParent;
-  import org.apache.royale.core.ISelectionModel;
   import org.apache.royale.core.IStrand;
   import org.apache.royale.debugging.assert;
   import org.apache.royale.events.Event;
@@ -20,6 +19,7 @@ package com.unhurdle.spectrum.beads
   import org.apache.royale.html.beads.IListView;
   import org.apache.royale.utils.sendStrandEvent;
   import org.apache.royale.core.UIBase;
+  import com.unhurdle.spectrum.utils.canItemGetFocus;
 
   public class KeyboardNavigateableHandler extends Bead implements IBead, IKeyboardHandler
   {
@@ -44,6 +44,7 @@ package com.unhurdle.spectrum.beads
       host.focusParent.addEventListener("click",clickHandler);
       listenOnStrand("itemsCreated",handleItemsCreated);
       listenOnStrand("focusIn",focusItem);
+      listenOnStrand("focusOut",handleFocusOut);
       listenOnStrand("change",handleChange);
 			// listenOnStrand("itemAdded", handleItemAdded);
 			// listenOnStrand("itemRemoved", handleItemRemoved);
@@ -80,6 +81,7 @@ package com.unhurdle.spectrum.beads
       if(focusableItemRenderer){
         focusableItemRenderer.keyboardFocused = false;
         focusableItemRenderer.tabFocusable = false;
+        focusableItemRenderer = null;
       }
        var ir:DataItemRenderer = focusableItemRenderer;
        if(!ir){
@@ -87,6 +89,7 @@ package com.unhurdle.spectrum.beads
        }
        if(ir){
          ir.tabFocusable = true;
+         ir.keyboardFocused = _focusableFocused;
          focusableItemRenderer = ir;
        } else {
          focusableItemRenderer = null;
@@ -142,6 +145,7 @@ package com.unhurdle.spectrum.beads
         if(focusableItemRenderer){
           focusableItemRenderer.keyboardFocused = false;
           focusableItemRenderer.tabFocusable = false;
+          _focusableFocused = false;
         }
         if(ir){
           ir.tabFocusable = true;
@@ -150,9 +154,11 @@ package com.unhurdle.spectrum.beads
       } 
       focusItem();
     }
+    private var _focusableFocused:Boolean;
     protected function focusItem():void{
       if(focusableItemRenderer){
         focusableItemRenderer.pauseFocusEvents = true;
+        _focusableFocused = true;
         focusableItemRenderer.focus();
         focusableItemRenderer.pauseFocusEvents = false;
 			}else if(listModel.selectedIndex >= 0){
@@ -160,6 +166,7 @@ package com.unhurdle.spectrum.beads
         if(focusableItemRenderer){
           focusableItemRenderer.tabFocusable = true;
           focusableItemRenderer.pauseFocusEvents = true;
+          _focusableFocused = true;
           focusableItemRenderer.focus();
           focusableItemRenderer.pauseFocusEvents = false;
         }
@@ -167,6 +174,13 @@ package com.unhurdle.spectrum.beads
 
       }
     }
+
+    private function handleFocusOut(event:Event):void
+    {
+      // if blur() is being called on list we don't want to remain focused
+      _focusableFocused = false;
+    }
+
     protected function focusNext():void{
       var startIndex:int = getRendererIndex(focusableItemRenderer);
       if(startIndex > -1){// we have a valid renderer
@@ -218,14 +232,17 @@ package com.unhurdle.spectrum.beads
       var ir:DataItemRenderer = getRendererForIndex(index);
       if(ir && ir == focusableItemRenderer){
         focusableItemRenderer.keyboardFocused = true;
+        _focusableFocused = true;
         return;// done
       }
     	if(focusableItemRenderer){
+        _focusableFocused = false;
 				focusableItemRenderer.keyboardFocused = false;
         focusableItemRenderer.tabFocusable = false;
       }
 			if(ir){
 				ir.keyboardFocused = true;
+        _focusableFocused = true;
         focusableItemRenderer = ir;
 			} else {
         focusableItemRenderer = findFirstFocusable();
@@ -245,18 +262,10 @@ package com.unhurdle.spectrum.beads
       return null;
     }
 
-    protected function canGetFocus(index:int):Boolean{
+    protected function canGetFocus(index:int):Boolean
+    {
       var item:Object = getRendererForIndex(index).data;
-      if(!item){
-        return false;
-      }
-      if(item.disabled){
-        return false;
-      }
-      if(item is IMenuItem){
-        return !(item as IMenuItem).isDivider && !(item as IMenuItem).isHeading;
-      }
-      return true;
+      return canItemGetFocus(item);
     }
 
 		protected var timeStamp:Number = 0;

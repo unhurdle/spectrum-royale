@@ -145,6 +145,7 @@ package com.unhurdle.spectrum{
 			model = comboHost.model as IComboBoxModel;
 			
 			_popup = loadBeadFromValuesManager(ComboBoxList,"iPopUp",_strand) as ComboBoxList;
+			_popup.autoFocusList = false;
 			_popup.position = "bottom";
       list = _popup.list;
       // list.dataProvider = model.dataProvider;
@@ -193,6 +194,7 @@ package com.unhurdle.spectrum{
 				case WhitespaceKeys.ENTER:
 				case NavigationKeys.DOWN:
 				case NavigationKeys.UP:
+				case "Escape":
 					COMPILE::JS
 					{
 						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);

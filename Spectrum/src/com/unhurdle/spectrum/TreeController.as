@@ -11,6 +11,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.ItemAddedEvent;
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.ItemRemovedEvent;
+	import org.apache.royale.core.ISelectableItemRenderer;
 
   public class TreeController extends ListSingleSelectionMouseController
   {
@@ -59,12 +60,18 @@ package com.unhurdle.spectrum
 			
 			if (treeData.hasChildren(node))
 			{
+				// remove the selection of the current selected item renderer
+				if(dataGroup){
+					var ir:ISelectableItemRenderer = dataGroup.getItemRendererForIndex(listModel.selectedIndex) as ISelectableItemRenderer;
+					ir.selected = false;
+				}
 				if (treeData.isOpen(node)) {
 					treeData.closeNode(node);
 				} else {
 					treeData.openNode(node);
 				}
 			}
+			(listModel as ListModel).refreshIndex();
       event.currentTarget.dispatchEvent(new Event('expanded'));
     }
 	}

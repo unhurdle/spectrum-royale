@@ -6,11 +6,12 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.elements.Div;
   }
     import com.unhurdle.spectrum.const.IconType;
+    import com.unhurdle.spectrum.utils.getFocusableElements;
     import com.unhurdle.spectrum.utils.hasAutoFocus;
 
     import org.apache.royale.core.IChild;
+    import org.apache.royale.debugging.assert;
     import org.apache.royale.events.KeyboardEvent;
-    import com.unhurdle.spectrum.utils.getFocusableElements;
     import org.apache.royale.events.utils.WhitespaceKeys;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
@@ -168,7 +169,8 @@ package com.unhurdle.spectrum
               heroDiv.className = appendSelector("-hero");
               addElementAt(heroDiv,0);
             }
-            heroDiv.element.style.backgroundImage="url("+ value + ")";
+            assert(value.indexOf('"') == -1, "Double quotes should be url-encoded in the hero image src string");
+            heroDiv.element.style.backgroundImage = 'url("' + value +'")';
           }else{
             removeElement(heroDiv);
             heroDiv = null;
@@ -370,7 +372,6 @@ package com.unhurdle.spectrum
       if (prevFocus) prevFocus.focus();
       parent.removeElement(this);
       dispatchEvent(new Event("modalHidden"));
-      dispatchEvent(new Event("hide"));
     }
     private function handleModalHidden(ev:Event):void{
       toggle("is-open",false);

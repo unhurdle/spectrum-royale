@@ -38,7 +38,7 @@
         '  <sp:DialogContent text="{loremIpsum}"/>\n'+
         '</sp:Dialog>\n'+
         '<sp:Dialog id="heroDialog" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true"\n'+
-        '  hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">\n'+
+        '  hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.png">\n'+
         '  <sp:DialogHeader title="Disclaimer"/>\n'+
         '  <sp:DialogContent text="{loremIpsum}"/>\n'+
         '</sp:Dialog>\n'+
@@ -102,8 +102,10 @@
         '</sp:Dialog>\n'+
         '<sp:Dialog id="fullScreenTakeover" size="{Dialog.FULLSCREEN_TAKEOVER}">\n'+
         '  <sp:DialogHeader title="Fullscreen Takeover">\n'+
+        '   <sp:ButtonGroup vertical="false">\n'+
         '    <sp:Button text="Cancel" flavor="{Button.SECONDARY}" click="fullScreenTakeover.hide()"/>\n'+
         '    <sp:Button text="Save" click="fullScreenTakeover.hide()"/>\n'+
+        '   </sp:ButtonGroup>\n'+
         '  </sp:DialogHeader>\n'+
         '  <sp:DialogContent text="{longLoremIpsum}"/>\n'+
         '  <sp:DialogFooter>\n'+
@@ -155,7 +157,7 @@
       <sp:DialogContent text="{loremIpsum}"/>
     </sp:Dialog>
     <sp:Dialog id="heroDialog" size="{Dialog.MEDIUM}" dismissible="true" noDivider="true"
-      hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.jpg">
+      hero="https://opensource.adobe.com/spectrum-css/static/images/example-card-portrait.png">
       <sp:DialogHeader title="Disclaimer"/>
       <sp:DialogContent text="{loremIpsum}"/>
     </sp:Dialog>

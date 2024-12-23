@@ -43,11 +43,11 @@
         '<sp:Picker selectedItem="{Ba}">\n'+
         '  <sp:dataProvider>\n'+
         '  <fx:Array>\n'+
-        '    <sp:MenuItem id="Ba" imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Ballard"/>\n'+
-        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Freemont"/>\n'+
-        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Greenwood"/>\n'+
+        '    <sp:MenuItem id="Ba" imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Ballard"/>\n'+
+        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Freemont"/>\n'+
+        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Greenwood"/>\n'+
         '    <sp:MenuItem isDivider="true"/>\n'+
-        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="United States of America" disabled="true"/>\n'+
+        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="United States of America" disabled="true"/>\n'+
         '  </fx:Array>\n'+
         '  </sp:dataProvider>\n'+
         '</sp:Picker>\n\n'+
@@ -90,11 +90,11 @@
         '<sp:Picker quiet="true" selectedItem="{selected1}">\n'+
         '  <sp:dataProvider>\n'+
         '  <fx:Array>\n'+
-        '    <sp:MenuItem id="selected1" imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Ballard"/>\n'+
-        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Freemont"/>\n'+
-        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Greenwood"/>\n'+
+        '    <sp:MenuItem id="selected1" imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Ballard"/>\n'+
+        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Freemont"/>\n'+
+        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Greenwood"/>\n'+
         '    <sp:MenuItem isDivider="true"/>\n'+
-        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="United States of America" disabled="true"/>\n'+
+        '    <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="United States of America" disabled="true"/>\n'+
         '  </fx:Array>\n'+
         '  </sp:dataProvider>\n'+
         '</sp:Picker>\n\n'+
@@ -138,11 +138,11 @@
     <sp:Picker selectedItem="{Ba}">
       <sp:dataProvider>
       <fx:Array>
-        <sp:MenuItem id="Ba" imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Ballard"/>
-        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Freemont"/>
-        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Greenwood"/>
+        <sp:MenuItem id="Ba" imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Ballard"/>
+        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Freemont"/>
+        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Greenwood"/>
         <sp:MenuItem isDivider="true"/>
-        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="United States of America" disabled="true"/>
+        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="United States of America" disabled="true"/>
       </fx:Array>
       </sp:dataProvider>
      </sp:Picker>
@@ -196,11 +196,11 @@
     <sp:Picker quiet="true" selectedItem="{selected1}">
       <sp:dataProvider>
       <fx:Array>
-        <sp:MenuItem id="selected1" imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Ballard"/>
-        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Freemont"/>
-        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="Greenwood"/>
+        <sp:MenuItem id="selected1" imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Ballard"/>
+        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Freemont"/>
+        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="Greenwood"/>
         <sp:MenuItem isDivider="true"/>
-        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" text="United States of America" disabled="true"/>
+        <sp:MenuItem imageIcon="https://opensource.adobe.com/spectrum-css/example-ava.png" text="United States of America" disabled="true"/>
       </fx:Array>
       </sp:dataProvider>
      </sp:Picker>

@@ -113,6 +113,14 @@ package com.unhurdle.spectrum
 				relocated.y -= offset.y;
 				popover.y = determinePosition(relocated.y);
 				popover.x = relocated.x;
+				if(_alignTofit){
+					if(_alignRight){
+						popover.x = Math.max(0,popover.x - (popoverWidth - width));
+					} else {
+						popover.x = Math.min(popover.x,(popupHost as IParentIUIBase).width - popoverWidth);
+					}
+					return;
+				}
 				if(_alignRight && popoverWidth>width){
 					popover.x -= popoverWidth-width;
 				}
@@ -135,6 +143,17 @@ package com.unhurdle.spectrum
 			_alignRight = value;
 		 
 			// menu.alignRight = value;
+		}
+		private var _alignTofit:Boolean;
+
+		public function get alignTofit():Boolean
+		{
+			return _alignTofit;
+		}
+
+		public function set alignTofit(value:Boolean):void
+		{
+			_alignTofit = value;
 		}
 
 		public function determinePosition(ptY:Number):Number

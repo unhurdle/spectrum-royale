@@ -5,7 +5,7 @@
   <fx:Script>
     <![CDATA[
       [Bindable]public var standardMarkup:String =
-    '<sp:Card localId="card1" coverSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg">\n'+
+    '<sp:Card localId="card1" coverSrc="https://opensource.adobe.com/spectrum-css/example-card-portrait.png">\n'+
     '  <sp:body>\n'+
     '    <sp:CardBody>\n'+
     '      <sp:CardHeader>\n'+
@@ -30,7 +30,7 @@
     '<Div width="208" height="264">\n'+
     '  <sp:Card localId="card2" >\n'+
     '  <sp:preview>\n'+
-    '    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>\n'+
+    '    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/example-ava.png"/>\n'+
     '  </sp:preview>\n'+
     '    <sp:body>\n'+
     '      <sp:CardBody>\n'+
@@ -151,7 +151,7 @@
     '<Div width="112" height="136">\n'+
     '  <sp:Card localId="card3" small="true" quiet="true">\n'+
     '    <sp:preview>\n'+
-    '      <sp:ImageAsset imageStyleString="max-width: 75%; max-height: 75%; object-fit: contain" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" />\n'+
+    '      <sp:ImageAsset imageStyleString="max-width: 75%; max-height: 75%; object-fit: contain" src="https://opensource.adobe.com/spectrum-css/example-ava.png" />\n'+
     '    </sp:preview>\n'+
     '    <sp:body>\n'+
     '      <sp:CardBody>\n'+
@@ -185,7 +185,7 @@
   </fx:Script>
 
   <comp:Variant notes="A standard card with cover photo and footer. Change the menu selection in the card to change focus.">
-    <sp:Card localId="card1" coverSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg">
+    <sp:Card localId="card1" coverSrc="https://opensource.adobe.com/spectrum-css/example-card-portrait.png">
       <sp:body>
         <sp:CardBody>
           <sp:CardHeader>
@@ -215,7 +215,7 @@
     <Div width="208" height="264">
       <sp:Card localId="card2" quiet="true">
       <sp:preview>
-        <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg"/>
+        <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/example-ava.png"/>
       </sp:preview>
         <sp:body>
           <sp:CardBody>
@@ -299,7 +299,7 @@
 
   <comp:Variant header="Small" notes="A small card. Small cards should not normally be used without quiet.">
     <Div width="208">
-      <sp:Card small="true" coverSrc="https://opensource.adobe.com/spectrum-css/img/example-card-portrait.jpg">
+      <sp:Card small="true" coverSrc="https://opensource.adobe.com/spectrum-css/example-card-portrait.png">
         <sp:body>
           <sp:CardBody>
             <sp:CardHeader>
@@ -352,7 +352,7 @@
     <Div width="112" height="136">
       <sp:Card localId="card3" small="true" quiet="true">
         <sp:preview>
-          <sp:ImageAsset imageStyleString="max-width: 75%; max-height: 75%; object-fit: contain" src="https://opensource.adobe.com/spectrum-css/img/example-ava.jpg" />
+          <sp:ImageAsset imageStyleString="max-width: 75%; max-height: 75%; object-fit: contain" src="https://opensource.adobe.com/spectrum-css/example-ava.png" />
         </sp:preview>
         <sp:body>
           <sp:CardBody>
