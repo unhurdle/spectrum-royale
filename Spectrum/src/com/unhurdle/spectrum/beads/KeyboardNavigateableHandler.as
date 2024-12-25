@@ -20,6 +20,8 @@ package com.unhurdle.spectrum.beads
   import org.apache.royale.utils.sendStrandEvent;
   import org.apache.royale.core.UIBase;
   import com.unhurdle.spectrum.utils.canItemGetFocus;
+  import org.apache.royale.core.IItemRenderer;
+  import org.apache.royale.core.IUIBase;
 
   public class KeyboardNavigateableHandler extends Bead implements IBead, IKeyboardHandler
   {
@@ -264,7 +266,12 @@ package com.unhurdle.spectrum.beads
 
     protected function canGetFocus(index:int):Boolean
     {
-      var item:Object = getRendererForIndex(index).data;
+      var ir:IItemRenderer = getRendererForIndex(index);
+      if (!(ir as IUIBase).visible)
+      {
+        return false;
+      }
+      var item:Object = ir.data;
       return canItemGetFocus(item);
     }
 

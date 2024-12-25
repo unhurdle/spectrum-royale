@@ -26,17 +26,22 @@ package com.unhurdle.spectrum
 		override protected function getSelector():String{
 			return "spectrum-Search";
 		}
-		protected var input:TextField;
+		protected var _input:TextField;
 		protected var button:ClearButton;
+
+		public function get input():TextField
+		{
+			return _input;
+		}
 
 		public function get text():String
 		{
-			return input.text;
+			return _input.text;
 		}
 
 		public function set text(value:String):void
 		{
-			input.text = value;
+			_input.text = value;
 		}
 
 		private var _quiet:Boolean; 
@@ -49,7 +54,7 @@ package com.unhurdle.spectrum
 		public function set quiet(value:Boolean):void
 		{
 			if(_quiet != value){
-				input.quiet = value;
+				_input.quiet = value;
 			}
 			_quiet = value;
 		}
@@ -64,7 +69,7 @@ package com.unhurdle.spectrum
 		public function set disabled(value:Boolean):void
 		{
 			if(value != !!_disabled){
-				input.disabled = value;
+				_input.disabled = value;
 				button.disabled = value;
 			}
 			_disabled = value;
@@ -73,28 +78,28 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 		super.createElement();
-		input = new TextField();
+		_input = new TextField();
 		// percentWidth needed to allow the container copmponent to be sized
-		input.percentWidth = 100;
-		(input.element as HTMLInputElement).type = "search";
-		input.placeholder = "Search";
+		_input.percentWidth = 100;
+		(_input.element as HTMLInputElement).type = "search";
+		_input.placeholder = "Search";
 		//TODO forward events
-		addElement(input);
+		addElement(_input);
 		var type:String = IconType.MAGNIFIER;
-		input.icon = IconPrefix.SPECTRUM_CSS_ICON + type;
-		input.iconType = type;
+		_input.icon = IconPrefix.SPECTRUM_CSS_ICON + type;
+		_input.iconType = type;
 
-		input.input.style.paddingRight = "25px";
+		_input.input.style.paddingRight = "25px";
 		button = new ClearButton();
 		button.className = appendSelector("-clearButton");
 		button.addEventListener("clear" , clear);
-		input.addElement(button);
-		input.input.addEventListener("input", function(ev:Event):void{
+		_input.addElement(button);
+		_input.input.addEventListener("input", function(ev:Event):void{
 			dispatchEvent(new Event("input"));
 		});
-		input.addEventListener("onEnter", dispatchSearch);
+		_input.addEventListener("onEnter", dispatchSearch);
 		//TODO: Do we want to search on tab?
-		input.addEventListener("onTab", function(ev:Event):void{
+		_input.addEventListener("onTab", function(ev:Event):void{
 			dispatchEvent(new Event("search"));
 		});
 
@@ -105,7 +110,7 @@ package com.unhurdle.spectrum
 			dispatchEvent(new Event("search"));
 		}
 		protected function clear(ev:Event):void{
-			input.text = "";
+			_input.text = "";
 			dispatchEvent(new Event("search"));
 		}
 		// protected function handleSubmit(ev:Event):Boolean{
@@ -124,12 +129,12 @@ package com.unhurdle.spectrum
 
 		public function get placeholder():String
 		{
-			return input.placeholder;
+			return _input.placeholder;
 		}
 
 		public function set placeholder(value:String):void
 		{
-			input.placeholder = value;
+			_input.placeholder = value;
 		}
 
 	}
