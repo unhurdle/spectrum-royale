@@ -39,8 +39,13 @@ package com.unhurdle.spectrum
     {
     	_list = value;
     }
-		private var search:Search;
+		private var _search:Search;
 		private var _searchable:Boolean;
+
+		public function get search():Search
+		{
+			return _search;
+		}
 
 		public function get searchable():Boolean
 		{
@@ -51,18 +56,18 @@ package com.unhurdle.spectrum
 		{
 			_searchable = value;
 			if(!_searchable){
-				if(search && search.parent == this){
-					search.text = "";
-					removeElement(search);
+				if(_search && _search.parent == this){
+					_search.text = "";
+					removeElement(_search);
 				}
 			} else {
-				if(!search){
-					search = new Search();
-					search.addEventListener("input",debounceLong(handleSearch,150));
-					search.addEventListener("search",handleSearch);
-					search.tabFocusable = true;
+				if(!_search){
+					_search = new Search();
+					_search.addEventListener("input",debounceLong(handleSearch,150));
+					_search.addEventListener("_search",handleSearch);
+					_search.tabFocusable = true;
 				}
-				addElement(search);
+				addElement(_search);
 			}
 		}
 		protected function handleSearch():void {
@@ -71,7 +76,7 @@ package com.unhurdle.spectrum
 			var appliedFilterFunction:Function = _filterFunction != null ? _filterFunction : defaultFilterFunction;
 			for (var i:int = 0; i < len; i++) {
 				var renderer:IItemRenderer = dataView.getItemRendererAt(i) as IItemRenderer;
-				if (!search.text || (appliedFilterFunction(renderer.data, search.text))) {
+				if (!_search.text || (appliedFilterFunction(renderer.data, _search.text))) {
 					(renderer as IUIBase).visible = true;
 				}
 				else {

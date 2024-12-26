@@ -111,11 +111,12 @@ package com.unhurdle.spectrum{
 			textfield.input.classList.add(appendSelector('-input'));
 			COMPILE::JS
 			{
-				textfield.element.addEventListener('focus',function():void{
+				textfield.focusElement.addEventListener('focus',function():void{
 					comboHost.toggle("is-focused",true);
+					_popup.blur();
 				});
 
-				textfield.element.addEventListener('blur', function():void{
+				textfield.focusElement.addEventListener('blur', function():void{
 					comboHost.toggle("is-focused",false);
 				});
 			}

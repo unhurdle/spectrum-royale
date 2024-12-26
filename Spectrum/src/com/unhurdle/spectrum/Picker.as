@@ -5,6 +5,7 @@ package com.unhurdle.spectrum
 	}
 
 	import com.unhurdle.spectrum.const.IconType;
+	import org.apache.royale.events.KeyboardEvent;
 	import org.apache.royale.html.util.getLabelFromData;
 	import org.apache.royale.collections.IArrayList;
 	import com.unhurdle.spectrum.data.MenuItem;
@@ -18,6 +19,9 @@ package com.unhurdle.spectrum
 	import com.unhurdle.spectrum.data.IMenuItem;
 	import com.unhurdle.spectrum.interfaces.IKeyboardNavigateable;
 	import com.unhurdle.spectrum.utils.getExplicitZIndex;
+	import org.apache.royale.events.utils.WhitespaceKeys;
+	import org.apache.royale.events.utils.NavigationKeys;
+	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	/**
 	 * TODO maybe add flexible with styling of min-width: 0;width:auto;
 	 */
@@ -340,6 +344,26 @@ package com.unhurdle.spectrum
 		public function set searchable(value:Boolean):void 
 		{
 			popover.searchable = value;
+			if (popover.search)
+			{
+				popover.search.input.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
+			}
+		}
+		private function handleKeyDown(event:KeyboardEvent):void
+		{
+			// forward relevent keys to the list
+			switch(event.key){
+				case WhitespaceKeys.ENTER:
+				case NavigationKeys.DOWN:
+				case NavigationKeys.UP:
+				case "Escape":
+					COMPILE::JS
+					{
+						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
+						popover.list.focusParent.element["dispatchEvent"](newEvent);
+					}
+					break;
+			}
 		}
 
 		[Inspectable(category="General", enumeration="bottom,top,right,left")]
