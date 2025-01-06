@@ -42,6 +42,12 @@ package com.unhurdle.spectrum.renderers
             link.addElementAt(chevronRightIcon,0);
             chevronRightIcon.addEventListener(MouseEvent.CLICK,function (ev:Event):void
             {
+              // This is a bit of a hack. Currently for multi-select trees,
+              // the logic for opening nodes is dependent on selection.
+              // Until that's separated, we can't stop propogation on multi-select trees
+              if(!value?.multiSelect){
+                ev.stopPropagation(); //to prevent selection when expanding
+              }
               if(!disabled){
                 isOpen = !isOpen;
                 var expandEvent:ItemClickedEvent = new ItemClickedEvent("itemExpanded");
