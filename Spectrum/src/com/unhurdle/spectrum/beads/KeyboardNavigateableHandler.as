@@ -45,7 +45,7 @@ package com.unhurdle.spectrum.beads
       host.focusParent.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       host.focusParent.addEventListener("click",clickHandler);
       listenOnStrand("itemsCreated",handleItemsCreated);
-      listenOnStrand("focusIn",focusItem);
+      listenOnStrand("focusIn",onFocusIn);
       listenOnStrand("change",handleChange);
 			// listenOnStrand("itemAdded", handleItemAdded);
 			// listenOnStrand("itemRemoved", handleItemRemoved);
@@ -155,6 +155,11 @@ package com.unhurdle.spectrum.beads
       } 
       focusItem();
     }
+    protected var setFocus:Boolean = false;
+    protected function onFocusIn(event:Event):void{
+      setFocus = true;
+      focusItem();
+    }
     protected function focusItem():void{
       if(focusableItemRenderer){
         focusableItemRenderer.pauseFocusEvents = true;
@@ -218,10 +223,16 @@ package com.unhurdle.spectrum.beads
         changeFocus(index);
       }
     }
+    protected function setKeyboardFocused(ir:DataItemRenderer):void{
+      ir.keyboardFocused = true;
+      if(setFocus){
+        ir.focus();
+      }
+    }
     protected function changeFocus(index:int):void{
       var ir:DataItemRenderer = getRendererForIndex(index);
       if(ir && ir == focusableItemRenderer){
-        focusableItemRenderer.keyboardFocused = true;
+        setKeyboardFocused(ir);
         return;// done
       }
     	if(focusableItemRenderer){
@@ -229,7 +240,7 @@ package com.unhurdle.spectrum.beads
         focusableItemRenderer.tabFocusable = false;
       }
 			if(ir){
-				ir.keyboardFocused = true;
+        setKeyboardFocused(ir);
         focusableItemRenderer = ir;
 			} else {
         focusableItemRenderer = findFirstFocusable();
@@ -298,7 +309,9 @@ package com.unhurdle.spectrum.beads
       var menu:IMenuItem = data as IMenuItem;
       if(menu.subMenu){
         menu.isOpen = true;
+        //TODO does this make sense? Why would an IMenuItem have keyboardFocused? That would be the renderer?
         menu.subMenu[0].keyboardFocused = true;
+        // setKeyboardFocused(menu.subMenu[0]);
       }
     }
 
