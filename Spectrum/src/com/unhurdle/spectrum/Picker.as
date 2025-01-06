@@ -108,6 +108,9 @@ package com.unhurdle.spectrum
 			popover.open = true;
 			popover.filterFunction = filterFunction;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			if(searchable){
+				popover.search.input.focus();
+			}
 		}
 		private function closePopup():void{
 			if(popover && popover.open){
@@ -343,6 +346,7 @@ package com.unhurdle.spectrum
 
 		public function set searchable(value:Boolean):void 
 		{
+			popover.autoFocusList = !value;
 			popover.searchable = value;
 			if (popover.search)
 			{
