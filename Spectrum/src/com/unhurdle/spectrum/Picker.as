@@ -81,7 +81,7 @@ package com.unhurdle.spectrum
 		}
 		private function positionPopup():void{
 			var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
-			popover.positionPopup(componentBounds,width);
+			popover.positionPopup(componentBounds,componentBounds.width);
 		}
 
 		private function toggleDropdown(ev:*):void{
