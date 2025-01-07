@@ -22,6 +22,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.utils.WhitespaceKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
+	import org.apache.royale.events.utils.UIKeys;
 	/**
 	 * TODO maybe add flexible with styling of min-width: 0;width:auto;
 	 */
@@ -360,7 +361,7 @@ package com.unhurdle.spectrum
 				case WhitespaceKeys.ENTER:
 				case NavigationKeys.DOWN:
 				case NavigationKeys.UP:
-				case "Escape":
+				case UIKeys.ESCAPE:
 					COMPILE::JS
 					{
 						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
@@ -368,6 +369,12 @@ package com.unhurdle.spectrum
 					}
 					break;
 			}
+			// prevent default behavior for these keys to keep the cursor posiiton from changing
+			if(event.key == NavigationKeys.UP || event.key == NavigationKeys.DOWN){
+				event.preventDefault();
+				event.stopImmediatePropagation();
+			}
+
 		}
 
 		[Inspectable(category="General", enumeration="bottom,top,right,left")]

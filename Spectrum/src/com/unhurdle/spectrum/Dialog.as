@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.debugging.assert;
     import org.apache.royale.events.KeyboardEvent;
     import org.apache.royale.events.utils.WhitespaceKeys;
+    import org.apache.royale.events.utils.UIKeys;
 
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -51,7 +52,7 @@ package com.unhurdle.spectrum
     }
 
     private function handleKeyDown(event:KeyboardEvent):void{
-      if(event.key == "Escape"){
+      if(event.key == UIKeys.ESCAPE){
           hide();
       }
       if(event.key == WhitespaceKeys.TAB){
