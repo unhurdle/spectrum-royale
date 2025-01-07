@@ -64,7 +64,7 @@ package com.unhurdle.spectrum
 				if(!_search){
 					_search = new Search();
 					_search.addEventListener("input",debounceLong(handleSearch,150));
-					_search.addEventListener("_search",handleSearch);
+					_search.addEventListener("search",handleSearch);
 					_search.tabFocusable = true;
 				}
 				addElement(_search);

@@ -113,7 +113,6 @@ package com.unhurdle.spectrum{
 			{
 				textfield.focusElement.addEventListener('focus',function():void{
 					comboHost.toggle("is-focused",true);
-					_popup.blur();
 				});
 
 				textfield.focusElement.addEventListener('blur', function():void{
@@ -260,11 +259,25 @@ package com.unhurdle.spectrum{
 			if (ev.key.length > 1 && ev.key != EditingKeys.BACKSPACE && ev.key != EditingKeys.DELETE) {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
+			var dataProvider:Object = model.dataProvider;	
 			if(textfield.text && model.dataProvider){
-				list.dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
-			} else {
-				list.dataProvider = model.dataProvider;
+				dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
 			}
+			list.dataProvider = dataProvider;
+			var selectedIndex:int = -1;
+			var text:String = textfield.text.toLowerCase();
+			for(var i:int=0; i<dataProvider.length; i++){
+				var item:MenuItem = dataProvider[i] as MenuItem;
+				var label:String = item.label ? item.label.toLowerCase() : "";
+				if(label == text){
+					selectedIndex = i;
+					break;
+				}
+			}
+			model.selectedIndex = selectedIndex;
+			// if(dataProvider && model.selectedItem && dataProvider.indexOf(model.selectedItem) == -1){
+			// 	model.selectedItem = null;
+			// }
 			// show the popup while typing
 			var storedIsListEmpty:Boolean = isListEmpty;
 			if(!popUpVisible && !storedIsListEmpty){
@@ -273,9 +286,9 @@ package com.unhurdle.spectrum{
 			{
 				popUpVisible = false;
 			}
-			handleInput = false;
+			handleInput = respondToItemChange = false;
 			list.selectedItem = model.selectedItem;
-			handleInput = true;
+			respondToItemChange = handleInput = true;
 		}
 		/**
 		 *  Returns whether or not the pop-up is visible.
@@ -365,18 +378,27 @@ package com.unhurdle.spectrum{
 		{
 			// sizeChangeAction();
 		}
-		
+		private var respondToItemChange:Boolean = true;
 		/**
 		 * @private
 		 */
 		protected function handleItemChange(event:Event):void
 		{
+			if(!respondToItemChange){
+				return;
+			}
+			respondToItemChange = false;
+			if(model.selectedItem == list.selectedItem){
+				return;
+			}
 			if(event.target == list.model){
 				model.selectedItem = list.selectedItem;
 			} else {
 				list.selectedItem = model.selectedItem;
 			}
 			itemChangeAction();
+			respondToItemChange = true;
+			textfield.focus();
 		}
     protected function dataProviderChangeHandler(event:Event):void{
       list.dataProvider = model.dataProvider;
