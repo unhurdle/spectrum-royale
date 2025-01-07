@@ -60,6 +60,35 @@ package com.unhurdle.spectrum
 			
 			if (treeData.hasChildren(node))
 			{
+				if(node){
+					if(!listModel.selectedItem){
+							for each(var value:Object in node.children){
+								if(value.selected){
+									//items were looking selected but the selectedItem wasn't actually set in single select tree.
+									listModel.selectedItem = value;
+									break;
+								}
+							}
+						
+					} else {
+						if(node.children){
+							for each(value in node.children){
+								//if there's a different item selected remove selection from the node's children
+								//using both dot and bracket syntax to deal with minified properties
+								if(value.selected){
+									value.selected = false
+								} else if(value["selected"]){
+									value["selected"] = false;
+								}
+								if(value.checked){
+									value.checked = false
+								} else if(value["checked"]){
+									value["checked"] = false;
+								}
+							}
+						}
+					}
+				}
 				// remove the selection of the current selected item renderer
 				if(dataGroup){
 					var ir:ISelectableItemRenderer = dataGroup.getItemRendererForIndex(listModel.selectedIndex) as ISelectableItemRenderer;
