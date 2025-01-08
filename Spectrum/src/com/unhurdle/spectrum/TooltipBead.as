@@ -113,6 +113,9 @@ package com.unhurdle.spectrum
 			_toolTip = value;
 			if (tt)
 				tt.text = value;
+				if (!value) {
+					clearTooltip(true);
+				}
 		}
 
 		private var _direction:String = TOP;
@@ -283,13 +286,18 @@ package com.unhurdle.spectrum
 
 		protected function rollOutHandler(event:MouseEvent):void{
 			(_strand as IEventDispatcher).removeEventListener("mouseleave", rollOutHandler, false);
+			clearTooltip();
+		}
+
+		private function clearTooltip(forceClose:Boolean = false):void {
 			clearTimeouts();
-			if(stayOpen > 0){
+			if(stayOpen > 0 && !forceClose){
 				stayOpenTimeoutId = setTimeout(closeTooltip,stayOpen);
 			} else {
 				closeTooltip();
 			}
 		}
+
 		protected function closeTooltip():void{
 			clearTimeouts();
 			activeBead = null;
