@@ -114,7 +114,7 @@ package com.unhurdle.spectrum
 			if (tt)
 				tt.text = value;
 				if (!value) {
-					clearTooltip(true);
+					closeTooltip();
 				}
 		}
 
@@ -286,12 +286,8 @@ package com.unhurdle.spectrum
 
 		protected function rollOutHandler(event:MouseEvent):void{
 			(_strand as IEventDispatcher).removeEventListener("mouseleave", rollOutHandler, false);
-			clearTooltip();
-		}
-
-		private function clearTooltip(forceClose:Boolean = false):void {
 			clearTimeouts();
-			if(stayOpen > 0 && !forceClose){
+			if(stayOpen > 0){
 				stayOpenTimeoutId = setTimeout(closeTooltip,stayOpen);
 			} else {
 				closeTooltip();
