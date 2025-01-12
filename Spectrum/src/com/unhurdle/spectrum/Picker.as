@@ -364,12 +364,20 @@ package com.unhurdle.spectrum
 				case UIKeys.ESCAPE:
 					COMPILE::JS
 					{
-						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
-						popover.list.focusParent.element["dispatchEvent"](newEvent);
+						var newEvent:KeyboardEvent = new KeyboardEvent(
+							event.type,
+							event.key,
+							event.code,
+							event.shiftKey,
+							event.altKey,
+							event.ctrlKey,
+							event.metaKey,
+							false);
+						popover.list.focusParent.dispatchEvent(newEvent);
 					}
 					break;
 			}
-			// prevent default behavior for these keys to keep the cursor posiiton from changing
+			// prevent default behavior for these keys to keep the cursor position from changing
 			if(event.key == NavigationKeys.UP || event.key == NavigationKeys.DOWN){
 				event.preventDefault();
 				event.stopImmediatePropagation();
