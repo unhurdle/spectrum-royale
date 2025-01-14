@@ -16,6 +16,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
+	import org.apache.royale.events.utils.UIKeys;
 	import org.apache.royale.events.utils.WhitespaceKeys;
 	import org.apache.royale.geom.Point;
 	import org.apache.royale.geom.Rectangle;
@@ -189,69 +190,35 @@ package com.unhurdle.spectrum{
 		private var modifyingList:Boolean;
 		private function handleKeyDown(event:KeyboardEvent):void
 		{
-			// forward relevent keys to the list
-			switch(event.key){
-				case WhitespaceKeys.ENTER:
-				case NavigationKeys.DOWN:
-				case NavigationKeys.UP:
-				case "Escape":
-					COMPILE::JS
-					{
-						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
-						list.focusParent.element["dispatchEvent"](newEvent);
-					}
-					break;
+			if(popUpVisible)
+			{ // forward relevent keys to the list
+				switch(event.key){
+					case WhitespaceKeys.ENTER:
+					case NavigationKeys.DOWN:
+					case NavigationKeys.UP:
+					case UIKeys.ESCAPE:
+						COMPILE::JS
+						{
+							var newEvent:KeyboardEvent = new KeyboardEvent(
+								event.type,
+								event.key,
+								event.code,
+								event.shiftKey,
+								event.altKey,
+								event.ctrlKey,
+								event.metaKey,
+								false);
+							list.focusParent.dispatchEvent(newEvent);
+						}
+						break;
 
-					/**
-					 * 
-					 * event = document.createEvent('KeyboardEvent') as KeyboardEvent;
-    event.initKeyboardEvent(options.type, options.cancelable, options.bubbles, window, key, 0, 0, 0, 0);
-  } else {
-    event = new KeyboardEvent(options.type, eventInitDict)
-
-
-					 */
+				}
 			}
-			// if(event.key == WhitespaceKeys.ENTER){
-			// 	popUpVisible = false;
-			// 	return;
-			// }
-			// var currIndex:int = list.model.selectedIndex;
-			// //assuming the provider is always an array
-			// var provider:Array = list.dataProvider as Array;
-			// var item:MenuItem;
-			// var advance:int = 0;
-			// modifyingList = true;
-			// if(event.key == NavigationKeys.DOWN){
-			// 	advance = 1;
-			// } else if(event.key == NavigationKeys.UP){
-			// 	advance = -1;
-			// }
-			// while(advance != 0){
-			// 	if(currIndex + advance < 0){//went up too far
-			// 		advance = 0;
-			// 		break;
-			// 	}
-			// 	item = provider[currIndex + advance];
-			// 	if(!item){// went down too far
-			// 		advance = 0;
-			// 	} else {
-			// 		if(item.disabled || item.isDivider || item.isHeading){
-			// 			if(advance < 0){// moving up
-			// 				advance--;
-			// 			} else {//moving down
-			// 				advance++;
-			// 			}
-			// 			continue;
-			// 		} else {
-			// 			break;
-			// 		}
-			// 	}
-			// }
-			// if(advance){
-			// 	list.model.selectedIndex = currIndex + advance;
-			// }
-			// modifyingList = false;
+			// prevent default behavior for these keys to keep the cursor position from changing
+			if(event.key == NavigationKeys.UP || event.key == NavigationKeys.DOWN){
+				event.preventDefault();
+				event.stopImmediatePropagation();
+			}
 
 		}
 		private var handleInput:Boolean = true;
