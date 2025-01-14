@@ -22,6 +22,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.utils.WhitespaceKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
+	import org.apache.royale.events.utils.UIKeys;
 	/**
 	 * TODO maybe add flexible with styling of min-width: 0;width:auto;
 	 */
@@ -81,7 +82,7 @@ package com.unhurdle.spectrum
 		}
 		private function positionPopup():void{
 			var componentBounds:Rectangle = DisplayUtils.getScreenBoundingRect(this);
-			popover.positionPopup(componentBounds,width);
+			popover.positionPopup(componentBounds,componentBounds.width);
 		}
 
 		private function toggleDropdown(ev:*):void{
@@ -108,6 +109,9 @@ package com.unhurdle.spectrum
 			popover.open = true;
 			popover.filterFunction = filterFunction;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			if(searchable){
+				popover.search.input.focus();
+			}
 		}
 		private function closePopup():void{
 			if(popover && popover.open){
@@ -343,6 +347,7 @@ package com.unhurdle.spectrum
 
 		public function set searchable(value:Boolean):void 
 		{
+			popover.autoFocusList = !value;
 			popover.searchable = value;
 			if (popover.search)
 			{
@@ -356,14 +361,28 @@ package com.unhurdle.spectrum
 				case WhitespaceKeys.ENTER:
 				case NavigationKeys.DOWN:
 				case NavigationKeys.UP:
-				case "Escape":
+				case UIKeys.ESCAPE:
 					COMPILE::JS
 					{
-						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
-						popover.list.focusParent.element["dispatchEvent"](newEvent);
+						var newEvent:KeyboardEvent = new KeyboardEvent(
+							event.type,
+							event.key,
+							event.code,
+							event.shiftKey,
+							event.altKey,
+							event.ctrlKey,
+							event.metaKey,
+							false);
+						popover.list.focusParent.dispatchEvent(newEvent);
 					}
 					break;
 			}
+			// prevent default behavior for these keys to keep the cursor position from changing
+			if(event.key == NavigationKeys.UP || event.key == NavigationKeys.DOWN){
+				event.preventDefault();
+				event.stopImmediatePropagation();
+			}
+
 		}
 
 		[Inspectable(category="General", enumeration="bottom,top,right,left")]

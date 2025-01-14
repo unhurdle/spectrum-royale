@@ -8,6 +8,7 @@ package com.unhurdle.spectrum
   import org.apache.royale.html.beads.plugin.ModalDisplay;
   import com.unhurdle.spectrum.Icon;
   import org.apache.royale.events.Event;
+  import org.apache.royale.events.utils.UIKeys;
   
   [Event(name="modalShown", type="org.apache.royale.events.Event")]
   [Event(name="modalHidden", type="org.apache.royale.events.Event")]
@@ -32,7 +33,7 @@ package com.unhurdle.spectrum
     }
 
     private function handleKeyDown(event:KeyboardEvent):void{
-      if(event.key == "Escape"){
+      if(event.key == UIKeys.ESCAPE){
           hide();
       }
     }

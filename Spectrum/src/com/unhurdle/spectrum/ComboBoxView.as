@@ -16,6 +16,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.events.utils.EditingKeys;
 	import org.apache.royale.events.utils.NavigationKeys;
+	import org.apache.royale.events.utils.UIKeys;
 	import org.apache.royale.events.utils.WhitespaceKeys;
 	import org.apache.royale.geom.Point;
 	import org.apache.royale.geom.Rectangle;
@@ -113,7 +114,6 @@ package com.unhurdle.spectrum{
 			{
 				textfield.focusElement.addEventListener('focus',function():void{
 					comboHost.toggle("is-focused",true);
-					_popup.blur();
 				});
 
 				textfield.focusElement.addEventListener('blur', function():void{
@@ -190,69 +190,35 @@ package com.unhurdle.spectrum{
 		private var modifyingList:Boolean;
 		private function handleKeyDown(event:KeyboardEvent):void
 		{
-			// forward relevent keys to the list
-			switch(event.key){
-				case WhitespaceKeys.ENTER:
-				case NavigationKeys.DOWN:
-				case NavigationKeys.UP:
-				case "Escape":
-					COMPILE::JS
-					{
-						var newEvent:Object = cloneNativeKeyboardEvent(event.nativeEvent);
-						list.focusParent.element["dispatchEvent"](newEvent);
-					}
-					break;
+			if(popUpVisible)
+			{ // forward relevent keys to the list
+				switch(event.key){
+					case WhitespaceKeys.ENTER:
+					case NavigationKeys.DOWN:
+					case NavigationKeys.UP:
+					case UIKeys.ESCAPE:
+						COMPILE::JS
+						{
+							var newEvent:KeyboardEvent = new KeyboardEvent(
+								event.type,
+								event.key,
+								event.code,
+								event.shiftKey,
+								event.altKey,
+								event.ctrlKey,
+								event.metaKey,
+								false);
+							list.focusParent.dispatchEvent(newEvent);
+						}
+						break;
 
-					/**
-					 * 
-					 * event = document.createEvent('KeyboardEvent') as KeyboardEvent;
-    event.initKeyboardEvent(options.type, options.cancelable, options.bubbles, window, key, 0, 0, 0, 0);
-  } else {
-    event = new KeyboardEvent(options.type, eventInitDict)
-
-
-					 */
+				}
 			}
-			// if(event.key == WhitespaceKeys.ENTER){
-			// 	popUpVisible = false;
-			// 	return;
-			// }
-			// var currIndex:int = list.model.selectedIndex;
-			// //assuming the provider is always an array
-			// var provider:Array = list.dataProvider as Array;
-			// var item:MenuItem;
-			// var advance:int = 0;
-			// modifyingList = true;
-			// if(event.key == NavigationKeys.DOWN){
-			// 	advance = 1;
-			// } else if(event.key == NavigationKeys.UP){
-			// 	advance = -1;
-			// }
-			// while(advance != 0){
-			// 	if(currIndex + advance < 0){//went up too far
-			// 		advance = 0;
-			// 		break;
-			// 	}
-			// 	item = provider[currIndex + advance];
-			// 	if(!item){// went down too far
-			// 		advance = 0;
-			// 	} else {
-			// 		if(item.disabled || item.isDivider || item.isHeading){
-			// 			if(advance < 0){// moving up
-			// 				advance--;
-			// 			} else {//moving down
-			// 				advance++;
-			// 			}
-			// 			continue;
-			// 		} else {
-			// 			break;
-			// 		}
-			// 	}
-			// }
-			// if(advance){
-			// 	list.model.selectedIndex = currIndex + advance;
-			// }
-			// modifyingList = false;
+			// prevent default behavior for these keys to keep the cursor position from changing
+			if(event.key == NavigationKeys.UP || event.key == NavigationKeys.DOWN){
+				event.preventDefault();
+				event.stopImmediatePropagation();
+			}
 
 		}
 		private var handleInput:Boolean = true;
@@ -260,11 +226,25 @@ package com.unhurdle.spectrum{
 			if (ev.key.length > 1 && ev.key != EditingKeys.BACKSPACE && ev.key != EditingKeys.DELETE) {// not a simple key (does this work for advanced input?)
 					return;// do nothing
 			}
+			var dataProvider:Object = model.dataProvider;	
 			if(textfield.text && model.dataProvider){
-				list.dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
-			} else {
-				list.dataProvider = model.dataProvider;
+				dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
 			}
+			list.dataProvider = dataProvider;
+			var selectedIndex:int = -1;
+			var text:String = textfield.text.toLowerCase();
+			for(var i:int=0; i<dataProvider.length; i++){
+				var item:MenuItem = dataProvider[i] as MenuItem;
+				var label:String = item.label ? item.label.toLowerCase() : "";
+				if(label == text){
+					selectedIndex = i;
+					break;
+				}
+			}
+			model.selectedIndex = selectedIndex;
+			// if(dataProvider && model.selectedItem && dataProvider.indexOf(model.selectedItem) == -1){
+			// 	model.selectedItem = null;
+			// }
 			// show the popup while typing
 			var storedIsListEmpty:Boolean = isListEmpty;
 			if(!popUpVisible && !storedIsListEmpty){
@@ -273,9 +253,9 @@ package com.unhurdle.spectrum{
 			{
 				popUpVisible = false;
 			}
-			handleInput = false;
+			handleInput = respondToItemChange = false;
 			list.selectedItem = model.selectedItem;
-			handleInput = true;
+			respondToItemChange = handleInput = true;
 		}
 		/**
 		 *  Returns whether or not the pop-up is visible.
@@ -365,18 +345,27 @@ package com.unhurdle.spectrum{
 		{
 			// sizeChangeAction();
 		}
-		
+		private var respondToItemChange:Boolean = true;
 		/**
 		 * @private
 		 */
 		protected function handleItemChange(event:Event):void
 		{
+			if(!respondToItemChange){
+				return;
+			}
+			respondToItemChange = false;
+			if(model.selectedItem == list.selectedItem){
+				return;
+			}
 			if(event.target == list.model){
 				model.selectedItem = list.selectedItem;
 			} else {
 				list.selectedItem = model.selectedItem;
 			}
 			itemChangeAction();
+			respondToItemChange = true;
+			textfield.focus();
 		}
     protected function dataProviderChangeHandler(event:Event):void{
       list.dataProvider = model.dataProvider;

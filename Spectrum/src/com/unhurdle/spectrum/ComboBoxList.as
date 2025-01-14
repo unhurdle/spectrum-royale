@@ -1,44 +1,44 @@
 package com.unhurdle.spectrum
 {
 
-  import org.apache.royale.core.IBead;
-  import org.apache.royale.core.IPopUp;
-  import org.apache.royale.core.IStrand;
-  import org.apache.royale.events.Event;
-  import org.apache.royale.events.MouseEvent;
-  import org.apache.royale.functional.decorator.debounceLong;
-  import org.apache.royale.geom.Rectangle;
-  import org.apache.royale.html.beads.DataContainerView;
-  import org.apache.royale.utils.DisplayUtils;
-  import org.apache.royale.core.IItemRenderer;
-  import org.apache.royale.core.IUIBase;
+	import org.apache.royale.core.IBead;
+	import org.apache.royale.core.IPopUp;
+	import org.apache.royale.core.IStrand;
+	import org.apache.royale.events.Event;
+	import org.apache.royale.events.MouseEvent;
+	import org.apache.royale.functional.decorator.debounceLong;
+	import org.apache.royale.geom.Rectangle;
+	import org.apache.royale.html.beads.DataContainerView;
+	import org.apache.royale.utils.DisplayUtils;
+	import org.apache.royale.core.IItemRenderer;
+	import org.apache.royale.core.IUIBase;
 
 	[Event(name="change", type="org.apache.royale.events.Event")]
-  public class ComboBoxList extends Popover implements IPopUp, IBead
-  {
-    public function ComboBoxList()
-    {
-      _list = new Menu();
-      floating = true;
-      tabFocusable = false;
-      _list.addEventListener("change", handleListChange);
-    }
-    private var _list:Menu;
+	public class ComboBoxList extends Popover implements IPopUp, IBead
+	{
+		public function ComboBoxList()
+		{
+			_list = new Menu();
+			floating = true;
+			tabFocusable = false;
+			_list.addEventListener("change", handleListChange);
+		}
+		private var _list:Menu;
 
-    public function get list():Menu
-    {
-    	return _list;
-    }
+		public function get list():Menu
+		{
+			return _list;
+		}
 
-    override public function addedToParent():void{
-      super.addedToParent();
-      addElement(_list);
-    }
+		override public function addedToParent():void{
+			super.addedToParent();
+			addElement(_list);
+		}
 
-    public function set list(value:Menu):void
-    {
-    	_list = value;
-    }
+		public function set list(value:Menu):void
+		{
+			_list = value;
+		}
 		private var _search:Search;
 		private var _searchable:Boolean;
 
@@ -64,7 +64,7 @@ package com.unhurdle.spectrum
 				if(!_search){
 					_search = new Search();
 					_search.addEventListener("input",debounceLong(handleSearch,150));
-					_search.addEventListener("_search",handleSearch);
+					_search.addEventListener("search",handleSearch);
 					_search.tabFocusable = true;
 				}
 				addElement(_search);
@@ -74,53 +74,51 @@ package com.unhurdle.spectrum
 			var dataView:DataContainerView = list.view as DataContainerView;
 			var len:int = dataView.numItemRenderers;
 			var appliedFilterFunction:Function = _filterFunction != null ? _filterFunction : defaultFilterFunction;
+			var searchText:String = _search.text;
 			for (var i:int = 0; i < len; i++) {
-				var renderer:IItemRenderer = dataView.getItemRendererAt(i) as IItemRenderer;
-				if (!_search.text || (appliedFilterFunction(renderer.data, _search.text))) {
-					(renderer as IUIBase).visible = true;
-				}
-				else {
-					(renderer as IUIBase).visible = false;
-				}
+				var renderer:IItemRenderer = dataView.getItemRendererAt(i);
+				(renderer as IUIBase).visible = !searchText || appliedFilterFunction(renderer.data, searchText);
 			}
 		}
 
 		protected function defaultFilterFunction(data:Object, searchText:String):Boolean {
 			return data.label && data.label.toLowerCase().includes(searchText.toLowerCase());
 		}
-    override public function set tabFocusable(value:Boolean):void
-    {
-    	_tabFocusable = value;
-      if(value){
-        setAttribute("tabindex",0);
-      } else {
-        setAttribute("tabindex",-1);
-      }
-    }
+		override public function set tabFocusable(value:Boolean):void
+		{
+			_tabFocusable = value;
+			if(value){
+				setAttribute("tabindex",0);
+			} else {
+				setAttribute("tabindex",-1);
+			}
+		}
 
-    private var _autoFocusList:Boolean = true;
-    public function set autoFocusList(value:Boolean):void
-    {
-	_autoFocusList = value;
-    }
+		private var _autoFocusList:Boolean = true;
+		public function set autoFocusList(value:Boolean):void
+		{
+			_autoFocusList = value;
+		}
 
-    override public function set open(value:Boolean):void{
-      super.open = value;
-      if(value){
-	if (_autoFocusList)
-	{
-		_list.focus();
-	}
-        addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-        topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-      } else {
-        _list.blur();
+		override public function set open(value:Boolean):void{
+			super.open = value;
+			if(value){
+				if (_autoFocusList)
+				{
+					_list.focus();
+				}
+				addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+			} else {
+				_list.blur();
+				if(_search){
+					_search.text = "";
+					handleSearch();
+				}
 				removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-      }
-    }
-
-
+			}
+		}
 
 
 	private var _filterFunction:Function;
@@ -134,18 +132,18 @@ package com.unhurdle.spectrum
 	}
 
 
-    public function handleListChange():void{
+		public function handleListChange():void{
 			open = false;
 			dispatchEvent(new Event("change"));
 		}
-    protected function handleControlMouseDown(event:MouseEvent):void{			
+		protected function handleControlMouseDown(event:MouseEvent):void{			
 			event.stopImmediatePropagation();
 		}
-    protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void{
+		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void{
 			open = false;
 		}
 		public static const MIN_MENU_DEFAULT_HEIGHT:Number = 60;
-    private var _minMenuHeight:Number = MIN_MENU_DEFAULT_HEIGHT;
+		private var _minMenuHeight:Number = MIN_MENU_DEFAULT_HEIGHT;
 
 		public function get minMenuHeight():Number{
 			return _minMenuHeight;
@@ -154,7 +152,7 @@ package com.unhurdle.spectrum
 		public function set minMenuHeight(value:Number):void{
 			_minMenuHeight = value;
 		}
-    public function positionPopup(componentBounds:Rectangle,preferredWidth:Number = NaN):void{
+		public function positionPopup(componentBounds:Rectangle,preferredWidth:Number = NaN):void{
 			var minHeight:Number = _minMenuHeight + 6;
 			// Figure out direction and max size
 			var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
@@ -223,5 +221,5 @@ package com.unhurdle.spectrum
 		{
 			// TODO this stub is purely for interface compatibility
 		}
-  }
+	}
 }

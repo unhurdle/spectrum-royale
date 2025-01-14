@@ -45,8 +45,7 @@ package com.unhurdle.spectrum.beads
       host.focusParent.addEventListener(KeyboardEvent.KEY_DOWN,changeValue);
       host.focusParent.addEventListener("click",clickHandler);
       listenOnStrand("itemsCreated",handleItemsCreated);
-      listenOnStrand("focusIn",focusItem);
-      listenOnStrand("focusOut",handleFocusOut);
+      listenOnStrand("focusIn",onFocusIn);
       listenOnStrand("change",handleChange);
 			// listenOnStrand("itemAdded", handleItemAdded);
 			// listenOnStrand("itemRemoved", handleItemRemoved);
@@ -91,7 +90,6 @@ package com.unhurdle.spectrum.beads
        }
        if(ir){
          ir.tabFocusable = true;
-         ir.keyboardFocused = _focusableFocused;
          focusableItemRenderer = ir;
        } else {
          focusableItemRenderer = null;
@@ -108,7 +106,9 @@ package com.unhurdle.spectrum.beads
       switch(key)
       {
         case WhitespaceKeys.ENTER:// enter should always trigger "change" even if it's not changing to ensure that popups are closed
-          listModel.selectedIndex = getRendererIndex(focusableItemRenderer);
+          if(focusableItemRenderer?.keyboardFocused){
+            listModel.selectedIndex = getRendererIndex(focusableItemRenderer);
+          }
           sendStrandEvent(_strand,"change");
           break;
         case NavigationKeys.RIGHT:
@@ -147,7 +147,6 @@ package com.unhurdle.spectrum.beads
         if(focusableItemRenderer){
           focusableItemRenderer.keyboardFocused = false;
           focusableItemRenderer.tabFocusable = false;
-          _focusableFocused = false;
         }
         if(ir){
           ir.tabFocusable = true;
@@ -156,11 +155,14 @@ package com.unhurdle.spectrum.beads
       } 
       focusItem();
     }
-    private var _focusableFocused:Boolean;
+    protected var setFocus:Boolean = false;
+    protected function onFocusIn(event:Event):void{
+      setFocus = true;
+      focusItem();
+    }
     protected function focusItem():void{
       if(focusableItemRenderer){
         focusableItemRenderer.pauseFocusEvents = true;
-        _focusableFocused = true;
         focusableItemRenderer.focus();
         focusableItemRenderer.pauseFocusEvents = false;
 			}else if(listModel.selectedIndex >= 0){
@@ -168,19 +170,10 @@ package com.unhurdle.spectrum.beads
         if(focusableItemRenderer){
           focusableItemRenderer.tabFocusable = true;
           focusableItemRenderer.pauseFocusEvents = true;
-          _focusableFocused = true;
           focusableItemRenderer.focus();
           focusableItemRenderer.pauseFocusEvents = false;
         }
-      } else {
-
       }
-    }
-
-    private function handleFocusOut(event:Event):void
-    {
-      // if blur() is being called on list we don't want to remain focused
-      _focusableFocused = false;
     }
 
     protected function focusNext():void{
@@ -230,21 +223,24 @@ package com.unhurdle.spectrum.beads
         changeFocus(index);
       }
     }
+    protected function setKeyboardFocused(ir:DataItemRenderer):void{
+      ir.keyboardFocused = true;
+      if(setFocus){
+        ir.focus();
+      }
+    }
     protected function changeFocus(index:int):void{
       var ir:DataItemRenderer = getRendererForIndex(index);
       if(ir && ir == focusableItemRenderer){
-        focusableItemRenderer.keyboardFocused = true;
-        _focusableFocused = true;
+        setKeyboardFocused(ir);
         return;// done
       }
     	if(focusableItemRenderer){
-        _focusableFocused = false;
 				focusableItemRenderer.keyboardFocused = false;
         focusableItemRenderer.tabFocusable = false;
       }
 			if(ir){
-				ir.keyboardFocused = true;
-        _focusableFocused = true;
+        setKeyboardFocused(ir);
         focusableItemRenderer = ir;
 			} else {
         focusableItemRenderer = findFirstFocusable();
@@ -313,7 +309,9 @@ package com.unhurdle.spectrum.beads
       var menu:IMenuItem = data as IMenuItem;
       if(menu.subMenu){
         menu.isOpen = true;
+        //TODO does this make sense? Why would an IMenuItem have keyboardFocused? That would be the renderer?
         menu.subMenu[0].keyboardFocused = true;
+        // setKeyboardFocused(menu.subMenu[0]);
       }
     }
 
