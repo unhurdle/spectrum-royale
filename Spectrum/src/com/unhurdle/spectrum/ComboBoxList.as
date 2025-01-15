@@ -152,7 +152,7 @@ package com.unhurdle.spectrum
 		public function set minMenuHeight(value:Number):void{
 			_minMenuHeight = value;
 		}
-		public function positionPopup(componentBounds:Rectangle,preferredWidth:Number = NaN):void{
+		public function positionPopup(componentBounds:Rectangle,preferredWidth:Number = NaN,setHorizontalPadding:Boolean = true):void{
 			var minHeight:Number = _minMenuHeight + 6;
 			// Figure out direction and max size
 			var appBounds:Rectangle = DisplayUtils.getScreenBoundingRect(Application.current.initialView);
@@ -178,14 +178,16 @@ package com.unhurdle.spectrum
 					}
 					break;
 			}
-			var leftSpace:Number = componentBounds.x;
-			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
-			if(rightSpace < leftSpace){
-				setStyle("right",rightSpace + "px");
-				setStyle("left",null);
-			} else {
-				setStyle("right",null);
-				setStyle("left",leftSpace + "px");
+			if(setHorizontalPadding) {
+				var leftSpace:Number = componentBounds.x;
+				var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
+				if(rightSpace < leftSpace){
+					setStyle("right",rightSpace + "px");
+					setStyle("left",null);
+				} else {
+					setStyle("right",null);
+					setStyle("left",leftSpace + "px");
+				}
 			}
 			if(isNaN(explicitWidth) && !isNaN(preferredWidth)){
 				setStyle("minWidth",preferredWidth + "px");
