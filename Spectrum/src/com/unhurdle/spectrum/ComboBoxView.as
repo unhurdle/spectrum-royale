@@ -27,6 +27,7 @@ package com.unhurdle.spectrum{
 	import org.apache.royale.utils.UIUtils;
 	import org.apache.royale.utils.callLater;
 	import org.apache.royale.utils.loadBeadFromValuesManager;
+	import org.apache.royale.utils.sendStrandEvent;
 	
 	/**
 	 *  The ComboBoxView class creates the visual elements of the ComboBox component.
@@ -212,6 +213,10 @@ package com.unhurdle.spectrum{
 						}
 						break;
 
+				}
+			} else {
+				if(event.key == WhitespaceKeys.ENTER){
+					sendStrandEvent(_strand,"change");
 				}
 			}
 			// prevent default behavior for these keys to keep the cursor position from changing
