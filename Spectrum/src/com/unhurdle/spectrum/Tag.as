@@ -58,14 +58,14 @@ package com.unhurdle.spectrum
       _text = value;
       span.text = value;
     }
-    override public function get id():String
+    private var _data:String;
+    public function get data():String
     {
-      return _id;
+      return _data;
     }
-    private var _id:String;
-    override public function set id(value:String):void
+    public function set data(value:String):void
     {
-      _id = value;
+      _data = value;
     }
     private var _src:String;
 
