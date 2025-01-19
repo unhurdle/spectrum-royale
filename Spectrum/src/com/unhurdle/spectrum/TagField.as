@@ -154,14 +154,21 @@ package com.unhurdle.spectrum
 			comboBoxList.positionPopup(componentBounds);
     }
     private function itemSelected(ev:Event):void{
+      var data:String;
+      for(var i:int=0;i<tagList.length;i++){
+        if(tagList[i].name == comboBoxList.list.selectedItem.text){
+          data = tagList[i].data;
+          break;
+        }
+      }
       if(comboBoxList.list.selectedItem){
-        addTag(comboBoxList.list.selectedItem.text);
+        addTag(comboBoxList.list.selectedItem.text,data);
       }
     }
     private function inputChanged():void{
       addTag(input.text);
     }
-    protected function addTag(text:String):void{
+    protected function addTag(text:String, data:String = null):void{
       if(text){
         if(comboBoxList){
           comboBoxList.open = false;
@@ -192,6 +199,7 @@ package com.unhurdle.spectrum
           var tag:Tag = new Tag();
           tag.deletable = true;
           tag.text = text;
+          tag.data = data;
           input.text = "";
           tag.addEventListener("change",function (ev:Event):void{
             dispatchEvent(new ValueEvent("tagRemoved",ev.currentTarget));
