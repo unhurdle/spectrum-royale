@@ -120,6 +120,7 @@
     <component id="Popover" class="com.unhurdle.spectrum.Popover"/>
     <component id="QuickActions" class="com.unhurdle.spectrum.QuickActions"/>
     <component id="Radio" class="com.unhurdle.spectrum.Radio"/>
+    <component id="RadioGroup" class="com.unhurdle.spectrum.RadioGroup"/>
     <component id="RangeSlider" class="com.unhurdle.spectrum.RangeSlider"/>
     <component id="Rating" class="com.unhurdle.spectrum.Rating"/>
     <component id="RampSlider" class="com.unhurdle.spectrum.RampSlider"/>
