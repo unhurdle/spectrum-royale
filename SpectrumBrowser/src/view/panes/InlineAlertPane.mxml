@@ -1,0 +1,42 @@
+<view:DemoPane xmlns:fx="http://ns.adobe.com/mxml/2009"
+  xmlns:view="view.*" xmlns:sp="library://ns.unhurdle.com/spectrum"
+  xmlns="library://ns.apache.org/royale/html" xmlns:comp="view.components.*"
+  title="Inline Alert">
+  <fx:Script>
+    <![CDATA[
+      [Bindable]public var codeString:String = 
+'<fx:Declarations>\n'+
+'  <sp:InlineAlert id="infoAlert" status="info" header="Information Alert Header" content="This is an alert"/>\n'+
+'  <sp:InlineAlert id="successAlert" status="success" header="Successful Alert Header" content="This is an alert"/>\n'+
+'  <sp:InlineAlert id="warningAlert" status="warning" header="Warning Alert Header" content="This is an alert"/>\n'+
+'  <sp:InlineAlert id="helpAlert" status="help" header="Helpful Alert Header" content="This is an alert"/>\n'+
+'  <sp:InlineAlert id="errorAlert" status="error" header="Error Alert - Oh no!" content="This is an alert"/>\n'+
+'  <sp:InlineAlert id="closableAlert" status="error" header="Error - this is really bad!" content="This is an alert" closeText="Close"/>\n'+
+'</fx:Declarations>\n';
+
+    ]]>
+  </fx:Script>
+  <fx:Declarations>
+    <Div>
+      <sp:InlineAlert id="infoAlert" status="info" header="Information Alert Header" content="This is an alert"/>
+    </Div>
+    <Div>
+      <sp:InlineAlert id="successAlert" status="success" header="Successful Alert Header" content="This is an alert"/>
+    </Div>
+    <Div>
+      <sp:InlineAlert id="warningAlert" status="warning" header="Warning Alert Header" content="This is an alert"/>
+    </Div>
+    <Div>
+      <sp:InlineAlert id="helpAlert" status="help" header="Helpful Alert Header" content="This is an alert"/>
+    </Div>  
+    <Div>
+      <sp:InlineAlert id="errorAlert" status="error" header="Error Alert - Oh no!" content="This is an alert"/>
+    </Div> 
+    <Div>
+      <sp:InlineAlert id="closableAlert" status="error" header="Error - this is really bad!" content="This is an alert" closeText="Close"/>
+    </Div>
+  </fx:Declarations>
+  <comp:Markup>
+    <comp:StyledCode text="{codeString}"/>
+  </comp:Markup>
+</view:DemoPane>

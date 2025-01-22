@@ -46,6 +46,7 @@ package models
         "Field Label",
         "Form",
         "Illustrated Message",
+        "Inline Alert",
         "Label",
         "Link",
         "Logic Button",

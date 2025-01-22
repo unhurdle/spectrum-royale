@@ -8,6 +8,7 @@
     <component id="ActionGroup" class="com.unhurdle.spectrum.ActionGroup"/>
     <component id="ActionMenu" class="com.unhurdle.spectrum.ActionMenu"/>
     <component id="Alert" class="com.unhurdle.spectrum.Alert"/>
+    <component id="InlineAlert" class="com.unhurdle.spectrum.InlineAlert"/>
     <component id="AlphaColorSlider" class="com.unhurdle.spectrum.AlphaColorSlider"/>
     <component id="Application" class="com.unhurdle.spectrum.Application"/>
     <component id="Article" class="com.unhurdle.spectrum.typography.Article"/>
