@@ -8,7 +8,7 @@
         '<Div width="532" height="224">\n'+
         '  <sp:Card gallery="true">\n'+
         '  <sp:preview>\n'+
-        '    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/example-card-landscape.jpeg"/>\n'+
+        '    <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/example-card-landscape.png"/>\n'+
         '  </sp:preview>\n'+
         '  <sp:body>\n'+
         '    <sp:CardBody>\n'+
@@ -33,7 +33,7 @@
     <Div width="532" height="224">
       <sp:Card gallery="true">
       <sp:preview>
-        <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/example-card-landscape.jpeg"/>
+        <sp:ImageAsset src="https://opensource.adobe.com/spectrum-css/example-card-landscape.png"/>
       </sp:preview>
       <sp:body>
         <sp:CardBody>
