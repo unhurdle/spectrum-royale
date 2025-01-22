@@ -10,6 +10,7 @@ package com.unhurdle.spectrum
      * CEPApplication is meant to be used as a CEP panel in the Adobe Creative apps.
      * The color stop is set automatically by the host application settings.
      */
+    public var runtime:String = "CEP";
     public function CEPApplication()
     {
       
