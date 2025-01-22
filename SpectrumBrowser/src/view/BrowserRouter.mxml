@@ -60,6 +60,7 @@
     <js:ComponentRoute title="Field Label" component="view.panes.FieldLabelPane" baseName="field_label"/>
     <js:ComponentRoute title="Form" component="view.panes.FormPane" baseName="form"/>
     <js:ComponentRoute title="Illustrated Message" component="view.panes.IllustratedMessagePane" baseName="illustrated_message"/>
+    <js:ComponentRoute title="InlineAlert" component="view.panes.InlineAlertPane" baseName="inline_alert"/>
     <js:ComponentRoute title="Label" component="view.panes.LabelPane" baseName="label"/>
     <js:ComponentRoute title="Link" component="view.panes.LinkPane" baseName="link"/>
     <js:ComponentRoute title="Logic Button" component="view.panes.LogicButtonPane" baseName="logic_button"/>
