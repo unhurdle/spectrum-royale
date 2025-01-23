@@ -1,6 +1,8 @@
 package com.unhurdle.spectrum
 {
-  import org.apache.royale.core.WrappedHTMLElement;
+  COMPILE::JS {
+    import org.apache.royale.core.WrappedHTMLElement;
+  }
   import org.apache.royale.events.Event;
   import org.apache.royale.events.KeyboardEvent;
   import org.apache.royale.events.utils.UIKeys;
