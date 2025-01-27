@@ -202,8 +202,15 @@ package com.unhurdle.spectrum
 		}
 		protected function addTag(text:String, data:String = null):void
 		{
-			if (text)
-			{
+			if (text) {
+				if(maxTextLength && text.length > maxTextLength){
+					dispatchEvent(new Event("textTooLong"));
+					return;
+				}
+				if(text.length < minTextLength){
+					dispatchEvent(new Event("textTooShort"));
+					return;
+				}
 				if (comboBoxList)
 				{
 					comboBoxList.open = false;
@@ -387,6 +394,29 @@ package com.unhurdle.spectrum
 		public function set limitToList(value:Boolean):void
 		{
 			_limitToList = value;
+		}
+
+		private var _minTextLength:Number = 1;
+
+		public function get minTextLength():Number
+		{
+			return _minTextLength;
+		}
+
+		public function set minTextLength(value:Number):void
+		{
+			_minTextLength = value;
+		}
+		private var _maxTextLength:Number = 0;
+
+		public function get maxTextLength():Number
+		{
+			return _maxTextLength;
+		}
+
+		public function set maxTextLength(value:Number):void
+		{
+			_maxTextLength = value;
 		}
 
 	}
