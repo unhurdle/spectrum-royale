@@ -16,6 +16,7 @@ package com.unhurdle.spectrum
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="tagAdded", type="org.apache.royale.events.ValueEvent")]
 	[Event(name="tagRemoved", type="org.apache.royale.events.ValueEvent")]
+	[Event(name="validationError", type="org.apache.royale.events.ValueEvent")]
 	public class TagField extends Group implements IHasLabelField
 	{
 		public function TagField()
@@ -203,12 +204,8 @@ package com.unhurdle.spectrum
 		protected function addTag(text:String, data:String = null):void
 		{
 			if (text) {
-				if(maxTextLength && text.length > maxTextLength){
-					dispatchEvent(new Event("textTooLong"));
-					return;
-				}
-				if(text.length < minTextLength){
-					dispatchEvent(new Event("textTooShort"));
+				if (patt && !patt.test(text)) {
+					dispatchEvent(new ValueEvent("validationError", text));
 					return;
 				}
 				if (comboBoxList)
@@ -396,27 +393,19 @@ package com.unhurdle.spectrum
 			_limitToList = value;
 		}
 
-		private var _minTextLength:Number = 1;
-
-		public function get minTextLength():Number
+		private var _validationPattern:String;
+		private var patt:RegExp;
+		public function get validationPattern():String
 		{
-			return _minTextLength;
+			return _validationPattern;
 		}
 
-		public function set minTextLength(value:Number):void
+		public function set validationPattern(value:String):void
 		{
-			_minTextLength = value;
-		}
-		private var _maxTextLength:Number = 0;
-
-		public function get maxTextLength():Number
-		{
-			return _maxTextLength;
-		}
-
-		public function set maxTextLength(value:Number):void
-		{
-			_maxTextLength = value;
+			_validationPattern = value;
+			if(value){
+				patt = new RegExp(value);
+			}
 		}
 
 	}
