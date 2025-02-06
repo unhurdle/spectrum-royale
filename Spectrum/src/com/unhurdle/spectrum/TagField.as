@@ -399,18 +399,14 @@ package com.unhurdle.spectrum
 		{
 			return _validationPattern;
 		}
-		private function createRegExp(pattern:String):RegExp {
-			try {
-				return new RegExp(pattern);
-			} catch (error:Error) {
-				return null;
+		public function set validationPattern(value:String):void {
+            if(value) {
+				patt = new RegExp(value);
+				_validationPattern = value;
+			} else {
+				_validationPattern = "";
+				patt = null;
 			}
 		}
-		public function set validationPattern(value:String):void
-		{
-			_validationPattern = value;
-			patt = value ? createRegExp(value) : null;
-		}
-
 	}
 }
