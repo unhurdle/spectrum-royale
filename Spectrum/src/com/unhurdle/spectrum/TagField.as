@@ -16,6 +16,7 @@ package com.unhurdle.spectrum
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="tagAdded", type="org.apache.royale.events.ValueEvent")]
 	[Event(name="tagRemoved", type="org.apache.royale.events.ValueEvent")]
+	[Event(name="validationError", type="org.apache.royale.events.ValueEvent")]
 	public class TagField extends Group implements IHasLabelField
 	{
 		public function TagField()
@@ -202,8 +203,11 @@ package com.unhurdle.spectrum
 		}
 		protected function addTag(text:String, data:String = null):void
 		{
-			if (text)
-			{
+			if (text) {
+				if (patt && !patt.test(text)) {
+					dispatchEvent(new ValueEvent("validationError", text));
+					return;
+				}
 				if (comboBoxList)
 				{
 					comboBoxList.open = false;
@@ -389,5 +393,20 @@ package com.unhurdle.spectrum
 			_limitToList = value;
 		}
 
+		private var _validationPattern:String;
+		private var patt:RegExp;
+		public function get validationPattern():String
+		{
+			return _validationPattern;
+		}
+		public function set validationPattern(value:String):void {
+            if(value) {
+				patt = new RegExp(value);
+				_validationPattern = value;
+			} else {
+				_validationPattern = "";
+				patt = null;
+			}
+		}
 	}
 }
