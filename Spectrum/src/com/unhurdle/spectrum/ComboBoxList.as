@@ -110,7 +110,6 @@ package com.unhurdle.spectrum
 				addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 			} else {
-				_list.blur();
 				if(_search){
 					_search.text = "";
 					handleSearch();

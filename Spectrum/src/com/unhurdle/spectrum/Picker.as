@@ -109,6 +109,7 @@ package com.unhurdle.spectrum
 			popover.open = true;
 			popover.filterFunction = filterFunction;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			_button.removeEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 			if(searchable){
 				popover.search.input.focus();
 			}
@@ -255,6 +256,9 @@ package com.unhurdle.spectrum
 			closePopup();
 			setButtonText();
 			dispatchEvent(new Event("change"));
+			//keep focus on button after closing, so key down (for arrow down/space) will open it
+			_button.focus();// for some reason causes it to re-open. looks like 'focus' event triggers 'click' event.
+			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 		}
 		
 		private var _invalid:Boolean;
@@ -356,26 +360,32 @@ package com.unhurdle.spectrum
 		}
 		private function handleKeyDown(event:KeyboardEvent):void
 		{
-			// forward relevent keys to the list
-			switch(event.key){
-				case WhitespaceKeys.ENTER:
-				case NavigationKeys.DOWN:
-				case NavigationKeys.UP:
-				case UIKeys.ESCAPE:
-					COMPILE::JS
-					{
-						var newEvent:KeyboardEvent = new KeyboardEvent(
-							event.type,
-							event.key,
-							event.code,
-							event.shiftKey,
-							event.altKey,
-							event.ctrlKey,
-							event.metaKey,
-							false);
-						popover.list.focusParent.dispatchEvent(newEvent);
-					}
-					break;
+			if(popover.open) {
+				// forward relevent keys to the list
+				switch(event.key){
+					case WhitespaceKeys.ENTER:
+					case NavigationKeys.DOWN:
+					case NavigationKeys.UP:
+					case UIKeys.ESCAPE:
+						COMPILE::JS
+						{
+							var newEvent:KeyboardEvent = new KeyboardEvent(
+								event.type,
+								event.key,
+								event.code,
+								event.shiftKey,
+								event.altKey,
+								event.ctrlKey,
+								event.metaKey,
+								false);
+							popover.list.focusParent.dispatchEvent(newEvent);
+						}
+						break;
+				}
+			} else {
+				if (event.key == NavigationKeys.DOWN || event.key == WhitespaceKeys.SPACE) {
+					openPopup();
+				}
 			}
 			// prevent default behavior for these keys to keep the cursor position from changing
 			if(event.key == NavigationKeys.UP || event.key == NavigationKeys.DOWN){

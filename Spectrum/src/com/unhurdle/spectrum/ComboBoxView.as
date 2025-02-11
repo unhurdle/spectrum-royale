@@ -217,6 +217,8 @@ package com.unhurdle.spectrum{
 			} else {
 				if(event.key == WhitespaceKeys.ENTER){
 					sendStrandEvent(_strand,"change");
+				} else if (event.key == NavigationKeys.DOWN) {
+					openPopup();
 				}
 			}
 			// prevent default behavior for these keys to keep the cursor position from changing
@@ -339,7 +341,7 @@ package com.unhurdle.spectrum{
   			_popup.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 	  		comboHost.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 		  	comboHost.topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-        _popup.open = false;
+			_popup.open = false;
       }
 			textfield.focus();
 		}
