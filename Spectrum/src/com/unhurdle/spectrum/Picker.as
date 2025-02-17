@@ -257,8 +257,11 @@ package com.unhurdle.spectrum
 			setButtonText();
 			dispatchEvent(new Event("change"));
 			//keep focus on button after closing, so key down (for arrow down/space) will open it
+			var currentFocus:Element = document.activeElement;
 			requestAnimationFrame(function():void{
-				_button.focus();
+				if(document.activeElement == currentFocus){
+					_button.focus();
+				}
 			})
 			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 		}
