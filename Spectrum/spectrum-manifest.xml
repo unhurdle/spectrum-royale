@@ -138,7 +138,6 @@
     <component id="SpacedTypography" class="com.unhurdle.spectrum.SpacedTypography"/>
     <component id="SplitButton" class="com.unhurdle.spectrum.SplitButton"/>
     <component id="SplitButtonPagination" class="com.unhurdle.spectrum.SplitButtonPagination"/>
-    <component id="SplitView" class="com.unhurdle.spectrum.SplitView"/>
     <component id="StatusLight" class="com.unhurdle.spectrum.StatusLight"/>
     <component id="StepList" class="com.unhurdle.spectrum.StepList"/>
     <component id="Stepper" class="com.unhurdle.spectrum.Stepper"/>
