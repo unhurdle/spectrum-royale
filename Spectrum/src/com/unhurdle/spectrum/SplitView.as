@@ -32,11 +32,41 @@ package com.unhurdle.spectrum
 			if(!_splitter){
 				_splitter = new Splitter();
 				_splitter.addEventListener("mousedown",onMouseDown);
-				COMPILE::JS{
-					splitter.cursor = direction == "horizontal" ? "col-resize" : "row-resize";
-				}
 			}
+			direction == "horizontal"? setHSplitterStyle() : setVSplitterStyle();
 			return _splitter;
+		}
+		private function setVSplitterStyle():void{
+			COMPILE::JS{
+				_splitter.cursor = "row-resize";
+			}
+			_splitter.style = {'height': '2px','width': '100%'};
+			if(_splitter.gripper){
+        _splitter.gripper.style.top = '-4px';
+        _splitter.gripper.style.transform = 'translate(-50%, 0)';
+        _splitter.gripper.style.width = '16px';
+        _splitter.gripper.style.height = '4px';
+        _splitter.gripper.style.borderTopWidth = '3px';
+        _splitter.gripper.style.borderBottomWidth = '3px';
+        _splitter.gripper.style.borderLeftWidth = '4px';
+        _splitter.gripper.style.borderRightWidth = '4px';
+      }
+		}
+		private function setHSplitterStyle():void{
+			COMPILE::JS{
+				_splitter.cursor = "col-resize";
+			}
+			_splitter.style = {'width': '2px','height': '100%'};
+			if(_splitter.gripper){
+        _splitter.gripper.style.top = '50%';
+        _splitter.gripper.style.transform = 'translate(0, -50%)';
+        _splitter.gripper.style.width = '4px';
+        _splitter.gripper.style.height = '16px';
+        _splitter.gripper.style.borderTopWidth = '4px';
+        _splitter.gripper.style.borderBottomWidth = '4px';
+        _splitter.gripper.style.borderLeftWidth = '3px';
+        _splitter.gripper.style.borderRightWidth = '3px';
+      }
 		}
 
 		private var _isDraggable:Boolean;
@@ -61,12 +91,16 @@ package com.unhurdle.spectrum
 			var percent:Number = val;
 			if(numElements > 2){
 				if(direction === "horizontal"){
+					(getElementAt(0) as ILayoutChild).percentHeight = 100;
 					(getElementAt(0) as ILayoutChild).percentWidth = percent;
 					splitter.setStyle("left","0");
+					(getElementAt(2) as ILayoutChild).percentHeight = 100;
 					(getElementAt(2) as ILayoutChild).percentWidth = 100 - percent;
 				} else {
+					(getElementAt(0) as ILayoutChild).percentWidth = 100;
 					(getElementAt(0) as ILayoutChild).percentHeight = percent;
 					splitter.setStyle("top","0");
+					(getElementAt(2) as ILayoutChild).percentWidth = 100;
 					(getElementAt(2) as ILayoutChild).percentHeight = 100 - percent;
 				}
 			}
