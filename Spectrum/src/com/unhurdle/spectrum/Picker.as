@@ -58,6 +58,7 @@ package com.unhurdle.spectrum
 			_button.icon = Icon.getCSSTypeSelector(type);
 			_button.iconType = type;
 			_button.iconClass = appendSelector("-icon");
+			//Cancel keypress event so 'focus'+'enter' won't fire a click event and open the dropdown
 			_button.element.addEventListener('keypress', function(ev:KeyboardEvent):void{
 				ev.preventDefault();
 				ev.stopImmediatePropagation();
