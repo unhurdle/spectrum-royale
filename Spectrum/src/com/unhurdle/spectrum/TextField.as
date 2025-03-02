@@ -248,6 +248,7 @@ package com.unhurdle.spectrum
       invalidTooltip.autoClose = invalidAutoClose;
       COMPILE::JS{
             invalidIcon.width = invalidIcon.element.clientWidth;
+            invalidIcon.height = invalidIcon.element.clientHeight;
       }
       invalidTooltip.toolTip = invalidText;
     };
