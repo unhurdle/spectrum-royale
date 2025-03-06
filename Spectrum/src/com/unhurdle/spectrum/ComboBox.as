@@ -101,6 +101,16 @@ package com.unhurdle.spectrum
 				field.text = value;
 			}
 			_text = value;
+			_previousText = _text;
+		}
+		// this is the previosly typed value
+		// Not the previous set text value
+		private var _previousText:String
+		public function get previousText():String {
+				return _previousText;
+		}
+		public function set previousText(value:String):void {
+			_previousText = value;
 		}
 		public function get limitToList():Boolean{
 			return getModel().limitToList;
