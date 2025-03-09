@@ -96,6 +96,7 @@ package com.unhurdle.spectrum{
 		
 		private var comboHost:ComboBox;
     private var model:IComboBoxModel;
+		private var _currentText:String;
 		/**
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.events.IEventDispatcher
@@ -125,7 +126,7 @@ package com.unhurdle.spectrum{
 			textfield.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
 			if(text)
 			{
-				comboHost.text = text;
+				updateText(text);
 			}
 			button = new FieldButton();
       button.className = appendSelector("-button");
@@ -228,12 +229,17 @@ package com.unhurdle.spectrum{
 			}
 
 		}
+
+		private function updateText(value:String):void {
+			textfield.text = _currentText = value;
+		}
+
 		private var handleInput:Boolean = true;
 		private function inputHandler(ev:KeyboardEvent):void{
-    	if (textfield.text == comboHost.previousText) {
+    	if (textfield.text == _currentText) {
 				return;
 			}
-    	comboHost.previousText = textfield.text;
+    	_currentText = textfield.text;
 
 			var dataProvider:Object = model.dataProvider;	
 			if(textfield.text && model.dataProvider){
@@ -425,12 +431,12 @@ package com.unhurdle.spectrum{
 				for each(var item:MenuItem in model.dataProvider){
 					if(item.text && item.text.toLowerCase() == textfield.text.toLowerCase()){
 						exist = true;
-						comboHost.text = item.text;
+						updateText(item.text);
 						break;
 					}
 				}
 				if(!exist){
-					comboHost.text = "";
+					updateText("");
 				}
 			}
 		}
@@ -450,7 +456,7 @@ package com.unhurdle.spectrum{
 			var item:Object = model.selectedItem;
 			var text:String = getLabelFromData(list,item);
 			if(handleInput && text){
-				comboHost.text = text;
+				updateText(text);
 			}
 		}
 		
