@@ -98,6 +98,7 @@ package com.unhurdle.spectrum
 			}
 			handle.visible = value.isValid;
 			if(hueSlider){
+				if(value.alpha != 1) return;
 				var hueVal:IRGBA = value.clone();
 				handle.appliedColor = hueVal;
 			} else {
