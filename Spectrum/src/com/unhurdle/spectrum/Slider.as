@@ -241,10 +241,12 @@ package com.unhurdle.spectrum
 
 			var val:Number = (max-min) / (100/percent) + min;
 			var stepVal:Number = step;
-			var rem:Number = val % stepVal;
-			val = val - rem;
-			if (rem > (stepVal/2)){
-			val += stepVal;
+			if (stepVal > 0) {
+				var rem:Number = val % stepVal;
+				val = val - rem;
+				if (rem > (stepVal/2)){
+				val += stepVal;
+				}
 			}
 			value = val;
 			positionElements();
