@@ -217,6 +217,7 @@ package com.unhurdle.spectrum{
 				}
 			} else {
 				if(event.key == WhitespaceKeys.ENTER){
+					checkLimitToList();
 					sendStrandEvent(_strand,"change");
 				} else if (event.key == NavigationKeys.DOWN) {
 					openPopup();
@@ -423,21 +424,30 @@ package com.unhurdle.spectrum{
 			comboHost.toggle("is-invalid",model.invalid);
 
 		}
+
+		private function checkLimitToList():void
+		{
+			if(!model.limitToList || !textfield || !textfield.text){
+				return;
+			}
+			var exist:Boolean = false;
+			for each(var item:MenuItem in model.dataProvider){
+				if(item.text && item.text.toLowerCase() == textfield.text.toLowerCase()){
+					exist = true;
+					updateText(item.text);
+					break;
+				}
+			}
+			if(!exist){
+				updateText("");
+			}
+		}
+
 		private function focusChangeHandler(event:Event):void{
 			comboHost.toggle("is-keyboardFocused",model.keyboardFocused);
 			comboHost.toggle("is-focused",model.focused);
-			if(model.limitToList && !model.focused && textfield?.text){
-				var exist:Boolean = false;
-				for each(var item:MenuItem in model.dataProvider){
-					if(item.text && item.text.toLowerCase() == textfield.text.toLowerCase()){
-						exist = true;
-						updateText(item.text);
-						break;
-					}
-				}
-				if(!exist){
-					updateText("");
-				}
+			if(!model.focused){
+				checkLimitToList();
 			}
 		}
 		/**
