@@ -96,6 +96,7 @@ package com.unhurdle.spectrum{
 		
 		private var comboHost:ComboBox;
     private var model:IComboBoxModel;
+		private var _currentText:String;
 		/**
 		 * @private
 		 * @royaleignorecoercion org.apache.royale.events.IEventDispatcher
@@ -125,7 +126,7 @@ package com.unhurdle.spectrum{
 			textfield.addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
 			if(text)
 			{
-				textfield.text = text;
+				updateText(text);
 			}
 			button = new FieldButton();
       button.className = appendSelector("-button");
@@ -216,7 +217,10 @@ package com.unhurdle.spectrum{
 				}
 			} else {
 				if(event.key == WhitespaceKeys.ENTER){
-					sendStrandEvent(_strand,"change");
+					if (checkLimitToList())
+					{
+						sendStrandEvent(_strand,"change");
+					}
 				} else if (event.key == NavigationKeys.DOWN) {
 					openPopup();
 				}
@@ -228,11 +232,18 @@ package com.unhurdle.spectrum{
 			}
 
 		}
+
+		private function updateText(value:String):void {
+			textfield.text = _currentText = value;
+		}
+
 		private var handleInput:Boolean = true;
 		private function inputHandler(ev:KeyboardEvent):void{
-			if (ev.key.length > 1 && ev.key != EditingKeys.BACKSPACE && ev.key != EditingKeys.DELETE) {// not a simple key (does this work for advanced input?)
-					return;// do nothing
+    	if (textfield.text == _currentText) {
+				return;
 			}
+    	_currentText = textfield.text;
+
 			var dataProvider:Object = model.dataProvider;	
 			if(textfield.text && model.dataProvider){
 				dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
@@ -240,14 +251,16 @@ package com.unhurdle.spectrum{
 			list.dataProvider = dataProvider;
 			var selectedIndex:int = -1;
 			var text:String = textfield.text.toLowerCase();
-			for(var i:int=0; i<dataProvider.length; i++){
-				var item:MenuItem = dataProvider[i] as MenuItem;
-				var label:String = item.label ? item.label.toLowerCase() : "";
-				if(label == text){
-					selectedIndex = i;
-					break;
-				}
-			}
+
+			// find the selected index in the unfiltered list
+			for (var i:int = 0; i < model.dataProvider.length; i++) {
+        var item:MenuItem = model.dataProvider[i] as MenuItem;
+        var label:String = item.label ? item.label.toLowerCase() : "";
+        if (label == text) {
+            selectedIndex = i;
+            break;
+        }
+    	}
 			model.selectedIndex = selectedIndex;
 			// if(dataProvider && model.selectedItem && dataProvider.indexOf(model.selectedItem) == -1){
 			// 	model.selectedItem = null;
@@ -413,21 +426,32 @@ package com.unhurdle.spectrum{
 			comboHost.toggle("is-invalid",model.invalid);
 
 		}
+
+		private function checkLimitToList():Boolean
+		{
+			if(!model.limitToList || !textfield || !textfield.text){
+				return true;
+			}
+			var exist:Boolean = false;
+			for each(var item:MenuItem in model.dataProvider){
+				if(item.text && item.text.toLowerCase() == textfield.text.toLowerCase()){
+					exist = true;
+					updateText(item.text);
+					break;
+				}
+			}
+			if(!exist){
+				updateText("");
+				return false;
+			}
+			return true;
+		}
+
 		private function focusChangeHandler(event:Event):void{
 			comboHost.toggle("is-keyboardFocused",model.keyboardFocused);
 			comboHost.toggle("is-focused",model.focused);
-			if(model.limitToList && !model.focused && textfield?.text){
-				var exist:Boolean = false;
-				for each(var item:MenuItem in model.dataProvider){
-					if(item.text && item.text.toLowerCase() == textfield.text.toLowerCase()){
-						exist = true;
-						textfield.text = item.text;
-						break;
-					}
-				}
-				if(!exist){
-					textfield.text = "";
-				}
+			if(!model.focused){
+				checkLimitToList();
 			}
 		}
 		/**
@@ -446,7 +470,7 @@ package com.unhurdle.spectrum{
 			var item:Object = model.selectedItem;
 			var text:String = getLabelFromData(list,item);
 			if(handleInput && text){
-				textfield.text = text;
+				updateText(text);
 			}
 		}
 		
