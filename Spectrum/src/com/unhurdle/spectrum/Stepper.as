@@ -107,6 +107,9 @@ package com.unhurdle.spectrum
     {
       numberField.placeholder = value;
     }
+    public function inputValue():String{
+      return numberField.input.value;
+    }
     private var _value:Number;
 
     public function get value():Number
