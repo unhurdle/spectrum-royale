@@ -26,7 +26,7 @@ package com.unhurdle.spectrum.renderers
       return "spectrum-TreeView";
     }
     private var treeListData:TreeListData;
-    private var chevronRightIcon:Icon
+    protected var chevronRightIcon:Icon
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
