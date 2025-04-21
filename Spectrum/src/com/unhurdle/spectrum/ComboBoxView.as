@@ -273,9 +273,7 @@ package com.unhurdle.spectrum{
 			{
 				popUpVisible = false;
 			}
-			handleInput = respondToItemChange = false;
 			list.selectedItem = model.selectedItem;
-			respondToItemChange = handleInput = true;
 		}
 		/**
 		 *  Returns whether or not the pop-up is visible.
@@ -374,10 +372,11 @@ package com.unhurdle.spectrum{
 			if(!respondToItemChange){
 				return;
 			}
-			respondToItemChange = false;
+			// If the model and the list are synced up, it's not a real change
 			if(model.selectedItem == list.selectedItem){
 				return;
 			}
+			respondToItemChange = false;
 			if(event.target == list.model){
 				model.selectedItem = list.selectedItem;
 			} else {
