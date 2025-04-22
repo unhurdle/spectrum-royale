@@ -272,10 +272,12 @@ package com.unhurdle.spectrum{
 			} else if (storedIsListEmpty) {
 				popUpVisible = false;
 			}
+<<<<<<< HEAD
 
 			handleInput = respondToItemChange = false;
+=======
+>>>>>>> c3bacde499aea875e96af9f8081dd84c8a3a612f
 			list.selectedItem = model.selectedItem;
-			respondToItemChange = handleInput = true;
 		}
 		/**
 		 *  Returns whether or not the pop-up is visible.
@@ -374,10 +376,11 @@ package com.unhurdle.spectrum{
 			if(!respondToItemChange){
 				return;
 			}
-			respondToItemChange = false;
+			// If the model and the list are synced up, it's not a real change
 			if(model.selectedItem == list.selectedItem){
 				return;
 			}
+			respondToItemChange = false;
 			if(event.target == list.model){
 				model.selectedItem = list.selectedItem;
 			} else {
