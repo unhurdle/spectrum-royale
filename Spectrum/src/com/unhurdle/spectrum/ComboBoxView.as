@@ -238,41 +238,41 @@ package com.unhurdle.spectrum{
 		}
 
 		private var handleInput:Boolean = true;
-		private function inputHandler(ev:KeyboardEvent):void{
-    	if (textfield.text == _currentText) {
+		private function inputHandler(ev:KeyboardEvent):void {
+			if (textfield.text == _currentText) {
+				// if the text hasn't changed,  ignore
+				// this event.  The down arrow key is handled in the handleKeyDown function.
 				return;
 			}
-    	_currentText = textfield.text;
+			_currentText = textfield.text;
 
 			var dataProvider:Object = model.dataProvider;	
-			if(textfield.text && model.dataProvider){
-				dataProvider = comboHost.filterFunction(textfield.text,model.dataProvider);
+			if (textfield.text && model.dataProvider) {
+				dataProvider = comboHost.filterFunction(textfield.text, model.dataProvider);
 			}
 			list.dataProvider = dataProvider;
 			var selectedIndex:int = -1;
 			var text:String = textfield.text.toLowerCase();
 
-			// find the selected index in the unfiltered list
+			// Find the selected index in the unfiltered list
 			for (var i:int = 0; i < model.dataProvider.length; i++) {
-        var item:MenuItem = model.dataProvider[i] as MenuItem;
-        var label:String = item.label ? item.label.toLowerCase() : "";
-        if (label == text) {
-            selectedIndex = i;
-            break;
-        }
-    	}
+				var item:MenuItem = model.dataProvider[i] as MenuItem;
+				var label:String = item.label ? item.label.toLowerCase() : "";
+				if (label == text) {
+					selectedIndex = i;
+					break;
+				}
+			}
 			model.selectedIndex = selectedIndex;
-			// if(dataProvider && model.selectedItem && dataProvider.indexOf(model.selectedItem) == -1){
-			// 	model.selectedItem = null;
-			// }
-			// show the popup while typing
+
+			// Show the popup while typing
 			var storedIsListEmpty:Boolean = isListEmpty;
-			if(!popUpVisible && !storedIsListEmpty){
+			if (!popUpVisible && !storedIsListEmpty) {
 				popUpVisible = true;
-			} else if (storedIsListEmpty)
-			{
+			} else if (storedIsListEmpty) {
 				popUpVisible = false;
 			}
+
 			handleInput = respondToItemChange = false;
 			list.selectedItem = model.selectedItem;
 			respondToItemChange = handleInput = true;
