@@ -273,7 +273,6 @@ package com.unhurdle.spectrum{
 				popUpVisible = false;
 			}
 
-			handleInput = respondToItemChange = false;
 			list.selectedItem = model.selectedItem;
 		}
 		/**
