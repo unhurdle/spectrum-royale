@@ -263,6 +263,9 @@ package com.unhurdle.spectrum
     public function show():void{
       Application.current.popUpParent.addElement(this);
       addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
+      if(!elements.length){
+        getFocusableElements(this,elements);
+      }
       visible = true;
       COMPILE::JS
       {
@@ -290,8 +293,13 @@ package com.unhurdle.spectrum
     {
       var hasFocus:Boolean = hasAutoFocus(this,elements);
       if(!hasFocus){
-        if(focusFirst && elements[0]){
-          (elements[0] as ISpectrumElement).focus();
+        if(focusFirst){
+          var firstFocusableElement:ISpectrumElement = elements.find(function(e:*):Boolean {
+            return e.element?.offsetParent && e.tabFocusable;
+          });
+          if (firstFocusableElement) {
+            firstFocusableElement.focus();
+          }
         }else{
           focus();
         }
@@ -299,44 +307,37 @@ package com.unhurdle.spectrum
     }
 
     private function whenKey(backward:Boolean):void{
-      if(!elements){
-        getFocusableElements(this,elements);
-      }
       if(elements.length <= 1){
         return;
       }
-      var first:Object = elements[0];
-      var last:Object = elements[elements.length - 1];
-      var source:Object = backward ? first : last;
-      var target:Object = backward ? last : first;
-      if(document.activeElement == source.element){
-        (target as ISpectrumElement).focus();
-        return;
-      }
+      var focusableElements:Array = elements.filter(function(e:*):Boolean{
+				return !!e.element?.offsetParent && e.tabFocusable;
+			});
+
+      if(backward){
+				focusableElements.reverse();
+			}
       var currentIndex:Number;
-      var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
+      var found:Boolean = focusableElements.some(function(e:*, index:Number):Boolean {
         if (document.activeElement != e.focusElement){
           return false;
         }
         currentIndex = index;
         return true;
       });
+      var first:SpectrumBase = focusableElements[0] as SpectrumBase;
       if (!found) {
         // redirect to first as we're not in our tabsequence
         first.focus();
         return;
       }
-      if (currentIndex == 0 && backward) {
-        last.focus();
-        return;
-      } else if ((currentIndex == elements.length - 1) && !backward)
-      {
+      if (currentIndex == focusableElements.length - 1) {
         first.focus();
         return;
       }
       // shift focus to previous/next element in the sequence
-      var offset:Number = backward ? -1 : 1;
-      elements[currentIndex + offset].focus();
+      var offset:Number = 1;
+      (focusableElements[currentIndex + offset] as SpectrumBase).focus();
     }
 
     COMPILE::JS

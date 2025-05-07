@@ -11,7 +11,8 @@ package com.unhurdle.spectrum.utils
       i++;
       if(child is ISpectrumElement){
         var childElem:ISpectrumElement = child as ISpectrumElement;
-        if(childElem.tabFocusable){
+        // Add all elements to the array, regardless of their state
+        if (elements.indexOf(childElem) == -1) {
           elements.push(childElem);
         }
         getFocusableElements(childElem,elements);
