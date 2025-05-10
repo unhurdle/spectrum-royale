@@ -315,7 +315,8 @@ package com.unhurdle.spectrum
       }
       if(document.activeElement == this.element){
         // nothing selected. Use first/last.
-        return focuseNextInList(backward ? elements.length - 1 : 0,backward);
+        // start with wraping around to the beginning/end
+        return focuseNextInList(backward ? 0 : elements.length - 1,backward);
       }
       var currentIndex:Number;
       var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
@@ -327,7 +328,8 @@ package com.unhurdle.spectrum
       });
       if (!found) {
         // redirect to first as we're not in our tabsequence
-        return focuseNextInList(backward ? elements.length - 1 : 0,backward);
+        // start with wraping around to the beginning/end
+        return focuseNextInList(backward ? 0 : elements.length - 1,backward);
       }
       focuseNextInList(currentIndex,backward);      
     }
