@@ -22,11 +22,9 @@ package com.unhurdle.spectrum.utils
           }
           haveAutoFocus = true;
         }
-        if(childElem.tabFocusable){
-          elements.push(childElem);
-        }
+        elements.push(childElem);
         if(hasAutoFocus(childElem,elements)){
-          haveAutoFocus = true;;
+          haveAutoFocus = true;
         }
       }
     }

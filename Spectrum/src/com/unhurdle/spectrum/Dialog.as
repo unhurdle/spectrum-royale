@@ -263,9 +263,6 @@ package com.unhurdle.spectrum
     public function show():void{
       Application.current.popUpParent.addElement(this);
       addEventListener(KeyboardEvent.KEY_DOWN,handleKeyDown);
-      if(!elements.length){
-        getFocusableElements(this,elements);
-      }
       visible = true;
       COMPILE::JS
       {
@@ -291,53 +288,72 @@ package com.unhurdle.spectrum
     private var elements:Array = [];
     private function focusElement():void
     {
+      if(!focusFirst){
+        focus();
+        return;
+      }
       var hasFocus:Boolean = hasAutoFocus(this,elements);
       if(!hasFocus){
-        if(focusFirst){
-          var firstFocusableElement:ISpectrumElement = elements.find(function(e:*):Boolean {
-            return e.element?.offsetParent && e.tabFocusable;
-          });
-          if (firstFocusableElement) {
-            firstFocusableElement.focus();
+        for each (var elem:ISpectrumElement in elements){
+          if(elem.tabFocusable && elem.visible) {
+            elem.focus();
+            return;
           }
-        }else{
-          focus();
         }
       }
     }
 
     private function whenKey(backward:Boolean):void{
+      if(!elements){
+        elements = [];
+      }
+      if(!elements.length){
+        getFocusableElements(this,elements);
+      }
       if(elements.length <= 1){
         return;
       }
-      var focusableElements:Array = elements.filter(function(e:*):Boolean{
-				return !!e.element?.offsetParent && e.tabFocusable;
-			});
-
-      if(backward){
-				focusableElements.reverse();
-			}
+      if(document.activeElement == this.element){
+        // nothing selected. Use first/last.
+        return focuseNextInList(backward ? elements.length - 1 : 0,backward);
+      }
       var currentIndex:Number;
-      var found:Boolean = focusableElements.some(function(e:*, index:Number):Boolean {
+      var found:Boolean = elements.some(function(e:*, index:Number):Boolean {
         if (document.activeElement != e.focusElement){
           return false;
         }
         currentIndex = index;
         return true;
       });
-      var first:SpectrumBase = focusableElements[0] as SpectrumBase;
       if (!found) {
         // redirect to first as we're not in our tabsequence
-        first.focus();
-        return;
+        return focuseNextInList(backward ? elements.length - 1 : 0,backward);
       }
-      if (currentIndex == focusableElements.length - 1) {
-        first.focus();
-        return;
-      }
-      // shift focus to previous/next element in the sequence
-      var offset:Number = 1;
-      (focusableElements[currentIndex + offset] as SpectrumBase).focus();
+      focuseNextInList(currentIndex,backward);      
+    }
+    private function focuseNextInList(index:int,backwards:Boolean):void{
+      var startIdx:int = index;
+      do{
+        if(backwards){
+          index--;
+          if(index < 0){
+            index = elements.length - 1;
+          }
+        } else {
+          index++;
+          if(index >= elements.length){
+            index = 0;
+          }
+        }
+        if(index == startIdx){// went in a circle
+          return;
+        }
+        var elem:ISpectrumElement = elements[index];
+        if(elem.tabFocusable && elem.visible) {
+          elem.focus();
+          return;
+        }
+      }while(1);
     }
 
     COMPILE::JS
