@@ -79,6 +79,10 @@ package com.unhurdle.spectrum.renderers
       toggle('is-open',value);
       treeListData.isOpen = _isOpen;
     }
+    protected function setIsOpen(value:Boolean):void
+    {
+      _isOpen = value;
+    }
     override protected function setText(value:String):void{
        textNode.text = value;
     }
