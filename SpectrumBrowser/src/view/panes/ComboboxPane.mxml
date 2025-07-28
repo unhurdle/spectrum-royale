@@ -34,7 +34,7 @@
   </fx:Script>
   <comp:Variant>
   <sp:Heading size="XS" text="Default"/>
-  <sp:ComboBox placeholder="Type here">
+  <sp:ComboBox placeholder="Type here" selectedIndex="1">
     <sp:dataProvider>
     <fx:Array>
       <sp:MenuItem text="Ballard"/>

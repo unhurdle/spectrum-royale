@@ -26,7 +26,7 @@ package com.unhurdle.spectrum.renderers
       return "spectrum-TreeView";
     }
     private var treeListData:TreeListData;
-    private var chevronRightIcon:Icon
+    protected var chevronRightIcon:Icon
     COMPILE::JS
     override public function set data(value:Object):void{
       super.data = value;
@@ -78,6 +78,10 @@ package com.unhurdle.spectrum.renderers
     	_isOpen = value;
       toggle('is-open',value);
       treeListData.isOpen = _isOpen;
+    }
+    protected function setIsOpen(value:Boolean):void
+    {
+      _isOpen = value;
     }
     override protected function setText(value:String):void{
        textNode.text = value;
