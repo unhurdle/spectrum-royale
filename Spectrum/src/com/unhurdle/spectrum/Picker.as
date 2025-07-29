@@ -58,6 +58,7 @@ package com.unhurdle.spectrum
 			_button.icon = Icon.getCSSTypeSelector(type);
 			_button.iconType = type;
 			_button.iconClass = appendSelector("-icon");
+			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 			// _button.textNode.element.style.maxWidth = '85%';
 			addElement(_button);
 			popover = new ComboBoxList();
@@ -109,7 +110,6 @@ package com.unhurdle.spectrum
 			popover.open = true;
 			popover.filterFunction = filterFunction;
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-			_button.removeEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 			if(searchable){
 				popover.search.input.focus();
 			}
@@ -263,7 +263,6 @@ package com.unhurdle.spectrum
 					_button.focus();
 				}
 			})
-			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 		}
 		
 		private var _invalid:Boolean;
@@ -389,7 +388,7 @@ package com.unhurdle.spectrum
 				}
 			} else {
 				if (event.key == NavigationKeys.DOWN || event.key == WhitespaceKeys.SPACE) {
-					openPopup();
+					toggleDropdown(event);
 				}
 			}
 			// prevent default behavior for these keys to keep the cursor position from changing
