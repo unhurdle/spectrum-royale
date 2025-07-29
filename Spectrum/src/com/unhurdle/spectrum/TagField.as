@@ -204,6 +204,13 @@ package com.unhurdle.spectrum
 		protected function addTag(text:String, data:String = null):void
 		{
 			if (text) {
+				var trimmedText:String = text.trim();
+				if(!trimmedText){ //don't add empty tags
+					return;
+				}
+				if(trimTag){
+					text = trimmedText; //trim spaces from the beginning and end of the tags
+				}
 				if (patt && !patt.test(text)) {
 					dispatchEvent(new ValueEvent("validationError", text));
 					return;
@@ -391,6 +398,16 @@ package com.unhurdle.spectrum
 		public function set limitToList(value:Boolean):void
 		{
 			_limitToList = value;
+		}
+		private var _trimTag:Boolean = true;
+
+		public function get trimTag():Boolean
+		{
+			return _trimTag;
+		}
+		public function set trimTag(value:Boolean):void
+		{
+			_trimTag = value;
 		}
 
 		private var _validationPattern:String;
