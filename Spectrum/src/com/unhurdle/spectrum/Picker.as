@@ -58,11 +58,6 @@ package com.unhurdle.spectrum
 			_button.icon = Icon.getCSSTypeSelector(type);
 			_button.iconType = type;
 			_button.iconClass = appendSelector("-icon");
-			//Cancel keypress event so 'focus'+'enter' won't fire a click event and open the dropdown
-			_button.element.addEventListener('keypress', function(ev:KeyboardEvent):void{
-				ev.preventDefault();
-				ev.stopImmediatePropagation();
-			});
 			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 			// _button.textNode.element.style.maxWidth = '85%';
 			addElement(_button);
@@ -268,7 +263,6 @@ package com.unhurdle.spectrum
 					_button.focus();
 				}
 			})
-			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 		}
 		
 		private var _invalid:Boolean;
