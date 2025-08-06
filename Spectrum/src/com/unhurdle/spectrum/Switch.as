@@ -22,12 +22,12 @@ package com.unhurdle.spectrum
     override protected function getSelector():String{
       return "spectrum-ToggleSwitch";
     }
-    private var _rightLabelElem:TextNode;
-    private var _leftLabelElem:TextNode;
-    private var input:HTMLInputElement;
+    protected var _rightLabelElem:TextNode;
+    protected var _leftLabelElem:TextNode;
+    protected var input:HTMLInputElement;
 
     // only set label once even if called multiple times while creating element
-    private var debouncedSetInput:Function;
+    protected var debouncedSetInput:Function;
 
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement{
@@ -61,7 +61,7 @@ package com.unhurdle.spectrum
         debouncedSetInput();
       }
     }
-    private function handleInputChange(ev:Event):void{
+    protected function handleInputChange(ev:Event):void{
       var label:String = input.checked ? onLabel : offLabel;
       if(label){
         if(_rightLabelElem){
