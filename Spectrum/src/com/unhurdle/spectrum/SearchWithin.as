@@ -77,6 +77,14 @@ package com.unhurdle.spectrum
       input.text = "";
       dispatchEvent(new Event("search"));
     }
+    public function hideClearButton():void{
+      button.visible = false;
+      input.input.style.paddingRight = "11px";
+    }
+    public function showClearButton():void{
+      button.visible = true;
+      input.input.style.paddingRight = "25px";
+    }
     // private function handleSubmit(ev:Event):Boolean{
     //   ev.preventDefault();
     //   dispatchEvent(new Event("search"));
