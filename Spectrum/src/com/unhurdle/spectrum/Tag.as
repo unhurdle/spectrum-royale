@@ -175,7 +175,7 @@ package com.unhurdle.spectrum
       }
     }
 
-    private function removeTag():void{
+    protected function removeTag():void{
       parent.removeElement(this);
       dispatchEvent(new Event('change'));
     }
