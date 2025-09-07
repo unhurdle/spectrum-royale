@@ -9,6 +9,7 @@ package {
 		import com.unhurdle.spectrum.renderers.MenuItemRenderer;MenuItemRenderer;
 		import com.unhurdle.spectrum.renderers.ListItemRenderer;ListItemRenderer;
 		import com.unhurdle.spectrum.renderers.TreeItemRenderer;TreeItemRenderer;
+		import com.unhurdle.spectrum.renderers.MultiTreeItemRenderer;MultiTreeItemRenderer;
 		import com.unhurdle.spectrum.renderers.TreeItemRendererBase;TreeItemRendererBase;
 		import com.unhurdle.spectrum.renderers.AddTableRowForArrayListData;AddTableRowForArrayListData;
 		import com.unhurdle.spectrum.renderers.RemoveTableRowForArrayListData;RemoveTableRowForArrayListData;
