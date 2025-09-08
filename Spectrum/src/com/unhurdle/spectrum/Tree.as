@@ -173,5 +173,15 @@ package com.unhurdle.spectrum
     {
     	return this;
     }
+
+    private var _deselectOnClick:Boolean = false;
+    public function get deselectOnClick():Boolean
+    {
+    	return _deselectOnClick;
+    }
+    public function set deselectOnClick(value:Boolean):void
+    {
+    	_deselectOnClick = value;
+    }
   }
 }

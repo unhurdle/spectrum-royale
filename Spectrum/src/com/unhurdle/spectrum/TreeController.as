@@ -12,6 +12,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.IEventDispatcher;
 	import org.apache.royale.events.ItemRemovedEvent;
 	import org.apache.royale.core.ISelectableItemRenderer;
+	import org.apache.royale.utils.sendStrandEvent;
 
   public class TreeController extends ListSingleSelectionMouseController
   {
@@ -20,13 +21,16 @@ package com.unhurdle.spectrum
       super();
     }
 		
-		// override protected function selectedHandler(event:ItemClickedEvent):void
-    // {
-		// 	super.selectedHandler(event);
-		// 	if(event.index == listModel.keyboardFocusedIndex){
-		// 		listModel.keyboardFocusedIndex = -1;
-		// 	}
-    // }
+		override protected function selectedHandler(event:ItemClickedEvent):void
+    {
+			var host:Tree = _strand as Tree;
+			if(host.deselectOnClick && listModel.selectedIndex == event.index && listModel.selectedItem == event.data){
+				listModel.selectedItem = null;
+			} else {
+				listModel.selectedItem = event.data;
+			}
+			sendStrandEvent(host,"change");
+    }
 		
     override public function set strand(value:IStrand):void
 		{
