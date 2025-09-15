@@ -23,6 +23,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.utils.NavigationKeys;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	import org.apache.royale.events.utils.UIKeys;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	/**
 	 * TODO maybe add flexible with styling of min-width: 0;width:auto;
 	 */
@@ -112,6 +113,10 @@ package com.unhurdle.spectrum
 			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			if(searchable){
 				popover.search.input.focus();
+			}
+			if (selectedIndex > -1)
+			{
+				(popover.list.view as IItemRendererOwnerView).getItemRendererForIndex(selectedIndex).element.scrollIntoView();
 			}
 		}
 		private function closePopup():void{
