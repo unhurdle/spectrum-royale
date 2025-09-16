@@ -116,7 +116,9 @@ package com.unhurdle.spectrum
 			}
 			if (selectedIndex > -1)
 			{
-				(popover.list.view as IItemRendererOwnerView).getItemRendererForIndex(selectedIndex).element.scrollIntoView();
+				COMPILE::JS {
+					(popover.list.view as IItemRendererOwnerView).getItemRendererForIndex(selectedIndex).element.scrollIntoView();
+				}
 			}
 		}
 		private function closePopup():void{
