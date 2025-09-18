@@ -41,9 +41,6 @@ package com.unhurdle.spectrum
 		{
 			super();
 		}
-
-		private static var openPicker:Picker;
-
 		override protected function getSelector():String{
 			return "spectrum-Picker";
 		}
@@ -63,6 +60,7 @@ package com.unhurdle.spectrum
 			_button.iconType = type;
 			_button.iconClass = appendSelector("-icon");
 			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
+			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			// _button.textNode.element.style.maxWidth = '85%';
 			addElement(_button);
 			popover = new ComboBoxList();
@@ -104,10 +102,6 @@ package com.unhurdle.spectrum
 		}
 		private var zIndexSet:Boolean = false;
 		private function openPopup():void{
-			if (openPicker) {
-				openPicker.closePopup();
-			}
-			openPicker = this;
 			if(!zIndexSet){
 				var zIndex:Number = getExplicitZIndex(this);
 				if(zIndex > 2){
@@ -117,7 +111,6 @@ package com.unhurdle.spectrum
 			}
 			popover.open = true;
 			popover.filterFunction = filterFunction;
-			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			if(searchable){
 				popover.search.input.focus();
 			}
@@ -130,15 +123,14 @@ package com.unhurdle.spectrum
 		}
 		private function closePopup():void{
 			if(popover && popover.open){
-				_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				popover.open = false;
-				openPicker = null;
 			}
 		}
 		
 		protected function handleControlMouseDown(event:MouseEvent):void
-		{			
-			event.stopImmediatePropagation();
+		{	
+			if(popover.open)
+				event.stopImmediatePropagation();
 		}
 		public function get dataProvider():Object{
 			return menu.dataProvider;
