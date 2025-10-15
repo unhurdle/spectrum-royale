@@ -261,6 +261,9 @@ package com.unhurdle.spectrum
 
 		public function handleListChange():void{
 			closePopup();
+			if (selectedIndex < 0) {
+				return;
+			}
 			setButtonText();
 			dispatchEvent(new Event("change"));
 			//keep focus on button after closing, so key down (for arrow down/space) will open it
