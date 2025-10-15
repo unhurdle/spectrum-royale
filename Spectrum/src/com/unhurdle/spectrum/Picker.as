@@ -261,11 +261,10 @@ package com.unhurdle.spectrum
 
 		public function handleListChange():void{
 			closePopup();
-			if (selectedIndex < 0) {
-				return;
+			if (selectedIndex >= 0) {	
+				setButtonText();
+				dispatchEvent(new Event("change"));
 			}
-			setButtonText();
-			dispatchEvent(new Event("change"));
 			//keep focus on button after closing, so key down (for arrow down/space) will open it
 			var currentFocus:Element = document.activeElement;
 			requestAnimationFrame(function():void{
