@@ -239,6 +239,10 @@ package com.unhurdle.spectrum{
 				// this event.  The down arrow key is handled in the handleKeyDown function.
 				return;
 			}
+			if (ev.key == 'Shift' || ev.key == 'Control' || ev.key == 'Alt' || ev.key == 'Meta') {
+				// modifier key only, ignore
+				return;
+			}
 			_currentText = textfield.text;
 
 			var dataProvider:Object = model.dataProvider;	
