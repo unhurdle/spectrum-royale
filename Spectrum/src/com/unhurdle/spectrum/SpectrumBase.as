@@ -76,7 +76,9 @@ package com.unhurdle.spectrum
     }
 
     private var _flexGrow:int = -1;
-
+    /**
+     * if less than zero, this takes the native browser default behaviour which is '0' (unless subject to indirect styling via css styling lookups)
+    */ 
     public function get flexGrow():int
     {
     	return _flexGrow;
@@ -92,9 +94,53 @@ package com.unhurdle.spectrum
         } else {
           element.style.flexGrow = value;
         }
-
       }
     }
+      
+    private var _flexShrink:int = -1;
+    /**
+     * if less than zero, this takes the native browser default behaviour which is '1' (unless subject to indirect styling via css styling lookups)
+    */  
+    public function get flexShrink():int
+    {
+       return _flexShrink;
+    }
+    
+    public function set flexShrink(value:int):void
+    {
+       _flexShrink = value;
+       COMPILE::JS
+       {
+        if(value < 0){
+          element.style.removeProperty("flex-shrink");
+        } else {
+          element.style.flexShrink = value;
+        }
+      }
+    }
+      
+    private var _flexBasis:String = null;
+    /**
+     * if null, this takes the native browser default behaviour which is 'auto' (unless subject to indirect styling via css styling lookups)
+    */  
+    public function get flexBasis():String
+    {
+       return _flexBasis || 'auto';
+    }
+    
+    public function set flexBasis(value:String):void
+    {
+        _flexBasis = value ;
+       COMPILE::JS
+       {
+        if(!value || value == 'auto'){
+          element.style.removeProperty("flex-basis");
+        } else {
+          element.style.flexBasis = value;
+        }
+      }
+    }     
+      
     COMPILE::SWF
     private var _autofocus:Boolean;
 
