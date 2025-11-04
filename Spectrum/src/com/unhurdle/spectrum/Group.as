@@ -128,18 +128,19 @@ package com.unhurdle.spectrum
         });
       }
     }
-    private var _flexGrow:int = -1;
+    private var _flexGrow:Number = -1;
     /**
-     * if less than zero, this takes the native browser default behaviour which is '0' (unless subject to indirect styling via css styling lookups)
+     * if less than zero, or NaN, this takes the native browser default behaviour which is '0' (unless subject to indirect styling via css styling lookups)
     */ 
-    public function get flexGrow():int
+    public function get flexGrow():Number
     {
     	return _flexGrow;
     }
 
-    public function set flexGrow(value:int):void
+    public function set flexGrow(value:Number):void
     {
-    	_flexGrow = value;
+       if (isNaN(value)) value = -1;
+       _flexGrow = value;
       COMPILE::JS
       {
         if(value < 0){
@@ -150,17 +151,18 @@ package com.unhurdle.spectrum
       }
     }
       
-    private var _flexShrink:int = -1;
+    private var _flexShrink:Number = -1;
     /**
-     * if less than zero, this takes the native browser default behaviour which is '1' (unless subject to indirect styling via css styling lookups)
+     * if less than zero, or NaN, this takes the native browser default behaviour which is '1' (unless subject to indirect styling via css styling lookups)
     */  
-    public function get flexShrink():int
+    public function get flexShrink():Number
     {
        return _flexShrink;
     }
     
-    public function set flexShrink(value:int):void
+    public function set flexShrink(value:Number):void
     {
+       if (isNaN(value)) value = -1;
        _flexShrink = value;
        COMPILE::JS
        {
