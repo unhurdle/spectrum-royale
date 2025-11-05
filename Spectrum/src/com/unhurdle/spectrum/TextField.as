@@ -170,6 +170,9 @@ package com.unhurdle.spectrum
         if(getElementIndex(validIcon) == -1){
           addElementAt(validIcon,0);
         }
+        if(invalidTooltip){
+          invalidTooltip.toolTip = '';
+        }
       } else{
         if(validIcon && getElementIndex(validIcon) != -1){
           removeElement(validIcon);
