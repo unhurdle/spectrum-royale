@@ -231,6 +231,9 @@ package com.unhurdle.spectrum
         if(invalidIcon && getElementIndex(invalidIcon) != -1){
           removeElement(invalidIcon);
         }
+        if(invalidTooltip){
+          invalidTooltip.toolTip = '';
+        }
       }
     }
     public function applyInvalidToolTip():void {
