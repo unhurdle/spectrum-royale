@@ -265,6 +265,7 @@ package com.unhurdle.spectrum
 			})
 		}
 		
+		private var invalidIcon:Icon;
 		private var _invalid:Boolean;
 
 		public function get invalid():Boolean
@@ -278,11 +279,17 @@ package com.unhurdle.spectrum
 				toggle("is-invalid",value);
 				_button.invalid = value;
 				if(value){
-					var invalidIcon:Icon = new Icon(IconPrefix._18 + "Alert");
-					invalidIcon.size = "S";
-					_button.addElementAt(invalidIcon, _button.numElements - 1);
+					if(!invalidIcon){
+						invalidIcon = new Icon(IconPrefix._18 + "Alert");
+						invalidIcon.size = "S";
+					}
+					if(_button.getElementIndex(invalidIcon) == -1){
+						_button.addElementAt(invalidIcon, _button.numElements - 1);
+					}
 				}else{
-					_button.removeElement(invalidIcon);
+					if(invalidIcon && _button.getElementIndex(invalidIcon) != -1){
+						_button.removeElement(invalidIcon);
+					}
 				}
 			}
 			_invalid = value;
