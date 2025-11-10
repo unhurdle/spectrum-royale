@@ -23,6 +23,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.events.utils.NavigationKeys;
 	import com.unhurdle.spectrum.utils.cloneNativeKeyboardEvent;
 	import org.apache.royale.events.utils.UIKeys;
+	import org.apache.royale.core.IItemRendererOwnerView;
 	/**
 	 * TODO maybe add flexible with styling of min-width: 0;width:auto;
 	 */
@@ -59,6 +60,7 @@ package com.unhurdle.spectrum
 			_button.iconType = type;
 			_button.iconClass = appendSelector("-icon");
 			_button.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
+			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			// _button.textNode.element.style.maxWidth = '85%';
 			addElement(_button);
 			popover = new ComboBoxList();
@@ -109,21 +111,26 @@ package com.unhurdle.spectrum
 			}
 			popover.open = true;
 			popover.filterFunction = filterFunction;
-			_button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			if(searchable){
 				popover.search.input.focus();
+			}
+			if (selectedIndex > -1)
+			{
+				COMPILE::JS {
+					(popover.list.view as IItemRendererOwnerView).getItemRendererForIndex(selectedIndex).element.scrollIntoView();
+				}
 			}
 		}
 		private function closePopup():void{
 			if(popover && popover.open){
-				_button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				popover.open = false;
 			}
 		}
 		
 		protected function handleControlMouseDown(event:MouseEvent):void
-		{			
-			event.stopImmediatePropagation();
+		{	
+			if(popover.open)
+				event.stopImmediatePropagation();
 		}
 		public function get dataProvider():Object{
 			return menu.dataProvider;
@@ -254,8 +261,10 @@ package com.unhurdle.spectrum
 
 		public function handleListChange():void{
 			closePopup();
-			setButtonText();
-			dispatchEvent(new Event("change"));
+			if (selectedIndex >= 0) {	
+				setButtonText();
+				dispatchEvent(new Event("change"));
+			}
 			//keep focus on button after closing, so key down (for arrow down/space) will open it
 			var currentFocus:Element = document.activeElement;
 			requestAnimationFrame(function():void{
