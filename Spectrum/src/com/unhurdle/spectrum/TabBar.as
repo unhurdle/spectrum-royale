@@ -301,7 +301,9 @@ package com.unhurdle.spectrum
 				return;
 			}
 			var index:int = tabs.indexOf(value)
-			selectedIndex = index;
+			if(index != -1){
+				selectedIndex = index;
+			}
 		}
 	}
 }
