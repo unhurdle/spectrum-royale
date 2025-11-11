@@ -244,12 +244,22 @@ package com.unhurdle.spectrum{
 				return;
 			}
 			_currentText = textfield.text;
+			updateFilteredDataProvider();
+			updatePopupVisibility();
+		}
 
+		/**
+		 * Updates the filtered data provider based on the current text input
+		 * and sets the selected index in the original data provider
+		 */
+		private function updateFilteredDataProvider():void
+		{
 			var dataProvider:Object = model.dataProvider;	
 			if (textfield.text && model.dataProvider) {
 				dataProvider = comboHost.filterFunction(textfield.text, model.dataProvider);
 			}
 			list.dataProvider = dataProvider;
+			
 			var selectedIndex:int = -1;
 			var text:String = textfield.text.toLowerCase();
 
@@ -263,17 +273,22 @@ package com.unhurdle.spectrum{
 				}
 			}
 			model.selectedIndex = selectedIndex;
+			list.selectedItem = model.selectedItem;
+		}
 
-			// Show the popup while typing
+		/**
+		 * Updates popup visibility based on whether the filtered list is empty
+		 */
+		private function updatePopupVisibility():void
+		{
 			var storedIsListEmpty:Boolean = isListEmpty;
 			if (!popUpVisible && !storedIsListEmpty) {
 				popUpVisible = true;
 			} else if (storedIsListEmpty) {
 				popUpVisible = false;
 			}
-
-			list.selectedItem = model.selectedItem;
 		}
+		
 		/**
 		 *  Returns whether or not the pop-up is visible.
 		 * 
@@ -328,6 +343,8 @@ package com.unhurdle.spectrum{
 				comboHost.topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 				_popup.open = true;
 				positionPopup();
+				updateFilteredDataProvider();
+				updatePopupVisibility();
 			}
 			//TODO how to handle keyboard and mouse focus?
 			textfield.focus();
