@@ -378,7 +378,7 @@ package com.unhurdle.spectrum
 				popover.search.input.addEventListener(KeyboardEvent.KEY_DOWN, handleKeyDown);
 			}
 		}
-		private function handleKeyDown(event:KeyboardEvent):void
+		protected function handleKeyDown(event:KeyboardEvent):void
 		{
 			if(popover.open) {
 				// forward relevent keys to the list
