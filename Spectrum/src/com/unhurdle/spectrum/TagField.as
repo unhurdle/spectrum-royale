@@ -128,6 +128,7 @@ package com.unhurdle.spectrum
 				if (_limitToList && !valuesArr.length && ev && ev.data)
 				{
 					input.text = text.substring(0, text.length - ev.data.length);
+					updating = false;
 					return updateValue();
 				}
 			}
@@ -333,9 +334,9 @@ package com.unhurdle.spectrum
 				}
 			}
 		}
-		private function inputValueChanged():void
+		private function inputValueChanged(ev:InputEvent):void
 		{
-			updateValue();
+			updateValue(ev);
 			dispatchEvent(new ValueEvent("inputChanged", input.text));
 		}
 		private var _labelList:Array;
