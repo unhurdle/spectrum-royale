@@ -13,16 +13,16 @@ package com.unhurdle.spectrum
 			var pt:Point = super.determinePosition(comp, tooltip);
 			var screenWidth:Number = (host.popUpParent as IParentIUIBase).width;
 			var screenHeight:Number = (host.popUpParent as IParentIUIBase).height;
-			if (direction == TooltipBead.LEFT && pt.x < margin)
+			if ((direction == TooltipBead.LEFT || direction == TooltipBead.BOTTOM || direction == TooltipBead.TOP) && pt.x < margin) //off screen left
 			{
 				direction = TooltipBead.RIGHT;
-			} else if (direction == TooltipBead.TOP && pt.y < margin)
+			} else if ((direction == TooltipBead.TOP || direction == TooltipBead.LEFT || direction == TooltipBead.RIGHT) && pt.y < margin) //off screen top
 			{
 				direction = TooltipBead.BOTTOM;
-			} else if (direction == TooltipBead.RIGHT && (pt.x + tooltip.width + margin) > screenWidth)
+			} else if ((direction == TooltipBead.RIGHT || direction == TooltipBead.TOP || direction == TooltipBead.BOTTOM) && (pt.x + tooltip.width + margin) > screenWidth) //off screen right
 			{
 				direction = TooltipBead.LEFT;
-			} else if (direction == TooltipBead.BOTTOM && (pt.y + tooltip.height + margin) > screenHeight)
+			} else if ((direction == TooltipBead.BOTTOM || direction == TooltipBead.LEFT || direction == TooltipBead.RIGHT) && (pt.y + tooltip.height + margin) > screenHeight) //off screen bottom
 			{
 				direction = TooltipBead.TOP;	
 			} else
