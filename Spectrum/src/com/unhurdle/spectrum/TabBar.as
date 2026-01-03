@@ -154,9 +154,10 @@ package com.unhurdle.spectrum
 			_tabs = value;
 			if(!collapsed){
 				for(var i:int=0;i<value.length;i++){
-					addElement(value[i] as Tab);
-					value[i].addEventListener("itemClicked",itemClicked);
-					value[i].addEventListener("disabledChange",handleTabDisabled);
+					var tab:Tab = value[i];
+					addElement(tab);
+					tab.addEventListener("itemClicked",itemClicked);
+					tab.addEventListener("disabledChange",handleTabDisabled);
 				}
 			}
 			sendStrandEvent(this,"tabsChanged");
@@ -167,10 +168,11 @@ package com.unhurdle.spectrum
 				return;
 			}
 			for(var i:int=0;i<_tabs.length;i++){
-				if(getElementIndex(_tabs[i]) != -1){
-					removeElement(_tabs[i]);
-					tabs[i].removeEventListener("itemClicked",itemClicked);
-					tabs[i].removeEventListener("disabledChange",handleTabDisabled);
+				var tab:Tab = _tabs[i];
+				if(getElementIndex(tab) != -1){
+					removeElement(tab);
+					tab.removeEventListener("itemClicked",itemClicked);
+					tab.removeEventListener("disabledChange",handleTabDisabled);
 				}
 			}
 		}
