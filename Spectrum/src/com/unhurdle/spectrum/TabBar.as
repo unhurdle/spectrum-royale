@@ -142,6 +142,7 @@ package com.unhurdle.spectrum
 				}
 				addElement(tab);
 				tab.addEventListener("itemClicked",itemClicked);
+				tab.addEventListener("disabledChange",handleTabDisabled);
 			}
 			positionIndicator();
 		}
@@ -153,8 +154,10 @@ package com.unhurdle.spectrum
 			_tabs = value;
 			if(!collapsed){
 				for(var i:int=0;i<value.length;i++){
-					addElement(value[i] as Tab);
-					value[i].addEventListener("itemClicked",itemClicked);
+					var tab:Tab = value[i];
+					addElement(tab);
+					tab.addEventListener("itemClicked",itemClicked);
+					tab.addEventListener("disabledChange",handleTabDisabled);
 				}
 			}
 			sendStrandEvent(this,"tabsChanged");
@@ -165,9 +168,11 @@ package com.unhurdle.spectrum
 				return;
 			}
 			for(var i:int=0;i<_tabs.length;i++){
-				if(getElementIndex(_tabs[i]) != -1){
-					removeElement(_tabs[i]);
-					tabs[i].removeEventListener("itemClicked",itemClicked);
+				var tab:Tab = _tabs[i];
+				if(getElementIndex(tab) != -1){
+					removeElement(tab);
+					tab.removeEventListener("itemClicked",itemClicked);
+					tab.removeEventListener("disabledChange",handleTabDisabled);
 				}
 			}
 		}
@@ -178,6 +183,9 @@ package com.unhurdle.spectrum
 			animateChange = BrowserInfo.current().browser != "IE";
 			selectedTab = tab;
 			animateChange = false;
+		}
+		protected function handleTabDisabled(ev:Event):void{
+			//do nothing, available for override
 		}
 		private function removeIndicator():void
 		{

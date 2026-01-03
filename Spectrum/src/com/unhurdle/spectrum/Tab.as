@@ -62,18 +62,39 @@ package com.unhurdle.spectrum
     	return _selected;
     }
 
-    public function set selected(value:Boolean):void{ 
+    public function set selected(value:Boolean):void
+    {
       toggle("is-selected",value);
       _selected = value;
     }
 
+    private var _disabled:Boolean;
+
+    public function get disabled():Boolean
+    {
+      return _disabled;
+    }
+
+    public function set disabled(value:Boolean):void
+    {
+      if(value != !!_disabled){
+        toggle("is-disabled", value);
+        tabFocusable = !value;
+        _disabled = value;
+        dispatchEvent(new Event("disabledChange"));
+      }
+    }
+
     private function onClick(ev:Event):void{
+      if(_disabled){
+        return;
+      }
       dispatchEvent(new Event("itemClicked"));
     }
     
     COMPILE::JS
     override protected function createElement():WrappedHTMLElement
-    { 
+    {
       super.createElement();
       label = new TextNode("label");
       label.className = getTabsSelector() + "-itemLabel";
