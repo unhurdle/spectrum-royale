@@ -117,7 +117,7 @@ package com.unhurdle.spectrum
 			if (selectedIndex > -1)
 			{
 				COMPILE::JS {
-					(popover.list.view as IItemRendererOwnerView).getItemRendererForIndex(selectedIndex).element.scrollIntoView();
+					(popover.list.view as IItemRendererOwnerView).getItemRendererForIndex(selectedIndex).element.scrollIntoView({ block: "nearest", container: "nearest" });
 				}
 			}
 		}
