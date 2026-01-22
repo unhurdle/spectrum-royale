@@ -214,7 +214,7 @@ package com.unhurdle.spectrum.colorpicker
 			dispatchEvent(ev);
 			closePopover();
 		}
-		protected function handleCancel(ev:Event):void{
+		protected function handleCancel(ev:ValueEvent):void{
 			appliedColor = initialColor;
 			dispatchEvent(ev);
 			closePopover();
@@ -232,7 +232,7 @@ package com.unhurdle.spectrum.colorpicker
 					requestAnimationFrame(openPopup);
 				}
 			} else {
-				handleCancel(new Event("cancel"));
+				closePopover();
 			}
 		}
 		protected function setPopupProperties():void{
