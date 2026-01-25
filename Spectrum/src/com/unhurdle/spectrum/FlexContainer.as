@@ -58,6 +58,24 @@ package com.unhurdle.spectrum
 			setStyle("justifyContent",value);
 		}
 
+
+		public function get gap():String
+		{
+			COMPILE::SWF{return "";}
+			COMPILE::JS{
+				var gapVal:* = element.style['gap'];
+				if(!gapVal){
+					return "";
+				}
+				return gapVal;
+			}
+		}
+
+		public function set gap(value:String):void
+		{
+			element.style['gap'] = value;
+		}
+
 		private var _vertical:Boolean = false;
 
 		public function get vertical():Boolean
