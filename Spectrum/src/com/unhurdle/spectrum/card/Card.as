@@ -105,7 +105,11 @@ package com.unhurdle.spectrum.card
     	_gallery = value;
     }
 
-    private var coverPhoto:CoverPhoto;
+    private var _coverPhoto:CoverPhoto;
+    public function get coverPhoto():CoverPhoto
+    {
+    	return _coverPhoto;
+    }
     private var _coverSrc:String;
 
     public function get coverSrc():String
@@ -117,11 +121,11 @@ package com.unhurdle.spectrum.card
     {
       if(value != _coverSrc){
         //CoverPhoto always at the very beginning
-        if(coverPhoto){
-          coverPhoto.src = value;
+        if(_coverPhoto){
+          _coverPhoto.src = value;
         } else {
-          coverPhoto = new CoverPhoto(value);
-          addElementAt(coverPhoto,0);
+          _coverPhoto = new CoverPhoto(value);
+          addElementAt(_coverPhoto,0);
         }
       }
     	_coverSrc = value;
@@ -143,7 +147,7 @@ package com.unhurdle.spectrum.card
       if(!previewDiv){
         // preview is either first or after the cover photo
         var index:int = 0;
-        if(coverPhoto){
+        if(_coverPhoto){
           index = 1;
         }
         previewDiv = new Div();
@@ -170,7 +174,7 @@ package com.unhurdle.spectrum.card
           removeElement(_body);
         }
         var index:int = 0;
-        if(coverPhoto){
+        if(_coverPhoto){
           index++;
         }
         if(previewDiv){
