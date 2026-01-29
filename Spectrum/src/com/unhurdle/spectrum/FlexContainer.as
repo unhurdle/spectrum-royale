@@ -73,7 +73,9 @@ package com.unhurdle.spectrum
 
 		public function set gap(value:String):void
 		{
-			element.style['gap'] = value;
+			COMPILE::JS{
+				element.style['gap'] = value;
+			}
 		}
 
 		private var _vertical:Boolean = false;
