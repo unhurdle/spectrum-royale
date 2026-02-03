@@ -289,7 +289,10 @@ package com.unhurdle.spectrum.beads
         valueToFocus = text;
       }
       timeStamp = current;
-      var txt:String = listModel.getLabelForIndex(getRendererIndex(focusableItemRenderer));
+      var txt:String = "";
+      if(focusableItemRenderer && focusableItemRenderer.keyboardFocused) {
+        txt = listModel.getLabelForIndex(getRendererIndex(focusableItemRenderer));
+      }
       if(!txt || txt.toLowerCase().indexOf(valueToFocus.toLowerCase()) != 0){
         var len:int = listModel.dataProvider.length;
         for(var index:int = 0; index < len; index++){
