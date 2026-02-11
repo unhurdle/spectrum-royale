@@ -47,9 +47,9 @@ package com.unhurdle.spectrum
 				COMPILE::JS
 				{
 					if(value){
-						element.addEventListener('mousedown', onMouseDown);
-					} else {
 						element.removeEventListener('mousedown', onMouseDown);
+					} else {
+						element.addEventListener('mousedown', onMouseDown);
 					}
 				}
 			}
