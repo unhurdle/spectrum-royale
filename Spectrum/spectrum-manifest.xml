@@ -20,6 +20,7 @@
     <component id="Banner" class="com.unhurdle.spectrum.Banner"/>
     <component id="BarLoader" class="com.unhurdle.spectrum.BarLoader"/>
     <component id="BinaryImageAsset" class="com.unhurdle.spectrum.BinaryImageAsset"/>
+    <component id="BinaryVideoAsset" class="com.unhurdle.spectrum.BinaryVideoAsset"/>
     <component id="Body" class="com.unhurdle.spectrum.typography.Body"/>
     <component id="Breadcrumbs" class="com.unhurdle.spectrum.Breadcrumbs"/>
     <component id="BreadcrumbsItem" class="com.unhurdle.spectrum.data.BreadcrumbsItem"/>
