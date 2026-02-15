@@ -9,6 +9,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.html.elements.H3;
     import org.apache.royale.core.IChild;
     import org.apache.royale.events.Event;
+    import org.apache.royale.events.MouseEvent;
 
 	[Event(name="openChanged", type="org.apache.royale.events.Event")]
 
@@ -62,8 +63,9 @@ package com.unhurdle.spectrum
         // headerIcon.type = type;
       }
     }
-    private function toggleSection():void{
+    private function toggleSection(ev:MouseEvent):void{
       if(!disabled){
+        ev.stopPropagation();
         open = !open;
       }
     }
