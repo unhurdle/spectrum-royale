@@ -19,7 +19,7 @@ package com.unhurdle.spectrum
 			} else if ((direction == TooltipBead.TOP || direction == TooltipBead.LEFT || direction == TooltipBead.RIGHT) && pt.y < margin) //off screen top
 			{
 				direction = TooltipBead.BOTTOM;
-			} else if ((direction == TooltipBead.RIGHT || direction == TooltipBead.TOP || direction == TooltipBead.BOTTOM) && (pt.x + tooltip.width + margin) > screenWidth) //off screen right
+			} else if ((direction == TooltipBead.RIGHT || direction == TooltipBead.BOTTOM) && (pt.x + tooltip.width + margin) > screenWidth) //off screen right
 			{
 				direction = TooltipBead.LEFT;
 			} else if ((direction == TooltipBead.BOTTOM || direction == TooltipBead.LEFT || direction == TooltipBead.RIGHT) && (pt.y + tooltip.height + margin) > screenHeight) //off screen bottom
