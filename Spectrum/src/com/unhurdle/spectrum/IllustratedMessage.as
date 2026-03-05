@@ -59,6 +59,9 @@ package com.unhurdle.spectrum
     override protected function createElement():WrappedHTMLElement
     {
       super.createElement();
+      setStyle("display","flex");
+      setStyle("flexDirection","column");
+      setStyle("alignItems","center");
       element.appendChild(generateSVG(predefinedSVGElement()));
       //TODO deprecated using Heading2 quiet instead
       header = new PageTitle(); 

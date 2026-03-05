@@ -38,12 +38,16 @@ package com.unhurdle.spectrum
 		private var browser:FileBrowser;
 		private var loader:FileLoader;
 		private var fileProxy:FileProxy;
+		private var files:FileList;
 
 		override protected function getSelector():String{
 			return "spectrum-Dropzone";
 		}
 
-		private function elementDragged(ev:Event):void{
+		private function elementDragged(ev:DragEvent):void{
+			if(ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files.length > 0){
+				files = ev.dataTransfer.files;
+			}
 			ev.preventDefault();
 			toggle("is-dragged",true);
 		}
@@ -53,10 +57,15 @@ package com.unhurdle.spectrum
 		}
 
 		private function dropped(ev:DragEvent):void{  
+			if(ev.dataTransfer && ev.dataTransfer.files && ev.dataTransfer.files.length > 0){
+				files = ev.dataTransfer.files;
+			}
 			ev.preventDefault();
 			toggle("is-dragged",false);
-			var fileList:FileList = ev.dataTransfer.files;
-			dispatchEvent(new ValueEvent("filesAvailable",fileList));
+			if(files){
+				dispatchEvent(new ValueEvent("filesAvailable",files));
+			}
+			files = null;
 		}
 
 		COMPILE::JS
@@ -76,7 +85,6 @@ package com.unhurdle.spectrum
 		super.createElement();
 		element.setAttribute("role","region"); 
 		element.tabIndex = 0;
-		element.style.width = "300px";
 		element.addEventListener('dragenter', elementDragged);
 		element.addEventListener('dragleave', elementNotDragged); 
 		element.addEventListener('dragover', elementDragged);
