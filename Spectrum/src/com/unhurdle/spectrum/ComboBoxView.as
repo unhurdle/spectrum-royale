@@ -235,9 +235,9 @@ package com.unhurdle.spectrum{
 		}
 
 		private function inputHandler(ev:KeyboardEvent):void {
-			if (textfield.text == _currentText || ev.key == NavigationKeys.DOWN || ev.key == NavigationKeys.UP) {
+			if (textfield.text == _currentText || ev.key == NavigationKeys.DOWN || ev.key == NavigationKeys.UP || ev.key == UIKeys.ESCAPE) {
 				// if the text hasn't changed or the up/down arrow key is pressed, ignore
-				// this event.  The down arrow key is handled in the handleKeyDown function.
+				// this event.  The down arrow key and escape key are handled in the handleKeyDown function.
 				return;
 			}
 			if (ev.key == 'Shift' || ev.key == 'Control' || ev.key == 'Alt' || ev.key == 'Meta') {
