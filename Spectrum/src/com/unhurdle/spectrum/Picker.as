@@ -52,6 +52,7 @@ package com.unhurdle.spectrum
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = super.createElement();
 			_button = new FieldButton();
+			_button.addBead(new OversetTooltip());
 			_button.labelClass = appendSelector("-label");
 			_button.className = appendSelector("-trigger");
 			_button.addEventListener("click",toggleDropdown);
