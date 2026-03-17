@@ -112,6 +112,7 @@ package com.unhurdle.spectrum
 				}
 				zIndexSet = true;
 			}
+			updateSearchVisibility();
 			popover.open = true;
 			popover.filterFunction = filterFunction;
 			if(searchable){
@@ -367,6 +368,30 @@ package com.unhurdle.spectrum
 			popover.minMenuHeight = value;
 		}
 
+
+		private var _minOptionsForSearch:Number = 1;
+
+		public function set minOptionsForSearch(value:int):void
+		{
+		    _minOptionsForSearch = value;
+		}
+
+		private function updateSearchVisibility():void {
+		    if (!_searchable) {
+		        popover.searchable = false;
+		        popover.autoFocusList = true;
+		        return;
+		    }
+
+		    var itemCount:int = 0;
+		    if (dataProvider) {
+		        itemCount = dataProvider is Array ? dataProvider.length : (dataProvider.length || 0);
+		    }
+				
+		    popover.searchable = itemCount >= _minOptionsForSearch;
+		    popover.autoFocusList = itemCount < _minOptionsForSearch;
+		}
+		private var _searchable:Boolean;
 		public function get searchable():Boolean
 		{
 			return popover.searchable;
@@ -374,7 +399,7 @@ package com.unhurdle.spectrum
 
 		public function set searchable(value:Boolean):void 
 		{
-			popover.autoFocusList = !value;
+			_searchable = value;
 			popover.searchable = value;
 			if (popover.search)
 			{
