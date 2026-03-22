@@ -150,6 +150,7 @@ package com.unhurdle.spectrum
     }
 
     public var showValidIcon:Boolean = true;
+    public var showInvalidIcon:Boolean = true;
     private var validIcon:Icon;
     private var invalidIcon:Icon;
     override public function get valid():Boolean
@@ -215,10 +216,13 @@ package com.unhurdle.spectrum
       }
     }
 
-    private var invalidTooltip:AdaptiveTooltipBead;
+    protected var invalidTooltip:AdaptiveTooltipBead;
     override public function set invalid(value:Boolean):void
     {
       super.invalid = value;
+      if (!showInvalidIcon){
+        return;
+      }
       if(value){
         if(!invalidIcon){
           var type:String = IconType.ALERT_MEDIUM;
