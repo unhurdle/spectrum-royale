@@ -109,11 +109,13 @@ package com.unhurdle.spectrum{
 			super.strand = value;
 			
 			comboHost = value as ComboBox;
+			comboHost.setStyle("min-width","100%");
 			var text:String = comboHost.text;
 			textfield = new TextField();
 			textfield.tabFocusable = false;
 			textfield.className = appendSelector("-textfield");
 			textfield.input.classList.add(appendSelector('-input'));
+			textfield.input.style.width = "100%";
 			COMPILE::JS
 			{
 				textfield.focusElement.addEventListener('focus',function():void{
