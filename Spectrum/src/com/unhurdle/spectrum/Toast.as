@@ -104,7 +104,7 @@ package com.unhurdle.spectrum
       actionButton.text = value;
     	_action = value;
     }
-    private function onAction(ev:Event):void{
+    protected function onAction(ev:Event):void{
       if(_shown){
         dispatchEvent(new Event("accept"));
       }
@@ -149,8 +149,9 @@ package com.unhurdle.spectrum
       _shown = false;
       toggle("show", false);
       toggle("hide",true);
-      setTimeout(removeMe,500);
+      // setTimeout(removeMe,500);
       dispatchEvent(new Event("close"));
+      removeMe();
     }
 
     private function removeMe():void{
@@ -268,7 +269,7 @@ package com.unhurdle.spectrum
       return elem;
     }
 
-    private var body:HTMLElement;
+    protected var body:HTMLElement;
 
   }
 }
