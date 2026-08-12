@@ -29,6 +29,21 @@ package com.unhurdle.spectrum
 
 		private var input:TextField;
 		private var tagGroup:TagGroup;
+		private var _placeholder:String;
+		
+		public function get placeholder():String
+		{
+			return _placeholder;
+		}
+
+		public function set placeholder(value:String):void
+		{
+			_placeholder = value;
+			if (input)
+			{
+				input.placeholder = value;
+			}
+		}
 
 		public function get tags():Array
 		{
@@ -46,6 +61,7 @@ package com.unhurdle.spectrum
 			elem.appendChild(tagGroup.element);
 			input = new TextField();
 			input.setStyle("display", "inline-block");
+			input.placeholder = _placeholder;
 			input.addEventListener("onBackspace", removeTag);
 			input.addEventListener("onEnter", inputChanged);
 			input.element.addEventListener("input", inputValueChanged);
