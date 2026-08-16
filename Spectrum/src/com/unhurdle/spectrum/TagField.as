@@ -280,7 +280,20 @@ package com.unhurdle.spectrum
 		}
 		private function inputChanged():void
 		{
-			addTag(input.text);
+			// When a tag is typed rather than selected from the list, the data property should be set to the data of the matching item in the tagList.
+			var data:String;
+			if (tagList)
+			{
+				for each (var listItem:* in tagList)
+				{
+					if (listItem.name == input.text)
+					{
+						data = listItem.data;
+						break;
+					}
+				}
+			}
+			addTag(input.text, data);
 		}
 		protected function addTag(text:String, data:String = null):void
 		{
