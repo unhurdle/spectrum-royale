@@ -65,7 +65,11 @@ package com.unhurdle.spectrum
 			input.addEventListener("onBackspace", removeTag);
 			input.addEventListener("onEnter", inputChanged);
 			input.element.addEventListener("input", inputValueChanged);
-			input.element.addEventListener("pointerdown", handleOpeningPointerDown);
+			if(Application.current.usePointerEvents){
+				input.element.addEventListener("pointerdown", handleOpeningPointerDown);
+			} else {
+				input.element.addEventListener("mousedown", handleOpeningMouseDown);
+			}
 			input.input.style.borderStyle = "none";
 			input.input.style.background = "none";
 			input.tabFocusable = false;
@@ -172,6 +176,42 @@ package com.unhurdle.spectrum
 			updating = false;
 		}
 		private var openingPointerId:Number = -1;
+
+		COMPILE::JS
+		private function handleOpeningMouseDown(event:MouseEvent):void
+		{
+			if(openingPointerId >= 0 || event.button != 0){
+				return;
+			}
+			openingPointerId = 0;
+			document.addEventListener("mouseup", handleOpeningMouseUp, true);
+			window.addEventListener("blur", handleOpeningMouseCancel);
+			document.addEventListener("mouseleave", handleOpeningMouseCancel);
+		}
+
+		COMPILE::JS
+		private function handleOpeningMouseUp(event:MouseEvent):void
+		{
+			finishOpeningMouse();
+			if(valuesArr.length){
+				openComboBoxListAfterCurrentEvent();
+			}
+		}
+
+		COMPILE::JS
+		private function handleOpeningMouseCancel(event:Event):void
+		{
+			finishOpeningMouse();
+		}
+
+		COMPILE::JS
+		private function finishOpeningMouse():void
+		{
+			openingPointerId = -1;
+			document.removeEventListener("mouseup", handleOpeningMouseUp, true);
+			window.removeEventListener("blur", handleOpeningMouseCancel);
+			document.removeEventListener("mouseleave", handleOpeningMouseCancel);
+		}
 
 		COMPILE::JS
 		private function handleOpeningPointerDown(event:PointerEvent):void

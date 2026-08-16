@@ -28,10 +28,6 @@ package com.unhurdle.spectrum
       toggle(valueToSelector("primary"),false);
       addEventListener('click',elementClickedForMenu,true);
       addEventListener('click',elementClicked);
-      COMPILE::JS
-      {
-        element.addEventListener("pointerdown",handlePointerDown);
-      }
     }
     override protected function getSelector():String{
       return ActionButtonInclude.getSelector();
@@ -55,6 +51,11 @@ package com.unhurdle.spectrum
         timer.addEventListener(Timer.TIMER,onTimer);
         COMPILE::JS
         {
+          if(Application.current.usePointerEvents){
+            element.addEventListener("pointerdown",handlePointerDown);
+          } else {
+            element.addEventListener("mousedown",handleHoldMouseDown);
+          }
           element.style.userSelect = "none";
           element.style.webkitUserSelect = "none";
           element.style.setProperty("-webkit-touch-callout","none");
@@ -197,6 +198,40 @@ package com.unhurdle.spectrum
 
     COMPILE::JS
     private var holdPointerId:Number = -1;
+    COMPILE::JS
+    private var holdMouseDown:Boolean;
+
+    COMPILE::JS
+    private function handleHoldMouseDown(event:MouseEvent):void{
+      if(holdMouseDown || !dataProvider || !dataProvider.length || event.button != 0){
+        return;
+      }
+      holdMouseDown = true;
+      window.addEventListener("mouseup",handleHoldMouseEnd);
+      window.addEventListener("blur",handleHoldMouseCancel);
+      document.addEventListener("mouseleave",handleHoldMouseCancel);
+      if(timer){
+        timer.start();
+      }
+    }
+
+    COMPILE::JS
+    private function handleHoldMouseEnd(event:Event):void{
+      holdMouseDown = false;
+      window.removeEventListener("mouseup",handleHoldMouseEnd);
+      window.removeEventListener("blur",handleHoldMouseCancel);
+      document.removeEventListener("mouseleave",handleHoldMouseCancel);
+      if(timer){
+        timer.reset();
+      }
+    }
+
+    COMPILE::JS
+    private function handleHoldMouseCancel(event:Event):void{
+      if(holdMouseDown){
+        handleHoldMouseEnd(event);
+      }
+    }
 
     COMPILE::JS
     private function handlePointerDown(event:PointerEvent):void{

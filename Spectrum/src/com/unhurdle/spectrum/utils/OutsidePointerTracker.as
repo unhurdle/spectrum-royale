@@ -1,5 +1,7 @@
 package com.unhurdle.spectrum.utils
 {
+  import com.unhurdle.spectrum.Application;
+
   public class OutsidePointerTracker
   {
     public function OutsidePointerTracker(elements:Array, outsideHandler:Function)
@@ -20,7 +22,11 @@ package com.unhurdle.spectrum.utils
           return;
         }
         tracking = true;
-        document.addEventListener("pointerdown", handlePointerDown, true);
+        if(Application.current.usePointerEvents){
+          document.addEventListener("pointerdown", handlePointerDown, true);
+        } else {
+          document.addEventListener("mousedown", handleMouseDown, true);
+        }
       }
     }
 
@@ -32,7 +38,11 @@ package com.unhurdle.spectrum.utils
           return;
         }
         tracking = false;
-        document.removeEventListener("pointerdown", handlePointerDown, true);
+        if(Application.current.usePointerEvents){
+          document.removeEventListener("pointerdown", handlePointerDown, true);
+        } else {
+          document.removeEventListener("mousedown", handleMouseDown, true);
+        }
       }
     }
 
@@ -42,6 +52,21 @@ package com.unhurdle.spectrum.utils
       if(!event.isPrimary || event.button != 0){
         return;
       }
+      handleDown(event);
+    }
+
+    COMPILE::JS
+    private function handleMouseDown(event:MouseEvent):void
+    {
+      if(event.button != 0){
+        return;
+      }
+      handleDown(event);
+    }
+
+    COMPILE::JS
+    private function handleDown(event:Event):void
+    {
       var target:Node = event.target as Node;
       for each(var element:HTMLElement in elements){
         if(element && element.contains(target)){
