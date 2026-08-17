@@ -41,7 +41,7 @@ package com.unhurdle.spectrum
 			_placeholder = value;
 			if (input)
 			{
-				input.placeholder = value;
+				input.placeholder = getPlaceHolder();
 			}
 		}
 
@@ -61,7 +61,7 @@ package com.unhurdle.spectrum
 			elem.appendChild(tagGroup.element);
 			input = new TextField();
 			input.setStyle("display", "inline-block");
-			input.placeholder = _placeholder;
+			input.placeholder = getPlaceHolder();
 			input.addEventListener("onBackspace", removeTag);
 			input.addEventListener("onEnter", inputChanged);
 			input.element.addEventListener("input", inputValueChanged);
@@ -392,17 +392,20 @@ package com.unhurdle.spectrum
 						{
 							dispatchEvent(new ValueEvent("tagRemoved", ev.currentTarget));
 							dispatchEvent(new Event("change"));
-							if (!tagGroup.tags?.length) {
-								input.placeholder = _placeholder || "";
-							}
+							input.placeholder = getPlaceHolder();
 						});
 					tagGroup.addTag(tag);
-					input.placeholder = "";
 					dispatchEvent(new ValueEvent("tagAdded", tag));
 					dispatchEvent(new Event("change"));
 				}
 			}
+			input.placeholder = getPlaceHolder();
 			calculatePosition();
+		}
+		private function getPlaceHolder():String {
+			if(tagGroup.tags?.length)
+				return "";
+			return _placeholder || "";
 		}
 
 		private function calculatePosition():void
@@ -506,9 +509,7 @@ package com.unhurdle.spectrum
 				tagGroup.removeElement(tag);
 				dispatchEvent(new ValueEvent("tagRemoved", tag));
 				dispatchEvent(new Event("change"));
-				if(!tagGroup.tags?.length){
-					input.placeholder = _placeholder || "";
-				}
+				input.placeholder = getPlaceHolder();
 			}
 			calculatePosition();
 		}
@@ -519,7 +520,7 @@ package com.unhurdle.spectrum
 			{
 				tagGroup.removeElement(tag);
 			}
-			input.placeholder = _placeholder || "";
+			input.placeholder = getPlaceHolder();
 			calculatePosition();
 		}
 		private var _labelField:String = "label";
