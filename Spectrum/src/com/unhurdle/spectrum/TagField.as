@@ -392,8 +392,12 @@ package com.unhurdle.spectrum
 						{
 							dispatchEvent(new ValueEvent("tagRemoved", ev.currentTarget));
 							dispatchEvent(new Event("change"));
+							if (!tagGroup.tags?.length) {
+								input.placeholder = _placeholder || "";
+							}
 						});
 					tagGroup.addTag(tag);
+					input.placeholder = "";
 					dispatchEvent(new ValueEvent("tagAdded", tag));
 					dispatchEvent(new Event("change"));
 				}
@@ -502,6 +506,9 @@ package com.unhurdle.spectrum
 				tagGroup.removeElement(tag);
 				dispatchEvent(new ValueEvent("tagRemoved", tag));
 				dispatchEvent(new Event("change"));
+				if(!tagGroup.tags?.length){
+					input.placeholder = _placeholder || "";
+				}
 			}
 			calculatePosition();
 		}
@@ -512,6 +519,7 @@ package com.unhurdle.spectrum
 			{
 				tagGroup.removeElement(tag);
 			}
+			input.placeholder = _placeholder || "";
 			calculatePosition();
 		}
 		private var _labelField:String = "label";
