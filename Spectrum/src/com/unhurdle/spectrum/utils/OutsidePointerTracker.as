@@ -25,7 +25,7 @@ package com.unhurdle.spectrum.utils
         if(Application.current.usePointerEvents){
           document.addEventListener("pointerdown", handlePointerDown, true);
         } else {
-          Application.current.initialView.topMostEventDispatcher.addEventListener("mousedown", handleMouseDown, true);
+          document.addEventListener("mousedown", handleMouseDown, true);
         }
       }
     }
@@ -41,7 +41,7 @@ package com.unhurdle.spectrum.utils
         if(Application.current.usePointerEvents){
           document.removeEventListener("pointerdown", handlePointerDown, true);
         } else {
-          Application.current.initialView.topMostEventDispatcher.removeEventListener("mousedown", handleMouseDown, true);
+          document.removeEventListener("mousedown", handleMouseDown, true);
         }
       }
     }
@@ -56,9 +56,9 @@ package com.unhurdle.spectrum.utils
     }
 
     COMPILE::JS
-    private function handleMouseDown(event:Event):void
+    private function handleMouseDown(event:MouseEvent):void
     {
-      if(event is MouseEvent && event.button != 0){
+      if(event.button != 0){
         return;
       }
       handleDown(event);
@@ -69,7 +69,7 @@ package com.unhurdle.spectrum.utils
     {
       var target:Node = event.target as Node;
       for each(var element:HTMLElement in elements){
-        if(element && target is Node && element.contains(target)){
+        if(element && element.contains(target)){
           return;
         }
       }
