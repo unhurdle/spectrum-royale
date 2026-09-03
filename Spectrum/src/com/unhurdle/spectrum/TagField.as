@@ -13,6 +13,7 @@ package com.unhurdle.spectrum
 	import org.apache.royale.html.util.getLabelFromData;
 	import com.unhurdle.spectrum.utils.getPopUpHostLocalBounds;
 	import com.unhurdle.spectrum.utils.OutsidePointerTracker;
+	import com.unhurdle.spectrum.utils.AnchoredOverlayTracker;
 	[Event(name="inputChanged", type="org.apache.royale.events.Event")]
 	[Event(name="change", type="org.apache.royale.events.Event")]
 	[Event(name="tagAdded", type="org.apache.royale.events.ValueEvent")]
@@ -253,6 +254,7 @@ package com.unhurdle.spectrum
 				}
 			}, 0);
 		}
+		private var anchorTracker:AnchoredOverlayTracker;
 		private function setComboBoxListOpen(value:Boolean):void
 		{
 			if(!value && openTimeoutId > 0){
@@ -260,17 +262,29 @@ package com.unhurdle.spectrum
 				openTimeoutId = 0;
 			}
 			comboBoxList.open = value;
-			if(value){
-				if(!outsidePointerTracker){
-					outsidePointerTracker = new OutsidePointerTracker([element, comboBoxList.element], closeComboBoxList);
+			COMPILE::JS
+			{
+				if(!anchorTracker){
+					anchorTracker = new AnchoredOverlayTracker(element, positionPopup, closeComboBoxList, comboBoxList.element);
 				}
-				outsidePointerTracker.start();
-			} else if(outsidePointerTracker){
-				outsidePointerTracker.stop();
+				anchorTracker.start();
+				if(value){
+					if(!outsidePointerTracker){
+						outsidePointerTracker = new OutsidePointerTracker([element, comboBoxList.element], closeComboBoxList);
+					}
+					outsidePointerTracker.start();
+				} else if(outsidePointerTracker){
+					outsidePointerTracker.stop();
+				}
 			}
 		}
 		private function closeComboBoxList():void
 		{
+			COMPILE::JS
+				{
+					anchorTracker.stop();
+					outsidePointerTracker.stop();
+				}
 			setComboBoxListOpen(false);
 		}
 		public function get minMenuHeight():Number
