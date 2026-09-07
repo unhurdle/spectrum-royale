@@ -5,8 +5,10 @@ package com.unhurdle.spectrum
   }
   import org.apache.royale.events.Event;
   import org.apache.royale.functional.decorator.debounceShort;
+  import com.unhurdle.spectrum.beads.KeyboardFocusHandler;
+  import com.unhurdle.spectrum.interfaces.IKeyboardFocusable;
   [Event(name="change", type="org.apache.royale.events.Event")]
-  public class Switch extends SpectrumBase
+  public class Switch extends SpectrumBase implements IKeyboardFocusable
   {
     /**
      * <inject_html>
@@ -62,6 +64,40 @@ package com.unhurdle.spectrum
           element.appendChild(_rightLabelElem.element);
         }
         debouncedSetInput();
+        if(tabFocusable){
+          addBead(new KeyboardFocusHandler());
+        }
+      }
+    }
+    COMPILE::JS
+    public function get focusElement():HTMLElement{
+      return input;
+    }
+    COMPILE::SWF
+    public function get focusElement():HTMLElement{
+      return null;
+    }
+    override public function focus():void{
+      COMPILE::JS
+      {
+        input.focus();
+      }
+    }
+
+    public function set keyboardFocused(value:Boolean):void
+    {
+      COMPILE::JS
+      {
+        // Spectrum styles the ring from the input, not the wrapper
+        value ? input.classList.add("focus-ring") : input.classList.remove("focus-ring");
+      }
+    }
+
+    public function set focused(value:Boolean):void
+    {
+      COMPILE::JS
+      {
+        value ? input.focus() : input.blur();
       }
     }
     protected function handleInputChange(ev:Event):void{
