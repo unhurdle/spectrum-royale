@@ -28,11 +28,7 @@ package com.unhurdle.spectrum
 		override protected function getSelector():String{
 			return "spectrum-Checkbox";
 		}
-		private var _input:HTMLInputElement;
-		public function get input():HTMLInputElement
-		{
-			return _input;
-		}
+		private var input:HTMLInputElement;
 
 		private function elementClicked():void{
 			indeterminate = false;
@@ -43,11 +39,11 @@ package com.unhurdle.spectrum
 		COMPILE::JS
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = super.createElement();
-			_input = newElement("input") as HTMLInputElement;//
-			_input.type = "checkbox";
-			_input.className = appendSelector("-input");
-			_input.onclick = elementClicked;
-			elem.appendChild(_input);
+			input = newElement("input") as HTMLInputElement;
+			input.type = "checkbox";
+			input.className = appendSelector("-input");
+			input.onclick = elementClicked;
+			elem.appendChild(input);
 			spanBox = new Span();
 			spanBox.element.className = appendSelector("-box");
 			elem.appendChild(spanBox.element);
@@ -158,7 +154,7 @@ package com.unhurdle.spectrum
 		{
 			if(value != !!_disabled){
 				toggle("is-disabled",value);
-				_input.disabled = value;
+				input.disabled = value;
 			}
 			_disabled = value;
 		}
@@ -180,7 +176,7 @@ package com.unhurdle.spectrum
 					checkIcon.className = appendSelector("-checkmark");
 					spanBox.addElement(checkIcon);
 				}
-				_input.checked = value;
+				input.checked = value;
 				indeterminate = false;
 			}
 			_checked = value;
