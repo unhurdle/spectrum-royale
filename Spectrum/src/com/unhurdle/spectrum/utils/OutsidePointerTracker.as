@@ -75,7 +75,7 @@ package com.unhurdle.spectrum.utils
         }
       }
       stop();
-      outsideHandler();
+      outsideHandler(event);
     }
   }
 }

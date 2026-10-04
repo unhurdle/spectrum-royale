@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
 		import org.apache.royale.core.WrappedHTMLElement;
 	}
 	import com.unhurdle.spectrum.utils.PointerDrag;
+	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.utils.number.pinValue;
 
@@ -237,12 +238,18 @@ package com.unhurdle.spectrum
 			if(event.target === input){
 				return false;
 			}
-			handle.classList.add("is-dragged");
+			pointerDragManaged = true;
+			onMouseDown(event as MouseEvent);
 			return true;
 		}
 
 		COMPILE::JS
 		private function handlePointerMove(event:PointerEvent):void {
+			onMouseMove(event as MouseEvent);
+		}
+
+		COMPILE::JS
+		override protected function onMouseMove(event:MouseEvent):void {
 			if(disabled) {
 				return;
 			}
@@ -261,7 +268,8 @@ package com.unhurdle.spectrum
 
 		COMPILE::JS
 		private function handlePointerEnd():void {
-			handle.classList.remove("is-dragged");
+			onMouseUp();
+			pointerDragManaged = false;
 		}
 
 		COMPILE::JS

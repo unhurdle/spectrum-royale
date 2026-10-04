@@ -89,6 +89,15 @@ package com.unhurdle.spectrum
 			if(popover.open){
 				return;
 			}
+			COMPILE::JS
+			{
+				if(anchorTracker){
+					anchorTracker.stop();
+				}
+				if(outsidePointerTracker){
+					outsidePointerTracker.stop();
+				}
+			}
 			// Restore focus after close, but not synchronously: focusing during
 			// Enter selection re-activates the trigger and reopens the menu.
 			var currentFocus:Element = document.activeElement;
@@ -149,11 +158,6 @@ package com.unhurdle.spectrum
 		}
 		private function closePopup():void{
 			if(popover && popover.open){
-				COMPILE::JS
-				{
-					anchorTracker.stop();
-					outsidePointerTracker.stop();
-				}
 				popover.open = false;
 			}
 		}

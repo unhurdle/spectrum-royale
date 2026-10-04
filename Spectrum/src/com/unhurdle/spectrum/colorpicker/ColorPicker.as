@@ -4,6 +4,7 @@ package com.unhurdle.spectrum.colorpicker
 	COMPILE::JS
 	{
 		import org.apache.royale.core.WrappedHTMLElement;
+		import NativeMouseEvent = MouseEvent;
 	}
 	import com.unhurdle.spectrum.SpectrumBase;
 	import com.unhurdle.spectrum.ColorSwatch;
@@ -188,20 +189,29 @@ package com.unhurdle.spectrum.colorpicker
 
 		public function set popover(value:IColorPopover):void
 		{
+			if(_popover == value){
+				return;
+			}
+			if(_popover){
+				_popover.removeEventListener("colorChanged",handleColorChange);
+				_popover.removeEventListener("colorCommit",handleColorCommit);
+				_popover.removeEventListener("cancel",handleCancel);
+				_popover.removeEventListener("openChanged",handleOpenChanged);
+			}
 			_popover = value;
+			if(_popover){
+				_popover.addEventListener("colorChanged",handleColorChange);
+				_popover.addEventListener("colorCommit",handleColorCommit);
+				_popover.addEventListener("cancel",handleCancel);
+				_popover.addEventListener("openChanged",handleOpenChanged);
+			}
 		}
 
 		public function get popover():IColorPopover{
 			if(!_popover){            
 				var c:Class = ValuesManager.valuesImpl.getValue(this, "iColorPopover") as Class;
 				if(c){
-					_popover = new c() as IColorPopover;
-				}
-				if(_popover){
-					_popover.addEventListener("colorChanged",handleColorChange);
-					_popover.addEventListener("colorCommit",handleColorCommit);
-					_popover.addEventListener("cancel",handleCancel);
-					_popover.addEventListener("openChanged",handleOpenChanged);
+					popover = new c() as IColorPopover;
 				}
 			}
 			return _popover;
@@ -221,6 +231,25 @@ package com.unhurdle.spectrum.colorpicker
 			closePopover();
 		}
 		protected function handleOpenChanged(ev:Event):void{
+			if(!popover.open){
+				popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+				COMPILE::JS
+				{
+					if(outsidePointerTracker){
+						outsidePointerTracker.stop();
+					}
+					requestAnimationFrame(function():void{
+						if(!popover.open){
+							initialColor = null;
+						}
+					});
+				}
+				COMPILE::SWF
+				{
+					topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
+				}
+			}
 			dispatchEvent(ev);
 		}
 		protected function togglePopover(ev:Event):void{
@@ -268,49 +297,40 @@ package com.unhurdle.spectrum.colorpicker
 			}
 			setPopupProperties();
 			popover.open = true;
+			button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
+			popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 			COMPILE::JS
 			{
 				if(!outsidePointerTracker){
-					outsidePointerTracker = new OutsidePointerTracker([element, popover.element], cancelPopover);
+					outsidePointerTracker = new OutsidePointerTracker([element, popover.element], handleOutsidePointerDown);
 				}
 				outsidePointerTracker.start();
 			}
 			COMPILE::SWF
 			{
-				button.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-				popover.addEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
 				topMostEventDispatcher.addEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
 			}
 		}
 		protected function closePopover():void{
 			if(popover && popover.open){
-				COMPILE::JS
-				{
-					outsidePointerTracker.stop();
-				}
-				COMPILE::SWF
-				{
-					popover.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-					button.removeEventListener(MouseEvent.MOUSE_DOWN, handleControlMouseDown);
-					topMostEventDispatcher.removeEventListener(MouseEvent.MOUSE_DOWN, handleTopMostEventDispatcherMouseDown);
-				}
 				popover.open = false;
-				COMPILE::JS
-				{
-					requestAnimationFrame(function():*{
-						initialColor = null;
-					});
-				}
 			}
 		}
-		COMPILE::SWF
 		protected function handleControlMouseDown(event:MouseEvent):void{
 			event.stopImmediatePropagation();
 		}
-		COMPILE::SWF
 		protected function handleTopMostEventDispatcherMouseDown(event:MouseEvent):void{
 			// If the user clicked outside the popover, we're considering that a cancel.
 			cancelPopover();
+		}
+		COMPILE::JS
+		private function handleOutsidePointerDown(event:NativeMouseEvent):void{
+			var mouseEvent:MouseEvent = new MouseEvent(MouseEvent.MOUSE_DOWN);
+			mouseEvent.nativeEvent = event;
+			mouseEvent.target = event.target;
+			mouseEvent.localX = event.clientX;
+			mouseEvent.localY = event.clientY;
+			handleTopMostEventDispatcherMouseDown(mouseEvent);
 		}
 		public function cancelPopover():void{
 			if(popover.open){

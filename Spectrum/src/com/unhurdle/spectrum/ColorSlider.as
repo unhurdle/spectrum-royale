@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
 			import org.apache.royale.core.WrappedHTMLElement;
 	}
 	import com.unhurdle.spectrum.utils.PointerDrag;
+	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.events.ValueEvent;
 	import com.unhurdle.spectrum.data.RGBColor;
 	import com.unhurdle.spectrum.interfaces.IRGBA;
@@ -189,21 +190,33 @@ package com.unhurdle.spectrum
 			if(disabled || event.target === input){
 				return false;
 			}
-			handle.toggle("is-dragged",true);
+			onMouseDown(event as MouseEvent);
 			return true;
 		}
 
 		COMPILE::JS
 		private function handlePointerEnd():void {
-			handle.toggle("is-dragged",false);
+			onMouseUp();
 		}
 
 		COMPILE::JS
 		private function handlePointerMove(event:PointerEvent):void {
+			onMouseMove(event as MouseEvent);
+		}
+
+		protected function onMouseDown(event:MouseEvent):void {
+			handle.toggle("is-dragged",true);
+		}
+
+		protected function onMouseUp():void {
+			handle.toggle("is-dragged",false);
+		}
+
+		protected function onMouseMove(event:MouseEvent):void {
 			if(disabled){
 				return;
 			}
-			updateFromPercent(getPointerPercentagePosition(event));
+			updateFromPercent(getMousePercentagePosition(event));
 		}
 
 		COMPILE::JS
@@ -229,8 +242,11 @@ package com.unhurdle.spectrum
 			dispatchEvent(new ValueEvent("colorChanged",appliedColor));			
 		}
 
+		COMPILE::SWF
+		protected function getMousePercentagePosition(event:MouseEvent):Number { return 0; }
+
 		COMPILE::JS
-		private function getPointerPercentagePosition(event:PointerEvent):Number{
+		protected function getMousePercentagePosition(event:MouseEvent):Number{
 			var bounds:ClientRect = element.getBoundingClientRect();
 			if(vertical){
 				if(bounds.height == 0){
