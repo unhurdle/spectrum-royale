@@ -6,6 +6,7 @@ package com.unhurdle.spectrum
 	}
 	import com.unhurdle.spectrum.utils.PointerDrag;
 	import com.unhurdle.spectrum.interfaces.IRGBA;
+	import org.apache.royale.events.MouseEvent;
 	import org.apache.royale.events.ValueEvent;
 	import com.unhurdle.spectrum.data.RGBColor;
 	import org.apache.royale.utils.HSV;
@@ -118,18 +119,33 @@ package com.unhurdle.spectrum
 
 		COMPILE::JS
 		private function handlePointerStart(event:PointerEvent):Boolean {
-			handle.toggle("is-dragged",true);
+			onMouseDown(event as MouseEvent);
 			return true;
 		}
 		
 		COMPILE::JS
 		private function handlePointerEnd():void {
-			handle.toggle("is-dragged",false);
+			onMouseUp();
 		}
 
 		COMPILE::JS
 		private function handlePointerMove(event:PointerEvent):void {
-			calculateColor(event);
+			onMouseMove(event as MouseEvent);
+		}
+
+		COMPILE::JS
+		protected function onMouseDown(event:MouseEvent):void {
+			handle.toggle("is-dragged",true);
+		}
+
+		COMPILE::JS
+		protected function onMouseUp():void {
+			handle.toggle("is-dragged",false);
+		}
+
+		COMPILE::JS
+		protected function onMouseMove(event:MouseEvent):void {
+			calculateColor(event as PointerEvent);
 		}
 
 		COMPILE::JS

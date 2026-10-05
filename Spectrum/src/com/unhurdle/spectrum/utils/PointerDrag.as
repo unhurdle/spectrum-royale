@@ -17,7 +17,8 @@ package com.unhurdle.spectrum.utils
             _moveHandler = moveHandler;
             _endHandler = endHandler;
             setTouchAction(touchAction);
-            if (Application.current.usePointerEvents) {
+            _usePointerEvents = Application.current && Application.current.usePointerEvents;
+            if (_usePointerEvents) {
                 _target.addEventListener("pointerdown", handlePointerDown);
             } else {
                 _target.addEventListener("mousedown", handleMouseDown);
@@ -26,6 +27,8 @@ package com.unhurdle.spectrum.utils
 
         COMPILE::JS
         private var _target:HTMLElement;
+        COMPILE::JS
+        private var _usePointerEvents:Boolean;
         COMPILE::JS
         private var _startHandler:Function;
         COMPILE::JS
@@ -74,7 +77,7 @@ package com.unhurdle.spectrum.utils
             COMPILE::JS
             {
             cancel();
-            if (Application.current.usePointerEvents) {
+            if (_usePointerEvents) {
                 _target.removeEventListener("pointerdown", handlePointerDown);
             } else {
                 _target.removeEventListener("mousedown", handleMouseDown);

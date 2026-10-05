@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import com.unhurdle.spectrum.utils.PointerDrag;
+  import org.apache.royale.events.MouseEvent;
   import org.apache.royale.events.ValueEvent;
   import com.unhurdle.spectrum.data.RGBColor;
 
@@ -94,15 +95,28 @@ package com.unhurdle.spectrum
 			if(event.target === input){
 				return false;
 			}
-			handle.toggle("is-dragged",true);
+			onMouseDown(event as MouseEvent);
 			return true;
 		}
 
     private function handlePointerEnd():void {
-			handle.toggle("is-dragged",false);
+			onMouseUp();
 		}
 
     private function handlePointerMove(event:PointerEvent):void {
+		onMouseMove(event as MouseEvent);
+    }
+
+    protected function onMouseDown(event:MouseEvent):void {
+		handle.toggle("is-dragged",true);
+    }
+
+    protected function onMouseUp():void {
+		handle.toggle("is-dragged",false);
+    }
+
+    COMPILE::JS
+    protected function onMouseMove(event:MouseEvent):void {
       var bounds:ClientRect = gradient.getBoundingClientRect();
       var radians:Number = Math.atan2(event.clientY - (bounds.top + bounds.height / 2), event.clientX - (bounds.left + bounds.width / 2));
       var hue:Number = radians * 180 / Math.PI;
@@ -111,6 +125,9 @@ package com.unhurdle.spectrum
       }
       updateFromHue(hue);
     }
+
+    COMPILE::SWF
+    protected function onMouseMove(event:MouseEvent):void {}
 
     private function handleNativeInput():void {
       updateFromHue(Number(input.value));

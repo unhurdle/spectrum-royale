@@ -1,6 +1,7 @@
 package com.unhurdle.spectrum
 {
 	import com.unhurdle.spectrum.includes.SliderInclude;
+	import org.apache.royale.events.MouseEvent;
 	
 	[Event(name="change", type="org.apache.royale.events.Event")]
 
@@ -137,6 +138,38 @@ package com.unhurdle.spectrum
 		protected function getValue():String{
 			// override in subclass
 			return "";
+		}
+
+		COMPILE::SWF
+		protected function onMouseDown():void {}
+		protected var pointerDragManaged:Boolean;
+		COMPILE::JS
+		protected function onMouseDown(event:MouseEvent):void {
+			if(disabled){
+				return;
+			}
+			if(handle){
+				handle.classList.add("is-dragged");
+			}
+			if(!pointerDragManaged){
+				onMouseMove(event);
+				window.addEventListener("mouseup", onMouseUp);
+				window.addEventListener("mousemove", onMouseMove);
+			}
+		}
+		COMPILE::SWF
+		protected function onMouseUp():void {}
+		COMPILE::JS
+		protected function onMouseUp():void {
+			if(handle){
+				handle.classList.remove("is-dragged");
+			}
+			if(!pointerDragManaged){
+				window.removeEventListener("mouseup", onMouseUp);
+				window.removeEventListener("mousemove", onMouseMove);
+			}
+		}
+		protected function onMouseMove(event:MouseEvent):void {
 		}
 
 	}

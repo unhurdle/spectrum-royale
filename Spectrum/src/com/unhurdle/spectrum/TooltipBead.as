@@ -324,6 +324,11 @@ package com.unhurdle.spectrum
 			if(!tt){
 				return;
 			}
+			// The anchor tracker can fire after the owner is removed from its popup host.
+			if(!UIUtils.findPopUpHost(_strand as IUIBase)){
+				closeTooltip();
+				return;
+			}
 			var ttWidth:Number = tt.width;
 			var pt:Point = determinePosition(_strand as IUIBase, tt);
 			tt.x = pt.x;

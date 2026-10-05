@@ -64,7 +64,7 @@ package com.unhurdle.spectrum.beads
         return;
       }
       modalityTrackingInitialized = true;
-      if(Application.current.usePointerEvents){
+      if(Application.current && Application.current.usePointerEvents){
         document.addEventListener("pointerdown",handleInputDown,true);
       } else {
         document.addEventListener("mousedown",handleInputDown,true);
