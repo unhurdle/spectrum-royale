@@ -187,16 +187,22 @@ package com.unhurdle.spectrum
 			}
 			var leftSpace:Number = componentBounds.x;
 			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
+			var availableWidth:Number;
 			if(rightSpace < leftSpace){
 				setStyle("right",rightSpace + "px");
 				setStyle("left",null);
+				availableWidth = componentBounds.right;
 			} else {
 				setStyle("right",null);
 				setStyle("left",leftSpace + "px");
+				availableWidth = appBounds.width - componentBounds.x;
 			}
 			if(isNaN(explicitWidth) && !isNaN(preferredWidth)){
 				setStyle("minWidth",preferredWidth + "px");
 				// popover.width = width;
+			}
+			if(isNaN(explicitWidth)){
+				setStyle("maxWidth",availableWidth + "px");
 			}
 		}
 		private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
