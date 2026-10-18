@@ -159,7 +159,7 @@ package com.unhurdle.spectrum
 		public function set minMenuHeight(value:Number):void{
 			_minMenuHeight = value;
 		}
-		public function positionPopup(componentBounds:Rectangle,preferredWidth:Number = NaN):void{
+		public function positionPopup(componentBounds:Rectangle,preferredWidth:Number = NaN,skipSpaceCalculation:Boolean = false):void{
 			var minHeight:Number = _minMenuHeight + 6;
 			// Figure out direction and max size
 			var appBounds:Rectangle = getPopUpHostLocalBounds(Application.current.initialView);
@@ -185,8 +185,11 @@ package com.unhurdle.spectrum
 					}
 					break;
 			}
+			if(skipSpaceCalculation){
+				return;
+			}
 			var leftSpace:Number = componentBounds.x;
-			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
+			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);//
 			if(rightSpace < leftSpace){
 				setStyle("right",rightSpace + "px");
 				setStyle("left",null);

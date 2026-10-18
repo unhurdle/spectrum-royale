@@ -83,7 +83,7 @@ package com.unhurdle.spectrum
 			calculatePosition();
 		}
 
-		private var comboBoxList:ComboBoxList;
+		private var comboBoxList:TagComboBoxList;
 		private var outsidePointerTracker:OutsidePointerTracker;
 		private var valuesArr:Array = [];
 		private var ind:Number = 0;
@@ -442,7 +442,7 @@ package com.unhurdle.spectrum
 			{
 				if (!comboBoxList)
 				{
-					comboBoxList = new ComboBoxList();
+					comboBoxList = new TagComboBoxList();
 					comboBoxList.autoFocusList = false;
 					comboBoxList.addEventListener('change', itemSelected);
 					COMPILE::JS
