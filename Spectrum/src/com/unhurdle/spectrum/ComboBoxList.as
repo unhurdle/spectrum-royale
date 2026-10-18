@@ -189,7 +189,7 @@ package com.unhurdle.spectrum
 				return;
 			}
 			var leftSpace:Number = componentBounds.x;
-			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);//
+			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
 			if(rightSpace < leftSpace){
 				setStyle("right",rightSpace + "px");
 				setStyle("left",null);
