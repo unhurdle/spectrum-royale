@@ -277,7 +277,7 @@ package com.unhurdle.spectrum
 		{
 			if (!comboBoxList)
 			{
-				return ComboBoxList.MIN_MENU_DEFAULT_HEIGHT;
+				return TagComboBoxList.MIN_MENU_DEFAULT_HEIGHT;
 			}
 			return comboBoxList.minMenuHeight;
 		}
