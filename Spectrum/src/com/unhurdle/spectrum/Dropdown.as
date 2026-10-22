@@ -77,7 +77,7 @@ package com.unhurdle.spectrum
       var open:Boolean = !popover.open;
       toggle("is-open",open);
       if(open){
-        positionPopup();
+        // positionPopup();
         dispatchEvent(new Event("showMenu"));
 				callLater(openPopup)
       } else {
