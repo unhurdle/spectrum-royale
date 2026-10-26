@@ -13,6 +13,10 @@ package com.unhurdle.spectrum
 			var minHeight:Number = _minMenuHeight + 6;
 			// Figure out direction and max size
 			var appBounds:Rectangle = getPopUpHostLocalBounds(Application.current.initialView);
+			var availableWidth:Number = appBounds.width - componentBounds.x;
+			setStyle("maxWidth",availableWidth + "px");
+			var leftSpace:Number = componentBounds.x;
+			setStyle("left",leftSpace + "px");
 			var spaceToBottom:Number = appBounds.bottom - componentBounds.bottom;
 			var spaceToTop:Number = componentBounds.top - appBounds.top;
 			var spaceOnBottom:Boolean = spaceToBottom >= spaceToTop;
@@ -34,10 +38,6 @@ package com.unhurdle.spectrum
 					}
 					break;
 			}
-			var availableWidth:Number = appBounds.width - componentBounds.x;
-			setStyle("maxWidth",availableWidth + "px");
-			var leftSpace:Number = componentBounds.x;
-			setStyle("left",leftSpace + "px");
 		}
 		
 		private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
@@ -59,7 +59,7 @@ package com.unhurdle.spectrum
 			setStyle("bottom","");
 			pxStr = maxHeight + "px";
 			setStyle("max-height",pxStr);
-			setStyle("top",(anchorTop - height) + "px");
+			setStyle("top",(anchorTop - measurePopupHeight()) + "px");
 			if(position == "bottom"){
 				position = "top";
 			}
