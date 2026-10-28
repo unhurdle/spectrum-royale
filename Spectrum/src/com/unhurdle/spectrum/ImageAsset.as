@@ -17,6 +17,9 @@ package com.unhurdle.spectrum
 
     public function get imageElement():HTMLImageElement
     {
+      if(!_imageElement){
+        createImageElement();
+      }
     	return _imageElement;
     }
     protected var _src:String;

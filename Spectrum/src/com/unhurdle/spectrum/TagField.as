@@ -41,7 +41,7 @@ package com.unhurdle.spectrum
 			_placeholder = value;
 			if (input)
 			{
-				input.placeholder = value;
+				input.placeholder = getPlaceHolder();
 			}
 		}
 
@@ -60,12 +60,17 @@ package com.unhurdle.spectrum
 			tagGroup.setStyle('flex-shrink', '1');
 			elem.appendChild(tagGroup.element);
 			input = new TextField();
+			input.setStyle("max-width","100%");
 			input.setStyle("display", "inline-block");
-			input.placeholder = _placeholder;
+			input.placeholder = getPlaceHolder();
 			input.addEventListener("onBackspace", removeTag);
 			input.addEventListener("onEnter", inputChanged);
 			input.element.addEventListener("input", inputValueChanged);
-			input.element.addEventListener("pointerdown", handleOpeningPointerDown);
+			if(Application.current.usePointerEvents){
+				input.element.addEventListener("pointerdown", handleOpeningPointerDown);
+			} else {
+				input.element.addEventListener("mousedown", handleOpeningMouseDown);
+			}
 			input.input.style.borderStyle = "none";
 			input.input.style.background = "none";
 			input.tabFocusable = false;
@@ -79,7 +84,7 @@ package com.unhurdle.spectrum
 			calculatePosition();
 		}
 
-		private var comboBoxList:ComboBoxList;
+		private var comboBoxList:TagComboBoxList;
 		private var outsidePointerTracker:OutsidePointerTracker;
 		private var valuesArr:Array = [];
 		private var ind:Number = 0;
@@ -174,6 +179,42 @@ package com.unhurdle.spectrum
 		private var openingPointerId:Number = -1;
 
 		COMPILE::JS
+		private function handleOpeningMouseDown(event:MouseEvent):void
+		{
+			if(openingPointerId >= 0 || event.button != 0){
+				return;
+			}
+			openingPointerId = 0;
+			document.addEventListener("mouseup", handleOpeningMouseUp, true);
+			window.addEventListener("blur", handleOpeningMouseCancel);
+			document.addEventListener("mouseleave", handleOpeningMouseCancel);
+		}
+
+		COMPILE::JS
+		private function handleOpeningMouseUp(event:MouseEvent):void
+		{
+			finishOpeningMouse();
+			if(valuesArr.length){
+				openComboBoxListAfterCurrentEvent();
+			}
+		}
+
+		COMPILE::JS
+		private function handleOpeningMouseCancel(event:Event):void
+		{
+			finishOpeningMouse();
+		}
+
+		COMPILE::JS
+		private function finishOpeningMouse():void
+		{
+			openingPointerId = -1;
+			document.removeEventListener("mouseup", handleOpeningMouseUp, true);
+			window.removeEventListener("blur", handleOpeningMouseCancel);
+			document.removeEventListener("mouseleave", handleOpeningMouseCancel);
+		}
+
+		COMPILE::JS
 		private function handleOpeningPointerDown(event:PointerEvent):void
 		{
 			if(openingPointerId >= 0 || event.isPrimary === false || event.button != 0){
@@ -237,7 +278,7 @@ package com.unhurdle.spectrum
 		{
 			if (!comboBoxList)
 			{
-				return ComboBoxList.MIN_MENU_DEFAULT_HEIGHT;
+				return TagComboBoxList.MIN_MENU_DEFAULT_HEIGHT;
 			}
 			return comboBoxList.minMenuHeight;
 		}
@@ -280,7 +321,20 @@ package com.unhurdle.spectrum
 		}
 		private function inputChanged():void
 		{
-			addTag(input.text);
+			// When a tag is typed rather than selected from the list, the data property should be set to the data of the matching item in the tagList.
+			var data:String;
+			if (tagList)
+			{
+				for each (var listItem:* in tagList)
+				{
+					if (listItem.name == input.text)
+					{
+						data = listItem.data;
+						break;
+					}
+				}
+			}
+			addTag(input.text, data);
 		}
 		protected function addTag(text:String, data:String = null):void
 		{
@@ -339,13 +393,20 @@ package com.unhurdle.spectrum
 						{
 							dispatchEvent(new ValueEvent("tagRemoved", ev.currentTarget));
 							dispatchEvent(new Event("change"));
+							input.placeholder = getPlaceHolder();
 						});
 					tagGroup.addTag(tag);
 					dispatchEvent(new ValueEvent("tagAdded", tag));
 					dispatchEvent(new ValueEvent("change", tag));
 				}
 			}
+			input.placeholder = getPlaceHolder();
 			calculatePosition();
+		}
+		private function getPlaceHolder():String {
+			if(tagGroup.tags?.length)
+				return "";
+			return _placeholder || "";
 		}
 
 		private function calculatePosition():void
@@ -382,7 +443,7 @@ package com.unhurdle.spectrum
 			{
 				if (!comboBoxList)
 				{
-					comboBoxList = new ComboBoxList();
+					comboBoxList = new TagComboBoxList();
 					comboBoxList.autoFocusList = false;
 					comboBoxList.addEventListener('change', itemSelected);
 					COMPILE::JS
@@ -449,6 +510,7 @@ package com.unhurdle.spectrum
 				tagGroup.removeElement(tag);
 				dispatchEvent(new ValueEvent("tagRemoved", tag));
 				dispatchEvent(new Event("change"));
+				input.placeholder = getPlaceHolder();
 			}
 			calculatePosition();
 		}
@@ -459,6 +521,7 @@ package com.unhurdle.spectrum
 			{
 				tagGroup.removeElement(tag);
 			}
+			input.placeholder = getPlaceHolder();
 			calculatePosition();
 		}
 		private var _labelField:String = "label";

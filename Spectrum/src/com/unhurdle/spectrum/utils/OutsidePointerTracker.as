@@ -1,5 +1,8 @@
 package com.unhurdle.spectrum.utils
 {
+  import com.unhurdle.spectrum.Application;
+  import org.apache.royale.core.IRenderedObject;
+
   public class OutsidePointerTracker
   {
     public function OutsidePointerTracker(elements:Array, outsideHandler:Function)
@@ -20,7 +23,11 @@ package com.unhurdle.spectrum.utils
           return;
         }
         tracking = true;
-        document.addEventListener("pointerdown", handlePointerDown, true);
+        if(Application.current.usePointerEvents){
+          document.addEventListener("pointerdown", handlePointerDown, true);
+        } else {
+          Application.current.initialView.topMostEventDispatcher.addEventListener("mousedown", handleMouseDown, true);
+        }
       }
     }
 
@@ -32,7 +39,11 @@ package com.unhurdle.spectrum.utils
           return;
         }
         tracking = false;
-        document.removeEventListener("pointerdown", handlePointerDown, true);
+        if(Application.current.usePointerEvents){
+          document.removeEventListener("pointerdown", handlePointerDown, true);
+        } else {
+          Application.current.initialView.topMostEventDispatcher.removeEventListener("mousedown", handleMouseDown, true);
+        }
       }
     }
 
@@ -42,14 +53,29 @@ package com.unhurdle.spectrum.utils
       if(!event.isPrimary || event.button != 0){
         return;
       }
-      var target:Node = event.target as Node;
+      handleDown(event);
+    }
+
+    COMPILE::JS
+    private function handleMouseDown(event:Event):void
+    {
+      if(event is MouseEvent && event.button != 0){
+        return;
+      }
+      handleDown(event);
+    }
+
+    COMPILE::JS
+    private function handleDown(event:Event):void
+    {
+      var target:Node = event.target is IRenderedObject ? (event.target as IRenderedObject).element as Node : event.target as Node;
       for each(var element:HTMLElement in elements){
         if(element && element.contains(target)){
           return;
         }
       }
       stop();
-      outsideHandler();
+      outsideHandler(event);
     }
   }
 }

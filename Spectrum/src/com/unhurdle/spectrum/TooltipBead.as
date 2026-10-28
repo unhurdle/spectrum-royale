@@ -186,7 +186,9 @@ package com.unhurdle.spectrum
 			COMPILE::JS
 			{
 				var element:HTMLElement = (_strand as ISpectrumElement).element;
-				element.addEventListener("pointerdown", handlePointerDown);
+				if(Application.current.usePointerEvents){
+					element.addEventListener("pointerdown", handlePointerDown);
+				}
 				anchorTracker = new AnchoredOverlayTracker(element, positionTooltip);
 			}
 		}
@@ -320,6 +322,11 @@ package com.unhurdle.spectrum
 
 		private function positionTooltip():void {
 			if(!tt){
+				return;
+			}
+			// The anchor tracker can fire after the owner is removed from its popup host.
+			if(!UIUtils.findPopUpHost(_strand as IUIBase)){
+				closeTooltip();
 				return;
 			}
 			var ttWidth:Number = tt.width;

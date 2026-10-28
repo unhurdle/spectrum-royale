@@ -4,6 +4,7 @@ package com.unhurdle.spectrum
     import org.apache.royale.core.WrappedHTMLElement;
   }
   import com.unhurdle.spectrum.utils.PointerDrag;
+  import org.apache.royale.events.MouseEvent;
   import org.apache.royale.events.Event;
   import org.apache.royale.utils.number.pinValue;
   public class RangeSlider extends SliderBase
@@ -181,20 +182,34 @@ package com.unhurdle.spectrum
         var percent:Number = (event.clientX - bounds.left) / bounds.width * 100;
         handle = Math.abs(percent - parseFloat(leftHandle.style.left)) <= Math.abs(percent - parseFloat(rightHandle.style.left)) ? leftHandle : rightHandle;
       }
-      handle.classList.add("is-dragged");
+      pointerDragManaged = true;
+      onMouseDown(event as MouseEvent);
       return true;
     }
 
     COMPILE::JS
     private function handlePointerEnd():void{
-      if(handle){
-        handle.classList.remove("is-dragged");
-      }
+      onMouseUp();
+      pointerDragManaged = false;
+    }
+
+    COMPILE::JS
+    override protected function onMouseDown(event:MouseEvent):void{
+      super.onMouseDown(event);
+    }
+
+    override protected function onMouseUp():void{
+      super.onMouseUp();
       handle = null;
     }
 
     COMPILE::JS
     private function handlePointerMove(event:PointerEvent):void{
+      onMouseMove(event as MouseEvent);
+    }
+
+    COMPILE::JS
+    override protected function onMouseMove(event:MouseEvent):void{
       if(disabled || !handle){
         return;
       }

@@ -3,6 +3,7 @@ package com.unhurdle.spectrum
 
 	import org.apache.royale.core.IBead;
 	import org.apache.royale.core.IPopUp;
+	import org.apache.royale.core.IPopUpHostParent;
 	import org.apache.royale.core.IStrand;
 	import org.apache.royale.events.Event;
 	import org.apache.royale.events.MouseEvent;
@@ -161,8 +162,20 @@ package com.unhurdle.spectrum
 		}
 		public function positionPopup(componentBounds:Rectangle,preferredWidth:Number = NaN):void{
 			var minHeight:Number = _minMenuHeight + 6;
+			if(isNaN(explicitWidth) && !isNaN(preferredWidth)){
+				setStyle("minWidth",preferredWidth + "px");
+			}
 			// Figure out direction and max size
 			var appBounds:Rectangle = getPopUpHostLocalBounds(Application.current.initialView);
+			var leftSpace:Number = componentBounds.x;
+			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
+			if(rightSpace < leftSpace){
+				setStyle("right",rightSpace + "px");
+				setStyle("left",null);
+			} else {
+				setStyle("right",null);
+				setStyle("left",leftSpace + "px");
+			}
 			var spaceToBottom:Number = appBounds.bottom - componentBounds.bottom;
 			var spaceToTop:Number = componentBounds.top - appBounds.top;
 			var spaceOnBottom:Boolean = spaceToBottom >= spaceToTop;
@@ -185,19 +198,30 @@ package com.unhurdle.spectrum
 					}
 					break;
 			}
-			var leftSpace:Number = componentBounds.x;
-			var rightSpace:Number = appBounds.width - (componentBounds.x + componentBounds.width);
-			if(rightSpace < leftSpace){
-				setStyle("right",rightSpace + "px");
-				setStyle("left",null);
-			} else {
-				setStyle("right",null);
-				setStyle("left",leftSpace + "px");
+		}
+		protected function measurePopupHeight():Number{
+			COMPILE::JS
+			{
+				if(floating && !open && !parent){
+					var host:IPopUpHostParent = Application.current.popUpParent;
+					var originalVisibility:String = element.style.visibility;
+					element.style.visibility = "hidden";
+					setAttribute("dir", Application.current.dir);
+					try{
+						host.addElement(this);
+						return height;
+					} finally {
+						try{
+							if(parent == host){
+								host.removeElement(this);
+							}
+						} finally {
+							element.style.visibility = originalVisibility;
+						}
+					}
+				}
 			}
-			if(isNaN(explicitWidth) && !isNaN(preferredWidth)){
-				setStyle("minWidth",preferredWidth + "px");
-				// popover.width = width;
-			}
+			return height;
 		}
 		private function positionPopoverBottom(componentBounds:Rectangle,maxHeight:Number):void{
 			maxHeight -= 6;
@@ -217,7 +241,7 @@ package com.unhurdle.spectrum
 			setStyle("bottom","");
 			pxStr = maxHeight + "px";
 			setStyle("max-height",pxStr);
-			setStyle("top",(anchorTop - height) + "px");
+			setStyle("top",(anchorTop - measurePopupHeight()) + "px");
 			if(position == "bottom"){
 				position = "top";
 			}
