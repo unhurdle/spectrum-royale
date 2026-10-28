@@ -342,7 +342,7 @@ package com.unhurdle.spectrum
 						});
 					tagGroup.addTag(tag);
 					dispatchEvent(new ValueEvent("tagAdded", tag));
-					dispatchEvent(new Event("change"));
+					dispatchEvent(new ValueEvent("change", tag));
 				}
 			}
 			calculatePosition();
