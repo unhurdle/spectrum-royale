@@ -3,15 +3,16 @@ package com.unhurdle.spectrum.utils
 	public class AnchoredOverlayTracker
 	{
 		COMPILE::SWF
-		public function AnchoredOverlayTracker(anchor:Object, updateHandler:Function, overlay:Object = null)
+		public function AnchoredOverlayTracker(anchor:Object, updateHandler:Function, closeHandler:Function = null, overlay:Object = null)
 		{
 		}
 
 		COMPILE::JS
-		public function AnchoredOverlayTracker(anchor:HTMLElement, updateHandler:Function, overlay:HTMLElement = null)
+		public function AnchoredOverlayTracker(anchor:HTMLElement, updateHandler:Function, closeHandler:Function = null, overlay:HTMLElement = null)
 		{
 			_anchor = anchor;
 			_updateHandler = updateHandler;
+			_closeHandler = closeHandler;
 			_overlay = overlay;
 		}
 
@@ -23,6 +24,11 @@ package com.unhurdle.spectrum.utils
 		COMPILE::JS
 
 		private var _updateHandler:Function;
+
+		COMPILE::JS
+
+		private var _closeHandler:Function;
+
 		COMPILE::JS
 
 		private var _resizeObserver:Object;
@@ -83,7 +89,31 @@ package com.unhurdle.spectrum.utils
 
 		private function handleChange(event:Event):void
 		{
+			if (event.type == "scroll")	{
+				if (_overlay?.contains(event.target as Node)) {
+					return;
+				}
+				if (!isAnchorInViewport(event.target as HTMLElement))	{
+					if (_closeHandler != null) {
+						_closeHandler();
+						stop();
+					}
+					return;
+				}
+			}
 			scheduleUpdate();
+		}
+
+		COMPILE::JS
+		private function isAnchorInViewport(target:HTMLElement):Boolean
+		{
+			var viewportRect:Object = target.getBoundingClientRect();
+			var anchorRect:Object = _anchor.getBoundingClientRect();
+			var isInViewport:Boolean = anchorRect.top >= viewportRect.top &&
+				anchorRect.bottom <= viewportRect.bottom &&
+				anchorRect.left >= viewportRect.left &&
+				anchorRect.right <= viewportRect.right;
+			return isInViewport;
 		}
 
 		COMPILE::JS

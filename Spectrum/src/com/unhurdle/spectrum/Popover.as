@@ -79,7 +79,7 @@ package com.unhurdle.spectrum
 			COMPILE::JS
 			{
 				if(value){
-					anchorTracker = new AnchoredOverlayTracker(value.element, updateAnchor);
+					anchorTracker = new AnchoredOverlayTracker(value.element, updateAnchor, closeFromAnchorOutOfView);
 					updateAnchor();
 					if(open){
 						anchorTracker.start();
@@ -93,6 +93,18 @@ package com.unhurdle.spectrum
 		private function updateAnchor():void{
 			if(_anchorTarget){
 				anchor = getPopUpHostLocalBounds(_anchorTarget as IUIBase);
+			}
+		}
+
+		private function closeFromAnchorOutOfView():void
+		{
+			if (_open)
+			{
+				open = false;
+				COMPILE::JS
+				{
+					anchorTracker.stop();
+				}
 			}
 		}
 
