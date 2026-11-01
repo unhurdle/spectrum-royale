@@ -177,7 +177,7 @@ package com.unhurdle.spectrum
       COMPILE::JS
       {
         if(!anchorTracker){
-          anchorTracker = new AnchoredOverlayTracker(element, positionPopup, closePopover);
+          anchorTracker = new AnchoredOverlayTracker(element, positionPopup, null, closePopover);
         }
         anchorTracker.start();
         if(!outsidePointerTracker){

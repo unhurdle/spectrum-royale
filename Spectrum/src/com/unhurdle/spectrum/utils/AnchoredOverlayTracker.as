@@ -8,7 +8,7 @@ package com.unhurdle.spectrum.utils
 		}
 
 		COMPILE::JS
-		public function AnchoredOverlayTracker(anchor:HTMLElement, updateHandler:Function, closeHandler:Function = null, overlay:HTMLElement = null)
+		public function AnchoredOverlayTracker(anchor:HTMLElement, updateHandler:Function, overlay:HTMLElement = null, closeHandler:Function = null)
 		{
 			_anchor = anchor;
 			_updateHandler = updateHandler;

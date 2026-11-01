@@ -79,7 +79,7 @@ package com.unhurdle.spectrum
 			COMPILE::JS
 			{
 				if(value){
-					anchorTracker = new AnchoredOverlayTracker(value.element, updateAnchor, closeFromAnchorOutOfView);
+					anchorTracker = new AnchoredOverlayTracker(value.element, updateAnchor, null, closeFromAnchorOutOfView);
 					updateAnchor();
 					if(open){
 						anchorTracker.start();
