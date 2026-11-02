@@ -3,7 +3,7 @@ package com.unhurdle.spectrum.utils
 	public class AnchoredOverlayTracker
 	{
 		COMPILE::SWF
-		public function AnchoredOverlayTracker(anchor:Object, updateHandler:Function, closeHandler:Function = null, overlay:Object = null)
+		public function AnchoredOverlayTracker(anchor:Object, updateHandler:Function, overlay:Object = null, closeHandler:Function = null)
 		{
 		}
 
