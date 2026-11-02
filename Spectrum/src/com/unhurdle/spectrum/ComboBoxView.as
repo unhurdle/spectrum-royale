@@ -359,7 +359,7 @@ package com.unhurdle.spectrum{
 				COMPILE::JS
 				{
 					if(!anchorTracker){
-						anchorTracker = new AnchoredOverlayTracker(comboHost.element, positionPopup, _popup.element);
+						anchorTracker = new AnchoredOverlayTracker(comboHost.element, positionPopup, _popup.element, closePopup);
 					}
 					anchorTracker.start();
 					if(!outsidePointerTracker){
