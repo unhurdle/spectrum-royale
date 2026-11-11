@@ -23,6 +23,7 @@ package com.unhurdle.spectrum {
 		private var element:HTMLElement;
 		private var toolTipBead:AdaptiveTooltipBead;
 		private var _tooltipText:String;
+		private var _enabled:Boolean = true;
 
 		override public function set strand(value:IStrand):void {
 			super.strand = value;
@@ -39,7 +40,7 @@ package com.unhurdle.spectrum {
 		}
 
 		private function titleHover():void {
-			if (element.scrollWidth > element.clientWidth) {
+			if (_enabled && element.scrollWidth > element.clientWidth) {
 				if (!toolTipBead) {
 					toolTipBead = new AdaptiveTooltipBead();
 					toolTipBead.autoClose = 0;
@@ -60,6 +61,13 @@ package com.unhurdle.spectrum {
 
 		public function set tooltipText(val:String):void {
 			_tooltipText = val;
+		}
+
+		public function set enabled(value:Boolean):void {
+			_enabled = value;
+			if (!value) {
+				setTooltip("");
+			}
 		}
 	}
 }
