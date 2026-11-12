@@ -47,6 +47,7 @@ package com.unhurdle.spectrum
 			return "spectrum-Picker";
 		}
 		private var _button:FieldButton;
+		private var oversetTooltip:OversetTooltip;
 		public function get button():FieldButton{
 			return _button;
 		}
@@ -54,7 +55,8 @@ package com.unhurdle.spectrum
 		override protected function createElement():WrappedHTMLElement{
 			var elem:WrappedHTMLElement = super.createElement();
 			_button = new FieldButton();
-			_button.addBead(new OversetTooltip());
+			oversetTooltip = new OversetTooltip();
+			_button.addBead(oversetTooltip);
 			_button.labelClass = appendSelector("-label");
 			_button.className = appendSelector("-trigger");
 			_button.addEventListener("click",toggleDropdown);
@@ -86,6 +88,7 @@ package com.unhurdle.spectrum
 		private function handlePopoverChange(ev:Event):void{
 			_button.selected = popover.open;
 			toggle("is-open",popover.open);
+			oversetTooltip.enabled = !popover.open;
 			if(popover.open){
 				return;
 			}
