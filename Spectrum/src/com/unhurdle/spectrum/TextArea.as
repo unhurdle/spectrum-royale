@@ -143,6 +143,8 @@ package com.unhurdle.spectrum
 			_required = value;
 		}
 		
+		public var showValidIcon:Boolean = true;
+    public var showInvalidIcon:Boolean = true;
 		private var validIcon:Icon;
 		private var invalidIcon:Icon;
 		override public function get valid():Boolean
@@ -153,49 +155,114 @@ package com.unhurdle.spectrum
 		override public function set valid(value:Boolean):void
 		{
 			super.valid = value;
-			if(value){
-				if(!validIcon){
-				var type:String = IconType.CHECKMARK_MEDIUM;
-				validIcon = new Icon(Icon.getCSSTypeSelector(type));
-				validIcon.className = appendSelector("-validationIcon");
-				validIcon.type = type;
-				}
-				//if icon doesn't exist
-				if(getElementIndex(validIcon) == -1){
-				addElementAt(validIcon,0);
-				}
-			} else{
-				if(validIcon && getElementIndex(validIcon) != -1){
-					removeElement(validIcon);
-				}
-			}
+      if (!showValidIcon){
+        return;
+      }
+      if(value){
+        if(!validIcon){
+          var type:String = IconType.CHECKMARK_MEDIUM;
+          validIcon = new Icon(Icon.getCSSTypeSelector(type));
+          validIcon.className = appendSelector("-validationIcon");
+          validIcon.type = type;
+        }
+        //if icon doesn't exist
+        if(getElementIndex(validIcon) == -1){
+          addElementAt(validIcon,0);
+        }
+        if(invalidTooltip){
+          invalidTooltip.toolTip = '';
+        }
+      } else{
+        if(validIcon && getElementIndex(validIcon) != -1){
+          removeElement(validIcon);
+        }
+      }
 		}
+
+		private var _invalidText:String;
+
+    public function get invalidText():String
+    {
+      return _invalidText;
+    }
+
+    public function set invalidText(value:String):void
+    {
+      _invalidText = value;
+      applyInvalidToolTip();
+    }
+
+		private var _invalidAutoClose:Number = 0;
+    public function get invalidAutoClose():Number
+    {
+    	return _invalidAutoClose;
+    }
+
+    public function set invalidAutoClose(value:Number):void
+    {
+    	_invalidAutoClose = value;
+      if(invalidTooltip) {
+        invalidTooltip.autoClose = value;
+      }
+    }
 
 		override public function get invalid():Boolean
 		{
 			return super.invalid;
 		}
+		protected var invalidTooltip:AdaptiveTooltipBead;
 
 		override public function set invalid(value:Boolean):void
 		{
 			super.invalid = value;
-			if(value){
-				if(!invalidIcon){
-				var type:String = IconType.ALERT_MEDIUM;
-				invalidIcon = new Icon(Icon.getCSSTypeSelector(type));
-				invalidIcon.className = appendSelector("-validationIcon");
-				invalidIcon.type = type;
-				invalidIcon.setStyle('box-sizing', 'content-box');
+      if (!showInvalidIcon){
+        return;
+      }
+      if(value){
+        if(!invalidIcon){
+          var type:String = IconType.ALERT_MEDIUM;
+          invalidIcon = new Icon(Icon.getCSSTypeSelector(type));
+          invalidIcon.className = appendSelector("-validationIcon");
+          invalidIcon.type = type;
+          invalidIcon.setStyle('box-sizing', 'content-box');
+        }
+        if(getElementIndex(invalidIcon) == -1){
+          addElementAt(invalidIcon,0);
+        }
+        applyInvalidToolTip();
+      } else{
+        if(invalidIcon  && getElementIndex(invalidIcon) != -1){
+          removeElement(invalidIcon);
+        }
+				if(invalidTooltip){
+					invalidTooltip.toolTip = '';
 				}
-				if(getElementIndex(invalidIcon) == -1){
-				addElementAt(invalidIcon,0);
-				}
-			} else{
-				if(invalidIcon  && getElementIndex(invalidIcon) != -1){
-					removeElement(invalidIcon);
-				}
-			}
+      }
 		}
+
+		public function applyInvalidToolTip():void {
+      if (!invalidIcon) {
+        return;
+      }
+      if (invalidTooltip) {
+        invalidTooltip.toolTip = invalidText;
+        return;
+      }
+      if (!invalidText || !invalidIcon) {
+        return;
+      }
+      invalidTooltip = new AdaptiveTooltipBead();
+      invalidTooltip.flavor = "negative";
+      invalidIcon.addBead(invalidTooltip);
+      invalidIcon.setStyle("pointer-events","auto");
+      invalidTooltip.autoClose = invalidAutoClose;
+      COMPILE::JS{
+            invalidIcon.width = invalidIcon.element.clientWidth;
+            invalidIcon.height = invalidIcon.element.clientHeight;
+      }
+      invalidTooltip.toolTip = invalidText;
+    }
+
 		private function checkValidation():void
 		{
 			if(maxLength != Number.MAX_VALUE || minLength != Number.MIN_VALUE){
