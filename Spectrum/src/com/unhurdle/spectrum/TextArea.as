@@ -261,7 +261,7 @@ package com.unhurdle.spectrum
             invalidIcon.height = invalidIcon.element.clientHeight;
       }
       invalidTooltip.toolTip = invalidText;
-    };
+    }
 
 		private function checkValidation():void
 		{
